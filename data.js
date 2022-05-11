@@ -28,37 +28,63 @@ var have = new DataCard(
         <h2>Present</h2>\
         Eu am<br>\
         Tu ai<br>\
-        Ea are<br>\
+        El/Ea are<br>\
         Noi avem<br>\
         Voi aveți<br>\
-        Ele au<br>\
+        Ei/Ele au<br>\
         <h2>Past</h2>\
         Eu am avut <br>\
         Tu ai avut <br>\
-        Ea a avut <br>\
+        El/Ea a avut <br>\
         Noi am avut <br>\
         Voi ați avut <br>\
-        Ele au avut <br>\
+        Ei/Ele au avut <br>\
         <h2>Future</h2>\
         Eu voi avea <br>\
         Tu vei avea <br>\
-        Ea va avea <br>\
+        El/Ea va avea <br>\
         Noi vom avea <br>\
         Voi veți avea <br>\
-        Ele voi avea <br>\
+        Ei/Ele voi avea <br>\
         ")
 SetParentAndChild(verbs, have);
      
-    
+var be = new DataCard(
+    "Be", "Fi",
+    "To be\
+    <h2>Present</h2>\
+    Eu sunt     <br>\
+    Tu ești     <br>\
+    El/Ea este     <br>\
+    Noi suntem  <br>\
+    Voi sunteți <br>\
+    Ei/Ele sunt <br>\
+    <h2>Past</h2>\
+    Eu am   fost <br>\
+    Tu ai   fost <br>\
+    El/Ea a    fost <br>\
+    Noi am  fost <br>\
+    Voi ați fost <br>\
+    Ei/Ele au  fost <br>\
+    <h2>Future</h2>\
+    Eu voi   fi <br>\
+    Tu vei   fi <br>\
+    El/Ea va    fi <br>\
+    Noi vom  fi <br>\
+    Voi veți fi <br>\
+    Ei/Ele voi  fi <br>\
+    ")
+SetParentAndChild(verbs, be);  
+
 var love = new DataCard(
-    "love", "iube",
-    ""
+    "Love", "Iube",
+    "ToDo"
     )
 SetParentAndChild(verbs, love);
     
 var run = new DataCard(
-    "run", "sare",
-    ""
+    "Run", "Sare",
+    "ToDo"
     )
 SetParentAndChild(verbs, run);
 
@@ -114,9 +140,30 @@ SetParentAndChild(romanian, conjunctions);
 // =============================================================================
 
 var  = new DataCard(
-    "", "",
-    "Data")
-SetParentAndChild(romanian, );
-
+        "", "",
+        "\
+        <h2>Present</h2>\
+        Eu      <br>\
+        Tu      <br>\
+        Ea      <br>\
+        Noi      <br>\
+        Voi      <br>\
+        Ele      <br>\
+        <h2>Past</h2>\
+        Eu am        <br>\
+        Tu ai        <br>\
+        Ea a         <br>\
+        Noi am       <br>\
+        Voi ați          <br>\
+        Ele au       <br>\
+        <h2>Future</h2>\
+        Eu voi    <br>\
+        Tu vei    <br>\
+        Ea va     <br>\
+        Noi vom   <br>\
+        Voi veți  <br>\
+        Ele voi   <br>\
+        ")
+SetParentAndChild(verbs, );
 
 */
