@@ -13,6 +13,7 @@ body {
     text-align: center;
     transition: all 1s;
     font-size: 40px;
+    color: #BFBFBF;
 }
 
 div {
@@ -20,7 +21,7 @@ div {
 }
 
 .data-view {
-    background-color: #8C8B88;
+    background-color: #595856;
     padding: 10px;
     margin: 20px;
 }
@@ -43,10 +44,6 @@ h1 {
     text-align: center;
     line-height: 75px;
     font-size: 20px;
-}
-
-h {
-    color: aqua;
 }
 
 /* Responsive layout - makes a one column layout instead of a two-column layout */

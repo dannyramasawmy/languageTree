@@ -105,7 +105,7 @@ function ColorWheel() {
     // https://htmlcolorcodes.com/
     // red -> purple -> blue -> green -> yellow -> orange
     this.ParentColor = "#1B2631";
-    this.TextColor = "#F7F9F9";
+    this.TextColor = "#BFBFBF";
     this.Colors = [
         "#641E16",
         "#78281F",
