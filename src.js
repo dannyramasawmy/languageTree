@@ -67,7 +67,7 @@ function PopulateNodeDisplay(elementName, headerName, dataName, currentNode, dis
 
     var headerDiv = document.getElementById(headerName);
     headerDiv.innerHTML = currentNode.English;
-    
+
     var dataDiv = document.getElementById(dataName);
     dataDiv.innerHTML = currentNode.Data;
 

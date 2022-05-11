@@ -13,7 +13,7 @@ var romanian = new DataCard(
 
 var verbs = new DataCard(
     "Verbs", "Verbs",
-    "Data")
+    "<h> Verbs </h>")
     SetParentAndChild(romanian, verbs);
     
 var love = new DataCard(
