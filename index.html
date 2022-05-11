@@ -1,39 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <title>Romanian dictionary</title>
+      <style>
+          .node-display {
+            display: flex;
+            flex-wrap: wrap;
+            background-color: grey;
+          }
+          
+          .node-display > div {
+            background-color: #f1f1f1;
+            width: 100px;
+            margin: 10px;
+            text-align: center;
+            line-height: 75px;
+            font-size: 20px;
+          }
+      </style>
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <title>Romanian dictionary</title>
-    <style>
-        .node-display {
-          display: flex;
-          flex-wrap: wrap;
-          background-color: grey;
-        }
-        
-        .node-display > div {
-          background-color: #f1f1f1;
-          width: 100px;
-          margin: 10px;
-          text-align: center;
-          line-height: 75px;
-          font-size: 20px;
-        }
-    </style>
-</head>
-
- <!-- nav -->
-<header>
-
-</header>
+  <!-- nav -->
+  <header>
+  </header>
 
     <body>
-
-
-        <h1 class="current-node">The flex-wrap Property</h1>
-
-        <p class="current-node-data">The "flex-wrap: wrap;" specifies that the flex items will wrap if necessary:</p>
-
+        <h1 id="current-node" class="current-node"></h1>
+        <p id="current-node-data" class="current-node-data"></p>
         <div id="node-display" class="node-display">
         </div>
     </body>

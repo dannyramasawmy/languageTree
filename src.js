@@ -44,36 +44,41 @@ function GetSearchableWords(rootDataCard, searchableDictionary) {
 }
 
 
-function DisplayNode(x, y, radius, color, dataCard) {
-    this.x = x;
-    this.y = y;
-    this.radius = radius;
-    this.color = color;
-    this.text = dataCard.English;
- 
-    this.Draw = function() {
-        var radiusMultiplier = 1;
+function GetDisplayNodes(node) {
+    var displayList = [];
 
-        if ((Math.abs(mouse.x - this.x) < this.radius) && (Math.abs(mouse.y - this.y) < this.radius)) {
-            radiusMultiplier = 1.2;
+    displayList.push(node.Parent);
 
-            if (mouse.c > 0)
-            {
-                currentNode = dataCard;
-                mouse.c = 0;
-            }
-        } 
-
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius * radiusMultiplier, 0, Math.PI * 2, false);
-        ctx.fillStyle = this.color;
-        ctx.fill();
-        
-        ctx.font = "30px Comic Sans MS";
-        ctx.fillStyle = '#0669BF'
-        ctx.textAlign = "center";
-        ctx.fillText(this.text, this.x, this.y);
-
-
+    for (var idx = 0; idx < node.Child.length; idx++) {
+        displayList.push(node.Child[idx])
     }
+
+    return displayList;
+}
+
+function ClearNodeDisplay(elementName) {
+    var displayDiv = document.getElementById(elementName);
+    for (var idx = displayDiv.children.length; idx > 0 ; idx--) {
+        displayDiv.removeChild(displayDiv.children[idx - 1]);
+    }
+}
+
+function PopulateNodeDisplay(elementName, headerName, dataName, currentNode, displayList) {
+
+    var headerDiv = document.getElementById(headerName);
+    headerDiv.innerHTML = currentNode.English;
+    
+    var dataDiv = document.getElementById(dataName);
+    dataDiv.innerHTML = currentNode.Data;
+
+    var displayDiv = document.getElementById(elementName);
+
+    for (var idx = 0; idx < displayList.length; idx++){
+        var newDiv = document.createElement("div");
+        newDiv.innerHTML = displayList[idx].English;
+        newDiv.id = idx;
+        newDiv.className = "data-card";
+        displayDiv.appendChild(newDiv);
+    }
+
 }

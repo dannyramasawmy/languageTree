@@ -5,6 +5,7 @@
 var romanian = new DataCard(
     "Romanian", "Romanian",
     "Data data data");
+    romanian.SetParent(romanian);
     
 // =============================================================================
 // Verbs
