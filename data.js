@@ -33,7 +33,7 @@ var run = new DataCard(
 // =============================================================================
 
 var prepositions = new DataCard(
-    "prepositions", "prepositions",
+    "Prepositions", "Prepositions",
     "Data")
     SetParentAndChild(romanian, prepositions);
     
@@ -42,6 +42,38 @@ var prepositions = new DataCard(
 // =============================================================================
 
 var adjectives = new DataCard(
-    "adjectives", "adjectives",
+    "Adjectives", "Adjectives",
     "Data")
 SetParentAndChild(romanian, adjectives);
+
+// =============================================================================
+// Nouns
+// =============================================================================
+
+var nouns = new DataCard(
+    "Nouns", "nouns",
+    "Data")
+SetParentAndChild(romanian, nouns);
+
+// =============================================================================
+// Adverbs
+// =============================================================================
+
+var adverbs = new DataCard(
+    "Adverbs", "Adverbs",
+    "Data")
+SetParentAndChild(romanian, adverbs);
+
+/*
+
+// =============================================================================
+// 
+// =============================================================================
+
+var  = new DataCard(
+    "", "",
+    "Data")
+SetParentAndChild(romanian, );
+
+
+*/

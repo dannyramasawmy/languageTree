@@ -73,6 +73,8 @@ function ClearNodeDisplay(elementName) {
 
 function PopulateNodeDisplay(elementName, headerName, dataName, currentNode, displayList) {
 
+    colorWheel.ResetIndex()
+
     var headerDiv = document.getElementById(headerName);
     headerDiv.innerHTML = currentNode.English;
 
@@ -120,7 +122,11 @@ function ColorWheel() {
         "#784212",
         "#6E2C00"];
 
-    this.GetNextColor = function() {
+    this.ResetIndex = () => {
+        this.Index = 0;
+    };
+
+    this.GetNextColor = () => {
         this.Index = (this.Index + 1) % this.Colors.length;
         return this.Colors[this.Index];
     }

@@ -12,6 +12,7 @@ body {
     font-family: monospace;
     text-align: center;
     transition: all 1s;
+    font-size: 40px;
 }
 
 div {
@@ -37,8 +38,7 @@ h1 {
   }
   
 .node-display > div {
-    /* background-color: #73726F; */
-    width: 150px;
+    width: 30%;
     margin: 10px;
     text-align: center;
     line-height: 75px;
@@ -48,3 +48,19 @@ h1 {
 h {
     color: aqua;
 }
+
+/* Responsive layout - makes a one column layout instead of a two-column layout */
+@media only screen and (orientation: portrait){
+    .node-display > div {
+        width: 100%;
+        margin: 10px;
+        text-align: center;
+        line-height: 75px;
+        font-size: 40px;
+    }
+    
+    body {
+        font-size: 40px;
+    }
+  }
+
