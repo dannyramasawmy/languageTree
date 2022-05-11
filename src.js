@@ -12,6 +12,8 @@ function DataCard(english, romanian, data) {
     
     this.AddChild = function(dataCard) {
         this.Child.push(dataCard);
+        this.Child.sort(
+            (x, y) => x.English[0] < y.English[0] ? -1 : 1);
     }
     
     this.SetParent = function(dataCard) {
@@ -76,7 +78,7 @@ function PopulateNodeDisplay(elementName, headerName, dataName, currentNode, dis
     colorWheel.ResetIndex()
 
     var headerDiv = document.getElementById(headerName);
-    headerDiv.innerHTML = currentNode.English;
+    headerDiv.innerHTML = currentNode.English + " " + "<blue>" + currentNode.Romanian + "</blue>";
 
     var dataDiv = document.getElementById(dataName);
     dataDiv.innerHTML = currentNode.Data;
@@ -105,22 +107,38 @@ function ColorWheel() {
     // https://htmlcolorcodes.com/
     // red -> purple -> blue -> green -> yellow -> orange
     this.ParentColor = "#1B2631";
-    this.TextColor = "#BFBFBF";
+    this.TextColor = "#ECF0F1";
+    // this.Colors = [
+    //     "#641E16",
+    //     "#78281F",
+    //     "#512E5F",
+    //     "#4A235A",
+    //     "#154360",
+    //     "#1B4F72",
+    //     "#0E6251",
+    //     "#0B5345",
+    //     "#145A32",
+    //     "#186A3B",
+    //     "#7D6608",
+    //     "#7E5109",
+    //     "#784212",
+    //     "#6E2C00"];
+
     this.Colors = [
-        "#641E16",
-        "#78281F",
-        "#512E5F",
-        "#4A235A",
-        "#154360",
-        "#1B4F72",
-        "#0E6251",
-        "#0B5345",
-        "#145A32",
-        "#186A3B",
-        "#7D6608",
-        "#7E5109",
-        "#784212",
-        "#6E2C00"];
+        "#C0392B",
+        "#E74C3C",
+        "#9B59B6",
+        "#8E44AD",
+        "#2980B9",
+        "#3498DB",
+        "#1ABC9C",
+        "#16A085",
+        "#27AE60",
+        "#2ECC71",
+        "#F1C40F",
+        "#F39C12",
+        "#E67E22",
+        "#D35400"];
 
     this.ResetIndex = () => {
         this.Index = 5;

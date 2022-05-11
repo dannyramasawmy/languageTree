@@ -13,7 +13,11 @@ body {
     text-align: center;
     transition: all 1s;
     font-size: 40px;
-    color: #BFBFBF;
+    color: #ECF0F1;
+}
+
+blue {
+    color: lightblue
 }
 
 div {
@@ -21,7 +25,7 @@ div {
 }
 
 .data-view {
-    background-color: #595856;
+    background-color:#34495E;
     padding: 10px;
     margin: 20px;
 }
@@ -69,7 +73,7 @@ h1 {
   }
 
 .data-card:hover {
-    transition: ease-in-out 0.5s;
+    transition: ease-in-out 1s;
     font-size: larger;
     box-shadow: 0px 0px 100px 20px whitesmoke;
     color: white;
