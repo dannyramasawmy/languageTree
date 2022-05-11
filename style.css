@@ -1,0 +1,50 @@
+/* 
+greys:
+#BFBFBF
+#A6A6A6
+#8C8B88
+#73726F
+#595856 
+*/
+
+body {
+    background-color: #BFBFBF;
+    font-family: monospace;
+    text-align: center;
+    transition: all 1s;
+}
+
+div {
+    border-radius: 20px;
+}
+
+.data-view {
+    background-color: #8C8B88;
+    padding: 10px;
+    margin: 20px;
+}
+
+h1 {
+    margin: auto;
+}
+
+.node-display {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #8C8B88;
+    justify-content:space-around; 
+    margin: 20px;
+  }
+  
+.node-display > div {
+    /* background-color: #73726F; */
+    width: 150px;
+    margin: 10px;
+    text-align: center;
+    line-height: 75px;
+    font-size: 20px;
+}
+
+h {
+    color: aqua;
+}

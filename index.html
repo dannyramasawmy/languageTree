@@ -3,26 +3,7 @@
   <head>
       <meta charset="UTF-8">
       <title>Romanian dictionary</title>
-      <style>
-          .node-display {
-            display: flex;
-            flex-wrap: wrap;
-            background-color: grey;
-          }
-          
-          .node-display > div {
-            background-color: #f1f1f1;
-            width: 100px;
-            margin: 10px;
-            text-align: center;
-            line-height: 75px;
-            font-size: 20px;
-          }
-
-          h {
-            color: aqua;
-          }
-      </style>
+      <link rel="stylesheet" href=style.css>
   </head>
 
   <!-- nav -->
@@ -30,13 +11,16 @@
   </header>
 
     <body>
-        <h1 id="current-node" class="current-node"></h1>
-        <p id="current-node-data" class="current-node-data"></p>
-        <div id="node-display" class="node-display">
+        <!-- Parent -->
+        <div class="data-view">
+          <h1 id="current-node" class="current-node"></h1>
+          <p id="current-node-data" class="current-node-data"></p>
         </div>
+
+        <!-- Children -->
+        <div id="node-display" class="node-display"></div>
     </body>
 
-    <!-- <canvas></canvas> -->
     <script src="src.js"></script>
     <script src="data.js"></script>
     <script src="app.js"></script>
