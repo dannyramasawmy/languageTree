@@ -17,7 +17,7 @@ body {
 }
 
 div {
-    border-radius: 20px;
+    border-radius: 50px;
 }
 
 .data-view {
@@ -28,23 +28,30 @@ div {
 
 h1 {
     margin: auto;
+    font-weight: bold;
 }
 
 .node-display {
     display: flex;
     flex-wrap: wrap;
-    background-color: #8C8B88;
+    background-color: #A6A6A6;
     justify-content:space-around; 
     margin: 20px;
   }
   
 .node-display > div {
-    width: 30%;
+    width: 20%;
     margin: 10px;
     text-align: center;
     line-height: 75px;
     font-size: 20px;
+    font-weight: bold;
 }
+
+.data-card {
+    border-radius: 100px;
+}
+
 
 /* Responsive layout - makes a one column layout instead of a two-column layout */
 @media only screen and (orientation: portrait){
@@ -52,7 +59,7 @@ h1 {
         width: 100%;
         margin: 10px;
         text-align: center;
-        line-height: 75px;
+        line-height: 100px;
         font-size: 40px;
     }
     
@@ -61,3 +68,9 @@ h1 {
     }
   }
 
+.data-card:hover {
+    transition: ease-in-out 0.5s;
+    font-size: larger;
+    box-shadow: 0px 0px 100px 20px whitesmoke;
+    color: white;
+}

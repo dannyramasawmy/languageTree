@@ -123,7 +123,7 @@ function ColorWheel() {
         "#6E2C00"];
 
     this.ResetIndex = () => {
-        this.Index = 0;
+        this.Index = 5;
     };
 
     this.GetNextColor = () => {

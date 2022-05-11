@@ -64,6 +64,15 @@ var adverbs = new DataCard(
     "Data")
 SetParentAndChild(romanian, adverbs);
 
+// =============================================================================
+// 
+// =============================================================================
+
+var example  = new DataCard(
+    "example", "example",
+    "Data")
+SetParentAndChild(romanian, example);
+
 /*
 
 // =============================================================================
