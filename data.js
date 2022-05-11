@@ -3,8 +3,9 @@
 // =============================================================================
 
 var romanian = new DataCard(
-    "Romanian", "Romanian",
-    "Data data data");
+    "Romanian", "Română",
+    "Romanian language tree. <br>\
+    Click here to change the langauge.");
     romanian.SetParent(romanian);
     
 // =============================================================================
@@ -12,19 +13,19 @@ var romanian = new DataCard(
 // =============================================================================
 
 var verbs = new DataCard(
-    "Verbs", "Verbs",
-    "<h> Verbs </h>")
+    "Verbs", "Verbe",
+    "Common verbs are listed here.")
     SetParentAndChild(romanian, verbs);
     
 var love = new DataCard(
     "love", "iube",
-    "To Love blah blah"
+    ""
     )
     SetParentAndChild(verbs, love);
     
 var run = new DataCard(
     "run", "sare",
-    "To run blah blah"
+    ""
     )
     SetParentAndChild(verbs, run);
 
@@ -33,8 +34,8 @@ var run = new DataCard(
 // =============================================================================
 
 var prepositions = new DataCard(
-    "Prepositions", "Prepositions",
-    "Data")
+    "Prepositions", "Prepoziţii",
+    "")
     SetParentAndChild(romanian, prepositions);
     
 // =============================================================================
@@ -42,8 +43,8 @@ var prepositions = new DataCard(
 // =============================================================================
 
 var adjectives = new DataCard(
-    "Adjectives", "Adjectives",
-    "Data")
+    "Adjectives", "Adjectivele",
+    "")
 SetParentAndChild(romanian, adjectives);
 
 // =============================================================================
@@ -51,8 +52,8 @@ SetParentAndChild(romanian, adjectives);
 // =============================================================================
 
 var nouns = new DataCard(
-    "Nouns", "nouns",
-    "Data")
+    "Nouns", "Substantive",
+    "")
 SetParentAndChild(romanian, nouns);
 
 // =============================================================================
@@ -60,18 +61,18 @@ SetParentAndChild(romanian, nouns);
 // =============================================================================
 
 var adverbs = new DataCard(
-    "Adverbs", "Adverbs",
-    "Data")
+    "Adverbs", "Adverbe",
+    "")
 SetParentAndChild(romanian, adverbs);
 
 // =============================================================================
-// 
+// Conjunctions
 // =============================================================================
 
-var example  = new DataCard(
-    "example", "example",
-    "Data")
-SetParentAndChild(romanian, example);
+var conjunctions  = new DataCard(
+    "Conjunctions", "Conjuncții",
+    "")
+SetParentAndChild(romanian, conjunctions);
 
 /*
 

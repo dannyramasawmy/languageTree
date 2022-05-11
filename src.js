@@ -78,7 +78,9 @@ function PopulateNodeDisplay(elementName, headerName, dataName, currentNode, dis
     colorWheel.ResetIndex()
 
     var headerDiv = document.getElementById(headerName);
-    headerDiv.innerHTML = currentNode.English + " " + "<blue>" + currentNode.Romanian + "</blue>";
+    headerDiv.innerHTML = displayLanguageEnglish
+        ? currentNode.English + " " + "<blue>" + currentNode.Romanian + "</blue>"
+        : currentNode.Romanian + " " + "<blue>" + currentNode.English  + "</blue>";
 
     var dataDiv = document.getElementById(dataName);
     dataDiv.innerHTML = currentNode.Data;
@@ -87,7 +89,11 @@ function PopulateNodeDisplay(elementName, headerName, dataName, currentNode, dis
 
     for (var idx = 0; idx < displayList.length; idx++){
         var newDiv = document.createElement("div");
-        newDiv.innerHTML = displayList[idx].English;
+
+        newDiv.innerHTML = displayLanguageEnglish
+            ? displayList[idx].English
+            : newDiv.innerHTML = displayList[idx].Romanian;
+
         newDiv.id = idx;
         newDiv.className = "data-card";
 
@@ -103,27 +109,11 @@ function PopulateNodeDisplay(elementName, headerName, dataName, currentNode, dis
 }
 
 function ColorWheel() {
-    this.Index = 0;
     // https://htmlcolorcodes.com/
     // red -> purple -> blue -> green -> yellow -> orange
+    this.Index = 0;
     this.ParentColor = "#1B2631";
     this.TextColor = "#ECF0F1";
-    // this.Colors = [
-    //     "#641E16",
-    //     "#78281F",
-    //     "#512E5F",
-    //     "#4A235A",
-    //     "#154360",
-    //     "#1B4F72",
-    //     "#0E6251",
-    //     "#0B5345",
-    //     "#145A32",
-    //     "#186A3B",
-    //     "#7D6608",
-    //     "#7E5109",
-    //     "#784212",
-    //     "#6E2C00"];
-
     this.Colors = [
         "#C0392B",
         "#E74C3C",
@@ -140,9 +130,7 @@ function ColorWheel() {
         "#E67E22",
         "#D35400"];
 
-    this.ResetIndex = () => {
-        this.Index = 5;
-    };
+    this.ResetIndex = () => { this.Index = 5; };
 
     this.GetNextColor = () => {
         this.Index = (this.Index + 1) % this.Colors.length;
