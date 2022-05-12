@@ -69,6 +69,41 @@ var run = new DataCard("Run", "Alerga",
     + VerbTemplate("alerg", "alergi", "aleargă", "alergăm", "alergați", "aleargă", "alergat", "alerga"));
 SetParentAndChild(verbs, run);  
 
+var runAway = new DataCard("Run (flee)", "Fugi", 
+    "To run (away, flee)<br> " 
+    + VerbTemplate("fug", "fugi", "fuge", "fugim", "fugiți", "fug", "fugit", "fugi"));
+SetParentAndChild(verbs, runAway);  
+
+var jump = new DataCard("Jump", "Sări", 
+    "To jump<br> " 
+    + VerbTemplate("sar", "sări", "sare", "sărim", "săriți", "sar", "sărit", "sări"));
+SetParentAndChild(verbs, jump);  
+
+var call = new DataCard("Call (shout)", "Striga", 
+    "To call (shout)<br> " 
+    + VerbTemplate("strig", "strigi", "strigă", "strigăm", "strigați", "strigă", "strigat", "striga"));
+SetParentAndChild(verbs, call);  
+
+var give = new DataCard("Give", "Da", 
+    "To give<br> " 
+    + VerbTemplate("dau", "dai", "dă", "dăm", "dați", "dau", "dat", "da"));
+SetParentAndChild(verbs, give);  
+
+var take = new DataCard("Take", "Lua", 
+    "To take<br> " 
+    + VerbTemplate("iau", "iei", "ia", "luăm", "luați", "iau", "luat", "lua"));
+SetParentAndChild(verbs, take);  
+
+var _open = new DataCard("Open", "Deschide", 
+    "To open<br> " 
+    + VerbTemplate("deschid", "deschizi", "deschide", "deschidem", "deschideți", "deschid", "deschis", "deschide"));
+SetParentAndChild(verbs, _open);  
+
+var _close = new DataCard("Close", "Închide", 
+    "To close<br> " 
+    + VerbTemplate("închid", "închizi", "închide", "închidem", "închideți", "închid", "închis", "închide"));
+SetParentAndChild(verbs, _close);  
+
 
 
 // =============================================================================
