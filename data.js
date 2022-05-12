@@ -13,27 +13,63 @@ var romanian = new DataCard(
 romanian.SetParent(romanian);
     
 // =============================================================================
-// Verbs
+// Verbs : https://cooljugator.com/ro/suna
 // =============================================================================
 
 var verbs = new DataCard("Verbs", "Verbe", "Common verbs are listed here.")
 SetParentAndChild(romanian, verbs);
 
 var have = new DataCard("Have", "Avea", 
-    "To have <br> " + VerbTemplate("am", "ai", "are", "avem", "aveți", "au", "avut", "avea"));
+    "To have <br> " 
+    + VerbTemplate("am", "ai", "are", "avem", "aveți", "au", "avut", "avea"));
 SetParentAndChild(verbs, have);
      
 var be = new DataCard("Be", "Fi", 
-    "To be <br> " + VerbTemplate("sunt", "ești", "este", "suntem", "sunteți", "sunt", "fost", "fi"));
+    "To be <br> " 
+    + VerbTemplate("sunt", "ești", "este", "suntem", "sunteți", "sunt", "fost", "fi"));
 SetParentAndChild(verbs, be);  
 
-var love = new DataCard("Love", "Iubi",
-    "ToDo")
-SetParentAndChild(verbs, love);
-    
-var run = new DataCard("Run", "Sări",
-    "ToDo")
-SetParentAndChild(verbs, run);
+var eat = new DataCard("Eat", "Mânca", 
+    "To eat <br> " 
+    + VerbTemplate("mănânc", "mănânci", "mănâncă", "mâncăm", "mâncați", "mănâncă", "mâncat", "mânca"));
+SetParentAndChild(verbs, eat);  
+
+var drink = new DataCard("Drink", "Bea", 
+    "To drink <br> " 
+    + VerbTemplate("beau", "bei", "bea", "bem", "beți", "beau", "băut", "bea"));
+SetParentAndChild(verbs, drink);  
+
+var say = new DataCard("Say", "Spune", 
+    "To say <br> " 
+    + VerbTemplate("spun", "spui", "spune", "spunem", "spuneți", "spun", "spus", "spune"));
+SetParentAndChild(verbs, say);  
+
+var say2 = new DataCard("Say (alt)", "Zice", 
+    "To say <br> " 
+    + VerbTemplate("zic", "zici", "zice", "zicem", "ziceți", "zic", "zis", "zice"));
+SetParentAndChild(verbs, say2);  
+
+var speak = new DataCard("Speak", "Vorbi", 
+    "To speak <br> " 
+    + VerbTemplate("vorbesc", "vorbești", "vorbește", "vorbim", "vorbiți", "vorbesc", "vorbit", "vorbi"));
+SetParentAndChild(verbs, speak);  
+
+var ring = new DataCard("Ring", "Suna", 
+    "To ring <br> " 
+    + VerbTemplate("sun", "suni", "sună", "sunăm", "sunați", "sună", "sunat", "suna"));
+SetParentAndChild(verbs, ring);  
+
+var walk = new DataCard("Walk", "Merge", 
+    "To walk <br> " 
+    + VerbTemplate("merg", "mergi", "merge", "mergem", "mergeți", "merg", "mers", "merge"));
+SetParentAndChild(verbs, walk);  
+
+var run = new DataCard("Run", "Alerga", 
+    "To run <br> " 
+    + VerbTemplate("alerg", "alergi", "aleargă", "alergăm", "alergați", "aleargă", "alergat", "alerga"));
+SetParentAndChild(verbs, run);  
+
+
 
 // =============================================================================
 // Prepositions
