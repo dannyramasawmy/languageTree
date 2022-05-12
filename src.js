@@ -33,7 +33,7 @@ function VerbTemplate(
     presentWe,
     presentYouPlural, 
     presentThey,
-    past, infinitive) {
+    past, infinitive, relfexivePast="", reflexiveFuture="") {
     return (`
         <h2>Present</h2>
         Eu ${presentI} <br>
@@ -43,19 +43,43 @@ function VerbTemplate(
         Voi ${presentYouPlural} <br>
         Ei/Ele ${presentThey} <br>
         <h2>Past</h2>
-        Eu am ${past} <br>
-        Tu ai ${past} <br>
-        El/Ea a ${past} <br>
-        Noi am ${past} <br>
-        Voi ați ${past} <br>
-        Ei/Ele au ${past} <br>
+        Eu ${relfexivePast} am ${past} <br>
+        Tu ${relfexivePast} ai ${past} <br>
+        El/Ea ${relfexivePast} a ${past} <br>
+        Noi ${relfexivePast} am ${past} <br>
+        Voi ${relfexivePast} ați ${past} <br>
+        Ei/Ele ${relfexivePast} au ${past} <br>
         <h2>Future</h2>
-        Eu voi ${infinitive} <br>
-        Tu vei ${infinitive} <br>
-        El/Ea va ${infinitive} <br>
-        Noi vom ${infinitive} <br>
-        Voi veți ${infinitive} <br>
-        Ei/Ele vor ${infinitive} <br>`);
+        Eu ${reflexiveFuture} voi ${infinitive} <br>
+        Tu ${reflexiveFuture} vei ${infinitive} <br>
+        El/Ea ${reflexiveFuture} va ${infinitive} <br>
+        Noi ${reflexiveFuture} vom ${infinitive} <br>
+        Voi ${reflexiveFuture} veți ${infinitive} <br>
+        Ei/Ele ${reflexiveFuture} vor ${infinitive} <br>`);
+}
+
+function ReflexiveVerbTemplateSe(presentI, presentYou, presentHeShe, presentWe,
+    presentYouPlural, presentThey, past, infinitive) {
+    return VerbTemplate(
+        "mă " + presentI, 
+        "te " + presentYou, 
+        "se " + presentHeShe, 
+        "ne " + presentWe,
+        "vă " + presentYouPlural, 
+        "se " + presentThey,
+        past, infinitive, "(-) ", "(-) ");
+}
+
+function ReflexiveVerbTemplateSi(presentI, presentYou, presentHeShe, presentWe,
+    presentYouPlural, presentThey, past, infinitive) {
+    return VerbTemplate(
+        "îmi " + presentI, 
+        "îți " + presentYou, 
+        "își " + presentHeShe, 
+        "ne " + presentWe,
+        "vă " + presentYouPlural, 
+        "își " + presentThey,
+        past, infinitive, "(-) ", "(-) ");
 }
 
 // =============================================================================

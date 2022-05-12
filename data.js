@@ -104,7 +104,55 @@ var _close = new DataCard("Close", "Închide",
     + VerbTemplate("închid", "închizi", "închide", "închidem", "închideți", "închid", "închis", "închide"));
 SetParentAndChild(verbs, _close);  
 
+var play = new DataCard("Play", "Juca", 
+    "To play<br> " 
+    + ReflexiveVerbTemplateSe("joc", "joci", "joacă", "jucăm", "jucați", "joacă", "jucat", "juca"));
+SetParentAndChild(verbs, play);  
 
+var sing = new DataCard("Sing", "Cânta", 
+    "To sing<br> " 
+    + VerbTemplate("cânt", "cânți", "cântă", "cântăm", "cântați", "cântă", "cântat", "cânta"));
+SetParentAndChild(verbs, sing);  
+
+var seat = new DataCard("Stay (sit)", "Așeza", 
+    "To stay (sit)<br> " 
+    + ReflexiveVerbTemplateSe("așez", "așezi", "așază", "așezăm", "așezați", "așază", "așezat", "așeza"));
+SetParentAndChild(verbs, seat);  
+
+var stand = new DataCard("Stand", "Ridica", 
+    "To stand<br> " 
+    + ReflexiveVerbTemplateSe("ridic", "ridici", "ridică", "ridicăm", "ridicați", "ridică", "ridicat", "ridica"));
+SetParentAndChild(verbs, stand);  
+
+var stay = new DataCard("Stay", "Sta", 
+    "To stay<br> " 
+    + VerbTemplate("stau", "stai", "stă", "stăm", "stați", "stau", "stat", "sta"));
+SetParentAndChild(verbs, stay);  
+
+var leave = new DataCard("Leave", "Pleca", 
+    "To leave<br> " 
+    + VerbTemplate("plec", "pleci", "pleacă", "plecăm", "plecați", "pleacă", "plecat", "pleca"));
+SetParentAndChild(verbs, leave);  
+
+var visit = new DataCard("Visit", "Vizita", 
+    "To visit<br> " 
+    + VerbTemplate("vizitez", "vizitezi", "vizitează", "vizităm", "vizitați", "vizitează", "vizitat", "vizita"));
+SetParentAndChild(verbs, visit);  
+
+var come = new DataCard("Come", "Veni", 
+    "To come<br> " 
+    + VerbTemplate("vin", "vii", "vine", "venim", "veniți", "vin", "venit", "veni"));
+SetParentAndChild(verbs, come);  
+
+var sleep = new DataCard("Sleep", "Dormi", 
+    "To sleep<br> " 
+    + VerbTemplate("dorm", "dormi", "doarme", "dormim", "dormiți", "dorm", "dormit", "dormi"));
+SetParentAndChild(verbs, sleep);  
+
+var fallAsleep = new DataCard("Fall Asleep", "Adormi", 
+    "To fall asleep<br> " 
+    + VerbTemplate("adorm", "adormi", "adoarme", "adormim", "adormiți", "adorm", "adormit", "adormi"));
+SetParentAndChild(verbs, fallAsleep);  
 
 // =============================================================================
 // Prepositions
