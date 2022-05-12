@@ -26,6 +26,38 @@ function SearchableDictionary() {
     this.English = {};
 }
 
+function VerbTemplate(
+    presentI, 
+    presentYou, 
+    presentHeShe, 
+    presentWe,
+    presentYouPlural, 
+    presentThey,
+    past, infinitive) {
+    return (`
+        <h2>Present</h2>
+        Eu ${presentI} <br>
+        Tu ${presentYou} <br>
+        El/Ea ${presentHeShe} <br>
+        Noi ${presentWe} <br>
+        Voi ${presentYouPlural} <br>
+        Ei/Ele ${presentThey} <br>
+        <h2>Past</h2>
+        Eu am ${past} <br>
+        Tu ai ${past} <br>
+        El/Ea a ${past} <br>
+        Noi am ${past} <br>
+        Voi ați ${past} <br>
+        Ei/Ele au ${past} <br>
+        <h2>Future</h2>
+        Eu voi ${infinitive} <br>
+        Tu vei ${infinitive} <br>
+        El/Ea va ${infinitive} <br>
+        Noi vom ${infinitive} <br>
+        Voi veți ${infinitive} <br>
+        Ei/Ele vor ${infinitive} <br>`);
+}
+
 // =============================================================================
 // Data Functions
 // =============================================================================
