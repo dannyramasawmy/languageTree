@@ -45,7 +45,7 @@ var have = new DataCard(
         El/Ea va avea <br>\
         Noi vom avea <br>\
         Voi veți avea <br>\
-        Ei/Ele voi avea <br>\
+        Ei/Ele vor avea <br>\
         ")
 SetParentAndChild(verbs, have);
      
@@ -72,18 +72,18 @@ var be = new DataCard(
     El/Ea va    fi <br>\
     Noi vom  fi <br>\
     Voi veți fi <br>\
-    Ei/Ele voi  fi <br>\
+    Ei/Ele voir fi <br>\
     ")
 SetParentAndChild(verbs, be);  
 
 var love = new DataCard(
-    "Love", "Iube",
+    "Love", "Iubi",
     "ToDo"
     )
 SetParentAndChild(verbs, love);
     
 var run = new DataCard(
-    "Run", "Sare",
+    "Run", "Sări",
     "ToDo"
     )
 SetParentAndChild(verbs, run);
