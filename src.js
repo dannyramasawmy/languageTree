@@ -24,6 +24,22 @@ function DataCard(english, romanian, data) {
 function SearchableDictionary() {
     this.Romanian = {};
     this.English = {};
+
+    this.GetDataCards = function(searchString) {
+        var words = displayLanguageEnglish 
+            ? Object.getOwnPropertyNames(this.English)
+            : Object.getOwnPropertyNames(this.Romanian);
+        
+        var wordMask = words.map((x) => x.includes(searchString.toLowerCase()));
+        var filteredWords = words.filter( (x, i) => wordMask[i]);    
+        
+        var filteredDataCards = filteredWords.map(
+            x => displayLanguageEnglish
+            ? this.English[x]
+            : this.Romanian[x]); 
+        
+        return filteredDataCards
+    }
 }
 
 function VerbTemplate(
@@ -93,8 +109,8 @@ function SetParentAndChild(parentDataCard, childDataCard) {
 
 function GetSearchableWords(rootDataCard, searchableDictionary) {
     
-    searchableDictionary.English[rootDataCard.English] = rootDataCard;
-    searchableDictionary.Romanian[rootDataCard.Romanian] = rootDataCard;
+    searchableDictionary.English[rootDataCard.English.toLowerCase()] = rootDataCard;
+    searchableDictionary.Romanian[rootDataCard.Romanian.toLowerCase()] = rootDataCard;
     
     if (rootDataCard.Child.length == 0) {
         return;

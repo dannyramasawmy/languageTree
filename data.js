@@ -154,6 +154,32 @@ var fallAsleep = new DataCard("Fall Asleep", "Adormi",
     + VerbTemplate("adorm", "adormi", "adoarme", "adormim", "adormiți", "adorm", "adormit", "adormi"));
 SetParentAndChild(verbs, fallAsleep);  
 
+var getUp = new DataCard("Get up", "Trezi", 
+    "To get up<br> " 
+    + ReflexiveVerbTemplateSe("trezesc", "trezești", "trezește", "trezim", "treziți", "trezesc", "trezit", "trezi"));
+SetParentAndChild(verbs, getUp);  
+
+var guess = new DataCard("Guess (believe)", "Crede", 
+    "To guess (believe)<br> " 
+    + VerbTemplate("cred", "crezi", "crede", "credem", "credeți", "cred", "crezut", "crede"));
+SetParentAndChild(verbs, guess);  
+
+var think = new DataCard("Think", "Gândi", 
+    "To think<br> " 
+    + ReflexiveVerbTemplateSe("gândesc", "gândești", "gândește", "gândim", "gândiți", "gândesc", "gândit", "gândi"));
+SetParentAndChild(verbs, think);  
+
+var love = new DataCard("Love", "Iubi", 
+    "To love<br> " 
+    + VerbTemplate("iubesc", "iubești", "iubește", "iubim", "iubiți", "iubesc", "iubit", "iubi"));
+SetParentAndChild(verbs, love);
+
+var laugh = new DataCard("Laugh", "Râde", 
+    "To laugh<br> " 
+    + VerbTemplate("râd", "râzi", "râde", "râdem", "râdeți", "râd", "râs", "râde"));
+SetParentAndChild(verbs, laugh);
+
+
 // =============================================================================
 // Prepositions
 // =============================================================================

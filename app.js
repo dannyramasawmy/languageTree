@@ -22,6 +22,10 @@ PopulateNodeDisplay(elementName, headerName, dataName, currentNode, displayList)
 var searchable = new SearchableDictionary();
 GetSearchableWords(romanian, searchable);
 
+// displayList = searchable.GetDataCards('a');
+// ClearNodeDisplay(elementName)
+// PopulateNodeDisplay(elementName, headerName, dataName, currentNode, displayList)
+
 // =============================================================================
 // Events
 // =============================================================================
@@ -30,13 +34,13 @@ window.addEventListener('click',
     function (event) {
 
         var clickId = event.composedPath()[0].id;
-        var displayList = GetDisplayNodes(currentNode);
+        // var displayList = GetDisplayNodes(currentNode);
         var elementName = "node-display";
 
         // update display
         if (displayList[clickId] !== undefined) {
             currentNode = displayList[clickId];
-            var displayList = GetDisplayNodes(currentNode);
+            displayList = GetDisplayNodes(currentNode);
             
             ClearNodeDisplay(elementName)
             PopulateNodeDisplay(elementName, headerName, dataName, currentNode, displayList)
