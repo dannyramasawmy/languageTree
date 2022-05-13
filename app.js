@@ -29,13 +29,35 @@ GetSearchableWords(romanian, searchable);
 // =============================================================================
 // Events
 // =============================================================================
-
+var debugvar;
 window.addEventListener('click',
     function (event) {
 
         var clickId = event.composedPath()[0].id;
         // var displayList = GetDisplayNodes(currentNode);
         var elementName = "node-display";
+        debugvar = event;
+        console.log(event);
+
+        for (var idx = 0; idx < event.composedPath().length; idx++)
+        {
+            if (event.composedPath()[idx].id == "search-bar")
+            {
+                console.log("in search bar");
+                return;
+            }
+
+            if (event.composedPath()[idx].id == "current-node" 
+            || event.composedPath()[idx].id == "current-node-data")
+            {
+                var headerDiv = document.getElementById(headerName);
+                        
+                displayLanguageEnglish = displayLanguageEnglish? false : true;
+                ClearNodeDisplay(elementName)
+                PopulateNodeDisplay(elementName, headerName, dataName, currentNode, displayList)    
+                return;
+            }
+        }
 
         // update display
         if (displayList[clickId] !== undefined) {
@@ -44,19 +66,5 @@ window.addEventListener('click',
             
             ClearNodeDisplay(elementName)
             PopulateNodeDisplay(elementName, headerName, dataName, currentNode, displayList)
-        }
-
-        // change langauge
-        for (var idx = 0; idx < event.composedPath().length; idx++)
-        {
-            if (event.composedPath()[idx].id == "current-node" 
-                || event.composedPath()[idx].id == "current-node-data")
-            {
-                var headerDiv = document.getElementById(headerName);
-                         
-                displayLanguageEnglish = displayLanguageEnglish? false : true;
-                ClearNodeDisplay(elementName)
-                PopulateNodeDisplay(elementName, headerName, dataName, currentNode, displayList)    
-            }
         }
     })

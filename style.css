@@ -35,6 +35,39 @@ h1 {
     font-weight: bold;
 }
 
+
+.search-bar {
+    background-color:#34495E;
+    padding: 10px;
+    margin: 20px;
+    border-radius: 100px;
+}
+
+/*  Input properties. */
+input[type=text] {
+    width: 100%;
+    height: auto;
+    border-radius: 100px;
+    background-color: transparent;
+    color:  rgba(255, 255, 255, 0.8);
+    
+    text-align: center;
+    font-size: 40px;
+    border-color: transparent;
+    outline: transparent;
+    padding: transparent;
+
+    line-height: 75px;
+    font-weight: bold;
+}
+
+form {
+    margin: 0px;
+    border: none;
+    padding: none;
+}
+
+
 .node-display {
     display: flex;
     flex-wrap: wrap;
