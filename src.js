@@ -209,3 +209,9 @@ function ColorWheel() {
         return this.Colors[this.Index];
     }
 }
+
+function ResetSearch() {
+    // reset input field
+    searchStringStack = [];
+    document.getElementById("filter").value = "";
+}

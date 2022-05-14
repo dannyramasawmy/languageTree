@@ -44,7 +44,7 @@ h1 {
 }
 
 /*  Input properties. */
-input[type=text] {
+input[type=search] {
     width: 100%;
     height: auto;
     border-radius: 100px;
