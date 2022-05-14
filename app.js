@@ -75,15 +75,16 @@ window.addEventListener('keyup',
 
         const letters = "aăâbcdefghiîjklmnopqrsștțuvwxyz";
 
-        if (!searchSelected)
-            return;
-        
+        // if (!searchSelected)
+        //     return;
+
         if (letters.includes(event.key))
-            searchStringStack.push(event.key);    
-            
+        searchStringStack.push(event.key);    
+        
         if (event.key == 'Backspace')
-            searchStringStack.pop(event.key);   
-            
+        searchStringStack.pop(event.key);   
+        
+        document.getElementById("filter").value = searchStringStack.join("");
         displayList = searchable.GetDataCards(searchStringStack.join(""));
         ClearNodeDisplay(elementName);
         PopulateNodeDisplay(elementName, headerName, dataName, currentNode, displayList);
