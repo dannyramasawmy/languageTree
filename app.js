@@ -78,6 +78,9 @@ window.addEventListener('keyup',
 
 var origionalData = romanian.Data;
 
+
+// maybe need oninput event
+// https://stackoverflow.com/questions/30743490/capture-keys-typed-on-android-virtual-keyboard-using-javascript
 window.addEventListener('keydown',
     function (event) {
 
@@ -86,11 +89,13 @@ window.addEventListener('keydown',
         // if (!searchSelected)
         //     return;
 
-        if (letters.includes(event.key))
-        searchStringStack.push(event.key);    
+        if (letters.includes(event.key)){
+            searchStringStack.push(event.key);    
+        }
         
-        if (event.key == 'Backspace')
-        searchStringStack.pop(event.key);   
+        if (event.key == 'Backspace'){
+            searchStringStack.pop(event.key);
+        }
 
         romanian.Data = origionalData + `<br> search: ${searchStringStack.join("")}`
         
