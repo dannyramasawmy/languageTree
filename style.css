@@ -37,7 +37,7 @@ h1 {
 
 
 .search-bar {
-    background-color:#34495E;
+    background-color: #283747;
     padding: 10px;
     margin: 20px;
     border-radius: 100px;
@@ -67,7 +67,6 @@ form {
     padding: none;
 }
 
-
 .node-display {
     display: flex;
     flex-wrap: wrap;
@@ -88,7 +87,6 @@ form {
 .data-card {
     border-radius: 100px;
 }
-
 
 /* Responsive layout - makes a one column layout instead of a two-column layout */
 @media only screen and (orientation: portrait){
