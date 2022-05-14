@@ -9,8 +9,8 @@ a ă â b c d e f g h i î j k l m n o p q r s ș t ț u v w x y z
 var romanian = new DataCard(
     "Romanian", "Română",
     "Romanian language tree. <br>\
-    Click here to change the langauge. \
-    Search is debugging");
+    Click here to change the langauge.  <br> \
+    Search currently not working on mobile");
 romanian.SetParent(romanian);
     
 // =============================================================================
