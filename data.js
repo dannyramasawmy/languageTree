@@ -179,6 +179,41 @@ var laugh = new DataCard("Laugh", "Râde",
     + VerbTemplate("râd", "râzi", "râde", "râdem", "râdeți", "râd", "râs", "râde"));
 SetParentAndChild(verbs, laugh);
 
+var search = new DataCard("Search", "Căuta", 
+    "To search<br> " 
+    + VerbTemplate("caut", "cauți", "caută", "căutăm", "căutați", "caută", "căutat", "căuta"));
+SetParentAndChild(verbs, search);
+
+var find = new DataCard("Find", "Găsi", 
+    "To find<br> " 
+    + VerbTemplate("găsesc", "găsești", "găsește", "găsim", "găsiți", "găsesc", "găsit", "găsi"));
+SetParentAndChild(verbs, find);
+
+var cook = new DataCard("Cook (prepare)", "Găti", 
+    "To cook<br> " 
+    + VerbTemplate("gătesc", "gătești", "gătește", "gătim", "gătiți", "gătesc", "gătit", "găti"));
+SetParentAndChild(verbs, cook);
+
+var joke = new DataCard("Joke", "Glumi", 
+    "To joke<br> " 
+    + VerbTemplate("glumesc", "glumești", "glumește", "glumim", "glumiți", "glumesc", "glumit", "glumi"));
+SetParentAndChild(verbs, joke);
+
+var read = new DataCard("Read", "Citi", 
+    "To read<br> " 
+    + VerbTemplate("citesc", "citești", "citește", "citim", "citiți", "citesc", "citit", "citi"));
+SetParentAndChild(verbs, read);
+
+var write = new DataCard("Write", "Scrie", 
+    "To write<br> " 
+    + VerbTemplate("scriu", "scrii", "scrie", "scriem", "scrieți", "scriu", "scris", "scrie"));
+SetParentAndChild(verbs, write);
+
+var buy = new DataCard("Buy", "Cumpăra", 
+    "To buy<br> " 
+    + VerbTemplate("cumpăr", "cumpări", "cumpără", "cumpărăm", "cumpărați", "cumpără", "cumpărat", "cumpăra"));
+SetParentAndChild(verbs, buy);
+
 
 // =============================================================================
 // Prepositions
