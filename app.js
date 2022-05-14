@@ -8,8 +8,6 @@ const headerName = "current-node";
 const dataName = "current-node-data";
 const colorWheel = new ColorWheel();
 var displayLanguageEnglish = true;
-var searchStringStack = [];
-var searchSelected = false;
 
 // =============================================================================
 // Initialise
@@ -29,8 +27,6 @@ GetSearchableWords(romanian, searchable);
 
 window.addEventListener('click',
     function (event) {
-
-        searchSelected = false;
         
         var clickId = event.composedPath()[0].id;
         // var displayList = GetDisplayNodes(currentNode);
@@ -39,11 +35,7 @@ window.addEventListener('click',
         for (var idx = 0; idx < event.composedPath().length; idx++)
         {
             if (event.composedPath()[idx].id == "search-bar")
-            {
-                searchSelected = true;
-                console.log(searchSelected);
                 return;
-            }
             
             if (event.composedPath()[idx].id == "current-node" 
             || event.composedPath()[idx].id == "current-node-data")
@@ -70,39 +62,9 @@ window.addEventListener('click',
     })
 
 
-window.addEventListener('keyup', 
-    (event) =>
-    {         
-        document.getElementById("filter").value = searchStringStack.join("")
-    });
-
-var origionalData = romanian.Data;
-
-
-// maybe need oninput event
-// https://stackoverflow.com/questions/30743490/capture-keys-typed-on-android-virtual-keyboard-using-javascript
-window.addEventListener('keydown',
-    function (event) {
-
-        const letters = "aăâbcdefghiîjklmnopqrsștțuvwxyz";
-
-        // if (!searchSelected)
-        //     return;
-
-        if (letters.includes(event.key)){
-            searchStringStack.push(event.key);    
-        }
-        
-        if (event.key == 'Backspace'){
-            searchStringStack.pop(event.key);
-        }
-
-        romanian.Data = origionalData + `<br> search: ${searchStringStack.join("")}`
-        
-        // document.getElementById("filter").value = searchStringStack.join("");
-       
-       console.log(searchStringStack);
-        displayList = searchable.GetDataCards(searchStringStack.join(""));
-        ClearNodeDisplay(elementName);
-        PopulateNodeDisplay(elementName, headerName, dataName, currentNode, displayList);
-    });
+function keyboardInput() {
+    // console.log(document.getElementById("filter").value);
+    displayList = searchable.GetDataCards(document.getElementById("filter").value);
+    ClearNodeDisplay(elementName);
+    PopulateNodeDisplay(elementName, headerName, dataName, currentNode, displayList);
+};
