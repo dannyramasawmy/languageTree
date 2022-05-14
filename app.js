@@ -70,7 +70,7 @@ window.addEventListener('click',
     })
 
 
-window.addEventListener('keyup',
+window.addEventListener('keydown',
     function (event) {
 
         const letters = "aăâbcdefghiîjklmnopqrsștțuvwxyz";
