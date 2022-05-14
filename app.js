@@ -70,6 +70,14 @@ window.addEventListener('click',
     })
 
 
+window.addEventListener('keyup', 
+    (event) =>
+    {         
+        document.getElementById("filter").value = searchStringStack.join("")
+    });
+
+var origionalData = romanian.Data;
+
 window.addEventListener('keydown',
     function (event) {
 
@@ -83,8 +91,12 @@ window.addEventListener('keydown',
         
         if (event.key == 'Backspace')
         searchStringStack.pop(event.key);   
+
+        romanian.Data = origionalData + `<br> search: ${searchStringStack.join("")}`
         
-        document.getElementById("filter").value = searchStringStack.join("");
+        // document.getElementById("filter").value = searchStringStack.join("");
+       
+       console.log(searchStringStack);
         displayList = searchable.GetDataCards(searchStringStack.join(""));
         ClearNodeDisplay(elementName);
         PopulateNodeDisplay(elementName, headerName, dataName, currentNode, displayList);
