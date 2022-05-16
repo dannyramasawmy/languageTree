@@ -4,6 +4,7 @@
 
 /*
 a ă â b c d e f g h i î j k l m n o p q r s ș t ț u v w x y z
+https://www.thoughtco.com/html-codes-romanian-characters-4062226
 */
 
 var romanian = new DataCard(
@@ -219,6 +220,105 @@ var _do = new DataCard("Do", "Face",
     + VerbTemplate("fac", "faci", "face", "facem", "faceți", "fac", "făcut", "face"));
 SetParentAndChild(verbs, _do);
 
+var listen = new DataCard("Listen", "Asculta", 
+    "To listen<br> " 
+    + VerbTemplate("ascult", "asculți", "ascultă", "ascultăm", "ascultați", "ascultă", "ascultat", "asculta"));
+SetParentAndChild(verbs, listen);
+
+var hear = new DataCard("Hear", "Auzi", 
+    "To hear<br> " 
+    + VerbTemplate("aud", "auzi", "aude", "auzim", "auziți", "aud", "auzit", "auzi"));
+SetParentAndChild(verbs, hear);
+
+var kiss = new DataCard("Kiss", "Săruta", 
+    "To kiss<br> " 
+    + VerbTemplate("sărut", "săruți", "sărută", "sărutăm", "sărutați", "sărută", "sărutat", "săruta"));
+SetParentAndChild(verbs, kiss);
+
+var ask = new DataCard("Ask", "Întreba", 
+    "To ask<br> " 
+    + VerbTemplate("întreb", "întrebi", "întreabă", "întrebăm", "întrebați", "întreabă", "întrebat", "întreba"));
+SetParentAndChild(verbs, ask);
+
+var learn = new DataCard("Learn", "Învăța", 
+    "To learn<br> " 
+    + VerbTemplate("învăț", "înveți", "învață", "învățăm", "învățați", "învață", "învățat", "învăța"));
+SetParentAndChild(verbs, learn);
+
+var _try = new DataCard("Try", "Incerca", 
+    "To try<br> " 
+    + VerbTemplate("încerc", "încerci", "încearcă", "încercăm", "încercați", "încearcă", "încercat", "încerca"));
+SetParentAndChild(verbs, _try);
+
+var see = new DataCard("See", "Vedea", 
+    "To see<br> " 
+    + VerbTemplate("văd", "vezi", "vede", "vedem", "vedeți", "văd", "văzut", "vedea"));
+SetParentAndChild(verbs, see);
+
+var forget = new DataCard("Forget", "Uita", 
+    "To forget<br> " 
+    + VerbTemplate("uit", "uiți", "uită", "uităm", "uitați", "uită", "uitat", "uita"));
+SetParentAndChild(verbs, forget);
+
+var want = new DataCard("Want (go)", "Vrea", 
+    "To want (go)<br> " 
+    + VerbTemplate("vreau", "vrei", "vrea", "vrem", "vreți", "vor", "vrut", "vrea"));
+SetParentAndChild(verbs, want);
+
+var put = new DataCard("Put", "Pune", 
+    "To put<br> " 
+    + VerbTemplate("pun", "pui", "pune", "punem", "puneți", "pun", "pus", "pune"));
+SetParentAndChild(verbs, put);
+
+var can = new DataCard("Can", "Putea", 
+    "To can<br> " 
+    + VerbTemplate("pot", "poți", "poate", "putem", "puteți", "pot", "putut", "putea"));
+SetParentAndChild(verbs, can);
+
+var understand = new DataCard("Need", "Înțelege", 
+    "To understand<br> " 
+    + VerbTemplate("înțeleg", "înțelegi", "înțelege", "înțelegem", "înțelegeți", "înțeleg", "înțeles", "înțelege"));
+SetParentAndChild(verbs, understand);
+
+var know = new DataCard("Know", "Ști", 
+    "To know<br> " 
+    + VerbTemplate("știu", "știi", "știe", "știm", "știți", "știu", "știut", "ști"));
+SetParentAndChild(verbs, know);
+
+var know2 = new DataCard("Know (alt)", "Cunoaște", 
+    "To know<br> " 
+    + VerbTemplate("cunosc", "cunoști", "cunoaște", "cunoaștem", "cunoașteți", "cunosc", "cunoscut", "cunoaște"));
+SetParentAndChild(verbs, know2);
+
+var drive = new DataCard("Drive", "Conduce", 
+    "To drive<br> " 
+    + VerbTemplate("conduc", "conduci", "conduce", "conducem", "conduceți", "conduc", "condus", "conduce"));
+SetParentAndChild(verbs, drive);
+
+var pay = new DataCard("Pay", "Plăti", 
+    "To pay<br> " 
+    + VerbTemplate("plătesc", "plătești", "plătește", "plătim", "plătiți", "plătesc", "plătit", "plăti"));
+SetParentAndChild(verbs, pay);
+
+var fly = new DataCard("Fly", "Zbura", 
+    "To fly<br> " 
+    + VerbTemplate("zbor", "zbori", "zboară", "zburăm", "zburați", "zboară", "zburat", "zbura"));
+SetParentAndChild(verbs, fly);
+
+var arrive = new DataCard("Arrive", "Ajunge", 
+    "To arrive<br> " 
+    + VerbTemplate("ajung", "ajungi", "ajunge", "ajungem", "ajungeți", "ajung", "ajuns", "ajunge"));
+SetParentAndChild(verbs, arrive);
+
+var carry = new DataCard("Carry", "Duce", 
+    "To carry<br> " 
+    + VerbTemplate("duc", "duci", "duce", "ducem", "duceți", "duc", "dus", "duce"));
+SetParentAndChild(verbs, carry);
+
+var party = new DataCard("Party", "Petrece", 
+    "To party<br> " 
+    + VerbTemplate("petrec", "petreci", "petrece", "petrecem", "petreceți", "petrec", "petrecut", "petrece"));
+SetParentAndChild(verbs, party);
 
 // =============================================================================
 // Prepositions
@@ -228,14 +328,15 @@ var prepositions = new DataCard(
     "Prepositions", "Prepoziţii",
     "")
 SetParentAndChild(romanian, prepositions);
-    
+
+
 // =============================================================================
 // Adjectives
 // =============================================================================
 
 var adjectives = new DataCard(
     "Adjectives", "Adjectivele",
-    "")
+    "Todo")
 SetParentAndChild(romanian, adjectives);
 
 // =============================================================================
@@ -244,7 +345,7 @@ SetParentAndChild(romanian, adjectives);
 
 var nouns = new DataCard(
     "Nouns", "Substantive",
-    "")
+    "Todo")
 SetParentAndChild(romanian, nouns);
 
 // =============================================================================
@@ -253,7 +354,7 @@ SetParentAndChild(romanian, nouns);
 
 var adverbs = new DataCard(
     "Adverbs", "Adverbe",
-    "")
+    "Todo")
 SetParentAndChild(romanian, adverbs);
 
 // =============================================================================
@@ -265,13 +366,91 @@ var conjunctions  = new DataCard(
     "")
 SetParentAndChild(romanian, conjunctions);
 
+var _for  = new DataCard(
+    "For", "Pentru",
+    "")
+SetParentAndChild(conjunctions, _for);
+
+var because  = new DataCard(
+    "Because", "Pentru că",
+    "")
+SetParentAndChild(conjunctions, _for);
+
+var and  = new DataCard(
+    "And", "Şi",
+    "")
+SetParentAndChild(conjunctions, and);
+
+var and2  = new DataCard(
+    "And (alt)", "Iar",
+    "")
+SetParentAndChild(conjunctions, and2);
+
+var _if  = new DataCard(
+    "If", "Daca",
+    "")
+SetParentAndChild(conjunctions, _if);
+
+var _or  = new DataCard(
+    "Or", "Sau",
+    "")
+SetParentAndChild(conjunctions, _or);
+
+var _or2  = new DataCard(
+    "Or (alt)", "Ori",
+    "")
+SetParentAndChild(conjunctions, _or);
+
+var but  = new DataCard(
+    "But", "Dar",
+    "")
+SetParentAndChild(conjunctions, but);
+
+var when  = new DataCard(
+    "When", "Cand",
+    "")
+SetParentAndChild(conjunctions, when);
+
+var either  = new DataCard(
+    "Either", "",
+    "")
+SetParentAndChild(conjunctions, either);
+
+var how  = new DataCard(
+    "How", "",
+    "")
+SetParentAndChild(conjunctions, how);
+
+var every  = new DataCard(
+    "Every", "",
+    "")
+SetParentAndChild(conjunctions, every);
+
+var after  = new DataCard(
+    "After", "",
+    "")
+SetParentAndChild(conjunctions, after);
+
+var before  = new DataCard(
+    "Before", "",
+    "")
+SetParentAndChild(conjunctions, before);
+
+var both  = new DataCard(
+    "Both", "",
+    "")
+SetParentAndChild(conjunctions, both);
+
+
+
+
 // =============================================================================
 // Numbers
 // =============================================================================
 
 var numbers  = new DataCard(
     "Numbers", "Numere",
-    "")
+    "Todo")
 SetParentAndChild(romanian, numbers);
 
 // =============================================================================
@@ -280,7 +459,7 @@ SetParentAndChild(romanian, numbers);
 
 var pronouns  = new DataCard(
     "Pronouns", "Pronume",
-    "")
+    "Todo")
 SetParentAndChild(romanian, pronouns);
 
 // =============================================================================
@@ -289,7 +468,7 @@ SetParentAndChild(romanian, pronouns);
 
 var emotions  = new DataCard(
     "Emotions", "Emoții",
-    "")
+    "Todo")
 SetParentAndChild(romanian, emotions);
 
 /*
