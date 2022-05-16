@@ -127,6 +127,23 @@ function PrepareString(inputString) {
     return inputString.toLowerCase().trim();
 }
 
+function RandomRange(start, end) {
+    // random number between start and end
+    var value = (Math.random() * (end - start)) + start
+    return value
+}
+
+function RandomIntRange(start, end) {
+    // random int including start and end
+    var value = Math.floor(RandomRange(start, end + 1))
+    return value
+}
+
+function RandomElementInArray(arr) {
+    // random element 
+    return arr[RandomIntRange(0, arr.length - 1)]
+}
+
 // =============================================================================
 // Display Functions
 // =============================================================================
@@ -192,20 +209,20 @@ function ColorWheel() {
     this.ParentColor = "#1B2631";
     this.TextColor = "#ECF0F1";
     this.Colors = [
-        "#C0392B",
-        "#E74C3C",
-        "#9B59B6",
-        "#8E44AD",
-        "#2980B9",
-        "#3498DB",
-        "#1ABC9C",
-        "#16A085",
-        "#27AE60",
-        "#2ECC71",
-        "#F1C40F",
-        "#F39C12",
-        "#E67E22",
-        "#D35400"];
+        "#C0392B", // r
+        "#E74C3C", // r
+        "#9B59B6", // p
+        "#8E44AD", // p
+        "#2980B9", // b
+        "#3498DB", // b
+        "#1ABC9C", // t
+        "#16A085", // t
+        "#27AE60", // g
+        "#2ECC71", // g
+        "#F1C40F", // y
+        "#F39C12", // y
+        "#E67E22", // o
+        "#D35400"]; //o
 
     this.ResetIndex = () => { this.Index = 5; };
 

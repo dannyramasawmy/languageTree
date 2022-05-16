@@ -36,6 +36,17 @@ window.addEventListener('click',
         {
             if (event.composedPath()[idx].id == "search-bar")
                 return;
+
+                if (event.composedPath()[idx].id == "random-card"){
+
+                    currentNode = RandomElementInArray(searchable.GetDataCards(""));
+                    
+                    displayList = GetDisplayNodes(currentNode);
+                    ResetSearch();
+                    ClearNodeDisplay(elementName)
+                    PopulateNodeDisplay(elementName, headerName, dataName, currentNode, displayList)
+                    return;
+                }
             
             if (event.composedPath()[idx].id == "current-node" 
             || event.composedPath()[idx].id == "current-node-data")
@@ -63,7 +74,6 @@ window.addEventListener('click',
 
 
 function keyboardInput() {
-    // console.log(document.getElementById("filter").value);
     displayList = searchable.GetDataCards(document.getElementById("filter").value);
     ClearNodeDisplay(elementName);
     PopulateNodeDisplay(elementName, headerName, dataName, currentNode, displayList);
