@@ -214,6 +214,11 @@ var buy = new DataCard("Buy", "Cumpăra",
     + VerbTemplate("cumpăr", "cumpări", "cumpără", "cumpărăm", "cumpărați", "cumpără", "cumpărat", "cumpăra"));
 SetParentAndChild(verbs, buy);
 
+var _do = new DataCard("Do", "Face", 
+    "To do<br> " 
+    + VerbTemplate("fac", "faci", "face", "facem", "faceți", "fac", "făcut", "face"));
+SetParentAndChild(verbs, _do);
+
 
 // =============================================================================
 // Prepositions
@@ -259,6 +264,33 @@ var conjunctions  = new DataCard(
     "Conjunctions", "Conjuncții",
     "")
 SetParentAndChild(romanian, conjunctions);
+
+// =============================================================================
+// Numbers
+// =============================================================================
+
+var numbers  = new DataCard(
+    "Numbers", "Numere",
+    "")
+SetParentAndChild(romanian, numbers);
+
+// =============================================================================
+// Pronouns
+// =============================================================================
+
+var pronouns  = new DataCard(
+    "Pronouns", "Pronume",
+    "")
+SetParentAndChild(romanian, pronouns);
+
+// =============================================================================
+// Emotions
+// =============================================================================
+
+var emotions  = new DataCard(
+    "Emotions", "Emoții",
+    "")
+SetParentAndChild(romanian, emotions);
 
 /*
 

@@ -122,6 +122,11 @@ function GetSearchableWords(rootDataCard, searchableDictionary) {
     return;
 }
 
+function PrepareString(inputString) {
+    // TODO: Replace needs regular expression
+    return inputString.toLowerCase().trim();
+}
+
 // =============================================================================
 // Display Functions
 // =============================================================================
