@@ -1,10 +1,18 @@
 // =============================================================================
-// Root
+// #Root
 // =============================================================================
 
 /*
 a ă â b c d e f g h i î j k l m n o p q r s ș t ț u v w x y z
 https://www.thoughtco.com/html-codes-romanian-characters-4062226
+
+
+var  = new DataCard(
+        "", "",
+        "")
+SetParentAndChild(verbs, );
+
+
 */
 
 var romanian = new DataCard(
@@ -14,7 +22,7 @@ var romanian = new DataCard(
 romanian.SetParent(romanian);
     
 // =============================================================================
-// Verbs : https://cooljugator.com/ro/suna
+// #Verbs : https://cooljugator.com/ro/suna
 // =============================================================================
 
 var verbs = new DataCard("Verbs", "Verbe", "Common verbs are listed here.")
@@ -321,7 +329,7 @@ var party = new DataCard("Party", "Petrece",
 SetParentAndChild(verbs, party);
 
 // =============================================================================
-// Prepositions
+// #Prepositions
 // =============================================================================
 
 var prepositions = new DataCard(
@@ -329,9 +337,170 @@ var prepositions = new DataCard(
     "")
 SetParentAndChild(romanian, prepositions);
 
+var after  = new DataCard(
+    "After", "După",
+    "")
+SetParentAndChild(prepositions, after);
+
+var about  = new DataCard(
+    "About", "Despre",
+    "")
+SetParentAndChild(prepositions, about);
+
+var at  = new DataCard(
+    "At", "La",
+    "")
+SetParentAndChild(prepositions, at);
+
+var from  = new DataCard(
+    "From", "Din",
+    "")
+SetParentAndChild(prepositions, from);
+
+var _in  = new DataCard(
+    "In", "În",
+    "")
+SetParentAndChild(prepositions, _in);
+
+var on  = new DataCard(
+    "On", "Pe",
+    "")
+SetParentAndChild(prepositions, on);
+
+var since  = new DataCard(
+    "Since", "De cand",
+    "")
+SetParentAndChild(prepositions, since);
+
+var until  = new DataCard(
+    "Until (till)", "Până (la)",
+    "")
+SetParentAndChild(prepositions, until);
+
+var above  = new DataCard(
+    "Above", "De mai sus",
+    "")
+SetParentAndChild(prepositions, above);
+
+var against  = new DataCard(
+    "Against", "Împotriva",
+    "")
+SetParentAndChild(prepositions, against);
+
+var alongSide  = new DataCard(
+    "Along side (next to)", "Pe langa",
+    "")
+SetParentAndChild(prepositions, alongSide);
+
+var amid = new DataCard(
+    "Amid (in the middle of)", "În mijlocul",
+    "")
+SetParentAndChild(prepositions, amid);
+
+var among = new DataCard(
+    "Among", "Pintre",
+    "")
+SetParentAndChild(prepositions, among);
+
+var apartFrom = new DataCard(
+    "Apart from", "În afară de",
+    "")
+SetParentAndChild(prepositions, apartFrom);
+
+var at = new DataCard(
+    "At", "La",
+    "")
+SetParentAndChild(prepositions, at);
+
+var behind = new DataCard(
+    "Behind", "In spate",
+    "")
+SetParentAndChild(prepositions, behind);
+
+var beneath = new DataCard(
+    "Beneath", "Sub",
+    "")
+SetParentAndChild(prepositions, beneath);
+
+var by = new DataCard(
+    "Of", "de",
+    "")
+SetParentAndChild(prepositions, by);
+
+var beside = new DataCard(
+    "Beside (next to)", "Lângă",
+    "")
+SetParentAndChild(prepositions, beside);
+
+var beyond = new DataCard(
+    "Beyond", "Dincolo",
+    "")
+SetParentAndChild(prepositions, beyond);
+
+var closeTo = new DataCard(
+    "Close to", "Aproape de",
+    "")
+SetParentAndChild(prepositions, closeTo);
+
+var inBetween = new DataCard(
+    "In between", "Intre",
+    "")
+SetParentAndChild(prepositions, inBetween);
+
+var inFrontOf = new DataCard(
+    "In front of", "În fața",
+    "")
+SetParentAndChild(prepositions, inFrontOf);
+
+var inside = new DataCard(
+    "Inside", "Interior",
+    "")
+SetParentAndChild(prepositions, inside);
+
+var near = new DataCard(
+    "Near", "Apropape",
+    "")
+SetParentAndChild(prepositions, near);
+
+var over = new DataCard(
+    "Over", "Peste",
+    "")
+SetParentAndChild(prepositions, over);
+
+var towards = new DataCard(
+    "Towards", "Spre",
+    "")
+SetParentAndChild(prepositions, towards);
+
+var without = new DataCard(
+    "Without", "Fără",
+    "")
+SetParentAndChild(prepositions, without);
+
+var through = new DataCard(
+    "Through", "Prin",
+    "")
+SetParentAndChild(prepositions, through);
+
+var together = new DataCard(
+    "Together", "Impreuna",
+    "")
+SetParentAndChild(prepositions, together);
+
+var outside = new DataCard(
+    "Outside", "In afara",
+    "")
+SetParentAndChild(prepositions, outside);
+
+var _with  = new DataCard(
+    "With", "Cu",
+    "")
+SetParentAndChild(prepositions, _with);
+
+
 
 // =============================================================================
-// Adjectives
+// #Adjectives
 // =============================================================================
 
 var adjectives = new DataCard(
@@ -339,8 +508,18 @@ var adjectives = new DataCard(
     "Todo")
 SetParentAndChild(romanian, adjectives);
 
+var every  = new DataCard(
+    "Every", "Fiecare",
+    "")
+SetParentAndChild(adjectives, every);
+
+var all  = new DataCard(
+    "all", "Toate",
+    "")
+SetParentAndChild(adjectives, all);
+
 // =============================================================================
-// Nouns
+// #Nouns
 // =============================================================================
 
 var nouns = new DataCard(
@@ -349,7 +528,7 @@ var nouns = new DataCard(
 SetParentAndChild(romanian, nouns);
 
 // =============================================================================
-// Adverbs
+// #Adverbs
 // =============================================================================
 
 var adverbs = new DataCard(
@@ -357,8 +536,29 @@ var adverbs = new DataCard(
     "Todo")
 SetParentAndChild(romanian, adverbs);
 
+var when  = new DataCard(
+    "When", "Cand",
+    "")
+SetParentAndChild(adverbs, when);
+
+var either  = new DataCard(
+    "Either", "Fie",
+    "")
+SetParentAndChild(adverbs, either);
+
+var neither  = new DataCard(
+    "Neither", "Nici",
+    "")
+SetParentAndChild(adverbs, either);
+
+var how  = new DataCard(
+    "How", "Cum",
+    "")
+SetParentAndChild(adverbs, how);
+
+
 // =============================================================================
-// Conjunctions
+// #Conjunctions
 // =============================================================================
 
 var conjunctions  = new DataCard(
@@ -406,46 +606,9 @@ var but  = new DataCard(
     "")
 SetParentAndChild(conjunctions, but);
 
-var when  = new DataCard(
-    "When", "Cand",
-    "")
-SetParentAndChild(conjunctions, when);
-
-var either  = new DataCard(
-    "Either", "",
-    "")
-SetParentAndChild(conjunctions, either);
-
-var how  = new DataCard(
-    "How", "",
-    "")
-SetParentAndChild(conjunctions, how);
-
-var every  = new DataCard(
-    "Every", "",
-    "")
-SetParentAndChild(conjunctions, every);
-
-var after  = new DataCard(
-    "After", "",
-    "")
-SetParentAndChild(conjunctions, after);
-
-var before  = new DataCard(
-    "Before", "",
-    "")
-SetParentAndChild(conjunctions, before);
-
-var both  = new DataCard(
-    "Both", "",
-    "")
-SetParentAndChild(conjunctions, both);
-
-
-
 
 // =============================================================================
-// Numbers
+// #Numbers
 // =============================================================================
 
 var numbers  = new DataCard(
@@ -454,7 +617,7 @@ var numbers  = new DataCard(
 SetParentAndChild(romanian, numbers);
 
 // =============================================================================
-// Pronouns
+// #Pronouns
 // =============================================================================
 
 var pronouns  = new DataCard(
@@ -463,7 +626,7 @@ var pronouns  = new DataCard(
 SetParentAndChild(romanian, pronouns);
 
 // =============================================================================
-// Emotions
+// #Emotions
 // =============================================================================
 
 var emotions  = new DataCard(
@@ -471,37 +634,3 @@ var emotions  = new DataCard(
     "Todo")
 SetParentAndChild(romanian, emotions);
 
-/*
-
-// =============================================================================
-// 
-// =============================================================================
-
-var  = new DataCard(
-        "", "",
-        "\
-        <h2>Present</h2>\
-        Eu      <br>\
-        Tu      <br>\
-        Ea      <br>\
-        Noi      <br>\
-        Voi      <br>\
-        Ele      <br>\
-        <h2>Past</h2>\
-        Eu am        <br>\
-        Tu ai        <br>\
-        Ea a         <br>\
-        Noi am       <br>\
-        Voi ați          <br>\
-        Ele au       <br>\
-        <h2>Future</h2>\
-        Eu voi    <br>\
-        Tu vei    <br>\
-        Ea va     <br>\
-        Noi vom   <br>\
-        Voi veți  <br>\
-        Ele voi   <br>\
-        ")
-SetParentAndChild(verbs, );
-
-*/
