@@ -11,21 +11,23 @@
   </header>
 
     <body>
-        <!-- Parent -->
+        <!-- Practice / shuffle -->
+        <div id="random-card", class="random-card">
+          Shuffle
+        </div>
+
+        <!-- Current data -->
         <div class="data-view">
           <h1 id="current-node" class="current-node"></h1>
           <p id="current-node-data" class="current-node-data"></p>
         </div>
 
+        <!-- Search for words -->
         <div id="search-bar" class="search-bar">
           <form id="search-bar">
             <input type="text" id="filter" class="filter" oninput="keyboardInput()"
               value="" autocomplete="off" placeholder="Search">
           </form>
-        </div>
-
-        <div id="random-card", class="random-card">
-          Shuffle
         </div>
 
         <!-- Children -->
