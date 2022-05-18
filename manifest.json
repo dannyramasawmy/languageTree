@@ -1,27 +1,15 @@
 {
-    "manifest_version": 2,
-    
-    "name": "Personal Romanian Dictionary",
+    "background_color": "purple",
     "description": "This is your personal Romanian dictionary.",
-    "version": "1.0",
-    
-    "icons": {
-        "32": "icons/logo-32.png",
-        "64": "icons/logo-64.png",
-        "128": "icons/logo-128.png"
-      },
-      
-    "browser_action": {
-    "default_icon": "600px-Book-icon-bible.png"
-    },
-    
-    "permissions": [
-        "tabs"
+    "display": "fullscreen",
+    "icons": [
+      {
+        "src": "icons/logo-128.png",
+        "sizes": "128x128",
+        "type": "image/png"
+      }
     ],
-    
-    "background": {
-        "scripts": ["data.js, app.js, src.js"],
-        "persistent": true
-    }
-    
-}
+    "name": "Personal Romanian Dictionary",
+    "short_name": "Romanian",
+    "start_url": "/index.html"
+  }
