@@ -28,6 +28,14 @@ document.getElementById("random-card").innerHTML =
 // Events
 // =============================================================================
 
+// Register service worker to control making site work offline
+
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker
+      .register('/languageTree/sw.js')
+      .then(() => { console.log('Service Worker Registered'); });
+  }
+  
 window.addEventListener('click',
     function (event) {
         
