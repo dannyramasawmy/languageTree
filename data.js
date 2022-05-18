@@ -514,9 +514,29 @@ var every  = new DataCard(
 SetParentAndChild(adjectives, every);
 
 var all  = new DataCard(
-    "all", "Toate",
+    "All", "Toate",
     "")
 SetParentAndChild(adjectives, all);
+
+var who  = new DataCard(
+    "Who", "Cine",
+    "")
+SetParentAndChild(adjectives, who);
+
+var what  = new DataCard(
+    "Who", "Ce",
+    "")
+SetParentAndChild(adjectives, what);
+
+var which  = new DataCard(
+    "Which", "Care",
+    "")
+SetParentAndChild(adjectives, which);
+
+var how  = new DataCard(
+    "How", "Cum",
+    "")
+SetParentAndChild(adjectives, how);
 
 // =============================================================================
 // #Nouns
@@ -549,12 +569,23 @@ SetParentAndChild(adverbs, either);
 var neither  = new DataCard(
     "Neither", "Nici",
     "")
-SetParentAndChild(adverbs, either);
+SetParentAndChild(adverbs, neither);
+
+var never  = new DataCard(
+    "Never", "Niciodată",
+    "")
+SetParentAndChild(adverbs, never);
+
 
 var how  = new DataCard(
     "How", "Cum",
     "")
 SetParentAndChild(adverbs, how);
+
+var where  = new DataCard(
+    "Where", "Unde",
+    "")
+SetParentAndChild(adverbs, where);
 
 
 // =============================================================================
@@ -574,7 +605,7 @@ SetParentAndChild(conjunctions, _for);
 var because  = new DataCard(
     "Because", "Pentru că",
     "")
-SetParentAndChild(conjunctions, _for);
+SetParentAndChild(conjunctions, because);
 
 var and  = new DataCard(
     "And", "Şi",
@@ -599,7 +630,7 @@ SetParentAndChild(conjunctions, _or);
 var _or2  = new DataCard(
     "Or (alt)", "Ori",
     "")
-SetParentAndChild(conjunctions, _or);
+SetParentAndChild(conjunctions, _or2);
 
 var but  = new DataCard(
     "But", "Dar",
