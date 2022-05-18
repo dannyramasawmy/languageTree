@@ -18,7 +18,8 @@ SetParentAndChild(verbs, );
 var romanian = new DataCard(
     "Romanian", "Română",
     "Romanian language tree. <br>\
-    Click here to change the langauge.");
+    Click here to change the langauge. <br>\
+    Use the shuffle to display a random card.");
 romanian.SetParent(romanian);
     
 // =============================================================================
@@ -328,6 +329,48 @@ var party = new DataCard("Party", "Petrece",
     + VerbTemplate("petrec", "petreci", "petrece", "petrecem", "petreceți", "petrec", "petrecut", "petrece"));
 SetParentAndChild(verbs, party);
 
+var live = new DataCard("Live", "Trăi", 
+    "To <br> " 
+    + VerbTemplate("trăiesc", "trăiești", "trăiește", "trăim", "trăiți", "trăiesc", "trăit", "trăi"));
+SetParentAndChild(verbs, live);
+
+var reside = new DataCard("reside (live)", "Locui", 
+    "To reside (live)<br> " 
+    + VerbTemplate("locuiesc", "locuiești", "locuiește", "locuim", "locuiți", "locuiesc", "locuit", "locui"));
+SetParentAndChild(verbs, reside);
+
+var work = new DataCard("Work", "Munci", 
+    "To work<br> " 
+    + VerbTemplate("muncesc", "muncești", "muncește", "muncim", "munciți", "muncesc", "muncit", "munci"));
+SetParentAndChild(verbs, work);
+
+var work2 = new DataCard("Work (alt)", "Lucra", 
+    "To work<br> " 
+    + VerbTemplate("lucrez", "lucrezi", "lucrează", "lucrăm", "lucrați", "lucrează", "lucrat", "lucra"));
+SetParentAndChild(verbs, work2);
+
+var divorce = new DataCard("Divorce", "Divorța", 
+    "To divorce<br> " 
+    + VerbTemplate("divorțez", "divorțezi", "divorțează", "divorțăm", "divorțați", "divorțează", "divorțat", "divorța"));
+SetParentAndChild(verbs, divorce);
+
+var marry = new DataCard("Marry", "Căsători", 
+    "To marry<br> " 
+    + ReflexiveVerbTemplateSe("căsătoresc", "căsătorești", "căsătorește", "căsătorim", "căsătoriți", "căsătoresc", "căsătorit", "căsători"));
+SetParentAndChild(verbs, marry);
+
+var lie = new DataCard("Lie", "Minți", 
+    "To lie<br> " 
+    + VerbTemplate("mint", "minți", "minte", "mințim", "mințiți", "mint", "mințit", "minți"));
+SetParentAndChild(verbs, lie);
+
+var hit = new DataCard("Hit (kick)", "Lovi", 
+    "To hit<br> " 
+    + VerbTemplate("lovesc", "lovești", "lovește", "lovim", "loviți", "lovesc", "lovit", "lovi"));
+SetParentAndChild(verbs, hit);
+
+
+
 // =============================================================================
 // #Prepositions
 // =============================================================================
@@ -504,7 +547,7 @@ SetParentAndChild(prepositions, _with);
 // =============================================================================
 
 var adjectives = new DataCard(
-    "Adjectives", "Adjectivele",
+    "Adjectives", "Adjective",
     "Todo")
 SetParentAndChild(romanian, adjectives);
 

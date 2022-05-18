@@ -21,6 +21,9 @@ PopulateNodeDisplay(elementName, headerName, dataName, currentNode, displayList)
 var searchable = new SearchableDictionary();
 GetSearchableWords(romanian, searchable);
 
+document.getElementById("random-card").innerHTML = 
+    `Shuffle (${searchable.GetDataCards("").length})`;
+
 // =============================================================================
 // Events
 // =============================================================================
