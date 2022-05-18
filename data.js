@@ -369,6 +369,16 @@ var hit = new DataCard("Hit (kick)", "Lovi",
     + VerbTemplate("lovesc", "lovești", "lovește", "lovim", "loviți", "lovesc", "lovit", "lovi"));
 SetParentAndChild(verbs, hit);
 
+var desire = new DataCard("Desire (wish)", "Dori", 
+    "To desire<br> " 
+    + ReflexiveVerbTemplateSi("doresc", "dorești", "dorește", "dorim", "doriți", "doresc", "dorit", "dori"));
+SetParentAndChild(verbs, desire);
+
+var hide = new DataCard("Hide", "Ascunde", 
+    "To hide<br> " 
+    + ReflexiveVerbTemplateSi("ascund", "ascunzi", "ascunde", "ascundem", "ascundeți", "ascund", "ascuns", "ascunde"));
+SetParentAndChild(verbs, hide);
+
 
 
 // =============================================================================
