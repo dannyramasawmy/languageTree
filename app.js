@@ -91,7 +91,6 @@ if ('serviceWorker' in navigator) {
     .then(() => { console.log('Service Worker Registered'); });
 }
 
-
 // Code to handle install prompt on desktop
 
 let deferredPrompt;
@@ -122,5 +121,6 @@ window.addEventListener('beforeinstallprompt', (e) => {
     });
   });
 });
+
 
 
