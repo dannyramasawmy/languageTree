@@ -1,7 +1,7 @@
 self.addEventListener('install', (e) => {
     e.waitUntil(
       caches.open('romanian-dictionary').then((cache) => cache.addAll([
-        'languageTree/',
+        '/languageTree/',
         '/languageTree/icons/logo-32.png',
         '/languageTree/icons/logo-64.png',
         '/languageTree/icons/logo-128.png',
