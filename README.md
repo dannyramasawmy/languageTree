@@ -19,7 +19,7 @@ Danny Ramasawmy
 - [Verb conjugation](https://cooljugator.com/ro/suna)
 - [Special characters](https://www.thoughtco.com/html-codes-romanian-characters-4062226)
 - [Icon](https://commons.wikimedia.org/wiki/File:Book-icon-bible.png)
-- [PWA and SW](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API)
+- [PWA and SW](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Add_to_home_screen)
 
 ## Screen shot
 ![](languageTreeScreenshot.png)
