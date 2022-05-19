@@ -7,9 +7,14 @@
         "src": "icons/logo-128.png",
         "sizes": "128x128",
         "type": "image/png"
+      },
+      {
+        "src": "600px-Book-icon-bible.png",
+        "sizes": "600x600",
+        "type": "image/png"
       }
     ],
     "name": "Personal Romanian Dictionary",
     "short_name": "Romanian",
-    "start_url": "/languageTree/index.html"
-  }
+    "start_url": "/languageTree/index.html"  
+}
