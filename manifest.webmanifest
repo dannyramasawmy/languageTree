@@ -12,6 +12,11 @@
         "src": "600px-Book-icon-bible.png",
         "sizes": "336x273",
         "type": "image/png"
+      },
+      {
+        "src": "icons/deltaIcon.png",
+        "sizes": "179x179",
+        "type": "image/png"
       }
     ],
     "name": "Personal Romanian Dictionary",
