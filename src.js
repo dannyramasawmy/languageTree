@@ -26,6 +26,8 @@ function SearchableDictionary() {
     this.English = {};
 
     this.GetDataCards = function(searchString) {
+        currentlySearching = true;
+
         var words = displayLanguageEnglish 
             ? Object.getOwnPropertyNames(this.English)
             : Object.getOwnPropertyNames(this.Romanian);
@@ -194,8 +196,11 @@ function PopulateNodeDisplay(elementName, headerName, dataName, currentNode, dis
         // rainbow colors
         newDiv.style.backgroundColor = colorWheel.GetNextColor();
         newDiv.style.color = colorWheel.TextColor;
-        if (idx === 0)
+        if (idx === 0 && currentlySearching === false)
+        {
             newDiv.style.backgroundColor = colorWheel.ParentColor;
+            newDiv.innerHTML = "<b>⇐</b> " + newDiv.innerHTML;
+        }
         
         displayDiv.appendChild(newDiv);
     }
@@ -235,5 +240,6 @@ function ColorWheel() {
 function ResetSearch() {
     // reset input field
     searchStringStack = [];
+    currentlySearching = false;
     document.getElementById("filter").value = "";
 }

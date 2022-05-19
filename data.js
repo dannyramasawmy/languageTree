@@ -284,7 +284,7 @@ var can = new DataCard("Can", "Putea",
     + VerbTemplate("pot", "poți", "poate", "putem", "puteți", "pot", "putut", "putea"));
 SetParentAndChild(verbs, can);
 
-var understand = new DataCard("Need", "Înțelege", 
+var understand = new DataCard("Understand", "Înțelege", 
     "To understand<br> " 
     + VerbTemplate("înțeleg", "înțelegi", "înțelege", "înțelegem", "înțelegeți", "înțeleg", "înțeles", "înțelege"));
 SetParentAndChild(verbs, understand);

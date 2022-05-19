@@ -8,7 +8,7 @@ const headerName = "current-node";
 const dataName = "current-node-data";
 const colorWheel = new ColorWheel();
 var displayLanguageEnglish = true;
-
+var currentlySearching = false;
 // =============================================================================
 // Initialise
 // =============================================================================
@@ -22,7 +22,7 @@ var searchable = new SearchableDictionary();
 GetSearchableWords(romanian, searchable);
 
 document.getElementById("random-card").innerHTML = 
-    `Shuffle (${searchable.GetDataCards("").length})`;
+    `<b>↻</b> Shuffle (${searchable.GetDataCards("").length})`;
 
 // =============================================================================
 // Events
