@@ -32,15 +32,21 @@ document.getElementById("random-card").innerHTML =
 
 // add history
 function pushState(node) {
-  history.pushState(node.English, null, `?${node.English}`);
+  console.log(node.English.toLowerCase());
+  history.pushState(node.English.toLowerCase(), null, `?${node.English}`);
 }
 
 // set next history state
 window.addEventListener('popstate',
   function (event) {
     console.log(event);
-    ClearNodeDisplay(elementName)
-    currentNode = searchable.English[event.state];
+
+    currentNode = event.state == null
+      ? rootNode
+      : searchable.GetDataCardFromState(event.state);
+    
+    ClearNodeDisplay(elementName);
+    displayList = GetDisplayNodes(currentNode);
     PopulateNodeDisplay(elementName, headerName, dataName, currentNode, displayList)
   });
 

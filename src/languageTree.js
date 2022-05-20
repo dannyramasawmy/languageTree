@@ -42,6 +42,10 @@ function SearchableDictionary() {
         
         return filteredDataCards
     }
+
+    this.GetDataCardFromState = function(state) {
+        return this.English[state]; 
+    };
 }
 
 function VerbTemplate(
@@ -119,7 +123,7 @@ function GetSearchableWords(rootDataCard, searchableDictionary) {
     }
     
     for (let i = 0; i < rootDataCard.Child.length ; i++) {
-        GetSearchableWords(rootDataCard.Child[i], searchableDictionary)
+        GetSearchableWords(rootDataCard.Child[i], searchableDictionary);
     }
     return;
 }
