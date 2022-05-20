@@ -32,14 +32,12 @@ document.getElementById("random-card").innerHTML =
 
 // add history
 function pushState(node) {
-  console.log(node.English.toLowerCase());
   history.pushState(node.English.toLowerCase(), null, `?${node.English}`);
 }
 
 // set next history state
 window.addEventListener('popstate',
   function (event) {
-    console.log(event);
 
     currentNode = event.state == null
       ? rootNode
