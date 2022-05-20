@@ -15,7 +15,7 @@ SetParentAndChild(verbs, );
 
 */
 
-var searchPlaceholder = new DataCard("Search", "Căuta", "Click here to change the search language.");
+var searchPlaceholder = new DataCard("Searching cards", "Căuta carti", "Click here to change the search language.");
 
 var romanian = new DataCard(
     "Romanian", "Română",
@@ -380,8 +380,6 @@ var hide = new DataCard("Hide", "Ascunde",
     "To hide<br> " 
     + ReflexiveVerbTemplateSi("ascund", "ascunzi", "ascunde", "ascundem", "ascundeți", "ascund", "ascuns", "ascunde"));
 SetParentAndChild(verbs, hide);
-
-
 
 // =============================================================================
 // #Prepositions
