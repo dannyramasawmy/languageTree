@@ -7,8 +7,7 @@ self.addEventListener('install', (e) => {
         '/languageTree/index.html',
         '/languageTree/src.js',
         '/languageTree/style.css',
-        '/languageTree/icons/logo-128.png',
-        '/languageTree/600px-Book-icon-bible.png',
+        '/languageTree/icons/delta-icon.png',
       ])),
     );
   });

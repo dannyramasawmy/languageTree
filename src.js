@@ -199,7 +199,7 @@ function PopulateNodeDisplay(elementName, headerName, dataName, currentNode, dis
         if (idx === 0 && currentlySearching === false)
         {
             newDiv.style.backgroundColor = colorWheel.ParentColor;
-            newDiv.innerHTML = "<b>⇐</b> " + newDiv.innerHTML;
+            newDiv.innerHTML = "⇐ " + newDiv.innerHTML;
         }
         
         displayDiv.appendChild(newDiv);

@@ -43,11 +43,6 @@ h1 {
     border-radius: 100px;
 }
 
-b {
-    font-weight: bolder;
-    font-size: 50px;
-}
-
 .random-card {
     /* background-color: #283747; */
     background: radial-gradient(circle, 
@@ -129,7 +124,6 @@ form {
 
 .data-card:hover {
     transition: ease-in-out 1s;
-    font-size: larger;
     box-shadow: 0px 0px 100px 20px whitesmoke;
     color: white;
 }
