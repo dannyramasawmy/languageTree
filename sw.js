@@ -2,12 +2,12 @@ self.addEventListener('install', (e) => {
     e.waitUntil(
       caches.open('romanian-dictionary').then((cache) => cache.addAll([
         '/languageTree/',
-        '/languageTree/app.js',
-        '/languageTree/data.js',
-        '/languageTree/index.html',
-        '/languageTree/src.js',
-        '/languageTree/style.css',
-        '/languageTree/icons/delta-icon.png',
+        '/languageTree/data/romanian-tree.js',
+        '/languageTree/img/delta-icon.png',
+        '/languageTree/src/languageTree.js',
+        '/languageTree/src/ui.js',
+        '/languageTree/style/rainbow-cards.css',
+        '/languageTree/index.html'
       ])),
     );
   });
