@@ -1,15 +1,15 @@
 {
-    "background_color": "purple",
-    "description": "This is your personal Romanian dictionary.",
+    "background_color": "black",
+    "description": "This is your personal Romanian tree.",
     "display": "standalone",
     "icons": [
       {
-        "src": "icons/delta-icon.png",
+        "src": "img/delta-icon.png",
         "sizes": "179x179",
         "type": "image/png"
       }
     ],
-    "name": "Personal Romanian Dictionary",
+    "name": "Language Tree - Romanian",
     "short_name": "Romanian",
     "start_url": "/languageTree/index.html"  
 }

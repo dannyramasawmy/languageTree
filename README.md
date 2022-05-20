@@ -22,4 +22,4 @@ Danny Ramasawmy
 - [PWA and SW](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Add_to_home_screen)
 
 ## Screen shot
-![](languageTreeScreenshot.png)
+![](img/screenshot.png)
