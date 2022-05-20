@@ -80,7 +80,7 @@ window.addEventListener('click',
 function keyboardInput() {
     displayList = searchable.GetDataCards(document.getElementById("filter").value);
     ClearNodeDisplay(elementName);
-    PopulateNodeDisplay(elementName, headerName, dataName, currentNode, displayList);
+    PopulateNodeDisplay(elementName, headerName, dataName, searchPlaceholder, displayList);
 };
 
 // Register service worker to control making site work offline
@@ -95,7 +95,7 @@ if ('serviceWorker' in navigator) {
 
 let deferredPrompt;
 const addBtn = document.querySelector('.add-button');
-addBtn.style.display = 'none';
+// addBtn.style.display = 'none';
 
 window.addEventListener('beforeinstallprompt', (e) => {
   // Prevent Chrome 67 and earlier from automatically showing the prompt

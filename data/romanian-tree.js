@@ -15,6 +15,8 @@ SetParentAndChild(verbs, );
 
 */
 
+var searchPlaceholder = new DataCard("Search", "Căuta", "Click here to change the search language.");
+
 var romanian = new DataCard(
     "Romanian", "Română",
     "Romanian language tree. <br>\
@@ -69,8 +71,8 @@ var ring = new DataCard("Ring", "Suna",
     + VerbTemplate("sun", "suni", "sună", "sunăm", "sunați", "sună", "sunat", "suna"));
 SetParentAndChild(verbs, ring);  
 
-var walk = new DataCard("Walk", "Merge", 
-    "To walk <br> " 
+var walk = new DataCard("Walk (go)", "Merge", 
+    "To walk (go)<br> " 
     + VerbTemplate("merg", "mergi", "merge", "mergem", "mergeți", "merg", "mers", "merge"));
 SetParentAndChild(verbs, walk);  
 
@@ -269,8 +271,8 @@ var forget = new DataCard("Forget", "Uita",
     + VerbTemplate("uit", "uiți", "uită", "uităm", "uitați", "uită", "uitat", "uita"));
 SetParentAndChild(verbs, forget);
 
-var want = new DataCard("Want (go)", "Vrea", 
-    "To want (go)<br> " 
+var want = new DataCard("Want", "Vrea", 
+    "To want<br> " 
     + VerbTemplate("vreau", "vrei", "vrea", "vrem", "vreți", "vor", "vrut", "vrea"));
 SetParentAndChild(verbs, want);
 

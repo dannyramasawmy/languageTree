@@ -8,7 +8,7 @@ This web-app uses a tree as its underlying data structure and implements algorit
 The current page of the app will show the current node you are on, as well as it's parent and child nodes.  
 
 ## Install instructions
-Nothing to install!
+This can be installed to your device and used offline by click the menu option in your browser, then click install-app.
 
 ## Author:
 
