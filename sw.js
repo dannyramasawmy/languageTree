@@ -1,16 +1,16 @@
-const staticCacheName = 'languageTree-v4';
+const staticCacheName = 'languageTree-v5';
 
 self.addEventListener('install', (e) => {
   console.log("Registering sw");
   e.waitUntil(
     caches.open(staticCacheName).then((cache) => cache.addAll([
-      '/',
-      '/data/romanian-tree.js',
-      '/img/delta-icon.png',
-      '/src/languageTree.js',
-      '/src/ui.js',
-      '/style/rainbow-cards.css',
-      '/index.html'
+      '/languageTree/',
+      '/languageTree/data/romanian-tree.js',
+      '/languageTree/img/delta-icon.png',
+      '/languageTree/src/languageTree.js',
+      '/languageTree/src/ui.js',
+      '/languageTree/style/rainbow-cards.css',
+      '/languageTree/index.html'
     ])),
   );
 });
