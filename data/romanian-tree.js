@@ -700,6 +700,59 @@ var numbers  = new DataCard(
     "Todo")
 SetParentAndChild(romanian, numbers);
 
+var one  = new DataCard(
+    "1 One", "1 Unu",
+    "")
+SetParentAndChild(numbers, one);
+
+var two = new DataCard(
+    "2 Two", "2 Doi",
+    "")
+SetParentAndChild(numbers, two);
+
+var three = new DataCard(
+    "3 Three", "3 Trei",
+    "")
+SetParentAndChild(numbers, three);
+
+var four = new DataCard(
+    "4 Four", "4 Patru",
+    "")
+SetParentAndChild(numbers, four);
+
+var five = new DataCard(
+    "5 Five", "5 Cinci",
+    "")
+SetParentAndChild(numbers, five);
+
+var six = new DataCard(
+    "6 Six", "6 Şase",
+    "")
+SetParentAndChild(numbers, six);
+
+var seven = new DataCard(
+    "7 Seven", "7 Şapte",
+    "")
+SetParentAndChild(numbers, seven);
+
+var eight = new DataCard(
+    "8 Eight", "8 Opt",
+    "")
+SetParentAndChild(numbers, eight);
+
+var nine = new DataCard(
+    "9 Nine", "9 Nouă",
+    "")
+SetParentAndChild(numbers, nine);
+
+var ten = new DataCard(
+    "10 Ten", "10 Zece",
+    "")
+SetParentAndChild(numbers, ten);
+
+
+
+
 // =============================================================================
 // #Pronouns
 // =============================================================================
