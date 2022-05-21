@@ -1,13 +1,14 @@
 self.addEventListener('install', (e) => {
+  console.log("Registering sw");
     e.waitUntil(
       caches.open('romanian-dictionary').then((cache) => cache.addAll([
-        '/languageTree/',
-        '/languageTree/data/romanian-tree.js',
-        '/languageTree/img/delta-icon.png',
-        '/languageTree/src/languageTree.js',
-        '/languageTree/src/ui.js',
-        '/languageTree/style/rainbow-cards.css',
-        '/languageTree/index.html'
+        '/',
+        '/data/romanian-tree.js',
+        '/img/delta-icon.png',
+        '/src/languageTree.js',
+        '/src/ui.js',
+        '/style/rainbow-cards.css',
+        '/index.html'
       ])),
     );
   });
