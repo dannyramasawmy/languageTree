@@ -176,6 +176,7 @@ function ClearNodeDisplay(elementName) {
 function PopulateNodeDisplay(elementName, headerName, dataName, currentNode, displayList) {
 
     colorWheel.ResetIndex();
+    window.scrollTo(0, 0);
 
     var headerDiv = document.getElementById(headerName);
     headerDiv.innerHTML = displayLanguageEnglish
