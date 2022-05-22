@@ -21,7 +21,7 @@ blue {
 }
 
 div {
-    border-radius: 50px;
+    border-radius: 5px;
 }
 
 .data-view {
@@ -35,16 +35,17 @@ h1 {
     font-weight: bold;
 }
 
-
 .search-bar {
     background-color: #283747;
     padding: 10px;
-    margin: 20px;
-    border-radius: 100px;
+    margin: 20px; 
+    height: auto;
+    line-height: 75px;
+    font-weight: bold;
+    font-size: 40px;
 }
 
 .add-button {
-    /* background-color: #283747; */
     color: white;
     background-color: black;
     padding: 10px;
@@ -54,7 +55,7 @@ h1 {
     line-height: 75px;
     font-weight: bold;
     font-size: 40px;
-    justify-content:space-around; 
+    justify-content:center; 
 }
 
 .random-card {
@@ -68,8 +69,8 @@ h1 {
         #8E44AD 83%, 
         #C0392B 100%);
     padding: 10px;
-    margin: 20px;
-    border-radius: 100px;  
+    margin: 20px; 
+    /* border-radius: 100px;   */
     height: auto;
     line-height: 75px;
     font-weight: bold;
@@ -80,7 +81,7 @@ h1 {
 input[type=text] {
     width: 100%;
     height: auto;
-    border-radius: 100px;
+    /* border-radius: 100px; */
     background-color: transparent;
     color:  rgba(255, 255, 255, 0.8);
     
@@ -118,14 +119,14 @@ form {
 }
 
 .data-card {
-    border-radius: 100px;
+    border-radius: 10px;
 }
 
 /* Responsive layout - makes a one column layout instead of a two-column layout */
 @media only screen and (orientation: portrait){
     .node-display > div {
         width: 100%;
-        margin: 10px;
+        margin: 15px;
         text-align: center;
         line-height: 100px;
         font-size: 40px;
