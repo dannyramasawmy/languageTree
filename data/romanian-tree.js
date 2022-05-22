@@ -378,8 +378,13 @@ SetParentAndChild(verbs, desire);
 
 var hide = new DataCard("Hide", "Ascunde", 
     "To hide<br> " 
-    + ReflexiveVerbTemplateSi("ascund", "ascunzi", "ascunde", "ascundem", "ascundeți", "ascund", "ascuns", "ascunde"));
+    + VerbTemplate("ascund", "ascunzi", "ascunde", "ascundem", "ascundeți", "ascund", "ascuns", "ascunde"));
 SetParentAndChild(verbs, hide);
+
+var recieve = new DataCard("Recieve", "Primi", 
+    "To recieve<br> " 
+    + VerbTemplate("primesc", "primești", "primește", "primim", "primiți", "primesc", "primit", "primi"));
+SetParentAndChild(verbs, recieve);
 
 // =============================================================================
 // #Prepositions
