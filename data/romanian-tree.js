@@ -386,6 +386,54 @@ var recieve = new DataCard("Recieve", "Primi",
     + VerbTemplate("primesc", "primești", "primește", "primim", "primiți", "primesc", "primit", "primi"));
 SetParentAndChild(verbs, recieve);
 
+var wash = new DataCard("Wash", "Spăla", 
+    "To wash<br> " 
+    + ReflexiveVerbTemplateSe("spăl", "speli", "spală", "spălăm", "spălați", "spală", "spălat", "spăla"));
+SetParentAndChild(verbs, wash);
+
+var lose = new DataCard("Lose", "Pierde", 
+    "To lose<br> " 
+    + VerbTemplate("pierd", "pierzi", "pierde", "pierdem", "pierd", "pierd", "pierdut", "pierde"));
+SetParentAndChild(verbs, lose);
+
+var could = new DataCard("Could", "Putea"
+    `(you) could [...] <br>
+
+    Eu aș putea să [...]<br>
+    Tu ai putea să [...]<br>
+    El/Ea ar putea să [...]<br>
+    Noi am putea să [...]<br>
+    Voi ați putea să [...]<br>
+    Ei/Ele ar putea să [...]<br>`)
+SetParentAndChild(verbs, could);
+
+var should = new DataCard("Should", "Ar trebui"
+    `(you) should [...] <br>
+
+    Eu ar trebui să [...]<br>
+    Tu ar trebui să [...]<br>
+    El/Ea ar trebui să [...]<br>
+    Noi ar trebui să [...]<br>
+    Voi ar trebui să [...]<br>
+    Ei/Ele ar trebui să [...]<br>`)
+SetParentAndChild(verbs, should);
+
+var must = new DataCard("Must", "Trebuie"
+    `(you) must [...] <br>
+
+    Eu trebuie să [...]<br>
+    Tu trebuie să [...]<br>
+    El/Ea trebuie să [...]<br>
+    Noi trebuie să [...]<br>
+    Voi trebuie să [...]<br>
+    Ei/Ele trebuie să [...]<br>`)
+SetParentAndChild(verbs, must);
+
+var send = new DataCard("Send", "Trimite", 
+    "To send<br> " 
+    + VerbTemplate("trimit", "trimiți", "trimite", "trimitem", "trimiteți", "trimit", "trimis", "trimite"));
+SetParentAndChild(verbs, lose);
+
 // =============================================================================
 // #Prepositions
 // =============================================================================

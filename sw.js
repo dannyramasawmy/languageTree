@@ -1,4 +1,4 @@
-const staticCacheName = 'languageTree-v6';
+const staticCacheName = 'languageTree-v7';
 
 self.addEventListener('install', (e) => {
   console.log("Registering sw");
