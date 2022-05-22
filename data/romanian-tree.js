@@ -650,6 +650,30 @@ var nouns = new DataCard(
     "Todo")
 SetParentAndChild(romanian, nouns);
 
+var bath = new DataCard(
+    "Bath", "Baie", 
+    NounTemplateFemale("baie", "bai", "baia", "băile")
+)
+SetParentAndChild(nouns, bath)
+
+var soap = new DataCard(
+    "Soap", "Săpun",
+    NounTemplateNeuter("săpun", "săpunuri", "sapunul", "săpunurile")
+)
+SetParentAndChild(nouns, soap)
+
+var men = new DataCard(
+    "Man", "Barbat",
+    NounTemplateMale("bărbat", "bărbați", "bărbatul", "bărbații")
+)
+SetParentAndChild(nouns, men)
+
+var woman = new DataCard(
+    "Woman", "Femeie", 
+    NounTemplateFemale("femeie", "femei", "femeia", "femeile")
+)
+SetParentAndChild(nouns, woman)
+
 // =============================================================================
 // #Adverbs
 // =============================================================================

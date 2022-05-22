@@ -111,6 +111,30 @@ function ReflexiveVerbTemplateSi(presentI, presentYou, presentHeShe, presentWe,
         past, infinitive, "(-) ", "(-) ");
 }
 
+function NounTemplateFemale(singluar, plural, definiteArticle, definitePlural) 
+    {return (`
+        o ${singluar} <br>
+        două ${plural} <br>
+        ${definiteArticle} <br>
+        ${definitePlural} <br>
+    `)};
+
+function NounTemplateMale(singluar, plural, definiteArticle, definitePlural) 
+    {return (`
+        Un ${singluar} <br>
+        doi ${plural} <br>
+        ${definiteArticle} <br>
+        ${definitePlural} <br>
+    `)};
+
+function NounTemplateNeuter(singluar, plural, definiteArticle, definitePlural) 
+    {return (`
+        un ${singluar} <br>
+        două ${plural} <br>
+        ${definiteArticle} <br>
+        ${definitePlural} <br>
+    `)};
+
 // =============================================================================
 // Data Functions
 // =============================================================================
