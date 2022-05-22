@@ -78,7 +78,7 @@ function VerbTemplate(
         Noi ${reflexiveFuture} vom ${infinitive} <br>
         Voi ${reflexiveFuture} veți ${infinitive} <br>
         Ei/Ele ${reflexiveFuture} vor ${infinitive} <br>
-        <h2>Conditional mood (you would)<h2>
+        <h2>Conditional mood (you would)</h2>
         Eu aș ${infinitive} <br>
         Tu ai ${infinitive} <br>
         El/Ea ar ${infinitive} <br>
