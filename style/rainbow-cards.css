@@ -22,6 +22,7 @@ blue {
 
 div {
     border-radius: 5px;
+
 }
 
 .data-view {
@@ -43,6 +44,7 @@ h1 {
     line-height: 75px;
     font-weight: bold;
     font-size: 40px;
+    border-radius: 100px;  
 }
 
 .add-button {
@@ -70,7 +72,7 @@ h1 {
         #C0392B 100%);
     padding: 10px;
     margin: 20px; 
-    /* border-radius: 100px;   */
+    border-radius: 100px;  
     height: auto;
     line-height: 75px;
     font-weight: bold;
@@ -85,6 +87,7 @@ input[type=text] {
     background-color: transparent;
     color:  rgba(255, 255, 255, 0.8);
     
+    border-radius: 100px;  
     text-align: center;
     font-size: 40px;
     border-color: transparent;
@@ -121,6 +124,44 @@ form {
 .data-card {
     border-radius: 10px;
 }
+
+.parent-card {
+    background: #1B2631;
+    padding: 10px;
+    margin: 20px; 
+    border-radius: 100px;  
+    height: auto;
+    line-height: 75px;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+
+.floating2 {
+    width: 8%;
+    height: 8%;
+    position: fixed;
+    bottom: 0px;
+    left: 0%;
+    height: 75px;
+}
+
+.floating {
+    width: 70%;
+    position: fixed;
+    bottom: 0px;
+    left: 12%;
+    height: 75px;
+    }
+
+.floating3 {
+    width: 8%;
+    height: 8%;
+    position: fixed;
+    bottom: 0px;
+    left: 85%;
+    height: 75px;
+    }
 
 /* Responsive layout - makes a one column layout instead of a two-column layout */
 @media only screen and (orientation: portrait){

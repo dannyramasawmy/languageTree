@@ -24,7 +24,7 @@ var searchable = new SearchableDictionary();
 GetSearchableWords(romanian, searchable);
 
 document.getElementById("random-card").innerHTML =
-  `<b>↻</b> Shuffle (${searchable.GetDataCards("").length})`;
+  `<b>↻</b> (${searchable.GetDataCards("").length})`;
 
 // =============================================================================
 // Events
