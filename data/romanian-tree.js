@@ -397,7 +397,7 @@ var lose = new DataCard("Lose", "Pierde",
 SetParentAndChild(verbs, lose);
 
 var could = new DataCard("Could", "Putea",
-    `<h2>Modal<h2>
+    `<h2>Modal</h2>
     Eu aș putea să [...]<br>
     Tu ai putea să [...]<br>
     El/Ea ar putea să [...]<br>
@@ -407,7 +407,7 @@ var could = new DataCard("Could", "Putea",
 SetParentAndChild(verbs, could);
 
 var should = new DataCard("Should", "Ar trebui",
-    `<h2>Modal<h2>
+    `<h2>Modal</h2>
     Eu ar trebui să [...]<br>
     Tu ar trebui să [...]<br>
     El/Ea ar trebui să [...]<br>
@@ -417,7 +417,7 @@ var should = new DataCard("Should", "Ar trebui",
 SetParentAndChild(verbs, should);
 
 var must = new DataCard("Must", "Trebuie",
-    `<h2>Modal<h2>
+    `<h2>Modal</h2>
     Eu trebuie să [...]<br>
     Tu trebuie să [...]<br>
     El/Ea trebuie să [...]<br>

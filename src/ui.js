@@ -49,6 +49,7 @@ window.addEventListener('popstate',
   });
 
 // clicking
+var log;
 window.addEventListener('click',
   function (event) {
 
@@ -59,6 +60,20 @@ window.addEventListener('click',
       // do nothing for search
       if (event.composedPath()[idx].id == "search-bar")
         return;
+  
+      // go to parent
+      if (event.composedPath()[idx].id == "parent-card"){
+        log = currentNode;
+        currentNode = currentNode.Parent;
+        displayList = GetDisplayNodes(currentNode);
+        pushState(currentNode)
+  
+        // display
+        ResetSearch();
+        ClearNodeDisplay(elementName)
+        PopulateNodeDisplay(elementName, headerName, dataName, currentNode, displayList)
+        return;
+      }
 
       // shuffle current node
       if (event.composedPath()[idx].id == "random-card") {
@@ -78,7 +93,6 @@ window.addEventListener('click',
       if (event.composedPath()[idx].id == "current-node"
         || event.composedPath()[idx].id == "current-node-data") {
         // state
-        var headerDiv = document.getElementById(headerName);
         displayLanguageEnglish = displayLanguageEnglish ? false : true;
 
         // display

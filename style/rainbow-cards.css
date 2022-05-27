@@ -37,7 +37,7 @@ h1 {
 }
 
 .search-bar {
-    background-color: #283747;
+    background-color: #1B2631;
     padding: 10px;
     margin: 20px; 
     height: auto;
@@ -62,14 +62,7 @@ h1 {
 
 .random-card {
     /* background-color: #283747; */
-    background: radial-gradient(circle, 
-        #C0392B 0%, 
-        #F1C40F 17%, 
-        #27AE60 33%, 
-        #1ABC9C 50%, 
-        #2980B9 66%, 
-        #8E44AD 83%, 
-        #C0392B 100%);
+    background: #1B2631;
     padding: 10px;
     margin: 20px; 
     border-radius: 100px;  

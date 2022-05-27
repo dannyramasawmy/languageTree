@@ -78,13 +78,14 @@ function VerbTemplate(
         Noi ${reflexiveFuture} vom ${infinitive} <br>
         Voi ${reflexiveFuture} veți ${infinitive} <br>
         Ei/Ele ${reflexiveFuture} vor ${infinitive} <br>
-        <h2>Conditional mood (you would)<h2>
+        <h2>Conditional mood (you would)</h2>
         Eu aș ${infinitive} <br>
         Tu ai ${infinitive} <br>
         El/Ea ar ${infinitive} <br>
         Noi am ${infinitive} <br>
         Voi ați ${infinitive} <br>
-        Ei/Ele ar ${infinitive} <br>`);
+        Ei/Ele ar ${infinitive} <br>
+        <br> <br>`);
 }
 
 function ReflexiveVerbTemplateSe(presentI, presentYou, presentHeShe, presentWe,
@@ -164,7 +165,7 @@ function RandomElementInArray(arr) {
 function GetDisplayNodes(node) {
     var displayList = [];
     
-    displayList.push(node.Parent);
+    // displayList.push(node.Parent);
     
     for (var idx = 0; idx < node.Child.length; idx++) {
         displayList.push(node.Child[idx])
@@ -208,11 +209,11 @@ function PopulateNodeDisplay(elementName, headerName, dataName, currentNode, dis
         // rainbow colors
         newDiv.style.backgroundColor = colorWheel.GetNextColor();
         newDiv.style.color = colorWheel.TextColor;
-        if (idx === 0 && currentlySearching === false)
-        {
-            newDiv.style.backgroundColor = colorWheel.ParentColor;
-            newDiv.innerHTML = "⇐ " + newDiv.innerHTML;
-        }
+        // if (idx === 0 && currentlySearching === false)
+        // {
+        //     newDiv.style.backgroundColor = colorWheel.ParentColor;
+        //     newDiv.innerHTML = "⇐ " + newDiv.innerHTML;
+        // }
         
         displayDiv.appendChild(newDiv);
     }
