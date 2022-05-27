@@ -16,14 +16,24 @@
 
 <body>
 
-  <!-- Practice / shuffle -->
-  <div id="random-card" , class="random-card floating2">
-    ↻
-  </div>
+  <div class="top-floating">
+    <!-- Practice / shuffle -->
+    <div id="random-card" , class="random-card floating2">
+      ↻
+    </div>
 
-  <!-- Practice / shuffle -->
-  <div id="parent-card" , class="parent-card floating3">
-    ⇑
+    <!-- Search for words -->
+    <div id="search-bar" class="search-bar floating">
+      <form id="search-bar">
+        <input type="text" id="filter" class="filter" oninput="keyboardInput()" value="" autocomplete="off"
+          placeholder="Search">
+      </form>
+    </div>
+
+    <!-- Practice / shuffle -->
+    <div id="parent-card" , class="parent-card floating3">
+      ⇑
+    </div>
   </div>
 
   <!-- Current data -->
@@ -32,17 +42,16 @@
     <p id="current-node-data" class="current-node-data"></p>
   </div>
 
-  <!-- Search for words -->
-  <div id="search-bar" class="search-bar floating">
-    <form id="search-bar">
-      <input type="text" id="filter" class="filter" oninput="keyboardInput()" value="" autocomplete="off"
-        placeholder="Search">
-    </form>
-  </div>
   
   <!-- Children -->
   <div id="node-display" class="node-display"></div>
 </body>
+
+<footer>
+<br>
+LanguageTree: Romanian
+<br>
+</footer>
 
 <script src="src/languageTree.js"></script>
 <script src="data/romanian-tree.js"></script>

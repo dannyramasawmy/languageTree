@@ -37,7 +37,7 @@ h1 {
 }
 
 .search-bar {
-    background-color: #1B2631;
+    background-color: #1B2631DF;
     padding: 10px;
     margin: 20px; 
     height: auto;
@@ -62,7 +62,7 @@ h1 {
 
 .random-card {
     /* background-color: #283747; */
-    background: #1B2631;
+    background: #1B2631DF;
     padding: 10px;
     margin: 20px; 
     border-radius: 100px;  
@@ -119,7 +119,7 @@ form {
 }
 
 .parent-card {
-    background: #1B2631;
+    background: #1B2631DF;
     padding: 10px;
     margin: 20px; 
     border-radius: 100px;  
@@ -129,31 +129,41 @@ form {
     font-size: 40px;
 }
 
-
-.floating2 {
-    width: 8%;
-    height: 8%;
+.top-floating {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content:space-around; 
     position: fixed;
-    bottom: 2%;
-    left: 0%;
-    height: 75px;
+    bottom: 2%; 
+    width: 99%;
+    padding: 0%;
+    margin: 0%;
 }
 
-.floating {
-    width: 71%;
-    position: fixed;
+.floating2 {
+    width: 2em;
+    height: 2em;
+    /* position: fixed;
     bottom: 2%;
-    left: 11%;
-    height: 75px;
-    }
+    left: 0%; */
+} 
+
+.floating {
+    width: 15em;
+    /* position: fixed; */
+    /* bottom: 2%; */
+    /* left: 50%; */
+    /* transform: translateX(-50%); */
+    height: 2em;
+    } 
+
 
 .floating3 {
-    width: 8%;
-    height: 8%;
-    position: fixed;
-    bottom: 2%;
-    left: 85%;
-    height: 75px;
+    width: 2em;
+    height: 2em;
+    /* position: fixed; */
+    /* bottom: 2%; */
+    /* right: 0%; */
     }
 
 /* Responsive layout - makes a one column layout instead of a two-column layout */
