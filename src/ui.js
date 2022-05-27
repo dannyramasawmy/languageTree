@@ -23,8 +23,8 @@ PopulateNodeDisplay(elementName, headerName, dataName, currentNode, displayList)
 var searchable = new SearchableDictionary();
 GetSearchableWords(romanian, searchable);
 
-document.getElementById("random-card").innerHTML =
-  `<b>↻</b> (${searchable.GetDataCards("").length})`;
+document.getElementById("filter").placeholder =
+  `Search (${searchable.GetDataCards("").length})`;
 
 // =============================================================================
 // Events
