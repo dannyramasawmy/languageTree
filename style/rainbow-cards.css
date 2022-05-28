@@ -63,6 +63,7 @@ h1 {
 .random-card {
     /* background-color: #283747; */
     background: #1B2631DF;
+    background-image: url("../img/shuffle-icon.png");
     padding: 10px;
     margin: 20px; 
     border-radius: 100px;  
@@ -120,6 +121,7 @@ form {
 
 .parent-card {
     background: #1B2631DF;
+    background-image: url("../img/parent-icon.png");
     padding: 10px;
     margin: 20px; 
     border-radius: 100px;  

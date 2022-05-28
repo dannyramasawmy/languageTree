@@ -6,8 +6,10 @@ self.addEventListener('install', (e) => {
     caches.open(staticCacheName).then((cache) => cache.addAll([
       '/languageTree/',
       '/languageTree/data/romanian-tree.js',
-      '/languageTree/img/delta-icon.png',
       '/languageTree/src/languageTree.js',
+      '/languageTree/img/delta-icon.png',
+      '/languageTree/img/parent-icon.png',
+      '/languageTree/img/shuffle-icon.png',
       '/languageTree/src/ui.js',
       '/languageTree/style/rainbow-cards.css',
       '/languageTree/index.html'
