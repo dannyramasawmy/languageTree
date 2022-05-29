@@ -1,4 +1,4 @@
-const staticCacheName = 'languageTree-v13';
+const staticCacheName = 'languageTree-v14';
 
 self.addEventListener('install', (e) => {
   console.log("Registering sw");
@@ -8,6 +8,7 @@ self.addEventListener('install', (e) => {
       '/languageTree/data/romanian-tree.js',
       '/languageTree/src/languageTree.js',
       '/languageTree/img/delta-icon.png',
+      '/languageTree/img/background-tree.svg',
       '/languageTree/img/parent-icon.png',
       '/languageTree/img/shuffle-icon.png',
       '/languageTree/src/ui.js',

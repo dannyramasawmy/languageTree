@@ -251,20 +251,20 @@ function ColorWheel() {
     this.ParentColor = "#1B2631";
     this.TextColor = "#ECF0F1";
     this.Colors = [
-        "#C0392B", // r
-        "#E74C3C", // r
-        "#9B59B6", // p
-        "#8E44AD", // p
-        "#2980B9", // b
-        "#3498DB", // b
-        "#1ABC9C", // t
-        "#16A085", // t
-        "#27AE60", // g
-        "#2ECC71", // g
-        "#F1C40F", // y
-        "#F39C12", // y
-        "#E67E22", // o
-        "#D35400"]; //o
+        "#C0392BDF", // r
+        "#E74C3CDF", // r
+        "#9B59B6DF", // p
+        "#8E44ADDF", // p
+        "#2980B9DF", // b
+        "#3498DBDF", // b
+        "#1ABC9CDF", // t
+        "#16A085DF", // t
+        "#27AE60DF", // g
+        "#2ECC71DF", // g
+        "#F1C40FDF", // y
+        "#F39C12DF", // y
+        "#E67E22DF", // o
+        "#D35400DF"]; //o
 
     this.ResetIndex = () => { this.Index = 5; };
 
