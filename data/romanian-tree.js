@@ -501,7 +501,7 @@ var amid = new DataCard(
 SetParentAndChild(prepositions, amid);
 
 var among = new DataCard(
-    "Among", "Pintre",
+    "Among", "Printre",
     "")
 SetParentAndChild(prepositions, among);
 
@@ -546,7 +546,7 @@ var closeTo = new DataCard(
 SetParentAndChild(prepositions, closeTo);
 
 var inBetween = new DataCard(
-    "In between", "Intre",
+    "In between", "Între",
     "")
 SetParentAndChild(prepositions, inBetween);
 
