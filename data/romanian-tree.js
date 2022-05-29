@@ -336,7 +336,7 @@ var live = new DataCard("Live", "Trăi",
     + VerbTemplate("trăiesc", "trăiești", "trăiește", "trăim", "trăiți", "trăiesc", "trăit", "trăi"));
 SetParentAndChild(verbs, live);
 
-var reside = new DataCard("reside (live)", "Locui", 
+var reside = new DataCard("Reside (live)", "Locui", 
     "To reside (live)<br> " 
     + VerbTemplate("locuiesc", "locuiești", "locuiește", "locuim", "locuiți", "locuiesc", "locuit", "locui"));
 SetParentAndChild(verbs, reside);
@@ -430,6 +430,60 @@ var send = new DataCard("Send", "Trimite",
     "To send<br> " 
     + VerbTemplate("trimit", "trimiți", "trimite", "trimitem", "trimiteți", "trimit", "trimis", "trimite"));
 SetParentAndChild(verbs, lose);
+
+var cry = new DataCard("Cry", "Plânge", 
+    "To cry<br> " 
+    + VerbTemplate("plâng", "plângi", "plânge", "plângem", "plângeți", "plâng", "plâns", "plânge"));
+SetParentAndChild(verbs, cry);
+
+var cut = new DataCard("Cut", "Tăia", 
+    "To cut<br> " 
+    + VerbTemplate("tai", "tai", "taie", "tăiem", "tăiați", "taie", "tăiat", "tăia"));
+SetParentAndChild(verbs, cut);
+
+var wait = new DataCard("Wait", "Aștepta", 
+    "To wait<br> " 
+    + VerbTemplate("aștept", "aștepți", "așteaptă", "așteptăm", "așteptați", "așteaptă", "așteptat", "aștepta"));
+SetParentAndChild(verbs, wait);
+
+var dance = new DataCard("Dance", "Dansa", 
+    "To dance<br> " 
+    + VerbTemplate("dansez", "dansezi", "dansează", "dansăm", "dansați", "dansează", "dansat", "dansa"));
+SetParentAndChild(verbs, dance);
+
+var _catch = new DataCard("Catch", "Prinde", 
+    "To catch<br> " 
+    + VerbTemplate("prind", "prinzi", "prinde", "prindem", "prindeți", "prind", "prins", "prinde"));
+SetParentAndChild(verbs, _catch);
+
+var fight = new DataCard("Fight", "Lupta", 
+    "To fight<br> " 
+    + VerbTemplate("lupt", "lupți", "luptă", "luptăm", "luptați", "luptă", "luptat", "lupta"));
+SetParentAndChild(verbs, fight);
+
+var fall = new DataCard("Fall", "Cădea", 
+    "To fall<br> " 
+    + VerbTemplate("cad", "cazi", "cade", "cădem", "cădeți", "cad", "căzut", "cădea"));
+SetParentAndChild(verbs, fall);
+
+var pull = new DataCard("Pull", "Trage", 
+    "To pull<br> " 
+    + VerbTemplate("trag", "tragi", "trage", "tragem", "trageți", "trag", "tras", "trage"));
+SetParentAndChild(verbs, pull);
+
+var push = new DataCard("Push", "Împinge", 
+    "To push<br> " 
+    + VerbTemplate("împing", "împingi", "împinge", "împingem", "împingeți", "împing", "împins", "împinge"));
+SetParentAndChild(verbs, push);
+
+var climb = new DataCard("Climb", "", 
+    "To climb<br> " 
+    + VerbTemplate("urc", "urci", "urcă", "urcăm", "urcați", "urcă", "urcat", "urca"));
+SetParentAndChild(verbs, climb);
+
+
+
+
 
 // =============================================================================
 // #Prepositions
@@ -526,7 +580,7 @@ var beneath = new DataCard(
 SetParentAndChild(prepositions, beneath);
 
 var by = new DataCard(
-    "Of", "de",
+    "Of", "De",
     "")
 SetParentAndChild(prepositions, by);
 
@@ -641,6 +695,45 @@ var how  = new DataCard(
     "")
 SetParentAndChild(adjectives, how);
 
+// #Colours =======================================
+var colours  = new DataCard(
+    "Colours", "Culorile",
+    "")
+SetParentAndChild(adjectives, colours);
+
+var brown  = new DataCard("Brown", "Maro", "")
+SetParentAndChild(colours, brown);
+
+var white  = new DataCard("White", "Alb","")
+SetParentAndChild(colours, white);
+
+var blue  = new DataCard("Blue", "Albastru","")
+SetParentAndChild(colours, blue);
+
+var black  = new DataCard("Black", "Negru","")
+SetParentAndChild(colours, black);
+
+var orange  = new DataCard("Orange", "Portocaliu","")
+SetParentAndChild(colours, orange);
+
+var grey  = new DataCard("Grey", "gri","")
+SetParentAndChild(colours, grey);
+
+var green  = new DataCard("Green", "Verde","")
+SetParentAndChild(colours, green);
+
+var red  = new DataCard("Red", "Roșu","")
+SetParentAndChild(colours, red);
+
+var purple  = new DataCard("Purple", "Mov","")
+SetParentAndChild(colours, purple);
+
+var yellow  = new DataCard("Yellow", "Galben","")
+SetParentAndChild(colours, yellow);
+
+
+
+
 // =============================================================================
 // #Nouns
 // =============================================================================
@@ -673,6 +766,129 @@ var woman = new DataCard(
     NounTemplateFemale("femeie", "femei", "femeia", "femeile")
 )
 SetParentAndChild(nouns, woman)
+
+// #shapes =================================
+var shapes = new DataCard("Shapes", "Formele geometrice", "")
+SetParentAndChild(nouns, shapes)
+
+var diamond = new DataCard("Diamond", "Romb", "")
+SetParentAndChild(shapes, diamond)
+
+var oval = new DataCard("Oval", "Oval", "")
+SetParentAndChild(shapes, oval)
+
+var cone = new DataCard("Cone", "Con", "")
+SetParentAndChild(shapes, cone)
+
+var rectangle = new DataCard("Rectangle", "Dreptunghi", "")
+SetParentAndChild(shapes, rectangle)
+
+var triangle = new DataCard("Triangle", "Triunghi", "")
+SetParentAndChild(shapes, triangle)
+
+var star = new DataCard("Star", "Stea", "")
+SetParentAndChild(shapes, star)
+
+var square = new DataCard("Square", "Pătrat", "")
+SetParentAndChild(shapes, square)
+
+var circle = new DataCard("Circle", "Cerc", "")
+SetParentAndChild(shapes, circle)
+
+var cube = new DataCard("Cube", "Cub", "")
+SetParentAndChild(shapes, cube)
+
+var crescent = new DataCard("Crescent", "Semilună", "")
+SetParentAndChild(shapes, crescent)
+
+// #body =======================================
+var theBody = new DataCard("The body", "Corpul", "")
+SetParentAndChild(nouns, theBody)
+
+var head = new DataCard("Head", "Cap", "")
+SetParentAndChild(theBody, head)
+
+var hair = new DataCard("Hair", "Păr", "")
+SetParentAndChild(theBody, hair)
+
+var face = new DataCard("Face", "Față", "")
+SetParentAndChild(theBody, face)
+
+var arm = new DataCard("Arm", "Braț", "")
+SetParentAndChild(theBody, arm)
+
+var elbow = new DataCard("Elbow", "Cot", "")
+SetParentAndChild(theBody, elbow)
+
+var tummy = new DataCard("Tummy", "Burtică", "")
+SetParentAndChild(theBody, tummy)
+
+var toes = new DataCard("Toes", "Degete de la picioare", "")
+SetParentAndChild(theBody, toes)
+
+var foot = new DataCard("Foot", "Laba piciorului", "")
+SetParentAndChild(theBody, foot)
+
+var leg = new DataCard("Leg", "Picior", "Gambă")
+SetParentAndChild(theBody, leg)
+
+var knee = new DataCard("Knee", "Genunchi", "")
+SetParentAndChild(theBody, knee)
+
+var eyebrow = new DataCard("Eyebrow", "Sprânceană", "")
+SetParentAndChild(theBody, eyebrow)
+
+var eye = new DataCard("Eye", "Ochi", "")
+SetParentAndChild(theBody, eye)
+
+var nose = new DataCard("Nose", "Nas", "")
+SetParentAndChild(theBody, nose)
+
+var cheek = new DataCard("Cheek", "Obraz", "")
+SetParentAndChild(theBody, cheek)
+
+var mouth = new DataCard("Mouth", "Gură", "")
+SetParentAndChild(theBody, mouth)
+
+var lips = new DataCard("Lips", "Buze", "")
+SetParentAndChild(theBody, lips)
+
+var teeth = new DataCard("Teeth", "Dinți", "")
+SetParentAndChild(theBody, teeth)
+
+var tongue = new DataCard("Tongue", "Limbă", "")
+SetParentAndChild(theBody, tongue)
+
+var chin = new DataCard("Chin", "Bărbie", "")
+SetParentAndChild(theBody, chin)
+
+var ears = new DataCard("Ears", "Urechi", "")
+SetParentAndChild(theBody, ears)
+
+var neck = new DataCard("Neck", "Gât", "")
+SetParentAndChild(theBody, neck)
+
+var shoulders = new DataCard("Shoulders", "Umeri", "")
+SetParentAndChild(theBody, shoulders)
+
+var chest = new DataCard("Chest", "Piept", "")
+SetParentAndChild(theBody, chest)
+
+var back = new DataCard("Back", "Spate", "")
+SetParentAndChild(theBody, back)
+
+var bottom = new DataCard("Bottom", "Fund", "")
+SetParentAndChild(theBody, bottom)
+
+var hand = new DataCard("Hand", "Mână", "")
+SetParentAndChild(theBody, hand)
+
+var thumb = new DataCard("Thumb", "detetul mare", "")
+SetParentAndChild(theBody, thumb)
+
+var fingers = new DataCard("Fingers", "Degete de la mână", "")
+SetParentAndChild(theBody, fingers)
+
 
 // =============================================================================
 // #Adverbs
