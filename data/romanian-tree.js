@@ -434,7 +434,7 @@ SetParentAndChild(verbs, must);
 var send = new DataCard("Send", "Trimite", 
     "To send<br> " 
     + VerbTemplate("trimit", "trimiți", "trimite", "trimitem", "trimiteți", "trimit", "trimis", "trimite"));
-SetParentAndChild(verbs, lose);
+SetParentAndChild(verbs, send);
 
 var cry = new DataCard("Cry", "Plânge", 
     "To cry<br> " 
@@ -481,7 +481,7 @@ var push = new DataCard("Push", "Împinge",
     + VerbTemplate("împing", "împingi", "împinge", "împingem", "împingeți", "împing", "împins", "împinge"));
 SetParentAndChild(verbs, push);
 
-var climb = new DataCard("Climb", "", 
+var climb = new DataCard("Climb", "Urca", 
     "To climb<br> " 
     + VerbTemplate("urc", "urci", "urcă", "urcăm", "urcați", "urcă", "urcat", "urca"));
 SetParentAndChild(verbs, climb);
@@ -686,7 +686,7 @@ var who  = new DataCard(
 SetParentAndChild(adjectives, who);
 
 var what  = new DataCard(
-    "Who", "Ce",
+    "What", "Ce",
     "")
 SetParentAndChild(adjectives, what);
 
@@ -699,6 +699,11 @@ var how  = new DataCard(
     "How", "Cum",
     "")
 SetParentAndChild(adjectives, how);
+
+var some  = new DataCard(
+    "Some (approximately)", "Vreo",
+    "")
+SetParentAndChild(adjectives, some);
 
 // #Colours =======================================
 var colours  = new DataCard(
@@ -1054,8 +1059,15 @@ SetParentAndChild(numbers, ten);
 
 var pronouns  = new DataCard(
     "Pronouns", "Pronume",
-    "Todo")
+    "")
 SetParentAndChild(romanian, pronouns);
+
+var another  = new DataCard(
+    "Another", "Alt",
+    "")
+SetParentAndChild(pronouns, another);
+
+
 
 // =============================================================================
 // #Emotions
