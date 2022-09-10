@@ -161,6 +161,11 @@ var sleep = new DataCard("Sleep", "Dormi",
     + VerbTemplate("dorm", "dormi", "doarme", "dormim", "dormiți", "dorm", "dormit", "dormi"));
 SetParentAndChild(verbs, sleep);  
 
+var sleepWith = new DataCard("Sleep (with)", "Culci", 
+    "To sleep (with)<br> " 
+    + ReflexiveVerbTemplateSe("culc", "culci", "culca", "culcam", "culcați", "culca", "culcat", "culci"));
+SetParentAndChild(verbs, sleepWith);  
+
 var fallAsleep = new DataCard("Fall Asleep", "Adormi", 
     "To fall asleep<br> " 
     + VerbTemplate("adorm", "adormi", "adoarme", "adormim", "adormiți", "adorm", "adormit", "adormi"));
@@ -396,7 +401,7 @@ var lose = new DataCard("Lose", "Pierde",
     + VerbTemplate("pierd", "pierzi", "pierde", "pierdem", "pierd", "pierd", "pierdut", "pierde"));
 SetParentAndChild(verbs, lose);
 
-var could = new DataCard("Could", "Putea",
+var couldModal = new DataCard("Could (modal)", "Putea",
     `<h2>Modal</h2>
     Eu aș putea să [...]<br>
     Tu ai putea să [...]<br>
@@ -404,7 +409,7 @@ var could = new DataCard("Could", "Putea",
     Noi am putea să [...]<br>
     Voi ați putea să [...]<br>
     Ei/Ele ar putea să [...]<br>`)
-SetParentAndChild(verbs, could);
+SetParentAndChild(verbs, couldModal);
 
 var should = new DataCard("Should", "Ar trebui",
     `<h2>Modal</h2>
