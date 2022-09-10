@@ -271,6 +271,11 @@ var see = new DataCard("See", "Vedea",
     + VerbTemplate("văd", "vezi", "vede", "vedem", "vedeți", "văd", "văzut", "vedea"));
 SetParentAndChild(verbs, see);
 
+var smile = new DataCard("Smile", "Zămbi", 
+    "To smile<br> " 
+    + VerbTemplate("zămbesc", "zămbesti", "zămbeste", "zămbim", "zămbiți", "zămbesc", "zămbit", "zămbi"));
+SetParentAndChild(verbs, smile);
+
 var forget = new DataCard("Forget", "Uita", 
     "To forget<br> " 
     + VerbTemplate("uit", "uiți", "uită", "uităm", "uitați", "uită", "uitat", "uita"));
