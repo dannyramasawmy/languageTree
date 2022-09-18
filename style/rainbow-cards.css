@@ -20,11 +20,11 @@ body {
 }
 
 blue {
-    color: #2980b955
+    color: #297fb9
 }
 
 orange {
-    color: #e67e2255
+    color: #e67d22
 }
 
 div {
@@ -149,6 +149,10 @@ form {
 
 .parent-card {
     background-image: url("../img/parent-icon.png");
+}
+
+.search-button {
+    background-image: url("../img/search-icon.png");
 }
 
 .top-floating {
