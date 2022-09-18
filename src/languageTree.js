@@ -210,9 +210,9 @@ function PopulateNodeDisplay(elementName, headerName, dataName, currentNode, dis
 
     // set root or parent icon
     if (currentNode.IsRoot)
-        SwapImageOnButton("parent-card", "../img/root-icon.png");
+        SwapImageOnButton("parent-card", "img/root-icon.png");
     else
-        SwapImageOnButton("parent-card", "../img/parent-icon.png");
+        SwapImageOnButton("parent-card", "img/parent-icon.png");
 
     colorWheel.ResetIndex();
     window.scrollTo(0, 0);
@@ -295,7 +295,7 @@ function ResetSearch() {
     HideSearchButtons();
     searchStringStack = [];
     document.getElementById("filter").value = "";
-    SwapImageOnButton("search-button", "../img/search-icon-1.png");
+    SwapImageOnButton("search-button", "img/search-icon-1.png");
 }
 
 // =============================================================================
@@ -310,7 +310,7 @@ function RotateImageOnButton(elementName, angle) {
 
 function GetShuffleIconPath(increment) {
     randomSelectionIcons = (randomSelectionIcons + increment) % 4
-    return `"../img/shuffle-icon-${randomSelectionIcons + 1}.png"`;
+    return `"img/shuffle-icon-${randomSelectionIcons + 1}.png"`;
 }
 GetNextShuffleIconPath = () => GetShuffleIconPath(1);
 GetPreviousShuffleIconPath = () => GetShuffleIconPath(3);

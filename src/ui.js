@@ -95,11 +95,11 @@ window.addEventListener('click',
       if (event.composedPath()[idx].id == "search-button") {
         if (searchModeIsActive) {
           HideSearchButtons();
-          SwapImageOnButton("search-button", "../img/search-icon-1.png");
+          SwapImageOnButton("search-button", "img/search-icon-1.png");
         }
         else {
           ShowSearchButtons();
-          SwapImageOnButton("search-button", "../img/search-icon-2.png");
+          SwapImageOnButton("search-button", "img/search-icon-2.png");
         }
 
         return;
@@ -111,8 +111,8 @@ window.addEventListener('click',
         displayLanguageIsEnglish = displayLanguageIsEnglish ? false : true;
 
         // swap ion
-        let url1 = "../img/swap-language-icon-1.png";
-        let url2 = "../img/swap-language-icon-2.png";
+        let url1 = "img/swap-language-icon-1.png";
+        let url2 = "img/swap-language-icon-2.png";
         SwapImageOnButton("swap-language", displayLanguageIsEnglish ? url1 : url2)
 
         // display
