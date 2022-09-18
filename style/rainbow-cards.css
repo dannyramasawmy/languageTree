@@ -20,7 +20,7 @@ body {
 }
 
 blue {
-    color: #297fb9
+    color: #7ecbff
 }
 
 orange {
@@ -141,8 +141,22 @@ form {
     font-size: 40px;
 }
 
+.home-icon {
+    /* display: inline; */
+    /* height: 4rem; */
+    vertical-align: middle
+}
+
 .random-card {
     background-image: url("../img/shuffle-icon-1.png");
+}
+
+.sort-cards {
+    background-image: url("../img/sort-icon.png");
+}
+
+.search-button {
+    background-image: url("../img/search-icon.png");
 }
 
 .swap-language {
@@ -153,9 +167,6 @@ form {
     background-image: url("../img/parent-icon.png");
 }
 
-.search-button {
-    background-image: url("../img/search-icon.png");
-}
 
 .top-floating {
     display: flex;

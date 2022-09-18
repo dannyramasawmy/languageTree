@@ -1,6 +1,6 @@
 //
 // Major version: changes in behavior / new buttons etc
-// Minor version: new words added / corrections
+// Minor version: new/edited cars / bug fixes
 const staticCacheName = 'languageTree-v15-0';
 
 self.addEventListener('install', (e) => {
@@ -17,6 +17,7 @@ self.addEventListener('install', (e) => {
       '/languageTree/img/shuffle-icon-2.png',
       '/languageTree/img/shuffle-icon-3.png',
       '/languageTree/img/shuffle-icon-4.png',
+      '/languageTree/img/sort-icon.png',
       '/languageTree/img/swap-language-icon-1.png',
       '/languageTree/img/swap-language-icon-2.png',
       '/languageTree/src/ui.js',

@@ -67,13 +67,9 @@ window.addEventListener('click',
 
         if (event.composedPath()[idx].id == "search-button") {
           if (searchModeIsActive)
-          {
             HideSearchButtons();
-          }
           else
-          {
             ShowSearchButtons();
-          }
           return;
         }
   
