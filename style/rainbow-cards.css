@@ -46,12 +46,14 @@ h1 {
 
 .search-bar {
     background-color: #1B2631DF;
-    display: flex;
+    display: none;
     flex-wrap: nowrap;
     flex-direction: column;
+    height: 3em;
     padding: 10px;
     margin: 20px; 
     height: auto;
+    width: auto;
     line-height: 75px;
     font-weight: bold;
     font-size: 40px;
@@ -139,6 +141,10 @@ form {
     font-size: 40px;
 }
 
+.hide {
+    display: none
+}
+
 .random-card {
     background-image: url("../img/shuffle-icon-1.png");
 }
@@ -165,11 +171,6 @@ form {
     padding: 0%;
     margin: 0%;
 }
-
-.floating-search {
-    width: 3em;
-    height: 3em;
-    } 
     
 .floating:active {
     filter: brightness(50%);
@@ -182,6 +183,10 @@ form {
 
 .floating:active {
     filter: brightness(50%);
+}
+
+.hide-during-search {
+    display: flex
 }
 
 /* Responsive layout - makes a one column layout instead of a two-column layout */

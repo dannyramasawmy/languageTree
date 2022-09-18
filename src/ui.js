@@ -63,6 +63,11 @@ window.addEventListener('click',
       // do nothing for search
       if (event.composedPath()[idx].id == "search-bar")
         return;
+
+        if (event.composedPath()[idx].id == "search-button") {
+          ShowSearchButtons();
+          return;
+        }
   
       // go to parent
       if (event.composedPath()[idx].id == "parent-card"){

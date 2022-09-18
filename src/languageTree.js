@@ -276,6 +276,7 @@ function ColorWheel() {
 
 function ResetSearch() {
     // reset input field
+    HideSearchButtons();
     searchStringStack = [];
     currentlySearching = false;
     document.getElementById("filter").value = "";
@@ -300,4 +301,20 @@ GetPreviousShuffleIconPath = () => GetShuffleIconPath(3);
 function SwapImageOnButton(elementName, urlToImage) {
     var displayDiv = document.getElementById(elementName);
     displayDiv.style.backgroundImage = `url(${urlToImage})`;
+}
+
+function ShowSearchButtons() {
+    let searchBar = document.querySelector('.search-bar');
+    searchBar.style.display = 'flex';
+
+    let otherButtons = document.querySelector('.hide-during-search');
+    otherButtons.style.display = 'none';
+}
+
+function HideSearchButtons() {
+    let searchBar = document.querySelector('.search-bar');
+    searchBar.style.display = 'none';
+
+    let otherButtons = document.querySelector('.hide-during-search');
+    otherButtons.style.display = 'flex';
 }

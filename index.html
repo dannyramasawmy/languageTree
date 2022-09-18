@@ -24,22 +24,24 @@
     <!-- start search -->
     <div id="search-button" , class="floating-button search-button floating">
     </div>
-    
-    <!-- Search for words -->
-    <div id="search-bar" class="search-bar floating-button floating-search">
-      <form id="search-bar">
-        <input type="text" id="filter" class="filter" oninput="keyboardInput()" value="" autocomplete="off">
-      </form>
-    </div>
-    
+        
     <!-- Change language -->
     <div id="swap-language" , class="floating-button swap-language floating">
     </div>
 
     <!-- Go to parent -->
-    <div id="parent-card" , class="floating-button parent-card floating">
+    <div id="parent-card" , class="floating-button parent-card floating hide-during-search">
     </div>
   </div>
+
+  <!-- <div class="top-floating-search"> -->
+      <!-- Search for words -->
+      <div id="search-bar" class="search-bar">
+        <form id="search-bar">
+          <input type="text" id="filter" class="filter" oninput="keyboardInput()" value="" autocomplete="off">
+        </form>
+      </div>
+  <!-- </div> -->
 
   <!-- Current data -->
   <div class="data-view">
