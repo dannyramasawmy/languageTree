@@ -210,9 +210,9 @@ function PopulateNodeDisplay(elementName, headerName, dataName, currentNode, dis
 
     // set root or parent icon
     if (currentNode.IsRoot)
-        SwapImageOnButton("parent-card", "languageTree/img/root-icon.png");
+        SwapImageOnButton("parent-card", "img/root-icon.png");
     else
-        SwapImageOnButton("parent-card", "languageTree/img/parent-icon.png");
+        SwapImageOnButton("parent-card", "img/parent-icon.png");
 
     colorWheel.ResetIndex();
     window.scrollTo(0, 0);
