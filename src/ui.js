@@ -7,7 +7,7 @@ const elementName = "node-display";
 const headerName = "current-node";
 const dataName = "current-node-data";
 const colorWheel = new ColorWheel();
-var displayLanguageEnglish = true;
+var displayLanguageIsEnglish = true;
 var currentlySearching = false;
 var randomSelectionIcons = 0;
 var searchModeIsActive = false;
@@ -46,7 +46,7 @@ window.addEventListener('popstate',
       : searchable.GetDataCardFromState(event.state);
 
     SwapImageOnButton("random-card", GetPreviousShuffleIconPath())
-    
+
     ClearNodeDisplay(elementName);
     displayList = GetDisplayNodes(currentNode);
     PopulateNodeDisplay(elementName, headerName, dataName, currentNode, displayList)
@@ -61,31 +61,10 @@ window.addEventListener('click',
     var elementName = "node-display";
 
     for (var idx = 0; idx < event.composedPath().length; idx++) {
+
       // do nothing for search
       if (event.composedPath()[idx].id == "search-bar")
         return;
-
-        if (event.composedPath()[idx].id == "search-button") {
-          if (searchModeIsActive)
-            HideSearchButtons();
-          else
-            ShowSearchButtons();
-          return;
-        }
-  
-      // go to parent
-      if (event.composedPath()[idx].id == "parent-card"){
-        log = currentNode;
-        currentNode = currentNode.Parent;
-        displayList = GetDisplayNodes(currentNode);
-        pushState(currentNode)
-  
-        // display
-        ResetSearch();
-        ClearNodeDisplay(elementName)
-        PopulateNodeDisplay(elementName, headerName, dataName, currentNode, displayList)
-        return;
-      }
 
       // shuffle current node
       if (event.composedPath()[idx].id == "random-card") {
@@ -103,18 +82,57 @@ window.addEventListener('click',
         return;
       }
 
-      // when clicking on a card
+      // shuffle current node
+      if (event.composedPath()[idx].id == "sort-cards") {
+        // display
+        ResetSearch();
+        displayList = SortDisplayList(displayList);
+        ClearNodeDisplay(elementName)
+        PopulateNodeDisplay(elementName, headerName, dataName, currentNode, displayList)
+        return;
+      }
+
+      // search for card
+      if (event.composedPath()[idx].id == "search-button") {
+        if (searchModeIsActive) {
+          HideSearchButtons();
+          SwapImageOnButton("search-button", "../img/search-icon-1.png");
+        }
+        else {
+          ShowSearchButtons();
+          SwapImageOnButton("search-button", "../img/search-icon-2.png");
+        }
+
+        return;
+      }
+
+      // swap language shown
       if (event.composedPath()[idx].id == "swap-language") {
         // state
-        displayLanguageEnglish = displayLanguageEnglish ? false : true;
+        displayLanguageIsEnglish = displayLanguageIsEnglish ? false : true;
 
         // swap ion
         let url1 = "../img/swap-language-icon-1.png";
         let url2 = "../img/swap-language-icon-2.png";
-        SwapImageOnButton("swap-language", displayLanguageEnglish ? url1 : url2)
+        SwapImageOnButton("swap-language", displayLanguageIsEnglish ? url1 : url2)
 
         // display
         ClearNodeDisplay(elementName)
+        PopulateNodeDisplay(elementName, headerName, dataName, currentNode, displayList)
+        return;
+      }
+
+      // go to parent
+      if (event.composedPath()[idx].id == "parent-card") {
+        log = currentNode;
+        currentNode = currentNode.Parent;
+        displayList = GetDisplayNodes(currentNode);
+        pushState(currentNode)
+
+        // display
+        ResetSearch();
+        ClearNodeDisplay(elementName)
+        displayList = SortDisplayList(displayList);
         PopulateNodeDisplay(elementName, headerName, dataName, currentNode, displayList)
         return;
       }
@@ -130,6 +148,7 @@ window.addEventListener('click',
       // display
       ResetSearch();
       ClearNodeDisplay(elementName)
+      displayList = SortDisplayList(displayList);
       PopulateNodeDisplay(elementName, headerName, dataName, currentNode, displayList)
     }
   })

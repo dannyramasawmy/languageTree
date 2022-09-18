@@ -156,7 +156,7 @@ form {
 }
 
 .search-button {
-    background-image: url("../img/search-icon.png");
+    background-image: url("../img/search-icon-1.png");
 }
 
 .swap-language {
@@ -164,7 +164,7 @@ form {
 }
 
 .parent-card {
-    background-image: url("../img/parent-icon.png");
+    background-image: url("../img/root-icon.png");
 }
 
 

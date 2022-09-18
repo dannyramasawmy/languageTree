@@ -2,21 +2,23 @@
 // Containers
 // =============================================================================
 
-function DataCard(english, romanian, data) {
+function DataCard(english, romanian, data, isRoot = false) {
     this.English = english;
     this.Romanian = romanian;
     this.Data = data;
-    
+
     this.Parent = [];
     this.Child = [];
-    
-    this.AddChild = function(dataCard) {
+
+    this.IsRoot = isRoot;
+
+    this.AddChild = function (dataCard) {
         this.Child.push(dataCard);
         this.Child.sort(
             (x, y) => x.English[0] < y.English[0] ? -1 : 1);
     }
-    
-    this.SetParent = function(dataCard) {
+
+    this.SetParent = function (dataCard) {
         this.Parent = dataCard;
     }
 }
@@ -25,37 +27,37 @@ function SearchableDictionary() {
     this.Romanian = {};
     this.English = {};
 
-    this.GetDataCards = function(searchString) {
+    this.GetDataCards = function (searchString) {
         currentlySearching = true;
 
-        var words = displayLanguageEnglish 
+        var words = displayLanguageIsEnglish
             ? Object.getOwnPropertyNames(this.English)
             : Object.getOwnPropertyNames(this.Romanian);
-        
+
         var wordMask = words.map((x) => x.includes(searchString.toLowerCase()));
-        var filteredWords = words.filter( (x, i) => wordMask[i]);    
-        
+        var filteredWords = words.filter((x, i) => wordMask[i]);
+
         var filteredDataCards = filteredWords.map(
-            x => displayLanguageEnglish
-            ? this.English[x]
-            : this.Romanian[x]); 
-        
+            x => displayLanguageIsEnglish
+                ? this.English[x]
+                : this.Romanian[x]);
+
         return filteredDataCards
     }
 
-    this.GetDataCardFromState = function(state) {
-        return this.English[state]; 
+    this.GetDataCardFromState = function (state) {
+        return this.English[state];
     };
 }
 
 function VerbTemplate(
-    presentI, 
-    presentYou, 
-    presentHeShe, 
+    presentI,
+    presentYou,
+    presentHeShe,
     presentWe,
-    presentYouPlural, 
+    presentYouPlural,
     presentThey,
-    past, infinitive, relfexivePast="", reflexiveFuture="") {
+    past, infinitive, relfexivePast = "", reflexiveFuture = "") {
     return (`
         <h2>Present</h2>
         Eu ${presentI} <br>
@@ -91,11 +93,11 @@ function VerbTemplate(
 function ReflexiveVerbTemplateSe(presentI, presentYou, presentHeShe, presentWe,
     presentYouPlural, presentThey, past, infinitive) {
     return VerbTemplate(
-        "mă " + presentI, 
-        "te " + presentYou, 
-        "se " + presentHeShe, 
+        "mă " + presentI,
+        "te " + presentYou,
+        "se " + presentHeShe,
         "ne " + presentWe,
-        "vă " + presentYouPlural, 
+        "vă " + presentYouPlural,
         "se " + presentThey,
         past, infinitive, "(-) ", "(-) ");
 }
@@ -103,38 +105,41 @@ function ReflexiveVerbTemplateSe(presentI, presentYou, presentHeShe, presentWe,
 function ReflexiveVerbTemplateSi(presentI, presentYou, presentHeShe, presentWe,
     presentYouPlural, presentThey, past, infinitive) {
     return VerbTemplate(
-        "îmi " + presentI, 
-        "îți " + presentYou, 
-        "își " + presentHeShe, 
+        "îmi " + presentI,
+        "îți " + presentYou,
+        "își " + presentHeShe,
         "ne " + presentWe,
-        "vă " + presentYouPlural, 
+        "vă " + presentYouPlural,
         "își " + presentThey,
         past, infinitive, "(-) ", "(-) ");
 }
 
-function NounTemplateFemale(singluar, plural, definiteArticle, definitePlural) 
-    {return (`
+function NounTemplateFemale(singluar, plural, definiteArticle, definitePlural) {
+    return (`
         o ${singluar} <br>
         două ${plural} <br>
         ${definiteArticle} <br>
         ${definitePlural} <br>
-    `)};
+    `)
+};
 
-function NounTemplateMale(singluar, plural, definiteArticle, definitePlural) 
-    {return (`
+function NounTemplateMale(singluar, plural, definiteArticle, definitePlural) {
+    return (`
         Un ${singluar} <br>
         doi ${plural} <br>
         ${definiteArticle} <br>
         ${definitePlural} <br>
-    `)};
+    `)
+};
 
-function NounTemplateNeuter(singluar, plural, definiteArticle, definitePlural) 
-    {return (`
+function NounTemplateNeuter(singluar, plural, definiteArticle, definitePlural) {
+    return (`
         un ${singluar} <br>
         două ${plural} <br>
         ${definiteArticle} <br>
         ${definitePlural} <br>
-    `)};
+    `)
+};
 
 // =============================================================================
 // Data Functions
@@ -146,15 +151,15 @@ function SetParentAndChild(parentDataCard, childDataCard) {
 }
 
 function GetSearchableWords(rootDataCard, searchableDictionary) {
-    
+
     searchableDictionary.English[rootDataCard.English.toLowerCase()] = rootDataCard;
     searchableDictionary.Romanian[rootDataCard.Romanian.toLowerCase()] = rootDataCard;
-    
+
     if (rootDataCard.Child.length == 0) {
         return;
     }
-    
-    for (let i = 0; i < rootDataCard.Child.length ; i++) {
+
+    for (let i = 0; i < rootDataCard.Child.length; i++) {
         GetSearchableWords(rootDataCard.Child[i], searchableDictionary);
     }
     return;
@@ -188,30 +193,34 @@ function RandomElementInArray(arr) {
 
 function GetDisplayNodes(node) {
     var displayList = [];
-    
-    // displayList.push(node.Parent);
-    
+
     for (var idx = 0; idx < node.Child.length; idx++) {
         displayList.push(node.Child[idx])
     }
-    
+
     return displayList;
 }
 
 function ClearNodeDisplay(elementName) {
     var displayDiv = document.getElementById(elementName);
-    for (var idx = displayDiv.children.length; idx > 0 ; idx--) {
+    for (var idx = displayDiv.children.length; idx > 0; idx--) {
         displayDiv.removeChild(displayDiv.children[idx - 1]);
     }
 }
 
 function PopulateNodeDisplay(elementName, headerName, dataName, currentNode, displayList) {
 
+    // set root or parent icon
+    if (currentNode.IsRoot)
+        SwapImageOnButton("parent-card", "../img/root-icon.png");
+    else
+        SwapImageOnButton("parent-card", "../img/parent-icon.png");
+
     colorWheel.ResetIndex();
     window.scrollTo(0, 0);
 
     var headerDiv = document.getElementById(headerName);
-    headerDiv.innerHTML = displayLanguageEnglish
+    headerDiv.innerHTML = displayLanguageIsEnglish
         ? `<orange>${currentNode.English}</orange> <blue>${currentNode.Romanian}</blue>`
         : `<blue>${currentNode.Romanian}</blue> <orange>${currentNode.English}</orange>`;
 
@@ -220,10 +229,10 @@ function PopulateNodeDisplay(elementName, headerName, dataName, currentNode, dis
 
     var displayDiv = document.getElementById(elementName);
 
-    for (var idx = 0; idx < displayList.length; idx++){
+    for (var idx = 0; idx < displayList.length; idx++) {
         var newDiv = document.createElement("div");
 
-        newDiv.innerHTML = displayLanguageEnglish
+        newDiv.innerHTML = displayLanguageIsEnglish
             ? displayList[idx].English
             : newDiv.innerHTML = displayList[idx].Romanian;
 
@@ -233,15 +242,24 @@ function PopulateNodeDisplay(elementName, headerName, dataName, currentNode, dis
         // rainbow colors
         newDiv.style.backgroundColor = colorWheel.GetNextColor();
         newDiv.style.color = colorWheel.TextColor;
-        // if (idx === 0 && currentlySearching === false)
-        // {
-        //     newDiv.style.backgroundColor = colorWheel.ParentColor;
-        //     newDiv.innerHTML = "⇐ " + newDiv.innerHTML;
-        // }
-        
+
         displayDiv.appendChild(newDiv);
     }
+}
 
+function SortDisplayList(displayList) {
+    if (displayLanguageIsEnglish) {
+        displayList.sort(
+            (x, y) => x.English[0] < y.English[0] ? -1 : 1
+        );
+    }
+    else {
+        displayList.sort(
+            (x, y) => x.Romanian[0] < y.Romanian[0] ? -1 : 1
+        );
+    }
+
+    return displayList;
 }
 
 function ColorWheel() {
@@ -280,6 +298,7 @@ function ResetSearch() {
     searchStringStack = [];
     currentlySearching = false;
     document.getElementById("filter").value = "";
+    SwapImageOnButton("search-button", "../img/search-icon-1.png");
 }
 
 // =============================================================================
@@ -289,12 +308,13 @@ function ResetSearch() {
 function RotateImageOnButton(elementName, angle) {
     var displayDiv = document.getElementById(elementName);
     displayDiv.style.transform = `rotate(${angle}deg)`;
+    console.log(`rotate(${angle}deg)`)
 }
 
 function GetShuffleIconPath(increment) {
     randomSelectionIcons = (randomSelectionIcons + increment) % 4
     return `"../img/shuffle-icon-${randomSelectionIcons + 1}.png"`;
-} 
+}
 GetNextShuffleIconPath = () => GetShuffleIconPath(1);
 GetPreviousShuffleIconPath = () => GetShuffleIconPath(3);
 
@@ -308,7 +328,7 @@ function ShowSearchButtons() {
     searchBar.style.display = 'flex';
 
     searchModeIsActive = true;
-    
+
     document.getElementById("filter").focus();
 }
 

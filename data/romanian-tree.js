@@ -20,12 +20,13 @@ var searchPlaceholder = new DataCard("Searching cards", "Căuta carti", "Click h
 var romanian = new DataCard(
     "Romanian", "Română",
     "Romanian language tree. <br>\
-    <img src=\"../img/shuffle-icon-1.png\"      class=\"home-icon\"/> shuffle\
-    <img src=\"../img/sort-icon.png\"           class=\"home-icon\"/> sort\
-    <img src=\"../img/search-icon.png\"         class=\"home-icon\"/> search\
-    <img src=\"../img/swap-language-icon-1.png\"  class=\"home-icon\"/> swap language\
-    <img src=\"../img/parent-icon.png\"         class=\"home-icon\"/> go up\
-    ");
+    <div><img src=\"../img/shuffle-icon-1.png\"      class=\"home-icon\"/> shuffle</div>\
+    <div><img src=\"../img/sort-icon.png\"           class=\"home-icon\"/> sort</div>\
+    <div><img src=\"../img/search-icon-1.png\"         class=\"home-icon\"/> search</div>\
+    <div><img src=\"../img/swap-language-icon-1.png\"  class=\"home-icon\"/> swap language</div>\
+    <div><img src=\"../img/parent-icon.png\"         class=\"home-icon\"/> go up</div>\
+    ",
+    isRoot=true);
 romanian.SetParent(romanian);
     
 // =============================================================================
