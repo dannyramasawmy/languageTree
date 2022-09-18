@@ -10,6 +10,7 @@ const colorWheel = new ColorWheel();
 var displayLanguageEnglish = true;
 var currentlySearching = false;
 var randomSelectionIcons = 0;
+var searchModeIsActive = false;
 
 // =============================================================================
 // Initialise
@@ -65,7 +66,14 @@ window.addEventListener('click',
         return;
 
         if (event.composedPath()[idx].id == "search-button") {
-          ShowSearchButtons();
+          if (searchModeIsActive)
+          {
+            HideSearchButtons();
+          }
+          else
+          {
+            ShowSearchButtons();
+          }
           return;
         }
   

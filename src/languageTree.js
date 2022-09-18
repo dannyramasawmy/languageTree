@@ -307,14 +307,14 @@ function ShowSearchButtons() {
     let searchBar = document.querySelector('.search-bar');
     searchBar.style.display = 'flex';
 
-    let otherButtons = document.querySelector('.hide-during-search');
-    otherButtons.style.display = 'none';
+    searchModeIsActive = true;
+    
+    document.getElementById("filter").focus();
 }
 
 function HideSearchButtons() {
     let searchBar = document.querySelector('.search-bar');
     searchBar.style.display = 'none';
 
-    let otherButtons = document.querySelector('.hide-during-search');
-    otherButtons.style.display = 'flex';
+    searchModeIsActive = false;
 }

@@ -141,10 +141,6 @@ form {
     font-size: 40px;
 }
 
-.hide {
-    display: none
-}
-
 .random-card {
     background-image: url("../img/shuffle-icon-1.png");
 }
