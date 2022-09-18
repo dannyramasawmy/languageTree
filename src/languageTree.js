@@ -28,8 +28,6 @@ function SearchableDictionary() {
     this.English = {};
 
     this.GetDataCards = function (searchString) {
-        currentlySearching = true;
-
         var words = displayLanguageIsEnglish
             ? Object.getOwnPropertyNames(this.English)
             : Object.getOwnPropertyNames(this.Romanian);
@@ -296,7 +294,6 @@ function ResetSearch() {
     // reset input field
     HideSearchButtons();
     searchStringStack = [];
-    currentlySearching = false;
     document.getElementById("filter").value = "";
     SwapImageOnButton("search-button", "../img/search-icon-1.png");
 }

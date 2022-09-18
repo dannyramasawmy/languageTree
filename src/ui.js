@@ -8,7 +8,6 @@ const headerName = "current-node";
 const dataName = "current-node-data";
 const colorWheel = new ColorWheel();
 var displayLanguageIsEnglish = true;
-var currentlySearching = false;
 var randomSelectionIcons = 0;
 var searchModeIsActive = false;
 
@@ -118,7 +117,9 @@ window.addEventListener('click',
 
         // display
         ClearNodeDisplay(elementName)
-        PopulateNodeDisplay(elementName, headerName, dataName, currentNode, displayList)
+
+        let nodeToShow = searchModeIsActive ? searchPlaceholder : currentNode;
+        PopulateNodeDisplay(elementName, headerName, dataName, nodeToShow, displayList)
         return;
       }
 
