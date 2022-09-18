@@ -20,7 +20,11 @@ body {
 }
 
 blue {
-    color: lightblue
+    color: #2980b955
+}
+
+orange {
+    color: #e67e2255
 }
 
 div {
@@ -136,7 +140,7 @@ form {
 }
 
 .random-card {
-    background-image: url("../img/shuffle-icon.png");
+    background-image: url("../img/shuffle-icon-1.png");
 }
 
 .swap-language {
@@ -159,7 +163,7 @@ form {
 }
 
 .floating-search {
-    width: 15em;
+    width: 3em;
     height: 3em;
     } 
     

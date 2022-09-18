@@ -9,6 +9,7 @@ const dataName = "current-node-data";
 const colorWheel = new ColorWheel();
 var displayLanguageEnglish = true;
 var currentlySearching = false;
+var randomSelectionIcons = 0;
 
 // =============================================================================
 // Initialise
@@ -42,6 +43,8 @@ window.addEventListener('popstate',
     currentNode = event.state == null
       ? rootNode
       : searchable.GetDataCardFromState(event.state);
+
+    SwapImageOnButton("random-card", GetPreviousShuffleIconPath())
     
     ClearNodeDisplay(elementName);
     displayList = GetDisplayNodes(currentNode);
@@ -82,6 +85,8 @@ window.addEventListener('click',
         pushState(currentNode);
         displayList = GetDisplayNodes(currentNode);
 
+        SwapImageOnButton("random-card", GetNextShuffleIconPath())
+
         // display
         ResetSearch();
         ClearNodeDisplay(elementName)
@@ -90,10 +95,14 @@ window.addEventListener('click',
       }
 
       // when clicking on a card
-      if (event.composedPath()[idx].id == "current-node"
-        || event.composedPath()[idx].id == "current-node-data") {
+      if (event.composedPath()[idx].id == "swap-language") {
         // state
         displayLanguageEnglish = displayLanguageEnglish ? false : true;
+
+        // swap ion
+        let url1 = "../img/swap-language-icon-1.png";
+        let url2 = "../img/swap-language-icon-2.png";
+        SwapImageOnButton("swap-language", displayLanguageEnglish ? url1 : url2)
 
         // display
         ClearNodeDisplay(elementName)

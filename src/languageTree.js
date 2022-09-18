@@ -212,8 +212,8 @@ function PopulateNodeDisplay(elementName, headerName, dataName, currentNode, dis
 
     var headerDiv = document.getElementById(headerName);
     headerDiv.innerHTML = displayLanguageEnglish
-        ? currentNode.English + " " + "<blue>" + currentNode.Romanian + "</blue>"
-        : currentNode.Romanian + " " + "<blue>" + currentNode.English  + "</blue>";
+        ? `<orange>${currentNode.English}</orange> <blue>${currentNode.Romanian}</blue>`
+        : `<blue>${currentNode.Romanian}</blue> <orange>${currentNode.English}</orange>`;
 
     var dataDiv = document.getElementById(dataName);
     dataDiv.innerHTML = currentNode.Data;
@@ -279,4 +279,25 @@ function ResetSearch() {
     searchStringStack = [];
     currentlySearching = false;
     document.getElementById("filter").value = "";
+}
+
+// =============================================================================
+// Buttons
+// =============================================================================
+
+function RotateImageOnButton(elementName, angle) {
+    var displayDiv = document.getElementById(elementName);
+    displayDiv.style.transform = `rotate(${angle}deg)`;
+}
+
+function GetShuffleIconPath(increment) {
+    randomSelectionIcons = (randomSelectionIcons + increment) % 4
+    return `"../img/shuffle-icon-${randomSelectionIcons + 1}.png"`;
+} 
+GetNextShuffleIconPath = () => GetShuffleIconPath(1);
+GetPreviousShuffleIconPath = () => GetShuffleIconPath(3);
+
+function SwapImageOnButton(elementName, urlToImage) {
+    var displayDiv = document.getElementById(elementName);
+    displayDiv.style.backgroundImage = `url(${urlToImage})`;
 }
