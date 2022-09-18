@@ -69,21 +69,6 @@ h1 {
     justify-content:center; 
 }
 
-.random-card {
-    /* background-color: #283747; */
-    background: #1B2631DF;
-    background-image: url("../img/shuffle-icon.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    padding: 10px;
-    margin: 20px; 
-    border-radius: 100px;  
-    height: auto;
-    line-height: 75px;
-    font-weight: bold;
-    font-size: 40px;
-}
-
 /*  Input properties. */
 input[type=text] {
     width: 100%;
@@ -136,9 +121,9 @@ form {
     filter: brightness(50%);
 }
 
-.parent-card {
+.floating-button {
+    /* background-color: #283747; */
     background: #1B2631DF;
-    background-image: url("../img/parent-icon.png");
     background-repeat: no-repeat;
     background-position: center;
     padding: 10px;
@@ -148,6 +133,18 @@ form {
     line-height: 75px;
     font-weight: bold;
     font-size: 40px;
+}
+
+.random-card {
+    background-image: url("../img/shuffle-icon.png");
+}
+
+.swap-language {
+    background-image: url("../img/swap-language-icon-1.png");
+}
+
+.parent-card {
+    background-image: url("../img/parent-icon.png");
 }
 
 .top-floating {
