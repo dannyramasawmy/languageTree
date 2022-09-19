@@ -148,17 +148,14 @@ function SetParentAndChild(parentDataCard, childDataCard) {
 }
 
 function GetSearchableWords(rootDataCard, searchableDictionary) {
+    searchableDictionary.English[PrepareEnglishString(rootDataCard.English)] = rootDataCard;
+    searchableDictionary.Romanian[PrepareRomanianString(rootDataCard.Romanian)] = rootDataCard;
 
-    searchableDictionary.English[rootDataCard.English.toLowerCase()] = rootDataCard;
-    searchableDictionary.Romanian[rootDataCard.Romanian.toLowerCase()] = rootDataCard;
+    if (rootDataCard.Child.length == 0) return;
 
-    if (rootDataCard.Child.length == 0) {
-        return;
-    }
-
-    for (let i = 0; i < rootDataCard.Child.length; i++) {
+    for (let i = 0; i < rootDataCard.Child.length; i++)
         GetSearchableWords(rootDataCard.Child[i], searchableDictionary);
-    }
+    
     return;
 }
 
@@ -186,22 +183,9 @@ function SortEnglish(x, y) {
     return 0;
 }
 
-function RandomRange(start, end) {
-    // random number between start and end
-    var value = (Math.random() * (end - start)) + start
-    return value
-}
-
-function RandomIntRange(start, end) {
-    // random int including start and end
-    var value = Math.floor(RandomRange(start, end + 1))
-    return value
-}
-
-function RandomElementInArray(arr) {
-    // random element 
-    return arr[RandomIntRange(0, arr.length - 1)]
-}
+RandomRange = (start, end) => (Math.random() * (end - start)) + start;
+RandomIntRange = (start, end) => Math.floor(RandomRange(start, end + 1));
+RandomElementInArray = (arr) => arr[RandomIntRange(0, arr.length - 1)];
 
 // =============================================================================
 // Display Functions
@@ -217,9 +201,8 @@ function GetDisplayNodes(node) {
 
 function ClearNodeDisplay(elementName) {
     var displayDiv = document.getElementById(elementName);
-    for (var idx = displayDiv.children.length; idx > 0; idx--) {
+    for (var idx = displayDiv.children.length; idx > 0; idx--)
         displayDiv.removeChild(displayDiv.children[idx - 1]);
-    }
 }
 
 function PopulateNodeDisplay(elementName, headerName, dataName, currentNode, displayList) {
@@ -283,7 +266,7 @@ function ColorWheel() {
         "#E67E22DF", // o
         "#D35400DF"]; //o
 
-    this.ResetIndex = () => { this.Index = 5; };
+    this.ResetIndex = () => this.Index = 5;
 
     this.GetNextColor = () => {
         this.Index = (this.Index + 1) % this.Colors.length;
@@ -303,12 +286,6 @@ function ResetSearch() {
 // Buttons
 // =============================================================================
 
-function RotateImageOnButton(elementName, angle) {
-    var displayDiv = document.getElementById(elementName);
-    displayDiv.style.transform = `rotate(${angle}deg)`;
-    console.log(`rotate(${angle}deg)`)
-}
-
 function GetShuffleIconPath(increment) {
     G_randomSelectionIcons = (G_randomSelectionIcons + increment) % 4
     return `"img/shuffle-icon-${G_randomSelectionIcons + 1}.png"`;
@@ -316,10 +293,9 @@ function GetShuffleIconPath(increment) {
 GetNextShuffleIconPath = () => GetShuffleIconPath(1);
 GetPreviousShuffleIconPath = () => GetShuffleIconPath(3);
 
-function SwapImageOnButton(elementName, urlToImage) {
-    var displayDiv = document.getElementById(elementName);
-    displayDiv.style.backgroundImage = `url(${urlToImage})`;
-}
+SwapImageOnButton = (elementName, urlToImage) => 
+    document.getElementById(elementName).style.backgroundImage = `url(${urlToImage})`;
+
 
 function ShowSearchButtons() {
     document.querySelector('.search-bar').style.display = 'flex';
