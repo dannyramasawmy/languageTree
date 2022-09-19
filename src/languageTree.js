@@ -14,8 +14,7 @@ function DataCard(english, romanian, data, isRoot = false) {
 
     this.AddChild = function (dataCard) {
         this.Child.push(dataCard);
-        this.Child.sort(
-            (x, y) => x.English[0] < y.English[0] ? -1 : 1);
+        this.Child.sort(SortEnglish);
     }
 
     this.SetParent = function (dataCard) {
@@ -168,6 +167,26 @@ function PrepareString(inputString) {
     return inputString.toLowerCase().trim();
 }
 
+function SortDisplayList(displayList) {
+    if (G_displayLanguageIsEnglish) 
+        displayList.sort(SortEnglish);
+    else
+        displayList.sort(SortRomanian);
+    return displayList;
+}
+
+function SortRomanian(x, y) {
+    if (x.Romanian < y.Romanian) return -1;
+    if (x.Romanian > y.Romanian) return 1;
+    return 0;
+}
+
+function SortEnglish(x, y) {
+    if (x.English < y.English) return -1;
+    if (x.English > y.English) return 1;
+    return 0;
+}
+
 function RandomRange(start, end) {
     // random number between start and end
     var value = (Math.random() * (end - start)) + start
@@ -243,21 +262,6 @@ function PopulateNodeDisplay(elementName, headerName, dataName, currentNode, dis
 
         displayDiv.appendChild(newDiv);
     }
-}
-
-function SortDisplayList(displayList) {
-    if (G_displayLanguageIsEnglish) {
-        displayList.sort(
-            (x, y) => x.English[0] < y.English[0] ? -1 : 1
-        );
-    }
-    else {
-        displayList.sort(
-            (x, y) => x.Romanian[0] < y.Romanian[0] ? -1 : 1
-        );
-    }
-
-    return displayList;
 }
 
 function ColorWheel() {
