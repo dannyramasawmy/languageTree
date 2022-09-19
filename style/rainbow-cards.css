@@ -124,6 +124,15 @@ form {
     border-radius: 15px;
 }
 
+@keyframes slide-in {
+    from {
+      margin-right: 100%;
+    }
+    to {
+      margin-right: 0%;
+    }
+  }
+
 .data-card:active{
     filter: brightness(50%);
 }

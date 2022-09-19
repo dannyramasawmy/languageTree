@@ -252,12 +252,17 @@ function PopulateNodeDisplay(elementName, headerName, dataName, currentNode, dis
 
         newDiv.id = idx;
         newDiv.className = "data-card";
-
+        
         // rainbow colors
         newDiv.style.backgroundColor = COLOR_WHEEL.GetNextColor();
         newDiv.style.color = COLOR_WHEEL.TextColor;
+        newDiv.style.visibility = "hidden";
 
         displayDiv.appendChild(newDiv);
+        let noAnimation = G_searchModeIsActive ? 0 : 1
+        newDiv.style.animation = `${0.2 * idx * noAnimation}s slide-in`;
+        newDiv.style.visibility = "visible";
+    
     }
 
     window.scrollTo(0, yScrollHeight);
