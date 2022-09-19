@@ -401,7 +401,7 @@ var hide = new DataCard("Hide", "Ascunde",
     + VerbTemplate("ascund", "ascunzi", "ascunde", "ascundem", "ascundeți", "ascund", "ascuns", "ascunde"));
 SetParentAndChild(verbs, hide);
 
-var recieve = new DataCard("Receive", "Primi",
+var receive = new DataCard("Receive", "Primi",
     "To receive<br> "
     + VerbTemplate("primesc", "primești", "primește", "primim", "primiți", "primesc", "primit", "primi"));
 SetParentAndChild(verbs, receive);
