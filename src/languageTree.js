@@ -349,3 +349,13 @@ function HideSearchButtons() {
     document.querySelector('.search-bar').style.display = 'none';
     G_searchModeIsActive = false;
 }
+
+// =============================================================================
+// Settings
+// =============================================================================
+
+var StoreAnimationSettings = (value) => {
+    window.localStorage.setItem(`G_settings_showAnimation`, value);
+    G_settings_showAnimation = window.localStorage.getItem(`G_settings_showAnimation`);
+  }
+  

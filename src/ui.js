@@ -26,8 +26,7 @@ var G_displayLanguageIsEnglish = true;
 var G_randomSelectionIcons = 0;
 var G_searchModeIsActive = false;
 
-var G_settings_showAnimation = 1;        
-
+var G_settings_showAnimation = window.localStorage.getItem(`G_settings_showAnimation`) ?? 0;
 
 // =============================================================================
 // Initialise

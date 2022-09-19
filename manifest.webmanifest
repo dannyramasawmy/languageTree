@@ -12,6 +12,8 @@
     ],
     "name": "Language Tree - Romanian",
     "short_name": "Romanian",
-    "start_url": "/languageTree/index.html"  
-
+    "start_url": "/languageTree/index.html"  ,
+    "permissions" : [
+      "storage"
+    ]
 }
