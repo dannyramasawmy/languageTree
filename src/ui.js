@@ -94,19 +94,21 @@ window.addEventListener('click',
         return;
       }
 
-      // shuffle current node
+      // sort cards
       if (event.composedPath()[idx].id == "sort-cards") {
+        let nodeToShow = G_searchModeIsActive ? searchPlaceholder : G_currentNode;
+
         // display
-        ResetSearch();
         G_displayList = SortDisplayList(G_displayList);
         ClearNodeDisplay(elementName)
-        PopulateNodeDisplay(elementName, HEADER_NAME, DATA_NAME, G_currentNode, G_displayList, 0)
+        PopulateNodeDisplay(elementName, HEADER_NAME, DATA_NAME, nodeToShow, G_displayList, 0)
         return;
       }
 
       // search for card
       if (event.composedPath()[idx].id == "search-button") {
         if (G_searchModeIsActive) {
+          ResetSearch();
           HideSearchButtons();
           SwapImageOnButton("search-button", SEARCH_NOT_ACTIVE_ICON);
         }
@@ -124,10 +126,16 @@ window.addEventListener('click',
         G_displayLanguageIsEnglish = G_displayLanguageIsEnglish ? false : true;
         
         // display
-        let nodeToShow = G_searchModeIsActive ? searchPlaceholder : G_currentNode;
         let iconToShow = G_displayLanguageIsEnglish ? PRIMARY_LANGUAGE_ICON : SECONDARY_LANGUAGE_ICON;
         let heightToSet = SCROLL.GetCurrentHeight();
-
+        
+        let nodeToShow = G_currentNode;
+        if (G_searchModeIsActive)
+        {
+          nodeToShow = searchPlaceholder ;
+          G_displayList = G_searchable.GetDataCards(document.getElementById("filter").value);
+        }
+        
         SwapImageOnButton("swap-language", iconToShow);
         ClearNodeDisplay(elementName);
         PopulateNodeDisplay(elementName, HEADER_NAME, DATA_NAME, nodeToShow, G_displayList, heightToSet);
