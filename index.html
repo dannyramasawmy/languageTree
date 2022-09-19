@@ -23,9 +23,18 @@
   </div>
 
   <!-- Current data -->
-  <!-- <div class="settings">
+  <div class="settings">
     <h1 id="" class="">Settings</h1>
-  </div> -->
+    <div>  
+      <form id="animation-settings">
+        <h2>Animations</h2>
+        <input type="radio" id="animation" name="animation-settings" value=1 checked onclick="StoreAnimationSettings(1)">
+        <label for="animation">show</label>
+        <input type="radio" id="no-animation" name="animation-settings" value=0 onclick="StoreAnimationSettings(0)">
+        <label for="no-animation">none</label>
+      </form>
+    </div>  
+  </div>
 
   <!-- Current data -->
   <div class="data-view">
