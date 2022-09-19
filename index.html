@@ -26,13 +26,25 @@
   <div class="settings">
     <h1 id="" class="">Settings</h1>
     <div>  
+      <!-- animations -->
       <form id="animation-settings" class="radio-button">
         <h2>Animations</h2>
         <div>
           <input type="radio" id="animation-on" name="animation-settings" value=1 onclick="StoreAnimationSettings(1)">
-          <label for="animation">On</label>
+          <label for="animation-on">On</label>
           <input type="radio" id="animation-off" name="animation-settings" value=0 onclick="StoreAnimationSettings(0)">
-          <label for="no-animation">Off</label>
+          <label for="animation-off">Off</label>
+        </div>
+      </form>
+
+      <!-- color sheme -->
+      <form id="color-settings" class="radio-button">
+        <h2>Colours</h2>
+        <div>
+          <input type="radio" id="color-on" name="color-settings" value=1 onclick="StoreColorSettings(1)">
+          <label for="color-on">Rainbow</label>
+          <input type="radio" id="color-off" name="color-settings" value=0 onclick="StoreColorSettings(0)">
+          <label for="color-off">Boring</label>
         </div>
       </form>
     </div>  

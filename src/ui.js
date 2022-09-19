@@ -10,7 +10,6 @@ const ROOT_NODE = romanian;
 const ELEMENT_NAME = "node-display";
 const HEADER_NAME = "current-node";
 const DATA_NAME = "current-node-data";
-const COLOR_WHEEL = new ColorWheel();
 const SCROLL = new ScrollHandler();
 
 // icon paths
@@ -29,7 +28,10 @@ var G_searchModeIsActive = false;
 var G_settingsModeIsActive = false;
 
 var G_settings_showAnimation = window.localStorage.getItem(`G_settings_showAnimation`) ?? 1;
-
+var G_isRainbowColor = window.localStorage.getItem(`G_settings_colorScheme`) ?? 1;
+var G_settings_colorScheme = G_isRainbowColor ? new RainbowColorWheel() : new BoringColorWheel();
+console.log(G_isRainbowColor)
+console.log(G_settings_colorScheme)
 // =============================================================================
 // Initialise
 // =============================================================================

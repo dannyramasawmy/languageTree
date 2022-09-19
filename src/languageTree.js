@@ -244,7 +244,7 @@ function PopulateNodeDisplay(elementName, headerName, dataName, currentNode, dis
     else
         SwapImageOnButton("parent-card", PARENT_ICON);
 
-    COLOR_WHEEL.ResetIndex();
+    G_settings_colorScheme.ResetIndex();
 
     var headerDiv = document.getElementById(headerName);
     headerDiv.innerHTML = G_displayLanguageIsEnglish
@@ -253,6 +253,7 @@ function PopulateNodeDisplay(elementName, headerName, dataName, currentNode, dis
 
     var dataDiv = document.getElementById(dataName);
     dataDiv.innerHTML = currentNode.Data;
+    dataDiv.style.color = G_settings_colorScheme.ParentColor;
 
     var displayDiv = document.getElementById(elementName);
 
@@ -268,8 +269,8 @@ function PopulateNodeDisplay(elementName, headerName, dataName, currentNode, dis
         newDiv.className = "data-card";
 
         // rainbow colors
-        newDiv.style.backgroundColor = COLOR_WHEEL.GetNextColor();
-        newDiv.style.color = COLOR_WHEEL.TextColor;
+        newDiv.style.backgroundColor = G_settings_colorScheme.GetNextColor();
+        newDiv.style.color = G_settings_colorScheme.TextColor;
         newDiv.style.visibility = "hidden";
 
         displayDiv.appendChild(newDiv);
@@ -285,36 +286,6 @@ function PopulateNodeDisplay(elementName, headerName, dataName, currentNode, dis
     }
 
     window.scrollTo(0, yScrollHeight);
-}
-
-function ColorWheel() {
-    // https://htmlcolorcodes.com/
-    // red -> purple -> blue -> green -> yellow -> orange
-    this.Index = 0;
-    this.ParentColor = "#1B2631";
-    this.TextColor = "#ECF0F1";
-    this.Colors = [
-        "#C0392BDF", // r
-        "#E74C3CDF", // r
-        "#9B59B6DF", // p
-        "#8E44ADDF", // p
-        "#2980B9DF", // b
-        "#3498DBDF", // b
-        "#1ABC9CDF", // t
-        "#16A085DF", // t
-        "#27AE60DF", // g
-        "#2ECC71DF", // g
-        "#F1C40FDF", // y
-        "#F39C12DF", // y
-        "#E67E22DF", // o
-        "#D35400DF"]; //o
-
-    this.ResetIndex = () => this.Index = 5;
-
-    this.GetNextColor = () => {
-        this.Index = (this.Index + 1) % this.Colors.length;
-        return this.Colors[this.Index];
-    }
 }
 
 function ResetSearch() {
@@ -357,10 +328,14 @@ function HideSearchButtons() {
 // =============================================================================
 
 var StoreAnimationSettings = (value) => {
-    console.log(`storing: ${value}`)
     window.localStorage.setItem(`G_settings_showAnimation`, value);
     G_settings_showAnimation = window.localStorage.getItem(`G_settings_showAnimation`);
-    console.log(`loading: ${G_settings_showAnimation}`)
+}
+
+var StoreColorSettings = (value) => {
+    window.localStorage.setItem(`G_settings_colorScheme`, value);
+    G_isRainbowColor = window.localStorage.getItem(`G_settings_colorScheme`);
+    G_settings_colorScheme = G_isRainbowColor == 1 ? new RainbowColorWheel() : new BoringColorWheel();
 }
 
 var HideSettings = () => {
@@ -372,6 +347,7 @@ var ShowSettings = () => {
     document.querySelector('.settings').style.display = 'flex';
     G_settingsModeIsActive = true;
     SwapImageOnButton("parent-card", ROOT_ICON);
+    
     DisplayRadioButtonCheck();
 }
 
@@ -383,5 +359,78 @@ var DisplayRadioButtonCheck = () => {
     else {
         document.getElementById('animation-on').checked = false;
         document.getElementById('animation-off').checked = true;
+    }
+
+    if (G_isRainbowColor == 1) {
+        document.getElementById('color-on').checked = true;
+        document.getElementById('color-off').checked = false;
+    }
+    else {
+        document.getElementById('color-on').checked = false;
+        document.getElementById('color-off').checked = true;
+    }
+}
+
+// =============================================================================
+// COLORS
+// =============================================================================
+
+function RainbowColorWheel() {
+    // https://htmlcolorcodes.com/
+    // red -> purple -> blue -> green -> yellow -> orange
+    this.Index = 0;
+    this.ParentColor = "#ECF0F1";
+    this.TextColor = "#ECF0F1";
+    this.Colors = [
+        "#C0392BDF", // r
+        "#E74C3CDF", // r
+        "#9B59B6DF", // p
+        "#8E44ADDF", // p
+        "#2980B9DF", // b
+        "#3498DBDF", // b
+        "#1ABC9CDF", // t
+        "#16A085DF", // t
+        "#27AE60DF", // g
+        "#2ECC71DF", // g
+        "#F1C40FDF", // y
+        "#F39C12DF", // y
+        "#E67E22DF", // o
+        "#D35400DF"]; //o
+
+    this.ResetIndex = () => this.Index = 5;
+
+    this.GetNextColor = () => {
+        this.Index = (this.Index + 1) % this.Colors.length;
+        return this.Colors[this.Index];
+    }
+}
+function BoringColorWheel() {
+    // https://htmlcolorcodes.com/
+    this.Index = 0;
+    this.ParentColor = "#ECF0F1";
+    this.TextColor = "#ECF0F1";
+    this.Colors = [
+        "#1B2631DF", // grey
+        "#212F3CDF", // 
+        "#283747DF", // 
+        "#2E4053DF", // 
+        "#34495EDF", // 
+        "#5D6D7EDF", // 
+        "#85929EDF", // 
+        "#AEB6BFDF", //  mid
+        "#85929EDF", // 
+        "#5D6D7EDF", // 
+        "#34495EDF", // 
+        "#2E4053DF", // 
+        "#283747DF", // 
+        "#212F3CDF", // 
+        "#1B2631DF", // grey
+        ]; //o
+
+    this.ResetIndex = () => this.Index = 3;
+
+    this.GetNextColor = () => {
+        this.Index = (this.Index + 1) % this.Colors.length;
+        return this.Colors[this.Index];
     }
 }
