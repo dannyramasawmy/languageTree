@@ -26,12 +26,14 @@
   <div class="settings">
     <h1 id="" class="">Settings</h1>
     <div>  
-      <form id="animation-settings">
+      <form id="animation-settings" class="radio-button">
         <h2>Animations</h2>
-        <input type="radio" id="animation" name="animation-settings" value=1 checked onclick="StoreAnimationSettings(1)">
-        <label for="animation">show</label>
-        <input type="radio" id="no-animation" name="animation-settings" value=0 onclick="StoreAnimationSettings(0)">
-        <label for="no-animation">none</label>
+        <div>
+          <input type="radio" id="animation-on" name="animation-settings" value=1 onclick="StoreAnimationSettings(1)">
+          <label for="animation">On</label>
+          <input type="radio" id="animation-off" name="animation-settings" value=0 onclick="StoreAnimationSettings(0)">
+          <label for="no-animation">Off</label>
+        </div>
       </form>
     </div>  
   </div>
@@ -71,7 +73,7 @@
 <footer>
   <br>
   <br>
-  LanguageTree: Romanian - v17-4
+  LanguageTree: Romanian - v18
   <br>
   <br>
   <br>

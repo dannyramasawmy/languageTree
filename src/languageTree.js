@@ -155,7 +155,7 @@ function GetSearchableWords(rootDataCard, searchableDictionary) {
 
     for (let i = 0; i < rootDataCard.Child.length; i++)
         GetSearchableWords(rootDataCard.Child[i], searchableDictionary);
-    
+
     return;
 }
 
@@ -164,7 +164,7 @@ PrepareRomanianString = (inputString) => inputString.toLowerCase().trim()
     .replace(/[ăâ]/g, "a").replace(/î/g, "i").replace(/ș/g, "s").replace(/ț/g, "t");
 
 function SortDisplayList(displayList) {
-    if (G_displayLanguageIsEnglish) 
+    if (G_displayLanguageIsEnglish)
         displayList.sort(SortEnglish);
     else
         displayList.sort(SortRomanian);
@@ -225,15 +225,15 @@ function ScrollHandler() {
             document.body.scrollHeight, document.documentElement.scrollHeight,
             document.body.offsetHeight, document.documentElement.offsetHeight,
             document.body.clientHeight, document.documentElement.clientHeight
-          );          
+        );
         return scrollHeight;
-    } 
+    }
 
     this.PercentageScroll = () => this.GetCurrentHeight() / this.MaxScrollHeight();
 }
 
 function PopulateNodeDisplay(elementName, headerName, dataName, currentNode, displayList, yScrollHeight, showAnimation) {
-    
+
     HideSettings();
 
     // set root or parent icon
@@ -266,7 +266,7 @@ function PopulateNodeDisplay(elementName, headerName, dataName, currentNode, dis
 
         newDiv.id = idx;
         newDiv.className = "data-card";
-        
+
         // rainbow colors
         newDiv.style.backgroundColor = COLOR_WHEEL.GetNextColor();
         newDiv.style.color = COLOR_WHEEL.TextColor;
@@ -275,13 +275,13 @@ function PopulateNodeDisplay(elementName, headerName, dataName, currentNode, dis
         displayDiv.appendChild(newDiv);
 
         // make sliding in animation
-        let noAnimation = G_searchModeIsActive ? 0 : 1;       
-        let animationTime = 1 * noAnimation * G_settings_showAnimation * idx/displayList.length;
+        let noAnimation = G_searchModeIsActive ? 0 : 1;
+        let animationTime = 1 * noAnimation * G_settings_showAnimation * idx / displayList.length;
 
         // console.log(animationTime)
         newDiv.style.animation = `${animationTime}s slide-in`;
         newDiv.style.visibility = "visible";
-    
+
     }
 
     window.scrollTo(0, yScrollHeight);
@@ -337,7 +337,7 @@ function GetShuffleIconPath(increment) {
 GetNextShuffleIconPath = () => GetShuffleIconPath(1);
 GetPreviousShuffleIconPath = () => GetShuffleIconPath(3);
 
-SwapImageOnButton = (elementName, urlToImage) => 
+SwapImageOnButton = (elementName, urlToImage) =>
     document.getElementById(elementName).style.backgroundImage = `url(${urlToImage})`;
 
 
@@ -357,8 +357,10 @@ function HideSearchButtons() {
 // =============================================================================
 
 var StoreAnimationSettings = (value) => {
+    console.log(`storing: ${value}`)
     window.localStorage.setItem(`G_settings_showAnimation`, value);
     G_settings_showAnimation = window.localStorage.getItem(`G_settings_showAnimation`);
+    console.log(`loading: ${G_settings_showAnimation}`)
 }
 
 var HideSettings = () => {
@@ -370,4 +372,19 @@ var ShowSettings = () => {
     document.querySelector('.settings').style.display = 'flex';
     G_settingsModeIsActive = true;
     SwapImageOnButton("parent-card", ROOT_ICON);
+    DisplayRadioButtonCheck();
+}
+
+var DisplayRadioButtonCheck = () => {
+    console.log(G_settings_showAnimation)
+    if (G_settings_showAnimation == 1) {
+        console.log("here?")
+        document.getElementById('animation-on').checked = true;
+        document.getElementById('animation-off').checked = false;
+    }
+    else {
+        console.log("why not here?")
+        document.getElementById('animation-on').checked = false;
+        document.getElementById('animation-off').checked = true;
+    }
 }

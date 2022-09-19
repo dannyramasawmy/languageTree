@@ -219,6 +219,33 @@ form {
     justify-content: space-around;
 }
 
+input[type="radio"] {
+    margin: 0;
+    font: inherit;
+    height: 1.15em;
+    width: 1.15em;
+    vertical-align: auto;
+    /* appearance: none; */
+    /* background-color: #fff;
+    color: #fff;
+    border: 0.15em solid #fff;
+    border-radius: 50%; */
+  }
+
+  input[type="radio"]::before {
+    /* content: "";
+    width: 0.65em;
+    height: 0.65em;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out; */
+  }
+  
+  input[type="radio"]:checked::before {
+    /* transform: scale(100);
+    color: purple; */
+  }
+  
 
 /* Responsive layout - makes a one column layout instead of a two-column layout */
 @media only screen and (orientation: portrait) {
