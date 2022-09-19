@@ -232,7 +232,7 @@ function ScrollHandler() {
     this.PercentageScroll = () => this.GetCurrentHeight() / this.MaxScrollHeight();
 }
 
-function PopulateNodeDisplay(elementName, headerName, dataName, currentNode, displayList, yScrollHeight) {
+function PopulateNodeDisplay(elementName, headerName, dataName, currentNode, displayList, yScrollHeight, showAnimation) {
 
     // set root or parent icon
     if (currentNode.IsRoot)
@@ -273,8 +273,9 @@ function PopulateNodeDisplay(elementName, headerName, dataName, currentNode, dis
         displayDiv.appendChild(newDiv);
 
         // make sliding in animation
-        let noAnimation = G_searchModeIsActive ? 0 : 1        
-        let animationTime = 1 * noAnimation * idx/displayList.length;
+        let noAnimation = G_searchModeIsActive ? 0 : 1;       
+        let showAnimation = yScrollHeight == 0 ? 1 : 0;        
+        let animationTime = 1 * noAnimation * showAnimation * idx/displayList.length;
 
         // console.log(animationTime)
         newDiv.style.animation = `${animationTime}s slide-in`;

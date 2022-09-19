@@ -62,7 +62,7 @@ h1 {
     border-radius: 100px;  
     justify-content:space-around; 
 }
-
+/* 
 .add-button {
     color: white;
     background-color: black;
@@ -74,7 +74,7 @@ h1 {
     font-weight: bold;
     font-size: 40px;
     justify-content:center; 
-}
+} */
 
 /*  Input properties. */
 input[type=text] {
@@ -202,14 +202,6 @@ form {
     width: 3em;
     height: 3em;
     }
-
-.floating:active {
-    filter: brightness(50%);
-}
-
-.hide-during-search {
-    display: flex
-}
 
 /* Responsive layout - makes a one column layout instead of a two-column layout */
 @media only screen and (orientation: portrait){
