@@ -124,7 +124,7 @@ form {
     border-radius: 15px;
 }
 
-@keyframes slide-in {
+/* @keyframes slide-in {
     from {
         position: relative;
         left: -100%;
@@ -133,7 +133,16 @@ form {
     to {
         position: relative;
         left: 0%;
-        /* margin-right: 50%; */
+    }
+} */
+
+@keyframes slide-in {
+    from {
+        filter: blur(100px)
+    }
+    
+    to {
+        filter: blur(0px)
     }
 }
 

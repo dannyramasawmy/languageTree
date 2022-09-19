@@ -274,8 +274,7 @@ function PopulateNodeDisplay(elementName, headerName, dataName, currentNode, dis
 
         // make sliding in animation
         let noAnimation = G_searchModeIsActive ? 0 : 1;       
-        let showAnimation = yScrollHeight == 0 ? 1 : 0;        
-        let animationTime = 1 * noAnimation * showAnimation * idx/displayList.length;
+        let animationTime = 1 * noAnimation * G_settings_showAnimation * idx/displayList.length;
 
         // console.log(animationTime)
         newDiv.style.animation = `${animationTime}s slide-in`;
