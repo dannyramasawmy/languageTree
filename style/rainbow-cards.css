@@ -126,12 +126,16 @@ form {
 
 @keyframes slide-in {
     from {
-      margin-right: 100%;
+        position: relative;
+        left: -100%;
     }
+
     to {
-      margin-right: 0%;
+        position: relative;
+        left: 0%;
+        /* margin-right: 50%; */
     }
-  }
+}
 
 .data-card:active{
     filter: brightness(50%);
