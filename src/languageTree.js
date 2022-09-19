@@ -233,6 +233,8 @@ function ScrollHandler() {
 }
 
 function PopulateNodeDisplay(elementName, headerName, dataName, currentNode, displayList, yScrollHeight, showAnimation) {
+    
+    HideSettings();
 
     // set root or parent icon
     if (currentNode.IsRoot)
@@ -357,5 +359,14 @@ function HideSearchButtons() {
 var StoreAnimationSettings = (value) => {
     window.localStorage.setItem(`G_settings_showAnimation`, value);
     G_settings_showAnimation = window.localStorage.getItem(`G_settings_showAnimation`);
-  }
-  
+}
+
+var HideSettings = () => {
+    document.querySelector('.settings').style.display = 'none';
+    G_settingsModeIsActive = false;
+}
+
+var ShowSettings = () => {
+    document.querySelector('.settings').style.display = 'flex';
+    G_settingsModeIsActive = true;
+}

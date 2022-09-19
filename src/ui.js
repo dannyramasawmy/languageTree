@@ -25,6 +25,7 @@ const SECONDARY_LANGUAGE_ICON = "img/swap-language-icon-2.png";
 var G_displayLanguageIsEnglish = true;
 var G_randomSelectionIcons = 0;
 var G_searchModeIsActive = false;
+var G_settingsModeIsActive = false;
 
 var G_settings_showAnimation = window.localStorage.getItem(`G_settings_showAnimation`) ?? 0;
 
@@ -109,6 +110,8 @@ window.addEventListener('click',
 
       // search for card
       if (event.composedPath()[idx].id == "search-button") {
+        HideSettings();
+        
         if (G_searchModeIsActive) {
           ResetSearch();
           HideSearchButtons();
@@ -146,6 +149,9 @@ window.addEventListener('click',
 
       // go to parent
       if (event.composedPath()[idx].id == "parent-card") {
+        let previousNode = G_currentNode;
+        let currentSettingsMode = G_settingsModeIsActive;
+
         G_currentNode = G_currentNode.Parent;
         G_displayList = GetDisplayNodes(G_currentNode);
         pushState(G_currentNode)
@@ -156,6 +162,17 @@ window.addEventListener('click',
         ClearNodeDisplay(elementName)
         G_displayList = SortDisplayList(G_displayList);
         PopulateNodeDisplay(elementName, HEADER_NAME, DATA_NAME, G_currentNode, G_displayList, heightToSet)
+        
+        if (previousNode == G_currentNode && G_currentNode == ROOT_NODE) {
+          console.log("Here")
+          console.log(G_settingsModeIsActive)
+          
+          if (currentSettingsMode)
+            HideSettings();
+          else  
+            ShowSettings();
+        }
+
         return;
       }
     }

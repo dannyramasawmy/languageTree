@@ -203,7 +203,7 @@ form {
 
 .settings {
     background-color: #1B2631DF;
-    display: flex;
+    display: none;
     flex-wrap: nowrap;
     flex-direction: column;
     height: 3em;
