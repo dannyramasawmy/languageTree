@@ -161,7 +161,7 @@ function GetSearchableWords(rootDataCard, searchableDictionary) {
 
 PrepareEnglishString = (inputString) => inputString.toLowerCase().trim();
 PrepareRomanianString = (inputString) => inputString.toLowerCase().trim()
-    .replace("ă", "a").replace("â", "a").replace("î", "i").replace("ș", "s").replace("ț", "t");
+    .replace(/[ăâ]/g, "a").replace(/î/g, "i").replace(/ș/g, "s").replace(/ț/g, "t");
 
 function SortDisplayList(displayList) {
     if (G_displayLanguageIsEnglish) 
@@ -225,6 +225,8 @@ function PopulateNodeDisplay(elementName, headerName, dataName, currentNode, dis
     dataDiv.innerHTML = currentNode.Data;
 
     var displayDiv = document.getElementById(elementName);
+
+    console.log(`Is it a leaf? ${displayList.length}`);
 
     for (var idx = 0; idx < displayList.length; idx++) {
         var newDiv = document.createElement("div");
@@ -290,6 +292,7 @@ function GetShuffleIconPath(increment) {
     G_randomSelectionIcons = (G_randomSelectionIcons + increment) % 4
     return `"img/shuffle-icon-${G_randomSelectionIcons + 1}.png"`;
 }
+
 GetNextShuffleIconPath = () => GetShuffleIconPath(1);
 GetPreviousShuffleIconPath = () => GetShuffleIconPath(3);
 
