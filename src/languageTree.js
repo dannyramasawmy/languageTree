@@ -205,7 +205,22 @@ function ClearNodeDisplay(elementName) {
         displayDiv.removeChild(displayDiv.children[idx - 1]);
 }
 
-function PopulateNodeDisplay(elementName, headerName, dataName, currentNode, displayList) {
+function ScrollHandler() {
+    this.ScrollHistory = [];
+
+    this.GetCurrentHeight = () => window.pageYOffset;
+
+    this.AddHistory = () => {
+        this.ScrollHistory.push(window.pageYOffset);
+    }
+
+    this.GetPreviousHeight = () => {
+        if (this.ScrollHistory.length > 0) return this.ScrollHistory.pop();
+        return 0;
+    }
+}
+
+function PopulateNodeDisplay(elementName, headerName, dataName, currentNode, displayList, yScrollHeight) {
 
     // set root or parent icon
     if (currentNode.IsRoot)
@@ -216,7 +231,6 @@ function PopulateNodeDisplay(elementName, headerName, dataName, currentNode, dis
         SwapImageOnButton("parent-card", PARENT_ICON);
 
     COLOR_WHEEL.ResetIndex();
-    window.scrollTo(0, 0);
 
     var headerDiv = document.getElementById(headerName);
     headerDiv.innerHTML = G_displayLanguageIsEnglish
@@ -245,6 +259,8 @@ function PopulateNodeDisplay(elementName, headerName, dataName, currentNode, dis
 
         displayDiv.appendChild(newDiv);
     }
+
+    window.scrollTo(0, yScrollHeight);
 }
 
 function ColorWheel() {

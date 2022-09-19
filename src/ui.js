@@ -11,6 +11,7 @@ const ELEMENT_NAME = "node-display";
 const HEADER_NAME = "current-node";
 const DATA_NAME = "current-node-data";
 const COLOR_WHEEL = new ColorWheel();
+const SCROLL = new ScrollHandler();
 
 // icon paths
 const ROOT_ICON = "img/root-icon.png";
@@ -33,7 +34,7 @@ var G_currentNode = ROOT_NODE;
 var G_displayList = GetDisplayNodes(G_currentNode);
 
 ClearNodeDisplay(ELEMENT_NAME)
-PopulateNodeDisplay(ELEMENT_NAME, HEADER_NAME, DATA_NAME, G_currentNode, G_displayList)
+PopulateNodeDisplay(ELEMENT_NAME, HEADER_NAME, DATA_NAME, G_currentNode, G_displayList, 0)
 
 var G_searchable = new SearchableDictionary();
 GetSearchableWords(romanian, G_searchable);
@@ -62,7 +63,7 @@ window.addEventListener('popstate',
 
     ClearNodeDisplay(ELEMENT_NAME);
     G_displayList = GetDisplayNodes(G_currentNode);
-    PopulateNodeDisplay(ELEMENT_NAME, HEADER_NAME, DATA_NAME, G_currentNode, G_displayList)
+    PopulateNodeDisplay(ELEMENT_NAME, HEADER_NAME, DATA_NAME, G_currentNode, G_displayList, 0)
   });
 
 // clicking
@@ -89,7 +90,7 @@ window.addEventListener('click',
         SwapImageOnButton("random-card", GetNextShuffleIconPath())
         ResetSearch();
         ClearNodeDisplay(elementName)
-        PopulateNodeDisplay(elementName, HEADER_NAME, DATA_NAME, G_currentNode, G_displayList)
+        PopulateNodeDisplay(elementName, HEADER_NAME, DATA_NAME, G_currentNode, G_displayList, 0)
         return;
       }
 
@@ -99,7 +100,7 @@ window.addEventListener('click',
         ResetSearch();
         G_displayList = SortDisplayList(G_displayList);
         ClearNodeDisplay(elementName)
-        PopulateNodeDisplay(elementName, HEADER_NAME, DATA_NAME, G_currentNode, G_displayList)
+        PopulateNodeDisplay(elementName, HEADER_NAME, DATA_NAME, G_currentNode, G_displayList, 0)
         return;
       }
 
@@ -125,10 +126,11 @@ window.addEventListener('click',
         // display
         let nodeToShow = G_searchModeIsActive ? searchPlaceholder : G_currentNode;
         let iconToShow = G_displayLanguageIsEnglish ? PRIMARY_LANGUAGE_ICON : SECONDARY_LANGUAGE_ICON;
-     
+        let heightToSet = SCROLL.GetCurrentHeight();
+
         SwapImageOnButton("swap-language", iconToShow);
         ClearNodeDisplay(elementName);
-        PopulateNodeDisplay(elementName, HEADER_NAME, DATA_NAME, nodeToShow, G_displayList);
+        PopulateNodeDisplay(elementName, HEADER_NAME, DATA_NAME, nodeToShow, G_displayList, heightToSet);
         return;
       }
 
@@ -139,10 +141,11 @@ window.addEventListener('click',
         pushState(G_currentNode)
 
         // display
+        var heightToSet = SCROLL.GetPreviousHeight();
         ResetSearch();
         ClearNodeDisplay(elementName)
         G_displayList = SortDisplayList(G_displayList);
-        PopulateNodeDisplay(elementName, HEADER_NAME, DATA_NAME, G_currentNode, G_displayList)
+        PopulateNodeDisplay(elementName, HEADER_NAME, DATA_NAME, G_currentNode, G_displayList, heightToSet)
         return;
       }
     }
@@ -153,12 +156,13 @@ window.addEventListener('click',
       G_currentNode = G_displayList[clickId];
       G_displayList = GetDisplayNodes(G_currentNode);
       pushState(G_currentNode)
+      SCROLL.AddHistory();
 
       // display
       ResetSearch();
       ClearNodeDisplay(elementName)
       G_displayList = SortDisplayList(G_displayList);
-      PopulateNodeDisplay(elementName, HEADER_NAME, DATA_NAME, G_currentNode, G_displayList)
+      PopulateNodeDisplay(elementName, HEADER_NAME, DATA_NAME, G_currentNode, G_displayList, 0)
     }
   })
 
@@ -166,7 +170,7 @@ window.addEventListener('click',
 function keyboardInput() {
   G_displayList = G_searchable.GetDataCards(document.getElementById("filter").value);
   ClearNodeDisplay(ELEMENT_NAME);
-  PopulateNodeDisplay(ELEMENT_NAME, HEADER_NAME, DATA_NAME, searchPlaceholder, G_displayList);
+  PopulateNodeDisplay(ELEMENT_NAME, HEADER_NAME, DATA_NAME, searchPlaceholder, G_displayList, 0);
 };
 
 // =============================================================================
