@@ -162,10 +162,9 @@ function GetSearchableWords(rootDataCard, searchableDictionary) {
     return;
 }
 
-function PrepareString(inputString) {
-    // TODO: Replace needs regular expression
-    return inputString.toLowerCase().trim();
-}
+PrepareEnglishString = (inputString) => inputString.toLowerCase().trim();
+PrepareRomanianString = (inputString) => inputString.toLowerCase().trim()
+    .replace("ă", "a").replace("â", "a").replace("î", "i").replace("ș", "s").replace("ț", "t");
 
 function SortDisplayList(displayList) {
     if (G_displayLanguageIsEnglish) 
@@ -176,14 +175,14 @@ function SortDisplayList(displayList) {
 }
 
 function SortRomanian(x, y) {
-    if (x.Romanian < y.Romanian) return -1;
-    if (x.Romanian > y.Romanian) return 1;
+    if (PrepareRomanianString(x.Romanian) < PrepareRomanianString(y.Romanian)) return -1;
+    if (PrepareRomanianString(x.Romanian) > PrepareRomanianString(y.Romanian)) return 1;
     return 0;
 }
 
 function SortEnglish(x, y) {
-    if (x.English < y.English) return -1;
-    if (x.English > y.English) return 1;
+    if (PrepareEnglishString(x.English) < PrepareEnglishString(y.English)) return -1;
+    if (PrepareEnglishString(x.English) > PrepareEnglishString(y.English)) return 1;
     return 0;
 }
 
@@ -210,10 +209,8 @@ function RandomElementInArray(arr) {
 
 function GetDisplayNodes(node) {
     var displayList = [];
-
-    for (var idx = 0; idx < node.Child.length; idx++) {
+    for (var idx = 0; idx < node.Child.length; idx++)
         displayList.push(node.Child[idx])
-    }
 
     return displayList;
 }
@@ -325,17 +322,12 @@ function SwapImageOnButton(elementName, urlToImage) {
 }
 
 function ShowSearchButtons() {
-    let searchBar = document.querySelector('.search-bar');
-    searchBar.style.display = 'flex';
-
+    document.querySelector('.search-bar').style.display = 'flex';
     G_searchModeIsActive = true;
-
     document.getElementById("filter").focus();
 }
 
 function HideSearchButtons() {
-    let searchBar = document.querySelector('.search-bar');
-    searchBar.style.display = 'none';
-
+    document.querySelector('.search-bar').style.display = 'none';
     G_searchModeIsActive = false;
 }
