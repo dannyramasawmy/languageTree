@@ -1,7 +1,7 @@
 //
 // Major version: changes in behavior / new buttons etc
 // Minor version: new/edited cars / bug fixes
-const staticCacheName = 'languageTree-v17-4';
+const staticCacheName = 'languageTree-v17-5';
 
 self.addEventListener('install', (e) => {
   console.log("Registering sw");
@@ -17,6 +17,7 @@ self.addEventListener('install', (e) => {
       '/languageTree/img/parent-icon.png',
       '/languageTree/img/search-icon-1.png',
       '/languageTree/img/search-icon-2.png',
+      '/languageTree/img/settings-icon.png',
       '/languageTree/img/shuffle-icon-1.png',
       '/languageTree/img/shuffle-icon-2.png',
       '/languageTree/img/shuffle-icon-3.png',

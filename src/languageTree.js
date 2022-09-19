@@ -238,7 +238,7 @@ function PopulateNodeDisplay(elementName, headerName, dataName, currentNode, dis
 
     // set root or parent icon
     if (currentNode.IsRoot)
-        SwapImageOnButton("parent-card", ROOT_ICON);
+        SwapImageOnButton("parent-card", SETTINGS_ICON);
     else if (displayList.length == 0)
         SwapImageOnButton("parent-card", LEAF_ICON);
     else
@@ -369,4 +369,5 @@ var HideSettings = () => {
 var ShowSettings = () => {
     document.querySelector('.settings').style.display = 'flex';
     G_settingsModeIsActive = true;
+    SwapImageOnButton("parent-card", ROOT_ICON);
 }

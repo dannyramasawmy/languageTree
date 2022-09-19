@@ -17,6 +17,7 @@ const SCROLL = new ScrollHandler();
 const ROOT_ICON = "img/root-icon.png";
 const PARENT_ICON = "img/parent-icon.png";
 const LEAF_ICON = "img/leaf-icon.png";
+const SETTINGS_ICON = "img/settings-icon.png";
 const SEARCH_NOT_ACTIVE_ICON = "img/search-icon-1.png";
 const SEARCH_ACTIVE_ICON = "img/search-icon-2.png";
 const PRIMARY_LANGUAGE_ICON = "img/swap-language-icon-1.png";
@@ -27,7 +28,7 @@ var G_randomSelectionIcons = 0;
 var G_searchModeIsActive = false;
 var G_settingsModeIsActive = false;
 
-var G_settings_showAnimation = window.localStorage.getItem(`G_settings_showAnimation`) ?? 0;
+var G_settings_showAnimation = window.localStorage.getItem(`G_settings_showAnimation`) ?? 1;
 
 // =============================================================================
 // Initialise
@@ -111,7 +112,7 @@ window.addEventListener('click',
       // search for card
       if (event.composedPath()[idx].id == "search-button") {
         HideSettings();
-        
+
         if (G_searchModeIsActive) {
           ResetSearch();
           HideSearchButtons();
@@ -163,10 +164,9 @@ window.addEventListener('click',
         G_displayList = SortDisplayList(G_displayList);
         PopulateNodeDisplay(elementName, HEADER_NAME, DATA_NAME, G_currentNode, G_displayList, heightToSet)
         
-        if (previousNode == G_currentNode && G_currentNode == ROOT_NODE) {
-          console.log("Here")
-          console.log(G_settingsModeIsActive)
-          
+        if (previousNode == G_currentNode 
+          && G_currentNode == ROOT_NODE
+          && !G_searchModeIsActive) {         
           if (currentSettingsMode)
             HideSettings();
           else  
