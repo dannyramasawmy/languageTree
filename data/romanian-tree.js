@@ -741,7 +741,7 @@ SetParentAndChild(colours, black);
 var orange = new DataCard("Orange", "Portocaliu", "")
 SetParentAndChild(colours, orange);
 
-var grey = new DataCard("Grey", "gri", "")
+var grey = new DataCard("Grey", "Gri", "")
 SetParentAndChild(colours, grey);
 
 var green = new DataCard("Green", "Verde", "")
