@@ -17,6 +17,7 @@ body {
     font-size: 40px;
     color: #ECF0F1;
     vertical-align: middle;
+    touch-action: manipulation;  /* disable double tap zoom */
 }
 
 blue {
@@ -177,6 +178,7 @@ form {
     width: 99%;
     padding: 0%;
     margin: 0%;
+    filter: blur(0px)
 }
     
 .floating:active {
@@ -209,6 +211,7 @@ form {
     body {
         font-size: 40px;
     }
+
   }
 
 .data-card:hover {

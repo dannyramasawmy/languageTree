@@ -2,8 +2,8 @@
 // Global variables
 // =============================================================================
 
-const rootNode = romanian;
-const elementName = "node-display";
+const ROOT_NODE = romanian;
+const ELEMENT_NAME = "node-display";
 const headerName = "current-node";
 const dataName = "current-node-data";
 const colorWheel = new ColorWheel();
@@ -15,11 +15,11 @@ var searchModeIsActive = false;
 // Initialise
 // =============================================================================
 
-var currentNode = rootNode;
+var currentNode = ROOT_NODE;
 var displayList = GetDisplayNodes(currentNode);
 
-ClearNodeDisplay(elementName)
-PopulateNodeDisplay(elementName, headerName, dataName, currentNode, displayList)
+ClearNodeDisplay(ELEMENT_NAME)
+PopulateNodeDisplay(ELEMENT_NAME, headerName, dataName, currentNode, displayList)
 
 var searchable = new SearchableDictionary();
 GetSearchableWords(romanian, searchable);
@@ -41,14 +41,14 @@ window.addEventListener('popstate',
   function (event) {
 
     currentNode = event.state == null
-      ? rootNode
+      ? ROOT_NODE
       : searchable.GetDataCardFromState(event.state);
 
     SwapImageOnButton("random-card", GetPreviousShuffleIconPath())
 
-    ClearNodeDisplay(elementName);
+    ClearNodeDisplay(ELEMENT_NAME);
     displayList = GetDisplayNodes(currentNode);
-    PopulateNodeDisplay(elementName, headerName, dataName, currentNode, displayList)
+    PopulateNodeDisplay(ELEMENT_NAME, headerName, dataName, currentNode, displayList)
   });
 
 // clicking
@@ -157,8 +157,8 @@ window.addEventListener('click',
 
 function keyboardInput() {
   displayList = searchable.GetDataCards(document.getElementById("filter").value);
-  ClearNodeDisplay(elementName);
-  PopulateNodeDisplay(elementName, headerName, dataName, searchPlaceholder, displayList);
+  ClearNodeDisplay(ELEMENT_NAME);
+  PopulateNodeDisplay(ELEMENT_NAME, headerName, dataName, searchPlaceholder, displayList);
 };
 
 // =============================================================================
