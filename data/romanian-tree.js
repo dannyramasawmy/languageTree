@@ -545,7 +545,7 @@ var on = new DataCard(
 SetParentAndChild(prepositions, on);
 
 var since = new DataCard(
-    "Since", "De cand",
+    "Since", "De când",
     "")
 SetParentAndChild(prepositions, since);
 
@@ -908,7 +908,7 @@ SetParentAndChild(theBody, bottom)
 var hand = new DataCard("Hand", "Mână", "")
 SetParentAndChild(theBody, hand)
 
-var thumb = new DataCard("Thumb", "detetul mare", "")
+var thumb = new DataCard("Thumb", "Degetul mare", "")
 SetParentAndChild(theBody, thumb)
 
 var fingers = new DataCard("Fingers", "Degete de la mână", "")
@@ -925,7 +925,7 @@ var adverbs = new DataCard(
 SetParentAndChild(romanian, adverbs);
 
 var when = new DataCard(
-    "When", "Cand",
+    "When", "Când",
     "")
 SetParentAndChild(adverbs, when);
 
