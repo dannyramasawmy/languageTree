@@ -2,30 +2,34 @@
 // Global variables
 // =============================================================================
 
+// consts in screaming snake case
+// gobal vars with G_ prefix
+// normal variables with camelCase
+
 const ROOT_NODE = romanian;
 const ELEMENT_NAME = "node-display";
-const headerName = "current-node";
-const dataName = "current-node-data";
-const colorWheel = new ColorWheel();
-var displayLanguageIsEnglish = true;
-var randomSelectionIcons = 0;
-var searchModeIsActive = false;
+const HEADER_NAME = "current-node";
+const DATA_NAME = "current-node-data";
+const COLOR_WHEEL = new ColorWheel();
+var G_displayLanguageIsEnglish = true;
+var G_randomSelectionIcons = 0;
+var G_searchModeIsActive = false;
 
 // =============================================================================
 // Initialise
 // =============================================================================
 
-var currentNode = ROOT_NODE;
-var displayList = GetDisplayNodes(currentNode);
+var G_currentNode = ROOT_NODE;
+var G_displayList = GetDisplayNodes(G_currentNode);
 
 ClearNodeDisplay(ELEMENT_NAME)
-PopulateNodeDisplay(ELEMENT_NAME, headerName, dataName, currentNode, displayList)
+PopulateNodeDisplay(ELEMENT_NAME, HEADER_NAME, DATA_NAME, G_currentNode, G_displayList)
 
-var searchable = new SearchableDictionary();
-GetSearchableWords(romanian, searchable);
+var G_searchable = new SearchableDictionary();
+GetSearchableWords(romanian, G_searchable);
 
 document.getElementById("filter").placeholder =
-  `Search (${searchable.GetDataCards("").length})`;
+  `Search (${G_searchable.GetDataCards("").length})`;
 
 // =============================================================================
 // Events
@@ -40,19 +44,18 @@ function pushState(node) {
 window.addEventListener('popstate',
   function (event) {
 
-    currentNode = event.state == null
+    G_currentNode = event.state == null
       ? ROOT_NODE
-      : searchable.GetDataCardFromState(event.state);
+      : G_searchable.GetDataCardFromState(event.state);
 
     SwapImageOnButton("random-card", GetPreviousShuffleIconPath())
 
     ClearNodeDisplay(ELEMENT_NAME);
-    displayList = GetDisplayNodes(currentNode);
-    PopulateNodeDisplay(ELEMENT_NAME, headerName, dataName, currentNode, displayList)
+    G_displayList = GetDisplayNodes(G_currentNode);
+    PopulateNodeDisplay(ELEMENT_NAME, HEADER_NAME, DATA_NAME, G_currentNode, G_displayList)
   });
 
 // clicking
-var log;
 window.addEventListener('click',
   function (event) {
 
@@ -68,16 +71,16 @@ window.addEventListener('click',
       // shuffle current node
       if (event.composedPath()[idx].id == "random-card") {
         // state
-        currentNode = RandomElementInArray(searchable.GetDataCards(""));
-        pushState(currentNode);
-        displayList = GetDisplayNodes(currentNode);
+        G_currentNode = RandomElementInArray(G_searchable.GetDataCards(""));
+        pushState(G_currentNode);
+        G_displayList = GetDisplayNodes(G_currentNode);
 
         SwapImageOnButton("random-card", GetNextShuffleIconPath())
 
         // display
         ResetSearch();
         ClearNodeDisplay(elementName)
-        PopulateNodeDisplay(elementName, headerName, dataName, currentNode, displayList)
+        PopulateNodeDisplay(elementName, HEADER_NAME, DATA_NAME, G_currentNode, G_displayList)
         return;
       }
 
@@ -85,15 +88,15 @@ window.addEventListener('click',
       if (event.composedPath()[idx].id == "sort-cards") {
         // display
         ResetSearch();
-        displayList = SortDisplayList(displayList);
+        G_displayList = SortDisplayList(G_displayList);
         ClearNodeDisplay(elementName)
-        PopulateNodeDisplay(elementName, headerName, dataName, currentNode, displayList)
+        PopulateNodeDisplay(elementName, HEADER_NAME, DATA_NAME, G_currentNode, G_displayList)
         return;
       }
 
       // search for card
       if (event.composedPath()[idx].id == "search-button") {
-        if (searchModeIsActive) {
+        if (G_searchModeIsActive) {
           HideSearchButtons();
           SwapImageOnButton("search-button", "img/search-icon-1.png");
         }
@@ -108,57 +111,56 @@ window.addEventListener('click',
       // swap language shown
       if (event.composedPath()[idx].id == "swap-language") {
         // state
-        displayLanguageIsEnglish = displayLanguageIsEnglish ? false : true;
+        G_displayLanguageIsEnglish = G_displayLanguageIsEnglish ? false : true;
 
         // swap ion
         let url1 = "img/swap-language-icon-1.png";
         let url2 = "img/swap-language-icon-2.png";
-        SwapImageOnButton("swap-language", displayLanguageIsEnglish ? url1 : url2)
+        SwapImageOnButton("swap-language", G_displayLanguageIsEnglish ? url1 : url2)
 
         // display
         ClearNodeDisplay(elementName)
 
-        let nodeToShow = searchModeIsActive ? searchPlaceholder : currentNode;
-        PopulateNodeDisplay(elementName, headerName, dataName, nodeToShow, displayList)
+        let nodeToShow = G_searchModeIsActive ? searchPlaceholder : G_currentNode;
+        PopulateNodeDisplay(elementName, HEADER_NAME, DATA_NAME, nodeToShow, G_displayList)
         return;
       }
 
       // go to parent
       if (event.composedPath()[idx].id == "parent-card") {
-        log = currentNode;
-        currentNode = currentNode.Parent;
-        displayList = GetDisplayNodes(currentNode);
-        pushState(currentNode)
+        G_currentNode = G_currentNode.Parent;
+        G_displayList = GetDisplayNodes(G_currentNode);
+        pushState(G_currentNode)
 
         // display
         ResetSearch();
         ClearNodeDisplay(elementName)
-        displayList = SortDisplayList(displayList);
-        PopulateNodeDisplay(elementName, headerName, dataName, currentNode, displayList)
+        G_displayList = SortDisplayList(G_displayList);
+        PopulateNodeDisplay(elementName, HEADER_NAME, DATA_NAME, G_currentNode, G_displayList)
         return;
       }
     }
 
     // when clicking on a card
-    if (displayList[clickId] !== undefined) {
+    if (G_displayList[clickId] !== undefined) {
       // state
-      currentNode = displayList[clickId];
-      displayList = GetDisplayNodes(currentNode);
-      pushState(currentNode)
+      G_currentNode = G_displayList[clickId];
+      G_displayList = GetDisplayNodes(G_currentNode);
+      pushState(G_currentNode)
 
       // display
       ResetSearch();
       ClearNodeDisplay(elementName)
-      displayList = SortDisplayList(displayList);
-      PopulateNodeDisplay(elementName, headerName, dataName, currentNode, displayList)
+      G_displayList = SortDisplayList(G_displayList);
+      PopulateNodeDisplay(elementName, HEADER_NAME, DATA_NAME, G_currentNode, G_displayList)
     }
   })
 
 
 function keyboardInput() {
-  displayList = searchable.GetDataCards(document.getElementById("filter").value);
+  G_displayList = G_searchable.GetDataCards(document.getElementById("filter").value);
   ClearNodeDisplay(ELEMENT_NAME);
-  PopulateNodeDisplay(ELEMENT_NAME, headerName, dataName, searchPlaceholder, displayList);
+  PopulateNodeDisplay(ELEMENT_NAME, HEADER_NAME, DATA_NAME, searchPlaceholder, G_displayList);
 };
 
 // =============================================================================
@@ -201,6 +203,3 @@ window.addEventListener('beforeinstallprompt', (e) => {
     });
   });
 });
-
-
-

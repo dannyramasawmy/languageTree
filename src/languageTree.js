@@ -28,7 +28,7 @@ function SearchableDictionary() {
     this.English = {};
 
     this.GetDataCards = function (searchString) {
-        var words = displayLanguageIsEnglish
+        var words = G_displayLanguageIsEnglish
             ? Object.getOwnPropertyNames(this.English)
             : Object.getOwnPropertyNames(this.Romanian);
 
@@ -36,7 +36,7 @@ function SearchableDictionary() {
         var filteredWords = words.filter((x, i) => wordMask[i]);
 
         var filteredDataCards = filteredWords.map(
-            x => displayLanguageIsEnglish
+            x => G_displayLanguageIsEnglish
                 ? this.English[x]
                 : this.Romanian[x]);
 
@@ -214,11 +214,11 @@ function PopulateNodeDisplay(elementName, headerName, dataName, currentNode, dis
     else
         SwapImageOnButton("parent-card", "img/parent-icon.png");
 
-    colorWheel.ResetIndex();
+    COLOR_WHEEL.ResetIndex();
     window.scrollTo(0, 0);
 
     var headerDiv = document.getElementById(headerName);
-    headerDiv.innerHTML = displayLanguageIsEnglish
+    headerDiv.innerHTML = G_displayLanguageIsEnglish
         ? `<orange>${currentNode.English}</orange> <blue>${currentNode.Romanian}</blue>`
         : `<blue>${currentNode.Romanian}</blue> <orange>${currentNode.English}</orange>`;
 
@@ -230,7 +230,7 @@ function PopulateNodeDisplay(elementName, headerName, dataName, currentNode, dis
     for (var idx = 0; idx < displayList.length; idx++) {
         var newDiv = document.createElement("div");
 
-        newDiv.innerHTML = displayLanguageIsEnglish
+        newDiv.innerHTML = G_displayLanguageIsEnglish
             ? displayList[idx].English
             : newDiv.innerHTML = displayList[idx].Romanian;
 
@@ -238,15 +238,15 @@ function PopulateNodeDisplay(elementName, headerName, dataName, currentNode, dis
         newDiv.className = "data-card";
 
         // rainbow colors
-        newDiv.style.backgroundColor = colorWheel.GetNextColor();
-        newDiv.style.color = colorWheel.TextColor;
+        newDiv.style.backgroundColor = COLOR_WHEEL.GetNextColor();
+        newDiv.style.color = COLOR_WHEEL.TextColor;
 
         displayDiv.appendChild(newDiv);
     }
 }
 
 function SortDisplayList(displayList) {
-    if (displayLanguageIsEnglish) {
+    if (G_displayLanguageIsEnglish) {
         displayList.sort(
             (x, y) => x.English[0] < y.English[0] ? -1 : 1
         );
@@ -309,8 +309,8 @@ function RotateImageOnButton(elementName, angle) {
 }
 
 function GetShuffleIconPath(increment) {
-    randomSelectionIcons = (randomSelectionIcons + increment) % 4
-    return `"img/shuffle-icon-${randomSelectionIcons + 1}.png"`;
+    G_randomSelectionIcons = (G_randomSelectionIcons + increment) % 4
+    return `"img/shuffle-icon-${G_randomSelectionIcons + 1}.png"`;
 }
 GetNextShuffleIconPath = () => GetShuffleIconPath(1);
 GetPreviousShuffleIconPath = () => GetShuffleIconPath(3);
@@ -324,7 +324,7 @@ function ShowSearchButtons() {
     let searchBar = document.querySelector('.search-bar');
     searchBar.style.display = 'flex';
 
-    searchModeIsActive = true;
+    G_searchModeIsActive = true;
 
     document.getElementById("filter").focus();
 }
@@ -333,5 +333,5 @@ function HideSearchButtons() {
     let searchBar = document.querySelector('.search-bar');
     searchBar.style.display = 'none';
 
-    searchModeIsActive = false;
+    G_searchModeIsActive = false;
 }
