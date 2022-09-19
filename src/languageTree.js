@@ -209,9 +209,11 @@ function PopulateNodeDisplay(elementName, headerName, dataName, currentNode, dis
 
     // set root or parent icon
     if (currentNode.IsRoot)
-        SwapImageOnButton("parent-card", "img/root-icon.png");
+        SwapImageOnButton("parent-card", ROOT_ICON);
+    else if (displayList.length == 0)
+        SwapImageOnButton("parent-card", LEAF_ICON);
     else
-        SwapImageOnButton("parent-card", "img/parent-icon.png");
+        SwapImageOnButton("parent-card", PARENT_ICON);
 
     COLOR_WHEEL.ResetIndex();
     window.scrollTo(0, 0);
@@ -226,7 +228,6 @@ function PopulateNodeDisplay(elementName, headerName, dataName, currentNode, dis
 
     var displayDiv = document.getElementById(elementName);
 
-    console.log(`Is it a leaf? ${displayList.length}`);
 
     for (var idx = 0; idx < displayList.length; idx++) {
         var newDiv = document.createElement("div");
@@ -281,7 +282,7 @@ function ResetSearch() {
     HideSearchButtons();
     searchStringStack = [];
     document.getElementById("filter").value = "";
-    SwapImageOnButton("search-button", "img/search-icon-1.png");
+    SwapImageOnButton("search-button", SEARCH_NOT_ACTIVE_ICON);
 }
 
 // =============================================================================

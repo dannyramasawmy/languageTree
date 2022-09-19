@@ -11,6 +11,16 @@ const ELEMENT_NAME = "node-display";
 const HEADER_NAME = "current-node";
 const DATA_NAME = "current-node-data";
 const COLOR_WHEEL = new ColorWheel();
+
+// icon paths
+const ROOT_ICON = "img/root-icon.png";
+const PARENT_ICON = "img/parent-icon.png";
+const LEAF_ICON = "img/leaf-icon.png";
+const SEARCH_NOT_ACTIVE_ICON = "img/search-icon-1.png";
+const SEARCH_ACTIVE_ICON = "img/search-icon-2.png";
+const PRIMARY_LANGUAGE_ICON = "img/swap-language-icon-1.png";
+const SECONDARY_LANGUAGE_ICON = "img/swap-language-icon-2.png";
+
 var G_displayLanguageIsEnglish = true;
 var G_randomSelectionIcons = 0;
 var G_searchModeIsActive = false;
@@ -75,9 +85,8 @@ window.addEventListener('click',
         pushState(G_currentNode);
         G_displayList = GetDisplayNodes(G_currentNode);
 
-        SwapImageOnButton("random-card", GetNextShuffleIconPath())
-
         // display
+        SwapImageOnButton("random-card", GetNextShuffleIconPath())
         ResetSearch();
         ClearNodeDisplay(elementName)
         PopulateNodeDisplay(elementName, HEADER_NAME, DATA_NAME, G_currentNode, G_displayList)
@@ -98,11 +107,11 @@ window.addEventListener('click',
       if (event.composedPath()[idx].id == "search-button") {
         if (G_searchModeIsActive) {
           HideSearchButtons();
-          SwapImageOnButton("search-button", "img/search-icon-1.png");
+          SwapImageOnButton("search-button", SEARCH_NOT_ACTIVE_ICON);
         }
         else {
           ShowSearchButtons();
-          SwapImageOnButton("search-button", "img/search-icon-2.png");
+          SwapImageOnButton("search-button", SEARCH_ACTIVE_ICON);
         }
 
         return;
@@ -112,17 +121,14 @@ window.addEventListener('click',
       if (event.composedPath()[idx].id == "swap-language") {
         // state
         G_displayLanguageIsEnglish = G_displayLanguageIsEnglish ? false : true;
-
-        // swap ion
-        let url1 = "img/swap-language-icon-1.png";
-        let url2 = "img/swap-language-icon-2.png";
-        SwapImageOnButton("swap-language", G_displayLanguageIsEnglish ? url1 : url2)
-
+        
         // display
-        ClearNodeDisplay(elementName)
-
         let nodeToShow = G_searchModeIsActive ? searchPlaceholder : G_currentNode;
-        PopulateNodeDisplay(elementName, HEADER_NAME, DATA_NAME, nodeToShow, G_displayList)
+        let iconToShow = G_displayLanguageIsEnglish ? PRIMARY_LANGUAGE_ICON : SECONDARY_LANGUAGE_ICON;
+     
+        SwapImageOnButton("swap-language", iconToShow);
+        ClearNodeDisplay(elementName);
+        PopulateNodeDisplay(elementName, HEADER_NAME, DATA_NAME, nodeToShow, G_displayList);
         return;
       }
 

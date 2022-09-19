@@ -1,7 +1,7 @@
 //
 // Major version: changes in behavior / new buttons etc
 // Minor version: new/edited cars / bug fixes
-const staticCacheName = 'languageTree-v16-3';
+const staticCacheName = 'languageTree-v16-4';
 
 self.addEventListener('install', (e) => {
   console.log("Registering sw");
@@ -12,6 +12,7 @@ self.addEventListener('install', (e) => {
       '/languageTree/src/languageTree.js',
       '/languageTree/img/background-tree.svg',
       '/languageTree/img/delta-icon.png',
+      '/languageTree/img/leaf-icon.png',
       '/languageTree/img/root-icon.png',
       '/languageTree/img/parent-icon.png',
       '/languageTree/img/search-icon-1.png',
