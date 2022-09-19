@@ -376,14 +376,11 @@ var ShowSettings = () => {
 }
 
 var DisplayRadioButtonCheck = () => {
-    console.log(G_settings_showAnimation)
     if (G_settings_showAnimation == 1) {
-        console.log("here?")
         document.getElementById('animation-on').checked = true;
         document.getElementById('animation-off').checked = false;
     }
     else {
-        console.log("why not here?")
         document.getElementById('animation-on').checked = false;
         document.getElementById('animation-off').checked = true;
     }
