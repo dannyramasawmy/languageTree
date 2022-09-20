@@ -181,6 +181,11 @@ window.addEventListener('click',
 
     // when clicking on a card
     if (G_displayList[clickId] !== undefined) {
+
+      // don't allow clicking on a card if in settings
+      if (G_settingsModeIsActive)
+        return;
+
       // state
       G_currentNode = G_displayList[clickId];
       G_displayList = GetDisplayNodes(G_currentNode);

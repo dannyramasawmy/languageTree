@@ -342,14 +342,21 @@ var HideSettings = () => {
     document.querySelector('.settings').style.display = 'none';
     G_settingsModeIsActive = false;
     SwapImageOnButton("parent-card", SETTINGS_ICON);
+
+    // unblur cards
+    document.getElementById("data-view").style.filter = 'blur(0)';
+    document.getElementById("node-display").style.filter = 'blur(0)';
 }
 
 var ShowSettings = () => {
     document.querySelector('.settings').style.display = 'flex';
     G_settingsModeIsActive = true;
     SwapImageOnButton("parent-card", ROOT_ICON);
-    
     DisplayRadioButtonCheck();
+    
+    // blur cards
+    document.getElementById("data-view").style.filter = 'blur(75px)';
+    document.getElementById("node-display").style.filter = 'blur(75px)';
 }
 
 var DisplayRadioButtonCheck = () => {
