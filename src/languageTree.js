@@ -232,7 +232,7 @@ function ScrollHandler() {
     this.PercentageScroll = () => this.GetCurrentHeight() / this.MaxScrollHeight();
 }
 
-function PopulateNodeDisplay(elementName, headerName, dataName, currentNode, displayList, yScrollHeight, showAnimation) {
+function PopulateNodeDisplay(elementName, headerName, dataName, currentNode, displayList, yScrollHeight) {
 
     HideSettings();
 
@@ -341,6 +341,7 @@ var StoreColorSettings = (value) => {
 var HideSettings = () => {
     document.querySelector('.settings').style.display = 'none';
     G_settingsModeIsActive = false;
+    SwapImageOnButton("parent-card", SETTINGS_ICON);
 }
 
 var ShowSettings = () => {

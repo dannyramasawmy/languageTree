@@ -107,7 +107,7 @@ window.addEventListener('click',
         // display
         G_displayList = SortDisplayList(G_displayList);
         ClearNodeDisplay(elementName)
-        PopulateNodeDisplay(elementName, HEADER_NAME, DATA_NAME, nodeToShow, G_displayList, 0, true)
+        PopulateNodeDisplay(elementName, HEADER_NAME, DATA_NAME, nodeToShow, G_displayList, 0)
         return;
       }
 
