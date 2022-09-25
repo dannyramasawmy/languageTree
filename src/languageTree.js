@@ -422,6 +422,7 @@ function RainbowColorWheel() {
         return this.Colors[this.Index];
     }
 }
+
 function BoringColorWheel() {
     // https://htmlcolorcodes.com/
     this.Index = 0;

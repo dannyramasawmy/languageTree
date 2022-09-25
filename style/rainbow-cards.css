@@ -21,6 +21,11 @@ body {
     /* disable double tap zoom */
 }
 
+/* ::selection {
+    color: red;
+    background: yellow;
+  } */
+
 blue {
     color: #7ecbff
 }

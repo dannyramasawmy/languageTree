@@ -30,6 +30,7 @@ var G_settingsModeIsActive = false;
 var G_settings_showAnimation = window.localStorage.getItem(`G_settings_showAnimation`) ?? 1;
 var G_isRainbowColor = window.localStorage.getItem(`G_settings_colorScheme`) ?? 1;
 var G_settings_colorScheme = G_isRainbowColor == 1 ? new RainbowColorWheel() : new BoringColorWheel();
+
 console.log(G_isRainbowColor)
 console.log(G_settings_colorScheme)
 // =============================================================================
