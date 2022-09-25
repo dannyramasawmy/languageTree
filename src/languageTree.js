@@ -47,6 +47,14 @@ function SearchableDictionary() {
     };
 }
 
+function CopyText(text)
+{
+    navigator.clipboard.writeText(text);
+    console.log(text + " copied!");
+}
+
+MakeCopyable = (text) => `<copy class="copyable" onclick="CopyText('${text}')">○ ${text} <br></copy>`
+
 function VerbTemplate(
     presentI,
     presentYou,
@@ -57,33 +65,33 @@ function VerbTemplate(
     past, infinitive, relfexivePast = "", reflexiveFuture = "") {
     return (`
         <h2>Present</h2>
-        Eu ${presentI} <br>
-        Tu ${presentYou} <br>
-        El/Ea ${presentHeShe} <br>
-        Noi ${presentWe} <br>
-        Voi ${presentYouPlural} <br>
-        Ei/Ele ${presentThey} <br>
+        ${MakeCopyable(`Eu ${presentI}`)}
+        ${MakeCopyable(`Tu ${presentYou}`)}
+        ${MakeCopyable(`El/Ea ${presentHeShe}`)}
+        ${MakeCopyable(`Noi ${presentWe}`)}
+        ${MakeCopyable(`Voi ${presentYouPlural}`)}
+        ${MakeCopyable(`Ei/Ele ${presentThey}`)}
         <h2>Past</h2>
-        Eu ${relfexivePast} am ${past} <br>
-        Tu ${relfexivePast} ai ${past} <br>
-        El/Ea ${relfexivePast} a ${past} <br>
-        Noi ${relfexivePast} am ${past} <br>
-        Voi ${relfexivePast} ați ${past} <br>
-        Ei/Ele ${relfexivePast} au ${past} <br>
+        ${MakeCopyable(`Eu ${relfexivePast} am ${past}`)}
+        ${MakeCopyable(`Tu ${relfexivePast} ai ${past}`)}
+        ${MakeCopyable(`El/Ea ${relfexivePast} a ${past}`)}
+        ${MakeCopyable(`Noi ${relfexivePast} am ${past}`)}
+        ${MakeCopyable(`Voi ${relfexivePast} ați ${past}`)}
+        ${MakeCopyable(`Ei/Ele ${relfexivePast} au ${past}`)}
         <h2>Future</h2>
-        Eu ${reflexiveFuture} voi ${infinitive} <br>
-        Tu ${reflexiveFuture} vei ${infinitive} <br>
-        El/Ea ${reflexiveFuture} va ${infinitive} <br>
-        Noi ${reflexiveFuture} vom ${infinitive} <br>
-        Voi ${reflexiveFuture} veți ${infinitive} <br>
-        Ei/Ele ${reflexiveFuture} vor ${infinitive} <br>
+        ${MakeCopyable(`Eu ${reflexiveFuture} voi ${infinitive}`)}
+        ${MakeCopyable(`Tu ${reflexiveFuture} vei ${infinitive}`)}
+        ${MakeCopyable(`El/Ea ${reflexiveFuture} va ${infinitive}`)}
+        ${MakeCopyable(`Noi ${reflexiveFuture} vom ${infinitive}`)}
+        ${MakeCopyable(`Voi ${reflexiveFuture} veți ${infinitive}`)}
+        ${MakeCopyable(`Ei/Ele ${reflexiveFuture} vor ${infinitive}`)}
         <h2>Conditional mood (you would)</h2>
-        Eu aș ${infinitive} <br>
-        Tu ai ${infinitive} <br>
-        El/Ea ar ${infinitive} <br>
-        Noi am ${infinitive} <br>
-        Voi ați ${infinitive} <br>
-        Ei/Ele ar ${infinitive} <br>
+        ${MakeCopyable(`Eu aș ${infinitive}`)}
+        ${MakeCopyable(`Tu ai ${infinitive}`)}
+        ${MakeCopyable(`El/Ea ar ${infinitive}`)}
+        ${MakeCopyable(`Noi am ${infinitive}`)}
+        ${MakeCopyable(`Voi ați ${infinitive}`)}
+        ${MakeCopyable(`Ei/Ele ar ${infinitive}`)}
         <br> <br>`);
 }
 
