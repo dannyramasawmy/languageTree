@@ -348,8 +348,10 @@ var StoreColorSettings = (value) => {
 
 var HideSettings = () => {
     document.querySelector('.settings').style.display = 'none';
+
+    if (G_settingsModeIsActive)
+        SwapImageOnButton("parent-card", SETTINGS_ICON);
     G_settingsModeIsActive = false;
-    SwapImageOnButton("parent-card", SETTINGS_ICON);
 
     // unblur cards
     document.getElementById("data-view").style.filter = 'blur(0)';
