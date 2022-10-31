@@ -780,6 +780,9 @@ var soap = new DataCard(
 )
 SetParentAndChild(nouns, soap)
 
+// #home ===========================
+
+
 // #people ================================
 var people = new DataCard("People", "Oamenii", "")
 SetParentAndChild(nouns, people)
@@ -855,9 +858,71 @@ var workJob = new DataCard(
 )
 SetParentAndChild(people, workJob)
 
-var actor = new DataCard("Actor", "Actri", "");
-SetParentAndChild(people, actor)
+var actor = new DataCard("Actor", "Actor", "");
+SetParentAndChild(workJob, actor)
 
+var actress = new DataCard("Actress", "Actriță", "");
+SetParentAndChild(workJob, actress)
+
+var butcher = new DataCard("Butcher", "Măcelar", "");
+SetParentAndChild(workJob, butcher)
+
+var policeman = new DataCard("Policeman", "Polițist", "");
+SetParentAndChild(workJob, policeman)
+
+var policewoman = new DataCard("Policewoman", "Polițistă", "");
+SetParentAndChild(workJob, policewoman)
+
+var artist = new DataCard("Artist", "artist", "");
+SetParentAndChild(workJob, artist)
+
+var chef = new DataCard("Chef", "Bucătar", "");
+SetParentAndChild(workJob, chef)
+
+var singers = new DataCard("Singers", "Cântăreți", "");
+SetParentAndChild(workJob, singers)
+
+var dancers = new DataCard("Dancers", "Dansatori", "");
+SetParentAndChild(workJob, dancers)
+
+var astronaut = new DataCard("Astronaut", "Astronaut", "");
+SetParentAndChild(workJob, astronaut)
+
+var Carpenter = new DataCard("Carpentar", "Tâmplar", "");
+SetParentAndChild(workJob, Carpenter)
+
+var Firefighter = new DataCard("Firefighter", "Pompier", "");
+SetParentAndChild(workJob, Firefighter)
+
+var Judge = new DataCard("Judge", "Judecător", "");
+SetParentAndChild(workJob, Judge)
+
+var Mechanics = new DataCard("Mechanics", "Mechanici", "");
+SetParentAndChild(workJob, Mechanics)       
+
+var Hairdresser = new DataCard("Hairdresser", "Frizer", "");
+SetParentAndChild(workJob, Hairdresser)
+
+var lorryDriver = new DataCard("Lorry driver", "Şofer de autobuz", "");
+SetParentAndChild(workJob, lorryDriver)
+
+var waiter = new DataCard("Waiter", "Chelner", "");
+SetParentAndChild(workJob, waiter)
+
+var Waitress = new DataCard("Waitress", "Chelnerița", "");
+SetParentAndChild(workJob, Waitress)
+
+var Postman = new DataCard("Postman", "Poștaș", "");
+SetParentAndChild(workJob, Postman)
+
+var painter = new DataCard("Painter (decorator)", "Zugrav", "");
+SetParentAndChild(workJob, painter)
+
+var diver = new DataCard("Diver", "Scanfandru", "");
+SetParentAndChild(workJob, diver)
+
+var baker = new DataCard("Baker", "Brutăriță", "");
+SetParentAndChild(workJob, baker)
 
 // #shapes =================================
 var shapes = new DataCard("Shapes", "Formele geometrice", "")

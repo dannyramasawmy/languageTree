@@ -17,8 +17,8 @@
 	// }
 	
 	"DataCardEntry": {
-		"prefix": ["DataCardEntry", "addNoun"],
-		"body": ["var $1 = new DataCard(\"$3\", \"$4\", \"\");", "SetParentAndChild($2, $1)"],
+		"prefix": ["DataCardEntry", "addNoun", "addWord"],
+		"body": ["var $1 = new DataCard($3\"$1\", \"$4\", \"\");", "SetParentAndChild($2, $1)"],
 		"description": "A new data card entry."
 	},
 	"A1": {
