@@ -26,9 +26,19 @@
 		"body": ["ă"],
 		"description": "A special."
 	},
+	"A1u": {
+		"prefix": ["a1u"],
+		"body": ["Ă"],
+		"description": "A special."
+	},
 	"A2": {
 		"prefix": ["a2"],
 		"body": ["â"],
+		"description": "A special."
+	},
+	"A2u": {
+		"prefix": ["a2u"],
+		"body": ["Â"],
 		"description": "A special."
 	},
 	"I1": {
@@ -36,14 +46,29 @@
 		"body": ["î"],
 		"description": "I special."
 	},
+	"I1u": {
+		"prefix": ["i1u"],
+		"body": ["Î"],
+		"description": "I special."
+	},
 	"S1": {
 		"prefix": ["s1"],
 		"body": ["ș"],
 		"description": "S special."
 	},
+	"S1u": {
+		"prefix": ["s1u"],
+		"body": ["Ş"],
+		"description": "S special."
+	},
 	"T1": {
 		"prefix": ["t1"],
 		"body": ["ț"],
+		"description": "T special."
+	},
+	"T1u": {
+		"prefix": ["t1u"],
+		"body": ["Ț"],
 		"description": "T special."
 	},
 }

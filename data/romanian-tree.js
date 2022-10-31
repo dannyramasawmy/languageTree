@@ -773,9 +773,123 @@ SetParentAndChild(romanian, nouns);
 var atHome = new DataCard("At Home", "Acasă", "");
 SetParentAndChild(nouns, atHome)
 
+//#workshow
 //#garden
+
 //#kitchen
-//#workshop
+var theKitchen = new DataCard("The Kitchen", "Bucătăria", "");
+SetParentAndChild(atHome, theKitchen)
+
+var fridge = new DataCard("Fridge", "Frigider", "");
+SetParentAndChild(theKithchen, fridge)
+
+var Clock = new DataCard("Clock", "Ceas de perete", "");
+SetParentAndChild(theKitchen, Clock)
+
+var Stool = new DataCard("Stool", "Taburet", "");
+SetParentAndChild(theKitchen, Stool)
+
+var TeaSpoons = new DataCard("Teaspoons", "Lingurițe", "");
+SetParentAndChild(theKitchen, TeaSpoons)
+
+var lightSwitch = new DataCard("Light-switch", "Întrerupător", "");
+SetParentAndChild(theKitchen, lightSwitch)
+
+var washingPowder = new DataCard("Washing Powder", "Detergent Pudră", "");
+SetParentAndChild(theKitchen, washingPowder)
+
+var Key = new DataCard("Key", "Cheie", "");
+SetParentAndChild(theKitchen, Key)
+
+var Door = new DataCard("Door", "Ușa", "");
+SetParentAndChild(theKitchen, Door)
+
+var vacuumCleaner = new DataCard("Vacuum Cleaner", "Aspirator", "");
+SetParentAndChild(theKitchen, vacuumCleaner)
+
+var Saucepans = new DataCard("Saucepans", "Oale (Cratițe)", "");
+SetParentAndChild(theKitchen, Saucepans)
+
+var Forks = new DataCard("Forks", "Furculițe", "");
+SetParentAndChild(theKitchen, Forks)
+
+var Apron = new DataCard("Apron", "Sorț (de bucătărie)", "");
+SetParentAndChild(theKitchen, Apron)
+
+var IroningBoard = new DataCard("Ironing Board", "Masă de Călcat", "");
+SetParentAndChild(theKitchen, IroningBoard)
+
+var Rubbish = new DataCard("Rubbish", "Gunoi", "");
+SetParentAndChild(theKitchen, Rubbish)
+
+var Glasses = new DataCard("Glasses", "Pahare", "");
+SetParentAndChild(theKitchen, Glasses)
+
+var kitchenSink = new DataCard("kitchenSink", "Chiuvetă de bucătărie", "");
+SetParentAndChild(theKitchen, kitchenSink)
+
+var kettle = new DataCard("Kettle", "Ceainic", "");
+SetParentAndChild(theKitchen, kettle)
+
+var Knives = new DataCard("Knives", "Cuțite", "");
+SetParentAndChild(theKitchen, Knives)
+
+var Mop = new DataCard("Mop", "Mop", "");
+SetParentAndChild(theKitchen, Mop)
+
+var Duster = new DataCard("Duster", "Cârpă (de praf)", "");
+SetParentAndChild(theKitchen, Duster)
+
+var Tiles = new DataCard("Tiles", "Faianță", "");
+SetParentAndChild(theKitchen, Tiles)
+
+var Broom = new DataCard("Broom", "Mătură", "");
+SetParentAndChild(theKitchen, Broom)
+
+var WashingMachine = new DataCard("WashingMachine", "Mașină de spălat rufe", "");
+SetParentAndChild(theKitchen, WashingMachine)
+
+var Dustpan = new DataCard("Dustpan", "Făraș", "");
+SetParentAndChild(theKitchen, Dustpan)
+
+var Drawer = new DataCard("Drawer", "Sertar", "");
+SetParentAndChild(theKitchen, Drawer)
+
+var Saucers = new DataCard("Saucers", "Farfurioare (de cafea)", "");
+SetParentAndChild(theKitchen, Saucers)
+
+var FryingPan = new DataCard("Frying Pan", "Tigaie", "");
+SetParentAndChild(theKitchen, FryingPan)
+
+var Cooker = new DataCard("Cooker", "Aragaz", "");
+SetParentAndChild(theKitchen, Cooker)   
+
+var Spoons = new DataCard("Spoons", "Linguri", "");
+SetParentAndChild(theKitchen, Spoons)
+
+var Plates = new DataCard("Plates", "Farfurii", "");
+SetParentAndChild(theKitchen, Plates)
+
+var ClothesIron = new DataCard("Clothes Iron", "Fier de călcat", "");
+SetParentAndChild(theKitchen, ClothesIron)
+
+var broomCupboard = new DataCard("Broom Cupboard", "Dulap (de perete)", "");
+SetParentAndChild(theKitchen, broomCupboard)
+
+var Bowls = new DataCard("Bowls", "Boluri", "");
+SetParentAndChild(theKitchen, Bowls)   
+
+var Brush = new DataCard("Brush", "Perie", "");
+SetParentAndChild(theKitchen, Brush)
+
+var Matches = new DataCard("Matches", "Chibrituri", "");
+SetParentAndChild(theKitchen, Matches)
+
+var Cups = new DataCard("Cups", "Cești", "");
+SetParentAndChild(theKitchen, Cups)
+
+var TeaTowel = new DataCard("TeaTowel", "Prosop de bucătărie", "");
+SetParentAndChild(theKitchen, TeaTowel)
 
 //#inhome
 var home = new DataCard("Home", "Casă", "");
