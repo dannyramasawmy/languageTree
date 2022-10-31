@@ -803,10 +803,10 @@ var families = new DataCard(
 )
 SetParentAndChild(people, families)
 
-var son = new DataCard("Son", "Fiu", NounTemplateFemale("", "", "", ""));
+var son = new DataCard("Son", "Fiu", NounTemplateMale("", "", "", ""));
 SetParentAndChild(families, son)
 
-var brother = new DataCard("Brother", "Frate", NounTemplateFemale("", "", "", ""));
+var brother = new DataCard("Brother", "Frate", NounTemplateMale("", "", "", ""));
 SetParentAndChild(families, brother)
 
 var daughter = new DataCard("Daughter", "Fiică", NounTemplateFemale("", "", "", ""));
@@ -821,28 +821,28 @@ SetParentAndChild(families, mother)
 var wife = new DataCard("Wife", "Soție", NounTemplateFemale("", "", "", ""));
 SetParentAndChild(families, wife)
 
-var father = new DataCard("Father", "Tată", NounTemplateFemale("", "", "", ""));
+var father = new DataCard("Father", "Tată", NounTemplateMale("", "", "", ""));
 SetParentAndChild(families, father)
 
-var husband = new DataCard("Husband", "Soț", NounTemplateFemale("", "", "", ""));
+var husband = new DataCard("Husband", "Soț", NounTemplateMale("", "", "", ""));
 SetParentAndChild(families, husband)
 
 var aunt = new DataCard("Aunt", "Mătușă", NounTemplateFemale("", "", "", ""));
 SetParentAndChild(families, aunt)
 
-var uncle = new DataCard("Uncle", "Unchi", NounTemplateFemale("", "", "", ""));
+var uncle = new DataCard("Uncle", "Unchi", NounTemplateMale("", "", "", ""));
 SetParentAndChild(families, uncle)
 
-var pet = new DataCard("Pet", "Animal de companie", NounTemplateFemale("", "", "", ""));
+var pet = new DataCard("Pet", "Animal de companie", "");
 SetParentAndChild(families, pet)
 
-var cousinM = new DataCard("Cousin (male)", "Văr", NounTemplateFemale("", "", "", ""));
+var cousinM = new DataCard("Cousin (male)", "Văr", NounTemplateMale("", "", "", ""));
 SetParentAndChild(families, cousinM)
 
 var cousinF = new DataCard("Cousin (female)", "Verișor", NounTemplateFemale("", "", "", ""));
 SetParentAndChild(families, cousinF)
 
-var grandfather = new DataCard("Grandfather", "Bunic", NounTemplateFemale("", "", "", ""));
+var grandfather = new DataCard("Grandfather", "Bunic", NounTemplateMale("", "", "", ""));
 SetParentAndChild(families, grandfather)
 
 var grandmother = new DataCard("Grandmother", "Bunică", NounTemplateFemale("", "", "", ""));
@@ -855,10 +855,8 @@ var workJob = new DataCard(
 )
 SetParentAndChild(people, workJob)
 
-
-var  = new DataCard("", "", NounTemplateFemale("", "", "", ""))
-SetParentAndChild(people, )
-
+var actor = new DataCard("Actor", "Actri", "");
+SetParentAndChild(people, actor)
 
 
 // #shapes =================================
