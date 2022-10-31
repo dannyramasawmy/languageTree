@@ -768,20 +768,150 @@ var nouns = new DataCard(
     "Todo")
 SetParentAndChild(romanian, nouns);
 
+// #home ===========================
+
+var atHome = new DataCard("At Home", "Acasă", "");
+SetParentAndChild(nouns, atHome)
+
+//#garden
+//#kitchen
+//#workshop
+
+//#inhome
+var home = new DataCard("Home", "Casă", "");
+SetParentAndChild(home, home)
+
 var bath = new DataCard(
     "Bath", "Baie",
     NounTemplateFemale("baie", "bai", "baia", "băile")
 )
-SetParentAndChild(nouns, bath)
+SetParentAndChild(home, bath)
 
 var soap = new DataCard(
     "Soap", "Săpun",
     NounTemplateNeuter("săpun", "săpunuri", "sapunul", "săpunurile")
 )
-SetParentAndChild(nouns, soap)
+SetParentAndChild(home, soap)
 
-// #home ===========================
+var tap = new DataCard("Tap", "Robinet", "");
+SetParentAndChild(home, tap)
 
+var toiletPaper = new DataCard("Toilet Paper", "Hârtie Igienică", "");
+SetParentAndChild(home, toiletPaper)
+
+var Toothbrush = new DataCard("Toothbrush", "Periuță de dinți", "");
+SetParentAndChild(home, Toothbrush)
+
+var Toilet = new DataCard("Toilet", "Toaletă", "");
+SetParentAndChild(home, Toilet)
+
+var Sponge = new DataCard("Sponge", "Burete", "");
+SetParentAndChild(home, Sponge)
+
+var SinkBasin = new DataCard("Sink Basin", "Chiuvetă", "");
+SetParentAndChild(home, SinkBasin)
+
+var Shower = new DataCard("Shower", "Duș", "");
+SetParentAndChild(home, Shower)
+
+var Towel = new DataCard("Towel", "Prosop", "");
+SetParentAndChild(home, Towel)
+
+var toothpaste = new DataCard("Toothpaste", "Pasta de dinți", "");
+SetParentAndChild(home, toothpaste)
+
+var Radio = new DataCard("Radio", "Radio", "");
+SetParentAndChild(home, Radio)  
+
+var cushion = new DataCard("Cushion", "Pernă", "");
+SetParentAndChild(home, cushion)
+
+var dvd = new DataCard("DVD", "DVD", "");
+SetParentAndChild(home, dvd)
+
+var Carpet = new DataCard("Carpet", "Mochetă", "");
+SetParentAndChild(home, Carpet)
+
+var Rug = new DataCard("Rug", "Covor", "Covoraș");
+SetParentAndChild(home, Rug)
+
+var Water = new DataCard("Water", "Apă", "");
+SetParentAndChild(home, Water)
+
+var Bed = new DataCard("Bed", "Pat", "");
+SetParentAndChild(home, Bed)
+
+var Sofa = new DataCard("Sofa", "Canapea", "");
+SetParentAndChild(home, Sofa)
+
+var Bathroom = new DataCard("Bathroom", "Baia", "");
+SetParentAndChild(home, Bathroom)
+
+var LivingRoom = new DataCard("LivingRoom", "Sufrageria", "");
+SetParentAndChild(home, LivingRoom)
+
+var Bedroom = new DataCard("Bedroom", "Dormitul", "");
+SetParentAndChild(home, Bedroom)
+
+var Hall = new DataCard("Hall", "Holul", "");
+SetParentAndChild(home, Hall)
+
+var Entrance = new DataCard("Entrance", "Intrarea", "");
+SetParentAndChild(home, Entrance)
+
+var Chair = new DataCard("Chair", "Scaun", "");
+SetParentAndChild(home, Chair)
+
+var Duvet = new DataCard("Duvet", "Pilotă", "");
+SetParentAndChild(home, Duvet)
+
+var Comb = new DataCard("Comb", "Pieptene", "");
+SetParentAndChild(home, Comb)
+
+var sheet = new DataCard("Sheet (bed)", "Cearșaf", "");
+SetParentAndChild(home, sheet)
+
+var Wardrobe = new DataCard("Wardrobe", "Dulap", "");
+SetParentAndChild(home, Wardrobe)
+
+var Television = new DataCard("Television", "Televizor", "");
+SetParentAndChild(home, Television)
+
+var drawers = new DataCard("Drawers (chest of)", "Comodă", "");
+SetParentAndChild(home, drawers)
+
+var Mirror = new DataCard("Mirror", "Oglindă", "");
+SetParentAndChild(home, Mirror)
+
+var Hairbrush = new DataCard("Hairbrush", "Perie de păr", "");
+SetParentAndChild(home, Hairbrush)
+
+var Lamp = new DataCard("Lamp", "Lampă (Veioză)", "");
+SetParentAndChild(home, Lamp)
+
+var Pictures = new DataCard("Pictures", "Tablouri", "");
+SetParentAndChild(home, Pictures)
+
+var Pegs = new DataCard("Pegs", "Cuier", "");
+SetParentAndChild(home, Pegs)
+
+var Telephone = new DataCard("Telephone", "Telefon", "");
+SetParentAndChild(home, Telephone)
+
+var stairs = new DataCard("Stairs", "Scară (trepte)", "");
+SetParentAndChild(home, stairs)
+
+var Letters = new DataCard("Letters", "Scrisori", "");
+SetParentAndChild(home, Letters)
+
+var Table = new DataCard("Table", "Masă", "");
+SetParentAndChild(home, Table)
+
+var Newspaper = new DataCard("Newspaper", "Ziar", "");
+SetParentAndChild(home, Newspaper)
+
+var Radiator = new DataCard("Radiator", "Calorifer", "");
+SetParentAndChild(home, Radiator)
 
 // #people ================================
 var people = new DataCard("People", "Oamenii", "")
