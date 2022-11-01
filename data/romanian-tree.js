@@ -939,6 +939,86 @@ SetParentAndChild(food, Chips)
 var Pudding = new DataCard("Pudding", "Deserturi", "");
 SetParentAndChild(food, Pudding)
 
+var Grapefruit = new DataCard("Grapefruit", "Grepfrut", "");
+SetParentAndChild(food, Grapefruit)
+
+var Carrot = new DataCard("Carrot", "Morcov", "");
+SetParentAndChild(food, Carrot)
+
+var Cauliflower = new DataCard("Cauliflower", "Conopidă", "");
+SetParentAndChild(food, Cauliflower)
+
+var Leek = new DataCard("Leek", "Praz", "");
+SetParentAndChild(food, Leek)
+
+var Mushroom = new DataCard("Mushroom", "Ciupercă", "");
+SetParentAndChild(food, Mushroom)
+
+var Cucumber = new DataCard("Cucumber", "Castravete", "");
+SetParentAndChild(food, Cucumber)
+
+var Lemon = new DataCard("Lemon", "Lămâie", "");
+SetParentAndChild(food, Lemon)
+
+var Celery = new DataCard("Celery", "Țelină", "");
+SetParentAndChild(food, Celery)
+
+var Apricot = new DataCard("Apricot", "Caisă", "");
+SetParentAndChild(food, Apricot)
+
+var Melon = new DataCard("Melon (Honeydew, Water)", "Pepene (Galben, Roșu)", "");
+SetParentAndChild(food, Melon)
+
+var Onion = new DataCard("Onion", "Ceapă", "");
+SetParentAndChild(food, Onion)
+
+var Cabbage = new DataCard("Cabbage", "Varză", "");
+SetParentAndChild(food, Cabbage)
+
+var Pearch = new DataCard("Pearch", "Piersică", "");
+SetParentAndChild(food, Pearch)
+
+var Lettuce = new DataCard("Lettuce", "Salată Verde", "");
+SetParentAndChild(food, Lettuce)
+
+var Peas = new DataCard("Peas", "Mazăre", "");
+SetParentAndChild(food, Peas)
+
+var Tomato = new DataCard("Tomato", "Roșie", "");
+SetParentAndChild(food, Tomato)
+
+var Potatoes = new DataCard("Potatoes", "Cartofi", "");
+SetParentAndChild(food, Potatoes)
+
+var Spinach = new DataCard("Spinach", "Spanac", "");
+SetParentAndChild(food, Spinach)
+
+var Beans = new DataCard("Beans (Green)", "Fasole Verde", "");
+SetParentAndChild(food, Beans)
+
+var Pumpkin = new DataCard("Pumpkin", "Dovleac", "");
+SetParentAndChild(food, Pumpkin)
+
+var Tins = new DataCard("Tins", "Cutii de Conserve", "");
+SetParentAndChild(food, Tins)
+
+var Yoghurt = new DataCard("Yoghurt", "Iaurt", "");
+SetParentAndChild(food, Yoghurt)
+
+var Pineapple = new DataCard("Pineapple", "Ananas", "");
+SetParentAndChild(food, Pineapple)
+
+var Meat = new DataCard("Meat", "Carne", "");
+SetParentAndChild(food, Meat)   
+
+var Flour = new DataCard("Flour", "Făină", "");
+SetParentAndChild(food, Flour)
+
+var Plum = new DataCard("Plum", "Prună", "");
+SetParentAndChild(food, Plum)
+
+var Eggs = new DataCard("Eggs", "Ouă", "");
+SetParentAndChild(food, Eggs)
 
 
 
