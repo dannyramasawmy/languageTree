@@ -535,9 +535,12 @@ var from = new DataCard(
 SetParentAndChild(prepositions, from);
 
 var _in = new DataCard(
-    "In", "În",
+    "In", "În (Înăuntru)",
     "")
 SetParentAndChild(prepositions, _in);
+
+var _out = new DataCard("Out", "Afară", "");
+SetParentAndChild(prepositions, _out)
 
 var on = new DataCard(
     "On", "Pe",
@@ -674,6 +677,23 @@ var _with = new DataCard(
     "")
 SetParentAndChild(prepositions, _with);
 
+var Top = new DataCard("Top", "De Sus", "");
+SetParentAndChild(prepositions, Top)
+
+var Bottom = new DataCard("Bottom", "De Jos", "");
+SetParentAndChild(prepositions, Bottom)
+
+var Left = new DataCard("Left", "La Stânga", "");
+SetParentAndChild(prepositions, Left)
+
+var Right = new DataCard("Right", "La Dreapta", "");
+SetParentAndChild(prepositions, Right)
+
+var High = new DataCard("High", "Sus", "");
+SetParentAndChild(prepositions, High)
+
+var Low = new DataCard("Low", "Jos", "");
+SetParentAndChild(prepositions, Low)
 
 
 // =============================================================================
@@ -682,7 +702,7 @@ SetParentAndChild(prepositions, _with);
 
 var adjectives = new DataCard(
     "Adjectives", "Adjective",
-    "Todo")
+    "")
 SetParentAndChild(romanian, adjectives);
 
 var every = new DataCard(
@@ -719,6 +739,112 @@ var some = new DataCard(
     "Some (approximately)", "Vreo",
     "")
 SetParentAndChild(adjectives, some);
+
+var DescriptiveAdjective = new DataCard("Descriptive Adjective", "Adjective Descriptive", "");
+SetParentAndChild(adjectives, DescriptiveAdjective)
+
+var Good = new DataCard("Good", "Bine", "");
+SetParentAndChild(DescriptiveAdjective, Good)
+
+var Bad = new DataCard("Bad", "Rău", "");
+SetParentAndChild(DescriptiveAdjective, Bad)
+
+var Fat = new DataCard("Fat", "Gras", "");
+SetParentAndChild(DescriptiveAdjective, Fat)
+
+var Thin = new DataCard("Thin", "Slab", "");
+SetParentAndChild(DescriptiveAdjective, Thin)
+
+var Few = new DataCard("Few", "Puține", "Puțini");
+SetParentAndChild(adjectives, Few)
+
+var Many = new DataCard("Many", "Multe", "Mulți");
+SetParentAndChild(adjectives, Many)
+
+var Cold = new DataCard("Cold", "Rece", "");
+SetParentAndChild(DescriptiveAdjective, Cold)
+
+var Hot = new DataCard("Hot", "Cald (Fierbinte)", "");
+SetParentAndChild(DescriptiveAdjective, Hot)
+
+var Dirty = new DataCard("Dirty", "Murdar", "");
+SetParentAndChild(DescriptiveAdjective, Dirty)
+
+var Clean = new DataCard("Clean", "Curat", "");
+SetParentAndChild(DescriptiveAdjective, Clean)
+
+var Open = new DataCard("Open", "Deschis", "");
+SetParentAndChild(DescriptiveAdjective, Open)
+
+var Close = new DataCard("Close", "Închis", "");
+SetParentAndChild(DescriptiveAdjective, Close)
+
+var First = new DataCard("First", "Primul", "");
+SetParentAndChild(DescriptiveAdjective, First)
+
+var Last = new DataCard("Last", "Ultimul", "");
+SetParentAndChild(DescriptiveAdjective, Last)
+
+var Wet = new DataCard("Wet", "Ud (Humed)", "");
+SetParentAndChild(DescriptiveAdjective, Wet)
+
+var Dry = new DataCard("Dry", "Uscat", "");
+SetParentAndChild(DescriptiveAdjective, Dry)
+
+var Small = new DataCard("Small", "Mic", "");
+SetParentAndChild(DescriptiveAdjective, Small)
+
+var Big = new DataCard("Big", "Mare", "");
+SetParentAndChild(DescriptiveAdjective, Big)
+
+var Empty = new DataCard("Empty", "Gol", "");
+SetParentAndChild(DescriptiveAdjective, Empty)
+
+var Full = new DataCard("Full", "Plin", "");
+SetParentAndChild(DescriptiveAdjective, Full)
+
+var Dark = new DataCard("Dark", "Întunecos", "");
+SetParentAndChild(DescriptiveAdjective, Dark)
+
+var Light = new DataCard("Light", "Luminos", "");
+SetParentAndChild(DescriptiveAdjective, Light)
+
+var New = new DataCard("New", "Nou", "");
+SetParentAndChild(DescriptiveAdjective, New)
+
+var Old = new DataCard("Old", "Vechi", "");
+SetParentAndChild(DescriptiveAdjective, Old)
+
+var Easy = new DataCard("Easy", "Ușor", "");
+SetParentAndChild(DescriptiveAdjective, Easy)
+
+var Difficult = new DataCard("Difficult", "Greu", "");
+SetParentAndChild(DescriptiveAdjective, Difficult)
+
+var Soft = new DataCard("Soft", "Moale", "");
+SetParentAndChild(DescriptiveAdjective, Soft)
+
+var Hard = new DataCard("Hard", "Tare", "");
+SetParentAndChild(DescriptiveAdjective, Hard)
+
+var Slow = new DataCard("Slow", "Încet", "");
+SetParentAndChild(DescriptiveAdjective, Slow)
+
+var Fast = new DataCard("Fast", "Repede", "");
+SetParentAndChild(DescriptiveAdjective, Fast)
+
+var Long = new DataCard("Long", "Lung", "");
+SetParentAndChild(DescriptiveAdjective, Long)
+
+var Short = new DataCard("Short", "Scurt", "");
+SetParentAndChild(DescriptiveAdjective, Short)
+
+var Dead = new DataCard("Dead", "Ofilit (Uscat)", "");
+SetParentAndChild(DescriptiveAdjective, Dead)
+
+var Alive = new DataCard("Alive", "Viu", "");
+SetParentAndChild(DescriptiveAdjective, Alive)
+
 
 // #Colours =======================================
 var colours = new DataCard(
@@ -1833,7 +1959,7 @@ SetParentAndChild(theBody, fingers)
 
 var adverbs = new DataCard(
     "Adverbs", "Adverbe",
-    "Todo")
+    "")
 SetParentAndChild(romanian, adverbs);
 
 var when = new DataCard(
