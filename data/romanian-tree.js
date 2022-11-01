@@ -1649,8 +1649,32 @@ SetParentAndChild(Toys, Drums)
 var Soldiers = new DataCard("Soldiers", "Soldăței de plumb", "");
 SetParentAndChild(Toys, Soldiers)
 
-var Paints = new DataCard("Paints", "", "");
-SetParentAndChild(, Paints)
+var Paints = new DataCard("Paints", "Acuarele", "");
+SetParentAndChild(Toys, Paints) 
+
+var Rocket = new DataCard("Rocket", "Rachetă", "");
+SetParentAndChild(Toys, Rocket)
+
+var Puppets = new DataCard("Puppets", "Marionete", "");
+SetParentAndChild(Toys, Puppets)
+
+var Marbles = new DataCard("Marbles", "Bile", "");
+SetParentAndChild(Toys, Marbles)
+
+var Masks = new DataCard("Masks", "Măști", "");
+SetParentAndChild(Toys, Masks)
+
+var Piano = new DataCard("Piano", "Pian", "");
+SetParentAndChild(Toys, Piano)
+
+var Boat = new DataCard("Boat", "Barcă", "");
+SetParentAndChild(Toys, Boat)
+
+var Parachute = new DataCard("Parachute", "Parașută", "");
+SetParentAndChild(Toys, Parachute)
+
+var Bow = new DataCard("Bow (arrow)", "Arc", "");
+SetParentAndChild(Toys, Bow)
 
 
 
