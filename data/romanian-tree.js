@@ -904,11 +904,53 @@ SetParentAndChild(romanian, nouns);
 // - the farm
 // - the season
 
+//#country 
+
+var TheCountry = new DataCard("TheCountry", "La Țară", "");
+SetParentAndChild(nouns, TheCountry)
+
+var Stream = new DataCard("Stream", "Pârâu", "");
+SetParentAndChild(TheCountry, Stream)
+
+
 
 //#animals
 
 var Animals = new DataCard("Animals", "Animalele", "");
 SetParentAndChild(nouns, Animals)
+
+var Butterfly = new DataCard("Butterfly", "Fluture", "");
+SetParentAndChild(Animals, Butterfly)
+
+var Lizard = new DataCard("Lizard", "Şopârlă", "");
+SetParentAndChild(Animals, Lizard)
+
+var Fox = new DataCard("Fox", "Vulpe", "");
+SetParentAndChild(Animals, Fox)
+
+var Hedgehog = new DataCard("Hedgehog", "Arici", "");
+SetParentAndChild(Animals, Hedgehog)
+
+var Squirrel = new DataCard("Squirrel", "Ververiță", "");
+SetParentAndChild(Animals, Squirrel)
+
+var Badger = new DataCard("Badger", "Bursuc", "");
+SetParentAndChild(Animals, Badger)
+
+var Toad = new DataCard("Toad", "Broască Râioasă", "");
+SetParentAndChild(Animals, Toad)
+
+var Mole = new DataCard("Mole", "Cârtiță", "");
+SetParentAndChild(Animals, Mole)
+
+var Owl = new DataCard("Owl", "Bufniță", "");
+SetParentAndChild(Animals, Owl)
+
+var FoxCubs = new DataCard("Fox Cubs", "Pui de Vulpe", "");
+SetParentAndChild(Animals, FoxCubs)
+
+var Moth = new DataCard("Moth", "Fluture de Noapte", "");
+SetParentAndChild(Animals, Moth)
 
 var FlyInsect = new DataCard("Fly (Insect)", "Muscă", "");
 SetParentAndChild(Animals, FlyInsect)
