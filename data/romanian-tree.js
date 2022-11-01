@@ -902,7 +902,7 @@ SetParentAndChild(romanian, nouns);
 // - park
 
 // the country
-// - the country
+// - the countrytoys
 // - the farm
 // - the season
 // - animals
@@ -1567,9 +1567,6 @@ SetParentAndChild(home, Candle)
 var Paperchains = new DataCard("Paper Chains", "Ghirlandă", "");
 SetParentAndChild(home, Paperchains)
 
-var Toys = new DataCard("Toys", "Jucării", "");
-SetParentAndChild(home, Toys)
-
 var TableCloth = new DataCard("Table Cloth", "Față de Masă", "");
 SetParentAndChild(home, TableCloth)
 
@@ -1587,6 +1584,75 @@ SetParentAndChild(home, Presents)
 
 var Party = new DataCard("The Party", "Petrecerea", "");
 SetParentAndChild(home, Party)
+
+//#toys
+var Toys = new DataCard("Toys", "Jucării", "");
+SetParentAndChild(home, Toys)
+
+var TrainSet = new DataCard("Train Set", "Trenuleț Electric", "");
+SetParentAndChild(Toys, TrainSet)
+
+var Dice = new DataCard("Dice", "Zaruri", "");
+SetParentAndChild(Toys, Dice)
+
+var Robot = new DataCard("Robot", "Robot", "");
+SetParentAndChild(Toys, Robot)
+
+var Necklace = new DataCard("Necklace", "Colier (Mărgele)", "");
+SetParentAndChild(Toys, Necklace)
+
+var Camera = new DataCard("Camera", "Aparat de fotografiat", "");
+SetParentAndChild(Toys, Camera)
+
+var Beads = new DataCard("Beads", "Mărgele, (Perle)", "");
+SetParentAndChild(Toys, Beads)
+
+var Dolls = new DataCard("Dolls", "Păpuși", "");
+SetParentAndChild(Toys, Dolls)
+
+var Guitar = new DataCard("Guitar", "Chitară", "");
+SetParentAndChild(Toys, Guitar)
+
+var RingAcc = new DataCard("Ring (Accessory)", "Inel", "");
+SetParentAndChild(Toys, RingAcc)
+
+var Whistel = new DataCard("Whistel", "Fluier", "");
+SetParentAndChild(Toys, Whistel)
+
+var Cubes = new DataCard("Cubes", "Cuburi", "");
+SetParentAndChild(Toys, Cubes)
+
+var Castle = new DataCard("Castle", "Castel (Cetate)", "");
+SetParentAndChild(Toys, Castle)
+
+var Submarine = new DataCard("Submarine", "Submarin", "");
+SetParentAndChild(Toys, Submarine)
+
+var Trumpet = new DataCard("Trumpet", "Trompetă", "");
+SetParentAndChild(Toys, Trumpet)
+
+var Arrows = new DataCard("Arrows", "Săgeți", "");
+SetParentAndChild(Toys, Arrows)
+
+var Harmonica = new DataCard("Harmonica", "Muzicuță", "");
+SetParentAndChild(Toys, Harmonica)
+
+var Crane = new DataCard("Crane", "macara", "");
+SetParentAndChild(Toys, Crane)
+
+var PlayingCards = new DataCard("Playing Cards", "Cărți de joc", "");
+SetParentAndChild(Toys, PlayingCards)
+
+var Drums = new DataCard("Drums", "Tobe", "");
+SetParentAndChild(Toys, Drums)
+
+var Soldiers = new DataCard("Soldiers", "Soldăței de plumb", "");
+SetParentAndChild(Toys, Soldiers)
+
+var Paints = new DataCard("Paints", "", "");
+SetParentAndChild(, Paints)
+
+
 
 // #people ================================
 var people = new DataCard("People", "Oamenii", "")
