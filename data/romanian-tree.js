@@ -1478,6 +1478,107 @@ var woman = new DataCard(
 )
 SetParentAndChild(people, woman)
 
+// #clothes
+var Clothes = new DataCard("Clothes", "Hainele", "");
+SetParentAndChild(people, Clothes)
+
+var Socks = new DataCard("Socks", "Şosete", "");
+SetParentAndChild(Clothes, Socks)
+
+var Pants = new DataCard("Pants", "Chiloți", "");
+SetParentAndChild(Clothes, Pants)
+
+var Vest = new DataCard("Vest", "Maiou", "");
+SetParentAndChild(Clothes, Vest)
+
+var Trousers = new DataCard("Trousers", "Pantaloni", "");
+SetParentAndChild(Clothes, Trousers)
+
+var Jeans = new DataCard("Jeans", "Blugi", "");
+SetParentAndChild(Clothes, Jeans)
+
+var tShirt = new DataCard("T-Shirt", "Tricou (T-shirt)", "");
+SetParentAndChild(Clothes, tShirt)
+
+var Skirt = new DataCard("Skirt", "Fustă", "");
+SetParentAndChild(Clothes, Skirt)
+
+var Shirt = new DataCard("Shirt", "Cămașă", "");
+SetParentAndChild(Clothes, Shirt)
+
+var Tie = new DataCard("Tie", "Cravată", "");
+SetParentAndChild(Clothes, Tie)
+
+var Shorts = new DataCard("Shorts", "Pantaloni Scurți (șort)", "");
+SetParentAndChild(Clothes, Shorts)
+
+var Tights = new DataCard("Tights", "Dres", "");
+SetParentAndChild(Clothes, Tights)
+
+var Dress = new DataCard("Dress", "Rochie", "");
+SetParentAndChild(Clothes, Dress)
+
+var Jumper = new DataCard("Jumper", "Pulover", "");
+SetParentAndChild(Clothes, Jumper)
+
+var Sweatshirt = new DataCard("Sweatshirt", "Tricou de Sport", "Bluză Sport cu mânecă lungă");
+SetParentAndChild(Clothes, Sweatshirt)
+
+var Cardigan = new DataCard("Cardigan", "Jachetă (Pulover cu nasturi)", "");
+SetParentAndChild(Clothes, Cardigan)
+
+var Scarf = new DataCard("Scarf", "Fular", "");
+SetParentAndChild(Clothes, Scarf)
+
+var Handkerchief = new DataCard("Handkerchief", "Batistă", "");
+SetParentAndChild(Clothes, Handkerchief)
+
+var Trainers = new DataCard("Trainers", "Pantofi sport (Adidași)", "");
+SetParentAndChild(Clothes, Trainers)
+
+var Sandals = new DataCard("Sandals", "Sandale", "");
+SetParentAndChild(Clothes, Sandals)
+
+var Boots = new DataCard("Boots", "Cizme", "");
+SetParentAndChild(Clothes, Boots)
+
+var Gloves = new DataCard("Gloves", "Mănuși", "");
+SetParentAndChild(Clothes, Gloves)
+
+var Belt = new DataCard("Belt", "Curea", "");
+SetParentAndChild(Clothes, Belt)
+
+var Buckle = new DataCard("Buckle", "Cataramă", "");
+SetParentAndChild(Clothes, Buckle)
+
+var Zip = new DataCard("Zip", "Fermoar", "");
+SetParentAndChild(Clothes, Zip)
+
+var Shoelace = new DataCard("Shoelace", "Şiret", "");
+SetParentAndChild(Clothes, Shoelace)
+
+var Buttons = new DataCard("Buttons", "Nasturi", "");
+SetParentAndChild(Clothes, Buttons)
+
+var ButtonHoles = new DataCard("Button Holes", "Butoniere", "");
+SetParentAndChild(Clothes, ButtonHoles)
+
+var Pockets = new DataCard("Pockets", "Buzunare", "");
+SetParentAndChild(Clothes, Pockets)
+
+var Coat = new DataCard("Coat", "Palton (Haină)", "");
+SetParentAndChild(Clothes, Coat)
+
+var Jacket = new DataCard("Jacket", "Jachetă", "");
+SetParentAndChild(Clothes, Jacket)
+
+var BaseballCap = new DataCard("Cap (Baseball)", "Şapcă", "");
+SetParentAndChild(Clothes, BaseballCap)
+
+var Hat = new DataCard("Hat", "Pălărie", "");
+SetParentAndChild(Clothes, Hat)
+
+
 // #families
 var families = new DataCard(
     "Families", "Familiile",
