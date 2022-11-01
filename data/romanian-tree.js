@@ -894,22 +894,23 @@ var nouns = new DataCard(
     "Todo")
 SetParentAndChild(romanian, nouns);
 
-// food
 
 // The city
 // - street
-// - shop / toy shop#
 // - park
 
 // the country
-// - the countrytoys
+// - the country
 // - the farm
 // - the season
-// - animals
-//
+
+
+//#animals
+
+
+
 
 // #shop
-
 var theShop = new DataCard("The Shop", "Magazinul", "");
 SetParentAndChild(nouns, theShop)
 
@@ -1181,7 +1182,83 @@ var atHome = new DataCard("At Home", "Acasă", "");
 SetParentAndChild(nouns, atHome)
 
 //#workshow
+var TheWorkshop = new DataCard("The Workshop", "Atelierul", "");
+SetParentAndChild(atHome, TheWorkshop)
 
+var Vice = new DataCard("Vice", "Menghină", "");
+SetParentAndChild(TheWorkshop, Vice)
+
+var Sandpaper = new DataCard("Sandpaper", "Şmirghel", "");
+SetParentAndChild(TheWorkshop, Sandpaper)
+
+var Drill = new DataCard("Drill", "Bormașină", "");
+SetParentAndChild(TheWorkshop, Drill)
+
+var Ladder = new DataCard("Ladder", "Scară", "");
+SetParentAndChild(TheWorkshop, Ladder)
+
+var Saw = new DataCard("Saw", "Fierăstrău", "");
+SetParentAndChild(TheWorkshop, Saw)
+
+var Sawdust = new DataCard("Sawdust", "Rumeguș", "");
+SetParentAndChild(TheWorkshop, Sawdust)
+
+var Calendar = new DataCard("Calendar", "Calendar", "");
+SetParentAndChild(TheWorkshop, Calendar)
+
+var Toolbox = new DataCard("Toolbox", "Cutie de Scule", "");
+SetParentAndChild(TheWorkshop, Toolbox)
+
+var Screwdriver = new DataCard("Screwdriver", "Şurubelniță", "");
+SetParentAndChild(TheWorkshop, Screwdriver)
+
+var Plank = new DataCard("Plank", "Scândură", "");
+SetParentAndChild(TheWorkshop, Plank)
+
+var WoodShavings = new DataCard("Shavings (Wood)", "Talaș", "");
+SetParentAndChild(TheWorkshop, WoodShavings)
+
+var Penknife = new DataCard("Penknife", "Briceag", "");
+SetParentAndChild(TheWorkshop, Penknife)
+
+var Wood = new DataCard("Wood (Chopped)", "Lemne Tăiate", "");
+SetParentAndChild(TheWorkshop, Wood)
+
+var Nails = new DataCard("Nails", "Cuie", "");
+SetParentAndChild(TheWorkshop, Nails)
+
+var Workbench = new DataCard("Workbench", "Banc de lucru (masă)", "");
+SetParentAndChild(TheWorkshop, Workbench)
+
+var Jars = new DataCard("Jars", "Borcane", "");
+SetParentAndChild(TheWorkshop, Jars)
+
+var PaintPot = new DataCard("Paint Pot", "Găleată de vopsea", "");
+SetParentAndChild(TheWorkshop, PaintPot)
+
+var File = new DataCard("File", "Pilă", "");
+SetParentAndChild(TheWorkshop, File)
+
+var Hammer = new DataCard("Hammer", "Ciocan", "");
+SetParentAndChild(TheWorkshop, Hammer)
+
+var TapeMeasure = new DataCard("Tape Measure", "Ruletă", "");
+SetParentAndChild(TheWorkshop, TapeMeasure)
+
+var Axe = new DataCard("Axe", "Topor", "");
+SetParentAndChild(TheWorkshop, Axe)
+
+var Barrel = new DataCard("Barrel", "Butol", "");
+SetParentAndChild(TheWorkshop, Barrel)
+
+var Nuts = new DataCard("Nuts", "Piulițe", "");
+SetParentAndChild(TheWorkshop, Nuts)
+
+var Bolts = new DataCard("Bolts", "Şuruburi", "");
+SetParentAndChild(TheWorkshop, Bolts)
+
+var Screws = new DataCard("Screws", "Holțșuruburi", "");
+SetParentAndChild(TheWorkshop, Screws)
 
 //#garden
 var theGarden = new DataCard("theGarden", "Grădina", "");
@@ -1675,8 +1752,6 @@ SetParentAndChild(Toys, Parachute)
 
 var Bow = new DataCard("Bow (arrow)", "Arc", "");
 SetParentAndChild(Toys, Bow)
-
-
 
 // #people ================================
 var people = new DataCard("People", "Oamenii", "")
