@@ -899,20 +899,170 @@ SetParentAndChild(romanian, nouns);
 // - street
 // - park
 
-// the country
-// - the country
 // - the farm
 // - the season
 
-//#country 
+//#travel
 
+var Travel = new DataCard("Travel", "Călătoria", "");
+SetParentAndChild(nouns, Travel)
+
+var Train = new DataCard("Train", "Tren", "");
+SetParentAndChild(Travel, Train)
+
+var Caravan = new DataCard("Caravan", "Rulotă", "");
+SetParentAndChild(Travel, Caravan)
+
+var Barge = new DataCard("Barge", "Şalupă", "");
+SetParentAndChild(Travel, Barge)
+
+var RailwayStation = new DataCard("Railway Station", "Gara", "");
+SetParentAndChild(Travel, RailwayStation)
+
+var CarGarage = new DataCard("Car Garage", "Garajul", "");
+SetParentAndChild(Travel, CarGarage)
+
+var Aeroport = new DataCard("Aeroport", "Aeroportul", "");
+SetParentAndChild(Travel, Aeroport)
+
+var CarWash = new DataCard("CarWash", "Spălătorie Auto", "");
+SetParentAndChild(Travel, CarWash)
+
+var RailwayTrack = new DataCard("RailwayTrack", "Cale Ferată", "");
+SetParentAndChild(Travel, RailwayTrack)
+
+var TrainEngine = new DataCard("Train Engine", "Locomotivă", "");
+SetParentAndChild(Travel, TrainEngine)
+
+var Platform = new DataCard("Platform", "Peron", "");
+SetParentAndChild(Travel, Platform)
+
+var TicketMachine = new DataCard("Ticket Machine", "Automat de Bilete", "");
+SetParentAndChild(Travel, TicketMachine)
+
+var TrafficLight = new DataCard("Traffic Light", "Semafor", "");
+SetParentAndChild(Travel, TrafficLight)
+
+var Backpack = new DataCard("Backpack", "Rucsac", "");
+SetParentAndChild(Travel, Backpack)
+
+var Headlights = new DataCard("Headlights", "Faruri", "");
+SetParentAndChild(Travel, Headlights)
+
+var Engine = new DataCard("Engine", "Motor", "");
+SetParentAndChild(Travel, Engine)
+
+var Wheel = new DataCard("Wheel", "Roată", "");
+SetParentAndChild(Travel, Wheel)
+
+var Battery = new DataCard("Battery", "Baterie", "");
+SetParentAndChild(Travel, Battery)
+
+var Suitcase = new DataCard("Suitcase", "Valiză", "");
+SetParentAndChild(Travel, Suitcase)
+
+var Carriages = new DataCard("Carriages", "Vagoane", "");
+SetParentAndChild(Travel, Carriages)
+
+var Aeroplane = new DataCard("Aeroplane", "Avion", "");
+SetParentAndChild(Travel, Aeroplane)
+
+var Helicopter = new DataCard("Helicopter", "Elicopter", "");
+SetParentAndChild(Travel, Helicopter)
+
+var Runway = new DataCard("Runway", "Pistă", "");
+SetParentAndChild(Travel, Runway)
+
+var ControlTower = new DataCard("ControlTower", "Turn de control", "");
+SetParentAndChild(Travel, ControlTower)
+
+var CarBoot = new DataCard("Car Boot", "Portbagaj", "");
+SetParentAndChild(Travel, CarBoot)
+
+var Petrol = new DataCard("Petrol", "Benzină", "");
+SetParentAndChild(Travel, Petrol)
+
+var BreakdownLorry = new DataCard("Breakdown Lorry", "Mașină de Tractare", "");
+SetParentAndChild(Travel, BreakdownLorry)
+
+var PetrolPump = new DataCard("Petrol Pump", "Pompă de Benzină", "");
+SetParentAndChild(Travel, PetrolPump)
+
+var Oil = new DataCard("Oil", "Ulei", "");
+SetParentAndChild(Travel, Oil)
+
+var Bonnet = new DataCard("Bonnet", "Capotă", "");
+SetParentAndChild(Travel, Bonnet)
+
+var Tyre = new DataCard("Tyre", "Pneu (Cauciuc)", "");
+SetParentAndChild(Travel, Tyre)
+
+var Spanner = new DataCard("Spanner", "Cheie Fixă", "");
+SetParentAndChild(Travel, Spanner)
+
+var PetrolTanker = new DataCard("Petrol Tanker", "Camion-cisternă", "");
+SetParentAndChild(Travel, PetrolTanker)
+
+//#country #thecountry
 var TheCountry = new DataCard("TheCountry", "La Țară", "");
 SetParentAndChild(nouns, TheCountry)
 
 var Stream = new DataCard("Stream", "Pârâu", "");
 SetParentAndChild(TheCountry, Stream)
 
+var Windmill = new DataCard("Windmill", "Moară de Vânt", "");
+SetParentAndChild(TheCountry, Windmill)
 
+var HotAirBalloon = new DataCard("Hot Air Balloon", "Balon (cu Aer Cald)", "");
+SetParentAndChild(TheCountry, HotAirBalloon)
+
+var Stones = new DataCard("Stones", "Pietre", "");
+SetParentAndChild(TheCountry, Stones)
+
+var Signpost = new DataCard("Signpost", "Stâlp Indicator", "");
+SetParentAndChild(TheCountry, Signpost) 
+
+var CanalLock = new DataCard("Lock (for Canal)", "Ecluză", "");
+SetParentAndChild(TheCountry, CanalLock)
+
+var Forest = new DataCard("Forest", "Pădure", "");
+SetParentAndChild(TheCountry, Forest)
+
+var River = new DataCard("River", "Râu", "");
+SetParentAndChild(TheCountry, River)
+
+var Road = new DataCard("Road", "Drum (Şosea)", "");
+SetParentAndChild(TheCountry, Road)
+
+var Rocks = new DataCard("Rocks", "Stânci", "");
+SetParentAndChild(TheCountry, Rocks)
+
+var Hill = new DataCard("Hill", "Deal (Colină)", "");
+SetParentAndChild(TheCountry, Hill)
+
+var Tunnel = new DataCard("Tunnel", "Tunel", "");
+SetParentAndChild(TheCountry, Tunnel)
+
+var Waterfall = new DataCard("Waterfall", "Cascadă", "");
+SetParentAndChild(TheCountry, Waterfall)
+
+var Bridge = new DataCard("Bridge", "Pod", "");
+SetParentAndChild(TheCountry, Bridge)
+
+var Village = new DataCard("Village", "Sat", "");
+SetParentAndChild(TheCountry, Village)
+
+var Logs = new DataCard("Logs", "Bușteni (Lemne)", "");
+SetParentAndChild(TheCountry, Logs)
+
+var Canal = new DataCard("Canal", "Canal", "");
+SetParentAndChild(TheCountry, Canal)
+
+var Tents = new DataCard("Tents", "Corturi", "");
+SetParentAndChild(TheCountry, Tents)
+
+var Mountain = new DataCard("Mountain", "Munte", "");
+SetParentAndChild(TheCountry, Mountain)
 
 //#animals
 
@@ -2088,6 +2238,21 @@ var workJob = new DataCard(
     NounTemplateFemale("", "", "", "")
 )
 SetParentAndChild(people, workJob)
+
+var TrainDriver = new DataCard("Train Driver", "Mecanic de Locomotivă", "");
+SetParentAndChild(workJob, TrainDriver)
+
+var TicketInspector = new DataCard("Ticket Inspector", "Conductoare", "Controloare de bilete");
+SetParentAndChild(workJob, TicketInspector)
+
+var Pilot = new DataCard("Pilot", "Pilot", "");
+SetParentAndChild(workJob, Pilot)
+
+var CabinCrew = new DataCard("Cabin Crew", "Echipaj", "");
+SetParentAndChild(workJob, CabinCrew)
+
+var Fisherman = new DataCard("Fisherman", "Pescar", "");
+SetParentAndChild(workJob, Fisherman)
 
 var actor = new DataCard("Actor", "Actor", "");
 SetParentAndChild(workJob, actor)
