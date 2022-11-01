@@ -907,7 +907,125 @@ SetParentAndChild(romanian, nouns);
 
 //#animals
 
+var Animals = new DataCard("Animals", "Animalele", "");
+SetParentAndChild(nouns, Animals)
 
+var FlyInsect = new DataCard("Fly (Insect)", "Muscă", "");
+SetParentAndChild(Animals, FlyInsect)
+
+var Spider = new DataCard("Spider", "Păianjen", "");
+SetParentAndChild(Animals, Spider)
+
+var Cobweb = new DataCard("Cobweb", "Pânză de Păianjen", "");
+SetParentAndChild(Animals, Cobweb)
+
+var Panda = new DataCard("Panda", "(Urs) Panda", "");
+SetParentAndChild(Animals, Panda)
+
+var Eagle = new DataCard("Eagle", "Vultur", "");
+SetParentAndChild(Animals, Eagle)
+
+var Wing = new DataCard("Wing", "Aripa", "");
+SetParentAndChild(Animals, Wing)
+
+var Hippopotamus = new DataCard("Hippopotamus", "Hipopotam", "");
+SetParentAndChild(Animals, Hippopotamus)
+
+var Bat = new DataCard("Bat", "Liliac", "");
+SetParentAndChild(Animals, Bat)
+
+var Monkey = new DataCard("Monkey", "Maimuță", "");
+SetParentAndChild(Animals, Monkey)
+
+var Gorilla = new DataCard("Gorilla", "Gorilla", "");
+SetParentAndChild(Animals, Gorilla)
+
+var Paws = new DataCard("Paws", "Labe", "");
+SetParentAndChild(Animals, Paws)
+
+var Kangaroo = new DataCard("Kangaroo", "Cangur", "");
+SetParentAndChild(Animals, Kangaroo)
+
+var Wolf = new DataCard("Wolf", "Lup", "");
+SetParentAndChild(Animals, Wolf)
+
+var Penguin = new DataCard("Penguin", "Pinguin", "");
+SetParentAndChild(Animals, Penguin)
+
+var Pelican = new DataCard("Pelican", "Pelican", "");
+SetParentAndChild(Animals, Pelican)
+
+var Feathers = new DataCard("Feathers", "Pene", "");
+SetParentAndChild(Animals, Feathers)
+
+var Crocodile = new DataCard("Crocodile", "Crocodil", "");
+SetParentAndChild(Animals, Crocodile)
+
+var Bear = new DataCard("Bear", "Urs", "");
+SetParentAndChild(Animals, Bear)
+
+var Ostrich = new DataCard("Ostrich", "Struț", "");
+SetParentAndChild(Animals, Ostrich)
+
+var Dolphin = new DataCard("Dolphin", "Delfin", "");
+SetParentAndChild(Animals, Dolphin)
+
+var Lion = new DataCard("Lion", "Leu", "");
+SetParentAndChild(Animals, Lion)
+
+var LionCubs = new DataCard("Lion Cubs", "Pui de Leu", "");
+SetParentAndChild(Animals, LionCubs)
+
+var Giraffe = new DataCard("Giraffe", "Girafă", "");
+SetParentAndChild(Animals, Giraffe)
+
+var Deer = new DataCard("Deer", "Cerb", "");
+SetParentAndChild(Animals, Deer)
+
+var Camel = new DataCard("Camel", "Cămilă", "");
+SetParentAndChild(Animals, Camel)
+
+var Seal = new DataCard("Seal", "Focă", "");
+SetParentAndChild(Animals, Seal)
+
+var Tortise = new DataCard("Tortise", "Broască-țestoasă", "");
+SetParentAndChild(Animals, Tortise)
+
+var Elephant = new DataCard("Elephant", "Elefant", "");
+SetParentAndChild(Animals, Elephant)
+
+var Trunk = new DataCard("Trunk (Elephant)", "Trompă", "");
+SetParentAndChild(Animals, Trunk)
+
+var Rhinoceros = new DataCard("Rhinoceros", "Rinocer", "");
+SetParentAndChild(Animals, Rhinoceros)
+
+var Bison = new DataCard("Bison", "Bizon", "");
+SetParentAndChild(Animals, Bison)
+
+var Beaver = new DataCard("Beaver", "Castor", "");
+SetParentAndChild(Animals, Beaver)
+
+var Zebra = new DataCard("Zebra", "Zebra", "");
+SetParentAndChild(Animals, Zebra)
+
+var Snake = new DataCard("Snake", "Şarpe", "");
+SetParentAndChild(Animals, Snake)
+
+var Goat = new DataCard("Goat", "Capră", "");
+SetParentAndChild(Animals, Goat)
+
+var Shark = new DataCard("Shark", "Rechin", "");
+SetParentAndChild(Animals, Shark)
+
+var Whale = new DataCard("Whale", "Balenă", "");
+SetParentAndChild(Animals, Whale)
+
+var Tiger = new DataCard("Tiger", "Tigru", "");
+SetParentAndChild(Animals, Tiger)
+
+var Leopard = new DataCard("Leopard", "Leopard", "");
+SetParentAndChild(Animals, Leopard)
 
 
 // #shop
