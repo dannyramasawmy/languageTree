@@ -774,7 +774,119 @@ var atHome = new DataCard("At Home", "Acasă", "");
 SetParentAndChild(nouns, atHome)
 
 //#workshow
+
+
 //#garden
+var theGarden = new DataCard("theGarden", "Grădina", "");
+SetParentAndChild(atHome, theGarden)
+
+var Wheelbarrow = new DataCard("Wheelbarrow", "Roabă", "");
+SetParentAndChild(theGarden, Wheelbarrow)
+
+var Beehive = new DataCard("Beehive", "Stup", "");
+SetParentAndChild(theGarden, Beehive)
+
+var Snail = new DataCard("Snail", "Melc", "");
+SetParentAndChild(theGarden, Snail)
+
+var Bricks = new DataCard("Bricks", "Cărămizi", "");
+SetParentAndChild(theGarden, Bricks)
+
+var Pigeon = new DataCard("Pigeon", "Porumbel", "");
+SetParentAndChild(theGarden, Pigeon)
+
+var Spade = new DataCard("Spade", "Cazma", "");
+SetParentAndChild(theGarden, Spade)
+
+var WateringCan = new DataCard("Watering Can", "Stropitoare", "");
+SetParentAndChild(theGarden, WateringCan)
+
+var Ladybird = new DataCard("Ladybird", "Gărgăriță", "");
+SetParentAndChild(theGarden, Ladybird)
+
+var Dustbin = new DataCard("Dustbin", "Pubelă", "");
+SetParentAndChild(theGarden, Dustbin)
+
+var Seeds = new DataCard("Seeds", "Semințe", "");
+SetParentAndChild(theGarden, Seeds)
+
+var Shed = new DataCard("Shed", "Magazie (Şproron", "");
+SetParentAndChild(theGarden, Shed)
+
+var Worm = new DataCard("Worm", "Râmă", "");
+SetParentAndChild(theGarden, Worm)
+
+var Flowers = new DataCard("Flowers", "Flori", "");
+SetParentAndChild(theGarden, Flowers)
+
+var Sprinkler = new DataCard("Sprinkler", "Aspersor", "");
+SetParentAndChild(theGarden, Sprinkler)
+
+var Hoe = new DataCard("Garden Hoe", "Sapă (Săpăligă)", "");
+SetParentAndChild(theGarden, Hoe)
+
+var Wasp = new DataCard("Wasp", "Viespe", "");
+SetParentAndChild(theGarden, Wasp)
+
+var Bee = new DataCard("Bee", "Albină", "");
+SetParentAndChild(theGarden, Bee)
+
+var Trowel = new DataCard("Trowel", "Lopățică", "");
+SetParentAndChild(theGarden, Trowel)
+
+var Bone = new DataCard("Bone", "Os", "");
+SetParentAndChild(theGarden, Bone)
+
+var Hedge = new DataCard("Hedge", "Gard viu", "");
+SetParentAndChild(theGarden, Hedge)
+
+var GardenFork = new DataCard("Garden Fork", "Furcă de Grădină", "");
+SetParentAndChild(theGarden, GardenFork)
+
+var Lawnmower = new DataCard("Lawnmower", "Mașină de tuns iarba", "");
+SetParentAndChild(theGarden, Lawnmower)
+
+var Path = new DataCard("Path", "Cărare (Potecă)", "");
+SetParentAndChild(theGarden, Path)
+
+var Leaves = new DataCard("Leaves", "Frunze", "");
+SetParentAndChild(theGarden, Leaves)
+
+var Tree = new DataCard("Tree", "Copac (Pom)", "");
+SetParentAndChild(theGarden, Tree)
+
+var Smoke = new DataCard("Smoke", "Fum", "");
+SetParentAndChild(theGarden, Smoke)
+
+var Caterpillar = new DataCard("Caterpillar", "omidă", "");
+SetParentAndChild(theGarden, Caterpillar)
+
+var Rake = new DataCard("Rake", "Greblă", "");
+SetParentAndChild(theGarden, Rake)
+
+var Nest = new DataCard("Nest", "Cuib", "");
+SetParentAndChild(theGarden, Nest)
+
+var Sticks = new DataCard("Sticks", "Crenguțe", "");
+SetParentAndChild(theGarden, Sticks)
+
+var Greenhouse = new DataCard("Greenhouse", "Seră", "");
+SetParentAndChild(theGarden, Greenhouse)
+
+var Hosepipe = new DataCard("Hosepipe", "Furtun de Grădină", "");
+SetParentAndChild(theGarden, Hosepipe)
+
+var Bonfire = new DataCard("Bonfire", "Foc (în aer liber)", "");
+SetParentAndChild(theGarden, Bonfire)
+
+var Vegetables = new DataCard("Vegetables", "Legume", "");
+SetParentAndChild(theGarden, Vegetables)
+
+var Pram = new DataCard("Pram", "Cărucior Pentru Copii", "");
+SetParentAndChild(theGarden, Pram)
+
+var Grass = new DataCard("Grass", "Iarbă", "");
+SetParentAndChild(theGarden, Grass)
 
 //#kitchen
 var theKitchen = new DataCard("The Kitchen", "Bucătăria", "");
