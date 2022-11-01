@@ -782,6 +782,35 @@ SetParentAndChild(romanian, nouns);
 // - animals
 //
 
+// #shop
+
+var theShop = new DataCard("The Shop", "Magazinul", "");
+SetParentAndChild(nouns, theShop)
+
+var Checkout = new DataCard("Checkout", "Casă (de marcat)", "");
+SetParentAndChild(theShop, Checkout)
+
+var Trolley = new DataCard("Trolley", "Cărucior (de Cumpărături)", "");
+SetParentAndChild(theShop, Trolley)
+
+var Money = new DataCard("Money", "Bani", "");
+SetParentAndChild(theShop, Money)
+
+var Handbag = new DataCard("Handbag", "Poșetă (Geantă)", "");
+SetParentAndChild(theShop, Handbag)
+
+var Bottles = new DataCard("Bottles", "Sticle", "");
+SetParentAndChild(theShop, Bottles)
+
+var Basket = new DataCard("Basket", "Coș", "");
+SetParentAndChild(theShop, Basket)
+
+var Scales = new DataCard("Scales", "Cântar", "");
+SetParentAndChild(theShop, Scales)
+
+var CarrierBag = new DataCard("CarrierBag", "Sacoșă", "");
+SetParentAndChild(theShop, CarrierBag)
+
 // #food
 var food = new DataCard("Food", "Mâncarea", "");
 SetParentAndChild(nouns, food)
@@ -1019,9 +1048,6 @@ SetParentAndChild(food, Plum)
 
 var Eggs = new DataCard("Eggs", "Ouă", "");
 SetParentAndChild(food, Eggs)
-
-
-
 
 // #home ===========================
 
