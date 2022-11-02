@@ -895,10 +895,157 @@ var nouns = new DataCard(
 SetParentAndChild(romanian, nouns);
 
 // the seasons
-// school
-// seaside
-// hospital / doctor
+// #school #atschool
 
+var AtSchool = new DataCard("AtSchool", "La Şcoală", "");
+SetParentAndChild(nouns, AtSchool)
+
+var Scissors = new DataCard("Scissors", "Foarfecă", "");
+SetParentAndChild(AtSchool, Scissors)
+
+var Sums = new DataCard("Sums", "Calcule", "");
+SetParentAndChild(AtSchool, Sums)
+
+var Rubber = new DataCard("Rubber", "Gumă", "");
+SetParentAndChild(AtSchool, Rubber)
+
+var Ruler = new DataCard("Ruler", "Riglă (Linie)", "");
+SetParentAndChild(AtSchool, Ruler)
+
+var Photographs = new DataCard("Photographs", "Fotografii", "");
+SetParentAndChild(AtSchool, Photographs)
+
+var FeltTipPen = new DataCard("Felt Tip Pen", "Carioci", "");
+SetParentAndChild(AtSchool, FeltTipPen)
+
+var Clay = new DataCard("Clay", "Lut", "");
+SetParentAndChild(AtSchool, Clay)
+
+var Pencil = new DataCard("Pencil", "Creion", "");
+SetParentAndChild(AtSchool, Pencil)
+
+var Desk = new DataCard("Desk", "Bancă (Catedră)", "");
+SetParentAndChild(AtSchool, Desk)
+
+var Books = new DataCard("Books", "Cărți", "");
+SetParentAndChild(AtSchool, Books)
+
+var Pen = new DataCard("Pen", "Stilou", "");
+SetParentAndChild(AtSchool, Pen)
+
+var Glue = new DataCard("Glue", "Lipici", "");
+SetParentAndChild(AtSchool, Glue)
+
+var Chalk = new DataCard("Chalk", "Cretă", "");
+SetParentAndChild(AtSchool, Chalk)
+
+var Drawing = new DataCard("Drawing", "Desen", "");
+SetParentAndChild(AtSchool, Drawing)
+
+var Board = new DataCard("Board", "Tablă", "");
+SetParentAndChild(AtSchool, Board)
+
+var DoorHandle = new DataCard("Door Handle", "Clanță", "");
+SetParentAndChild(AtSchool, DoorHandle)
+
+var Plant = new DataCard("Plant", "Plantă", "");
+SetParentAndChild(AtSchool, Plant)
+
+var Globe = new DataCard("Globe", "Glob", "");
+SetParentAndChild(AtSchool, Globe)
+
+var Crayons = new DataCard("Crayons", "Creioane (Cerate)", "");
+SetParentAndChild(AtSchool, Crayons)
+
+var Easel = new DataCard("Easel", "Şevalet", "");
+SetParentAndChild(AtSchool, Easel)
+
+var BlindCurtain = new DataCard("Blind (Curtain)", "Jaluzea (Stor)", "");
+SetParentAndChild(AtSchool, BlindCurtain)
+
+var Paper = new DataCard("Paper", "Hârtie", "");
+SetParentAndChild(AtSchool, Paper)
+
+var Alphabet = new DataCard("Alphabet", "Alfabet", "");
+SetParentAndChild(AtSchool, Alphabet)
+
+var Notebook = new DataCard("Notebook", "Caiet", "");
+SetParentAndChild(AtSchool, Notebook)
+
+var paintBrush = new DataCard("Paint Brush", "Pensulă", "");
+SetParentAndChild(AtSchool, paintBrush)
+
+var Map = new DataCard("Map", "Hartă", "");
+SetParentAndChild(AtSchool, Map)
+
+var Box = new DataCard("Box", "Cutie", "");
+SetParentAndChild(AtSchool, Box)
+
+var Aquarium = new DataCard("Aquarium", "Acvariu", "");
+SetParentAndChild(AtSchool, Aquarium)
+
+var Badge = new DataCard("Badge", "Insignă", "");
+SetParentAndChild(AtSchool, Badge)
+
+var WastePaperBin = new DataCard("WastePaperBin", "Coș de Hârtii", "");
+SetParentAndChild(AtSchool, WastePaperBin)
+
+// #hospital #thehospital / #doctor #thedoctor
+var TheHospitalAndTheDoctor = new DataCard("The Hospital and The Doctor", "Spitalul ș Doctorul", "");
+SetParentAndChild(nouns, TheHospitalAndTheDoctor)
+
+var CottolWool = new DataCard("CottolWool", "Vată", "");
+SetParentAndChild(TheHospitalAndTheDoctor, CottolWool)
+
+var Medecine = new DataCard("Medecine", "Medicament", "");
+SetParentAndChild(TheHospitalAndTheDoctor, Medecine)
+
+var Lift = new DataCard("Lift", "Lift (Ascensor)", "");
+SetParentAndChild(TheHospitalAndTheDoctor, Lift)
+
+var Crutches = new DataCard("Crutches", "Cârje", "");
+SetParentAndChild(TheHospitalAndTheDoctor, Crutches)
+
+var Pills = new DataCard("Pills", "Pastille", "");
+SetParentAndChild(TheHospitalAndTheDoctor, Pills)
+
+var Tray = new DataCard("Tray", "Tavă", "");
+SetParentAndChild(TheHospitalAndTheDoctor, Tray)
+
+var Thermometer = new DataCard("Thermometer", "Termometru", "");
+SetParentAndChild(TheHospitalAndTheDoctor, Thermometer)
+
+var Curtains = new DataCard("Curtains", "Perdea", "");
+SetParentAndChild(TheHospitalAndTheDoctor, Curtains)
+
+var Cast = new DataCard("Cast (Plaster)", "Ghips", "");
+SetParentAndChild(TheHospitalAndTheDoctor, Cast)
+
+var Bandage = new DataCard("Bandage", "Bandage (Pansament)", "");
+SetParentAndChild(TheHospitalAndTheDoctor, Bandage)
+
+var Wheelchair = new DataCard("Wheelchair", "Scaun cu Rotile", "");
+SetParentAndChild(TheHospitalAndTheDoctor, Wheelchair)
+
+var Syringe = new DataCard("Syringe", "Seringă", "");
+SetParentAndChild(TheHospitalAndTheDoctor, Syringe)
+
+var Tissues = new DataCard("Tissues", "Batiste (de Hârtie)", "");
+SetParentAndChild(TheHospitalAndTheDoctor, Tissues)
+
+var WaitingRoom = new DataCard("WaitingRoom", "Sală de Așteptare", "");
+SetParentAndChild(TheHospitalAndTheDoctor, WaitingRoom)
+
+var WalkingStick = new DataCard("WalkingStick", "Baston", "");
+SetParentAndChild(TheHospitalAndTheDoctor, WalkingStick)
+
+var GreetingsCards = new DataCard("Cards (Greeting)", "Pliante", "");
+SetParentAndChild(TheHospitalAndTheDoctor, GreetingsCards)
+
+var Plaster = new DataCard("Plaster", "Plasture", "");
+SetParentAndChild(TheHospitalAndTheDoctor, Plaster)
+
+// #thebeach #beach #seaside
 var TheBeach = new DataCard("The Beach", "Plaja", "");
 SetParentAndChild(nouns, TheBeach)
 
@@ -1635,8 +1782,17 @@ SetParentAndChild(theShop, CarrierBag)
 var food = new DataCard("Food", "Mâncarea", "");
 SetParentAndChild(nouns, food)
 
+var Orange = new DataCard("Orange", "Portocală", "");
+SetParentAndChild(food, Orange)
+
+var Pear = new DataCard("Pear", "Pară", "");
+SetParentAndChild(food, Pear)
+
 var Chocolate = new DataCard("Chocolate", "Ciocolată", "");
 SetParentAndChild(food, Chocolate)
+
+var Banana = new DataCard("Banana", "Banană", "");
+SetParentAndChild(food, Banana)
 
 var Sweet = new DataCard("Sweet", "Bomboană", "");
 SetParentAndChild(food, Sweet)
@@ -2161,7 +2317,13 @@ SetParentAndChild(theKitchen, TeaTowel)
 
 //#inhome
 var home = new DataCard("Home", "Casă", "");
-SetParentAndChild(home, home)
+SetParentAndChild(atHome, home)
+
+var Ceiling = new DataCard("Ceiling", "Plafon (Tavan)", "");
+SetParentAndChild(home, Ceiling)
+
+var Floor = new DataCard("Floor", "Podea", "");
+SetParentAndChild(home, Floor)
 
 var bath = new DataCard(
     "Bath", "Baie",
@@ -2334,9 +2496,21 @@ SetParentAndChild(home, Presents)
 var Party = new DataCard("The Party", "Petrecerea", "");
 SetParentAndChild(home, Party)
 
+var Pillow = new DataCard("Pillow", "Pernă", "");
+SetParentAndChild(home, Pillow)
+
+var Computer = new DataCard("Computer", "Computer (Calculator)", "");
+SetParentAndChild(home, Computer)
+
 //#toys
 var Toys = new DataCard("Toys", "Jucării", "");
-SetParentAndChild(home, Toys)
+SetParentAndChild(atHome, Toys)
+
+var Comic = new DataCard("Comic", "Revistă de Benzi Desenate", "");
+SetParentAndChild(Toys, Comic)
+
+var Jigsaw = new DataCard("Jigsaw Puzzle", "Puzzle", "");
+SetParentAndChild(Toys, Jigsaw)
 
 var TrainSet = new DataCard("Train Set", "Trenuleț Electric", "");
 SetParentAndChild(Toys, TrainSet)
@@ -2447,9 +2621,33 @@ SetParentAndChild(people, Child)
 var Baby = new DataCard("Baby", "Bebeluș", "");
 SetParentAndChild(people, Baby)
 
+var Boy = new DataCard("Boy", "Băiat", "");
+SetParentAndChild(people, Boy)
+
+var Girl = new DataCard("Girl", "Fată", "");
+SetParentAndChild(people, Girl)
+
 // #clothes
 var Clothes = new DataCard("Clothes", "Hainele", "");
 SetParentAndChild(people, Clothes)
+
+var DressingGown = new DataCard("Dressing Gown", "Halat", "");
+SetParentAndChild(Clothes, DressingGown)
+
+var Watch = new DataCard("Watch", "Ceas de Mână", "");
+SetParentAndChild(Clothes, Watch)
+
+var Nightdress = new DataCard("Nightdress", "Cămșă de Noapte", "");
+SetParentAndChild(Clothes, Nightdress)
+
+var Pyjamas = new DataCard("Pyjamas", "Pijama", "");
+SetParentAndChild(Clothes, Pyjamas)
+
+var Nappy = new DataCard("Nappy", "Pampers", "");
+SetParentAndChild(Clothes, Nappy)
+
+var Slippers = new DataCard("Slippers", "Papuci", "");
+SetParentAndChild(Clothes, Slippers)
 
 var SwimmingCostume = new DataCard("Swimming Costume", "Costum de Baie", "");
 SetParentAndChild(Clothes, SwimmingCostume)
@@ -2615,6 +2813,18 @@ var workJob = new DataCard(
     NounTemplateFemale("", "", "", "")
 )
 SetParentAndChild(people, workJob)
+
+var Teacher = new DataCard("Teacher", "Învătăoare (Profesoară)", "");
+SetParentAndChild(workJob, Teacher)
+
+var Nurse = new DataCard("Nurse", "Infirmier", "");
+SetParentAndChild(workJob, Nurse)
+
+var HealthCareAssistant = new DataCard("Health Care Assistant", "Asistent Medical", "");
+SetParentAndChild(workJob, HealthCareAssistant)
+
+var Doctor = new DataCard("Doctor", "Doctor", "");
+SetParentAndChild(workJob, Doctor)
 
 var WaterSkier = new DataCard("Water Skier", "Schior Nautic", "");
 SetParentAndChild(workJOb, WaterSkier)
