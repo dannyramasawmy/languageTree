@@ -894,8 +894,69 @@ var nouns = new DataCard(
     "Todo")
 SetParentAndChild(romanian, nouns);
 
-// - the farm
-// - the season
+// the seasons
+// school
+// seaside
+// hospital / doctor
+
+// #thefarm #farm
+var TheFarm = new DataCard("The Farm", "Ferma", "");
+SetParentAndChild(nouns, TheFarm)
+
+var Haystack = new DataCard("Haystack", "Căpiță de Fân", "");
+SetParentAndChild(TheFarm, Haystack)
+
+var Pond = new DataCard("Pond", "Iaz (Heleșteu)", "");
+SetParentAndChild(TheFarm, Pond)
+
+var Hayloft = new DataCard("Hayloft", "Şură (pod)", "");
+SetParentAndChild(TheFarm, Hayloft)
+
+var Pigsty = new DataCard("Pigsty", "Cocină", "");
+SetParentAndChild(TheFarm, Pigsty)
+
+var ChickenShed = new DataCard("ChickenShed", "Coteț de Păsări", "");
+SetParentAndChild(TheFarm, ChickenShed)
+
+var Tractor = new DataCard("Tractor", "Tractor", "");
+SetParentAndChild(TheFarm, Tractor)
+
+var Barn = new DataCard("Barn", "Hangar (Şopron)", "");
+SetParentAndChild(TheFarm, Barn)
+
+var Mud = new DataCard("Mud", "Nuroi", "");
+SetParentAndChild(TheFarm, Mud)
+
+var Cart = new DataCard("Cart", "Căruț", "");
+SetParentAndChild(TheFarm, Cart)
+
+var Hay = new DataCard("Hay", "Fân", "");
+SetParentAndChild(TheFarm, Hay)
+
+var StrawBales = new DataCard("Straw Bales", "Baloți de Paie", "");
+SetParentAndChild(TheFarm, StrawBales)
+
+var Farmhouse = new DataCard("Farmhouse", "Fermă", "");
+SetParentAndChild(TheFarm, Farmhouse)
+
+var Scarecrow = new DataCard("Scarecrow", "Sperietoare (de Ciori)", "");
+SetParentAndChild(TheFarm, Scarecrow)
+
+var Stable = new DataCard("Stable (Horses, Cows)", "Grajd de (Cai, Vite)", "");
+SetParentAndChild(TheFarm, Stable)
+
+var Saddle = new DataCard("Saddle", "Şa", "");
+SetParentAndChild(TheFarm, Saddle)
+
+var Field = new DataCard("Field", "Câmo", "");
+SetParentAndChild(TheFarm, Field)
+
+var Orchard = new DataCard("Orchard", "Livadă", "");
+SetParentAndChild(TheFarm, Orchard)
+
+var Plough = new DataCard("Plough", "Plug", "");
+SetParentAndChild(TheFarm, Plough)
+
 
 //#thepark #park
 var ThePark = new DataCard("The Park", "Parcul", "");
@@ -1223,6 +1284,39 @@ SetParentAndChild(TheCountry, Mountain)
 
 var Animals = new DataCard("Animals", "Animalele", "");
 SetParentAndChild(nouns, Animals)
+
+var Lamb = new DataCard("Lamb", "Miel", "");
+SetParentAndChild(Animals, Lamb)
+
+var Bull = new DataCard("Bull", "Taur", "");
+SetParentAndChild(Animals, Bull)
+
+var Geese = new DataCard("Geese", "Gâște", "");
+SetParentAndChild(Animals, Geese)
+
+var Sheep = new DataCard("Sheep", "Oaie", "");
+SetParentAndChild(Animals, Sheep)
+
+var Horse = new DataCard("Horse", "Cal", "");
+SetParentAndChild(Animals, Horse)
+
+var Pig = new DataCard("Pig", "Porc", "");
+SetParentAndChild(Animals, Pig)
+
+var Piglets = new DataCard("Piglets", "Purcei", "");
+SetParentAndChild(Animals, Piglets)
+
+var Cow = new DataCard("Cow", "Vacă", "");
+SetParentAndChild(Animals, Cow)
+
+var CalfCow = new DataCard("Calf (Cow)", "Vițel", "");
+SetParentAndChild(Animals, CalfCow)
+
+var Turkey = new DataCard("Turkey", "Curcan", "");
+SetParentAndChild(Animals, Turkey)
+
+var Sheepdog = new DataCard("Sheepdog", "Câine Ciobânesc", "");
+SetParentAndChild(Animals, Sheepdog)
 
 var Beehive = new DataCard("Beehive", "Stup", "");
 SetParentAndChild(Animal, Beehive)
@@ -2423,6 +2517,9 @@ var workJob = new DataCard(
     NounTemplateFemale("", "", "", "")
 )
 SetParentAndChild(people, workJob)
+
+var Farmer = new DataCard("Farmer", "Fermier", "");
+SetParentAndChild(workJob, Farmer)
 
 var TrainDriver = new DataCard("Train Driver", "Mecanic de Locomotivă", "");
 SetParentAndChild(workJob, TrainDriver)
