@@ -894,9 +894,168 @@ var nouns = new DataCard(
     "Todo")
 SetParentAndChild(romanian, nouns);
 
-// the seasons
-// #school #atschool
+//#Days #week #time
+var Time = new DataCard("Time", "Timp", "");
+SetParentAndChild(nouns, Time)
 
+// #seasons
+var Seasons = new DataCard("Seasons", "Anotimpurile", "");
+SetParentAndChild(Time, Seasons)
+
+var Spring = new DataCard("Spring", "Primăvară", "");
+SetParentAndChild(Seasons, Spring)
+
+var Autumn = new DataCard("Autumn", "Toamnă", "");
+SetParentAndChild(Seasons, Autumn)
+
+var Summer = new DataCard("Summer", "Vară", "");
+SetParentAndChild(Seasons, Summer)
+
+var Winter = new DataCard("Winter", "Iarnă", "");
+SetParentAndChild(Seasons, Winter)
+
+// #weather
+var Weather = new DataCard("The Weather", "Vremea", "");
+SetParentAndChild(Time, Weather)
+
+var Rain = new DataCard("Rain", "Ploaie", "");
+SetParentAndChild(Weather, Rain)
+
+var Wind = new DataCard("Wind", "Vânt", "");
+SetParentAndChild(Weather, Wind)
+
+var Lighting = new DataCard("Lighting", "Fulger", "");
+SetParentAndChild(Weather, Lighting)
+
+var Mist = new DataCard("Mist", "Pâclă", "");
+SetParentAndChild(Weather, Mist)
+
+var Fog = new DataCard("Fog", "Ceață", "");
+SetParentAndChild(Weather, Fog)
+
+var Snow = new DataCard("Snow", "Zăpadă", "");
+SetParentAndChild(Weather, Snow)
+
+var Frost = new DataCard("Frost", "Chiciură (Ger)", "");
+SetParentAndChild(Weather, Frost)
+
+var Clouds = new DataCard("Clouds", "Nori", "");
+SetParentAndChild(Weather, Clouds)
+
+var Sky = new DataCard("Sky", "Cer", "");
+SetParentAndChild(Weather, Sky)
+
+var Dew = new DataCard("Dew", "Rouă", "");
+SetParentAndChild(Weather, Dew)
+
+var Rainbow = new DataCard("Rainbow", "Curcubeu", "");
+SetParentAndChild(Weather, Rainbow)
+
+// #specialdays #holidays
+var SpecialDays = new DataCard("Special Days", "Zile de Sărbătoare", "");
+SetParentAndChild(Time, SpecialDays)
+
+var Birthday = new DataCard("Birthday", "Zi de Naștere", "");
+SetParentAndChild(SpecialDays, Birthday)
+
+var BirthdayCard = new DataCard("Birthday Card", "Felicitare", "");
+SetParentAndChild(SpecialDays, BirthdayCard)
+
+var Holiday = new DataCard("Holiday", "Vacanță", "");
+SetParentAndChild(SpecialDays, Holiday)
+
+var WeddingDay = new DataCard("Wedding Day", "Ziua Nunții", "");
+SetParentAndChild(SpecialDays, WeddingDay)
+
+var Guests = new DataCard("Guests", "Invitați", "");
+SetParentAndChild(WeddingDay, Guests)
+
+var Bridesmaid = new DataCard("Bridesmaid", "Domnișoară de Onoare", "");
+SetParentAndChild(WeddingDay, Bridesmaid)
+
+var Bride = new DataCard("Bride", "Mireasă", "");
+SetParentAndChild(WeddingDay, Bride)
+
+var Bridegroom = new DataCard("Bridegroom (Groom)", "Mire", "");
+SetParentAndChild(WeddingDay, Bridegroom)
+
+var ChristmasDay = new DataCard("ChristmasDay", "Ziua de Crăciun", "");
+SetParentAndChild(SpecialDays, ChristmasDay)
+
+var FatherChristmas = new DataCard("FatherChristmas", "Moș Crăciun", "");
+SetParentAndChild(ChristmasDay, FatherChristmas)
+
+var Sleigh = new DataCard("Sleigh", "Sanie", "");
+SetParentAndChild(ChristmasDay, Sleigh)
+
+var ChristmasTree = new DataCard("ChristmasTree", "Brad de Crăciun", "");
+SetParentAndChild(ChristmasDay, ChristmasTree)
+
+var Reindeer = new DataCard("Reindeer", "Ren", "");
+SetParentAndChild(ChristmasDay, Reindeer)
+
+var Camera = new DataCard("Camera", "Aparat de Fotografiat", "");
+SetParentAndChild(SpecialDays, Camera)
+
+//#days
+var DaysOfTheWeek = new DataCard("Days (Of The Week)", "Zilele (Săptămânii)", "");
+SetParentAndChild(Time, DaysOfTheWeek)
+
+var Morning = new DataCard("Morning", "Dimineață", "");
+SetParentAndChild(DaysOfTheWeek, Morning)
+
+var Sun = new DataCard("Sun", "Soare", "");
+SetParentAndChild(DaysOfTheWeek, Sun)
+
+var Evening = new DataCard("Evening", "Seară", "");
+SetParentAndChild(DaysOfTheWeek, Evening)
+
+var Night = new DataCard("Night", "Noapte", "");
+SetParentAndChild(DaysOfTheWeek, Night)
+
+var Space = new DataCard("Space", "Spațiu", "");
+SetParentAndChild(DaysOfTheWeek, Space)
+
+var Planet = new DataCard("Planet", "Planetă", "");
+SetParentAndChild(DaysOfTheWeek, Planet)
+
+var Moon = new DataCard("Moon", "Lună", "");
+SetParentAndChild(DaysOfTheWeek, Moon)
+
+var Star = new DataCard("Star", "Stea", "");
+SetParentAndChild(DaysOfTheWeek, Star)
+
+var Spaceship = new DataCard("Spaceship", "Navă Spațială", "");
+SetParentAndChild(DaysOfTheWeek, Spaceship)
+
+var Telescope = new DataCard("Telescope", "Telescop", "");
+SetParentAndChild(DaysOfTheWeek, Telescope)
+
+var Monday = new DataCard("Monday", "Luni", "");
+SetParentAndChild(DaysOfTheWeek, Monday)
+
+var Tuesday = new DataCard("Tuesday", "Marți", "");
+SetParentAndChild(DaysOfTheWeek, Tuesday)
+
+var Wednesday = new DataCard("Wednesday", "Miercuri", "");
+SetParentAndChild(DaysOfTheWeek, Wednesday)
+
+var Thursday = new DataCard("Thursday", "Joi", "");
+SetParentAndChild(DaysOfTheWeek, Thursday)
+
+var Friday = new DataCard("Friday", "Vineri", "");
+SetParentAndChild(DaysOfTheWeek, Friday)
+
+var Saturday = new DataCard("Saturday", "Sâmbătă", "");
+SetParentAndChild(DaysOfTheWeek, Saturday)
+
+var Sunday = new DataCard("Sunday", "Duminică", "");
+SetParentAndChild(DaysOfTheWeek, Sunday)
+
+var Calendar = new DataCard("Calendar", "Calendar", "");
+SetParentAndChild(DaysOfTheWeek, Calendar)
+
+// #school #atschool
 var AtSchool = new DataCard("AtSchool", "La Şcoală", "");
 SetParentAndChild(nouns, AtSchool)
 
@@ -2376,8 +2535,11 @@ SetParentAndChild(home, dvd)
 var Carpet = new DataCard("Carpet", "Mochetă", "");
 SetParentAndChild(home, Carpet)
 
-var Rug = new DataCard("Rug", "Covor", "Covoraș");
+var Rug = new DataCard("Rug", "Covor", "");
 SetParentAndChild(home, Rug)
+
+var Mat = new DataCard("Mat", "Covoraș", "");
+SetParentAndChild(home, Mat)
 
 var Water = new DataCard("Water", "Apă", "");
 SetParentAndChild(home, Water)
@@ -2490,8 +2652,8 @@ SetParentAndChild(home, FancyDress)
 var TeddyBear = new DataCard("Teddy Bear", "Ursuleț de Pluș", "");
 SetParentAndChild(home, TeddyBear)
 
-var Presents = new DataCard("Presents", "Cadouri", "");
-SetParentAndChild(home, Presents)
+var Present = new DataCard("Present", "Cadou", "");
+SetParentAndChild(home, Present)
 
 var Party = new DataCard("The Party", "Petrecerea", "");
 SetParentAndChild(home, Party)
@@ -2523,9 +2685,6 @@ SetParentAndChild(Toys, Robot)
 
 var Necklace = new DataCard("Necklace", "Colier (Mărgele)", "");
 SetParentAndChild(Toys, Necklace)
-
-var Camera = new DataCard("Camera", "Aparat de fotografiat", "");
-SetParentAndChild(Toys, Camera)
 
 var Beads = new DataCard("Beads", "Mărgele, (Perle)", "");
 SetParentAndChild(Toys, Beads)
