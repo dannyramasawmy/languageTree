@@ -899,6 +899,84 @@ SetParentAndChild(romanian, nouns);
 // seaside
 // hospital / doctor
 
+var TheBeach = new DataCard("The Beach", "Plaja", "");
+SetParentAndChild(nouns, TheBeach)
+
+var SailingBoat = new DataCard("Sailing Boat", "Barcă cu Pânze", "");
+SetParentAndChild(TheBeach, SailingBoat)
+
+var Sea = new DataCard("Sea", "Mare", "");
+SetParentAndChild(TheBeach, Sea)
+
+var Lighthouse = new DataCard("Lighthouse", "Far", "");
+SetParentAndChild(TheBeach, Lighthouse)
+
+var Spade = new DataCard("Spade", "Lopățică", "");
+SetParentAndChild(TheBeach, Spade)
+
+var Bucket = new DataCard("Bucket", "Găletușă", "");
+SetParentAndChild(TheBeach, Bucket)
+
+var Sandcastle = new DataCard("Sandcastle", "Castel de Nisip", "");
+SetParentAndChild(TheBeach, Sandcastle)
+
+var Umbrella = new DataCard("Umbrella", "Umbrelă (de Soare)", "");
+SetParentAndChild(TheBeach, Umbrella)
+
+var Flag = new DataCard("Flag", "Steag", "");
+SetParentAndChild(TheBeach, Flag)
+
+var Island = new DataCard("Island", "Insulă", "");
+SetParentAndChild(TheBeach, Island)
+
+var MotorBoat = new DataCard("Motor Boat", "Barcă cu Motor", "");
+SetParentAndChild(TheBeach, MotorBoat)
+
+var Shell = new DataCard("Shell", "Scoică", "");
+SetParentAndChild(TheBeach, Shell)
+
+var Beach = new DataCard("Beach", "Plajă", "");
+SetParentAndChild(TheBeach, Beach)
+
+var RowingBoat = new DataCard("RowingBoat", "Barcă", "");
+SetParentAndChild(TheBeach, RowingBoat)
+
+var Deckchair = new DataCard("Deckchair", "Şezlong", "");
+SetParentAndChild(TheBeach, Deckchair)
+
+var Suncream = new DataCard("Suncream", "Cremă de Protecție Solară", "");
+SetParentAndChild(TheBeach, Suncream)
+
+var FishingBoat = new DataCard("Fishing Boat", "Barcă de Pescuit", "");
+SetParentAndChild(TheBeach, FishingBoat)
+
+var Paddle = new DataCard("Paddle", "Pagaie", "");
+SetParentAndChild(TheBeach, Paddle)
+
+var FishingNet = new DataCard("Fishing Net", "Plasă de Pescuit", "");
+SetParentAndChild(TheBeach, FishingNet)
+
+var Seaweed = new DataCard("Seaweed", "Alge", "");
+SetParentAndChild(TheBeach, Seaweed)
+
+var Pebbles = new DataCard("Pebbles", "Pietricele", "");
+SetParentAndChild(TheBeach, Pebbles)
+
+var Rope = new DataCard("Rope", "Frânghie", "");
+SetParentAndChild(TheBeach, Rope)
+
+var Canoe = new DataCard("Canoe", "Canoe", "");
+SetParentAndChild(TheBeach, Canoe)
+
+var Ship = new DataCard("Ship", "Vapor (Vas)", "");
+SetParentAndChild(TheBeach, Ship)
+
+var Cliff = new DataCard("Cliff", "Faleză", "");
+SetParentAndChild(TheBeach, Cliff)
+
+var Waves = new DataCard("Waves", "Valuri", "");
+SetParentAndChild(TheBeach, Waves)
+
 // #thefarm #farm
 var TheFarm = new DataCard("The Farm", "Ferma", "");
 SetParentAndChild(nouns, TheFarm)
@@ -1281,9 +1359,20 @@ var Mountain = new DataCard("Mountain", "Munte", "");
 SetParentAndChild(TheCountry, Mountain)
 
 //#animals
-
 var Animals = new DataCard("Animals", "Animalele", "");
 SetParentAndChild(nouns, Animals)
+
+var Crab = new DataCard("Crab", "Crab", "");
+SetParentAndChild(Animals, Crab)
+
+var Seagull = new DataCard("Seagull", "Pescăruș", "");
+SetParentAndChild(Animals, Seagull)
+
+var Fish = new DataCard("Fish", "Pește", "");
+SetParentAndChild(Animals, Fish)
+
+var StarFish = new DataCard("StarFish", "Stea-de-mare", "");
+SetParentAndChild(Animals, StarFish)
 
 var Lamb = new DataCard("Lamb", "Miel", "");
 SetParentAndChild(Animals, Lamb)
@@ -2362,6 +2451,15 @@ SetParentAndChild(people, Baby)
 var Clothes = new DataCard("Clothes", "Hainele", "");
 SetParentAndChild(people, Clothes)
 
+var SwimmingCostume = new DataCard("Swimming Costume", "Costum de Baie", "");
+SetParentAndChild(Clothes, SwimmingCostume)
+
+var Sunhat = new DataCard("Sunhat", "Pălărie de Soare", "");
+SetParentAndChild(Clothes, Sunhat)
+
+var Flippers = new DataCard("Flippers", "Labe de Scafandru", "");
+SetParentAndChild(Clothes, Flippers)
+
 var Socks = new DataCard("Socks", "Şosete", "");
 SetParentAndChild(Clothes, Socks)
 
@@ -2517,6 +2615,12 @@ var workJob = new DataCard(
     NounTemplateFemale("", "", "", "")
 )
 SetParentAndChild(people, workJob)
+
+var WaterSkier = new DataCard("Water Skier", "Schior Nautic", "");
+SetParentAndChild(workJOb, WaterSkier)
+
+var Sailor = new DataCard("Sailor", "Marinar", "");
+SetParentAndChild(workJOb, Sailor)
 
 var Farmer = new DataCard("Farmer", "Fermier", "");
 SetParentAndChild(workJob, Farmer)
