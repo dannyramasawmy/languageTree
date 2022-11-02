@@ -894,6 +894,72 @@ var nouns = new DataCard(
     "Todo")
 SetParentAndChild(romanian, nouns);
 
+//#thecircus
+var TheCircus = new DataCard("The Circus", "Circul", "");
+SetParentAndChild(nouns, TheCircus)
+
+var Unicyclist = new DataCard("Unicyclist", "Acrobat pe Bicicletă", "");
+SetParentAndChild(TheCircus, Unicyclist)
+
+var Trapeze = new DataCard("Trapeze", "Trapez", "");
+SetParentAndChild(TheCircus, Trapeze)
+
+var TightropeWalked = new DataCard("Tightrope Walked", "Echilibrist", "");
+SetParentAndChild(TheCircus, TightropeWalked)
+
+var Pole = new DataCard("Pole", "Prăjină", "");
+SetParentAndChild(TheCircus, Pole)
+
+var RopeLadder = new DataCard("RopeLadder", "Scară de Frânghie", "");
+SetParentAndChild(TheCircus, RopeLadder)
+
+var Acrobats = new DataCard("Acrobats", "Acrobați", "");
+SetParentAndChild(TheCircus, Acrobats)
+
+var Juggler = new DataCard("Juggler", "Jongler", "");
+SetParentAndChild(TheCircus, Juggler)
+
+var Ringmaster = new DataCard("Ringmaster", "Maestru de Manej", "");
+SetParentAndChild(TheCircus, Ringmaster)
+
+var TopHat = new DataCard("TopHat", "Joben", "");
+SetParentAndChild(TheCircus, TopHat)
+
+var BowTieClown = new DataCard("Bowtie (Clown)", "Papion de Clovn", "");
+SetParentAndChild(TheCircus, BowTieClown)
+
+var Clown = new DataCard("Clown", "Clovn", "");
+SetParentAndChild(TheCircus, Clown)
+
+var Band = new DataCard("Band", "Orchestră", "");
+SetParentAndChild(TheCircus, Band)
+
+var TheFairground = new DataCard("TheFairground", "Parcul de Distractții", "");
+SetParentAndChild(TheCircus, TheFairground)
+
+var BigWheel = new DataCard("Big Wheel", "Roată Panoramică", "");
+SetParentAndChild(TheCircus, BigWheel)
+
+var Carousel = new DataCard("Carousel", "Carusel", "");
+SetParentAndChild(TheCircus, Carousel)
+
+var CandyFloss = new DataCard("Candy Floss", "Vată de Băț", "");
+SetParentAndChild(TheCircus, CandyFloss)
+
+var Popcorn = new DataCard("Popcorn", "Pop-corn (Floricele de Porumb)", "");
+SetParentAndChild(TheCircus, Popcorn)
+
+var RollerCoaster = new DataCard("Roller Coaster", "Montagnes Russes", "");
+SetParentAndChild(TheCircus, RollerCoaster)
+
+var GhostTrain = new DataCard("Ghost Train", "Tren Fantomă", "");
+SetParentAndChild(TheCircus, GhostTrain)
+
+var HelterSkelter = new DataCard("Helter Skelter", "Tobogan Uriaș (Spirală)", "");
+SetParentAndChild(TheCircus, HelterSkelter)
+
+var Dodgems = new DataCard("Dodgems (Bumper Cars)", "Mașinuțe Bușitoare", "");
+SetParentAndChild(TheCircus, Dodgems)
 
 
 //#sports
