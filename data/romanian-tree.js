@@ -894,6 +894,135 @@ var nouns = new DataCard(
     "Todo")
 SetParentAndChild(romanian, nouns);
 
+
+
+//#sports
+var Sports = new DataCard("Sports", "Sporturile", "");
+SetParentAndChild(nouns, Sports)
+
+var Ball = new DataCard("Ball", "Minge", "");
+SetParentAndChild(Sports, Ball)
+
+var Basketball = new DataCard("Basketball", "Baschet", "");
+SetParentAndChild(Sports, Basketball)
+
+var Rowing = new DataCard("Rowing", "Canotaj", "");
+SetParentAndChild(Sports, Rowing)
+
+var Sail = new DataCard("Sail", "Velă", "");
+SetParentAndChild(Sports, Sail)
+
+var Snowboarding = new DataCard("Snowboarding", "Snowboarding", "");
+SetParentAndChild(Sports, Snowboarding)
+
+var Sailing = new DataCard("Sailing", "Navigație de Agrement", "");
+SetParentAndChild(Sports, Sailing)
+
+var Windsurfing = new DataCard("Windsurfing", "Windsurfing", "");
+SetParentAndChild(Sports, Windsurfing)
+
+var Tennis = new DataCard("Tennis", "Tenis", "");
+SetParentAndChild(Sports, Tennis)
+
+var FishingRod = new DataCard("Fishing Rod", "Undiță de Pescuit", "");
+SetParentAndChild(Sports, FishingRod)
+
+var Fishing = new DataCard("Fishing", "Pescuit", "");
+SetParentAndChild(Sports, Fishing)
+
+var AmericanFootball = new DataCard("American Football", "Fotbal American", "");
+SetParentAndChild(Sports, AmericanFootball)
+
+var Gymnastics = new DataCard("Gymnastics", "Gimnastică", "");
+SetParentAndChild(Sports, Gymnastics)
+
+var Cricket = new DataCard("Cricket", "Crichet", "");
+SetParentAndChild(Sports, Cricket)
+
+var Karate = new DataCard("Karate", "Karate", "");
+SetParentAndChild(Sports, Karate)
+
+var BaseballBat = new DataCard("Baseball Bat", "Bâtă de Baseball", "");
+SetParentAndChild(Sports, BaseballBat)
+
+var Dance = new DataCard("Dance", "Dans", "");
+SetParentAndChild(Sports, Dance)
+
+var Baseball = new DataCard("Baseball", "Baseball", "");
+SetParentAndChild(Sports, Baseball)
+
+var Bait = new DataCard("Bait", "Momeală", "");
+SetParentAndChild(Sports, Bait)
+
+var Diving = new DataCard("Diving", "Săritură în apă", "");
+SetParentAndChild(Sports, Diving)
+
+var SwimmingPool = new DataCard("SwimmingPool", "Piscină", "");
+SetParentAndChild(Sports, SwimmingPool)
+
+var Rugby = new DataCard("Rugby", "Rugby", "");
+SetParentAndChild(Sports, Rugby)
+
+var Swimming = new DataCard("Swimming", "Înot (Natație)", "");
+SetParentAndChild(Sports, Swimming)
+
+var Race = new DataCard("Race", "Cursă (Întrecere)", "");
+SetParentAndChild(Sports, Race)
+
+var Archery = new DataCard("Archery", "Tir cu Arcul", "");
+SetParentAndChild(Sports, Archery)
+
+var Target = new DataCard("Target", "Țintă", "");
+SetParentAndChild(Sports, Target)
+
+var HandGliding = new DataCard("HandGliding", "Zbor cu Deltaplanuk", "");
+SetParentAndChild(Sports, HandGliding)
+
+var Helmet = new DataCard("Helmet", "Cască", "");
+SetParentAndChild(Sports, Helmet)
+
+var Jogging = new DataCard("Jogging", "Jogging (Alergare)", "");
+SetParentAndChild(Sports, Jogging)
+
+var Judo = new DataCard("Judo", "Judo", "");
+SetParentAndChild(Sports, Judo)
+
+var Football = new DataCard("Football", "Fotbal", "");
+SetParentAndChild(Sports, Football)
+
+var Badminton = new DataCard("Badminton", "Badminton", "");
+SetParentAndChild(Sports, Badminton)
+
+var TableTennis = new DataCard("Table Tennis", "Tenis de Masă (Ping Pong)", "");
+SetParentAndChild(Sports, TableTennis)
+
+var HorseRiding = new DataCard("Horse Riding", "Echitație", "");
+SetParentAndChild(Sports, HorseRiding)
+
+var Climbing = new DataCard("Climbing", "Escaladare Cățărare", "");
+SetParentAndChild(Sports, Climbing)
+
+var Locker = new DataCard("Locker", "Casetă (de dulap)", "");
+SetParentAndChild(Sports, Locker)
+
+var ChangingRoom = new DataCard("Changing Room", "Vestiar", "");
+SetParentAndChild(Sports, ChangingRoom)
+
+var IceSkates = new DataCard("Ice Skates", "Patine", "");
+SetParentAndChild(Sports, IceSkates)
+
+var IceSkating = new DataCard("Ice Skating", "Patinaj", "");
+SetParentAndChild(Sports, IceSkating)
+
+var SumoWrestling = new DataCard("Sumo Wrestling", "Sumo", "");
+SetParentAndChild(Sports, SumoWrestling)
+
+var Ski = new DataCard("Ski", "Schiuri", "");
+SetParentAndChild(Sports, Ski)
+
+var Skiing = new DataCard("Skiing", "Schi", "");
+SetParentAndChild(Sports, Skiing)
+
 //#Days #week #time
 var Time = new DataCard("Time", "Timp", "");
 SetParentAndChild(nouns, Time)
@@ -1385,9 +1514,6 @@ SetParentAndChild(ThePark, Puddle)
 var String = new DataCard("String", "Sfoară", "");
 SetParentAndChild(ThePark, String)
 
-var Ball = new DataCard("Ball", "Minge", "");
-SetParentAndChild(ThePark, Ball)
-
 var FenceRailings = new DataCard("Fence Railings", "Gard", "");
 SetParentAndChild(ThePark, FenceRailings)
 
@@ -1670,6 +1796,9 @@ SetParentAndChild(nouns, Animals)
 
 var pet = new DataCard("Pet", "Animal de companie", "");
 SetParentAndChild(Animals, pet)
+
+var Pony = new DataCard("Pony", "Ponei", "");
+SetParentAndChild(Sports, Pony)
 
 var Hamster = new DataCard("Hamster", "Hamster", "");
 SetParentAndChild(Animals, Hamster)
