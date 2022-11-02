@@ -1,7 +1,7 @@
 //
 // Major version: changes in behavior / new buttons etc
-// Minor version: new/edited cars / bug fixes
-const staticCacheName = 'languageTree-v19-6';
+// Minor version: new/edited words / bug fixes
+const staticCacheName = 'languageTree-v19-7';
 
 self.addEventListener('install', (e) => {
   console.log("Registering sw");
