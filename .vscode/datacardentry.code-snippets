@@ -1,0 +1,74 @@
+{
+	// Place your languageTree workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	
+	"DataCardEntry": {
+		"prefix": ["DataCardEntry", "addNoun", "addWord"],
+		"body": ["var $1 = new DataCard($4\"$1\", \"$3\", \"\");", "SetParentAndChild($2, $1)"],
+		"description": "A new data card entry."
+	},
+	"A1": {
+		"prefix": ["a1"],
+		"body": ["ă"],
+		"description": "A special."
+	},
+	"A1u": {
+		"prefix": ["a1u"],
+		"body": ["Ă"],
+		"description": "A special."
+	},
+	"A2": {
+		"prefix": ["a2"],
+		"body": ["â"],
+		"description": "A special."
+	},
+	"A2u": {
+		"prefix": ["a2u"],
+		"body": ["Â"],
+		"description": "A special."
+	},
+	"I1": {
+		"prefix": ["i1"],
+		"body": ["î"],
+		"description": "I special."
+	},
+	"I1u": {
+		"prefix": ["i1u"],
+		"body": ["Î"],
+		"description": "I special."
+	},
+	"S1": {
+		"prefix": ["s1"],
+		"body": ["ș"],
+		"description": "S special."
+	},
+	"S1u": {
+		"prefix": ["s1u"],
+		"body": ["Ş"],
+		"description": "S special."
+	},
+	"T1": {
+		"prefix": ["t1"],
+		"body": ["ț"],
+		"description": "T special."
+	},
+	"T1u": {
+		"prefix": ["t1u"],
+		"body": ["Ț"],
+		"description": "T special."
+	},
+}
