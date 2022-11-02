@@ -2607,7 +2607,7 @@ var theKitchen = new DataCard("The Kitchen", "Bucătăria", "");
 SetParentAndChild(atHome, theKitchen)
 
 var fridge = new DataCard("Fridge", "Frigider", "");
-SetParentAndChild(theKithchen, fridge)
+SetParentAndChild(theKitchen, fridge)
 
 var Clock = new DataCard("Clock", "Ceas de perete", "");
 SetParentAndChild(theKitchen, Clock)
@@ -3226,10 +3226,10 @@ var Doctor = new DataCard("Doctor", "Doctor", "");
 SetParentAndChild(workJob, Doctor)
 
 var WaterSkier = new DataCard("Water Skier", "Schior Nautic", "");
-SetParentAndChild(workJOb, WaterSkier)
+SetParentAndChild(workJob, WaterSkier)
 
 var Sailor = new DataCard("Sailor", "Marinar", "");
-SetParentAndChild(workJOb, Sailor)
+SetParentAndChild(workJob, Sailor)
 
 var Farmer = new DataCard("Farmer", "Fermier", "");
 SetParentAndChild(workJob, Farmer)
