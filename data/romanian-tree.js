@@ -1668,6 +1668,54 @@ SetParentAndChild(TheCountry, Mountain)
 var Animals = new DataCard("Animals", "Animalele", "");
 SetParentAndChild(nouns, Animals)
 
+var pet = new DataCard("Pet", "Animal de companie", "");
+SetParentAndChild(Animals, pet)
+
+var Hamster = new DataCard("Hamster", "Hamster", "");
+SetParentAndChild(Animals, Hamster)
+
+var GuineaPig = new DataCard("GuineaPig", "Porcușor de Guineea", "");
+SetParentAndChild(Animals, GuineaPig)
+
+var Parrot = new DataCard("Parrot", "Papagal", "");
+SetParentAndChild(Animals, Parrot)
+
+var Beak = new DataCard("Beak", "Cioc", "");
+SetParentAndChild(Animals, Beak)
+
+var Mouse = new DataCard("Mouse", "Şoarece", "");
+SetParentAndChild(Animals, Mouse)
+
+var Kitten = new DataCard("Kitten", "Pisoi", "");
+SetParentAndChild(Animals, Kitten)
+
+var Kennel = new DataCard("Kennel", "Cușcă", "");
+SetParentAndChild(Animals, Kennel)
+
+var Puppy = new DataCard("Puppy", "Cățeluș", "");
+SetParentAndChild(Animals, Puppy)
+
+var PetFood = new DataCard("Pet Food", "Hrană", "");
+SetParentAndChild(Animals, PetFood)
+
+var Budgeriagar = new DataCard("Budgeriagar", "Peruș", "");
+SetParentAndChild(Animals, Budgeriagar)
+
+var Canary = new DataCard("Canary", "Canar", "");
+SetParentAndChild(Animals, Canary)
+
+var Rabbit = new DataCard("Rabbit", "Iepure", "");
+SetParentAndChild(Animals, Rabbit)
+
+var Cat = new DataCard("Cat", "Pisică", "");
+SetParentAndChild(Animals, Cat)
+
+var Goldfish = new DataCard("Goldfish", "Peștișori Aurii", "");
+SetParentAndChild(Animals, Goldfish)
+
+var Cage = new DataCard("Cage", "Colivie", "");
+SetParentAndChild(Animals, Cage)
+
 var Crab = new DataCard("Crab", "Crab", "");
 SetParentAndChild(Animals, Crab)
 
@@ -2950,9 +2998,6 @@ SetParentAndChild(families, aunt)
 
 var uncle = new DataCard("Uncle", "Unchi", NounTemplateMale("", "", "", ""));
 SetParentAndChild(families, uncle)
-
-var pet = new DataCard("Pet", "Animal de companie", "");
-SetParentAndChild(families, pet)
 
 var cousinM = new DataCard("Cousin (male)", "Văr", NounTemplateMale("", "", "", ""));
 SetParentAndChild(families, cousinM)
