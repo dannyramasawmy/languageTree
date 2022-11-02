@@ -1957,31 +1957,31 @@ var Sheepdog = new DataCard("Sheepdog", "Câine Ciobânesc", "");
 SetParentAndChild(Animals, Sheepdog)
 
 var Beehive = new DataCard("Beehive", "Stup", "");
-SetParentAndChild(Animal, Beehive)
+SetParentAndChild(Animals, Beehive)
 
 var Snail = new DataCard("Snail", "Melc", "");
-SetParentAndChild(Animal, Snail)
+SetParentAndChild(Animals, Snail)
 
 var Ladybird = new DataCard("Ladybird", "Gărgăriță", "");
-SetParentAndChild(Animal, Ladybird)
+SetParentAndChild(Animals, Ladybird)
 
 var Caterpillar = new DataCard("Caterpillar", "omidă", "");
-SetParentAndChild(Animal, Caterpillar)
+SetParentAndChild(Animals, Caterpillar)
 
 var Worm = new DataCard("Worm", "Râmă", "");
-SetParentAndChild(Animal, Worm)
+SetParentAndChild(Animals, Worm)
 
 var Wasp = new DataCard("Wasp", "Viespe", "");
-SetParentAndChild(Animal, Wasp)
+SetParentAndChild(Animals, Wasp)
 
 var Bee = new DataCard("Bee", "Albină", "");
-SetParentAndChild(Animal, Bee)
+SetParentAndChild(Animals, Bee)
 
 var Birds = new DataCard("Birds", "Păsări", "");
-SetParentAndChild(Animal, Birds)
+SetParentAndChild(Animals, Birds)
 
 var Pigeon = new DataCard("Pigeon", "Porumbel", "");
-SetParentAndChild(Animal, Pigeon)
+SetParentAndChild(Animals, Pigeon)
 
 var Dog = new DataCard("Dog", "Câine", "");
 SetParentAndChild(Animals, Dog)
