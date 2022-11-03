@@ -21,6 +21,7 @@ Danny Ramasawmy
 - [Icon](https://commons.wikimedia.org/wiki/File:Book-icon-bible.png)
 - [PWA and SW](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Add_to_home_screen)
 - [Caching](https://www.youtube.com/watch?v=g9LfyCZjeKI&ab_channel=TheNetNinja)
+- [Nouns](https://www.emag.ro/primele-mele-1000-de-cuvinte-in-limba-engleza-heather-amery-mairi-mackinnon-9789737489647/pd/DFFKJ3BBM/)
 
 ## Screen shot
 ![](img/screenshot.png)
