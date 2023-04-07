@@ -106,7 +106,7 @@ window.addEventListener('click',
       let currentClickPathId = event.composedPath()[idx].id;
 
       // data card
-      if (currentClickPathId.includes("card-number-")) {
+      if (typeof currentClickPathId === 'string' && currentClickPathId.includes("card-number-")) {
         let idNumber = currentClickPathId[currentClickPathId.length - 1];
 
         // when clicking on a card
