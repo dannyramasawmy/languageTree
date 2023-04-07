@@ -1,0 +1,35 @@
+.subtle {
+    color: gray
+}
+
+.modal-subtitle {
+    color: lightgrey
+}
+
+.main-card {
+    padding: 1.5rem
+}
+
+.data-card:hover {
+    border-color: #ffc107;
+    box-shadow: 0px 0px 10px 2px #ffc107;
+    transition: border-color 1s, box-shadow 0.25s;
+}
+
+.form-control:focus {
+    border-color: #ffc107;
+    box-shadow: 0px 0px 10px 2px #ffc107;
+    transition: border-color 1s, box-shadow 0.25s;
+}
+
+.form-check-input:checked {
+    background-color: #ffc107;
+    box-shadow: 0px 0px 2px 2px #ffc107;
+    border-color: #ffc107;
+}
+
+.form-check-input:focus {
+    /* background-color: #ffc107; */
+    box-shadow: 0px 0px 2px 2px #ffc107;
+    border-color: #ffc107;
+}
