@@ -47,8 +47,7 @@ function SearchableDictionary() {
     };
 }
 
-function CopyText(text)
-{
+function CopyText(text) {
     navigator.clipboard.writeText(text);
     console.log(text + " copied!");
 }
@@ -240,6 +239,29 @@ function ScrollHandler() {
     this.PercentageScroll = () => this.GetCurrentHeight() / this.MaxScrollHeight();
 }
 
+function CreateChildCard(title, subtitle, id) {
+    let card = document.createElement("div");
+    card.className = "col-12 col-lg-3 col-md-4 gap-2";
+    card.id = id;
+
+    let innerCard = document.createElement("div");
+    innerCard.className = "data-card card text-bg-dark p-3 p-md-4";
+
+    let cardTitle = document.createElement("h4");
+    cardTitle.className = "card-title";
+    cardTitle.innerHTML = title;
+
+    let cardSubtitle = document.createElement("h5");
+    cardSubtitle.className = "card-subtitle subtle";
+    cardSubtitle.innerHTML = subtitle;
+
+    innerCard.appendChild(cardTitle);
+    innerCard.appendChild(cardSubtitle);
+    card.appendChild(innerCard);
+
+    return card;
+}
+
 function PopulateNodeDisplay(elementName, headerName, dataName, currentNode, displayList, yScrollHeight) {
 
     HideSettings();
@@ -371,7 +393,7 @@ var ShowSettings = () => {
     G_settingsModeIsActive = true;
     SwapImageOnButton("parent-card", ROOT_ICON);
     DisplayRadioButtonCheck();
-    
+
     // blur cards
     document.getElementById("data-view").style.filter = 'blur(75px)';
     document.getElementById("node-display").style.filter = 'blur(75px)';
@@ -452,7 +474,7 @@ function BoringColorWheel() {
         "#283747DF", // 
         "#212F3CDF", // 
         "#1B2631DF", // grey
-        ]; //o
+    ]; //o
 
     this.ResetIndex = () => this.Index = 3;
 
