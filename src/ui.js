@@ -40,18 +40,26 @@ console.log(G_settings_colorScheme)
 var G_currentNode = ROOT_NODE;
 var G_displayList = GetDisplayNodes(G_currentNode);
 
-ClearNodeDisplay(ELEMENT_NAME)
+ClearNodeDisplay(HEADER_NAME);
+ClearNodeDisplay(ELEMENT_NAME);
 PopulateNodeDisplay(HEADER_NAME, ELEMENT_NAME, G_currentNode, G_displayList, 0)
 
 var G_searchable = new SearchableDictionary();
 GetSearchableWords(romanian, G_searchable);
 
-document.getElementById("filter").placeholder =
+document.getElementById("SearchBar").placeholder =
   `Search (${G_searchable.GetDataCards("").length})`;
 
 // =============================================================================
 // Events
 // =============================================================================
+
+// search focus
+document.getElementById("SearchButton").addEventListener("click", () => {
+  document.getElementById("SearchBar").focus();
+  document.getElementById("SearchBar");
+  console.log("Set focus")
+});
 
 // add history
 function pushState(node) {
