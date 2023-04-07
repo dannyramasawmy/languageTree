@@ -105,15 +105,16 @@ window.addEventListener('click',
         return;
 
       // shuffle current node
-      if (event.composedPath()[idx].id == "random-card") {
+      if (event.composedPath()[idx].id == "shuffle-button") {
         // state
         G_currentNode = RandomElementInArray(G_searchable.GetDataCards(""));
         pushState(G_currentNode);
         G_displayList = GetDisplayNodes(G_currentNode);
 
         // display
-        SwapImageOnButton("random-card", GetNextShuffleIconPath())
+        // SwapImageOnButton("random-card", GetNextShuffleIconPath())
         ResetSearch();
+        View.ClearComponents(MAIN_CARD_ID)
         View.ClearComponents(DATA_CARDS_ID)
         View.UpdateCards(MAIN_CARD_ID, DATA_CARDS_ID, G_currentNode, G_displayList, 0)
         return;
