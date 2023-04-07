@@ -97,7 +97,6 @@ window.addEventListener('click',
   function (event) {
 
     var clickId = event.composedPath()[0].id;
-    var elementName = "node-display";
 
     for (var idx = 0; idx < event.composedPath().length; idx++) {
 
@@ -115,8 +114,8 @@ window.addEventListener('click',
         // display
         SwapImageOnButton("random-card", GetNextShuffleIconPath())
         ResetSearch();
-        View.ClearComponents(elementName)
-        View.UpdateCards(MAIN_CARD_ID, elementName, G_currentNode, G_displayList, 0)
+        View.ClearComponents(DATA_CARDS_ID)
+        View.UpdateCards(MAIN_CARD_ID, DATA_CARDS_ID, G_currentNode, G_displayList, 0)
         return;
       }
 
@@ -126,35 +125,36 @@ window.addEventListener('click',
 
         // display
         G_displayList = SortDisplayList(G_displayList);
-        View.ClearComponents(elementName)
-        View.UpdateCards(MAIN_CARD_ID, elementName, nodeToShow, G_displayList, 0)
+        View.ClearComponents(DATA_CARDS_ID);
+        View.ClearComponents(MAIN_CARD_ID);
+        View.UpdateCards(MAIN_CARD_ID, DATA_CARDS_ID, nodeToShow, G_displayList, 0)
         return;
       }
 
-      // search for card
-      if (event.composedPath()[idx].id == "search-button") {
-        // HideSettings();
+      // // search for card
+      // if (event.composedPath()[idx].id == "search-button") {
+      //   // HideSettings();
 
-        if (G_searchModeIsActive) {
-          ResetSearch();
-          HideSearchButtons();
-          // SwapImageOnButton("search-button", SEARCH_NOT_ACTIVE_ICON);
-        }
-        else {
-          ShowSearchButtons();
-          // SwapImageOnButton("search-button", SEARCH_ACTIVE_ICON);
-        }
+      //   if (G_searchModeIsActive) {
+      //     ResetSearch();
+      //     HideSearchButtons();
+      //     // SwapImageOnButton("search-button", SEARCH_NOT_ACTIVE_ICON);
+      //   }
+      //   else {
+      //     ShowSearchButtons();
+      //     // SwapImageOnButton("search-button", SEARCH_ACTIVE_ICON);
+      //   }
 
-        return;
-      }
+      //   return;
+      // }
 
       // swap language shown
-      if (event.composedPath()[idx].id == "swap-language") {
+      if (event.composedPath()[idx].id == "swap-button") {
         // state
         G_displayLanguageIsEnglish = G_displayLanguageIsEnglish ? false : true;
 
         // display
-        let iconToShow = G_displayLanguageIsEnglish ? PRIMARY_LANGUAGE_ICON : SECONDARY_LANGUAGE_ICON;
+        // let iconToShow = G_displayLanguageIsEnglish ? PRIMARY_LANGUAGE_ICON : SECONDARY_LANGUAGE_ICON;
         let heightToSet = SCROLL.GetCurrentHeight();
 
         let nodeToShow = G_currentNode;
@@ -163,9 +163,10 @@ window.addEventListener('click',
           G_displayList = G_searchable.GetDataCards(document.getElementById("filter").value);
         }
 
-        SwapImageOnButton("swap-language", iconToShow);
-        View.ClearComponents(elementName);
-        View.UpdateCards(elementName, MAIN_CARD_ID, nodeToShow, G_displayList, heightToSet);
+        // SwapImageOnButton("swap-language", iconToShow);
+        View.ClearComponents(MAIN_CARD_ID);
+        View.ClearComponents(DATA_CARDS_ID);
+        View.UpdateCards(MAIN_CARD_ID, DATA_CARDS_ID, nodeToShow, G_displayList, heightToSet);
         return;
       }
 
@@ -181,7 +182,7 @@ window.addEventListener('click',
         // display
         var heightToSet = SCROLL.GetPreviousHeight();
         ResetSearch();
-        View.ClearComponents(elementName)
+        View.ClearComponents(DATA_CARDS_ID)
         G_displayList = SortDisplayList(G_displayList);
         View.UpdateCards(elementName, MAIN_CARD_ID, G_currentNode, G_displayList, heightToSet)
 
@@ -213,9 +214,9 @@ window.addEventListener('click',
 
       // display
       ResetSearch();
-      View.ClearComponents(elementName)
+      View.ClearComponents(DATA_CARDS_ID)
       G_displayList = SortDisplayList(G_displayList);
-      View.UpdateCards(elementName, MAIN_CARD_ID, G_currentNode, G_displayList, 0)
+      View.UpdateCards(DATA_CARDS_ID, MAIN_CARD_ID, G_currentNode, G_displayList, 0)
     }
   })
 

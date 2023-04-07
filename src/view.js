@@ -11,23 +11,13 @@ class View {
 
     static UpdateCards(mainCardId, dataCardsId, currentNode, displayList, yScrollHeight) {
 
-        // HideSettings();
-
-        // set root or parent icon
-        // if (currentNode.IsRoot)
-        //     SwapImageOnButton("parent-card", SETTINGS_ICON);
-        // else if (displayList.length == 0)
-        //     SwapImageOnButton("parent-card", LEAF_ICON);
-        // else
-        //     SwapImageOnButton("parent-card", PARENT_ICON);
-
-        // G_settings_colorScheme.ResetIndex();
-
+        // main card
         document.getElementById(mainCardId).appendChild(
             G_displayLanguageIsEnglish
                 ? Components.CreateParentCard(currentNode.English, currentNode.Romanian, currentNode.Data)
                 : Components.CreateParentCard(currentNode.Romanian, currentNode.English, currentNode.Data));
 
+        // child cards
         for (var idx = 0; idx < displayList.length; idx++) {
 
             let dataCard = G_displayLanguageIsEnglish
