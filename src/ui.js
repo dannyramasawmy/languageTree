@@ -1,6 +1,7 @@
 // =============================================================================
 // Global variables
 // =============================================================================
+// import * as view from './src/view.js';
 
 // consts in screaming snake case
 // gobal vars with G_ prefix
@@ -11,6 +12,7 @@ const ELEMENT_NAME = "data-cards";
 const HEADER_NAME = "main-card";
 const DATA_NAME = "current-node-data";
 const SCROLL = new ScrollHandler();
+const BUTTONS = "buttons";
 
 // icon paths
 const ROOT_ICON = "img/root-icon.png";
@@ -40,9 +42,9 @@ console.log(G_settings_colorScheme)
 var G_currentNode = ROOT_NODE;
 var G_displayList = GetDisplayNodes(G_currentNode);
 
-ClearNodeDisplay(HEADER_NAME);
-ClearNodeDisplay(ELEMENT_NAME);
-PopulateNodeDisplay(HEADER_NAME, ELEMENT_NAME, G_currentNode, G_displayList, 0)
+View.ClearCards(HEADER_NAME);
+View.ClearCards(ELEMENT_NAME);
+View.UpdateCards(HEADER_NAME, ELEMENT_NAME, G_currentNode, G_displayList, 0)
 
 var G_searchable = new SearchableDictionary();
 GetSearchableWords(romanian, G_searchable);
@@ -76,9 +78,9 @@ window.addEventListener('popstate',
 
     SwapImageOnButton("random-card", GetPreviousShuffleIconPath())
 
-    ClearNodeDisplay(ELEMENT_NAME);
+    View.ClearCards(ELEMENT_NAME);
     G_displayList = GetDisplayNodes(G_currentNode);
-    PopulateNodeDisplay(ELEMENT_NAME, HEADER_NAME, DATA_NAME, G_currentNode, G_displayList, 0)
+    View.UpdateCards(ELEMENT_NAME, HEADER_NAME, DATA_NAME, G_currentNode, G_displayList, 0)
   });
 
 // clicking
@@ -104,8 +106,8 @@ window.addEventListener('click',
         // display
         SwapImageOnButton("random-card", GetNextShuffleIconPath())
         ResetSearch();
-        ClearNodeDisplay(elementName)
-        PopulateNodeDisplay(elementName, HEADER_NAME, DATA_NAME, G_currentNode, G_displayList, 0)
+        View.ClearCards(elementName)
+        View.UpdateCards(elementName, HEADER_NAME, DATA_NAME, G_currentNode, G_displayList, 0)
         return;
       }
 
@@ -115,8 +117,8 @@ window.addEventListener('click',
 
         // display
         G_displayList = SortDisplayList(G_displayList);
-        ClearNodeDisplay(elementName)
-        PopulateNodeDisplay(elementName, HEADER_NAME, DATA_NAME, nodeToShow, G_displayList, 0)
+        View.ClearCards(elementName)
+        View.UpdateCards(elementName, HEADER_NAME, DATA_NAME, nodeToShow, G_displayList, 0)
         return;
       }
 
@@ -153,8 +155,8 @@ window.addEventListener('click',
         }
 
         SwapImageOnButton("swap-language", iconToShow);
-        ClearNodeDisplay(elementName);
-        PopulateNodeDisplay(elementName, HEADER_NAME, DATA_NAME, nodeToShow, G_displayList, heightToSet);
+        View.ClearCards(elementName);
+        View.UpdateCards(elementName, HEADER_NAME, DATA_NAME, nodeToShow, G_displayList, heightToSet);
         return;
       }
 
@@ -170,9 +172,9 @@ window.addEventListener('click',
         // display
         var heightToSet = SCROLL.GetPreviousHeight();
         ResetSearch();
-        ClearNodeDisplay(elementName)
+        View.ClearCards(elementName)
         G_displayList = SortDisplayList(G_displayList);
-        PopulateNodeDisplay(elementName, HEADER_NAME, DATA_NAME, G_currentNode, G_displayList, heightToSet)
+        View.UpdateCards(elementName, HEADER_NAME, DATA_NAME, G_currentNode, G_displayList, heightToSet)
 
         if (previousNode == G_currentNode
           && G_currentNode == ROOT_NODE
@@ -202,17 +204,17 @@ window.addEventListener('click',
 
       // display
       ResetSearch();
-      ClearNodeDisplay(elementName)
+      View.ClearCards(elementName)
       G_displayList = SortDisplayList(G_displayList);
-      PopulateNodeDisplay(elementName, HEADER_NAME, DATA_NAME, G_currentNode, G_displayList, 0)
+      View.UpdateCards(elementName, HEADER_NAME, DATA_NAME, G_currentNode, G_displayList, 0)
     }
   })
 
 
 function keyboardInput() {
   G_displayList = G_searchable.GetDataCards(document.getElementById("filter").value);
-  ClearNodeDisplay(ELEMENT_NAME);
-  PopulateNodeDisplay(ELEMENT_NAME, HEADER_NAME, DATA_NAME, searchPlaceholder, G_displayList, 0);
+  View.ClearCards(ELEMENT_NAME);
+  View.UpdateCards(ELEMENT_NAME, HEADER_NAME, DATA_NAME, searchPlaceholder, G_displayList, 0);
 };
 
 // =============================================================================

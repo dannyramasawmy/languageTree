@@ -199,7 +199,7 @@ function GetDisplayNodes(node) {
     return displayList;
 }
 
-function ClearNodeDisplay(elementName) {
+function View.ClearCards(elementName) {
     var displayDiv = document.getElementById(elementName);
     for (var idx = displayDiv.children.length; idx > 0; idx--)
         displayDiv.removeChild(displayDiv.children[idx - 1]);
@@ -232,7 +232,7 @@ function ScrollHandler() {
     this.PercentageScroll = () => this.GetCurrentHeight() / this.MaxScrollHeight();
 }
 
-function PopulateNodeDisplay(elementName, headerName, dataName, currentNode, displayList, yScrollHeight, showAnimation) {
+function View.UpdateCards(elementName, headerName, dataName, currentNode, displayList, yScrollHeight, showAnimation) {
 
     // set root or parent icon
     if (currentNode.IsRoot)
