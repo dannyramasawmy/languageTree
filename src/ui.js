@@ -46,11 +46,11 @@ View.ClearComponents(HEADER_NAME);
 View.ClearComponents(ELEMENT_NAME);
 View.ClearComponents(BUTTONS);
 View.UpdateButtons(BUTTONS, [
-  CreateButton("shuffle-button", "Shuffle", "img/shuffle-icon-1.png"),
-  CreateButton("sort-button", "Sort", "img/sort-icon.png"),
-  CreateSearchButton("search-button", "Search", "img/search-icon-2.png"),
-  CreateButton("swap-button", "Swap", "img/swap-language-icon-1.png"),
-  CreateButton("travel-button", "Travel", "img/parent-icon.png"),
+  Components.CreateButton("shuffle-button", "Shuffle", "img/shuffle-icon-1.png"),
+  Components.CreateButton("sort-button", "Sort", "img/sort-icon.png"),
+  Components.CreateSearchButton("search-button", "Search", "img/search-icon-2.png"),
+  Components.CreateButton("swap-button", "Swap", "img/swap-language-icon-1.png"),
+  Components.CreateButton("travel-button", "Travel", "img/parent-icon.png"),
 ]);
 View.UpdateCards(HEADER_NAME, ELEMENT_NAME, G_currentNode, G_displayList, 0);
 

@@ -25,14 +25,14 @@ class View {
 
         document.getElementById(mainCardId).appendChild(
             G_displayLanguageIsEnglish
-                ? CreateParentCard(currentNode.English, currentNode.Romanian, currentNode.Data)
-                : CreateParentCard(currentNode.Romanian, currentNode.English, currentNode.Data));
+                ? Components.CreateParentCard(currentNode.English, currentNode.Romanian, currentNode.Data)
+                : Components.CreateParentCard(currentNode.Romanian, currentNode.English, currentNode.Data));
 
         for (var idx = 0; idx < displayList.length; idx++) {
 
             let dataCard = G_displayLanguageIsEnglish
-                ? CreateChildCard(displayList[idx].English, displayList[idx].Romanian, idx)
-                : CreateChildCard(displayList[idx].Romanian, displayList[idx].English, idx)
+                ? Components.CreateChildCard(displayList[idx].English, displayList[idx].Romanian, idx)
+                : Components.CreateChildCard(displayList[idx].Romanian, displayList[idx].English, idx)
 
             dataCard.style.visibility = "hidden";
             document.getElementById(dataCardsId).appendChild(dataCard);
@@ -63,91 +63,95 @@ class View {
 //  COMPONENT CREATION
 // =============================================================================
 
-function CreateGenericButton(buttonId, buttonName, iconPath, description, isSearch) {
-    let button = document.createElement("li");
+class Components {
+    static CreateGenericButton(buttonId, buttonName, iconPath, description, isSearch) {
+        let button = document.createElement("li");
 
-    let buttonLink = document.createElement("a");
-    buttonLink.className = "nav-link text-secondary px-2";
-    buttonLink.id = buttonId;
-    if (isSearch) {
-        buttonLink.setAttribute("data-bs-toggle", "modal");
-        buttonLink.setAttribute("data-bs-target", "#searchModal");
+        let buttonLink = document.createElement("a");
+        buttonLink.className = "nav-link text-secondary px-2";
+        buttonLink.id = buttonId;
+        if (isSearch) {
+            buttonLink.setAttribute("data-bs-toggle", "modal");
+            buttonLink.setAttribute("data-bs-target", "#searchModal");
+        }
+
+        let buttonIcon = document.createElement("img");
+        buttonIcon.className = "bi d-block mx-2 mb-1";
+        buttonIcon.src = iconPath;
+        buttonIcon.alt = description;
+        buttonIcon.width = "30";
+        buttonIcon.height = "30";
+
+        let buttonLabel = document.createElement("h6")
+        buttonLabel.className = "subtle";
+        buttonLabel.innerHTML = buttonName;
+
+        button.appendChild(buttonLink);
+        buttonLink.appendChild(buttonIcon);
+        buttonLink.appendChild(buttonLabel);
+
+        return button;
     }
 
-    let buttonIcon = document.createElement("img");
-    buttonIcon.className = "bi d-block mx-2 mb-1";
-    buttonIcon.src = iconPath;
-    buttonIcon.alt = description;
-    buttonIcon.width = "30";
-    buttonIcon.height = "30";
+    static CreateButton(buttonId, buttonName, iconPath, description) {
+        return Components.CreateGenericButton(buttonId, buttonName, iconPath, description, false)
+    }
 
-    let buttonLabel = document.createElement("h6")
-    buttonLabel.className = "subtle";
-    buttonLabel.innerHTML = buttonName;
+    static CreateSearchButton(buttonId, buttonName, iconPath, description) {
+        return Components.CreateGenericButton(buttonId, buttonName, iconPath, description, true)
+    }
 
-    button.appendChild(buttonLink);
-    buttonLink.appendChild(buttonIcon);
-    buttonLink.appendChild(buttonLabel);
+    static CreateParentCard(title, subtitle, data) {
+        let card = document.createElement("div");
+        card.className = "col-12 gap-2";
 
-    return button;
-}
+        let innerCard = document.createElement("div");
+        innerCard.className = "card text-bg-secondary mb-3 p-md-4";
 
-CreateButton = (buttonId, buttonName, iconPath, description) =>
-    CreateGenericButton(buttonId, buttonName, iconPath, description, false)
+        let cardTitle = document.createElement("h1");
+        cardTitle.className = "card-title";
+        cardTitle.innerHTML = title;
 
-CreateSearchButton = (buttonId, buttonName, iconPath, description) =>
-    CreateGenericButton(buttonId, buttonName, iconPath, description, true)
+        let cardSubtitle = document.createElement("h2");
+        cardSubtitle.className = "card-subtitle";
+        cardSubtitle.innerHTML = subtitle;
 
-function CreateParentCard(title, subtitle, data) {
-    let card = document.createElement("div");
-    card.className = "col-12 gap-2";
+        let cardBody = document.createElement("div");
+        cardBody.className = "card-body";
 
-    let innerCard = document.createElement("div");
-    innerCard.className = "card text-bg-secondary mb-3 p-md-4";
+        let cardText = document.createElement("p");
+        cardText.className = "card-text";
+        cardText.innerHTML = data;
 
-    let cardTitle = document.createElement("h1");
-    cardTitle.className = "card-title";
-    cardTitle.innerHTML = title;
+        card.appendChild(innerCard);
+        innerCard.appendChild(cardTitle);
+        innerCard.appendChild(cardSubtitle);
+        innerCard.appendChild(cardBody);
+        cardBody.appendChild(cardText);
 
-    let cardSubtitle = document.createElement("h2");
-    cardSubtitle.className = "card-subtitle";
-    cardSubtitle.innerHTML = subtitle;
+        return card;
+    }
 
-    let cardBody = document.createElement("div");
-    cardBody.className = "card-body";
+    static CreateChildCard(title, subtitle, id) {
+        let card = document.createElement("div");
+        card.className = "col-12 col-lg-3 col-md-4 gap-2";
+        card.id = id;
 
-    let cardText = document.createElement("p");
-    cardText.className = "card-text";
-    cardText.innerHTML = data;
+        let innerCard = document.createElement("div");
+        innerCard.className = "data-card card text-bg-dark p-3 p-md-4";
 
-    card.appendChild(innerCard);
-    innerCard.appendChild(cardTitle);
-    innerCard.appendChild(cardSubtitle);
-    innerCard.appendChild(cardBody);
-    cardBody.appendChild(cardText);
+        let cardTitle = document.createElement("h4");
+        cardTitle.className = "card-title";
+        cardTitle.innerHTML = title;
 
-    return card;
-}
+        let cardSubtitle = document.createElement("h5");
+        cardSubtitle.className = "card-subtitle subtle";
+        cardSubtitle.innerHTML = subtitle;
 
-function CreateChildCard(title, subtitle, id) {
-    let card = document.createElement("div");
-    card.className = "col-12 col-lg-3 col-md-4 gap-2";
-    card.id = id;
+        card.appendChild(innerCard);
+        innerCard.appendChild(cardTitle);
+        innerCard.appendChild(cardSubtitle);
 
-    let innerCard = document.createElement("div");
-    innerCard.className = "data-card card text-bg-dark p-3 p-md-4";
-
-    let cardTitle = document.createElement("h4");
-    cardTitle.className = "card-title";
-    cardTitle.innerHTML = title;
-
-    let cardSubtitle = document.createElement("h5");
-    cardSubtitle.className = "card-subtitle subtle";
-    cardSubtitle.innerHTML = subtitle;
-
-    card.appendChild(innerCard);
-    innerCard.appendChild(cardTitle);
-    innerCard.appendChild(cardSubtitle);
-
-    return card;
+        return card;
+    }
 }
