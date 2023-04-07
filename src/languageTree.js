@@ -239,6 +239,37 @@ function ScrollHandler() {
     this.PercentageScroll = () => this.GetCurrentHeight() / this.MaxScrollHeight();
 }
 
+function CreateParentCard(title, subtitle, data) {
+    let card = document.createElement("div");
+    card.className = "col-12 gap-2";
+
+    let innerCard = document.createElement("div");
+    innerCard.className = "card text-bg-secondary mb-3 p-md-4";
+
+    let cardTitle = document.createElement("h1");
+    cardTitle.className = "card-title";
+    cardTitle.innerHTML = title;
+
+    let cardSubtitle = document.createElement("h2");
+    cardSubtitle.className = "card-subtitle";
+    cardSubtitle.innerHTML = subtitle;
+
+    let cardBody = document.createElement("div");
+    cardBody.className = "card-body";
+
+    let cardText = document.createElement("p");
+    cardText.className = "card-text";
+    cardText.innerHTML = data;
+
+    cardBody.appendChild(cardText);
+    innerCard.appendChild(cardTitle);
+    innerCard.appendChild(cardSubtitle);
+    innerCard.appendChild(cardBody);
+    card.appendChild(innerCard);
+
+    return card;
+}
+
 function CreateChildCard(title, subtitle, id) {
     let card = document.createElement("div");
     card.className = "col-12 col-lg-3 col-md-4 gap-2";
