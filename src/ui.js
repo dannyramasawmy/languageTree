@@ -120,7 +120,7 @@ window.addEventListener('click',
       }
 
       // sort cards
-      if (event.composedPath()[idx].id == "sort-cards") {
+      if (event.composedPath()[idx].id == "sort-button") {
         let nodeToShow = G_searchModeIsActive ? searchPlaceholder : G_currentNode;
 
         // display
