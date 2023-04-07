@@ -98,7 +98,43 @@ window.addEventListener('click',
 
     var clickId = event.composedPath()[0].id;
 
+    console.log(`click event '${event}'`);
+    console.log(event.composedPath());
+
     for (var idx = 0; idx < event.composedPath().length; idx++) {
+
+      let currentClickPathId = event.composedPath()[idx].id;
+
+      // data card
+      if (currentClickPathId.includes("card-number-")) {
+        let idNumber = currentClickPathId[currentClickPathId.length - 1];
+
+        // when clicking on a card
+        if (G_displayList[idNumber] !== undefined) {
+
+          console.log("Card clicked");
+
+          // don't allow clicking on a card if in settings
+          if (G_settingsModeIsActive)
+            return;
+
+          // state
+          G_currentNode = G_displayList[idNumber];
+          G_displayList = GetDisplayNodes(G_currentNode);
+          pushState(G_currentNode)
+          SCROLL.AddHistory();
+
+          // display
+          ResetSearch();
+          G_displayList = SortDisplayList(G_displayList);
+
+          View.ClearComponents(MAIN_CARD_ID)
+          View.ClearComponents(DATA_CARDS_ID)
+          View.UpdateCards(MAIN_CARD_ID, DATA_CARDS_ID, G_currentNode, G_displayList, 0)
+        }
+
+        return;
+      }
 
       // do nothing for search
       if (event.composedPath()[idx].id == "search-bar")
@@ -111,8 +147,6 @@ window.addEventListener('click',
         pushState(G_currentNode);
         G_displayList = GetDisplayNodes(G_currentNode);
 
-        // display
-        // SwapImageOnButton("random-card", GetNextShuffleIconPath())
         ResetSearch();
         View.ClearComponents(MAIN_CARD_ID)
         View.ClearComponents(DATA_CARDS_ID)
@@ -123,31 +157,13 @@ window.addEventListener('click',
       // sort cards
       if (event.composedPath()[idx].id == "sort-button") {
         let nodeToShow = G_searchModeIsActive ? searchPlaceholder : G_currentNode;
-
-        // display
         G_displayList = SortDisplayList(G_displayList);
+
         View.ClearComponents(DATA_CARDS_ID);
         View.ClearComponents(MAIN_CARD_ID);
         View.UpdateCards(MAIN_CARD_ID, DATA_CARDS_ID, nodeToShow, G_displayList, 0)
         return;
       }
-
-      // // search for card
-      // if (event.composedPath()[idx].id == "search-button") {
-      //   // HideSettings();
-
-      //   if (G_searchModeIsActive) {
-      //     ResetSearch();
-      //     HideSearchButtons();
-      //     // SwapImageOnButton("search-button", SEARCH_NOT_ACTIVE_ICON);
-      //   }
-      //   else {
-      //     ShowSearchButtons();
-      //     // SwapImageOnButton("search-button", SEARCH_ACTIVE_ICON);
-      //   }
-
-      //   return;
-      // }
 
       // swap language shown
       if (event.composedPath()[idx].id == "swap-button") {
@@ -173,9 +189,6 @@ window.addEventListener('click',
 
       // go to parent
       if (event.composedPath()[idx].id == "travel-button") {
-        // let previousNode = G_currentNode;
-        // let currentSettingsMode = G_settingsModeIsActive;
-
         G_currentNode = G_currentNode.Parent;
         G_displayList = GetDisplayNodes(G_currentNode);
         pushState(G_currentNode)
@@ -189,37 +202,8 @@ window.addEventListener('click',
         View.ClearComponents(DATA_CARDS_ID)
         View.UpdateCards(MAIN_CARD_ID, DATA_CARDS_ID, G_currentNode, G_displayList, heightToSet)
 
-        // if (previousNode == G_currentNode
-        //   && G_currentNode == ROOT_NODE
-        //   && !G_searchModeIsActive) {
-        //   if (currentSettingsMode)
-        //     HideSettings();
-        //   else
-        //     ShowSettings();
-        // }
-
         return;
       }
-    }
-
-    // when clicking on a card
-    if (G_displayList[clickId] !== undefined) {
-
-      // don't allow clicking on a card if in settings
-      if (G_settingsModeIsActive)
-        return;
-
-      // state
-      G_currentNode = G_displayList[clickId];
-      G_displayList = GetDisplayNodes(G_currentNode);
-      pushState(G_currentNode)
-      SCROLL.AddHistory();
-
-      // display
-      ResetSearch();
-      View.ClearComponents(DATA_CARDS_ID)
-      G_displayList = SortDisplayList(G_displayList);
-      View.UpdateCards(DATA_CARDS_ID, MAIN_CARD_ID, G_currentNode, G_displayList, 0)
     }
   })
 

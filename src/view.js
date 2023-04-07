@@ -17,12 +17,14 @@ class View {
                 ? Components.CreateParentCard(currentNode.English, currentNode.Romanian, currentNode.Data)
                 : Components.CreateParentCard(currentNode.Romanian, currentNode.English, currentNode.Data));
 
+
         // child cards
         for (var idx = 0; idx < displayList.length; idx++) {
+            let cardId = `card-number-${idx}`;
 
             let dataCard = G_displayLanguageIsEnglish
-                ? Components.CreateChildCard(displayList[idx].English, displayList[idx].Romanian, idx)
-                : Components.CreateChildCard(displayList[idx].Romanian, displayList[idx].English, idx)
+                ? Components.CreateChildCard(displayList[idx].English, displayList[idx].Romanian, cardId)
+                : Components.CreateChildCard(displayList[idx].Romanian, displayList[idx].English, cardId);
 
             dataCard.style.visibility = "hidden";
             document.getElementById(dataCardsId).appendChild(dataCard);
