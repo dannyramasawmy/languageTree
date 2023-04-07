@@ -261,11 +261,11 @@ function CreateParentCard(title, subtitle, data) {
     cardText.className = "card-text";
     cardText.innerHTML = data;
 
-    cardBody.appendChild(cardText);
+    card.appendChild(innerCard);
     innerCard.appendChild(cardTitle);
     innerCard.appendChild(cardSubtitle);
     innerCard.appendChild(cardBody);
-    card.appendChild(innerCard);
+    cardBody.appendChild(cardText);
 
     return card;
 }
@@ -286,64 +286,45 @@ function CreateChildCard(title, subtitle, id) {
     cardSubtitle.className = "card-subtitle subtle";
     cardSubtitle.innerHTML = subtitle;
 
+    card.appendChild(innerCard);
     innerCard.appendChild(cardTitle);
     innerCard.appendChild(cardSubtitle);
-    card.appendChild(innerCard);
 
     return card;
 }
 
-function PopulateNodeDisplay(elementName, headerName, dataName, currentNode, displayList, yScrollHeight) {
+function PopulateNodeDisplay(mainCardId, dataCardsId, currentNode, displayList, yScrollHeight) {
 
-    HideSettings();
+    // HideSettings();
 
     // set root or parent icon
-    if (currentNode.IsRoot)
-        SwapImageOnButton("parent-card", SETTINGS_ICON);
-    else if (displayList.length == 0)
-        SwapImageOnButton("parent-card", LEAF_ICON);
-    else
-        SwapImageOnButton("parent-card", PARENT_ICON);
+    // if (currentNode.IsRoot)
+    //     SwapImageOnButton("parent-card", SETTINGS_ICON);
+    // else if (displayList.length == 0)
+    //     SwapImageOnButton("parent-card", LEAF_ICON);
+    // else
+    //     SwapImageOnButton("parent-card", PARENT_ICON);
 
     G_settings_colorScheme.ResetIndex();
 
-    var headerDiv = document.getElementById(headerName);
-    headerDiv.innerHTML = G_displayLanguageIsEnglish
-        ? `<orange>${currentNode.English}</orange> <blue>${currentNode.Romanian}</blue>`
-        : `<blue>${currentNode.Romanian}</blue> <orange>${currentNode.English}</orange>`;
-
-    var dataDiv = document.getElementById(dataName);
-    dataDiv.innerHTML = currentNode.Data;
-    dataDiv.style.color = G_settings_colorScheme.ParentColor;
-
-    var displayDiv = document.getElementById(elementName);
-
+    document.getElementById(mainCardId).appendChild(
+        G_displayLanguageIsEnglish
+            ? CreateParentCard(currentNode.English, currentNode.Romanian, currentNode.Data)
+            : CreateParentCard(currentNode.Romanian, currentNode.English, currentNode.Data));
 
     for (var idx = 0; idx < displayList.length; idx++) {
-        var newDiv = document.createElement("div");
 
-        newDiv.innerHTML = G_displayLanguageIsEnglish
-            ? displayList[idx].English
-            : newDiv.innerHTML = displayList[idx].Romanian;
+        let dataCard = G_displayLanguageIsEnglish
+            ? CreateChildCard(displayList[idx].English, displayList[idx].Romanian, idx)
+            : CreateChildCard(displayList[idx].Romanian, displayList[idx].English, idx)
 
-        newDiv.id = idx;
-        newDiv.className = "data-card";
-
-        // rainbow colors
-        newDiv.style.backgroundColor = G_settings_colorScheme.GetNextColor();
-        newDiv.style.color = G_settings_colorScheme.TextColor;
-        newDiv.style.visibility = "hidden";
-
-        displayDiv.appendChild(newDiv);
+        dataCard.style.visibility = "hidden";
+        document.getElementById(dataCardsId).appendChild(dataCard);
 
         // make sliding in animation
-        let noAnimation = G_searchModeIsActive ? 0 : 1;
-        let animationTime = 1 * noAnimation * G_settings_showAnimation * idx / displayList.length;
-
-        // console.log(animationTime)
-        newDiv.style.animation = `${animationTime}s slide-in`;
-        newDiv.style.visibility = "visible";
-
+        let animationTime = 1 * G_settings_showAnimation * idx / displayList.length;
+        dataCard.style.animation = `${animationTime}s slide-in`;
+        dataCard.style.visibility = "visible";
     }
 
     window.scrollTo(0, yScrollHeight);

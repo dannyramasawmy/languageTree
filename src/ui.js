@@ -7,8 +7,8 @@
 // normal variables with camelCase
 
 const ROOT_NODE = romanian;
-const ELEMENT_NAME = "node-display";
-const HEADER_NAME = "current-node";
+const ELEMENT_NAME = "data-cards";
+const HEADER_NAME = "main-card";
 const DATA_NAME = "current-node-data";
 const SCROLL = new ScrollHandler();
 
@@ -41,7 +41,7 @@ var G_currentNode = ROOT_NODE;
 var G_displayList = GetDisplayNodes(G_currentNode);
 
 ClearNodeDisplay(ELEMENT_NAME)
-PopulateNodeDisplay(ELEMENT_NAME, HEADER_NAME, DATA_NAME, G_currentNode, G_displayList, 0)
+PopulateNodeDisplay(HEADER_NAME, ELEMENT_NAME, G_currentNode, G_displayList, 0)
 
 var G_searchable = new SearchableDictionary();
 GetSearchableWords(romanian, G_searchable);
@@ -133,18 +133,17 @@ window.addEventListener('click',
       if (event.composedPath()[idx].id == "swap-language") {
         // state
         G_displayLanguageIsEnglish = G_displayLanguageIsEnglish ? false : true;
-        
+
         // display
         let iconToShow = G_displayLanguageIsEnglish ? PRIMARY_LANGUAGE_ICON : SECONDARY_LANGUAGE_ICON;
         let heightToSet = SCROLL.GetCurrentHeight();
-        
+
         let nodeToShow = G_currentNode;
-        if (G_searchModeIsActive)
-        {
-          nodeToShow = searchPlaceholder ;
+        if (G_searchModeIsActive) {
+          nodeToShow = searchPlaceholder;
           G_displayList = G_searchable.GetDataCards(document.getElementById("filter").value);
         }
-        
+
         SwapImageOnButton("swap-language", iconToShow);
         ClearNodeDisplay(elementName);
         PopulateNodeDisplay(elementName, HEADER_NAME, DATA_NAME, nodeToShow, G_displayList, heightToSet);
@@ -166,13 +165,13 @@ window.addEventListener('click',
         ClearNodeDisplay(elementName)
         G_displayList = SortDisplayList(G_displayList);
         PopulateNodeDisplay(elementName, HEADER_NAME, DATA_NAME, G_currentNode, G_displayList, heightToSet)
-        
-        if (previousNode == G_currentNode 
+
+        if (previousNode == G_currentNode
           && G_currentNode == ROOT_NODE
-          && !G_searchModeIsActive) {         
+          && !G_searchModeIsActive) {
           if (currentSettingsMode)
             HideSettings();
-          else  
+          else
             ShowSettings();
         }
 
