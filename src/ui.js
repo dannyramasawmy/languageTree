@@ -172,9 +172,9 @@ window.addEventListener('click',
       }
 
       // go to parent
-      if (event.composedPath()[idx].id == "parent-card") {
-        let previousNode = G_currentNode;
-        let currentSettingsMode = G_settingsModeIsActive;
+      if (event.composedPath()[idx].id == "travel-button") {
+        // let previousNode = G_currentNode;
+        // let currentSettingsMode = G_settingsModeIsActive;
 
         G_currentNode = G_currentNode.Parent;
         G_displayList = GetDisplayNodes(G_currentNode);
@@ -183,18 +183,20 @@ window.addEventListener('click',
         // display
         var heightToSet = SCROLL.GetPreviousHeight();
         ResetSearch();
-        View.ClearComponents(DATA_CARDS_ID)
         G_displayList = SortDisplayList(G_displayList);
-        View.UpdateCards(elementName, MAIN_CARD_ID, G_currentNode, G_displayList, heightToSet)
 
-        if (previousNode == G_currentNode
-          && G_currentNode == ROOT_NODE
-          && !G_searchModeIsActive) {
-          if (currentSettingsMode)
-            HideSettings();
-          else
-            ShowSettings();
-        }
+        View.ClearComponents(MAIN_CARD_ID)
+        View.ClearComponents(DATA_CARDS_ID)
+        View.UpdateCards(MAIN_CARD_ID, DATA_CARDS_ID, G_currentNode, G_displayList, heightToSet)
+
+        // if (previousNode == G_currentNode
+        //   && G_currentNode == ROOT_NODE
+        //   && !G_searchModeIsActive) {
+        //   if (currentSettingsMode)
+        //     HideSettings();
+        //   else
+        //     ShowSettings();
+        // }
 
         return;
       }
