@@ -15,7 +15,7 @@ SetParentAndChild(verbs, );
 
 */
 
-var searchPlaceholder = new DataCard("Searching cards", "Căuta carti", "Type part or all of the word");
+var searchPlaceholder = new DataCard("Search", "Căuta", "");
 
 var romanian = new DataCard(
     "Romanian", "Română",

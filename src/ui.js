@@ -8,8 +8,9 @@
 // normal variables with camelCase
 
 const ROOT_NODE = romanian;
-const ELEMENT_NAME = "data-cards";
-const HEADER_NAME = "main-card";
+const MAIN_CARD_ID = "main-card";
+const DATA_CARDS_ID = "data-cards";
+
 const DATA_NAME = "current-node-data";
 const SCROLL = new ScrollHandler();
 const BUTTONS = "buttons";
@@ -42,8 +43,8 @@ console.log(G_settings_colorScheme)
 var G_currentNode = ROOT_NODE;
 var G_displayList = GetDisplayNodes(G_currentNode);
 
-View.ClearComponents(HEADER_NAME);
-View.ClearComponents(ELEMENT_NAME);
+View.ClearComponents(MAIN_CARD_ID);
+View.ClearComponents(DATA_CARDS_ID);
 View.ClearComponents(BUTTONS);
 View.UpdateButtons(BUTTONS, [
   Components.CreateButton("shuffle-button", "Shuffle", "img/shuffle-icon-1.png"),
@@ -52,7 +53,7 @@ View.UpdateButtons(BUTTONS, [
   Components.CreateButton("swap-button", "Swap", "img/swap-language-icon-1.png"),
   Components.CreateButton("travel-button", "Travel", "img/parent-icon.png"),
 ]);
-View.UpdateCards(HEADER_NAME, ELEMENT_NAME, G_currentNode, G_displayList, 0);
+View.UpdateCards(MAIN_CARD_ID, DATA_CARDS_ID, G_currentNode, G_displayList, 0);
 
 var G_searchable = new SearchableDictionary();
 GetSearchableWords(romanian, G_searchable);
@@ -86,9 +87,9 @@ window.addEventListener('popstate',
 
     SwapImageOnButton("random-card", GetPreviousShuffleIconPath())
 
-    View.ClearComponents(ELEMENT_NAME);
+    View.ClearComponents(DATA_CARDS_ID);
     G_displayList = GetDisplayNodes(G_currentNode);
-    View.UpdateCards(ELEMENT_NAME, HEADER_NAME, DATA_NAME, G_currentNode, G_displayList, 0)
+    View.UpdateCards(DATA_CARDS_ID, MAIN_CARD_ID, DATA_NAME, G_currentNode, G_displayList, 0)
   });
 
 // clicking
@@ -115,7 +116,7 @@ window.addEventListener('click',
         SwapImageOnButton("random-card", GetNextShuffleIconPath())
         ResetSearch();
         View.ClearComponents(elementName)
-        View.UpdateCards(elementName, HEADER_NAME, DATA_NAME, G_currentNode, G_displayList, 0)
+        View.UpdateCards(MAIN_CARD_ID, elementName, G_currentNode, G_displayList, 0)
         return;
       }
 
@@ -126,26 +127,26 @@ window.addEventListener('click',
         // display
         G_displayList = SortDisplayList(G_displayList);
         View.ClearComponents(elementName)
-        View.UpdateCards(elementName, HEADER_NAME, DATA_NAME, nodeToShow, G_displayList, 0)
+        View.UpdateCards(MAIN_CARD_ID, elementName, nodeToShow, G_displayList, 0)
         return;
       }
 
-      // // search for card
-      // if (event.composedPath()[idx].id == "search-button") {
-      //   HideSettings();
+      // search for card
+      if (event.composedPath()[idx].id == "search-button") {
+        // HideSettings();
 
-      //   if (G_searchModeIsActive) {
-      //     ResetSearch();
-      //     HideSearchButtons();
-      //     SwapImageOnButton("search-button", SEARCH_NOT_ACTIVE_ICON);
-      //   }
-      //   else {
-      //     ShowSearchButtons();
-      //     SwapImageOnButton("search-button", SEARCH_ACTIVE_ICON);
-      //   }
+        if (G_searchModeIsActive) {
+          ResetSearch();
+          HideSearchButtons();
+          // SwapImageOnButton("search-button", SEARCH_NOT_ACTIVE_ICON);
+        }
+        else {
+          ShowSearchButtons();
+          // SwapImageOnButton("search-button", SEARCH_ACTIVE_ICON);
+        }
 
-      //   return;
-      // }
+        return;
+      }
 
       // swap language shown
       if (event.composedPath()[idx].id == "swap-language") {
@@ -164,7 +165,7 @@ window.addEventListener('click',
 
         SwapImageOnButton("swap-language", iconToShow);
         View.ClearComponents(elementName);
-        View.UpdateCards(elementName, HEADER_NAME, DATA_NAME, nodeToShow, G_displayList, heightToSet);
+        View.UpdateCards(elementName, MAIN_CARD_ID, nodeToShow, G_displayList, heightToSet);
         return;
       }
 
@@ -182,7 +183,7 @@ window.addEventListener('click',
         ResetSearch();
         View.ClearComponents(elementName)
         G_displayList = SortDisplayList(G_displayList);
-        View.UpdateCards(elementName, HEADER_NAME, DATA_NAME, G_currentNode, G_displayList, heightToSet)
+        View.UpdateCards(elementName, MAIN_CARD_ID, G_currentNode, G_displayList, heightToSet)
 
         if (previousNode == G_currentNode
           && G_currentNode == ROOT_NODE
@@ -214,15 +215,23 @@ window.addEventListener('click',
       ResetSearch();
       View.ClearComponents(elementName)
       G_displayList = SortDisplayList(G_displayList);
-      View.UpdateCards(elementName, HEADER_NAME, DATA_NAME, G_currentNode, G_displayList, 0)
+      View.UpdateCards(elementName, MAIN_CARD_ID, G_currentNode, G_displayList, 0)
     }
   })
 
 
 function keyboardInput() {
-  G_displayList = G_searchable.GetDataCards(document.getElementById("filter").value);
-  View.ClearComponents(ELEMENT_NAME);
-  View.UpdateCards(ELEMENT_NAME, HEADER_NAME, DATA_NAME, searchPlaceholder, G_displayList, 0);
+  let searchString = document.getElementById("SearchBar").value;
+  G_displayList = G_searchable.GetDataCards(searchString);
+
+  console.log("Searching keyboard input");
+  console.log(searchString);
+
+  View.ClearComponents(DATA_CARDS_ID);
+  View.ClearComponents(MAIN_CARD_ID);
+
+
+  View.UpdateCards(MAIN_CARD_ID, DATA_CARDS_ID, searchPlaceholder, G_displayList, 0);
 };
 
 // =============================================================================

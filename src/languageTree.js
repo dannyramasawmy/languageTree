@@ -206,8 +206,6 @@ function GetDisplayNodes(node) {
     return displayList;
 }
 
-
-
 function ScrollHandler() {
     // https://javascript.info/size-and-scroll-window
     this.ScrollHistory = [];
@@ -236,11 +234,8 @@ function ScrollHandler() {
 }
 
 function ResetSearch() {
-    // reset input field
-    HideSearchButtons();
     searchStringStack = [];
-    document.getElementById("filter").value = "";
-    SwapImageOnButton("search-button", SEARCH_NOT_ACTIVE_ICON);
+    document.getElementById("SearchBar").value = "";
 }
 
 // =============================================================================
@@ -259,24 +254,24 @@ SwapImageOnButton = (elementName, urlToImage) =>
     document.getElementById(elementName).style.backgroundImage = `url(${urlToImage})`;
 
 
-function ShowSearchButtons() {
-    document.querySelector('.search-bar').style.display = 'flex';
-    G_searchModeIsActive = true;
-    document.getElementById("filter").focus();
+// function ShowSearchButtons() {
+//     document.querySelector('.search-bar').style.display = 'flex';
+//     G_searchModeIsActive = true;
+//     document.getElementById("filter").focus();
 
-    // blur cards
-    document.getElementById("data-view").style.filter = 'blur(75px)';
-    document.getElementById("node-display").style.filter = 'blur(75px)';
-}
+//     // blur cards
+//     document.getElementById("data-view").style.filter = 'blur(75px)';
+//     document.getElementById("node-display").style.filter = 'blur(75px)';
+// }
 
-function HideSearchButtons() {
-    document.querySelector('.search-bar').style.display = 'none';
-    G_searchModeIsActive = false;
+// function HideSearchButtons() {
+//     document.querySelector('.search-bar').style.display = 'none';
+//     G_searchModeIsActive = false;
 
-    // unblur cards
-    document.getElementById("data-view").style.filter = 'blur(0)';
-    document.getElementById("node-display").style.filter = 'blur(0)';
-}
+//     // unblur cards
+//     document.getElementById("data-view").style.filter = 'blur(0)';
+//     document.getElementById("node-display").style.filter = 'blur(0)';
+// }
 
 // =============================================================================
 // Settings
@@ -293,48 +288,48 @@ var StoreColorSettings = (value) => {
     G_settings_colorScheme = G_isRainbowColor == 1 ? new RainbowColorWheel() : new BoringColorWheel();
 }
 
-var HideSettings = () => {
-    document.querySelector('.settings').style.display = 'none';
+// var HideSettings = () => {
+//     document.querySelector('.settings').style.display = 'none';
 
-    if (G_settingsModeIsActive)
-        SwapImageOnButton("parent-card", SETTINGS_ICON);
-    G_settingsModeIsActive = false;
+//     if (G_settingsModeIsActive)
+//         SwapImageOnButton("parent-card", SETTINGS_ICON);
+//     G_settingsModeIsActive = false;
 
-    // unblur cards
-    document.getElementById("data-view").style.filter = 'blur(0)';
-    document.getElementById("node-display").style.filter = 'blur(0)';
-}
+//     // unblur cards
+//     document.getElementById("data-view").style.filter = 'blur(0)';
+//     document.getElementById("node-display").style.filter = 'blur(0)';
+// }
 
-var ShowSettings = () => {
-    document.querySelector('.settings').style.display = 'flex';
-    G_settingsModeIsActive = true;
-    SwapImageOnButton("parent-card", ROOT_ICON);
-    DisplayRadioButtonCheck();
+// var ShowSettings = () => {
+//     document.querySelector('.settings').style.display = 'flex';
+//     G_settingsModeIsActive = true;
+//     SwapImageOnButton("parent-card", ROOT_ICON);
+//     DisplayRadioButtonCheck();
 
-    // blur cards
-    document.getElementById("data-view").style.filter = 'blur(75px)';
-    document.getElementById("node-display").style.filter = 'blur(75px)';
-}
+//     // blur cards
+//     document.getElementById("data-view").style.filter = 'blur(75px)';
+//     document.getElementById("node-display").style.filter = 'blur(75px)';
+// }
 
-var DisplayRadioButtonCheck = () => {
-    if (G_settings_showAnimation == 1) {
-        document.getElementById('animation-on').checked = true;
-        document.getElementById('animation-off').checked = false;
-    }
-    else {
-        document.getElementById('animation-on').checked = false;
-        document.getElementById('animation-off').checked = true;
-    }
+// var DisplayRadioButtonCheck = () => {
+//     if (G_settings_showAnimation == 1) {
+//         document.getElementById('animation-on').checked = true;
+//         document.getElementById('animation-off').checked = false;
+//     }
+//     else {
+//         document.getElementById('animation-on').checked = false;
+//         document.getElementById('animation-off').checked = true;
+//     }
 
-    if (G_isRainbowColor == 1) {
-        document.getElementById('color-on').checked = true;
-        document.getElementById('color-off').checked = false;
-    }
-    else {
-        document.getElementById('color-on').checked = false;
-        document.getElementById('color-off').checked = true;
-    }
-}
+//     if (G_isRainbowColor == 1) {
+//         document.getElementById('color-on').checked = true;
+//         document.getElementById('color-off').checked = false;
+//     }
+//     else {
+//         document.getElementById('color-on').checked = false;
+//         document.getElementById('color-off').checked = true;
+//     }
+// }
 
 // =============================================================================
 // COLORS
