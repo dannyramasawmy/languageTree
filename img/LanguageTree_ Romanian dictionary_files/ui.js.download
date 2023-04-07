@@ -35,7 +35,7 @@ var G_settings_showAnimation = window.localStorage.getItem(`G_settings_showAnima
 var G_currentNode = ROOT_NODE;
 var G_displayList = GetDisplayNodes(G_currentNode);
 
-View.ClearCards(ELEMENT_NAME)
+View.ClearComponents(ELEMENT_NAME)
 View.UpdateCards(ELEMENT_NAME, HEADER_NAME, DATA_NAME, G_currentNode, G_displayList, 0)
 
 var G_searchable = new SearchableDictionary();
@@ -63,7 +63,7 @@ window.addEventListener('popstate',
 
     SwapImageOnButton("random-card", GetPreviousShuffleIconPath())
 
-    View.ClearCards(ELEMENT_NAME);
+    View.ClearComponents(ELEMENT_NAME);
     G_displayList = GetDisplayNodes(G_currentNode);
     View.UpdateCards(ELEMENT_NAME, HEADER_NAME, DATA_NAME, G_currentNode, G_displayList, 0)
   });
@@ -91,7 +91,7 @@ window.addEventListener('click',
         // display
         SwapImageOnButton("random-card", GetNextShuffleIconPath())
         ResetSearch();
-        View.ClearCards(elementName)
+        View.ClearComponents(elementName)
         View.UpdateCards(elementName, HEADER_NAME, DATA_NAME, G_currentNode, G_displayList, 0)
         return;
       }
@@ -102,7 +102,7 @@ window.addEventListener('click',
 
         // display
         G_displayList = SortDisplayList(G_displayList);
-        View.ClearCards(elementName)
+        View.ClearComponents(elementName)
         View.UpdateCards(elementName, HEADER_NAME, DATA_NAME, nodeToShow, G_displayList, 0, true)
         return;
       }
@@ -139,7 +139,7 @@ window.addEventListener('click',
         }
         
         SwapImageOnButton("swap-language", iconToShow);
-        View.ClearCards(elementName);
+        View.ClearComponents(elementName);
         View.UpdateCards(elementName, HEADER_NAME, DATA_NAME, nodeToShow, G_displayList, heightToSet);
         return;
       }
@@ -153,7 +153,7 @@ window.addEventListener('click',
         // display
         var heightToSet = SCROLL.GetPreviousHeight();
         ResetSearch();
-        View.ClearCards(elementName)
+        View.ClearComponents(elementName)
         G_displayList = SortDisplayList(G_displayList);
         View.UpdateCards(elementName, HEADER_NAME, DATA_NAME, G_currentNode, G_displayList, heightToSet)
         return;
@@ -170,7 +170,7 @@ window.addEventListener('click',
 
       // display
       ResetSearch();
-      View.ClearCards(elementName)
+      View.ClearComponents(elementName)
       G_displayList = SortDisplayList(G_displayList);
       View.UpdateCards(elementName, HEADER_NAME, DATA_NAME, G_currentNode, G_displayList, 0)
     }
@@ -179,7 +179,7 @@ window.addEventListener('click',
 
 function keyboardInput() {
   G_displayList = G_searchable.GetDataCards(document.getElementById("filter").value);
-  View.ClearCards(ELEMENT_NAME);
+  View.ClearComponents(ELEMENT_NAME);
   View.UpdateCards(ELEMENT_NAME, HEADER_NAME, DATA_NAME, searchPlaceholder, G_displayList, 0);
 };
 

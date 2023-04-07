@@ -199,7 +199,7 @@ function GetDisplayNodes(node) {
     return displayList;
 }
 
-function View.ClearCards(elementName) {
+function View.ClearComponents(elementName) {
     var displayDiv = document.getElementById(elementName);
     for (var idx = displayDiv.children.length; idx > 0; idx--)
         displayDiv.removeChild(displayDiv.children[idx - 1]);

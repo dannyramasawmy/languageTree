@@ -3,8 +3,8 @@
 // =============================================================================
 
 class View {
-    static ClearCards(elementName) {
-        var displayDiv = document.getElementById(elementName);
+    static ClearComponents(elementId) {
+        var displayDiv = document.getElementById(elementId);
         for (var idx = displayDiv.children.length; idx > 0; idx--)
             displayDiv.removeChild(displayDiv.children[idx - 1]);
     }
@@ -46,20 +46,33 @@ class View {
         window.scrollTo(0, yScrollHeight);
     }
 
-    UpdateButtons() {
+    static UpdateButtons(buttonPanelId, buttons) {
+        if (!Array.isArray(buttons)) {
+            console.error("Buttons to show are invalid");
+            return;
+        }
 
+        let buttonPanel = document.getElementById(buttonPanelId);
+        for (var idx = 0; idx < buttons.length; idx++) {
+            buttonPanel.appendChild(buttons[idx]);
+        }
     }
 }
+
 // =============================================================================
 //  COMPONENT CREATION
 // =============================================================================
 
-function CreateButton(buttonId, iconPath, description) {
+function CreateGenericButton(buttonId, buttonName, iconPath, description, isSearch) {
     let button = document.createElement("li");
 
     let buttonLink = document.createElement("a");
     buttonLink.className = "nav-link text-secondary px-2";
     buttonLink.id = buttonId;
+    if (isSearch) {
+        buttonLink.setAttribute("data-bs-toggle", "modal");
+        buttonLink.setAttribute("data-bs-target", "#searchModal");
+    }
 
     let buttonIcon = document.createElement("img");
     buttonIcon.className = "bi d-block mx-2 mb-1";
@@ -68,10 +81,22 @@ function CreateButton(buttonId, iconPath, description) {
     buttonIcon.width = "30";
     buttonIcon.height = "30";
 
+    let buttonLabel = document.createElement("h6")
+    buttonLabel.className = "subtle";
+    buttonLabel.innerHTML = buttonName;
+
     button.appendChild(buttonLink);
     buttonLink.appendChild(buttonIcon);
+    buttonLink.appendChild(buttonLabel);
+
     return button;
 }
+
+CreateButton = (buttonId, buttonName, iconPath, description) =>
+    CreateGenericButton(buttonId, buttonName, iconPath, description, false)
+
+CreateSearchButton = (buttonId, buttonName, iconPath, description) =>
+    CreateGenericButton(buttonId, buttonName, iconPath, description, true)
 
 function CreateParentCard(title, subtitle, data) {
     let card = document.createElement("div");
