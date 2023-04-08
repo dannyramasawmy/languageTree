@@ -93,8 +93,8 @@ class Components {
         buttonIcon.className = "bi d-block mx-2 mb-1";
         buttonIcon.src = iconPath;
         buttonIcon.alt = description;
-        buttonIcon.width = "30";
-        buttonIcon.height = "30";
+        buttonIcon.width = "40";
+        buttonIcon.height = "40";
 
         let buttonLabel = document.createElement("h6")
         buttonLabel.className = "subtle";
