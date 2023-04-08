@@ -235,7 +235,10 @@ function ScrollHandler() {
 
 function ResetSearch() {
     searchStringStack = [];
-    document.getElementById("SearchBar").value = "";
+
+    let searchBar = document.getElementById("SearchBar")
+    searchBar.value = "";
+    searchBar.placeholder = `Search (${G_searchable.GetDataCards("").length})`;
 }
 
 // =============================================================================
