@@ -1,29 +1,20 @@
 // =============================================================================
 // Global variables
 // =============================================================================
-// import * as view from './src/view.js';
 
 // consts in screaming snake case
 // gobal vars with G_ prefix
 // normal variables with camelCase
 
 const ROOT_NODE = romanian;
+
+// HTML COMPONENT ID's
 const MAIN_CARD_ID = "main-card";
 const DATA_CARDS_ID = "data-cards";
+const BUTTON_PANEL_ID = "buttons";
 
 const DATA_NAME = "current-node-data";
 const SCROLL = new ScrollHandler();
-const BUTTONS = "buttons";
-
-// icon paths
-const ROOT_ICON = "img/root-icon.png";
-const PARENT_ICON = "img/parent-icon.png";
-const LEAF_ICON = "img/leaf-icon.png";
-const SETTINGS_ICON = "img/settings-icon.png";
-const SEARCH_NOT_ACTIVE_ICON = "img/search-icon-1.png";
-const SEARCH_ACTIVE_ICON = "img/search-icon-2.png";
-const PRIMARY_LANGUAGE_ICON = "img/swap-language-icon-1.png";
-const SECONDARY_LANGUAGE_ICON = "img/swap-language-icon-2.png";
 
 var G_displayLanguageIsEnglish = true;
 var G_randomSelectionIcons = 0;
@@ -43,17 +34,23 @@ console.log(G_settings_colorScheme)
 var G_currentNode = ROOT_NODE;
 var G_displayList = GetDisplayNodes(G_currentNode);
 
-const view = new View(MAIN_CARD_ID, DATA_CARDS_ID, BUTTONS);
+const VIEW = new View(MAIN_CARD_ID, DATA_CARDS_ID, BUTTON_PANEL_ID);
 
-view.ClearCards()
-view.UpdateButtons([
-  Components.CreateButton("shuffle-button", "Shuffle", "img/shuffle-icon-1.png", false),
-  Components.CreateButton("sort-button", "Sort", "img/sort-icon.png", false),
-  Components.CreateButton("search-button", "Search", "img/search-icon-2.png", true),
-  Components.CreateButton("swap-button", "Swap", "img/swap-language-icon-1.png", false),
-  Components.CreateButton("travel-button", "Travel", "img/parent-icon.png", false),
-]);
-view.UpdateCards(G_currentNode, G_displayList, 0);
+// define buttons
+const SHUFFLE = new Button(
+  "shuffle-button",
+  "Shuffle",
+  ["img/shuffle-icon-1.png", "img/shuffle-icon-2.png", "img/shuffle-icon-3.png", "img/shuffle-icon-4.png"],
+  false);
+const SORT = new Button("sort-button", "Sort", ["img/sort-icon.png"], false);
+const SEARCH = new Button("search-button", "Search", ["img/search-icon-2.png", "img/search-icon-1.png"], true);
+const SWAP = new Button("swap-button", "Swap", ["img/swap-language-icon-1.png", "img/swap-language-icon-2.png"], false);
+const TRAVEL = new Button("travel-button", "Travel", ["img/parent-icon.png"], false);
+
+VIEW.ClearCards()
+VIEW.UpdateCards(G_currentNode, G_displayList, 0);
+VIEW.ClearButtons();
+VIEW.UpdateButtons([SHUFFLE.Current(), SORT.Current(), SEARCH.Current(), SWAP.Current(), TRAVEL.Current()]);
 
 var G_searchable = new SearchableDictionary();
 GetSearchableWords(romanian, G_searchable);
@@ -80,16 +77,16 @@ function pushState(node) {
 // set next history state
 window.addEventListener('popstate',
   function (event) {
-
     G_currentNode = event.state == null
       ? ROOT_NODE
       : G_searchable.GetDataCardFromState(event.state);
 
-    SwapImageOnButton("random-card", GetPreviousShuffleIconPath())
-
-    view.ClearCards();
     G_displayList = GetDisplayNodes(G_currentNode);
-    View.UpdateCards(DATA_CARDS_ID, MAIN_CARD_ID, DATA_NAME, G_currentNode, G_displayList, 0)
+    VIEW.ClearCards()
+    VIEW.UpdateCards(G_currentNode, G_displayList, 0);
+
+    VIEW.ClearButtons();
+    VIEW.UpdateButtons([SHUFFLE.Previous(), SORT.Current(), SEARCH.Current(), SWAP.Current(), TRAVEL.Current()]);
   });
 
 // clicking
@@ -107,7 +104,8 @@ window.addEventListener('click',
 
       // data card
       if (typeof currentClickPathId === 'string' && currentClickPathId.includes("card-number-")) {
-        let idNumber = currentClickPathId[currentClickPathId.length - 1];
+        let idNumber = currentClickPathId.slice(12);
+        console.log(currentClickPathId);
 
         // when clicking on a card
         if (G_displayList[idNumber] !== undefined) {
@@ -128,8 +126,8 @@ window.addEventListener('click',
           ResetSearch();
           G_displayList = SortDisplayList(G_displayList);
 
-          view.ClearCards()
-          view.UpdateCards(G_currentNode, G_displayList, 0)
+          VIEW.ClearCards()
+          VIEW.UpdateCards(G_currentNode, G_displayList, 0)
         }
 
         return;
@@ -147,8 +145,10 @@ window.addEventListener('click',
         G_displayList = GetDisplayNodes(G_currentNode);
 
         ResetSearch();
-        view.ClearCards()
-        view.UpdateCards(G_currentNode, G_displayList, 0)
+        VIEW.ClearCards()
+        VIEW.UpdateCards(G_currentNode, G_displayList, 0)
+        VIEW.ClearButtons();
+        VIEW.UpdateButtons([SHUFFLE.Next(), SORT.Current(), SEARCH.Current(), SWAP.Current(), TRAVEL.Current()]);
         return;
       }
 
@@ -157,8 +157,8 @@ window.addEventListener('click',
         let nodeToShow = G_searchModeIsActive ? searchPlaceholder : G_currentNode;
         G_displayList = SortDisplayList(G_displayList);
 
-        view.ClearCards();
-        view.UpdateCards(nodeToShow, G_displayList, 0)
+        VIEW.ClearCards();
+        VIEW.UpdateCards(nodeToShow, G_displayList, 0)
         return;
       }
 
@@ -178,8 +178,8 @@ window.addEventListener('click',
         }
 
         // SwapImageOnButton("swap-language", iconToShow);
-        view.ClearCards();
-        view.UpdateCards(nodeToShow, G_displayList, heightToSet);
+        VIEW.ClearCards();
+        VIEW.UpdateCards(nodeToShow, G_displayList, heightToSet);
         return;
       }
 
@@ -194,8 +194,8 @@ window.addEventListener('click',
         ResetSearch();
         G_displayList = SortDisplayList(G_displayList);
 
-        view.ClearCards();
-        view.UpdateCards(G_currentNode, G_displayList, heightToSet)
+        VIEW.ClearCards();
+        VIEW.UpdateCards(G_currentNode, G_displayList, heightToSet)
 
         return;
       }
@@ -210,8 +210,8 @@ function keyboardInput() {
   console.log("Searching keyboard input");
   console.log(searchString);
 
-  view.ClearCards();
-  view.UpdateCards(searchPlaceholder, G_displayList, 0);
+  VIEW.ClearCards();
+  VIEW.UpdateCards(searchPlaceholder, G_displayList, 0);
 };
 
 // =============================================================================
