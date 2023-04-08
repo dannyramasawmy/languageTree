@@ -27,7 +27,7 @@ function SearchableDictionary() {
     this.English = {};
 
     this.GetDataCards = function (searchString) {
-        var words = G_displayLanguageIsEnglish
+        var words = SETTINGS.PrimaryLanguageFirst
             ? Object.getOwnPropertyNames(this.English)
             : Object.getOwnPropertyNames(this.Romanian);
 
@@ -35,7 +35,7 @@ function SearchableDictionary() {
         var filteredWords = words.filter((x, i) => wordMask[i]);
 
         var filteredDataCards = filteredWords.map(
-            x => G_displayLanguageIsEnglish
+            x => SETTINGS.PrimaryLanguageFirst
                 ? this.English[x]
                 : this.Romanian[x]);
 
@@ -171,7 +171,7 @@ PrepareRomanianString = (inputString) => inputString.toLowerCase().trim()
     .replace(/[ăâ]/g, "a").replace(/î/g, "i").replace(/ș/g, "s").replace(/ț/g, "t");
 
 function SortDisplayList(displayList) {
-    if (G_displayLanguageIsEnglish)
+    if (SETTINGS.PrimaryLanguageFirst)
         displayList.sort(SortEnglish);
     else
         displayList.sort(SortRomanian);
@@ -239,21 +239,6 @@ function ResetSearch() {
 }
 
 // =============================================================================
-// Buttons
-// =============================================================================
-
-function GetShuffleIconPath(increment) {
-    G_randomSelectionIcons = (G_randomSelectionIcons + increment) % 4
-    return `"img/shuffle-icon-${G_randomSelectionIcons + 1}.png"`;
-}
-
-GetNextShuffleIconPath = () => GetShuffleIconPath(1);
-GetPreviousShuffleIconPath = () => GetShuffleIconPath(3);
-
-SwapImageOnButton = (elementName, urlToImage) =>
-    document.getElementById(elementName).style.backgroundImage = `url(${urlToImage})`;
-
-// =============================================================================
 // Settings
 // =============================================================================
 
@@ -267,49 +252,6 @@ var StoreColorSettings = (value) => {
     G_isRainbowColor = window.localStorage.getItem(`G_settings_colorScheme`);
     G_settings_colorScheme = G_isRainbowColor == 1 ? new RainbowColorWheel() : new BoringColorWheel();
 }
-
-// var HideSettings = () => {
-//     document.querySelector('.settings').style.display = 'none';
-
-//     if (G_settingsModeIsActive)
-//         SwapImageOnButton("parent-card", SETTINGS_ICON);
-//     G_settingsModeIsActive = false;
-
-//     // unblur cards
-//     document.getElementById("data-view").style.filter = 'blur(0)';
-//     document.getElementById("node-display").style.filter = 'blur(0)';
-// }
-
-// var ShowSettings = () => {
-//     document.querySelector('.settings').style.display = 'flex';
-//     G_settingsModeIsActive = true;
-//     SwapImageOnButton("parent-card", ROOT_ICON);
-//     DisplayRadioButtonCheck();
-
-//     // blur cards
-//     document.getElementById("data-view").style.filter = 'blur(75px)';
-//     document.getElementById("node-display").style.filter = 'blur(75px)';
-// }
-
-// var DisplayRadioButtonCheck = () => {
-//     if (G_settings_showAnimation == 1) {
-//         document.getElementById('animation-on').checked = true;
-//         document.getElementById('animation-off').checked = false;
-//     }
-//     else {
-//         document.getElementById('animation-on').checked = false;
-//         document.getElementById('animation-off').checked = true;
-//     }
-
-//     if (G_isRainbowColor == 1) {
-//         document.getElementById('color-on').checked = true;
-//         document.getElementById('color-off').checked = false;
-//     }
-//     else {
-//         document.getElementById('color-on').checked = false;
-//         document.getElementById('color-off').checked = true;
-//     }
-// }
 
 // =============================================================================
 // COLORS
@@ -338,37 +280,6 @@ function RainbowColorWheel() {
         "#D35400DF"]; //o
 
     this.ResetIndex = () => this.Index = 5;
-
-    this.GetNextColor = () => {
-        this.Index = (this.Index + 1) % this.Colors.length;
-        return this.Colors[this.Index];
-    }
-}
-
-function BoringColorWheel() {
-    // https://htmlcolorcodes.com/
-    this.Index = 0;
-    this.ParentColor = "#ECF0F1";
-    this.TextColor = "#ECF0F1";
-    this.Colors = [
-        "#1B2631DF", // grey
-        "#212F3CDF", // 
-        "#283747DF", // 
-        "#2E4053DF", // 
-        "#34495EDF", // 
-        "#5D6D7EDF", // 
-        "#85929EDF", // 
-        "#AEB6BFDF", //  mid
-        "#85929EDF", // 
-        "#5D6D7EDF", // 
-        "#34495EDF", // 
-        "#2E4053DF", // 
-        "#283747DF", // 
-        "#212F3CDF", // 
-        "#1B2631DF", // grey
-    ]; //o
-
-    this.ResetIndex = () => this.Index = 3;
 
     this.GetNextColor = () => {
         this.Index = (this.Index + 1) % this.Colors.length;

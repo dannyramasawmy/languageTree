@@ -13,10 +13,11 @@ const MAIN_CARD_ID = "main-card";
 const DATA_CARDS_ID = "data-cards";
 const BUTTON_PANEL_ID = "buttons";
 
-const DATA_NAME = "current-node-data";
-const SCROLL = new ScrollHandler();
+const SETTINGS = {
+  "PrimaryLanguageFirst": true,
+};
 
-var G_displayLanguageIsEnglish = true;
+// var SETTINGS.PrimaryLanguageFirst = true;
 var G_randomSelectionIcons = 0;
 var G_searchModeIsActive = false;
 var G_settingsModeIsActive = false;
@@ -35,6 +36,7 @@ var G_currentNode = ROOT_NODE;
 var G_displayList = GetDisplayNodes(G_currentNode);
 
 const VIEW = new View(MAIN_CARD_ID, DATA_CARDS_ID, BUTTON_PANEL_ID);
+const SCROLL = new ScrollHandler();
 
 // define buttons
 const B_SHUFFLE = new Button(
@@ -166,7 +168,7 @@ window.addEventListener('click',
       // swap language shown
       if (event.composedPath()[idx].id == "swap-button") {
         // state
-        G_displayLanguageIsEnglish = G_displayLanguageIsEnglish ? false : true;
+        SETTINGS.PrimaryLanguageFirst = SETTINGS.PrimaryLanguageFirst ? false : true;
 
         let heightToSet = SCROLL.GetCurrentHeight();
 
@@ -183,7 +185,7 @@ window.addEventListener('click',
           B_SHUFFLE.Current(),
           B_SORT.Current(),
           B_SEARCH.Current(),
-          B_SWAP.Select(G_displayLanguageIsEnglish ? 0 : 1),
+          B_SWAP.Select(SETTINGS.PrimaryLanguageFirst ? 0 : 1),
           B_TRAVEL.Current()]);
 
         return;

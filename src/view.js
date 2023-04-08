@@ -24,7 +24,7 @@ class View {
 
         // main card
         document.getElementById(this.mainCardId).appendChild(
-            G_displayLanguageIsEnglish
+            SETTINGS.PrimaryLanguageFirst
                 ? Components.CreateParentCard(currentNode.English, currentNode.Romanian, currentNode.Data)
                 : Components.CreateParentCard(currentNode.Romanian, currentNode.English, currentNode.Data));
 
@@ -33,7 +33,7 @@ class View {
         for (var idx = 0; idx < displayList.length; idx++) {
             let cardId = `card-number-${idx}`;
 
-            let dataCard = G_displayLanguageIsEnglish
+            let dataCard = SETTINGS.PrimaryLanguageFirst
                 ? Components.CreateChildCard(displayList[idx].English, displayList[idx].Romanian, cardId)
                 : Components.CreateChildCard(displayList[idx].Romanian, displayList[idx].English, cardId);
 
@@ -82,6 +82,11 @@ class Components {
         if (isSearch) {
             buttonLink.setAttribute("data-bs-toggle", "modal");
             buttonLink.setAttribute("data-bs-target", "#searchModal");
+            button.addEventListener("click", () => {
+                document.getElementById("SearchBar").focus();
+                document.getElementById("SearchBar");
+                console.log("Set focus")
+            });
         }
 
         let buttonIcon = document.createElement("img");
@@ -98,6 +103,8 @@ class Components {
         button.appendChild(buttonLink);
         buttonLink.appendChild(buttonIcon);
         buttonLink.appendChild(buttonLabel);
+
+
 
         return button;
     }
