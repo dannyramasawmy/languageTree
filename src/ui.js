@@ -15,9 +15,9 @@ const BUTTON_PANEL_ID = "buttons";
 
 const GLOBAL = {
   "PrimaryLanguageFirst": true,
+  "ShowAnimations": window.localStorage.getItem(`GLOBAL.ShowAnimations`) ?? 1,
 };
 
-var G_settings_showAnimation = window.localStorage.getItem(`G_settings_showAnimation`) ?? 1;
 var G_isRainbowColor = window.localStorage.getItem(`G_settings_colorScheme`) ?? 1;
 var G_settings_colorScheme = G_isRainbowColor == 1 ? new RainbowColorWheel() : new BoringColorWheel();
 
@@ -60,13 +60,6 @@ document.getElementById("SearchBar").placeholder =
 // Events
 // =============================================================================
 
-// search focus
-document.getElementById("search-button").addEventListener("click", () => {
-  document.getElementById("SearchBar").focus();
-  document.getElementById("SearchBar");
-  console.log("Set focus")
-});
-
 // add history
 function pushState(node) {
   history.pushState(node.English.toLowerCase(), null, `?${node.English}`);
@@ -86,6 +79,14 @@ window.addEventListener('popstate',
     VIEW.ClearButtons();
     VIEW.UpdateButtons([B_SHUFFLE.Previous(), B_SORT.Current(), B_SEARCH.Current(), B_SWAP.Current(), B_TRAVEL.Current()]);
   });
+
+window.onkeyup = function (e) {
+  var pressed = "";
+  if (e.ctrlKey && e.keyCode === 81) {
+    console.log("Search shortcut");
+    keyboardInput();
+  }
+}
 
 // clicking
 window.addEventListener('click',

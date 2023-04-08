@@ -243,8 +243,8 @@ function ResetSearch() {
 // =============================================================================
 
 var StoreAnimationSettings = (value) => {
-    window.localStorage.setItem(`G_settings_showAnimation`, value);
-    G_settings_showAnimation = window.localStorage.getItem(`G_settings_showAnimation`);
+    window.localStorage.setItem(`GLOBAL.ShowAnimations`, value);
+    GLOBAL.ShowAnimations = window.localStorage.getItem(`GLOBAL.ShowAnimations`);
 }
 
 var StoreColorSettings = (value) => {

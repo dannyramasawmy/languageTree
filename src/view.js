@@ -41,7 +41,7 @@ class View {
             document.getElementById(this.dataCardsId).appendChild(dataCard);
 
             // make sliding in animation
-            let animationTime = 1 * G_settings_showAnimation * idx / displayList.length;
+            let animationTime = 1 * GLOBAL.ShowAnimations * idx / displayList.length;
             dataCard.style.animation = `${animationTime}s slide-in`;
             dataCard.style.visibility = "visible";
         }
