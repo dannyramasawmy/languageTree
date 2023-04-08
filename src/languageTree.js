@@ -206,6 +206,12 @@ function GetDisplayNodes(node) {
     return displayList;
 }
 
+function TreeDepth(currentNode) {
+    if (currentNode.IsRoot) return 0;
+    if (currentNode.Child.length == 0) return 2;
+    return 1;
+}
+
 function ScrollHandler() {
     // https://javascript.info/size-and-scroll-window
     this.ScrollHistory = [];

@@ -30,18 +30,23 @@ const SCROLL = new ScrollHandler();
 const B_SHUFFLE = new Button(
   "shuffle-button",
   "Shuffle",
-  ["img/shuffle-icon-1.png", "img/shuffle-icon-2.png", "img/shuffle-icon-3.png", "img/shuffle-icon-4.png"],
+  ["img/shuffle-icon-1.png", "img/shuffle-icon-2.png", "img/shuffle-icon-3.png", "img/shuffle-icon-4.png", "img/shuffle-icon-5.png", "img/shuffle-icon-6.png", "img/shuffle-icon-7.png", "img/shuffle-icon-8.png"],
   "shuffle-button",
   false);
 const B_SORT = new Button("sort-button", "Sort", ["img/sort-icon.png"], "sort-button", false);
 const B_SEARCH = new Button("search-button", "Search", ["img/search-icon-2.png", "img/search-icon-1.png"], "search-button", true);
 const B_SWAP = new Button("swap-button", "Swap", ["img/swap-language-icon-1.png", "img/swap-language-icon-2.png"], "swap-button", false);
-const B_TRAVEL = new Button("travel-button", "Travel", ["img/root-icon.png", "img/parent-icon.png"], "travel-button", false);
+const B_TRAVEL = new Button("travel-button", "Travel", ["img/root-icon.png", "img/parent-icon.png", "img/leaf-icon.png"], "travel-button", false);
 
 VIEW.ClearCards()
 VIEW.UpdateCards(GLOBAL.CurrentNode, GLOBAL.DisplayCards, 0);
 VIEW.ClearButtons();
-VIEW.UpdateButtons([B_SHUFFLE.Current(), B_SORT.Current(), B_SEARCH.Current(), B_SWAP.Current(), B_TRAVEL.Current()]);
+VIEW.UpdateButtons([
+  B_SHUFFLE.Current(),
+  B_SORT.Current(),
+  B_SEARCH.Current(),
+  B_SWAP.Current(),
+  B_TRAVEL.Select(TreeDepth(GLOBAL.CurrentNode))]);
 
 var G_searchable = new SearchableDictionary();
 GetSearchableWords(ROOT_NODE, G_searchable);
@@ -70,7 +75,12 @@ window.addEventListener('popstate',
     VIEW.UpdateCards(GLOBAL.CurrentNode, GLOBAL.DisplayCards, 0);
 
     VIEW.ClearButtons();
-    VIEW.UpdateButtons([B_SHUFFLE.Previous(), B_SORT.Current(), B_SEARCH.Current(), B_SWAP.Current(), B_TRAVEL.Current()]);
+    VIEW.UpdateButtons([
+      B_SHUFFLE.Previous(),
+      B_SORT.Current(),
+      B_SEARCH.Current(),
+      B_SWAP.Current(),
+      B_TRAVEL.Select(TreeDepth(GLOBAL.CurrentNode))]);
   });
 
 window.onkeyup = function (e) {
@@ -112,7 +122,12 @@ window.addEventListener('click',
           VIEW.ClearCards()
           VIEW.UpdateCards(GLOBAL.CurrentNode, GLOBAL.DisplayCards, 0)
           VIEW.ClearButtons();
-          VIEW.UpdateButtons([B_SHUFFLE.Current(), B_SORT.Current(), B_SEARCH.Current(), B_SWAP.Current(), B_TRAVEL.Current()]);
+          VIEW.UpdateButtons([
+            B_SHUFFLE.Current(),
+            B_SORT.Current(),
+            B_SEARCH.Current(),
+            B_SWAP.Current(),
+            B_TRAVEL.Select(TreeDepth(GLOBAL.CurrentNode))]);
         }
 
         return;
@@ -128,7 +143,13 @@ window.addEventListener('click',
         VIEW.ClearCards()
         VIEW.UpdateCards(GLOBAL.CurrentNode, GLOBAL.DisplayCards, 0)
         VIEW.ClearButtons();
-        VIEW.UpdateButtons([B_SHUFFLE.Next(), B_SORT.Current(), B_SEARCH.Current(), B_SWAP.Current(), B_TRAVEL.Current()]);
+        VIEW.UpdateButtons([
+          B_SHUFFLE.Next(),
+          B_SORT.Current(),
+          B_SEARCH.Current(),
+          B_SWAP.Current(),
+          B_TRAVEL.Select(TreeDepth(GLOBAL.CurrentNode))]);
+
         return;
       }
 
@@ -139,7 +160,13 @@ window.addEventListener('click',
         VIEW.ClearCards();
         VIEW.UpdateCards(GLOBAL.CurrentNode, GLOBAL.DisplayCards, 0);
         VIEW.ClearButtons();
-        VIEW.UpdateButtons([B_SHUFFLE.Current(), B_SORT.Current(), B_SEARCH.Current(), B_SWAP.Current(), B_TRAVEL.Current()]);
+        VIEW.UpdateButtons([
+          B_SHUFFLE.Current(),
+          B_SORT.Current(),
+          B_SEARCH.Current(),
+          B_SWAP.Current(),
+          B_TRAVEL.Select(TreeDepth(GLOBAL.CurrentNode))]);
+
         return;
       }
 
@@ -161,8 +188,7 @@ window.addEventListener('click',
           B_SORT.Current(),
           B_SEARCH.Current(),
           B_SWAP.Select(GLOBAL.PrimaryLanguageFirst ? 0 : 1),
-          B_TRAVEL.Current()]);
-
+          B_TRAVEL.Select(TreeDepth(GLOBAL.CurrentNode))]);
         return;
       }
 
@@ -179,6 +205,13 @@ window.addEventListener('click',
 
         VIEW.ClearCards();
         VIEW.UpdateCards(GLOBAL.CurrentNode, GLOBAL.DisplayCards, heightToSet)
+        VIEW.ClearButtons();
+        VIEW.UpdateButtons([
+          B_SHUFFLE.Current(),
+          B_SORT.Current(),
+          B_SEARCH.Current(),
+          B_SWAP.Current(),
+          B_TRAVEL.Select(TreeDepth(GLOBAL.CurrentNode))]);
 
         return;
       }
