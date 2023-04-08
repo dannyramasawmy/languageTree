@@ -73,7 +73,7 @@ class View {
 // =============================================================================
 
 class Components {
-    static CreateGenericButton(buttonId, buttonName, iconPath, description, isSearch) {
+    static CreateButton(buttonId, buttonName, iconPath, description, isSearch) {
         let button = document.createElement("li");
 
         let buttonLink = document.createElement("a");
@@ -100,14 +100,6 @@ class Components {
         buttonLink.appendChild(buttonLabel);
 
         return button;
-    }
-
-    static CreateButton(buttonId, buttonName, iconPath, description) {
-        return Components.CreateGenericButton(buttonId, buttonName, iconPath, description, false)
-    }
-
-    static CreateSearchButton(buttonId, buttonName, iconPath, description) {
-        return Components.CreateGenericButton(buttonId, buttonName, iconPath, description, true)
     }
 
     static CreateParentCard(title, subtitle, data) {
@@ -162,5 +154,42 @@ class Components {
         innerCard.appendChild(cardSubtitle);
 
         return card;
+    }
+}
+
+class Button {
+    constructor(buttonId, buttonName, iconStates, description, isSearch) {
+        this.buttonId = buttonId;
+        this.buttonName = buttonName;
+        this.description = description;
+        this.isSearch = isSearch;
+
+        this.iconStates = iconStates; // array
+        this.state = 0;
+        this.numberOfStates = iconStates.length;
+    }
+
+    Current() {
+        return Components.CreateButton(this.buttonId, this.buttonName, this.iconStates[this.state], this.description, this.isSearch);
+    }
+
+    Next() {
+        this.state = (this.state + 1) % this.numberOfStates;
+        return this.Current();
+    }
+
+    Previous() {
+        this.state = this.state == 0
+            ? this.numberOfStates - 1
+            : (this.state - 1) % this.numberOfStates;
+
+        return this.Current();
+    }
+
+    Select(value) {
+        if (value >= 0 && value < this.numberOfStates)
+            this.state = value;
+
+        return this.Current();
     }
 }

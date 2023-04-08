@@ -47,11 +47,11 @@ const view = new View(MAIN_CARD_ID, DATA_CARDS_ID, BUTTONS);
 
 view.ClearCards()
 view.UpdateButtons([
-  Components.CreateButton("shuffle-button", "Shuffle", "img/shuffle-icon-1.png"),
-  Components.CreateButton("sort-button", "Sort", "img/sort-icon.png"),
-  Components.CreateSearchButton("search-button", "Search", "img/search-icon-2.png"),
-  Components.CreateButton("swap-button", "Swap", "img/swap-language-icon-1.png"),
-  Components.CreateButton("travel-button", "Travel", "img/parent-icon.png"),
+  Components.CreateButton("shuffle-button", "Shuffle", "img/shuffle-icon-1.png", false),
+  Components.CreateButton("sort-button", "Sort", "img/sort-icon.png", false),
+  Components.CreateButton("search-button", "Search", "img/search-icon-2.png", true),
+  Components.CreateButton("swap-button", "Swap", "img/swap-language-icon-1.png", false),
+  Components.CreateButton("travel-button", "Travel", "img/parent-icon.png", false),
 ]);
 view.UpdateCards(G_currentNode, G_displayList, 0);
 

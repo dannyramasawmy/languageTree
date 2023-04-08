@@ -253,26 +253,6 @@ GetPreviousShuffleIconPath = () => GetShuffleIconPath(3);
 SwapImageOnButton = (elementName, urlToImage) =>
     document.getElementById(elementName).style.backgroundImage = `url(${urlToImage})`;
 
-
-// function ShowSearchButtons() {
-//     document.querySelector('.search-bar').style.display = 'flex';
-//     G_searchModeIsActive = true;
-//     document.getElementById("filter").focus();
-
-//     // blur cards
-//     document.getElementById("data-view").style.filter = 'blur(75px)';
-//     document.getElementById("node-display").style.filter = 'blur(75px)';
-// }
-
-// function HideSearchButtons() {
-//     document.querySelector('.search-bar').style.display = 'none';
-//     G_searchModeIsActive = false;
-
-//     // unblur cards
-//     document.getElementById("data-view").style.filter = 'blur(0)';
-//     document.getElementById("node-display").style.filter = 'blur(0)';
-// }
-
 // =============================================================================
 // Settings
 // =============================================================================
