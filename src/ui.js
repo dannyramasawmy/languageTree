@@ -43,17 +43,17 @@ console.log(G_settings_colorScheme)
 var G_currentNode = ROOT_NODE;
 var G_displayList = GetDisplayNodes(G_currentNode);
 
-View.ClearComponents(MAIN_CARD_ID);
-View.ClearComponents(DATA_CARDS_ID);
-View.ClearComponents(BUTTONS);
-View.UpdateButtons(BUTTONS, [
+const view = new View(MAIN_CARD_ID, DATA_CARDS_ID, BUTTONS);
+
+view.ClearCards()
+view.UpdateButtons([
   Components.CreateButton("shuffle-button", "Shuffle", "img/shuffle-icon-1.png"),
   Components.CreateButton("sort-button", "Sort", "img/sort-icon.png"),
   Components.CreateSearchButton("search-button", "Search", "img/search-icon-2.png"),
   Components.CreateButton("swap-button", "Swap", "img/swap-language-icon-1.png"),
   Components.CreateButton("travel-button", "Travel", "img/parent-icon.png"),
 ]);
-View.UpdateCards(MAIN_CARD_ID, DATA_CARDS_ID, G_currentNode, G_displayList, 0);
+view.UpdateCards(G_currentNode, G_displayList, 0);
 
 var G_searchable = new SearchableDictionary();
 GetSearchableWords(romanian, G_searchable);
@@ -87,7 +87,7 @@ window.addEventListener('popstate',
 
     SwapImageOnButton("random-card", GetPreviousShuffleIconPath())
 
-    View.ClearComponents(DATA_CARDS_ID);
+    view.ClearCards();
     G_displayList = GetDisplayNodes(G_currentNode);
     View.UpdateCards(DATA_CARDS_ID, MAIN_CARD_ID, DATA_NAME, G_currentNode, G_displayList, 0)
   });
@@ -128,9 +128,8 @@ window.addEventListener('click',
           ResetSearch();
           G_displayList = SortDisplayList(G_displayList);
 
-          View.ClearComponents(MAIN_CARD_ID)
-          View.ClearComponents(DATA_CARDS_ID)
-          View.UpdateCards(MAIN_CARD_ID, DATA_CARDS_ID, G_currentNode, G_displayList, 0)
+          view.ClearCards()
+          view.UpdateCards(G_currentNode, G_displayList, 0)
         }
 
         return;
@@ -148,9 +147,8 @@ window.addEventListener('click',
         G_displayList = GetDisplayNodes(G_currentNode);
 
         ResetSearch();
-        View.ClearComponents(MAIN_CARD_ID)
-        View.ClearComponents(DATA_CARDS_ID)
-        View.UpdateCards(MAIN_CARD_ID, DATA_CARDS_ID, G_currentNode, G_displayList, 0)
+        view.ClearCards()
+        view.UpdateCards(G_currentNode, G_displayList, 0)
         return;
       }
 
@@ -159,9 +157,8 @@ window.addEventListener('click',
         let nodeToShow = G_searchModeIsActive ? searchPlaceholder : G_currentNode;
         G_displayList = SortDisplayList(G_displayList);
 
-        View.ClearComponents(DATA_CARDS_ID);
-        View.ClearComponents(MAIN_CARD_ID);
-        View.UpdateCards(MAIN_CARD_ID, DATA_CARDS_ID, nodeToShow, G_displayList, 0)
+        view.ClearCards();
+        view.UpdateCards(nodeToShow, G_displayList, 0)
         return;
       }
 
@@ -181,9 +178,8 @@ window.addEventListener('click',
         }
 
         // SwapImageOnButton("swap-language", iconToShow);
-        View.ClearComponents(MAIN_CARD_ID);
-        View.ClearComponents(DATA_CARDS_ID);
-        View.UpdateCards(MAIN_CARD_ID, DATA_CARDS_ID, nodeToShow, G_displayList, heightToSet);
+        view.ClearCards();
+        view.UpdateCards(nodeToShow, G_displayList, heightToSet);
         return;
       }
 
@@ -198,9 +194,8 @@ window.addEventListener('click',
         ResetSearch();
         G_displayList = SortDisplayList(G_displayList);
 
-        View.ClearComponents(MAIN_CARD_ID)
-        View.ClearComponents(DATA_CARDS_ID)
-        View.UpdateCards(MAIN_CARD_ID, DATA_CARDS_ID, G_currentNode, G_displayList, heightToSet)
+        view.ClearCards();
+        view.UpdateCards(G_currentNode, G_displayList, heightToSet)
 
         return;
       }
@@ -215,11 +210,8 @@ function keyboardInput() {
   console.log("Searching keyboard input");
   console.log(searchString);
 
-  View.ClearComponents(DATA_CARDS_ID);
-  View.ClearComponents(MAIN_CARD_ID);
-
-
-  View.UpdateCards(MAIN_CARD_ID, DATA_CARDS_ID, searchPlaceholder, G_displayList, 0);
+  view.ClearCards();
+  view.UpdateCards(searchPlaceholder, G_displayList, 0);
 };
 
 // =============================================================================

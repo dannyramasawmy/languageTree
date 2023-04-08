@@ -3,16 +3,27 @@
 // =============================================================================
 
 class View {
-    static ClearComponents(elementId) {
-        var displayDiv = document.getElementById(elementId);
-        for (var idx = displayDiv.children.length; idx > 0; idx--)
-            displayDiv.removeChild(displayDiv.children[idx - 1]);
+    constructor(mainCardId, dataCardsId, buttonPanelId) {
+        // TODO: add error checks
+
+        this.mainCardId = mainCardId;
+        this.dataCardsId = dataCardsId;
+        this.buttonPanelId = buttonPanelId;
     }
 
-    static UpdateCards(mainCardId, dataCardsId, currentNode, displayList, yScrollHeight) {
+    ClearCards() {
+        View.ClearComponents(this.mainCardId);
+        View.ClearComponents(this.dataCardsId);
+    }
+
+    ClearButtons() {
+        View.ClearComponents(this.buttonPanelId);
+    }
+
+    UpdateCards(currentNode, displayList, yScrollHeight) {
 
         // main card
-        document.getElementById(mainCardId).appendChild(
+        document.getElementById(this.mainCardId).appendChild(
             G_displayLanguageIsEnglish
                 ? Components.CreateParentCard(currentNode.English, currentNode.Romanian, currentNode.Data)
                 : Components.CreateParentCard(currentNode.Romanian, currentNode.English, currentNode.Data));
@@ -27,7 +38,7 @@ class View {
                 : Components.CreateChildCard(displayList[idx].Romanian, displayList[idx].English, cardId);
 
             dataCard.style.visibility = "hidden";
-            document.getElementById(dataCardsId).appendChild(dataCard);
+            document.getElementById(this.dataCardsId).appendChild(dataCard);
 
             // make sliding in animation
             let animationTime = 1 * G_settings_showAnimation * idx / displayList.length;
@@ -38,16 +49,22 @@ class View {
         window.scrollTo(0, yScrollHeight);
     }
 
-    static UpdateButtons(buttonPanelId, buttons) {
+    UpdateButtons(buttons) {
         if (!Array.isArray(buttons)) {
             console.error("Buttons to show are invalid");
             return;
         }
 
-        let buttonPanel = document.getElementById(buttonPanelId);
+        let buttonPanel = document.getElementById(this.buttonPanelId);
         for (var idx = 0; idx < buttons.length; idx++) {
             buttonPanel.appendChild(buttons[idx]);
         }
+    }
+
+    static ClearComponents(elementId) {
+        var displayDiv = document.getElementById(elementId);
+        for (var idx = displayDiv.children.length; idx > 0; idx--)
+            displayDiv.removeChild(displayDiv.children[idx - 1]);
     }
 }
 
