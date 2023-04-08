@@ -24,7 +24,7 @@ class View {
 
         // main card
         document.getElementById(this.mainCardId).appendChild(
-            SETTINGS.PrimaryLanguageFirst
+            GLOBAL.PrimaryLanguageFirst
                 ? Components.CreateParentCard(currentNode.English, currentNode.Romanian, currentNode.Data)
                 : Components.CreateParentCard(currentNode.Romanian, currentNode.English, currentNode.Data));
 
@@ -33,7 +33,7 @@ class View {
         for (var idx = 0; idx < displayList.length; idx++) {
             let cardId = `card-number-${idx}`;
 
-            let dataCard = SETTINGS.PrimaryLanguageFirst
+            let dataCard = GLOBAL.PrimaryLanguageFirst
                 ? Components.CreateChildCard(displayList[idx].English, displayList[idx].Romanian, cardId)
                 : Components.CreateChildCard(displayList[idx].Romanian, displayList[idx].English, cardId);
 

@@ -27,7 +27,7 @@ function SearchableDictionary() {
     this.English = {};
 
     this.GetDataCards = function (searchString) {
-        var words = SETTINGS.PrimaryLanguageFirst
+        var words = GLOBAL.PrimaryLanguageFirst
             ? Object.getOwnPropertyNames(this.English)
             : Object.getOwnPropertyNames(this.Romanian);
 
@@ -35,7 +35,7 @@ function SearchableDictionary() {
         var filteredWords = words.filter((x, i) => wordMask[i]);
 
         var filteredDataCards = filteredWords.map(
-            x => SETTINGS.PrimaryLanguageFirst
+            x => GLOBAL.PrimaryLanguageFirst
                 ? this.English[x]
                 : this.Romanian[x]);
 
@@ -171,7 +171,7 @@ PrepareRomanianString = (inputString) => inputString.toLowerCase().trim()
     .replace(/[ăâ]/g, "a").replace(/î/g, "i").replace(/ș/g, "s").replace(/ț/g, "t");
 
 function SortDisplayList(displayList) {
-    if (SETTINGS.PrimaryLanguageFirst)
+    if (GLOBAL.PrimaryLanguageFirst)
         displayList.sort(SortEnglish);
     else
         displayList.sort(SortRomanian);

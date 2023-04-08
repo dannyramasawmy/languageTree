@@ -13,14 +13,9 @@ const MAIN_CARD_ID = "main-card";
 const DATA_CARDS_ID = "data-cards";
 const BUTTON_PANEL_ID = "buttons";
 
-const SETTINGS = {
+const GLOBAL = {
   "PrimaryLanguageFirst": true,
 };
-
-// var SETTINGS.PrimaryLanguageFirst = true;
-var G_randomSelectionIcons = 0;
-var G_searchModeIsActive = false;
-var G_settingsModeIsActive = false;
 
 var G_settings_showAnimation = window.localStorage.getItem(`G_settings_showAnimation`) ?? 1;
 var G_isRainbowColor = window.localStorage.getItem(`G_settings_colorScheme`) ?? 1;
@@ -112,13 +107,6 @@ window.addEventListener('click',
 
         // when clicking on a card
         if (G_displayList[idNumber] !== undefined) {
-
-          console.log("Card clicked");
-
-          // don't allow clicking on a card if in settings
-          if (G_settingsModeIsActive)
-            return;
-
           // state
           G_currentNode = G_displayList[idNumber];
           G_displayList = GetDisplayNodes(G_currentNode);
@@ -136,13 +124,8 @@ window.addEventListener('click',
         return;
       }
 
-      // do nothing for search
-      if (event.composedPath()[idx].id == "search-bar")
-        return;
-
       // shuffle current node
       if (event.composedPath()[idx].id == "shuffle-button") {
-        // state
         G_currentNode = RandomElementInArray(G_searchable.GetDataCards(""));
         pushState(G_currentNode);
         G_displayList = GetDisplayNodes(G_currentNode);
@@ -157,35 +140,30 @@ window.addEventListener('click',
 
       // sort cards
       if (event.composedPath()[idx].id == "sort-button") {
-        let nodeToShow = G_searchModeIsActive ? searchPlaceholder : G_currentNode;
         G_displayList = SortDisplayList(G_displayList);
 
         VIEW.ClearCards();
-        VIEW.UpdateCards(nodeToShow, G_displayList, 0)
+        VIEW.UpdateCards(G_currentNode, G_displayList, 0)
         return;
       }
 
       // swap language shown
       if (event.composedPath()[idx].id == "swap-button") {
         // state
-        SETTINGS.PrimaryLanguageFirst = SETTINGS.PrimaryLanguageFirst ? false : true;
-
-        let heightToSet = SCROLL.GetCurrentHeight();
-
-        let nodeToShow = G_currentNode;
-        if (G_searchModeIsActive) {
-          nodeToShow = searchPlaceholder;
-          G_displayList = G_searchable.GetDataCards(document.getElementById("filter").value);
-        }
+        GLOBAL.PrimaryLanguageFirst = GLOBAL.PrimaryLanguageFirst ? false : true;
 
         VIEW.ClearCards();
-        VIEW.UpdateCards(nodeToShow, G_displayList, heightToSet);
+        VIEW.UpdateCards(
+          G_currentNode,
+          G_displayList,
+          SCROLL.GetCurrentHeight());
+
         VIEW.ClearButtons();
         VIEW.UpdateButtons([
           B_SHUFFLE.Current(),
           B_SORT.Current(),
           B_SEARCH.Current(),
-          B_SWAP.Select(SETTINGS.PrimaryLanguageFirst ? 0 : 1),
+          B_SWAP.Select(GLOBAL.PrimaryLanguageFirst ? 0 : 1),
           B_TRAVEL.Current()]);
 
         return;
@@ -213,6 +191,7 @@ window.addEventListener('click',
 
 function keyboardInput() {
   let searchString = document.getElementById("SearchBar").value;
+  G_currentNode = ROOT_NODE;
   G_displayList = G_searchable.GetDataCards(searchString);
 
   console.log("Searching keyboard input");
