@@ -37,20 +37,21 @@ var G_displayList = GetDisplayNodes(G_currentNode);
 const VIEW = new View(MAIN_CARD_ID, DATA_CARDS_ID, BUTTON_PANEL_ID);
 
 // define buttons
-const SHUFFLE = new Button(
+const B_SHUFFLE = new Button(
   "shuffle-button",
   "Shuffle",
   ["img/shuffle-icon-1.png", "img/shuffle-icon-2.png", "img/shuffle-icon-3.png", "img/shuffle-icon-4.png"],
+  "shuffle-button",
   false);
-const SORT = new Button("sort-button", "Sort", ["img/sort-icon.png"], false);
-const SEARCH = new Button("search-button", "Search", ["img/search-icon-2.png", "img/search-icon-1.png"], true);
-const SWAP = new Button("swap-button", "Swap", ["img/swap-language-icon-1.png", "img/swap-language-icon-2.png"], false);
-const TRAVEL = new Button("travel-button", "Travel", ["img/parent-icon.png"], false);
+const B_SORT = new Button("sort-button", "Sort", ["img/sort-icon.png"], "sort-button", false);
+const B_SEARCH = new Button("search-button", "Search", ["img/search-icon-2.png", "img/search-icon-1.png"], "search-button", true);
+const B_SWAP = new Button("swap-button", "Swap", ["img/swap-language-icon-1.png", "img/swap-language-icon-2.png"], "swap-button", false);
+const B_TRAVEL = new Button("travel-button", "Travel", ["img/parent-icon.png"], "travel-button", false);
 
 VIEW.ClearCards()
 VIEW.UpdateCards(G_currentNode, G_displayList, 0);
 VIEW.ClearButtons();
-VIEW.UpdateButtons([SHUFFLE.Current(), SORT.Current(), SEARCH.Current(), SWAP.Current(), TRAVEL.Current()]);
+VIEW.UpdateButtons([B_SHUFFLE.Current(), B_SORT.Current(), B_SEARCH.Current(), B_SWAP.Current(), B_TRAVEL.Current()]);
 
 var G_searchable = new SearchableDictionary();
 GetSearchableWords(romanian, G_searchable);
@@ -86,7 +87,7 @@ window.addEventListener('popstate',
     VIEW.UpdateCards(G_currentNode, G_displayList, 0);
 
     VIEW.ClearButtons();
-    VIEW.UpdateButtons([SHUFFLE.Previous(), SORT.Current(), SEARCH.Current(), SWAP.Current(), TRAVEL.Current()]);
+    VIEW.UpdateButtons([B_SHUFFLE.Previous(), B_SORT.Current(), B_SEARCH.Current(), B_SWAP.Current(), B_TRAVEL.Current()]);
   });
 
 // clicking
@@ -148,7 +149,7 @@ window.addEventListener('click',
         VIEW.ClearCards()
         VIEW.UpdateCards(G_currentNode, G_displayList, 0)
         VIEW.ClearButtons();
-        VIEW.UpdateButtons([SHUFFLE.Next(), SORT.Current(), SEARCH.Current(), SWAP.Current(), TRAVEL.Current()]);
+        VIEW.UpdateButtons([B_SHUFFLE.Next(), B_SORT.Current(), B_SEARCH.Current(), B_SWAP.Current(), B_TRAVEL.Current()]);
         return;
       }
 
@@ -167,8 +168,6 @@ window.addEventListener('click',
         // state
         G_displayLanguageIsEnglish = G_displayLanguageIsEnglish ? false : true;
 
-        // display
-        // let iconToShow = G_displayLanguageIsEnglish ? PRIMARY_LANGUAGE_ICON : SECONDARY_LANGUAGE_ICON;
         let heightToSet = SCROLL.GetCurrentHeight();
 
         let nodeToShow = G_currentNode;
@@ -177,9 +176,16 @@ window.addEventListener('click',
           G_displayList = G_searchable.GetDataCards(document.getElementById("filter").value);
         }
 
-        // SwapImageOnButton("swap-language", iconToShow);
         VIEW.ClearCards();
         VIEW.UpdateCards(nodeToShow, G_displayList, heightToSet);
+        VIEW.ClearButtons();
+        VIEW.UpdateButtons([
+          B_SHUFFLE.Current(),
+          B_SORT.Current(),
+          B_SEARCH.Current(),
+          B_SWAP.Select(G_displayLanguageIsEnglish ? 0 : 1),
+          B_TRAVEL.Current()]);
+
         return;
       }
 
