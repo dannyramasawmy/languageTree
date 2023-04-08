@@ -36,7 +36,7 @@ const B_SHUFFLE = new Button(
 const B_SORT = new Button("sort-button", "Sort", ["img/sort-icon.png"], "sort-button", false);
 const B_SEARCH = new Button("search-button", "Search", ["img/search-icon-2.png", "img/search-icon-1.png"], "search-button", true);
 const B_SWAP = new Button("swap-button", "Swap", ["img/swap-language-icon-1.png", "img/swap-language-icon-2.png"], "swap-button", false);
-const B_TRAVEL = new Button("travel-button", "Travel", ["img/parent-icon.png"], "travel-button", false);
+const B_TRAVEL = new Button("travel-button", "Travel", ["img/root-icon.png", "img/parent-icon.png"], "travel-button", false);
 
 VIEW.ClearCards()
 VIEW.UpdateCards(GLOBAL.CurrentNode, GLOBAL.DisplayCards, 0);
@@ -85,8 +85,6 @@ window.onkeyup = function (e) {
 window.addEventListener('click',
   function (event) {
 
-    var clickId = event.composedPath()[0].id;
-
     console.log(`click event '${event}'`);
     console.log(event.composedPath());
 
@@ -113,6 +111,8 @@ window.addEventListener('click',
 
           VIEW.ClearCards()
           VIEW.UpdateCards(GLOBAL.CurrentNode, GLOBAL.DisplayCards, 0)
+          VIEW.ClearButtons();
+          VIEW.UpdateButtons([B_SHUFFLE.Current(), B_SORT.Current(), B_SEARCH.Current(), B_SWAP.Current(), B_TRAVEL.Current()]);
         }
 
         return;
@@ -137,7 +137,9 @@ window.addEventListener('click',
         GLOBAL.DisplayCards = SortDisplayList(GLOBAL.DisplayCards);
 
         VIEW.ClearCards();
-        VIEW.UpdateCards(GLOBAL.CurrentNode, GLOBAL.DisplayCards, 0)
+        VIEW.UpdateCards(GLOBAL.CurrentNode, GLOBAL.DisplayCards, 0);
+        VIEW.ClearButtons();
+        VIEW.UpdateButtons([B_SHUFFLE.Current(), B_SORT.Current(), B_SEARCH.Current(), B_SWAP.Current(), B_TRAVEL.Current()]);
         return;
       }
 
@@ -146,11 +148,12 @@ window.addEventListener('click',
         // state
         GLOBAL.PrimaryLanguageFirst = GLOBAL.PrimaryLanguageFirst ? false : true;
 
+        let currentHeight = SCROLL.GetCurrentHeight();
         VIEW.ClearCards();
         VIEW.UpdateCards(
           GLOBAL.CurrentNode,
           GLOBAL.DisplayCards,
-          SCROLL.GetCurrentHeight());
+          currentHeight);
 
         VIEW.ClearButtons();
         VIEW.UpdateButtons([

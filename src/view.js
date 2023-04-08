@@ -46,6 +46,7 @@ class View {
             dataCard.style.visibility = "visible";
         }
 
+        console.log(yScrollHeight);
         window.scrollTo(0, yScrollHeight);
     }
 
