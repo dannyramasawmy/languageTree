@@ -59,6 +59,8 @@ function pushState(node) {
 // set next history state
 window.addEventListener('popstate',
   function (event) {
+    console.log("Popstate");
+
     GLOBAL.CurrentNode = event.state == null
       ? ROOT_NODE
       : G_searchable.GetDataCardFromState(event.state);
