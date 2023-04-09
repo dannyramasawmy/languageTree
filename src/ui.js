@@ -294,6 +294,35 @@ function keyboardInput() {
 };
 
 // =============================================================================
+// Animations
+// =============================================================================
+
+function animateShuffle(counter) {
+  frame = () => {
+    // console.log(`Animate shuffle: ${counter}`);
+    counter = Math.abs(counter);
+    VIEW.ClearButton(0)
+    VIEW.SetButton(0, B_SHUFFLE.Previous());
+
+    counter--;
+    if (counter == 0)
+      clearInterval(id);
+  }
+
+  id = setInterval(frame, 50);
+}
+
+function animateButtons() {
+  if (true) {
+    console.log("Animate buttons")
+  }
+
+  // shuffle button
+  let counter = B_SHUFFLE.state + 7;
+  animateShuffle(counter);
+}
+
+// =============================================================================
 // Cache and service worker
 // =============================================================================
 

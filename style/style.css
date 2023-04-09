@@ -1,3 +1,13 @@
+body {
+    overflow: hidden;
+    /* Hide scrollbars */
+}
+
+::selection {
+    color: none;
+    background: none;
+}
+
 .subtle {
     color: gray;
     text-align: center

@@ -24,6 +24,16 @@ class View {
         View.ClearComponents(this.dataCardsId);
     }
 
+    ClearButton(index) {
+        var displayDiv = document.getElementById(this.buttonPanelId);
+        displayDiv.removeChild(displayDiv.children[index]);
+    }
+
+    SetButton(index, button) {
+        var displayDiv = document.getElementById(this.buttonPanelId);
+        displayDiv.insertBefore(button, displayDiv.children[index]);
+    }
+
     ClearButtons() {
         View.ClearComponents(this.buttonPanelId);
     }
