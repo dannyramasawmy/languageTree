@@ -92,6 +92,7 @@ class Components {
 
         let buttonIcon = document.createElement("img");
         buttonIcon.className = "bi d-block mx-2 mb-1";
+        buttonIcon.id = `${buttonId}-image`;
         buttonIcon.src = iconPath;
         buttonIcon.alt = description;
         buttonIcon.width = "40";
