@@ -190,6 +190,14 @@ function SortEnglish(x, y) {
     return 0;
 }
 
+function ResetSearch() {
+    searchStringStack = [];
+
+    let searchBar = document.getElementById("SearchBar")
+    searchBar.value = "";
+    searchBar.placeholder = `Search (${G_searchable.GetDataCards("").length})`;
+}
+
 RandomRange = (start, end) => (Math.random() * (end - start)) + start;
 RandomIntRange = (start, end) => Math.floor(RandomRange(start, end + 1));
 RandomElementInArray = (arr) => arr[RandomIntRange(0, arr.length - 1)];
@@ -239,27 +247,19 @@ function ScrollHandler() {
     this.PercentageScroll = () => this.GetCurrentHeight() / this.MaxScrollHeight();
 }
 
-function ResetSearch() {
-    searchStringStack = [];
-
-    let searchBar = document.getElementById("SearchBar")
-    searchBar.value = "";
-    searchBar.placeholder = `Search (${G_searchable.GetDataCards("").length})`;
-}
-
 // =============================================================================
 // Settings
 // =============================================================================
 
 var StoreAnimationSettings = (value) => {
-    window.localStorage.setItem(`GLOBAL.ShowAnimations`, value);
-    GLOBAL.ShowAnimations = window.localStorage.getItem(`GLOBAL.ShowAnimations`);
+    window.localStorage.setItem(`SETTINGS.ShowAnimations`, value);
+    SETTINGS.ShowAnimations = window.localStorage.getItem(`SETTINGS.ShowAnimations`);
 }
 
 var StoreColorSettings = (value) => {
     window.localStorage.setItem(`G_settings_colorScheme`, value);
     G_isRainbowColor = window.localStorage.getItem(`G_settings_colorScheme`);
-    G_settings_colorScheme = G_isRainbowColor == 1 ? new RainbowColorWheel() : new BoringColorWheel();
+    G_settings_colorScheme = new RainbowColorWheel();
 }
 
 // =============================================================================

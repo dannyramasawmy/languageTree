@@ -7,21 +7,26 @@ const ROOT_NODE = romanian;
 // HTML COMPONENT ID's
 const MAIN_CARD_ID = "main-card";
 const DATA_CARDS_ID = "data-cards";
-const BUTTON_PANEL_ID = "buttons";
+const BUTTON_PANEL_ID = "buttons-panel";
+const SETTINGS_PANEL_ID = "settings-panel";
 
 const GLOBAL = {
   "PrimaryLanguageFirst": true,
-  "ShowAnimations": window.localStorage.getItem(`GLOBAL.ShowAnimations`) ?? 1,
   "CurrentNode": ROOT_NODE,
   "DisplayCards": GetDisplayNodes(ROOT_NODE)
+};
+
+const SETTINGS = {
+  "IsDarkTheme": window.localStorage.getItem(`SETTINGS.IsDarkTheme`) ?? true,
+  "IsCompactView": window.localStorage.getItem(`SETTINGS.IsCompactView`) ?? false,
+  "HasRainbowHover": window.localStorage.getItem(`SETTINGS.HasColourfulHover`) ?? false,
+  "PlayAnimationSound": window.localStorage.getItem(`SETTINGS.PlayAnimationSound`) ?? false,
+  "ShowAnimations": window.localStorage.getItem(`SETTINGS.ShowAnimations`) ?? 1,
 };
 
 // =============================================================================
 // Initialise
 // =============================================================================
-
-var G_isRainbowColor = window.localStorage.getItem(`G_settings_colorScheme`) ?? 1;
-var G_settings_colorScheme = G_isRainbowColor == 1 ? new RainbowColorWheel() : new BoringColorWheel();
 
 const VIEW = new View(MAIN_CARD_ID, DATA_CARDS_ID, BUTTON_PANEL_ID);
 const SCROLL = new ScrollHandler();
@@ -52,6 +57,26 @@ VIEW.UpdateButtons([
 var G_searchable = new SearchableDictionary();
 GetSearchableWords(ROOT_NODE, G_searchable);
 ResetSearch();
+
+// add settings
+settingsPanel = document.getElementById(SETTINGS_PANEL_ID);
+settingsPanel.appendChild(Components.CreateSettingsSubtitle("Theme"));
+settingsPanel.appendChild(Components.CreateBooleanSetting("color-theme", "Enable dark mode"));
+settingsPanel.appendChild(Components.CreateBooleanSetting("hover-color-theme", "Use rainbow hover colours"));
+settingsPanel.appendChild(Components.HorizontalRule());
+
+settingsPanel.appendChild(Components.CreateSettingsSubtitle("Sounds"));
+settingsPanel.appendChild(Components.CreateBooleanSetting("sound-switch", "Play sounds on click"));
+settingsPanel.appendChild(Components.HorizontalRule());
+
+settingsPanel.appendChild(Components.CreateSettingsSubtitle("Data cards"));
+settingsPanel.appendChild(Components.CreateBooleanSetting("data-cards-switch", "Show data cards with a compact view"));
+settingsPanel.appendChild(Components.HorizontalRule());
+
+settingsPanel.appendChild(Components.CreateSettingsSubtitle("Animations"));
+settingsPanel.appendChild(Components.CreateBooleanSetting("animations-switch", "Show animations"));
+settingsPanel.appendChild(Components.HorizontalRule());
+
 
 // =============================================================================
 // Events
@@ -246,7 +271,7 @@ if ('serviceWorker' in navigator) {
 // Code to handle install prompt on desktop
 let deferredPrompt;
 const addBtn = document.getElementById('install-button');
-// addBtn.style.display = 'none';
+addBtn.style.display = 'none';
 
 window.addEventListener('beforeinstallprompt', (e) => {
   // Prevent Chrome 67 and earlier from automatically showing the prompt

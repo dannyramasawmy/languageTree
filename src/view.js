@@ -11,6 +11,9 @@ class View {
         this.buttonPanelId = buttonPanelId;
     }
 
+    SetLightTheme() { document.getElementById("html").setAttribute("data-bs-theme", "light") }
+    SetDarkTheme() { document.getElementById("html").setAttribute("data-bs-theme", "dark") }
+
     ClearCards() {
         View.ClearComponents(this.mainCardId);
         View.ClearComponents(this.dataCardsId);
@@ -41,7 +44,7 @@ class View {
             document.getElementById(this.dataCardsId).appendChild(dataCard);
 
             // make sliding in animation
-            let animationTime = 1 * GLOBAL.ShowAnimations * idx / displayList.length;
+            let animationTime = 1 * SETTINGS.ShowAnimations * idx / displayList.length;
             dataCard.style.animation = `${animationTime}s slide-in`;
             dataCard.style.visibility = "visible";
         }
@@ -148,7 +151,7 @@ class Components {
         card.id = id;
 
         let innerCard = document.createElement("div");
-        innerCard.className = "data-card card text-bg-dark p-3 p-md-4";
+        innerCard.className = "data-card card text-bg-auto p-3 p-md-4";
 
         let cardTitle = document.createElement("h4");
         cardTitle.className = "card-title";
@@ -163,6 +166,38 @@ class Components {
         innerCard.appendChild(cardSubtitle);
 
         return card;
+    }
+
+    static HorizontalRule() {
+        return document.createElement("hr");
+    }
+
+    static CreateSettingsSubtitle(title) {
+        let settingsTitle = document.createElement("h4");
+        settingsTitle.className = "modal-subtitle";
+        settingsTitle.innerHTML = title;
+        return settingsTitle;
+    }
+
+    static CreateBooleanSetting(switchId, description) {
+        let booleanSwitch = document.createElement("div");
+        booleanSwitch.className = "form-check form-switch";
+
+        let switchInput = document.createElement("input");
+        switchInput.id = switchId;
+        switchInput.className = "form-check-input";
+        switchInput.type = "checkbox";
+        switchInput.role = "switch";
+
+        let switchLabel = document.createElement("label");
+        switchLabel.className = "form-check-label";
+        switchLabel.setAttribute("for", switchId);
+        switchLabel.innerHTML = description;
+
+        booleanSwitch.appendChild(switchInput);
+        booleanSwitch.appendChild(switchLabel);
+
+        return booleanSwitch;
     }
 }
 

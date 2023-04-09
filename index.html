@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
+<html id="html" lang="en" data-bs-theme="dark">
 
 <head>
   <meta charset="UTF-8">
@@ -111,45 +111,8 @@
           </h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
-
-          <!-- Color settings -->
-          <h4 class="modal-subtitle">Color</h4>
-          <div class="form-check">
-            <input type="radio" class="form-check-input" name="exampleRadios" example="exampleRadios1" value="option1"
-              checked>
-            <label for="exampleRadios1" class="form-check-label">Dark mode</label>
-          </div>
-          <div class="form-check">
-            <input type="radio" class="form-check-input" name="exampleRadios" example="exampleRadios2" value="option2">
-            <label for="exampleRadios2" class="form-check-label">Light mode</label>
-          </div>
-          <div class="form-check">
-            <input type="radio" class="form-check-input" name="exampleRadios" example="exampleRadios3" value="option3">
-            <label for="exampleRadios3" class="form-check-label">Rainbow mode</label>
-          </div>
-          <hr>
-          <!-- Sound animations -->
-          <h4 class="modal-subtitle">Sound</h4>
-          <div class="form-check form-switch">
-            <input type="checkbox" role="switch" class="form-check-input" id="soundSwitch" checked>
-            <label for="soundSwitch" class="form-check-label">Play sounds on click</label>
-          </div>
-          <hr>
-          <!-- Data card display -->
-          <h4 class="modal-subtitle">Data Cards</h4>
-          <div class="form-check form-switch">
-            <input type="checkbox" role="switch" class="form-check-input" id="compactView" unchecked>
-            <label for="compactView" class="form-check-label">Compact view</label>
-          </div>
-          <hr>
-          <!-- single option settings -->
-          <h4 class="modal-subtitle">Animation</h4>
-          <div class="form-check form-switch">
-            <input type="checkbox" role="switch" class="form-check-input" id="animations" checked>
-            <label for="animations" class="form-check-label">Show animations</label>
-          </div>
-
+        <div id="settings-panel" class="modal-body">
+          <!-- Add settings -->
         </div>
 
         <div class="modal-footer">
@@ -212,7 +175,7 @@
       <div class="py-2 bg-body-tertiary">
         <div class="container px-0">
           <div>
-            <ul id="buttons" class="nav col-12 my-2 justify-content-center my-md-0 text-small">
+            <ul id="buttons-panel" class="nav col-12 my-2 justify-content-center my-md-0 text-small">
               <!-- <li>
                 <a id="SearchButton" href="#" class="nav-link text-secondary px-2" data-bs-toggle="modal"
                   data-bs-target="#searchModal">
