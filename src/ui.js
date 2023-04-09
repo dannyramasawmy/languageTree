@@ -142,7 +142,10 @@ window.onkeyup = function (e) {
   var pressed = "";
   if (e.ctrlKey && e.keyCode === 81) {
     console.log("Search shortcut");
-    keyboardInput();
+
+    let myModal = new bootstrap.Modal(document.getElementById('searchModal'), {});
+    myModal.show();
+    document.getElementById("SearchBar").focus();
   }
 }
 

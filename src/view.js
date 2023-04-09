@@ -99,8 +99,8 @@ class Components {
             buttonLink.setAttribute("data-bs-target", "#searchModal");
             button.addEventListener("click", () => {
                 document.getElementById("SearchBar").focus();
-                document.getElementById("SearchBar");
-                console.log("Set focus")
+                // document.getElementById("SearchBar");
+                // console.log("Set focus")
             });
         }
 
