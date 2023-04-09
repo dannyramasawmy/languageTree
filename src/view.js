@@ -181,7 +181,7 @@ class Components {
 
     static CreateBooleanSetting(switchId, description) {
         let booleanSwitch = document.createElement("div");
-        booleanSwitch.className = "form-check form-switch";
+        booleanSwitch.className = "form-check";
 
         let switchInput = document.createElement("input");
         switchInput.id = switchId;
