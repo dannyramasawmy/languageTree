@@ -2,6 +2,8 @@
 // Global variables
 // =============================================================================
 
+const DEBUG = false;
+
 const ROOT_NODE = romanian;
 
 // HTML COMPONENT ID's
@@ -115,7 +117,9 @@ function pushState(node) {
 // set next history state
 window.addEventListener('popstate',
   function (event) {
-    console.log("Popstate");
+    if (DEBUG) {
+      console.log("Popstate");
+    }
 
     GLOBAL.CurrentNode = event.state == null
       ? ROOT_NODE
@@ -145,9 +149,10 @@ window.onkeyup = function (e) {
 // clicking
 window.addEventListener('click',
   function (event) {
-
-    console.log(`click event '${event}'`);
-    console.log(event.composedPath());
+    if (DEBUG) {
+      console.log(`click event '${event}'`);
+      console.log(event.composedPath());
+    }
 
     for (var idx = 0; idx < event.composedPath().length; idx++) {
 
@@ -156,7 +161,10 @@ window.addEventListener('click',
       // data card
       if (typeof currentClickPathId === 'string' && currentClickPathId.includes("card-number-")) {
         let idNumber = currentClickPathId.slice(12);
-        console.log(currentClickPathId);
+
+        if (DEBUG) {
+          console.log(currentClickPathId);
+        }
 
         // when clicking on a card
         if (GLOBAL.DisplayCards[idNumber] !== undefined) {

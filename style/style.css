@@ -26,12 +26,6 @@
     }
 }
 
-.data-card:hover {
-    border-color: #ffc107;
-    box-shadow: 0px 0px 10px 2px #ffc107;
-    transition: border-color 1s, box-shadow 0.25s;
-}
-
 .form-control:focus {
     border-color: #ffc107;
     box-shadow: 0px 0px 10px 2px #ffc107;
@@ -48,4 +42,84 @@
     /* background-color: #ffc107; */
     box-shadow: 0px 0px 2px 2px #ffc107;
     border-color: #ffc107;
+}
+
+.data-card:hover {
+    border-color: #ffc107;
+    box-shadow: 0px 0px 10px 2px #ffc107;
+    transition: border-color 1s, box-shadow 0.15s;
+}
+
+/* 
+    LEGACY STYLE COLOURING FOR BOXES
+*/
+
+.rainbow-hover-0:hover {
+    border-color: #C0392BDF;
+    box-shadow: 0px 0px 10px 2px #C0392BDF;
+}
+
+.rainbow-hover-1:hover {
+    border-color: #E74C3CDF;
+    box-shadow: 0px 0px 10px 2px #E74C3CDF;
+}
+
+.rainbow-hover-2:hover {
+    border-color: #9B59B6DF;
+    box-shadow: 0px 0px 10px 2px #9B59B6DF;
+}
+
+.rainbow-hover-3:hover {
+    border-color: #8E44ADDF;
+    box-shadow: 0px 0px 10px 2px #8E44ADDF;
+}
+
+.rainbow-hover-4:hover {
+    border-color: #2980B9DF;
+    box-shadow: 0px 0px 10px 2px #2980B9DF;
+}
+
+.rainbow-hover-5:hover {
+    border-color: #3498DBDF;
+    box-shadow: 0px 0px 10px 2px #3498DBDF;
+}
+
+.rainbow-hover-6:hover {
+    border-color: #1ABC9CDF;
+    box-shadow: 0px 0px 10px 2px #1ABC9CDF;
+}
+
+.rainbow-hover-7:hover {
+    border-color: #16A085DF;
+    box-shadow: 0px 0px 10px 2px #16A085DF;
+}
+
+.rainbow-hover-8:hover {
+    border-color: #27AE60DF;
+    box-shadow: 0px 0px 10px 2px #27AE60DF;
+}
+
+.rainbow-hover-9:hover {
+    border-color: #2ECC71DF;
+    box-shadow: 0px 0px 10px 2px #2ECC71DF;
+}
+
+.rainbow-hover-10:hover {
+    border-color: #F1C40FDF;
+    box-shadow: 0px 0px 10px 2px #F1C40FDF;
+}
+
+.rainbow-hover-11:hover {
+    border-color: #F39C12DF;
+    box-shadow: 0px 0px 10px 2px #F39C12DF;
+}
+
+.rainbow-hover-12:hover {
+    border-color: #E67E22DF;
+    box-shadow: 0px 0px 10px 2px #E67E22DF;
+}
+
+.rainbow-hover-13:hover {
+    border-color: #D35400DF;
+    box-shadow: 0px 0px 10px 2px #D35400DF;
 }

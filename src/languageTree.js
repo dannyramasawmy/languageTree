@@ -275,8 +275,13 @@ function RainbowColorWheel() {
 
     this.ResetIndex = () => this.Index = 5;
 
-    this.GetNextColor = () => {
+    this.GetNextColorIndex = () => {
         this.Index = (this.Index + 1) % this.Colors.length;
+        return this.Index;
+    }
+
+    this.GetNextColor = () => {
+        this.GetNextColorIndex();
         return this.Colors[this.Index];
     }
 }

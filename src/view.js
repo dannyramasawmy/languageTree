@@ -37,13 +37,19 @@ class View {
                 : Components.CreateParentCard(currentNode.Romanian, currentNode.English, currentNode.Data));
 
 
+        let colorIndex = "";
+        let colorWheel = new RainbowColorWheel();
+
         // child cards
         for (var idx = 0; idx < displayList.length; idx++) {
             let cardId = `card-number-${idx}`;
 
+            if (SETTINGS.HasRainbowHover)
+                colorIndex = colorWheel.GetNextColorIndex();
+
             let dataCard = GLOBAL.PrimaryLanguageFirst
-                ? Components.CreateChildCard(displayList[idx].English, displayList[idx].Romanian, cardId)
-                : Components.CreateChildCard(displayList[idx].Romanian, displayList[idx].English, cardId);
+                ? Components.CreateChildCard(displayList[idx].English, displayList[idx].Romanian, cardId, colorIndex)
+                : Components.CreateChildCard(displayList[idx].Romanian, displayList[idx].English, cardId, colorIndex);
 
             dataCard.style.visibility = "hidden";
             document.getElementById(this.dataCardsId).appendChild(dataCard);
@@ -55,7 +61,6 @@ class View {
             dataCard.style.visibility = "visible";
         }
 
-        console.log(yScrollHeight);
         window.scrollTo(0, yScrollHeight);
     }
 
@@ -151,13 +156,13 @@ class Components {
         return card;
     }
 
-    static CreateChildCard(title, subtitle, id) {
+    static CreateChildCard(title, subtitle, id, colorIndex) {
         let card = document.createElement("div");
         card.className = "col-12 col-lg-3 col-md-4 gap-2";
         card.id = id;
 
         let innerCard = document.createElement("div");
-        innerCard.className = "data-card card text-bg-auto p-3 p-md-4";
+        innerCard.className = `data-card card text-bg-auto p-3 p-md-4 rainbow-hover-${colorIndex}`;
 
         let cardTitle = document.createElement("h4");
         cardTitle.className = "card-title";
