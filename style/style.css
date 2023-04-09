@@ -16,6 +16,16 @@
     animation-duration: 1s;
 } */
 
+@keyframes slide-in {
+    from {
+        filter: blur(100px)
+    }
+
+    to {
+        filter: blur(0px)
+    }
+}
+
 .data-card:hover {
     border-color: #ffc107;
     box-shadow: 0px 0px 10px 2px #ffc107;

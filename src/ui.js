@@ -16,19 +16,25 @@ const GLOBAL = {
   "DisplayCards": GetDisplayNodes(ROOT_NODE)
 };
 
+const SETTINGS_COLOR_THEME = "color-theme";
+const SETTINGS_HOVER_COLOR = "hover-color-theme";
+const SETTINGS_COMPACT_CARDS = "compact-data-cards";
+const SETTINGS_ANIMATIONS = "animations-switch";
+
+
 const SETTINGS = {
-  "IsDarkTheme": window.localStorage.getItem(`SETTINGS.IsDarkTheme`) ?? true,
-  "IsCompactView": window.localStorage.getItem(`SETTINGS.IsCompactView`) ?? false,
-  "HasRainbowHover": window.localStorage.getItem(`SETTINGS.HasColourfulHover`) ?? false,
-  "PlayAnimationSound": window.localStorage.getItem(`SETTINGS.PlayAnimationSound`) ?? false,
-  "ShowAnimations": window.localStorage.getItem(`SETTINGS.ShowAnimations`) ?? 1,
+  "IsDarkTheme": getBooleanSetting(SETTINGS_COLOR_THEME, true),
+  "HasRainbowHover": getBooleanSetting(SETTINGS_HOVER_COLOR, false),
+  "IsCompactView": getBooleanSetting(SETTINGS_COMPACT_CARDS, false),
+  "ShowAnimations": getBooleanSetting(SETTINGS_ANIMATIONS, true),
 };
 
+console.log(SETTINGS)
 // =============================================================================
 // Initialise
 // =============================================================================
 
-const VIEW = new View(MAIN_CARD_ID, DATA_CARDS_ID, BUTTON_PANEL_ID);
+const VIEW = new View(MAIN_CARD_ID, DATA_CARDS_ID, BUTTON_PANEL_ID, SETTINGS.IsDarkTheme);
 const SCROLL = new ScrollHandler();
 
 // define buttons
@@ -58,25 +64,44 @@ var G_searchable = new SearchableDictionary();
 GetSearchableWords(ROOT_NODE, G_searchable);
 ResetSearch();
 
-// add settings
+
+// =============================================================================
+// SETTINGS
+// =============================================================================
+
 settingsPanel = document.getElementById(SETTINGS_PANEL_ID);
 settingsPanel.appendChild(Components.CreateSettingsSubtitle("Theme"));
-settingsPanel.appendChild(Components.CreateBooleanSetting("color-theme", "Enable dark mode"));
-settingsPanel.appendChild(Components.CreateBooleanSetting("hover-color-theme", "Use rainbow hover colours"));
-settingsPanel.appendChild(Components.HorizontalRule());
-
-settingsPanel.appendChild(Components.CreateSettingsSubtitle("Sounds"));
-settingsPanel.appendChild(Components.CreateBooleanSetting("sound-switch", "Play sounds on click"));
+settingsPanel.appendChild(Components.CreateBooleanSetting(SETTINGS_COLOR_THEME, "Enable dark mode", SETTINGS.IsDarkTheme));
+settingsPanel.appendChild(Components.CreateBooleanSetting(SETTINGS_HOVER_COLOR, "Use rainbow hover colours", SETTINGS.HasRainbowHover));
 settingsPanel.appendChild(Components.HorizontalRule());
 
 settingsPanel.appendChild(Components.CreateSettingsSubtitle("Data cards"));
-settingsPanel.appendChild(Components.CreateBooleanSetting("data-cards-switch", "Show data cards with a compact view"));
+settingsPanel.appendChild(Components.CreateBooleanSetting(SETTINGS_COMPACT_CARDS, "Show data cards with a compact view", SETTINGS.IsCompactView));
+settingsPanel.appendChild(Components.CreateBooleanSetting(SETTINGS_ANIMATIONS, "Show animations", SETTINGS.ShowAnimations));
 settingsPanel.appendChild(Components.HorizontalRule());
 
-settingsPanel.appendChild(Components.CreateSettingsSubtitle("Animations"));
-settingsPanel.appendChild(Components.CreateBooleanSetting("animations-switch", "Show animations"));
-settingsPanel.appendChild(Components.HorizontalRule());
+function saveBooleanSetting(key) {
+  let currentState = document.getElementById(key).checked;
+  window.localStorage.setItem(key, currentState);
+  return currentState
+}
 
+function getBooleanSetting(key, defaultValue) {
+  return window.localStorage.getItem(key) === null
+    ? defaultValue
+    : window.localStorage.getItem(key) == "true";
+}
+
+function updateSettings() {
+  SETTINGS.IsDarkTheme = saveBooleanSetting(SETTINGS_COLOR_THEME);
+  SETTINGS.HasRainbowHover = saveBooleanSetting(SETTINGS_HOVER_COLOR);
+  SETTINGS.IsCompactView = saveBooleanSetting(SETTINGS_COMPACT_CARDS);
+  SETTINGS.ShowAnimations = saveBooleanSetting(SETTINGS_ANIMATIONS);
+
+  _ = SETTINGS.IsDarkTheme ? VIEW.SetDarkTheme() : VIEW.SetLightTheme();
+  VIEW.ClearCards()
+  VIEW.UpdateCards(GLOBAL.CurrentNode, GLOBAL.DisplayCards, SCROLL.GetCurrentHeight());
+}
 
 // =============================================================================
 // Events

@@ -3,12 +3,17 @@
 // =============================================================================
 
 class View {
-    constructor(mainCardId, dataCardsId, buttonPanelId) {
+    constructor(mainCardId, dataCardsId, buttonPanelId, isDarkTheme) {
         // TODO: add error checks
 
         this.mainCardId = mainCardId;
         this.dataCardsId = dataCardsId;
         this.buttonPanelId = buttonPanelId;
+
+        if (isDarkTheme)
+            this.SetDarkTheme();
+        else
+            this.SetLightTheme();
     }
 
     SetLightTheme() { document.getElementById("html").setAttribute("data-bs-theme", "light") }
@@ -44,7 +49,8 @@ class View {
             document.getElementById(this.dataCardsId).appendChild(dataCard);
 
             // make sliding in animation
-            let animationTime = 1 * SETTINGS.ShowAnimations * idx / displayList.length;
+            let settingAnimation = SETTINGS.ShowAnimations ? 1 : 0;
+            let animationTime = 1 * settingAnimation * idx / displayList.length;
             dataCard.style.animation = `${animationTime}s slide-in`;
             dataCard.style.visibility = "visible";
         }
@@ -157,13 +163,15 @@ class Components {
         cardTitle.className = "card-title";
         cardTitle.innerHTML = title;
 
-        let cardSubtitle = document.createElement("h5");
-        cardSubtitle.className = "card-subtitle subtle";
-        cardSubtitle.innerHTML = subtitle;
-
         card.appendChild(innerCard);
         innerCard.appendChild(cardTitle);
-        innerCard.appendChild(cardSubtitle);
+
+        if (!SETTINGS.IsCompactView) {
+            let cardSubtitle = document.createElement("h5");
+            cardSubtitle.className = "card-subtitle subtle";
+            cardSubtitle.innerHTML = subtitle;
+            innerCard.appendChild(cardSubtitle);
+        }
 
         return card;
     }
@@ -179,7 +187,7 @@ class Components {
         return settingsTitle;
     }
 
-    static CreateBooleanSetting(switchId, description) {
+    static CreateBooleanSetting(switchId, description, isChecked) {
         let booleanSwitch = document.createElement("div");
         booleanSwitch.className = "form-check";
 
@@ -188,6 +196,7 @@ class Components {
         switchInput.className = "form-check-input";
         switchInput.type = "checkbox";
         switchInput.role = "switch";
+        switchInput.checked = isChecked;
 
         let switchLabel = document.createElement("label");
         switchLabel.className = "form-check-label";

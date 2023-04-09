@@ -248,21 +248,6 @@ function ScrollHandler() {
 }
 
 // =============================================================================
-// Settings
-// =============================================================================
-
-var StoreAnimationSettings = (value) => {
-    window.localStorage.setItem(`SETTINGS.ShowAnimations`, value);
-    SETTINGS.ShowAnimations = window.localStorage.getItem(`SETTINGS.ShowAnimations`);
-}
-
-var StoreColorSettings = (value) => {
-    window.localStorage.setItem(`G_settings_colorScheme`, value);
-    G_isRainbowColor = window.localStorage.getItem(`G_settings_colorScheme`);
-    G_settings_colorScheme = new RainbowColorWheel();
-}
-
-// =============================================================================
 // COLORS
 // =============================================================================
 
