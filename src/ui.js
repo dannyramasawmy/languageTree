@@ -22,6 +22,7 @@ const SETTINGS_COLOR_THEME = "color-theme";
 const SETTINGS_HOVER_COLOR = "hover-color-theme";
 const SETTINGS_COMPACT_CARDS = "compact-data-cards";
 const SETTINGS_ANIMATIONS = "animations-switch";
+const SETTINGS_BUTTON_LABELS = "button-labels";
 
 
 const SETTINGS = {
@@ -29,6 +30,7 @@ const SETTINGS = {
   "HasRainbowHover": getBooleanSetting(SETTINGS_HOVER_COLOR, false),
   "IsCompactView": getBooleanSetting(SETTINGS_COMPACT_CARDS, false),
   "ShowAnimations": getBooleanSetting(SETTINGS_ANIMATIONS, true),
+  "ShowButtonLabels": getBooleanSetting(SETTINGS_BUTTON_LABELS, true),
 };
 
 console.log(SETTINGS)
@@ -82,6 +84,10 @@ settingsPanel.appendChild(Components.CreateBooleanSetting(SETTINGS_COMPACT_CARDS
 settingsPanel.appendChild(Components.CreateBooleanSetting(SETTINGS_ANIMATIONS, "Show animations", SETTINGS.ShowAnimations));
 settingsPanel.appendChild(Components.HorizontalRule());
 
+settingsPanel.appendChild(Components.CreateSettingsSubtitle("Navigation"));
+settingsPanel.appendChild(Components.CreateBooleanSetting(SETTINGS_BUTTON_LABELS, "Show button labels", SETTINGS.ShowButtonLabels));
+settingsPanel.appendChild(Components.HorizontalRule());
+
 function saveBooleanSetting(key) {
   let currentState = document.getElementById(key).checked;
   window.localStorage.setItem(key, currentState);
@@ -99,10 +105,18 @@ function updateSettings() {
   SETTINGS.HasRainbowHover = saveBooleanSetting(SETTINGS_HOVER_COLOR);
   SETTINGS.IsCompactView = saveBooleanSetting(SETTINGS_COMPACT_CARDS);
   SETTINGS.ShowAnimations = saveBooleanSetting(SETTINGS_ANIMATIONS);
+  SETTINGS.ShowButtonLabels = saveBooleanSetting(SETTINGS_BUTTON_LABELS);
 
   _ = SETTINGS.IsDarkTheme ? VIEW.SetDarkTheme() : VIEW.SetLightTheme();
   VIEW.ClearCards()
   VIEW.UpdateCards(GLOBAL.CurrentNode, GLOBAL.DisplayCards, SCROLL.GetCurrentHeight());
+  VIEW.ClearButtons();
+  VIEW.UpdateButtons([
+    B_SHUFFLE.Current(),
+    B_SORT.Current(),
+    B_SEARCH.Current(),
+    B_SWAP.Current(),
+    B_TRAVEL.Select(TreeDepth(GLOBAL.CurrentNode))]);
 }
 
 // =============================================================================
@@ -313,12 +327,12 @@ function animateShuffle(counter) {
 }
 
 function animateButtons() {
-  if (true) {
+  if (DEBUG) {
     console.log("Animate buttons")
   }
 
   // shuffle button
-  let counter = B_SHUFFLE.state + 7;
+  let counter = B_SHUFFLE.state + B_SHUFFLE.numberOfStates - 1;
   animateShuffle(counter);
 }
 

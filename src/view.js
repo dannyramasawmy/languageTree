@@ -122,15 +122,15 @@ class Components {
         buttonIcon.width = "40";
         buttonIcon.height = "40";
 
-        let buttonLabel = document.createElement("h6")
-        buttonLabel.className = "subtle";
-        buttonLabel.innerHTML = buttonName;
-
         button.appendChild(buttonLink);
         buttonLink.appendChild(buttonIcon);
-        buttonLink.appendChild(buttonLabel);
 
-
+        if (SETTINGS.ShowButtonLabels) {
+            let buttonLabel = document.createElement("h6")
+            buttonLabel.className = "subtle";
+            buttonLabel.innerHTML = buttonName;
+            buttonLink.appendChild(buttonLabel);
+        }
 
         return button;
     }
