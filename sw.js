@@ -1,7 +1,7 @@
 //
 // Major version: changes in behavior / new buttons etc
 // Minor version: new/edited words / bug fixes
-const staticCacheName = 'languageTree-v20.0';
+const staticCacheName = 'languageTree-v20.1';
 
 self.addEventListener('install', (e) => {
   console.log("Registering sw");
@@ -15,7 +15,7 @@ self.addEventListener('install', (e) => {
       '/languageTree/src/ui.js',
       '/languageTree/src/view.js',
       '/languageTree/img/background-tree.svg',
-      '/languageTree/img/delta-icon.svg',
+      '/languageTree/img/delta-icon.png',
       '/languageTree/img/leaf-icon.svg',
       '/languageTree/img/root-icon.svg',
       '/languageTree/img/parent-icon.svg',
