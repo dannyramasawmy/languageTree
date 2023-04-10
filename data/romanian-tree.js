@@ -6,6 +6,9 @@
 a ă â b c d e f g h i î j k l m n o p q r s ș t ț u v w x y z
 https://www.thoughtco.com/html-codes-romanian-characters-4062226
 
+special characters
+
+Șș ă â î ț
 
 var  = new DataCard(
         "", "",
@@ -22,16 +25,7 @@ var romanian = new DataCard(
     "Romanian language tree. <br>\
     ",
     isRoot = true);
-// var romanian = new DataCard(
-//     "Romanian", "Română",
-//     "Romanian language tree. <br>\
-//     <div><img src=\"img/shuffle-icon-1.png\"      class=\"home-icon\"/> shuffle</div>\
-//     <div><img src=\"img/sort-icon.png\"           class=\"home-icon\"/> sort</div>\
-//     <div><img src=\"img/search-icon-1.png\"         class=\"home-icon\"/> search</div>\
-//     <div><img src=\"img/swap-language-icon-1.png\"  class=\"home-icon\"/> swap language</div>\
-//     <div><img src=\"img/parent-icon.png\"         class=\"home-icon\"/> go up</div>\
-//     ",
-//     isRoot = true);
+
 romanian.SetParent(romanian);
 
 // =============================================================================
@@ -943,7 +937,7 @@ SetParentAndChild(TheCircus, BigWheel)
 var Carousel = new DataCard("Carousel", "Carusel", "");
 SetParentAndChild(TheCircus, Carousel)
 
-var CandyFloss = new DataCard("Candy Floss", "Vată de Băț", "");
+var CandyFloss = new DataCard("Candy Floss", "Vată pe Băț", "");
 SetParentAndChild(TheCircus, CandyFloss)
 
 var Popcorn = new DataCard("Popcorn", "Pop-corn (Floricele de Porumb)", "");
@@ -1041,7 +1035,7 @@ SetParentAndChild(Sports, Archery)
 var Target = new DataCard("Target", "Țintă", "");
 SetParentAndChild(Sports, Target)
 
-var HandGliding = new DataCard("Hand Gliding", "Zbor cu Deltaplanuk", "");
+var HandGliding = new DataCard("Hand Gliding", "Zbor cu Deltaplanul", "");
 SetParentAndChild(Sports, HandGliding)
 
 var Helmet = new DataCard("Helmet", "Cască", "");
@@ -1384,8 +1378,11 @@ SetParentAndChild(TheHospitalAndTheDoctor, Wheelchair)
 var Syringe = new DataCard("Syringe", "Seringă", "");
 SetParentAndChild(TheHospitalAndTheDoctor, Syringe)
 
-var Tissues = new DataCard("Tissues", "Batiste (de Hârtie)", "");
+var Tissues = new DataCard("Tissues (Napkin)", "Batiste de Hârtie (Șerveţel)", "");
 SetParentAndChild(TheHospitalAndTheDoctor, Tissues)
+
+var Handkerchief = new DataCard("Handkerchief", "Batiste", "");
+SetParentAndChild(TheHospitalAndTheDoctor, Handkerchief)
 
 var WaitingRoom = new DataCard("Waiting Room", "Sală de Așteptare", "");
 SetParentAndChild(TheHospitalAndTheDoctor, WaitingRoom)
@@ -2013,7 +2010,7 @@ SetParentAndChild(Animals, Fox)
 var Hedgehog = new DataCard("Hedgehog", "Arici", "");
 SetParentAndChild(Animals, Hedgehog)
 
-var Squirrel = new DataCard("Squirrel", "Ververiță", "");
+var Squirrel = new DataCard("Squirrel", "Veveriță", "");
 SetParentAndChild(Animals, Squirrel)
 
 var Badger = new DataCard("Badger", "Bursuc", "");
@@ -2031,7 +2028,7 @@ SetParentAndChild(Animals, Owl)
 var FoxCubs = new DataCard("Fox Cubs", "Pui de Vulpe", "");
 SetParentAndChild(Animals, FoxCubs)
 
-var Moth = new DataCard("Moth", "Fluture de Noapte", "");
+var Moth = new DataCard("Moth", "Fluture de Noapte (Molie)", "");
 SetParentAndChild(Animals, Moth)
 
 var FlyInsect = new DataCard("Fly (Insect)", "Muscă", "");
@@ -2177,7 +2174,7 @@ SetParentAndChild(theShop, Basket)
 var Scales = new DataCard("Scales", "Cântar", "");
 SetParentAndChild(theShop, Scales)
 
-var CarrierBag = new DataCard("CarrierBag", "Sacoșă", "");
+var CarrierBag = new DataCard("Carrier Bag", "Sacoșă", "");
 SetParentAndChild(theShop, CarrierBag)
 
 // #food
@@ -2639,7 +2636,7 @@ SetParentAndChild(theKitchen, Saucepans)
 var Forks = new DataCard("Forks", "Furculițe", "");
 SetParentAndChild(theKitchen, Forks)
 
-var Apron = new DataCard("Apron", "Sorț (de bucătărie)", "");
+var Apron = new DataCard("Apron", "Șorț (de bucătărie)", "");
 SetParentAndChild(theKitchen, Apron)
 
 var IroningBoard = new DataCard("Ironing Board", "Masă de Călcat", "");
@@ -2852,6 +2849,9 @@ SetParentAndChild(home, stairs)
 
 var Letters = new DataCard("Letters", "Scrisori", "");
 SetParentAndChild(home, Letters)
+
+var Envelope = new DataCard("Envelope", "Plic", "");
+SetParentAndChild(home, Envelope)
 
 var Table = new DataCard("Table", "Masă", "");
 SetParentAndChild(home, Table)
@@ -3477,6 +3477,11 @@ var where = new DataCard(
     "Where", "Unde",
     "")
 SetParentAndChild(adverbs, where);
+
+var Almost = new DataCard(
+    "Almost", "Abia",
+    "")
+SetParentAndChild(adverbs, Almost);
 
 
 // =============================================================================
