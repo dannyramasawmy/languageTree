@@ -85,6 +85,11 @@ var run = new DataCard("Run", "Alerga",
     + VerbTemplate("alerg", "alergi", "aleargă", "alergăm", "alergați", "aleargă", "alergat", "alerga"));
 SetParentAndChild(verbs, run);
 
+var choose = new DataCard("Choose", "Alege",
+    "To choose <br> "
+    + VerbTemplate("aleg", "alegi", "alege", "alegem", "alegeți", "aleg", "ales", "alege"));
+SetParentAndChild(verbs, choose);
+
 var runAway = new DataCard("Run (flee)", "Fugi",
     "To run (away, flee)<br> "
     + VerbTemplate("fug", "fugi", "fuge", "fugim", "fugiți", "fug", "fugit", "fugi"));
@@ -776,8 +781,8 @@ SetParentAndChild(DescriptiveAdjective, Close)
 var First = new DataCard("First", "Primul", "");
 SetParentAndChild(DescriptiveAdjective, First)
 
-var Last = new DataCard("Last", "Ultimul", "");
-SetParentAndChild(DescriptiveAdjective, Last)
+var Ultimate = new DataCard("Ultimate (Last)", "Ultimul", "");
+SetParentAndChild(DescriptiveAdjective, Ultimate)
 
 var Wet = new DataCard("Wet", "Ud (Humed)", "");
 SetParentAndChild(DescriptiveAdjective, Wet)
@@ -838,6 +843,12 @@ SetParentAndChild(DescriptiveAdjective, Dead)
 
 var Alive = new DataCard("Alive", "Viu", "");
 SetParentAndChild(DescriptiveAdjective, Alive)
+
+var True_ = new DataCard("True", "Adevărat", "");
+SetParentAndChild(DescriptiveAdjective, True_)
+
+var False_ = new DataCard("False", "Fals", "");
+SetParentAndChild(DescriptiveAdjective, False_)
 
 
 // #Colours =======================================
@@ -1086,6 +1097,38 @@ SetParentAndChild(Sports, Skiing)
 //#Days #week #time
 var Time = new DataCard("Time", "Timp", "");
 SetParentAndChild(nouns, Time)
+
+// #relativeTime
+var RelativeTime = new DataCard("Relative Time", "Timp Relativ", "");
+SetParentAndChild(Time, RelativeTime)
+
+var Next = new DataCard("Next", "Următorul", "");
+SetParentAndChild(RelativeTime, Next)
+
+var Last = new DataCard("Last", "Trecut", "");
+SetParentAndChild(RelativeTime, Last)
+
+var LastYear = new DataCard("Last Year", "Anul trecut", "");
+SetParentAndChild(RelativeTime, LastYear)
+
+var NextYear = new DataCard("Next year", "Anul Urmator", "");
+SetParentAndChild(RelativeTime, NextYear)
+
+var Tomorrow = new DataCard("Tomorrow", "Mâine", "");
+SetParentAndChild(RelativeTime, Tomorrow)
+
+var DayAfterTomorrow = new DataCard("The day after tomorrow", "Poimâine", "");
+SetParentAndChild(RelativeTime, DayAfterTomorrow)
+
+var Yesterday = new DataCard("Yesterday", "Ieri", "");
+SetParentAndChild(RelativeTime, Yesterday)
+
+var DayBeforeYesterday = new DataCard("The day before yesterday", "Alaltaieri", "");
+SetParentAndChild(RelativeTime, DayBeforeYesterday)
+
+var Later = new DataCard("Late (later)", "(Mai) Târziu", "");
+SetParentAndChild(RelativeTime, Later)
+
 
 // #seasons
 var Seasons = new DataCard("Seasons", "Anotimpurile", "");
@@ -2606,6 +2649,9 @@ SetParentAndChild(atHome, theKitchen)
 var fridge = new DataCard("Fridge", "Frigider", "");
 SetParentAndChild(theKitchen, fridge)
 
+var Tray = new DataCard("Tray", "Tava", "");
+SetParentAndChild(theKitchen, Tray)
+
 var Clock = new DataCard("Clock", "Ceas de perete", "");
 SetParentAndChild(theKitchen, Clock)
 
@@ -2724,6 +2770,9 @@ SetParentAndChild(home, Ceiling)
 var Floor = new DataCard("Floor", "Podea", "");
 SetParentAndChild(home, Floor)
 
+var Wall = new DataCard("Wall", "Perete", "");
+SetParentAndChild(home, Wall)
+
 var bath = new DataCard(
     "Bath", "Baie",
     NounTemplateFemale("baie", "bai", "baia", "băile")
@@ -2793,7 +2842,7 @@ SetParentAndChild(home, Sofa)
 var Bathroom = new DataCard("Bathroom", "Baia", "");
 SetParentAndChild(home, Bathroom)
 
-var LivingRoom = new DataCard("LivingRoom", "Sufrageria", "");
+var LivingRoom = new DataCard("Living Room", "Sufrageria", "");
 SetParentAndChild(home, LivingRoom)
 
 var Bedroom = new DataCard("Bedroom", "Dormitul", "");
@@ -2819,6 +2868,9 @@ SetParentAndChild(home, sheet)
 
 var Wardrobe = new DataCard("Wardrobe", "Dulap", "");
 SetParentAndChild(home, Wardrobe)
+
+var Laundry = new DataCard("Laundry", "Rufe", "");
+SetParentAndChild(home, Laundry)
 
 var Television = new DataCard("Television", "Televizor", "");
 SetParentAndChild(home, Television)
@@ -3156,6 +3208,9 @@ SetParentAndChild(Clothes, BaseballCap)
 var Hat = new DataCard("Hat", "Pălărie", "");
 SetParentAndChild(Clothes, Hat)
 
+var Bag = new DataCard("Bag", "Punga", "");
+SetParentAndChild(Clothes, Bag)
+
 
 // #families
 var families = new DataCard(
@@ -3467,6 +3522,10 @@ var never = new DataCard(
     "")
 SetParentAndChild(adverbs, never);
 
+var Only = new DataCard(
+    "Only", "Numai",
+    "")
+SetParentAndChild(adverbs, Only);
 
 var how = new DataCard(
     "How", "Cum",
@@ -3532,6 +3591,11 @@ var but = new DataCard(
     "But", "Dar",
     "")
 SetParentAndChild(conjunctions, but);
+
+var before = new DataCard(
+    "Before", "Inainte de",
+    "")
+SetParentAndChild(conjunctions, before);
 
 
 // =============================================================================
@@ -3670,6 +3734,11 @@ var Excited = new DataCard(
     "Excited", "Entuziasmat",
     "")
 SetParentAndChild(emotions, Excited);
+
+var Jealous = new DataCard(
+    "Jealous", "Gelos",
+    "")
+SetParentAndChild(emotions, Jealous);
 
 
 
