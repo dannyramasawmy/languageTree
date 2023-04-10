@@ -8,7 +8,7 @@ https://www.thoughtco.com/html-codes-romanian-characters-4062226
 
 special characters
 
-Șș ă â î ț
+Șș ă â Îî ț
 
 var  = new DataCard(
         "", "",
@@ -3618,6 +3618,59 @@ SetParentAndChild(pronouns, another);
 
 var emotions = new DataCard(
     "Emotions", "Emoții",
-    "Todo")
+    "")
 SetParentAndChild(romanian, emotions);
+
+var Happy = new DataCard(
+    "Happy", "Fericit",
+    "")
+SetParentAndChild(emotions, Happy);
+
+var Sad = new DataCard(
+    "Sad", "Trist",
+    "")
+SetParentAndChild(emotions, Sad);
+
+var Bored = new DataCard(
+    "Bored", "Plictisit",
+    "")
+SetParentAndChild(emotions, Bored);
+
+var Cheerful = new DataCard(
+    "Cheerful", "Vesel",
+    "")
+SetParentAndChild(emotions, Cheerful);
+
+var Shy = new DataCard(
+    "Shy (Timid)", "Timid",
+    "")
+SetParentAndChild(emotions, Shy);
+
+var Angry = new DataCard(
+    "Angry", "Nervos",
+    "")
+SetParentAndChild(emotions, Angry);
+
+var Tired = new DataCard(
+    "Tired", "Obosit",
+    "")
+SetParentAndChild(emotions, Tired);
+
+var Worried = new DataCard(
+    "Worried", "Îngrijorat",
+    "")
+SetParentAndChild(emotions, Worried);
+
+var Upset = new DataCard(
+    "Upset", "Supărat",
+    "")
+SetParentAndChild(emotions, Upset);
+
+var Excited = new DataCard(
+    "Excited", "Entuziasmat",
+    "")
+SetParentAndChild(emotions, Excited);
+
+
+
 
