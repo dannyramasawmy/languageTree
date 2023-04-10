@@ -55,6 +55,11 @@ var drink = new DataCard("Drink", "Bea",
     + VerbTemplate("beau", "bei", "bea", "bem", "beți", "beau", "băut", "bea"));
 SetParentAndChild(verbs, drink);
 
+var smell = new DataCard("Smell", "Mirosi",
+    "To smell <br> "
+    + VerbTemplate("miros", "miroși", "miroase", "mirosim", "mirosiți", "miros", "mirosit", "mirosi"));
+SetParentAndChild(verbs, smell);
+
 var say = new DataCard("Say", "Spune",
     "To say <br> "
     + VerbTemplate("spun", "spui", "spune", "spunem", "spuneți", "spun", "spus", "spune"));
@@ -189,6 +194,11 @@ var guess = new DataCard("Guess (believe)", "Crede",
     "To guess (believe)<br> "
     + VerbTemplate("cred", "crezi", "crede", "credem", "credeți", "cred", "crezut", "crede"));
 SetParentAndChild(verbs, guess);
+
+var bring = new DataCard("Bring", "Aduce",
+    "To bring<br> "
+    + VerbTemplate("aduc", "aduci", "aduce", "aducem", "aduceți", "aduc", "adus", "aduce"));
+SetParentAndChild(verbs, bring);
 
 var think = new DataCard("Think", "Gândi",
     "To think<br> "
@@ -718,6 +728,11 @@ var who = new DataCard(
     "Who", "Cine",
     "")
 SetParentAndChild(adjectives, who);
+
+var sure = new DataCard(
+    "Sure", "Sigur",
+    "")
+SetParentAndChild(adjectives, sure);
 
 var what = new DataCard(
     "What", "Ce",
@@ -3673,6 +3688,11 @@ var another = new DataCard(
     "Another", "Alt",
     "")
 SetParentAndChild(pronouns, another);
+
+var something = new DataCard(
+    "Something", "Ceva",
+    "")
+SetParentAndChild(pronouns, something);
 
 
 
