@@ -1,7 +1,7 @@
 //
 // Major version: changes in behavior / new buttons etc
 // Minor version: new/edited words / bug fixes
-const staticCacheName = 'languageTree-v20.1';
+const staticCacheName = 'languageTree-v20.2';
 
 self.addEventListener('install', (e) => {
   console.log("Registering sw");
