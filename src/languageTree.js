@@ -27,7 +27,14 @@ function SearchableDictionary() {
     this.English = {};
 
     this.GetDataCards = function (searchString) {
-        var words = GLOBAL.PrimaryLanguageFirst
+        // special search prefix
+        let hasSearchPrefix = (searchString.length > 0 && searchString[0] === '!');
+        let searchPrimary = GLOBAL.PrimaryLanguageFirst ^ hasSearchPrefix;
+
+        if (hasSearchPrefix)
+            searchString = searchString.slice(1);
+
+        var words = searchPrimary
             ? Object.getOwnPropertyNames(this.English)
             : Object.getOwnPropertyNames(this.Romanian);
 
@@ -35,7 +42,7 @@ function SearchableDictionary() {
         var filteredWords = words.filter((x, i) => wordMask[i]);
 
         var filteredDataCards = filteredWords.map(
-            x => GLOBAL.PrimaryLanguageFirst
+            x => searchPrimary
                 ? this.English[x]
                 : this.Romanian[x]);
 
