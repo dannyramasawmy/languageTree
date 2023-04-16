@@ -66,7 +66,10 @@ function CopyText(text)
     console.log(text + " copied!");
 }
 
-MakeCopyable = (text) => `<copy class="copyable" onclick="CopyText('${text}')">○ ${text} <br></copy>`
+MakeCopyable = (text) => `
+    <copy class="copyable" onclick="CopyText('${text}')">
+        ○ ${text} <br>
+    </copy>`
 
 function VerbTemplate(
     presentI,
