@@ -2,10 +2,10 @@
 // Containers
 // =============================================================================
 
-function DataCard(english, romanian, data, isRoot = false)
+function DataCard(primary, secondary, data, isRoot = false)
 {
-    this.English = english;
-    this.Romanian = romanian;
+    this.Primary = primary;
+    this.Secondary = secondary;
     this.Data = data;
 
     this.Parent = [];
@@ -27,8 +27,8 @@ DataCard.prototype.SetParent = function (dataCard)
 
 function SearchableDictionary()
 {
-    this.Romanian = {};
-    this.English = {};
+    this.Secondary = {};
+    this.Primary = {};
 
     this.GetDataCards = function (searchString)
     {
@@ -40,23 +40,23 @@ function SearchableDictionary()
             searchString = searchString.slice(1);
 
         var words = searchPrimary
-            ? Object.getOwnPropertyNames(this.English)
-            : Object.getOwnPropertyNames(this.Romanian);
+            ? Object.getOwnPropertyNames(this.Primary)
+            : Object.getOwnPropertyNames(this.Secondary);
 
         var wordMask = words.map((x) => x.includes(searchString.toLowerCase()));
         var filteredWords = words.filter((x, i) => wordMask[i]);
 
         var filteredDataCards = filteredWords.map(
             x => searchPrimary
-                ? this.English[x]
-                : this.Romanian[x]);
+                ? this.Primary[x]
+                : this.Secondary[x]);
 
         return filteredDataCards
     }
 
     this.GetDataCardFromState = function (state)
     {
-        return this.English[state];
+        return this.Primary[state];
     };
 }
 
@@ -177,8 +177,8 @@ function SetParentAndChild(parentDataCard, childDataCard)
 
 function GetSearchableWords(rootDataCard, searchableDictionary)
 {
-    searchableDictionary.English[PrepareEnglishString(rootDataCard.English)] = rootDataCard;
-    searchableDictionary.Romanian[PrepareRomanianString(rootDataCard.Romanian)] = rootDataCard;
+    searchableDictionary.Primary[PrepareEnglishString(rootDataCard.Primary)] = rootDataCard;
+    searchableDictionary.Secondary[PrepareRomanianString(rootDataCard.Secondary)] = rootDataCard;
 
     if (rootDataCard.Child.length == 0) return;
 
@@ -203,15 +203,15 @@ function SortDisplayList(displayList)
 
 function SortRomanian(x, y)
 {
-    if (PrepareRomanianString(x.Romanian) < PrepareRomanianString(y.Romanian)) return -1;
-    if (PrepareRomanianString(x.Romanian) > PrepareRomanianString(y.Romanian)) return 1;
+    if (PrepareRomanianString(x.Secondary) < PrepareRomanianString(y.Secondary)) return -1;
+    if (PrepareRomanianString(x.Secondary) > PrepareRomanianString(y.Secondary)) return 1;
     return 0;
 }
 
 function SortEnglish(x, y)
 {
-    if (PrepareEnglishString(x.English) < PrepareEnglishString(y.English)) return -1;
-    if (PrepareEnglishString(x.English) > PrepareEnglishString(y.English)) return 1;
+    if (PrepareEnglishString(x.Primary) < PrepareEnglishString(y.Primary)) return -1;
+    if (PrepareEnglishString(x.Primary) > PrepareEnglishString(y.Primary)) return 1;
     return 0;
 }
 

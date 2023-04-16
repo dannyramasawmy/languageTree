@@ -54,8 +54,8 @@ class View
         // main card
         document.getElementById(this.mainCardId).appendChild(
             GLOBAL.PrimaryLanguageFirst
-                ? Components.CreateParentCard(currentNode.English, currentNode.Romanian, currentNode.Data)
-                : Components.CreateParentCard(currentNode.Romanian, currentNode.English, currentNode.Data));
+                ? Components.CreateParentCard(currentNode.Primary, currentNode.Secondary, currentNode.Data)
+                : Components.CreateParentCard(currentNode.Secondary, currentNode.Primary, currentNode.Data));
 
 
         let colorIndex = "";
@@ -70,8 +70,8 @@ class View
                 colorIndex = colorWheel.GetNextColorIndex();
 
             let dataCard = GLOBAL.PrimaryLanguageFirst
-                ? Components.CreateChildCard(displayList[idx].English, displayList[idx].Romanian, cardId, colorIndex)
-                : Components.CreateChildCard(displayList[idx].Romanian, displayList[idx].English, cardId, colorIndex);
+                ? Components.CreateChildCard(displayList[idx].Primary, displayList[idx].Secondary, cardId, colorIndex)
+                : Components.CreateChildCard(displayList[idx].Secondary, displayList[idx].Primary, cardId, colorIndex);
 
             dataCard.style.visibility = "hidden";
             document.getElementById(this.dataCardsId).appendChild(dataCard);

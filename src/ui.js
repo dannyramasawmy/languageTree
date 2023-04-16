@@ -131,7 +131,7 @@ function updateSettings()
 // add history
 function pushState(node)
 {
-  history.pushState(node.English.toLowerCase(), null, `?${node.English}`);
+  history.pushState(node.Primary.toLowerCase(), null, `?${node.Primary}`);
 }
 
 // set next history state
@@ -162,7 +162,6 @@ window.addEventListener('popstate',
 
 window.onkeyup = function (e)
 {
-  var pressed = "";
   if (e.ctrlKey && e.keyCode === 81)
   {
     console.log("Search shortcut");

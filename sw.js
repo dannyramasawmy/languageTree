@@ -1,7 +1,8 @@
 //
 // Major version: changes in behavior / new buttons etc
 // Minor version: new/edited words / bug fixes
-const staticCacheName = 'languageTree-v20.3';
+const version = "v20.3";
+const staticCacheName = 'languageTree-' + version;
 
 self.addEventListener('install', (e) =>
 {

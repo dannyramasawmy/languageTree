@@ -18,7 +18,7 @@ SetParentAndChild(verbs, );
 
 */
 
-var searchPlaceholder = new DataCard("Search", "Căuta", "");
+const searchPlaceholder = new DataCard("Search", "Căuta", "");
 
 function BuildLanguageTree() // reurns romanian
 {
@@ -3764,6 +3764,7 @@ function BuildLanguageTree() // reurns romanian
 
     return romanian;
 }
+
 
 
 
