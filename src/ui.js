@@ -45,7 +45,7 @@ const SCROLL = new ScrollHandler();
 const B_SHUFFLE = new Button(
   "shuffle-button",
   "Shuffle",
-  ["img/shuffle-icon-1.svg", "img/shuffle-icon-2.svg", "img/shuffle-icon-3.svg", "img/shuffle-icon-4.svg",
+  ["img/shuffle-icon.svg", "img/shuffle-icon-2.svg", "img/shuffle-icon-3.svg", "img/shuffle-icon-4.svg",
     "img/shuffle-icon-5.svg", "img/shuffle-icon-6.svg", "img/shuffle-icon-7.svg", "img/shuffle-icon-8.svg"],
   "shuffle-button",
   false);

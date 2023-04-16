@@ -8,6 +8,41 @@
     text-align: center
 }
 
+.shuffle-inner {
+    animation-name: shuffle-rotate;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    transform-origin: center;
+}
+
+.shuffle-outer {
+    animation-name: shuffle-rotate-slow;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    transform-origin: center;
+}
+
+@keyframes shuffle-rotate-slow {
+    from {
+        transform: rotate(0deg)
+    }
+
+    to {
+        transform: rotate(360deg)
+    }
+}
+
+@keyframes shuffle-rotate {
+    from {
+        transform: rotate(0deg)
+    }
+
+    to {
+        transform: rotate(720deg)
+    }
+}
+
+
 .modal-subtitle {
     color: lightgrey
 }
