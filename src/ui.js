@@ -4,7 +4,7 @@
 
 const DEBUG = false;
 
-const ROOT_NODE = romanian;
+const ROOT_NODE = BuildLanguageTree();
 
 // HTML COMPONENT ID's
 const MAIN_CARD_ID = "main-card";
