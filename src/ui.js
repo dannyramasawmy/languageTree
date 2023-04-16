@@ -88,19 +88,22 @@ settingsPanel.appendChild(Components.CreateSettingsSubtitle("Navigation"));
 settingsPanel.appendChild(Components.CreateBooleanSetting(SETTINGS_BUTTON_LABELS, "Show button labels", SETTINGS.ShowButtonLabels));
 settingsPanel.appendChild(Components.HorizontalRule());
 
-function saveBooleanSetting(key) {
+function saveBooleanSetting(key)
+{
   let currentState = document.getElementById(key).checked;
   window.localStorage.setItem(key, currentState);
   return currentState
 }
 
-function getBooleanSetting(key, defaultValue) {
+function getBooleanSetting(key, defaultValue)
+{
   return window.localStorage.getItem(key) === null
     ? defaultValue
     : window.localStorage.getItem(key) == "true";
 }
 
-function updateSettings() {
+function updateSettings()
+{
   SETTINGS.IsDarkTheme = saveBooleanSetting(SETTINGS_COLOR_THEME);
   SETTINGS.HasRainbowHover = saveBooleanSetting(SETTINGS_HOVER_COLOR);
   SETTINGS.IsCompactView = saveBooleanSetting(SETTINGS_COMPACT_CARDS);
@@ -124,14 +127,17 @@ function updateSettings() {
 // =============================================================================
 
 // add history
-function pushState(node) {
+function pushState(node)
+{
   history.pushState(node.English.toLowerCase(), null, `?${node.English}`);
 }
 
 // set next history state
 window.addEventListener('popstate',
-  function (event) {
-    if (DEBUG) {
+  function (event)
+  {
+    if (DEBUG)
+    {
       console.log("Popstate");
     }
 
@@ -152,9 +158,11 @@ window.addEventListener('popstate',
       B_TRAVEL.Select(TreeDepth(GLOBAL.CurrentNode))]);
   });
 
-window.onkeyup = function (e) {
+window.onkeyup = function (e)
+{
   var pressed = "";
-  if (e.ctrlKey && e.keyCode === 81) {
+  if (e.ctrlKey && e.keyCode === 81)
+  {
     console.log("Search shortcut");
 
     let myModal = new bootstrap.Modal(document.getElementById('searchModal'), {});
@@ -165,26 +173,32 @@ window.onkeyup = function (e) {
 
 // clicking
 window.addEventListener('click',
-  function (event) {
-    if (DEBUG) {
+  function (event)
+  {
+    if (DEBUG)
+    {
       console.log(`click event '${event}'`);
       console.log(event.composedPath());
     }
 
-    for (var idx = 0; idx < event.composedPath().length; idx++) {
+    for (var idx = 0; idx < event.composedPath().length; idx++)
+    {
 
       let currentClickPathId = event.composedPath()[idx].id;
 
       // data card
-      if (typeof currentClickPathId === 'string' && currentClickPathId.includes("card-number-")) {
+      if (typeof currentClickPathId === 'string' && currentClickPathId.includes("card-number-"))
+      {
         let idNumber = currentClickPathId.slice(12);
 
-        if (DEBUG) {
+        if (DEBUG)
+        {
           console.log(currentClickPathId);
         }
 
         // when clicking on a card
-        if (GLOBAL.DisplayCards[idNumber] !== undefined) {
+        if (GLOBAL.DisplayCards[idNumber] !== undefined)
+        {
           // state
           GLOBAL.CurrentNode = GLOBAL.DisplayCards[idNumber];
           GLOBAL.DisplayCards = GetDisplayNodes(GLOBAL.CurrentNode);
@@ -210,7 +224,8 @@ window.addEventListener('click',
       }
 
       // shuffle current node
-      if (event.composedPath()[idx].id == "shuffle-button") {
+      if (event.composedPath()[idx].id == "shuffle-button")
+      {
         GLOBAL.CurrentNode = RandomElementInArray(G_searchable.GetDataCards(""));
         pushState(GLOBAL.CurrentNode);
         GLOBAL.DisplayCards = GetDisplayNodes(GLOBAL.CurrentNode);
@@ -230,7 +245,8 @@ window.addEventListener('click',
       }
 
       // sort cards
-      if (event.composedPath()[idx].id == "sort-button") {
+      if (event.composedPath()[idx].id == "sort-button")
+      {
         GLOBAL.DisplayCards = SortDisplayList(GLOBAL.DisplayCards);
 
         VIEW.ClearCards();
@@ -247,7 +263,8 @@ window.addEventListener('click',
       }
 
       // swap language shown
-      if (event.composedPath()[idx].id == "swap-button") {
+      if (event.composedPath()[idx].id == "swap-button")
+      {
         // state
         GLOBAL.PrimaryLanguageFirst = GLOBAL.PrimaryLanguageFirst ? false : true;
 
@@ -269,7 +286,8 @@ window.addEventListener('click',
       }
 
       // go to parent
-      if (event.composedPath()[idx].id == "travel-button") {
+      if (event.composedPath()[idx].id == "travel-button")
+      {
         GLOBAL.CurrentNode = GLOBAL.CurrentNode.Parent;
         GLOBAL.DisplayCards = GetDisplayNodes(GLOBAL.CurrentNode);
         pushState(GLOBAL.CurrentNode)
@@ -295,7 +313,8 @@ window.addEventListener('click',
   })
 
 
-function keyboardInput() {
+function keyboardInput()
+{
   let searchString = document.getElementById("SearchBar").value;
   GLOBAL.CurrentNode = ROOT_NODE;
   GLOBAL.DisplayCards = G_searchable.GetDataCards(searchString);
@@ -311,28 +330,33 @@ function keyboardInput() {
 // Animations
 // =============================================================================
 
-function animateShuffle(counter) {
-  frame = () => {
-    // console.log(`Animate shuffle: ${counter}`);
+function animateShuffle(counter)
+{
+  frame = () =>
+  {
+    console.log(`Animate shuffle: ${counter}`);
     counter = Math.abs(counter);
     VIEW.ClearButton(0)
     VIEW.SetButton(0, B_SHUFFLE.Previous());
 
     counter--;
-    if (counter == 0)
+    if (counter <= 0)
       clearInterval(id);
   }
 
   id = setInterval(frame, 50);
 }
 
-function animateButtons() {
-  if (DEBUG) {
+function animateButtons()
+{
+  if (DEBUG)
+  {
     console.log("Animate buttons")
   }
 
   // shuffle button
   let counter = B_SHUFFLE.state + B_SHUFFLE.numberOfStates - 1;
+  count = counter < 1 ? 7 : counter;
   animateShuffle(counter);
 }
 
@@ -341,7 +365,8 @@ function animateButtons() {
 // =============================================================================
 
 // Register service worker to control making site work offline
-if ('serviceWorker' in navigator) {
+if ('serviceWorker' in navigator)
+{
   navigator.serviceWorker
     .register('/languageTree/sw.js')
     .then(() => { console.log('Service Worker Registered'); });
@@ -352,7 +377,8 @@ let deferredPrompt;
 const addBtn = document.getElementById('install-button');
 addBtn.style.display = 'none';
 
-window.addEventListener('beforeinstallprompt', (e) => {
+window.addEventListener('beforeinstallprompt', (e) =>
+{
   // Prevent Chrome 67 and earlier from automatically showing the prompt
   e.preventDefault();
   // Stash the event so it can be triggered later.
@@ -360,16 +386,20 @@ window.addEventListener('beforeinstallprompt', (e) => {
   // Update UI to notify the user they can add to home screen
   addBtn.style.display = 'block';
 
-  addBtn.addEventListener('click', () => {
+  addBtn.addEventListener('click', () =>
+  {
     // hide our user interface that shows our A2HS button
     addBtn.style.display = 'none';
     // Show the prompt
     deferredPrompt.prompt();
     // Wait for the user to respond to the prompt
-    deferredPrompt.userChoice.then((choiceResult) => {
-      if (choiceResult.outcome === 'accepted') {
+    deferredPrompt.userChoice.then((choiceResult) =>
+    {
+      if (choiceResult.outcome === 'accepted')
+      {
         console.log('User accepted the A2HS prompt');
-      } else {
+      } else
+      {
         console.log('User dismissed the A2HS prompt');
       }
       deferredPrompt = null;
