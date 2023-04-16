@@ -16,6 +16,10 @@
     padding: 1.5rem
 }
 
+.copyable:active {
+    color: #ffc107;
+}
+
 @keyframes slide-in {
     from {
         filter: blur(100px);
