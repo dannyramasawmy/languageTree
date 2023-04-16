@@ -18,11 +18,11 @@
 
 @keyframes slide-in {
     from {
-        filter: blur(100px)
+        filter: blur(100px);
     }
 
     to {
-        filter: blur(0px)
+        filter: blur(0px);
     }
 }
 

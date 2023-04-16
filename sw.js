@@ -1,9 +1,10 @@
 //
 // Major version: changes in behavior / new buttons etc
 // Minor version: new/edited words / bug fixes
-const staticCacheName = 'languageTree-v20.2';
+const staticCacheName = 'languageTree-v20.3';
 
-self.addEventListener('install', (e) => {
+self.addEventListener('install', (e) =>
+{
   console.log("Registering sw");
   e.waitUntil(
     caches.open(staticCacheName).then((cache) => cache.addAll([
@@ -35,9 +36,11 @@ self.addEventListener('install', (e) => {
   );
 });
 
-self.addEventListener('activate', (e) => {
+self.addEventListener('activate', (e) =>
+{
   e.waitUntil(
-    caches.keys().then(keys => {
+    caches.keys().then(keys =>
+    {
       return Promise.all(keys
         .filter(key => key !== staticCacheName)
         .map(key => caches.delete(key))
@@ -46,7 +49,8 @@ self.addEventListener('activate', (e) => {
   )
 });
 
-self.addEventListener('fetch', (e) => {
+self.addEventListener('fetch', (e) =>
+{
   console.log(e.request.url);
   e.respondWith(
     caches.match(e.request).then((response) => response || fetch(e.request)),

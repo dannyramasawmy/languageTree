@@ -2,8 +2,10 @@
 //  DISPLAY FUNCTIONS
 // =============================================================================
 
-class View {
-    constructor(mainCardId, dataCardsId, buttonPanelId, isDarkTheme) {
+class View
+{
+    constructor(mainCardId, dataCardsId, buttonPanelId, isDarkTheme)
+    {
         // TODO: add error checks
 
         this.mainCardId = mainCardId;
@@ -19,26 +21,35 @@ class View {
     SetLightTheme() { document.getElementById("html").setAttribute("data-bs-theme", "light") }
     SetDarkTheme() { document.getElementById("html").setAttribute("data-bs-theme", "dark") }
 
-    ClearCards() {
+    ClearCards()
+    {
         View.ClearComponents(this.mainCardId);
         View.ClearComponents(this.dataCardsId);
+        return this;
     }
 
-    ClearButton(index) {
+    ClearButton(index)
+    {
         var displayDiv = document.getElementById(this.buttonPanelId);
         displayDiv.removeChild(displayDiv.children[index]);
+        return this;
     }
 
-    SetButton(index, button) {
+    SetButton(index, button)
+    {
         var displayDiv = document.getElementById(this.buttonPanelId);
         displayDiv.insertBefore(button, displayDiv.children[index]);
+        return this;
     }
 
-    ClearButtons() {
+    ClearButtons()
+    {
         View.ClearComponents(this.buttonPanelId);
+        return this;
     }
 
-    UpdateCards(currentNode, displayList, yScrollHeight) {
+    UpdateCards(currentNode, displayList, yScrollHeight)
+    {
 
         // main card
         document.getElementById(this.mainCardId).appendChild(
@@ -51,7 +62,8 @@ class View {
         let colorWheel = new RainbowColorWheel();
 
         // child cards
-        for (var idx = 0; idx < displayList.length; idx++) {
+        for (var idx = 0; idx < displayList.length; idx++)
+        {
             let cardId = `card-number-${idx}`;
 
             if (SETTINGS.HasRainbowHover)
@@ -72,21 +84,27 @@ class View {
         }
 
         window.scrollTo(0, yScrollHeight);
+        return this;
     }
 
-    UpdateButtons(buttons) {
-        if (!Array.isArray(buttons)) {
+    UpdateButtons(buttons)
+    {
+        if (!Array.isArray(buttons))
+        {
             console.error("Buttons to show are invalid");
-            return;
+            return this;
         }
 
         let buttonPanel = document.getElementById(this.buttonPanelId);
-        for (var idx = 0; idx < buttons.length; idx++) {
+        for (var idx = 0; idx < buttons.length; idx++)
+        {
             buttonPanel.appendChild(buttons[idx]);
         }
+        return this;
     }
 
-    static ClearComponents(elementId) {
+    static ClearComponents(elementId)
+    {
         var displayDiv = document.getElementById(elementId);
         for (var idx = displayDiv.children.length; idx > 0; idx--)
             displayDiv.removeChild(displayDiv.children[idx - 1]);
@@ -97,17 +115,21 @@ class View {
 //  COMPONENT CREATION
 // =============================================================================
 
-class Components {
-    static CreateButton(buttonId, buttonName, iconPath, description, isSearch) {
+class Components
+{
+    static CreateButton(buttonId, buttonName, iconPath, description, isSearch)
+    {
         let button = document.createElement("li");
 
         let buttonLink = document.createElement("a");
         buttonLink.className = "nav-link text-secondary px-2";
         buttonLink.id = buttonId;
-        if (isSearch) {
+        if (isSearch)
+        {
             buttonLink.setAttribute("data-bs-toggle", "modal");
             buttonLink.setAttribute("data-bs-target", "#searchModal");
-            button.addEventListener("click", () => {
+            button.addEventListener("click", () =>
+            {
                 document.getElementById("SearchBar").focus();
                 // document.getElementById("SearchBar");
                 // console.log("Set focus")
@@ -125,7 +147,8 @@ class Components {
         button.appendChild(buttonLink);
         buttonLink.appendChild(buttonIcon);
 
-        if (SETTINGS.ShowButtonLabels) {
+        if (SETTINGS.ShowButtonLabels)
+        {
             let buttonLabel = document.createElement("h6")
             buttonLabel.className = "subtle";
             buttonLabel.innerHTML = buttonName;
@@ -135,7 +158,8 @@ class Components {
         return button;
     }
 
-    static CreateParentCard(title, subtitle, data) {
+    static CreateParentCard(title, subtitle, data)
+    {
         let card = document.createElement("div");
         card.className = "col-12 gap-2";
 
@@ -166,7 +190,8 @@ class Components {
         return card;
     }
 
-    static CreateChildCard(title, subtitle, id, colorIndex) {
+    static CreateChildCard(title, subtitle, id, colorIndex)
+    {
         let card = document.createElement("div");
         card.className = "col-12 col-lg-3 col-md-4 gap-2";
         card.id = id;
@@ -181,7 +206,8 @@ class Components {
         card.appendChild(innerCard);
         innerCard.appendChild(cardTitle);
 
-        if (!SETTINGS.IsCompactView) {
+        if (!SETTINGS.IsCompactView)
+        {
             let cardSubtitle = document.createElement("h5");
             cardSubtitle.className = "card-subtitle subtle";
             cardSubtitle.innerHTML = subtitle;
@@ -191,18 +217,21 @@ class Components {
         return card;
     }
 
-    static HorizontalRule() {
+    static HorizontalRule()
+    {
         return document.createElement("hr");
     }
 
-    static CreateSettingsSubtitle(title) {
+    static CreateSettingsSubtitle(title)
+    {
         let settingsTitle = document.createElement("h4");
         settingsTitle.className = "modal-subtitle";
         settingsTitle.innerHTML = title;
         return settingsTitle;
     }
 
-    static CreateBooleanSetting(switchId, description, isChecked) {
+    static CreateBooleanSetting(switchId, description, isChecked)
+    {
         let booleanSwitch = document.createElement("div");
         booleanSwitch.className = "form-check";
 
@@ -225,8 +254,10 @@ class Components {
     }
 }
 
-class Button {
-    constructor(buttonId, buttonName, iconStates, description, isSearch) {
+class Button
+{
+    constructor(buttonId, buttonName, iconStates, description, isSearch)
+    {
         this.buttonId = buttonId;
         this.buttonName = buttonName;
         this.description = description;
@@ -237,16 +268,19 @@ class Button {
         this.numberOfStates = iconStates.length;
     }
 
-    Current() {
+    Current()
+    {
         return Components.CreateButton(this.buttonId, this.buttonName, this.iconStates[this.state], this.description, this.isSearch);
     }
 
-    Next() {
+    Next()
+    {
         this.state = (this.state + 1) % this.numberOfStates;
         return this.Current();
     }
 
-    Previous() {
+    Previous()
+    {
         this.state = this.state == 0
             ? this.numberOfStates - 1
             : (this.state - 1) % this.numberOfStates;
@@ -254,7 +288,8 @@ class Button {
         return this.Current();
     }
 
-    Select(value) {
+    Select(value)
+    {
         if (value >= 0 && value < this.numberOfStates)
             this.state = value;
 
