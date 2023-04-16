@@ -2,7 +2,8 @@
 // Containers
 // =============================================================================
 
-function DataCard(english, romanian, data, isRoot = false) {
+function DataCard(english, romanian, data, isRoot = false)
+{
     this.English = english;
     this.Romanian = romanian;
     this.Data = data;
@@ -11,22 +12,26 @@ function DataCard(english, romanian, data, isRoot = false) {
     this.Child = [];
 
     this.IsRoot = isRoot;
-
-    this.AddChild = function (dataCard) {
-        this.Child.push(dataCard);
-        this.Child.sort(SortEnglish);
-    }
-
-    this.SetParent = function (dataCard) {
-        this.Parent = dataCard;
-    }
 }
 
-function SearchableDictionary() {
+DataCard.prototype.AddChild = function (dataCard)
+{
+    this.Child.push(dataCard);
+    this.Child.sort(SortEnglish);
+}
+
+DataCard.prototype.SetParent = function (dataCard)
+{
+    this.Parent = dataCard;
+}
+
+function SearchableDictionary()
+{
     this.Romanian = {};
     this.English = {};
 
-    this.GetDataCards = function (searchString) {
+    this.GetDataCards = function (searchString)
+    {
         // special search prefix
         let hasSearchPrefix = (searchString.length > 0 && searchString[0] === '!');
         let searchPrimary = GLOBAL.PrimaryLanguageFirst ^ hasSearchPrefix;
@@ -49,12 +54,14 @@ function SearchableDictionary() {
         return filteredDataCards
     }
 
-    this.GetDataCardFromState = function (state) {
+    this.GetDataCardFromState = function (state)
+    {
         return this.English[state];
     };
 }
 
-function CopyText(text) {
+function CopyText(text)
+{
     navigator.clipboard.writeText(text);
     console.log(text + " copied!");
 }
@@ -68,7 +75,8 @@ function VerbTemplate(
     presentWe,
     presentYouPlural,
     presentThey,
-    past, infinitive, relfexivePast = "", reflexiveFuture = "") {
+    past, infinitive, relfexivePast = "", reflexiveFuture = "")
+{
     return (`
         <h2>Present</h2>
         ${MakeCopyable(`Eu ${presentI}`)}
@@ -102,7 +110,8 @@ function VerbTemplate(
 }
 
 function ReflexiveVerbTemplateSe(presentI, presentYou, presentHeShe, presentWe,
-    presentYouPlural, presentThey, past, infinitive) {
+    presentYouPlural, presentThey, past, infinitive)
+{
     return VerbTemplate(
         "mă " + presentI,
         "te " + presentYou,
@@ -114,7 +123,8 @@ function ReflexiveVerbTemplateSe(presentI, presentYou, presentHeShe, presentWe,
 }
 
 function ReflexiveVerbTemplateSi(presentI, presentYou, presentHeShe, presentWe,
-    presentYouPlural, presentThey, past, infinitive) {
+    presentYouPlural, presentThey, past, infinitive)
+{
     return VerbTemplate(
         "îmi " + presentI,
         "îți " + presentYou,
@@ -125,7 +135,8 @@ function ReflexiveVerbTemplateSi(presentI, presentYou, presentHeShe, presentWe,
         past, infinitive, "(-) ", "(-) ");
 }
 
-function NounTemplateFemale(singluar, plural, definiteArticle, definitePlural) {
+function NounTemplateFemale(singluar, plural, definiteArticle, definitePlural)
+{
     return (`
         o ${singluar} <br>
         două ${plural} <br>
@@ -134,7 +145,8 @@ function NounTemplateFemale(singluar, plural, definiteArticle, definitePlural) {
     `)
 };
 
-function NounTemplateMale(singluar, plural, definiteArticle, definitePlural) {
+function NounTemplateMale(singluar, plural, definiteArticle, definitePlural)
+{
     return (`
         Un ${singluar} <br>
         doi ${plural} <br>
@@ -143,7 +155,8 @@ function NounTemplateMale(singluar, plural, definiteArticle, definitePlural) {
     `)
 };
 
-function NounTemplateNeuter(singluar, plural, definiteArticle, definitePlural) {
+function NounTemplateNeuter(singluar, plural, definiteArticle, definitePlural)
+{
     return (`
         un ${singluar} <br>
         două ${plural} <br>
@@ -156,12 +169,14 @@ function NounTemplateNeuter(singluar, plural, definiteArticle, definitePlural) {
 // Data Functions
 // =============================================================================
 
-function SetParentAndChild(parentDataCard, childDataCard) {
+function SetParentAndChild(parentDataCard, childDataCard)
+{
     parentDataCard.AddChild(childDataCard);
     childDataCard.SetParent(parentDataCard);
 }
 
-function GetSearchableWords(rootDataCard, searchableDictionary) {
+function GetSearchableWords(rootDataCard, searchableDictionary)
+{
     searchableDictionary.English[PrepareEnglishString(rootDataCard.English)] = rootDataCard;
     searchableDictionary.Romanian[PrepareRomanianString(rootDataCard.Romanian)] = rootDataCard;
 
@@ -177,7 +192,8 @@ PrepareEnglishString = (inputString) => inputString.toLowerCase().trim();
 PrepareRomanianString = (inputString) => inputString.toLowerCase().trim()
     .replace(/[ăâ]/g, "a").replace(/î/g, "i").replace(/ș/g, "s").replace(/ț/g, "t");
 
-function SortDisplayList(displayList) {
+function SortDisplayList(displayList)
+{
     if (GLOBAL.PrimaryLanguageFirst)
         displayList.sort(SortEnglish);
     else
@@ -185,19 +201,22 @@ function SortDisplayList(displayList) {
     return displayList;
 }
 
-function SortRomanian(x, y) {
+function SortRomanian(x, y)
+{
     if (PrepareRomanianString(x.Romanian) < PrepareRomanianString(y.Romanian)) return -1;
     if (PrepareRomanianString(x.Romanian) > PrepareRomanianString(y.Romanian)) return 1;
     return 0;
 }
 
-function SortEnglish(x, y) {
+function SortEnglish(x, y)
+{
     if (PrepareEnglishString(x.English) < PrepareEnglishString(y.English)) return -1;
     if (PrepareEnglishString(x.English) > PrepareEnglishString(y.English)) return 1;
     return 0;
 }
 
-function ResetSearch() {
+function ResetSearch()
+{
     searchStringStack = [];
 
     let searchBar = document.getElementById("SearchBar")
@@ -213,7 +232,8 @@ RandomElementInArray = (arr) => arr[RandomIntRange(0, arr.length - 1)];
 // Display Functions
 // =============================================================================
 
-function GetDisplayNodes(node) {
+function GetDisplayNodes(node)
+{
     var displayList = [];
     for (var idx = 0; idx < node.Child.length; idx++)
         displayList.push(node.Child[idx])
@@ -221,28 +241,33 @@ function GetDisplayNodes(node) {
     return displayList;
 }
 
-function TreeDepth(currentNode) {
+function TreeDepth(currentNode)
+{
     if (currentNode.IsRoot) return 0;
     if (currentNode.Child.length == 0) return 2;
     return 1;
 }
 
-function ScrollHandler() {
+function ScrollHandler()
+{
     // https://javascript.info/size-and-scroll-window
     this.ScrollHistory = [];
 
     this.GetCurrentHeight = () => window.pageYOffset;
 
-    this.AddHistory = () => {
+    this.AddHistory = () =>
+    {
         this.ScrollHistory.push(window.pageYOffset);
     }
 
-    this.GetPreviousHeight = () => {
+    this.GetPreviousHeight = () =>
+    {
         if (this.ScrollHistory.length > 0) return this.ScrollHistory.pop();
         return 0;
     }
 
-    this.MaxScrollHeight = () => {
+    this.MaxScrollHeight = () =>
+    {
         let scrollHeight = Math.max(
             document.body.scrollHeight, document.documentElement.scrollHeight,
             document.body.offsetHeight, document.documentElement.offsetHeight,
@@ -258,7 +283,8 @@ function ScrollHandler() {
 // COLORS
 // =============================================================================
 
-function RainbowColorWheel() {
+function RainbowColorWheel()
+{
     // https://htmlcolorcodes.com/
     // red -> purple -> blue -> green -> yellow -> orange
     this.Index = 0;
@@ -282,12 +308,14 @@ function RainbowColorWheel() {
 
     this.ResetIndex = () => this.Index = 5;
 
-    this.GetNextColorIndex = () => {
+    this.GetNextColorIndex = () =>
+    {
         this.Index = (this.Index + 1) % this.Colors.length;
         return this.Index;
     }
 
-    this.GetNextColor = () => {
+    this.GetNextColor = () =>
+    {
         this.GetNextColorIndex();
         return this.Colors[this.Index];
     }
