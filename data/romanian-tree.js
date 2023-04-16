@@ -14,8 +14,6 @@ var  = new DataCard(
         "", "",
         "")
 SetParentAndChild(verbs, );
-
-
 */
 
 const searchPlaceholder = new DataCard("Search", "Căuta", "");
