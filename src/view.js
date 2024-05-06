@@ -1,4 +1,4 @@
-import { RainbowColorWheel } from "./languageTree.js"
+import { RainbowColorWheel } from "./color.js";
 // =============================================================================
 //  DISPLAY FUNCTIONS
 // =============================================================================

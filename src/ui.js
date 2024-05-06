@@ -2,12 +2,12 @@ import { View, Components, Button } from "./view.js";
 import { BuildLanguageTree, searchPlaceholder } from "../data/romanian-tree.js";
 import { 
   GetDisplayNodes, 
-  ScrollHandler, 
   SortDisplayList,
   SearchableDictionary,
   GetSearchableWords,
   ResetSearch,
   TreeDepth} from "./languageTree.js";
+import { ScrollHandler } from "./scroll.js";
 import { RandomElementInArray } from "./random.js";
 
 // =============================================================================
