@@ -1,3 +1,16 @@
+import { View, Components, Button } from "./view.js";
+import { BuildLanguageTree } from "../data/romanian-tree.js";
+import { 
+  GetDisplayNodes, 
+  ScrollHandler, 
+  SortDisplayList,
+  SearchableDictionary,
+  GetSearchableWords,
+  ResetSearch,
+  TreeDepth,
+  RandomElementInArray
+} from "./languageTree.js";
+
 // =============================================================================
 // Global variables
 // =============================================================================
@@ -42,39 +55,40 @@ const VIEW = new View(MAIN_CARD_ID, DATA_CARDS_ID, BUTTON_PANEL_ID, SETTINGS.IsD
 const SCROLL = new ScrollHandler();
 
 // define buttons
-const B_SHUFFLE = new Button(
+const B_SHUFFLE = new Button(SETTINGS,
   "shuffle-button",
   "Shuffle",
   ["img/shuffle-icon-1.svg", "img/shuffle-icon-2.svg", "img/shuffle-icon-3.svg", "img/shuffle-icon-4.svg",
     "img/shuffle-icon-5.svg", "img/shuffle-icon-6.svg", "img/shuffle-icon-7.svg", "img/shuffle-icon-8.svg"],
   "shuffle-button",
   false);
-const B_SORT = new Button("sort-button", "Sort", ["img/sort-icon.svg"], "sort-button", false);
-const B_SEARCH = new Button("search-button", "Search", ["img/search-icon.svg"], "search-button", true);
-const B_SWAP = new Button("swap-button", "Swap", ["img/swap-language-icon-1.svg", "img/swap-language-icon-2.svg"], "swap-button", false);
-const B_TRAVEL = new Button("travel-button", "Travel", ["img/root-icon.svg", "img/parent-icon.svg", "img/leaf-icon.svg"], "travel-button", false);
+const B_SORT = new Button(SETTINGS, "sort-button", "Sort", ["../img/sort-icon.svg"], "sort-button", false);
+const B_SEARCH = new Button(SETTINGS, "search-button", "Search", ["img/search-icon.svg"], "search-button", true);
+const B_SWAP = new Button(SETTINGS, "swap-button", "Swap", ["img/swap-language-icon-1.svg", "img/swap-language-icon-2.svg"], "swap-button", false);
+const B_TRAVEL = new Button(SETTINGS, "travel-button", "Travel", ["img/root-icon.svg", "img/parent-icon.svg", "img/leaf-icon.svg"], "travel-button", false);
 
 VIEW
   .ClearCards()
-  .UpdateCards(GLOBAL.CurrentNode, GLOBAL.DisplayCards, 0)
+  .UpdateCards(GLOBAL, SETTINGS, GLOBAL.CurrentNode, GLOBAL.DisplayCards, 0)
   .ClearButtons()
   .UpdateButtons([
     B_SHUFFLE.Current(),
     B_SORT.Current(),
     B_SEARCH.Current(),
     B_SWAP.Current(),
-    B_TRAVEL.Select(TreeDepth(GLOBAL.CurrentNode))]);
+    B_TRAVEL.Select(TreeDepth(GLOBAL.CurrentNode))
+  ]);
 
 var G_searchable = new SearchableDictionary();
 GetSearchableWords(ROOT_NODE, G_searchable);
-ResetSearch();
+ResetSearch(GLOBAL, G_searchable);
 
 
 // =============================================================================
 // SETTINGS
 // =============================================================================
 
-settingsPanel = document.getElementById(SETTINGS_PANEL_ID);
+var settingsPanel = document.getElementById(SETTINGS_PANEL_ID);
 settingsPanel.appendChild(Components.CreateSettingsSubtitle("Theme"));
 settingsPanel.appendChild(Components.CreateBooleanSetting(SETTINGS_COLOR_THEME, "Enable dark mode", SETTINGS.IsDarkTheme));
 settingsPanel.appendChild(Components.CreateBooleanSetting(SETTINGS_HOVER_COLOR, "Use rainbow hover colours", SETTINGS.HasRainbowHover));
@@ -103,7 +117,7 @@ function getBooleanSetting(key, defaultValue)
     : window.localStorage.getItem(key) == "true";
 }
 
-function updateSettings()
+export function updateSettings()
 {
   SETTINGS.IsDarkTheme = saveBooleanSetting(SETTINGS_COLOR_THEME);
   SETTINGS.HasRainbowHover = saveBooleanSetting(SETTINGS_HOVER_COLOR);
@@ -114,7 +128,7 @@ function updateSettings()
   _ = SETTINGS.IsDarkTheme ? VIEW.SetDarkTheme() : VIEW.SetLightTheme();
   VIEW
     .ClearCards()
-    .UpdateCards(GLOBAL.CurrentNode, GLOBAL.DisplayCards, SCROLL.GetCurrentHeight())
+    .UpdateCards(GLOBAL, SETTINGS, GLOBAL.CurrentNode, GLOBAL.DisplayCards, SCROLL.GetCurrentHeight())
     .ClearButtons()
     .UpdateButtons([
       B_SHUFFLE.Current(),
@@ -150,7 +164,7 @@ window.addEventListener('popstate',
     GLOBAL.DisplayCards = GetDisplayNodes(GLOBAL.CurrentNode);
     VIEW
       .ClearCards()
-      .UpdateCards(GLOBAL.CurrentNode, GLOBAL.DisplayCards, 0)
+      .UpdateCards(GLOBAL, SETTINGS, GLOBAL.CurrentNode, GLOBAL.DisplayCards, 0)
       .ClearButtons()
       .UpdateButtons([
         B_SHUFFLE.Previous(),
@@ -207,12 +221,12 @@ window.addEventListener('click',
           SCROLL.AddHistory();
 
           // display
-          ResetSearch();
-          GLOBAL.DisplayCards = SortDisplayList(GLOBAL.DisplayCards);
+          ResetSearch(GLOBAL, G_searchable);
+          GLOBAL.DisplayCards = SortDisplayList(GLOBAL, GLOBAL.DisplayCards);
 
           VIEW
             .ClearCards()
-            .UpdateCards(GLOBAL.CurrentNode, GLOBAL.DisplayCards, 0)
+            .UpdateCards(GLOBAL, SETTINGS, GLOBAL.CurrentNode, GLOBAL.DisplayCards, 0)
             .ClearButtons()
             .UpdateButtons([
               B_SHUFFLE.Current(),
@@ -228,14 +242,16 @@ window.addEventListener('click',
       // shuffle current node
       if (event.composedPath()[idx].id == "shuffle-button")
       {
-        GLOBAL.CurrentNode = RandomElementInArray(G_searchable.GetDataCards(""));
+        let tmp = G_searchable.GetDataCards(GLOBAL, "")
+        GLOBAL.CurrentNode = RandomElementInArray(G_searchable.GetDataCards(GLOBAL, ""));
+      
         pushState(GLOBAL.CurrentNode);
         GLOBAL.DisplayCards = GetDisplayNodes(GLOBAL.CurrentNode);
 
-        ResetSearch();
+        ResetSearch(GLOBAL, G_searchable);
         VIEW
           .ClearCards()
-          .UpdateCards(GLOBAL.CurrentNode, GLOBAL.DisplayCards, 0)
+          .UpdateCards(GLOBAL, SETTINGS, GLOBAL.CurrentNode, GLOBAL.DisplayCards, 0)
           .ClearButtons()
           .UpdateButtons([
             B_SHUFFLE.Next(),
@@ -250,11 +266,11 @@ window.addEventListener('click',
       // sort cards
       if (event.composedPath()[idx].id == "sort-button")
       {
-        GLOBAL.DisplayCards = SortDisplayList(GLOBAL.DisplayCards);
+        GLOBAL.DisplayCards = SortDisplayList(GLOBAL, GLOBAL.DisplayCards);
 
         VIEW
           .ClearCards()
-          .UpdateCards(GLOBAL.CurrentNode, GLOBAL.DisplayCards, 0)
+          .UpdateCards(GLOBAL, SETTINGS, GLOBAL.CurrentNode, GLOBAL.DisplayCards, 0)
           .ClearButtons()
           .UpdateButtons([
             B_SHUFFLE.Current(),
@@ -275,7 +291,7 @@ window.addEventListener('click',
         let currentHeight = SCROLL.GetCurrentHeight();
         VIEW
           .ClearCards()
-          .UpdateCards(
+          .UpdateCards(GLOBAL, SETTINGS, 
             GLOBAL.CurrentNode,
             GLOBAL.DisplayCards,
             currentHeight)
@@ -299,12 +315,12 @@ window.addEventListener('click',
 
         // display
         var heightToSet = SCROLL.GetPreviousHeight();
-        ResetSearch();
-        GLOBAL.DisplayCards = SortDisplayList(GLOBAL.DisplayCards);
+        ResetSearch(GLOBAL, G_searchable);
+        GLOBAL.DisplayCards = SortDisplayList(GLOBAL, GLOBAL.DisplayCards);
 
         VIEW
           .ClearCards()
-          .UpdateCards(GLOBAL.CurrentNode, GLOBAL.DisplayCards, heightToSet)
+          .UpdateCards(GLOBAL, SETTINGS, GLOBAL.CurrentNode, GLOBAL.DisplayCards, heightToSet)
           .ClearButtons()
           .UpdateButtons([
             B_SHUFFLE.Current(),
@@ -319,18 +335,18 @@ window.addEventListener('click',
   })
 
 
-function keyboardInput()
+export function keyboardInput()
 {
   let searchString = document.getElementById("SearchBar").value;
   GLOBAL.CurrentNode = ROOT_NODE;
-  GLOBAL.DisplayCards = G_searchable.GetDataCards(searchString);
+  GLOBAL.DisplayCards = G_searchable.GetDataCards(GLOBAL, searchString);
 
   console.log("Searching keyboard input");
   console.log(searchString);
 
   VIEW
     .ClearCards()
-    .UpdateCards(searchPlaceholder, GLOBAL.DisplayCards, 0);
+    .UpdateCards(GLOBAL, SETTINGS, searchPlaceholder, GLOBAL.DisplayCards, 0);
 };
 
 // =============================================================================
@@ -353,7 +369,7 @@ function animateShuffle(counter)
   id = setInterval(frame, 50);
 }
 
-function animateButtons()
+export function animateButtons()
 {
   if (DEBUG)
   {

@@ -1,8 +1,9 @@
+import { RainbowColorWheel } from "./languageTree.js"
 // =============================================================================
 //  DISPLAY FUNCTIONS
 // =============================================================================
 
-class View
+export class View
 {
     constructor(mainCardId, dataCardsId, buttonPanelId, isDarkTheme)
     {
@@ -48,7 +49,7 @@ class View
         return this;
     }
 
-    UpdateCards(currentNode, displayList, yScrollHeight)
+    UpdateCards(GLOBAL, SETTINGS, currentNode, displayList, yScrollHeight)
     {
 
         // main card
@@ -70,8 +71,8 @@ class View
                 colorIndex = colorWheel.GetNextColorIndex();
 
             let dataCard = GLOBAL.PrimaryLanguageFirst
-                ? Components.CreateChildCard(displayList[idx].Primary, displayList[idx].Secondary, cardId, colorIndex)
-                : Components.CreateChildCard(displayList[idx].Secondary, displayList[idx].Primary, cardId, colorIndex);
+                ? Components.CreateChildCard(SETTINGS, displayList[idx].Primary, displayList[idx].Secondary, cardId, colorIndex)
+                : Components.CreateChildCard(SETTINGS, displayList[idx].Secondary, displayList[idx].Primary, cardId, colorIndex);
 
             dataCard.style.visibility = "hidden";
             document.getElementById(this.dataCardsId).appendChild(dataCard);
@@ -115,9 +116,9 @@ class View
 //  COMPONENT CREATION
 // =============================================================================
 
-class Components
+export class Components
 {
-    static CreateButton(buttonId, buttonName, iconPath, description, isSearch)
+    static CreateButton(SETTINGS, buttonId, buttonName, iconPath, description, isSearch)
     {
         let button = document.createElement("li");
 
@@ -190,7 +191,7 @@ class Components
         return card;
     }
 
-    static CreateChildCard(title, subtitle, id, colorIndex)
+    static CreateChildCard(SETTINGS, title, subtitle, id, colorIndex)
     {
         let card = document.createElement("div");
         card.className = "col-12 col-lg-3 col-md-4 gap-2";
@@ -254,10 +255,11 @@ class Components
     }
 }
 
-class Button
+export class Button
 {
-    constructor(buttonId, buttonName, iconStates, description, isSearch)
+    constructor(SETTINGS, buttonId, buttonName, iconStates, description, isSearch)
     {
+        this.SETTINGS = SETTINGS
         this.buttonId = buttonId;
         this.buttonName = buttonName;
         this.description = description;
@@ -270,7 +272,13 @@ class Button
 
     Current()
     {
-        return Components.CreateButton(this.buttonId, this.buttonName, this.iconStates[this.state], this.description, this.isSearch);
+        return Components.CreateButton(
+            this.SETTINGS,
+            this.buttonId, 
+            this.buttonName, 
+            this.iconStates[this.state], 
+            this.description, 
+            this.isSearch);
     }
 
     Next()

@@ -2,7 +2,7 @@
 // Containers
 // =============================================================================
 
-function DataCard(primary, secondary, data, isRoot = false)
+export function DataCard(primary, secondary, data, isRoot = false)
 {
     this.Primary = primary;
     this.Secondary = secondary;
@@ -12,25 +12,36 @@ function DataCard(primary, secondary, data, isRoot = false)
     this.Child = [];
 
     this.IsRoot = isRoot;
+
+    this.AddChild = (dataCard) =>
+    {
+        this.Child.push(dataCard);
+        this.Child.sort(SortEnglish);
+    }
+
+    this.SetParent = (dataCard) =>
+    {
+        this.Parent = dataCard;
+    }
 }
 
-DataCard.prototype.AddChild = function (dataCard)
-{
-    this.Child.push(dataCard);
-    this.Child.sort(SortEnglish);
-}
+// DataCard.prototype.AddChild = function (dataCard)
+// {
+//     this.Child.push(dataCard);
+//     this.Child.sort(SortEnglish);
+// }
 
 DataCard.prototype.SetParent = function (dataCard)
 {
     this.Parent = dataCard;
 }
 
-function SearchableDictionary()
+export function SearchableDictionary()
 {
     this.Secondary = {};
     this.Primary = {};
 
-    this.GetDataCards = function (searchString)
+    this.GetDataCards = (GLOBAL, searchString) =>
     {
         // special search prefix
         let hasSearchPrefix = (searchString.length > 0 && searchString[0] === '!');
@@ -42,6 +53,8 @@ function SearchableDictionary()
         var words = searchPrimary
             ? Object.getOwnPropertyNames(this.Primary)
             : Object.getOwnPropertyNames(this.Secondary);
+
+        console.log(words)
 
         var wordMask = words.map((x) => x.includes(searchString.toLowerCase()));
         var filteredWords = words.filter((x, i) => wordMask[i]);
@@ -60,18 +73,13 @@ function SearchableDictionary()
     };
 }
 
-function CopyText(text)
-{
-    navigator.clipboard.writeText(text);
-    console.log(text + " copied!");
-}
-
-MakeCopyable = (text) => `
+export function MakeCopyable(text)
+    { `
     <copy class="copyable" onclick="CopyText('${text}')">
         ○ ${text} <br>
-    </copy>`
+    </copy>`}
 
-function VerbTemplate(
+export function VerbTemplate(
     presentI,
     presentYou,
     presentHeShe,
@@ -128,7 +136,7 @@ function VerbTemplate(
         <br> <br>`);
 }
 
-function ReflexiveVerbTemplateSe(presentI, presentYou, presentHeShe, presentWe,
+export function ReflexiveVerbTemplateSe(presentI, presentYou, presentHeShe, presentWe,
     presentYouPlural, presentThey, past, infinitive)
 {
     return VerbTemplate(
@@ -141,7 +149,7 @@ function ReflexiveVerbTemplateSe(presentI, presentYou, presentHeShe, presentWe,
         past, infinitive, "(-) ", "(-) ");
 }
 
-function ReflexiveVerbTemplateSi(presentI, presentYou, presentHeShe, presentWe,
+export function ReflexiveVerbTemplateSi(presentI, presentYou, presentHeShe, presentWe,
     presentYouPlural, presentThey, past, infinitive)
 {
     return VerbTemplate(
@@ -154,7 +162,7 @@ function ReflexiveVerbTemplateSi(presentI, presentYou, presentHeShe, presentWe,
         past, infinitive, "(-) ", "(-) ");
 }
 
-function NounTemplateFemale(singluar, plural, definiteArticle, definitePlural)
+export function NounTemplateFemale(singluar, plural, definiteArticle, definitePlural)
 {
     return (`
         o ${singluar} <br>
@@ -164,7 +172,7 @@ function NounTemplateFemale(singluar, plural, definiteArticle, definitePlural)
     `)
 };
 
-function NounTemplateMale(singluar, plural, definiteArticle, definitePlural)
+export function NounTemplateMale(singluar, plural, definiteArticle, definitePlural)
 {
     return (`
         Un ${singluar} <br>
@@ -174,7 +182,7 @@ function NounTemplateMale(singluar, plural, definiteArticle, definitePlural)
     `)
 };
 
-function NounTemplateNeuter(singluar, plural, definiteArticle, definitePlural)
+export function NounTemplateNeuter(singluar, plural, definiteArticle, definitePlural)
 {
     return (`
         un ${singluar} <br>
@@ -188,14 +196,18 @@ function NounTemplateNeuter(singluar, plural, definiteArticle, definitePlural)
 // Data Functions
 // =============================================================================
 
-function SetParentAndChild(parentDataCard, childDataCard)
+export function SetParentAndChild(parentDataCard, childDataCard)
 {
     parentDataCard.AddChild(childDataCard);
     childDataCard.SetParent(parentDataCard);
 }
 
-function GetSearchableWords(rootDataCard, searchableDictionary)
+export function GetSearchableWords(rootDataCard, searchableDictionary)
 {
+    // console.log("in searchable")
+    // console.log(rootDataCard.Primary)
+    // console.log(rootDataCard.Primary.toLowerCase())
+    // var searchableDictionary = new SearchableDictionary();
     searchableDictionary.Primary[PrepareEnglishString(rootDataCard.Primary)] = rootDataCard;
     searchableDictionary.Secondary[PrepareRomanianString(rootDataCard.Secondary)] = rootDataCard;
 
@@ -204,14 +216,14 @@ function GetSearchableWords(rootDataCard, searchableDictionary)
     for (let i = 0; i < rootDataCard.Child.length; i++)
         GetSearchableWords(rootDataCard.Child[i], searchableDictionary);
 
-    return;
+    return searchableDictionary;
 }
 
-PrepareEnglishString = (inputString) => inputString.toLowerCase().trim();
-PrepareRomanianString = (inputString) => inputString.toLowerCase().trim()
-    .replace(/[ăâ]/g, "a").replace(/î/g, "i").replace(/ș/g, "s").replace(/ț/g, "t");
+export function PrepareEnglishString(inputString) { return inputString.toLowerCase().trim(); }
+export function PrepareRomanianString(inputString) { return inputString.toLowerCase().trim()
+    .replace(/[ăâ]/g, "a").replace(/î/g, "i").replace(/ș/g, "s").replace(/ț/g, "t"); }
 
-function SortDisplayList(displayList)
+export function SortDisplayList(GLOBAL, displayList)
 {
     if (GLOBAL.PrimaryLanguageFirst)
         displayList.sort(SortEnglish);
@@ -220,38 +232,38 @@ function SortDisplayList(displayList)
     return displayList;
 }
 
-function SortRomanian(x, y)
+export function SortRomanian(x, y)
 {
     if (PrepareRomanianString(x.Secondary) < PrepareRomanianString(y.Secondary)) return -1;
     if (PrepareRomanianString(x.Secondary) > PrepareRomanianString(y.Secondary)) return 1;
     return 0;
 }
 
-function SortEnglish(x, y)
+export function SortEnglish(x, y)
 {
     if (PrepareEnglishString(x.Primary) < PrepareEnglishString(y.Primary)) return -1;
     if (PrepareEnglishString(x.Primary) > PrepareEnglishString(y.Primary)) return 1;
     return 0;
 }
 
-function ResetSearch()
+export function ResetSearch(GLOBAL, G_searchable)
 {
-    searchStringStack = [];
+    // searchStringStack = [];
 
     let searchBar = document.getElementById("SearchBar")
     searchBar.value = "";
-    searchBar.placeholder = `Search (${G_searchable.GetDataCards("").length})`;
+    searchBar.placeholder = `Search (${G_searchable.GetDataCards(GLOBAL, "").length})`;
 }
 
-RandomRange = (start, end) => (Math.random() * (end - start)) + start;
-RandomIntRange = (start, end) => Math.floor(RandomRange(start, end + 1));
-RandomElementInArray = (arr) => arr[RandomIntRange(0, arr.length - 1)];
+export function RandomRange(start, end) { return (Math.random() * (end - start)) + start }
+export function RandomIntRange(start, end) { return Math.floor(RandomRange(start, end + 1)) }
+export function RandomElementInArray(arr) { return arr[RandomIntRange(0, arr.length - 1)] }
 
 // =============================================================================
 // Display Functions
 // =============================================================================
 
-function GetDisplayNodes(node)
+export function GetDisplayNodes(node)
 {
     var displayList = [];
     for (var idx = 0; idx < node.Child.length; idx++)
@@ -260,14 +272,14 @@ function GetDisplayNodes(node)
     return displayList;
 }
 
-function TreeDepth(currentNode)
+export function TreeDepth(currentNode)
 {
     if (currentNode.IsRoot) return 0;
     if (currentNode.Child.length == 0) return 2;
     return 1;
 }
 
-function ScrollHandler()
+export function ScrollHandler()
 {
     // https://javascript.info/size-and-scroll-window
     this.ScrollHistory = [];
@@ -302,7 +314,7 @@ function ScrollHandler()
 // COLORS
 // =============================================================================
 
-function RainbowColorWheel()
+export function RainbowColorWheel()
 {
     // https://htmlcolorcodes.com/
     // red -> purple -> blue -> green -> yellow -> orange

@@ -2,6 +2,17 @@
 // #Root
 // =============================================================================
 
+import { 
+    DataCard, 
+    SetParentAndChild, 
+    VerbTemplate, 
+    ReflexiveVerbTemplateSe,
+    ReflexiveVerbTemplateSi,
+    NounTemplateFemale,
+    NounTemplateNeuter,
+    NounTemplateMale
+} from "../src/languageTree.js";
+
 /*
 a ă â b c d e f g h i î j k l m n o p q r s ș t ț u v w x y z
 https://www.thoughtco.com/html-codes-romanian-characters-4062226
@@ -16,15 +27,14 @@ var  = new DataCard(
 SetParentAndChild(verbs, );
 */
 
-const searchPlaceholder = new DataCard("Search", "Căuta", "");
+export const searchPlaceholder = new DataCard("Search", "Căuta", "");
 
-function BuildLanguageTree() // reurns romanian
+export function BuildLanguageTree() // reurns romanian
 {
     var romanian = new DataCard(
         "Romanian", "Română",
-        "Romanian language tree. <br>\
-    ",
-        isRoot = true);
+        "Romanian language tree. <br>",
+        true);
 
     romanian.SetParent(romanian);
 
