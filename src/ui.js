@@ -7,9 +7,8 @@ import {
   SearchableDictionary,
   GetSearchableWords,
   ResetSearch,
-  TreeDepth,
-  RandomElementInArray
-} from "./languageTree.js";
+  TreeDepth} from "./languageTree.js";
+import { RandomElementInArray } from "./random.js";
 
 // =============================================================================
 // Global variables

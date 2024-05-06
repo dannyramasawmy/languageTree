@@ -4,14 +4,16 @@
 
 import { 
     DataCard, 
-    SetParentAndChild, 
-    VerbTemplate, 
-    ReflexiveVerbTemplateSe,
-    ReflexiveVerbTemplateSi,
-    NounTemplateFemale,
-    NounTemplateNeuter,
-    NounTemplateMale
+    SetParentAndChild
 } from "../src/languageTree.js";
+
+import { NounTemplateNeuter,
+    NounTemplateMale,
+    NounTemplateFemale,
+    ReflexiveVerbTemplateSi,
+    ReflexiveVerbTemplateSe,
+    VerbTemplate
+} from "../src/romanianLanguageModels.js";
 
 /*
 a ă â b c d e f g h i î j k l m n o p q r s ș t ț u v w x y z
