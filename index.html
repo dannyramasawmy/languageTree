@@ -11,6 +11,9 @@
   <link rel="stylesheet" href="style/style.css">
   <link rel="shortcut icon" href="img/delta-icon.png">
   <!-- <script type="module" src="src/ui.js"></script> -->
+  <script type="module" src="src/ui.js">
+    // import { animateButtons, updateSettings, keyboardInput } from "src/ui.js"
+  </script>
   <title>LanguageTree</title>
 </head>
 
@@ -21,7 +24,7 @@
       <div class="container-fluid">
 
         <!-- logo and brand -->
-        <a class="navbar-brand" href="#" onclick="animateButtons()">
+        <a id="navbar-brand-button" class="navbar-brand" href="#">
           <img src="img/delta-icon.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
           languageTree
         </a>
@@ -35,8 +38,8 @@
         <!-- items -->
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#" onclick="animateButtons()">Home</a>
+            <li id="navbar-active-home-button" class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
             </li>
             <li class="nav-item" data-bs-toggle="modal" data-bs-target="#aboutModal">
               <a class="nav-link">About</a>
@@ -125,8 +128,7 @@
         </div>
 
         <div class="modal-footer">
-          <button type="button" class="btn btn-warning" data-bs-dismiss="modal"
-            onclick="updateSettings()">Apply</button>
+          <button id="update-settings-button" type="button" class="btn btn-warning" data-bs-dismiss="modal">Apply</button>
         </div>
       </div>
     </div>
@@ -136,8 +138,7 @@
   <div class="modal" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
-        <input id="SearchBar" class="searchBar form-control me-auto" type="text" placeholder="Search cards"
-          oninput="keyboardInput()" aria-label="Search cards" autofocus>
+        <input id="SearchBar" class="searchBar form-control me-auto" type="text" placeholder="Search cards" aria-label="Search cards" autofocus>
         <div class="modal-body">
           <p> Use
             <span class="DocSearch-Button-Keys">
@@ -216,7 +217,12 @@
   <!-- <script src="src/languageTree.js"></script> -->
   <!-- <script src="data/romanian-tree.js"></script> -->
   <!-- <script src="src/view.js"></script> -->
-  <script type="module" src="src/ui.js"></script>
+  <!-- <script type="module" src="src/ui.js">
+
+    import { animateButtons, updateSettings, keyboardInput } from "src/ui.js"
+    console.log("Hello")
+    console.log(keyboardInput)
+  </script> -->
 
 </body>
 

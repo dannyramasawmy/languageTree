@@ -54,7 +54,7 @@ export function SearchableDictionary()
             ? Object.getOwnPropertyNames(this.Primary)
             : Object.getOwnPropertyNames(this.Secondary);
 
-        console.log(words)
+        // console.log(words)
 
         var wordMask = words.map((x) => x.includes(searchString.toLowerCase()));
         var filteredWords = words.filter((x, i) => wordMask[i]);

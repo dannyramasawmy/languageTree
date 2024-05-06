@@ -1,5 +1,5 @@
 import { View, Components, Button } from "./view.js";
-import { BuildLanguageTree } from "../data/romanian-tree.js";
+import { BuildLanguageTree, searchPlaceholder } from "../data/romanian-tree.js";
 import { 
   GetDisplayNodes, 
   ScrollHandler, 
@@ -15,7 +15,7 @@ import {
 // Global variables
 // =============================================================================
 
-const DEBUG = false;
+const DEBUG = true;
 
 const ROOT_NODE = BuildLanguageTree();
 
@@ -24,6 +24,8 @@ const MAIN_CARD_ID = "main-card";
 const DATA_CARDS_ID = "data-cards";
 const BUTTON_PANEL_ID = "buttons-panel";
 const SETTINGS_PANEL_ID = "settings-panel";
+
+const SEARCH_BAR_ID = "SearchBar";
 
 const GLOBAL = {
   "PrimaryLanguageFirst": true,
@@ -36,7 +38,9 @@ const SETTINGS_HOVER_COLOR = "hover-color-theme";
 const SETTINGS_COMPACT_CARDS = "compact-data-cards";
 const SETTINGS_ANIMATIONS = "animations-switch";
 const SETTINGS_BUTTON_LABELS = "button-labels";
-
+const NAVAR_BRAND_BUTTON = "navbar-brand-button"
+const NAVAR_HOME_BRAND_BUTTON = "navbar-active-home-button"
+const UPDATE_SETTINGS_BUTTON = "update-settings-button"
 
 const SETTINGS = {
   "IsDarkTheme": getBooleanSetting(SETTINGS_COLOR_THEME, true),
@@ -117,7 +121,7 @@ function getBooleanSetting(key, defaultValue)
     : window.localStorage.getItem(key) == "true";
 }
 
-export function updateSettings()
+function updateSettings()
 {
   SETTINGS.IsDarkTheme = saveBooleanSetting(SETTINGS_COLOR_THEME);
   SETTINGS.HasRainbowHover = saveBooleanSetting(SETTINGS_HOVER_COLOR);
@@ -125,7 +129,7 @@ export function updateSettings()
   SETTINGS.ShowAnimations = saveBooleanSetting(SETTINGS_ANIMATIONS);
   SETTINGS.ShowButtonLabels = saveBooleanSetting(SETTINGS_BUTTON_LABELS);
 
-  _ = SETTINGS.IsDarkTheme ? VIEW.SetDarkTheme() : VIEW.SetLightTheme();
+  SETTINGS.IsDarkTheme ? VIEW.SetDarkTheme() : VIEW.SetLightTheme();
   VIEW
     .ClearCards()
     .UpdateCards(GLOBAL, SETTINGS, GLOBAL.CurrentNode, GLOBAL.DisplayCards, SCROLL.GetCurrentHeight())
@@ -137,6 +141,7 @@ export function updateSettings()
       B_SWAP.Current(),
       B_TRAVEL.Select(TreeDepth(GLOBAL.CurrentNode))]);
 }
+document.getElementById(UPDATE_SETTINGS_BUTTON).addEventListener("click", updateSettings)
 
 // =============================================================================
 // Events
@@ -182,7 +187,7 @@ window.onkeyup = function (e)
 
     let myModal = new bootstrap.Modal(document.getElementById('searchModal'), {});
     myModal.show();
-    document.getElementById("SearchBar").focus();
+    document.getElementById(SEARCH_BAR_ID).focus();
   }
 }
 
@@ -335,9 +340,9 @@ window.addEventListener('click',
   })
 
 
-export function keyboardInput()
+function keyboardInput()
 {
-  let searchString = document.getElementById("SearchBar").value;
+  let searchString = document.getElementById(SEARCH_BAR_ID).value;
   GLOBAL.CurrentNode = ROOT_NODE;
   GLOBAL.DisplayCards = G_searchable.GetDataCards(GLOBAL, searchString);
 
@@ -348,6 +353,8 @@ export function keyboardInput()
     .ClearCards()
     .UpdateCards(GLOBAL, SETTINGS, searchPlaceholder, GLOBAL.DisplayCards, 0);
 };
+document.getElementById(SEARCH_BAR_ID).addEventListener("input", keyboardInput)
+
 
 // =============================================================================
 // Animations
@@ -355,7 +362,7 @@ export function keyboardInput()
 
 function animateShuffle(counter)
 {
-  frame = () =>
+  var frame = () =>
   {
     console.log(`Animate shuffle: ${counter}`);
     counter = Math.abs(counter);
@@ -366,21 +373,23 @@ function animateShuffle(counter)
       clearInterval(id);
   }
 
-  id = setInterval(frame, 50);
+  const id = setInterval(frame, 50);
 }
 
-export function animateButtons()
+function animateButtons()
 {
   if (DEBUG)
   {
     console.log("Animate buttons")
   }
-
+  
   // shuffle button
   let counter = B_SHUFFLE.state + B_SHUFFLE.numberOfStates - 1;
-  count = counter < 1 ? 7 : counter;
+  counter = counter < 1 ? 7 : counter;
   animateShuffle(counter);
 }
+document.getElementById(NAVAR_BRAND_BUTTON).addEventListener("click", animateButtons)
+document.getElementById(NAVAR_HOME_BRAND_BUTTON).addEventListener("click", animateButtons)
 
 // =============================================================================
 // Cache and service worker
