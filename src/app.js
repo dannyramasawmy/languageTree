@@ -1,14 +1,17 @@
 import { View, Components, Button } from "./view.js";
 import { BuildLanguageTree, searchPlaceholder } from "../data/romanian-tree.js";
 import { 
-  SortDisplayList,
-  SearchableDictionary,
-  GetSearchableWords,
-  ResetSearch} from "./languageTree.js";
+  SortDisplayList} from "./languageTree.js";
+import { buildDataCardMappingRecursive } from "./search/functions.js";
+import { resetSearchBar } from "./search/view.js";
+import { ElementID } from "./elementID.js";
 import { GetChildren } from "./tree/functions.js";
 import { GetTreeDepth } from "./tree/functions.js";
 import { ScrollHandler } from "./scroll.js";
 import { RandomElementInArray } from "./random.js";
+import { DataCardMapping } from "./search/models.js";
+import { searchForMatchingCards, getNumberOfCards, getDataCardFromState, getAllCards } from "./search/functions.js";
+import { prepareEnglishString, prepareRomanianString } from "../data/romanian-functions.js";
 
 // =============================================================================
 // Global variables
@@ -23,8 +26,6 @@ const MAIN_CARD_ID = "main-card";
 const DATA_CARDS_ID = "data-cards";
 const BUTTON_PANEL_ID = "buttons-panel";
 const SETTINGS_PANEL_ID = "settings-panel";
-
-const SEARCH_BAR_ID = "SearchBar";
 
 const GLOBAL = {
   "PrimaryLanguageFirst": true,
@@ -82,9 +83,13 @@ VIEW
     B_TRAVEL.Select(GetTreeDepth(GLOBAL.CurrentNode))
   ]);
 
-var G_searchable = new SearchableDictionary();
-GetSearchableWords(ROOT_NODE, G_searchable);
-ResetSearch(GLOBAL, G_searchable);
+var G_searchable = buildDataCardMappingRecursive(
+  ROOT_NODE, 
+  new DataCardMapping(),
+  prepareEnglishString, prepareRomanianString);
+
+let resetSearch = () => resetSearchBar(getNumberOfCards(G_searchable));
+resetSearch()
 
 
 // =============================================================================
@@ -163,7 +168,7 @@ window.addEventListener('popstate',
 
     GLOBAL.CurrentNode = event.state == null
       ? ROOT_NODE
-      : G_searchable.GetDataCardFromState(event.state);
+      : getDataCardFromState(G_searchable, event.state);
 
     GLOBAL.DisplayCards = GetChildren(GLOBAL.CurrentNode);
     VIEW
@@ -186,7 +191,7 @@ window.onkeyup = function (e)
 
     let myModal = new bootstrap.Modal(document.getElementById('searchModal'), {});
     myModal.show();
-    document.getElementById(SEARCH_BAR_ID).focus();
+    document.getElementById(ElementID.SEARCH_BAR_ID).focus();
   }
 }
 
@@ -225,7 +230,7 @@ window.addEventListener('click',
           SCROLL.AddHistory();
 
           // display
-          ResetSearch(GLOBAL, G_searchable);
+          resetSearch();
           GLOBAL.DisplayCards = SortDisplayList(GLOBAL, GLOBAL.DisplayCards);
 
           VIEW
@@ -246,13 +251,12 @@ window.addEventListener('click',
       // shuffle current node
       if (event.composedPath()[idx].id == "shuffle-button")
       {
-        let tmp = G_searchable.GetDataCards(GLOBAL, "")
-        GLOBAL.CurrentNode = RandomElementInArray(G_searchable.GetDataCards(GLOBAL, ""));
+        GLOBAL.CurrentNode = RandomElementInArray(getAllCards(G_searchable, GLOBAL.PrimaryLanguageFirst));
       
         pushState(GLOBAL.CurrentNode);
         GLOBAL.DisplayCards = GetChildren(GLOBAL.CurrentNode);
 
-        ResetSearch(GLOBAL, G_searchable);
+        resetSearch();
         VIEW
           .ClearCards()
           .UpdateCards(GLOBAL, SETTINGS, GLOBAL.CurrentNode, GLOBAL.DisplayCards, 0)
@@ -319,7 +323,7 @@ window.addEventListener('click',
 
         // display
         var heightToSet = SCROLL.GetPreviousHeight();
-        ResetSearch(GLOBAL, G_searchable);
+        resetSearch();
         GLOBAL.DisplayCards = SortDisplayList(GLOBAL, GLOBAL.DisplayCards);
 
         VIEW
@@ -341,9 +345,9 @@ window.addEventListener('click',
 
 function keyboardInput()
 {
-  let searchString = document.getElementById(SEARCH_BAR_ID).value;
+  let searchString = document.getElementById(ElementID.SEARCH_BAR_ID).value;
   GLOBAL.CurrentNode = ROOT_NODE;
-  GLOBAL.DisplayCards = G_searchable.GetDataCards(GLOBAL, searchString);
+  GLOBAL.DisplayCards = searchForMatchingCards(G_searchable, GLOBAL.PrimaryLanguageFirst, searchString);
 
   console.log("Searching keyboard input");
   console.log(searchString);
@@ -352,7 +356,7 @@ function keyboardInput()
     .ClearCards()
     .UpdateCards(GLOBAL, SETTINGS, searchPlaceholder, GLOBAL.DisplayCards, 0);
 };
-document.getElementById(SEARCH_BAR_ID).addEventListener("input", keyboardInput)
+document.getElementById(ElementID.SEARCH_BAR_ID).addEventListener("input", keyboardInput)
 
 
 // =============================================================================
