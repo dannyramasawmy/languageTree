@@ -7,13 +7,26 @@ export function primarySort (x, y) {
     return 0; 
 }
 
-export function GetTreeDepth(currentNode) {
+export function sortDataCardArray(
+    isSearchPrimary, 
+    dataCardArray, 
+    primarySortFunction, 
+    secondarySortFunction) {
+    
+    if (isSearchPrimary)
+        dataCardArray.sort(primarySortFunction);
+    else
+        dataCardArray.sort(secondarySortFunction);
+    return dataCardArray;
+}
+
+export function getTreeDepth(currentNode) {
     if (currentNode.IsRoot) return 0;
     if (currentNode.Child.length == 0) return 2;
     return 1;
 }
 
-export function GetChildren(node) {
+export function getChildren(node) {
     var displayList = [];
     for (var idx = 0; idx < node.Child.length; idx++)
         displayList.push(node.Child[idx]);
@@ -21,8 +34,7 @@ export function GetChildren(node) {
     return displayList;
 }
 
-export function SetParentAndChild(parentDataCard, childDataCard) {
+export function setParentAndChild(parentDataCard, childDataCard) {
     parentDataCard.AddChild(childDataCard);
     childDataCard.SetParent(parentDataCard);
 }
-

@@ -2,7 +2,7 @@
 // #Root
 // =============================================================================
 
-import { SetParentAndChild } from "../src/tree/functions.js";
+import { setParentAndChild } from "../src/tree/functions.js";
 import { DataCard, DataRoot } from "../src/tree/models.js";
 
 import { NounTemplateNeuter,
@@ -42,397 +42,397 @@ export function BuildLanguageTree() // returns romanian
     // =============================================================================
 
     var verbs = new DataCard("Verbs", "Verbe", "Common verbs are listed here.")
-    SetParentAndChild(romanian, verbs);
+    setParentAndChild(romanian, verbs);
 
     var have = new DataCard("Have", "Avea",
         "To have <br> "
         + VerbTemplate("am", "ai", "are", "avem", "aveți", "au", "avut", "avea"));
-    SetParentAndChild(verbs, have);
+    setParentAndChild(verbs, have);
 
     var be = new DataCard("Be", "Fi",
         "To be <br> "
         + VerbTemplate("sunt", "ești", "este", "suntem", "sunteți", "sunt", "fost", "fi"));
-    SetParentAndChild(verbs, be);
+    setParentAndChild(verbs, be);
 
     var eat = new DataCard("Eat", "Mânca",
         "To eat <br> "
         + VerbTemplate("mănânc", "mănânci", "mănâncă", "mâncăm", "mâncați", "mănâncă", "mâncat", "mânca"));
-    SetParentAndChild(verbs, eat);
+    setParentAndChild(verbs, eat);
 
     var drink = new DataCard("Drink", "Bea",
         "To drink <br> "
         + VerbTemplate("beau", "bei", "bea", "bem", "beți", "beau", "băut", "bea"));
-    SetParentAndChild(verbs, drink);
+    setParentAndChild(verbs, drink);
 
     var smell = new DataCard("Smell", "Mirosi",
         "To smell <br> "
         + VerbTemplate("miros", "miroși", "miroase", "mirosim", "mirosiți", "miros", "mirosit", "mirosi"));
-    SetParentAndChild(verbs, smell);
+    setParentAndChild(verbs, smell);
 
     var say = new DataCard("Say", "Spune",
         "To say <br> "
         + VerbTemplate("spun", "spui", "spune", "spunem", "spuneți", "spun", "spus", "spune"));
-    SetParentAndChild(verbs, say);
+    setParentAndChild(verbs, say);
 
     var say2 = new DataCard("Say (alt)", "Zice",
         "To say <br> "
         + VerbTemplate("zic", "zici", "zice", "zicem", "ziceți", "zic", "zis", "zice"));
-    SetParentAndChild(verbs, say2);
+    setParentAndChild(verbs, say2);
 
     var speak = new DataCard("Speak", "Vorbi",
         "To speak <br> "
         + VerbTemplate("vorbesc", "vorbești", "vorbește", "vorbim", "vorbiți", "vorbesc", "vorbit", "vorbi"));
-    SetParentAndChild(verbs, speak);
+    setParentAndChild(verbs, speak);
 
     var ring = new DataCard("Ring", "Suna",
         "To ring <br> "
         + VerbTemplate("sun", "suni", "sună", "sunăm", "sunați", "sună", "sunat", "suna"));
-    SetParentAndChild(verbs, ring);
+    setParentAndChild(verbs, ring);
 
     var walk = new DataCard("Walk (go)", "Merge",
         "To walk (go)<br> "
         + VerbTemplate("merg", "mergi", "merge", "mergem", "mergeți", "merg", "mers", "merge"));
-    SetParentAndChild(verbs, walk);
+    setParentAndChild(verbs, walk);
 
     var run = new DataCard("Run", "Alerga",
         "To run <br> "
         + VerbTemplate("alerg", "alergi", "aleargă", "alergăm", "alergați", "aleargă", "alergat", "alerga"));
-    SetParentAndChild(verbs, run);
+    setParentAndChild(verbs, run);
 
     var choose = new DataCard("Choose", "Alege",
         "To choose <br> "
         + VerbTemplate("aleg", "alegi", "alege", "alegem", "alegeți", "aleg", "ales", "alege"));
-    SetParentAndChild(verbs, choose);
+    setParentAndChild(verbs, choose);
 
     var runAway = new DataCard("Run (flee)", "Fugi",
         "To run (away, flee)<br> "
         + VerbTemplate("fug", "fugi", "fuge", "fugim", "fugiți", "fug", "fugit", "fugi"));
-    SetParentAndChild(verbs, runAway);
+    setParentAndChild(verbs, runAway);
 
     var jump = new DataCard("Jump", "Sări",
         "To jump<br> "
         + VerbTemplate("sar", "sări", "sare", "sărim", "săriți", "sar", "sărit", "sări"));
-    SetParentAndChild(verbs, jump);
+    setParentAndChild(verbs, jump);
 
     var call = new DataCard("Call (shout)", "Striga",
         "To call (shout)<br> "
         + VerbTemplate("strig", "strigi", "strigă", "strigăm", "strigați", "strigă", "strigat", "striga"));
-    SetParentAndChild(verbs, call);
+    setParentAndChild(verbs, call);
 
     var give = new DataCard("Give", "Da",
         "To give<br> "
         + VerbTemplate("dau", "dai", "dă", "dăm", "dați", "dau", "dat", "da"));
-    SetParentAndChild(verbs, give);
+    setParentAndChild(verbs, give);
 
     var take = new DataCard("Take", "Lua",
         "To take<br> "
         + VerbTemplate("iau", "iei", "ia", "luăm", "luați", "iau", "luat", "lua"));
-    SetParentAndChild(verbs, take);
+    setParentAndChild(verbs, take);
 
     var _open = new DataCard("Open", "Deschide",
         "To open<br> "
         + VerbTemplate("deschid", "deschizi", "deschide", "deschidem", "deschideți", "deschid", "deschis", "deschide"));
-    SetParentAndChild(verbs, _open);
+    setParentAndChild(verbs, _open);
 
     var _close = new DataCard("Close", "Închide",
         "To close<br> "
         + VerbTemplate("închid", "închizi", "închide", "închidem", "închideți", "închid", "închis", "închide"));
-    SetParentAndChild(verbs, _close);
+    setParentAndChild(verbs, _close);
 
     var play = new DataCard("Play", "Juca",
         "To play<br> "
         + ReflexiveVerbTemplateSe("joc", "joci", "joacă", "jucăm", "jucați", "joacă", "jucat", "juca"));
-    SetParentAndChild(verbs, play);
+    setParentAndChild(verbs, play);
 
     var sing = new DataCard("Sing", "Cânta",
         "To sing<br> "
         + VerbTemplate("cânt", "cânți", "cântă", "cântăm", "cântați", "cântă", "cântat", "cânta"));
-    SetParentAndChild(verbs, sing);
+    setParentAndChild(verbs, sing);
 
     var seat = new DataCard("Stay (sit)", "Așeza",
         "To stay (sit)<br> "
         + ReflexiveVerbTemplateSe("așez", "așezi", "așază", "așezăm", "așezați", "așază", "așezat", "așeza"));
-    SetParentAndChild(verbs, seat);
+    setParentAndChild(verbs, seat);
 
     var stand = new DataCard("Stand", "Ridica",
         "To stand<br> "
         + ReflexiveVerbTemplateSe("ridic", "ridici", "ridică", "ridicăm", "ridicați", "ridică", "ridicat", "ridica"));
-    SetParentAndChild(verbs, stand);
+    setParentAndChild(verbs, stand);
 
     var stay = new DataCard("Stay", "Sta",
         "To stay<br> "
         + VerbTemplate("stau", "stai", "stă", "stăm", "stați", "stau", "stat", "sta"));
-    SetParentAndChild(verbs, stay);
+    setParentAndChild(verbs, stay);
 
     var leave = new DataCard("Leave", "Pleca",
         "To leave<br> "
         + VerbTemplate("plec", "pleci", "pleacă", "plecăm", "plecați", "pleacă", "plecat", "pleca"));
-    SetParentAndChild(verbs, leave);
+    setParentAndChild(verbs, leave);
 
     var visit = new DataCard("Visit", "Vizita",
         "To visit<br> "
         + VerbTemplate("vizitez", "vizitezi", "vizitează", "vizităm", "vizitați", "vizitează", "vizitat", "vizita"));
-    SetParentAndChild(verbs, visit);
+    setParentAndChild(verbs, visit);
 
     var come = new DataCard("Come", "Veni",
         "To come<br> "
         + VerbTemplate("vin", "vii", "vine", "venim", "veniți", "vin", "venit", "veni"));
-    SetParentAndChild(verbs, come);
+    setParentAndChild(verbs, come);
 
     var sleep = new DataCard("Sleep", "Dormi",
         "To sleep<br> "
         + VerbTemplate("dorm", "dormi", "doarme", "dormim", "dormiți", "dorm", "dormit", "dormi"));
-    SetParentAndChild(verbs, sleep);
+    setParentAndChild(verbs, sleep);
 
     var sleepWith = new DataCard("Sleep (with)", "Culci",
         "To sleep (with)<br> "
         + ReflexiveVerbTemplateSe("culc", "culci", "culca", "culcam", "culcați", "culca", "culcat", "culci"));
-    SetParentAndChild(verbs, sleepWith);
+    setParentAndChild(verbs, sleepWith);
 
     var fallAsleep = new DataCard("Fall Asleep", "Adormi",
         "To fall asleep<br> "
         + VerbTemplate("adorm", "adormi", "adoarme", "adormim", "adormiți", "adorm", "adormit", "adormi"));
-    SetParentAndChild(verbs, fallAsleep);
+    setParentAndChild(verbs, fallAsleep);
 
     var getUp = new DataCard("Get up", "Trezi",
         "To get up<br> "
         + ReflexiveVerbTemplateSe("trezesc", "trezești", "trezește", "trezim", "treziți", "trezesc", "trezit", "trezi"));
-    SetParentAndChild(verbs, getUp);
+    setParentAndChild(verbs, getUp);
 
     var guess = new DataCard("Guess (believe)", "Crede",
         "To guess (believe)<br> "
         + VerbTemplate("cred", "crezi", "crede", "credem", "credeți", "cred", "crezut", "crede"));
-    SetParentAndChild(verbs, guess);
+    setParentAndChild(verbs, guess);
 
     var bring = new DataCard("Bring", "Aduce",
         "To bring<br> "
         + VerbTemplate("aduc", "aduci", "aduce", "aducem", "aduceți", "aduc", "adus", "aduce"));
-    SetParentAndChild(verbs, bring);
+    setParentAndChild(verbs, bring);
 
     var think = new DataCard("Think", "Gândi",
         "To think<br> "
         + ReflexiveVerbTemplateSe("gândesc", "gândești", "gândește", "gândim", "gândiți", "gândesc", "gândit", "gândi"));
-    SetParentAndChild(verbs, think);
+    setParentAndChild(verbs, think);
 
     var love = new DataCard("Love", "Iubi",
         "To love<br> "
         + VerbTemplate("iubesc", "iubești", "iubește", "iubim", "iubiți", "iubesc", "iubit", "iubi"));
-    SetParentAndChild(verbs, love);
+    setParentAndChild(verbs, love);
 
     var laugh = new DataCard("Laugh", "Râde",
         "To laugh<br> "
         + VerbTemplate("râd", "râzi", "râde", "râdem", "râdeți", "râd", "râs", "râde"));
-    SetParentAndChild(verbs, laugh);
+    setParentAndChild(verbs, laugh);
 
     var search = new DataCard("Search", "Căuta",
         "To search<br> "
         + VerbTemplate("caut", "cauți", "caută", "căutăm", "căutați", "caută", "căutat", "căuta"));
-    SetParentAndChild(verbs, search);
+    setParentAndChild(verbs, search);
 
     var find = new DataCard("Find", "Găsi",
         "To find<br> "
         + VerbTemplate("găsesc", "găsești", "găsește", "găsim", "găsiți", "găsesc", "găsit", "găsi"));
-    SetParentAndChild(verbs, find);
+    setParentAndChild(verbs, find);
 
     var cook = new DataCard("Cook (prepare)", "Găti",
         "To cook<br> "
         + VerbTemplate("gătesc", "gătești", "gătește", "gătim", "gătiți", "gătesc", "gătit", "găti"));
-    SetParentAndChild(verbs, cook);
+    setParentAndChild(verbs, cook);
 
     var joke = new DataCard("Joke", "Glumi",
         "To joke<br> "
         + VerbTemplate("glumesc", "glumești", "glumește", "glumim", "glumiți", "glumesc", "glumit", "glumi"));
-    SetParentAndChild(verbs, joke);
+    setParentAndChild(verbs, joke);
 
     var read = new DataCard("Read", "Citi",
         "To read<br> "
         + VerbTemplate("citesc", "citești", "citește", "citim", "citiți", "citesc", "citit", "citi"));
-    SetParentAndChild(verbs, read);
+    setParentAndChild(verbs, read);
 
     var write = new DataCard("Write", "Scrie",
         "To write<br> "
         + VerbTemplate("scriu", "scrii", "scrie", "scriem", "scrieți", "scriu", "scris", "scrie"));
-    SetParentAndChild(verbs, write);
+    setParentAndChild(verbs, write);
 
     var buy = new DataCard("Buy", "Cumpăra",
         "To buy<br> "
         + VerbTemplate("cumpăr", "cumpări", "cumpără", "cumpărăm", "cumpărați", "cumpără", "cumpărat", "cumpăra"));
-    SetParentAndChild(verbs, buy);
+    setParentAndChild(verbs, buy);
 
     var _do = new DataCard("Do", "Face",
         "To do<br> "
         + VerbTemplate("fac", "faci", "face", "facem", "faceți", "fac", "făcut", "face"));
-    SetParentAndChild(verbs, _do);
+    setParentAndChild(verbs, _do);
 
     var listen = new DataCard("Listen", "Asculta",
         "To listen<br> "
         + VerbTemplate("ascult", "asculți", "ascultă", "ascultăm", "ascultați", "ascultă", "ascultat", "asculta"));
-    SetParentAndChild(verbs, listen);
+    setParentAndChild(verbs, listen);
 
     var hear = new DataCard("Hear", "Auzi",
         "To hear<br> "
         + VerbTemplate("aud", "auzi", "aude", "auzim", "auziți", "aud", "auzit", "auzi"));
-    SetParentAndChild(verbs, hear);
+    setParentAndChild(verbs, hear);
 
     var kiss = new DataCard("Kiss", "Săruta",
         "To kiss<br> "
         + VerbTemplate("sărut", "săruți", "sărută", "sărutăm", "sărutați", "sărută", "sărutat", "săruta"));
-    SetParentAndChild(verbs, kiss);
+    setParentAndChild(verbs, kiss);
 
     var ask = new DataCard("Ask", "Întreba",
         "To ask<br> "
         + VerbTemplate("întreb", "întrebi", "întreabă", "întrebăm", "întrebați", "întreabă", "întrebat", "întreba"));
-    SetParentAndChild(verbs, ask);
+    setParentAndChild(verbs, ask);
 
     var learn = new DataCard("Learn", "Învăța",
         "To learn<br> "
         + VerbTemplate("învăț", "înveți", "învață", "învățăm", "învățați", "învață", "învățat", "învăța"));
-    SetParentAndChild(verbs, learn);
+    setParentAndChild(verbs, learn);
 
     var _try = new DataCard("Try", "Incerca",
         "To try<br> "
         + VerbTemplate("încerc", "încerci", "încearcă", "încercăm", "încercați", "încearcă", "încercat", "încerca"));
-    SetParentAndChild(verbs, _try);
+    setParentAndChild(verbs, _try);
 
     var see = new DataCard("See", "Vedea",
         "To see<br> "
         + VerbTemplate("văd", "vezi", "vede", "vedem", "vedeți", "văd", "văzut", "vedea"));
-    SetParentAndChild(verbs, see);
+    setParentAndChild(verbs, see);
 
     var smile = new DataCard("Smile", "Zămbi",
         "To smile<br> "
         + VerbTemplate("zămbesc", "zămbesti", "zămbeste", "zămbim", "zămbiți", "zămbesc", "zămbit", "zămbi"));
-    SetParentAndChild(verbs, smile);
+    setParentAndChild(verbs, smile);
 
     var forget = new DataCard("Forget", "Uita",
         "To forget<br> "
         + VerbTemplate("uit", "uiți", "uită", "uităm", "uitați", "uită", "uitat", "uita"));
-    SetParentAndChild(verbs, forget);
+    setParentAndChild(verbs, forget);
 
     var want = new DataCard("Want", "Vrea",
         "To want<br> "
         + VerbTemplate("vreau", "vrei", "vrea", "vrem", "vreți", "vor", "vrut", "vrea"));
-    SetParentAndChild(verbs, want);
+    setParentAndChild(verbs, want);
 
     var put = new DataCard("Put", "Pune",
         "To put<br> "
         + VerbTemplate("pun", "pui", "pune", "punem", "puneți", "pun", "pus", "pune"));
-    SetParentAndChild(verbs, put);
+    setParentAndChild(verbs, put);
 
     var can = new DataCard("Can", "Putea",
         "To can<br> "
         + VerbTemplate("pot", "poți", "poate", "putem", "puteți", "pot", "putut", "putea"));
-    SetParentAndChild(verbs, can);
+    setParentAndChild(verbs, can);
 
     var understand = new DataCard("Understand", "Înțelege",
         "To understand<br> "
         + VerbTemplate("înțeleg", "înțelegi", "înțelege", "înțelegem", "înțelegeți", "înțeleg", "înțeles", "înțelege"));
-    SetParentAndChild(verbs, understand);
+    setParentAndChild(verbs, understand);
 
     var know = new DataCard("Know", "Ști",
         "To know<br> "
         + VerbTemplate("știu", "știi", "știe", "știm", "știți", "știu", "știut", "ști"));
-    SetParentAndChild(verbs, know);
+    setParentAndChild(verbs, know);
 
     var know2 = new DataCard("Know (alt)", "Cunoaște",
         "To know<br> "
         + VerbTemplate("cunosc", "cunoști", "cunoaște", "cunoaștem", "cunoașteți", "cunosc", "cunoscut", "cunoaște"));
-    SetParentAndChild(verbs, know2);
+    setParentAndChild(verbs, know2);
 
     var drive = new DataCard("Drive", "Conduce",
         "To drive<br> "
         + VerbTemplate("conduc", "conduci", "conduce", "conducem", "conduceți", "conduc", "condus", "conduce"));
-    SetParentAndChild(verbs, drive);
+    setParentAndChild(verbs, drive);
 
     var pay = new DataCard("Pay", "Plăti",
         "To pay<br> "
         + VerbTemplate("plătesc", "plătești", "plătește", "plătim", "plătiți", "plătesc", "plătit", "plăti"));
-    SetParentAndChild(verbs, pay);
+    setParentAndChild(verbs, pay);
 
     var fly = new DataCard("Fly", "Zbura",
         "To fly<br> "
         + VerbTemplate("zbor", "zbori", "zboară", "zburăm", "zburați", "zboară", "zburat", "zbura"));
-    SetParentAndChild(verbs, fly);
+    setParentAndChild(verbs, fly);
 
     var arrive = new DataCard("Arrive", "Ajunge",
         "To arrive<br> "
         + VerbTemplate("ajung", "ajungi", "ajunge", "ajungem", "ajungeți", "ajung", "ajuns", "ajunge"));
-    SetParentAndChild(verbs, arrive);
+    setParentAndChild(verbs, arrive);
 
     var carry = new DataCard("Carry", "Duce",
         "To carry<br> "
         + VerbTemplate("duc", "duci", "duce", "ducem", "duceți", "duc", "dus", "duce"));
-    SetParentAndChild(verbs, carry);
+    setParentAndChild(verbs, carry);
 
     var party = new DataCard("Party", "Petrece",
         "To party<br> "
         + VerbTemplate("petrec", "petreci", "petrece", "petrecem", "petreceți", "petrec", "petrecut", "petrece"));
-    SetParentAndChild(verbs, party);
+    setParentAndChild(verbs, party);
 
     var live = new DataCard("Live", "Trăi",
         "To <br> "
         + VerbTemplate("trăiesc", "trăiești", "trăiește", "trăim", "trăiți", "trăiesc", "trăit", "trăi"));
-    SetParentAndChild(verbs, live);
+    setParentAndChild(verbs, live);
 
     var reside = new DataCard("Reside (live)", "Locui",
         "To reside (live)<br> "
         + VerbTemplate("locuiesc", "locuiești", "locuiește", "locuim", "locuiți", "locuiesc", "locuit", "locui"));
-    SetParentAndChild(verbs, reside);
+    setParentAndChild(verbs, reside);
 
     var work = new DataCard("Work", "Munci",
         "To work<br> "
         + VerbTemplate("muncesc", "muncești", "muncește", "muncim", "munciți", "muncesc", "muncit", "munci"));
-    SetParentAndChild(verbs, work);
+    setParentAndChild(verbs, work);
 
     var work2 = new DataCard("Work (alt)", "Lucra",
         "To work<br> "
         + VerbTemplate("lucrez", "lucrezi", "lucrează", "lucrăm", "lucrați", "lucrează", "lucrat", "lucra"));
-    SetParentAndChild(verbs, work2);
+    setParentAndChild(verbs, work2);
 
     var divorce = new DataCard("Divorce", "Divorța",
         "To divorce<br> "
         + VerbTemplate("divorțez", "divorțezi", "divorțează", "divorțăm", "divorțați", "divorțează", "divorțat", "divorța"));
-    SetParentAndChild(verbs, divorce);
+    setParentAndChild(verbs, divorce);
 
     var marry = new DataCard("Marry", "Căsători",
         "To marry<br> "
         + ReflexiveVerbTemplateSe("căsătoresc", "căsătorești", "căsătorește", "căsătorim", "căsătoriți", "căsătoresc", "căsătorit", "căsători"));
-    SetParentAndChild(verbs, marry);
+    setParentAndChild(verbs, marry);
 
     var lie = new DataCard("Lie", "Minți",
         "To lie<br> "
         + VerbTemplate("mint", "minți", "minte", "mințim", "mințiți", "mint", "mințit", "minți"));
-    SetParentAndChild(verbs, lie);
+    setParentAndChild(verbs, lie);
 
     var hit = new DataCard("Hit (kick)", "Lovi",
         "To hit<br> "
         + VerbTemplate("lovesc", "lovești", "lovește", "lovim", "loviți", "lovesc", "lovit", "lovi"));
-    SetParentAndChild(verbs, hit);
+    setParentAndChild(verbs, hit);
 
     var desire = new DataCard("Desire (wish)", "Dori",
         "To desire<br> "
         + ReflexiveVerbTemplateSi("doresc", "dorești", "dorește", "dorim", "doriți", "doresc", "dorit", "dori"));
-    SetParentAndChild(verbs, desire);
+    setParentAndChild(verbs, desire);
 
     var hide = new DataCard("Hide", "Ascunde",
         "To hide<br> "
         + VerbTemplate("ascund", "ascunzi", "ascunde", "ascundem", "ascundeți", "ascund", "ascuns", "ascunde"));
-    SetParentAndChild(verbs, hide);
+    setParentAndChild(verbs, hide);
 
     var receive = new DataCard("Receive", "Primi",
         "To receive<br> "
         + VerbTemplate("primesc", "primești", "primește", "primim", "primiți", "primesc", "primit", "primi"));
-    SetParentAndChild(verbs, receive);
+    setParentAndChild(verbs, receive);
 
     var wash = new DataCard("Wash", "Spăla",
         "To wash<br> "
         + ReflexiveVerbTemplateSe("spăl", "speli", "spală", "spălăm", "spălați", "spală", "spălat", "spăla"));
-    SetParentAndChild(verbs, wash);
+    setParentAndChild(verbs, wash);
 
     var lose = new DataCard("Lose", "Pierde",
         "To lose<br> "
         + VerbTemplate("pierd", "pierzi", "pierde", "pierdem", "pierd", "pierd", "pierdut", "pierde"));
-    SetParentAndChild(verbs, lose);
+    setParentAndChild(verbs, lose);
 
     var couldModal = new DataCard("Could (modal)", "Putea (modal)",
         `<h2>Modal</h2>
@@ -442,7 +442,7 @@ export function BuildLanguageTree() // returns romanian
     Noi am putea să [...]<br>
     Voi ați putea să [...]<br>
     Ei/Ele ar putea să [...]<br>`)
-    SetParentAndChild(verbs, couldModal);
+    setParentAndChild(verbs, couldModal);
 
     var should = new DataCard("Should", "Ar trebui",
         `<h2>Modal</h2>
@@ -452,7 +452,7 @@ export function BuildLanguageTree() // returns romanian
     Noi ar trebui să [...]<br>
     Voi ar trebui să [...]<br>
     Ei/Ele ar trebui să [...]<br>`)
-    SetParentAndChild(verbs, should);
+    setParentAndChild(verbs, should);
 
     var must = new DataCard("Must", "Trebuie",
         `<h2>Modal</h2>
@@ -462,62 +462,62 @@ export function BuildLanguageTree() // returns romanian
     Noi trebuie să [...]<br>
     Voi trebuie să [...]<br>
     Ei/Ele trebuie să [...]<br>`)
-    SetParentAndChild(verbs, must);
+    setParentAndChild(verbs, must);
 
     var send = new DataCard("Send", "Trimite",
         "To send<br> "
         + VerbTemplate("trimit", "trimiți", "trimite", "trimitem", "trimiteți", "trimit", "trimis", "trimite"));
-    SetParentAndChild(verbs, send);
+    setParentAndChild(verbs, send);
 
     var cry = new DataCard("Cry", "Plânge",
         "To cry<br> "
         + VerbTemplate("plâng", "plângi", "plânge", "plângem", "plângeți", "plâng", "plâns", "plânge"));
-    SetParentAndChild(verbs, cry);
+    setParentAndChild(verbs, cry);
 
     var cut = new DataCard("Cut", "Tăia",
         "To cut<br> "
         + VerbTemplate("tai", "tai", "taie", "tăiem", "tăiați", "taie", "tăiat", "tăia"));
-    SetParentAndChild(verbs, cut);
+    setParentAndChild(verbs, cut);
 
     var wait = new DataCard("Wait", "Aștepta",
         "To wait<br> "
         + VerbTemplate("aștept", "aștepți", "așteaptă", "așteptăm", "așteptați", "așteaptă", "așteptat", "aștepta"));
-    SetParentAndChild(verbs, wait);
+    setParentAndChild(verbs, wait);
 
     var dance = new DataCard("Dance", "Dansa",
         "To dance<br> "
         + VerbTemplate("dansez", "dansezi", "dansează", "dansăm", "dansați", "dansează", "dansat", "dansa"));
-    SetParentAndChild(verbs, dance);
+    setParentAndChild(verbs, dance);
 
     var _catch = new DataCard("Catch", "Prinde",
         "To catch<br> "
         + VerbTemplate("prind", "prinzi", "prinde", "prindem", "prindeți", "prind", "prins", "prinde"));
-    SetParentAndChild(verbs, _catch);
+    setParentAndChild(verbs, _catch);
 
     var fight = new DataCard("Fight", "Lupta",
         "To fight<br> "
         + VerbTemplate("lupt", "lupți", "luptă", "luptăm", "luptați", "luptă", "luptat", "lupta"));
-    SetParentAndChild(verbs, fight);
+    setParentAndChild(verbs, fight);
 
     var fall = new DataCard("Fall", "Cădea",
         "To fall<br> "
         + VerbTemplate("cad", "cazi", "cade", "cădem", "cădeți", "cad", "căzut", "cădea"));
-    SetParentAndChild(verbs, fall);
+    setParentAndChild(verbs, fall);
 
     var pull = new DataCard("Pull", "Trage",
         "To pull<br> "
         + VerbTemplate("trag", "tragi", "trage", "tragem", "trageți", "trag", "tras", "trage"));
-    SetParentAndChild(verbs, pull);
+    setParentAndChild(verbs, pull);
 
     var push = new DataCard("Push", "Împinge",
         "To push<br> "
         + VerbTemplate("împing", "împingi", "împinge", "împingem", "împingeți", "împing", "împins", "împinge"));
-    SetParentAndChild(verbs, push);
+    setParentAndChild(verbs, push);
 
     var climb = new DataCard("Climb", "Urca",
         "To climb<br> "
         + VerbTemplate("urc", "urci", "urcă", "urcăm", "urcați", "urcă", "urcat", "urca"));
-    SetParentAndChild(verbs, climb);
+    setParentAndChild(verbs, climb);
 
 
 
@@ -530,188 +530,188 @@ export function BuildLanguageTree() // returns romanian
     var prepositions = new DataCard(
         "Prepositions", "Prepoziţii",
         "")
-    SetParentAndChild(romanian, prepositions);
+    setParentAndChild(romanian, prepositions);
 
     var after = new DataCard(
         "After", "După",
         "")
-    SetParentAndChild(prepositions, after);
+    setParentAndChild(prepositions, after);
 
     var about = new DataCard(
         "About", "Despre",
         "")
-    SetParentAndChild(prepositions, about);
+    setParentAndChild(prepositions, about);
 
     var at = new DataCard(
         "At", "La",
         "")
-    SetParentAndChild(prepositions, at);
+    setParentAndChild(prepositions, at);
 
     var from = new DataCard(
         "From", "Din",
         "")
-    SetParentAndChild(prepositions, from);
+    setParentAndChild(prepositions, from);
 
     var _in = new DataCard(
         "In", "În (Înăuntru)",
         "")
-    SetParentAndChild(prepositions, _in);
+    setParentAndChild(prepositions, _in);
 
     var _out = new DataCard("Out", "Afară", "");
-    SetParentAndChild(prepositions, _out)
+    setParentAndChild(prepositions, _out)
 
     var on = new DataCard(
         "On", "Pe",
         "")
-    SetParentAndChild(prepositions, on);
+    setParentAndChild(prepositions, on);
 
     var since = new DataCard(
         "Since", "De când",
         "")
-    SetParentAndChild(prepositions, since);
+    setParentAndChild(prepositions, since);
 
     var until = new DataCard(
         "Until (till)", "Până (la)",
         "")
-    SetParentAndChild(prepositions, until);
+    setParentAndChild(prepositions, until);
 
     var above = new DataCard(
         "Above", "De mai sus",
         "")
-    SetParentAndChild(prepositions, above);
+    setParentAndChild(prepositions, above);
 
     var against = new DataCard(
         "Against", "Împotriva",
         "")
-    SetParentAndChild(prepositions, against);
+    setParentAndChild(prepositions, against);
 
     var alongSide = new DataCard(
         "Along side (next to)", "Pe langa",
         "")
-    SetParentAndChild(prepositions, alongSide);
+    setParentAndChild(prepositions, alongSide);
 
     var amid = new DataCard(
         "Amid (in the middle of)", "În mijlocul",
         "")
-    SetParentAndChild(prepositions, amid);
+    setParentAndChild(prepositions, amid);
 
     var among = new DataCard(
         "Among", "Printre",
         "")
-    SetParentAndChild(prepositions, among);
+    setParentAndChild(prepositions, among);
 
     var apartFrom = new DataCard(
         "Apart from", "În afară de",
         "")
-    SetParentAndChild(prepositions, apartFrom);
+    setParentAndChild(prepositions, apartFrom);
 
     var at = new DataCard(
         "At", "La",
         "")
-    SetParentAndChild(prepositions, at);
+    setParentAndChild(prepositions, at);
 
     var behind = new DataCard(
         "Behind", "In spate",
         "")
-    SetParentAndChild(prepositions, behind);
+    setParentAndChild(prepositions, behind);
 
     var beneath = new DataCard(
         "Beneath", "Sub",
         "")
-    SetParentAndChild(prepositions, beneath);
+    setParentAndChild(prepositions, beneath);
 
     var by = new DataCard(
         "Of", "De",
         "")
-    SetParentAndChild(prepositions, by);
+    setParentAndChild(prepositions, by);
 
     var beside = new DataCard(
         "Beside (next to)", "Lângă",
         "")
-    SetParentAndChild(prepositions, beside);
+    setParentAndChild(prepositions, beside);
 
     var beyond = new DataCard(
         "Beyond", "Dincolo",
         "")
-    SetParentAndChild(prepositions, beyond);
+    setParentAndChild(prepositions, beyond);
 
     var closeTo = new DataCard(
         "Close to", "Aproape de",
         "")
-    SetParentAndChild(prepositions, closeTo);
+    setParentAndChild(prepositions, closeTo);
 
     var inBetween = new DataCard(
         "In between", "Între",
         "")
-    SetParentAndChild(prepositions, inBetween);
+    setParentAndChild(prepositions, inBetween);
 
     var inFrontOf = new DataCard(
         "In front of", "În fața",
         "")
-    SetParentAndChild(prepositions, inFrontOf);
+    setParentAndChild(prepositions, inFrontOf);
 
     var inside = new DataCard(
         "Inside", "Interior",
         "")
-    SetParentAndChild(prepositions, inside);
+    setParentAndChild(prepositions, inside);
 
     var near = new DataCard(
         "Near", "Apropape",
         "")
-    SetParentAndChild(prepositions, near);
+    setParentAndChild(prepositions, near);
 
     var over = new DataCard(
         "Over", "Peste",
         "")
-    SetParentAndChild(prepositions, over);
+    setParentAndChild(prepositions, over);
 
     var towards = new DataCard(
         "Towards", "Spre",
         "")
-    SetParentAndChild(prepositions, towards);
+    setParentAndChild(prepositions, towards);
 
     var without = new DataCard(
         "Without", "Fără",
         "")
-    SetParentAndChild(prepositions, without);
+    setParentAndChild(prepositions, without);
 
     var through = new DataCard(
         "Through", "Prin",
         "")
-    SetParentAndChild(prepositions, through);
+    setParentAndChild(prepositions, through);
 
     var together = new DataCard(
         "Together", "Impreuna",
         "")
-    SetParentAndChild(prepositions, together);
+    setParentAndChild(prepositions, together);
 
     var outside = new DataCard(
         "Outside", "In afara",
         "")
-    SetParentAndChild(prepositions, outside);
+    setParentAndChild(prepositions, outside);
 
     var _with = new DataCard(
         "With", "Cu",
         "")
-    SetParentAndChild(prepositions, _with);
+    setParentAndChild(prepositions, _with);
 
     var Top = new DataCard("Top", "De Sus", "");
-    SetParentAndChild(prepositions, Top)
+    setParentAndChild(prepositions, Top)
 
     var Bottom = new DataCard("Bottom", "De Jos", "");
-    SetParentAndChild(prepositions, Bottom)
+    setParentAndChild(prepositions, Bottom)
 
     var Left = new DataCard("Left", "La Stânga", "");
-    SetParentAndChild(prepositions, Left)
+    setParentAndChild(prepositions, Left)
 
     var Right = new DataCard("Right", "La Dreapta", "");
-    SetParentAndChild(prepositions, Right)
+    setParentAndChild(prepositions, Right)
 
     var High = new DataCard("High", "Sus", "");
-    SetParentAndChild(prepositions, High)
+    setParentAndChild(prepositions, High)
 
     var Low = new DataCard("Low", "Jos", "");
-    SetParentAndChild(prepositions, Low)
+    setParentAndChild(prepositions, Low)
 
 
     // =============================================================================
@@ -721,195 +721,195 @@ export function BuildLanguageTree() // returns romanian
     var adjectives = new DataCard(
         "Adjectives", "Adjective",
         "")
-    SetParentAndChild(romanian, adjectives);
+    setParentAndChild(romanian, adjectives);
 
     var every = new DataCard(
         "Every", "Fiecare",
         "")
-    SetParentAndChild(adjectives, every);
+    setParentAndChild(adjectives, every);
 
     var all = new DataCard(
         "All", "Toate",
         "")
-    SetParentAndChild(adjectives, all);
+    setParentAndChild(adjectives, all);
 
     var who = new DataCard(
         "Who", "Cine",
         "")
-    SetParentAndChild(adjectives, who);
+    setParentAndChild(adjectives, who);
 
     var sure = new DataCard(
         "Sure", "Sigur",
         "")
-    SetParentAndChild(adjectives, sure);
+    setParentAndChild(adjectives, sure);
 
     var what = new DataCard(
         "What", "Ce",
         "")
-    SetParentAndChild(adjectives, what);
+    setParentAndChild(adjectives, what);
 
     var which = new DataCard(
         "Which", "Care",
         "")
-    SetParentAndChild(adjectives, which);
+    setParentAndChild(adjectives, which);
 
     var how = new DataCard(
         "How", "Cum",
         "")
-    SetParentAndChild(adjectives, how);
+    setParentAndChild(adjectives, how);
 
     var some = new DataCard(
         "Some (approximately)", "Vreo",
         "")
-    SetParentAndChild(adjectives, some);
+    setParentAndChild(adjectives, some);
 
     var DescriptiveAdjective = new DataCard("Descriptive Adjective", "Adjective Descriptive", "");
-    SetParentAndChild(adjectives, DescriptiveAdjective)
+    setParentAndChild(adjectives, DescriptiveAdjective)
 
     var Good = new DataCard("Good", "Bine", "");
-    SetParentAndChild(DescriptiveAdjective, Good)
+    setParentAndChild(DescriptiveAdjective, Good)
 
     var Bad = new DataCard("Bad", "Rău", "");
-    SetParentAndChild(DescriptiveAdjective, Bad)
+    setParentAndChild(DescriptiveAdjective, Bad)
 
     var Fat = new DataCard("Fat", "Gras", "");
-    SetParentAndChild(DescriptiveAdjective, Fat)
+    setParentAndChild(DescriptiveAdjective, Fat)
 
     var Thin = new DataCard("Thin", "Slab", "");
-    SetParentAndChild(DescriptiveAdjective, Thin)
+    setParentAndChild(DescriptiveAdjective, Thin)
 
     var Few = new DataCard("Few", "Puține", "Puțini");
-    SetParentAndChild(adjectives, Few)
+    setParentAndChild(adjectives, Few)
 
     var Many = new DataCard("Many", "Multe", "Mulți");
-    SetParentAndChild(adjectives, Many)
+    setParentAndChild(adjectives, Many)
 
     var Cold = new DataCard("Cold", "Rece", "");
-    SetParentAndChild(DescriptiveAdjective, Cold)
+    setParentAndChild(DescriptiveAdjective, Cold)
 
     var Hot = new DataCard("Hot", "Cald (Fierbinte)", "");
-    SetParentAndChild(DescriptiveAdjective, Hot)
+    setParentAndChild(DescriptiveAdjective, Hot)
 
     var Dirty = new DataCard("Dirty", "Murdar", "");
-    SetParentAndChild(DescriptiveAdjective, Dirty)
+    setParentAndChild(DescriptiveAdjective, Dirty)
 
     var Clean = new DataCard("Clean", "Curat", "");
-    SetParentAndChild(DescriptiveAdjective, Clean)
+    setParentAndChild(DescriptiveAdjective, Clean)
 
     var Open = new DataCard("Open", "Deschis", "");
-    SetParentAndChild(DescriptiveAdjective, Open)
+    setParentAndChild(DescriptiveAdjective, Open)
 
     var Close = new DataCard("Close", "Închis", "");
-    SetParentAndChild(DescriptiveAdjective, Close)
+    setParentAndChild(DescriptiveAdjective, Close)
 
     var First = new DataCard("First", "Primul", "");
-    SetParentAndChild(DescriptiveAdjective, First)
+    setParentAndChild(DescriptiveAdjective, First)
 
     var Ultimate = new DataCard("Ultimate (Last)", "Ultimul", "");
-    SetParentAndChild(DescriptiveAdjective, Ultimate)
+    setParentAndChild(DescriptiveAdjective, Ultimate)
 
     var Wet = new DataCard("Wet", "Ud (Humed)", "");
-    SetParentAndChild(DescriptiveAdjective, Wet)
+    setParentAndChild(DescriptiveAdjective, Wet)
 
     var Dry = new DataCard("Dry", "Uscat", "");
-    SetParentAndChild(DescriptiveAdjective, Dry)
+    setParentAndChild(DescriptiveAdjective, Dry)
 
     var Small = new DataCard("Small", "Mic", "");
-    SetParentAndChild(DescriptiveAdjective, Small)
+    setParentAndChild(DescriptiveAdjective, Small)
 
     var Big = new DataCard("Big", "Mare", "");
-    SetParentAndChild(DescriptiveAdjective, Big)
+    setParentAndChild(DescriptiveAdjective, Big)
 
     var Empty = new DataCard("Empty", "Gol", "");
-    SetParentAndChild(DescriptiveAdjective, Empty)
+    setParentAndChild(DescriptiveAdjective, Empty)
 
     var Full = new DataCard("Full", "Plin", "");
-    SetParentAndChild(DescriptiveAdjective, Full)
+    setParentAndChild(DescriptiveAdjective, Full)
 
     var Dark = new DataCard("Dark", "Întunecos", "");
-    SetParentAndChild(DescriptiveAdjective, Dark)
+    setParentAndChild(DescriptiveAdjective, Dark)
 
     var Light = new DataCard("Light", "Luminos", "");
-    SetParentAndChild(DescriptiveAdjective, Light)
+    setParentAndChild(DescriptiveAdjective, Light)
 
     var New = new DataCard("New", "Nou", "");
-    SetParentAndChild(DescriptiveAdjective, New)
+    setParentAndChild(DescriptiveAdjective, New)
 
     var Old = new DataCard("Old", "Vechi", "");
-    SetParentAndChild(DescriptiveAdjective, Old)
+    setParentAndChild(DescriptiveAdjective, Old)
 
     var Easy = new DataCard("Easy", "Ușor", "");
-    SetParentAndChild(DescriptiveAdjective, Easy)
+    setParentAndChild(DescriptiveAdjective, Easy)
 
     var Difficult = new DataCard("Difficult", "Greu", "");
-    SetParentAndChild(DescriptiveAdjective, Difficult)
+    setParentAndChild(DescriptiveAdjective, Difficult)
 
     var Soft = new DataCard("Soft", "Moale", "");
-    SetParentAndChild(DescriptiveAdjective, Soft)
+    setParentAndChild(DescriptiveAdjective, Soft)
 
     var Hard = new DataCard("Hard", "Tare", "");
-    SetParentAndChild(DescriptiveAdjective, Hard)
+    setParentAndChild(DescriptiveAdjective, Hard)
 
     var Slow = new DataCard("Slow", "Încet", "");
-    SetParentAndChild(DescriptiveAdjective, Slow)
+    setParentAndChild(DescriptiveAdjective, Slow)
 
     var Fast = new DataCard("Fast", "Repede", "");
-    SetParentAndChild(DescriptiveAdjective, Fast)
+    setParentAndChild(DescriptiveAdjective, Fast)
 
     var Long = new DataCard("Long", "Lung", "");
-    SetParentAndChild(DescriptiveAdjective, Long)
+    setParentAndChild(DescriptiveAdjective, Long)
 
     var Short = new DataCard("Short", "Scurt", "");
-    SetParentAndChild(DescriptiveAdjective, Short)
+    setParentAndChild(DescriptiveAdjective, Short)
 
     var Dead = new DataCard("Dead (Wilted)", "Ofilit (Uscat)", "");
-    SetParentAndChild(DescriptiveAdjective, Dead)
+    setParentAndChild(DescriptiveAdjective, Dead)
 
     var Alive = new DataCard("Alive", "Viu", "");
-    SetParentAndChild(DescriptiveAdjective, Alive)
+    setParentAndChild(DescriptiveAdjective, Alive)
 
     var True_ = new DataCard("True", "Adevărat", "");
-    SetParentAndChild(DescriptiveAdjective, True_)
+    setParentAndChild(DescriptiveAdjective, True_)
 
     var False_ = new DataCard("False", "Fals", "");
-    SetParentAndChild(DescriptiveAdjective, False_)
+    setParentAndChild(DescriptiveAdjective, False_)
 
 
     // #Colours =======================================
     var colours = new DataCard(
         "Colours", "Culorile",
         "")
-    SetParentAndChild(adjectives, colours);
+    setParentAndChild(adjectives, colours);
 
     var brown = new DataCard("Brown", "Maro", "")
-    SetParentAndChild(colours, brown);
+    setParentAndChild(colours, brown);
 
     var white = new DataCard("White", "Alb", "")
-    SetParentAndChild(colours, white);
+    setParentAndChild(colours, white);
 
     var blue = new DataCard("Blue", "Albastru", "")
-    SetParentAndChild(colours, blue);
+    setParentAndChild(colours, blue);
 
     var black = new DataCard("Black", "Negru", "")
-    SetParentAndChild(colours, black);
+    setParentAndChild(colours, black);
 
     var orange = new DataCard("Orange", "Portocaliu", "")
-    SetParentAndChild(colours, orange);
+    setParentAndChild(colours, orange);
 
     var grey = new DataCard("Grey", "Gri", "")
-    SetParentAndChild(colours, grey);
+    setParentAndChild(colours, grey);
 
     var green = new DataCard("Green", "Verde", "")
-    SetParentAndChild(colours, green);
+    setParentAndChild(colours, green);
 
     var red = new DataCard("Red", "Roșu", "")
-    SetParentAndChild(colours, red);
+    setParentAndChild(colours, red);
 
     var purple = new DataCard("Purple", "Mov", "")
-    SetParentAndChild(colours, purple);
+    setParentAndChild(colours, purple);
 
     var yellow = new DataCard("Yellow", "Galben", "")
-    SetParentAndChild(colours, yellow);
+    setParentAndChild(colours, yellow);
 
 
 
@@ -921,2319 +921,2319 @@ export function BuildLanguageTree() // returns romanian
     var nouns = new DataCard(
         "Nouns", "Substantive",
         "Todo")
-    SetParentAndChild(romanian, nouns);
+    setParentAndChild(romanian, nouns);
 
     //#thecircus
     var TheCircus = new DataCard("The Circus", "Circul", "");
-    SetParentAndChild(nouns, TheCircus)
+    setParentAndChild(nouns, TheCircus)
 
     var Unicyclist = new DataCard("Unicyclist", "Acrobat pe Bicicletă", "");
-    SetParentAndChild(TheCircus, Unicyclist)
+    setParentAndChild(TheCircus, Unicyclist)
 
     var Trapeze = new DataCard("Trapeze", "Trapez", "");
-    SetParentAndChild(TheCircus, Trapeze)
+    setParentAndChild(TheCircus, Trapeze)
 
     var TightropeWalked = new DataCard("Tightrope Walked", "Echilibrist", "");
-    SetParentAndChild(TheCircus, TightropeWalked)
+    setParentAndChild(TheCircus, TightropeWalked)
 
     var Pole = new DataCard("Pole", "Prăjină", "");
-    SetParentAndChild(TheCircus, Pole)
+    setParentAndChild(TheCircus, Pole)
 
     var RopeLadder = new DataCard("Rope Ladder", "Scară de Frânghie", "");
-    SetParentAndChild(TheCircus, RopeLadder)
+    setParentAndChild(TheCircus, RopeLadder)
 
     var Acrobats = new DataCard("Acrobats", "Acrobați", "");
-    SetParentAndChild(TheCircus, Acrobats)
+    setParentAndChild(TheCircus, Acrobats)
 
     var Juggler = new DataCard("Juggler", "Jongler", "");
-    SetParentAndChild(TheCircus, Juggler)
+    setParentAndChild(TheCircus, Juggler)
 
     var Ringmaster = new DataCard("Ringmaster", "Maestru de Manej", "");
-    SetParentAndChild(TheCircus, Ringmaster)
+    setParentAndChild(TheCircus, Ringmaster)
 
     var TopHat = new DataCard("TopHat", "Joben", "");
-    SetParentAndChild(TheCircus, TopHat)
+    setParentAndChild(TheCircus, TopHat)
 
     var BowTieClown = new DataCard("Bowtie (Clown)", "Papion de Clovn", "");
-    SetParentAndChild(TheCircus, BowTieClown)
+    setParentAndChild(TheCircus, BowTieClown)
 
     var Clown = new DataCard("Clown", "Clovn", "");
-    SetParentAndChild(TheCircus, Clown)
+    setParentAndChild(TheCircus, Clown)
 
     var Band = new DataCard("Band", "Orchestră", "");
-    SetParentAndChild(TheCircus, Band)
+    setParentAndChild(TheCircus, Band)
 
     var TheFairground = new DataCard("The Fairground", "Parcul de Distractții", "");
-    SetParentAndChild(TheCircus, TheFairground)
+    setParentAndChild(TheCircus, TheFairground)
 
     var BigWheel = new DataCard("Big Wheel", "Roată Panoramică", "");
-    SetParentAndChild(TheCircus, BigWheel)
+    setParentAndChild(TheCircus, BigWheel)
 
     var Carousel = new DataCard("Carousel", "Carusel", "");
-    SetParentAndChild(TheCircus, Carousel)
+    setParentAndChild(TheCircus, Carousel)
 
     var CandyFloss = new DataCard("Candy Floss", "Vată pe Băț", "");
-    SetParentAndChild(TheCircus, CandyFloss)
+    setParentAndChild(TheCircus, CandyFloss)
 
     var Popcorn = new DataCard("Popcorn", "Pop-corn (Floricele de Porumb)", "");
-    SetParentAndChild(TheCircus, Popcorn)
+    setParentAndChild(TheCircus, Popcorn)
 
     var RollerCoaster = new DataCard("Roller Coaster", "Montagnes Russes", "");
-    SetParentAndChild(TheCircus, RollerCoaster)
+    setParentAndChild(TheCircus, RollerCoaster)
 
     var GhostTrain = new DataCard("Ghost Train", "Tren Fantomă", "");
-    SetParentAndChild(TheCircus, GhostTrain)
+    setParentAndChild(TheCircus, GhostTrain)
 
     var HelterSkelter = new DataCard("Helter Skelter", "Tobogan Uriaș (Spirală)", "");
-    SetParentAndChild(TheCircus, HelterSkelter)
+    setParentAndChild(TheCircus, HelterSkelter)
 
     var Dodgems = new DataCard("Dodgems (Bumper Cars)", "Mașinuțe Bușitoare", "");
-    SetParentAndChild(TheCircus, Dodgems)
+    setParentAndChild(TheCircus, Dodgems)
 
 
     //#sports
     var Sports = new DataCard("Sports", "Sporturile", "");
-    SetParentAndChild(nouns, Sports)
+    setParentAndChild(nouns, Sports)
 
     var Ball = new DataCard("Ball", "Minge", "");
-    SetParentAndChild(Sports, Ball)
+    setParentAndChild(Sports, Ball)
 
     var Basketball = new DataCard("Basketball", "Baschet", "");
-    SetParentAndChild(Sports, Basketball)
+    setParentAndChild(Sports, Basketball)
 
     var Rowing = new DataCard("Rowing", "Canotaj", "");
-    SetParentAndChild(Sports, Rowing)
+    setParentAndChild(Sports, Rowing)
 
     var Sail = new DataCard("Sail", "Velă", "");
-    SetParentAndChild(Sports, Sail)
+    setParentAndChild(Sports, Sail)
 
     var Snowboarding = new DataCard("Snowboarding", "Snowboarding", "");
-    SetParentAndChild(Sports, Snowboarding)
+    setParentAndChild(Sports, Snowboarding)
 
     var Sailing = new DataCard("Sailing", "Navigație de Agrement", "");
-    SetParentAndChild(Sports, Sailing)
+    setParentAndChild(Sports, Sailing)
 
     var Windsurfing = new DataCard("Windsurfing", "Windsurfing", "");
-    SetParentAndChild(Sports, Windsurfing)
+    setParentAndChild(Sports, Windsurfing)
 
     var Tennis = new DataCard("Tennis", "Tenis", "");
-    SetParentAndChild(Sports, Tennis)
+    setParentAndChild(Sports, Tennis)
 
     var FishingRod = new DataCard("Fishing Rod", "Undiță de Pescuit", "");
-    SetParentAndChild(Sports, FishingRod)
+    setParentAndChild(Sports, FishingRod)
 
     var Fishing = new DataCard("Fishing", "Pescuit", "");
-    SetParentAndChild(Sports, Fishing)
+    setParentAndChild(Sports, Fishing)
 
     var AmericanFootball = new DataCard("American Football", "Fotbal American", "");
-    SetParentAndChild(Sports, AmericanFootball)
+    setParentAndChild(Sports, AmericanFootball)
 
     var Gymnastics = new DataCard("Gymnastics", "Gimnastică", "");
-    SetParentAndChild(Sports, Gymnastics)
+    setParentAndChild(Sports, Gymnastics)
 
     var Cricket = new DataCard("Cricket", "Crichet", "");
-    SetParentAndChild(Sports, Cricket)
+    setParentAndChild(Sports, Cricket)
 
     var Karate = new DataCard("Karate", "Karate", "");
-    SetParentAndChild(Sports, Karate)
+    setParentAndChild(Sports, Karate)
 
     var BaseballBat = new DataCard("Baseball Bat", "Bâtă de Baseball", "");
-    SetParentAndChild(Sports, BaseballBat)
+    setParentAndChild(Sports, BaseballBat)
 
     var Dance = new DataCard("Dance", "Dans", "");
-    SetParentAndChild(Sports, Dance)
+    setParentAndChild(Sports, Dance)
 
     var Baseball = new DataCard("Baseball", "Baseball", "");
-    SetParentAndChild(Sports, Baseball)
+    setParentAndChild(Sports, Baseball)
 
     var Bait = new DataCard("Bait", "Momeală", "");
-    SetParentAndChild(Sports, Bait)
+    setParentAndChild(Sports, Bait)
 
     var Diving = new DataCard("Diving", "Săritură în apă", "");
-    SetParentAndChild(Sports, Diving)
+    setParentAndChild(Sports, Diving)
 
     var SwimmingPool = new DataCard("Swimming Pool", "Piscină", "");
-    SetParentAndChild(Sports, SwimmingPool)
+    setParentAndChild(Sports, SwimmingPool)
 
     var Rugby = new DataCard("Rugby", "Rugby", "");
-    SetParentAndChild(Sports, Rugby)
+    setParentAndChild(Sports, Rugby)
 
     var Swimming = new DataCard("Swimming", "Înot (Natație)", "");
-    SetParentAndChild(Sports, Swimming)
+    setParentAndChild(Sports, Swimming)
 
     var Race = new DataCard("Race", "Cursă (Întrecere)", "");
-    SetParentAndChild(Sports, Race)
+    setParentAndChild(Sports, Race)
 
     var Archery = new DataCard("Archery", "Tir cu Arcul", "");
-    SetParentAndChild(Sports, Archery)
+    setParentAndChild(Sports, Archery)
 
     var Target = new DataCard("Target", "Țintă", "");
-    SetParentAndChild(Sports, Target)
+    setParentAndChild(Sports, Target)
 
     var HandGliding = new DataCard("Hand Gliding", "Zbor cu Deltaplanul", "");
-    SetParentAndChild(Sports, HandGliding)
+    setParentAndChild(Sports, HandGliding)
 
     var Helmet = new DataCard("Helmet", "Cască", "");
-    SetParentAndChild(Sports, Helmet)
+    setParentAndChild(Sports, Helmet)
 
     var Jogging = new DataCard("Jogging", "Jogging (Alergare)", "");
-    SetParentAndChild(Sports, Jogging)
+    setParentAndChild(Sports, Jogging)
 
     var Judo = new DataCard("Judo", "Judo", "");
-    SetParentAndChild(Sports, Judo)
+    setParentAndChild(Sports, Judo)
 
     var Football = new DataCard("Football", "Fotbal", "");
-    SetParentAndChild(Sports, Football)
+    setParentAndChild(Sports, Football)
 
     var Badminton = new DataCard("Badminton", "Badminton", "");
-    SetParentAndChild(Sports, Badminton)
+    setParentAndChild(Sports, Badminton)
 
     var TableTennis = new DataCard("Table Tennis", "Tenis de Masă (Ping Pong)", "");
-    SetParentAndChild(Sports, TableTennis)
+    setParentAndChild(Sports, TableTennis)
 
     var HorseRiding = new DataCard("Horse Riding", "Echitație", "");
-    SetParentAndChild(Sports, HorseRiding)
+    setParentAndChild(Sports, HorseRiding)
 
     var Climbing = new DataCard("Climbing", "Escaladare Cățărare", "");
-    SetParentAndChild(Sports, Climbing)
+    setParentAndChild(Sports, Climbing)
 
     var Locker = new DataCard("Locker", "Casetă (de dulap)", "");
-    SetParentAndChild(Sports, Locker)
+    setParentAndChild(Sports, Locker)
 
     var ChangingRoom = new DataCard("Changing Room", "Vestiar", "");
-    SetParentAndChild(Sports, ChangingRoom)
+    setParentAndChild(Sports, ChangingRoom)
 
     var IceSkates = new DataCard("Ice Skates", "Patine", "");
-    SetParentAndChild(Sports, IceSkates)
+    setParentAndChild(Sports, IceSkates)
 
     var IceSkating = new DataCard("Ice Skating", "Patinaj", "");
-    SetParentAndChild(Sports, IceSkating)
+    setParentAndChild(Sports, IceSkating)
 
     var SumoWrestling = new DataCard("Sumo Wrestling", "Sumo", "");
-    SetParentAndChild(Sports, SumoWrestling)
+    setParentAndChild(Sports, SumoWrestling)
 
     var Ski = new DataCard("Ski", "Schiuri", "");
-    SetParentAndChild(Sports, Ski)
+    setParentAndChild(Sports, Ski)
 
     var Skiing = new DataCard("Skiing", "Schi", "");
-    SetParentAndChild(Sports, Skiing)
+    setParentAndChild(Sports, Skiing)
 
     //#Days #week #time
     var Time = new DataCard("Time", "Timp", "");
-    SetParentAndChild(nouns, Time)
+    setParentAndChild(nouns, Time)
 
     // #relativeTime
     var RelativeTime = new DataCard("Relative Time", "Timp Relativ", "");
-    SetParentAndChild(Time, RelativeTime)
+    setParentAndChild(Time, RelativeTime)
 
     var Next = new DataCard("Next", "Următorul", "");
-    SetParentAndChild(RelativeTime, Next)
+    setParentAndChild(RelativeTime, Next)
 
     var Last = new DataCard("Last", "Trecut", "");
-    SetParentAndChild(RelativeTime, Last)
+    setParentAndChild(RelativeTime, Last)
 
     var LastYear = new DataCard("Last Year", "Anul trecut", "");
-    SetParentAndChild(RelativeTime, LastYear)
+    setParentAndChild(RelativeTime, LastYear)
 
     var NextYear = new DataCard("Next year", "Anul Urmator", "");
-    SetParentAndChild(RelativeTime, NextYear)
+    setParentAndChild(RelativeTime, NextYear)
 
     var Tomorrow = new DataCard("Tomorrow", "Mâine", "");
-    SetParentAndChild(RelativeTime, Tomorrow)
+    setParentAndChild(RelativeTime, Tomorrow)
 
     var DayAfterTomorrow = new DataCard("The day after tomorrow", "Poimâine", "");
-    SetParentAndChild(RelativeTime, DayAfterTomorrow)
+    setParentAndChild(RelativeTime, DayAfterTomorrow)
 
     var Yesterday = new DataCard("Yesterday", "Ieri", "");
-    SetParentAndChild(RelativeTime, Yesterday)
+    setParentAndChild(RelativeTime, Yesterday)
 
     var DayBeforeYesterday = new DataCard("The day before yesterday", "Alaltaieri", "");
-    SetParentAndChild(RelativeTime, DayBeforeYesterday)
+    setParentAndChild(RelativeTime, DayBeforeYesterday)
 
     var Later = new DataCard("Late (later)", "(Mai) Târziu", "");
-    SetParentAndChild(RelativeTime, Later)
+    setParentAndChild(RelativeTime, Later)
 
 
     // #seasons
     var Seasons = new DataCard("Seasons", "Anotimpurile", "");
-    SetParentAndChild(Time, Seasons)
+    setParentAndChild(Time, Seasons)
 
     var Spring = new DataCard("Spring", "Primăvară", "");
-    SetParentAndChild(Seasons, Spring)
+    setParentAndChild(Seasons, Spring)
 
     var Autumn = new DataCard("Autumn", "Toamnă", "");
-    SetParentAndChild(Seasons, Autumn)
+    setParentAndChild(Seasons, Autumn)
 
     var Summer = new DataCard("Summer", "Vară", "");
-    SetParentAndChild(Seasons, Summer)
+    setParentAndChild(Seasons, Summer)
 
     var Winter = new DataCard("Winter", "Iarnă", "");
-    SetParentAndChild(Seasons, Winter)
+    setParentAndChild(Seasons, Winter)
 
     // #weather
     var Weather = new DataCard("The Weather", "Vremea", "");
-    SetParentAndChild(Time, Weather)
+    setParentAndChild(Time, Weather)
 
     var Rain = new DataCard("Rain", "Ploaie", "");
-    SetParentAndChild(Weather, Rain)
+    setParentAndChild(Weather, Rain)
 
     var Wind = new DataCard("Wind", "Vânt", "");
-    SetParentAndChild(Weather, Wind)
+    setParentAndChild(Weather, Wind)
 
     var Lighting = new DataCard("Lighting", "Fulger", "");
-    SetParentAndChild(Weather, Lighting)
+    setParentAndChild(Weather, Lighting)
 
     var Mist = new DataCard("Mist", "Pâclă", "");
-    SetParentAndChild(Weather, Mist)
+    setParentAndChild(Weather, Mist)
 
     var Fog = new DataCard("Fog", "Ceață", "");
-    SetParentAndChild(Weather, Fog)
+    setParentAndChild(Weather, Fog)
 
     var Snow = new DataCard("Snow", "Zăpadă", "");
-    SetParentAndChild(Weather, Snow)
+    setParentAndChild(Weather, Snow)
 
     var Frost = new DataCard("Frost", "Chiciură (Ger)", "");
-    SetParentAndChild(Weather, Frost)
+    setParentAndChild(Weather, Frost)
 
     var Clouds = new DataCard("Clouds", "Nori", "");
-    SetParentAndChild(Weather, Clouds)
+    setParentAndChild(Weather, Clouds)
 
     var Sky = new DataCard("Sky", "Cer", "");
-    SetParentAndChild(Weather, Sky)
+    setParentAndChild(Weather, Sky)
 
     var Dew = new DataCard("Dew", "Rouă", "");
-    SetParentAndChild(Weather, Dew)
+    setParentAndChild(Weather, Dew)
 
     var Rainbow = new DataCard("Rainbow", "Curcubeu", "");
-    SetParentAndChild(Weather, Rainbow)
+    setParentAndChild(Weather, Rainbow)
 
     // #specialdays #holidays
     var SpecialDays = new DataCard("Special Days", "Zile de Sărbătoare", "");
-    SetParentAndChild(Time, SpecialDays)
+    setParentAndChild(Time, SpecialDays)
 
     var Birthday = new DataCard("Birthday", "Zi de Naștere", "");
-    SetParentAndChild(SpecialDays, Birthday)
+    setParentAndChild(SpecialDays, Birthday)
 
     var BirthdayCard = new DataCard("Birthday Card", "Felicitare", "");
-    SetParentAndChild(SpecialDays, BirthdayCard)
+    setParentAndChild(SpecialDays, BirthdayCard)
 
     var Holiday = new DataCard("Holiday", "Vacanță", "");
-    SetParentAndChild(SpecialDays, Holiday)
+    setParentAndChild(SpecialDays, Holiday)
 
     var WeddingDay = new DataCard("Wedding Day", "Ziua Nunții", "");
-    SetParentAndChild(SpecialDays, WeddingDay)
+    setParentAndChild(SpecialDays, WeddingDay)
 
     var Guests = new DataCard("Guests", "Invitați", "");
-    SetParentAndChild(WeddingDay, Guests)
+    setParentAndChild(WeddingDay, Guests)
 
     var Bridesmaid = new DataCard("Bridesmaid", "Domnișoară de Onoare", "");
-    SetParentAndChild(WeddingDay, Bridesmaid)
+    setParentAndChild(WeddingDay, Bridesmaid)
 
     var Bride = new DataCard("Bride", "Mireasă", "");
-    SetParentAndChild(WeddingDay, Bride)
+    setParentAndChild(WeddingDay, Bride)
 
     var Bridegroom = new DataCard("Bridegroom (Groom)", "Mire", "");
-    SetParentAndChild(WeddingDay, Bridegroom)
+    setParentAndChild(WeddingDay, Bridegroom)
 
     var ChristmasDay = new DataCard("Christmas Day", "Ziua de Crăciun", "");
-    SetParentAndChild(SpecialDays, ChristmasDay)
+    setParentAndChild(SpecialDays, ChristmasDay)
 
     var FatherChristmas = new DataCard("Father Christmas", "Moș Crăciun", "");
-    SetParentAndChild(ChristmasDay, FatherChristmas)
+    setParentAndChild(ChristmasDay, FatherChristmas)
 
     var Sleigh = new DataCard("Sleigh", "Sanie", "");
-    SetParentAndChild(ChristmasDay, Sleigh)
+    setParentAndChild(ChristmasDay, Sleigh)
 
     var ChristmasTree = new DataCard("Christmas Tree", "Brad de Crăciun", "");
-    SetParentAndChild(ChristmasDay, ChristmasTree)
+    setParentAndChild(ChristmasDay, ChristmasTree)
 
     var Reindeer = new DataCard("Reindeer", "Ren", "");
-    SetParentAndChild(ChristmasDay, Reindeer)
+    setParentAndChild(ChristmasDay, Reindeer)
 
     var Camera = new DataCard("Camera", "Aparat de Fotografiat", "");
-    SetParentAndChild(SpecialDays, Camera)
+    setParentAndChild(SpecialDays, Camera)
 
     //#days
     var DaysOfTheWeek = new DataCard("Days (Of The Week)", "Zilele (Săptămânii)", "");
-    SetParentAndChild(Time, DaysOfTheWeek)
+    setParentAndChild(Time, DaysOfTheWeek)
 
     var Morning = new DataCard("Morning", "Dimineață", "");
-    SetParentAndChild(DaysOfTheWeek, Morning)
+    setParentAndChild(DaysOfTheWeek, Morning)
 
     var Sun = new DataCard("Sun", "Soare", "");
-    SetParentAndChild(DaysOfTheWeek, Sun)
+    setParentAndChild(DaysOfTheWeek, Sun)
 
     var Evening = new DataCard("Evening", "Seară", "");
-    SetParentAndChild(DaysOfTheWeek, Evening)
+    setParentAndChild(DaysOfTheWeek, Evening)
 
     var Night = new DataCard("Night", "Noapte", "");
-    SetParentAndChild(DaysOfTheWeek, Night)
+    setParentAndChild(DaysOfTheWeek, Night)
 
     var Space = new DataCard("Space", "Spațiu", "");
-    SetParentAndChild(DaysOfTheWeek, Space)
+    setParentAndChild(DaysOfTheWeek, Space)
 
     var Planet = new DataCard("Planet", "Planetă", "");
-    SetParentAndChild(DaysOfTheWeek, Planet)
+    setParentAndChild(DaysOfTheWeek, Planet)
 
     var Moon = new DataCard("Month (Moon)", "Lună", "");
-    SetParentAndChild(DaysOfTheWeek, Moon)
+    setParentAndChild(DaysOfTheWeek, Moon)
 
     var Star = new DataCard("Star", "Stea", "");
-    SetParentAndChild(DaysOfTheWeek, Star)
+    setParentAndChild(DaysOfTheWeek, Star)
 
     var Spaceship = new DataCard("Spaceship", "Navă Spațială", "");
-    SetParentAndChild(DaysOfTheWeek, Spaceship)
+    setParentAndChild(DaysOfTheWeek, Spaceship)
 
     var Telescope = new DataCard("Telescope", "Telescop", "");
-    SetParentAndChild(DaysOfTheWeek, Telescope)
+    setParentAndChild(DaysOfTheWeek, Telescope)
 
     var Monday = new DataCard("Monday", "Luni", "");
-    SetParentAndChild(DaysOfTheWeek, Monday)
+    setParentAndChild(DaysOfTheWeek, Monday)
 
     var Tuesday = new DataCard("Tuesday", "Marți", "");
-    SetParentAndChild(DaysOfTheWeek, Tuesday)
+    setParentAndChild(DaysOfTheWeek, Tuesday)
 
     var Wednesday = new DataCard("Wednesday", "Miercuri", "");
-    SetParentAndChild(DaysOfTheWeek, Wednesday)
+    setParentAndChild(DaysOfTheWeek, Wednesday)
 
     var Thursday = new DataCard("Thursday", "Joi", "");
-    SetParentAndChild(DaysOfTheWeek, Thursday)
+    setParentAndChild(DaysOfTheWeek, Thursday)
 
     var Friday = new DataCard("Friday", "Vineri", "");
-    SetParentAndChild(DaysOfTheWeek, Friday)
+    setParentAndChild(DaysOfTheWeek, Friday)
 
     var Saturday = new DataCard("Saturday", "Sâmbătă", "");
-    SetParentAndChild(DaysOfTheWeek, Saturday)
+    setParentAndChild(DaysOfTheWeek, Saturday)
 
     var Sunday = new DataCard("Sunday", "Duminică", "");
-    SetParentAndChild(DaysOfTheWeek, Sunday)
+    setParentAndChild(DaysOfTheWeek, Sunday)
 
     var Calendar = new DataCard("Calendar", "Calendar", "");
-    SetParentAndChild(DaysOfTheWeek, Calendar)
+    setParentAndChild(DaysOfTheWeek, Calendar)
 
     // #school #atschool
     var AtSchool = new DataCard("At School", "La Şcoală", "");
-    SetParentAndChild(nouns, AtSchool)
+    setParentAndChild(nouns, AtSchool)
 
     var Scissors = new DataCard("Scissors", "Foarfecă", "");
-    SetParentAndChild(AtSchool, Scissors)
+    setParentAndChild(AtSchool, Scissors)
 
     var Sums = new DataCard("Sums", "Calcule", "");
-    SetParentAndChild(AtSchool, Sums)
+    setParentAndChild(AtSchool, Sums)
 
     var Rubber = new DataCard("Rubber", "Gumă", "");
-    SetParentAndChild(AtSchool, Rubber)
+    setParentAndChild(AtSchool, Rubber)
 
     var Ruler = new DataCard("Ruler", "Riglă (Linie)", "");
-    SetParentAndChild(AtSchool, Ruler)
+    setParentAndChild(AtSchool, Ruler)
 
     var Photographs = new DataCard("Photographs", "Fotografii", "");
-    SetParentAndChild(AtSchool, Photographs)
+    setParentAndChild(AtSchool, Photographs)
 
     var FeltTipPen = new DataCard("Felt Tip Pen", "Carioci", "");
-    SetParentAndChild(AtSchool, FeltTipPen)
+    setParentAndChild(AtSchool, FeltTipPen)
 
     var Clay = new DataCard("Clay", "Lut", "");
-    SetParentAndChild(AtSchool, Clay)
+    setParentAndChild(AtSchool, Clay)
 
     var Pencil = new DataCard("Pencil", "Creion", "");
-    SetParentAndChild(AtSchool, Pencil)
+    setParentAndChild(AtSchool, Pencil)
 
     var Desk = new DataCard("Desk", "Bancă (Catedră)", "");
-    SetParentAndChild(AtSchool, Desk)
+    setParentAndChild(AtSchool, Desk)
 
     var Books = new DataCard("Books", "Cărți", "");
-    SetParentAndChild(AtSchool, Books)
+    setParentAndChild(AtSchool, Books)
 
     var Pen = new DataCard("Pen", "Stilou", "");
-    SetParentAndChild(AtSchool, Pen)
+    setParentAndChild(AtSchool, Pen)
 
     var Glue = new DataCard("Glue", "Lipici", "");
-    SetParentAndChild(AtSchool, Glue)
+    setParentAndChild(AtSchool, Glue)
 
     var Chalk = new DataCard("Chalk", "Cretă", "");
-    SetParentAndChild(AtSchool, Chalk)
+    setParentAndChild(AtSchool, Chalk)
 
     var Drawing = new DataCard("Drawing", "Desen", "");
-    SetParentAndChild(AtSchool, Drawing)
+    setParentAndChild(AtSchool, Drawing)
 
     var Board = new DataCard("Board", "Tablă", "");
-    SetParentAndChild(AtSchool, Board)
+    setParentAndChild(AtSchool, Board)
 
     var DoorHandle = new DataCard("Door Handle", "Clanță", "");
-    SetParentAndChild(AtSchool, DoorHandle)
+    setParentAndChild(AtSchool, DoorHandle)
 
     var Plant = new DataCard("Plant", "Plantă", "");
-    SetParentAndChild(AtSchool, Plant)
+    setParentAndChild(AtSchool, Plant)
 
     var Globe = new DataCard("Globe", "Glob", "");
-    SetParentAndChild(AtSchool, Globe)
+    setParentAndChild(AtSchool, Globe)
 
     var Crayons = new DataCard("Crayons", "Creioane (Cerate)", "");
-    SetParentAndChild(AtSchool, Crayons)
+    setParentAndChild(AtSchool, Crayons)
 
     var Easel = new DataCard("Easel", "Şevalet", "");
-    SetParentAndChild(AtSchool, Easel)
+    setParentAndChild(AtSchool, Easel)
 
     var BlindCurtain = new DataCard("Blind (Curtain)", "Jaluzea (Stor)", "");
-    SetParentAndChild(AtSchool, BlindCurtain)
+    setParentAndChild(AtSchool, BlindCurtain)
 
     var Paper = new DataCard("Paper", "Hârtie", "");
-    SetParentAndChild(AtSchool, Paper)
+    setParentAndChild(AtSchool, Paper)
 
     var Alphabet = new DataCard("Alphabet", "Alfabet", "");
-    SetParentAndChild(AtSchool, Alphabet)
+    setParentAndChild(AtSchool, Alphabet)
 
     var Notebook = new DataCard("Notebook", "Caiet", "");
-    SetParentAndChild(AtSchool, Notebook)
+    setParentAndChild(AtSchool, Notebook)
 
     var paintBrush = new DataCard("Paint Brush", "Pensulă", "");
-    SetParentAndChild(AtSchool, paintBrush)
+    setParentAndChild(AtSchool, paintBrush)
 
     var Map_ = new DataCard("Map", "Hartă", "");
-    SetParentAndChild(AtSchool, Map_)
+    setParentAndChild(AtSchool, Map_)
 
     var Box = new DataCard("Box", "Cutie", "");
-    SetParentAndChild(AtSchool, Box)
+    setParentAndChild(AtSchool, Box)
 
     var Aquarium = new DataCard("Aquarium", "Acvariu", "");
-    SetParentAndChild(AtSchool, Aquarium)
+    setParentAndChild(AtSchool, Aquarium)
 
     var Badge = new DataCard("Badge", "Insignă", "");
-    SetParentAndChild(AtSchool, Badge)
+    setParentAndChild(AtSchool, Badge)
 
     var WastePaperBin = new DataCard("Waste Paper Bin", "Coș de Hârtii", "");
-    SetParentAndChild(AtSchool, WastePaperBin)
+    setParentAndChild(AtSchool, WastePaperBin)
 
     // #hospital #thehospital / #doctor #thedoctor
     var TheHospitalAndTheDoctor = new DataCard("The Hospital and The Doctor", "Spitalul ș Doctorul", "");
-    SetParentAndChild(nouns, TheHospitalAndTheDoctor)
+    setParentAndChild(nouns, TheHospitalAndTheDoctor)
 
     var CottolWool = new DataCard("Cottol Wool", "Vată", "");
-    SetParentAndChild(TheHospitalAndTheDoctor, CottolWool)
+    setParentAndChild(TheHospitalAndTheDoctor, CottolWool)
 
     var Medecine = new DataCard("Medecine", "Medicament", "");
-    SetParentAndChild(TheHospitalAndTheDoctor, Medecine)
+    setParentAndChild(TheHospitalAndTheDoctor, Medecine)
 
     var Lift = new DataCard("Lift", "Lift (Ascensor)", "");
-    SetParentAndChild(TheHospitalAndTheDoctor, Lift)
+    setParentAndChild(TheHospitalAndTheDoctor, Lift)
 
     var Crutches = new DataCard("Crutches", "Cârje", "");
-    SetParentAndChild(TheHospitalAndTheDoctor, Crutches)
+    setParentAndChild(TheHospitalAndTheDoctor, Crutches)
 
     var Pills = new DataCard("Pills", "Pastille", "");
-    SetParentAndChild(TheHospitalAndTheDoctor, Pills)
+    setParentAndChild(TheHospitalAndTheDoctor, Pills)
 
     var Tray = new DataCard("Tray", "Tavă", "");
-    SetParentAndChild(TheHospitalAndTheDoctor, Tray)
+    setParentAndChild(TheHospitalAndTheDoctor, Tray)
 
     var Thermometer = new DataCard("Thermometer", "Termometru", "");
-    SetParentAndChild(TheHospitalAndTheDoctor, Thermometer)
+    setParentAndChild(TheHospitalAndTheDoctor, Thermometer)
 
     var Curtains = new DataCard("Curtains", "Perdea", "");
-    SetParentAndChild(TheHospitalAndTheDoctor, Curtains)
+    setParentAndChild(TheHospitalAndTheDoctor, Curtains)
 
     var Cast = new DataCard("Cast (Plaster)", "Ghips", "");
-    SetParentAndChild(TheHospitalAndTheDoctor, Cast)
+    setParentAndChild(TheHospitalAndTheDoctor, Cast)
 
     var Bandage = new DataCard("Bandage", "Bandage (Pansament)", "");
-    SetParentAndChild(TheHospitalAndTheDoctor, Bandage)
+    setParentAndChild(TheHospitalAndTheDoctor, Bandage)
 
     var Wheelchair = new DataCard("Wheelchair", "Scaun cu Rotile", "");
-    SetParentAndChild(TheHospitalAndTheDoctor, Wheelchair)
+    setParentAndChild(TheHospitalAndTheDoctor, Wheelchair)
 
     var Syringe = new DataCard("Syringe", "Seringă", "");
-    SetParentAndChild(TheHospitalAndTheDoctor, Syringe)
+    setParentAndChild(TheHospitalAndTheDoctor, Syringe)
 
     var Tissues = new DataCard("Tissues (Napkin)", "Batiste de Hârtie (Șerveţel)", "");
-    SetParentAndChild(TheHospitalAndTheDoctor, Tissues)
+    setParentAndChild(TheHospitalAndTheDoctor, Tissues)
 
     var Handkerchief = new DataCard("Handkerchief", "Batiste", "");
-    SetParentAndChild(TheHospitalAndTheDoctor, Handkerchief)
+    setParentAndChild(TheHospitalAndTheDoctor, Handkerchief)
 
     var WaitingRoom = new DataCard("Waiting Room", "Sală de Așteptare", "");
-    SetParentAndChild(TheHospitalAndTheDoctor, WaitingRoom)
+    setParentAndChild(TheHospitalAndTheDoctor, WaitingRoom)
 
     var WalkingStick = new DataCard("Walking Stick", "Baston", "");
-    SetParentAndChild(TheHospitalAndTheDoctor, WalkingStick)
+    setParentAndChild(TheHospitalAndTheDoctor, WalkingStick)
 
     var GreetingsCards = new DataCard("Cards (Greeting)", "Pliante", "");
-    SetParentAndChild(TheHospitalAndTheDoctor, GreetingsCards)
+    setParentAndChild(TheHospitalAndTheDoctor, GreetingsCards)
 
     var Plaster = new DataCard("Plaster", "Plasture", "");
-    SetParentAndChild(TheHospitalAndTheDoctor, Plaster)
+    setParentAndChild(TheHospitalAndTheDoctor, Plaster)
 
     // #thebeach #beach #seaside
     var TheBeach = new DataCard("The Beach", "Plaja", "");
-    SetParentAndChild(nouns, TheBeach)
+    setParentAndChild(nouns, TheBeach)
 
     var SailingBoat = new DataCard("Sailing Boat", "Barcă cu Pânze", "");
-    SetParentAndChild(TheBeach, SailingBoat)
+    setParentAndChild(TheBeach, SailingBoat)
 
     var Sea = new DataCard("Sea", "Mare", "");
-    SetParentAndChild(TheBeach, Sea)
+    setParentAndChild(TheBeach, Sea)
 
     var Lighthouse = new DataCard("Lighthouse", "Far", "");
-    SetParentAndChild(TheBeach, Lighthouse)
+    setParentAndChild(TheBeach, Lighthouse)
 
     var Spade = new DataCard("Spade", "Lopățică", "");
-    SetParentAndChild(TheBeach, Spade)
+    setParentAndChild(TheBeach, Spade)
 
     var Bucket = new DataCard("Bucket", "Găletușă", "");
-    SetParentAndChild(TheBeach, Bucket)
+    setParentAndChild(TheBeach, Bucket)
 
     var Sandcastle = new DataCard("Sandcastle", "Castel de Nisip", "");
-    SetParentAndChild(TheBeach, Sandcastle)
+    setParentAndChild(TheBeach, Sandcastle)
 
     var Umbrella = new DataCard("Umbrella", "Umbrelă (de Soare)", "");
-    SetParentAndChild(TheBeach, Umbrella)
+    setParentAndChild(TheBeach, Umbrella)
 
     var Flag = new DataCard("Flag", "Steag", "");
-    SetParentAndChild(TheBeach, Flag)
+    setParentAndChild(TheBeach, Flag)
 
     var Island = new DataCard("Island", "Insulă", "");
-    SetParentAndChild(TheBeach, Island)
+    setParentAndChild(TheBeach, Island)
 
     var MotorBoat = new DataCard("Motor Boat", "Barcă cu Motor", "");
-    SetParentAndChild(TheBeach, MotorBoat)
+    setParentAndChild(TheBeach, MotorBoat)
 
     var Shell = new DataCard("Shell", "Scoică", "");
-    SetParentAndChild(TheBeach, Shell)
+    setParentAndChild(TheBeach, Shell)
 
     var Beach = new DataCard("Beach", "Plajă", "");
-    SetParentAndChild(TheBeach, Beach)
+    setParentAndChild(TheBeach, Beach)
 
     var RowingBoat = new DataCard("Rowing Boat", "Barcă", "");
-    SetParentAndChild(TheBeach, RowingBoat)
+    setParentAndChild(TheBeach, RowingBoat)
 
     var Deckchair = new DataCard("Deckchair", "Şezlong", "");
-    SetParentAndChild(TheBeach, Deckchair)
+    setParentAndChild(TheBeach, Deckchair)
 
     var Suncream = new DataCard("Suncream", "Cremă de Protecție Solară", "");
-    SetParentAndChild(TheBeach, Suncream)
+    setParentAndChild(TheBeach, Suncream)
 
     var FishingBoat = new DataCard("Fishing Boat", "Barcă de Pescuit", "");
-    SetParentAndChild(TheBeach, FishingBoat)
+    setParentAndChild(TheBeach, FishingBoat)
 
     var Paddle = new DataCard("Paddle", "Pagaie", "");
-    SetParentAndChild(TheBeach, Paddle)
+    setParentAndChild(TheBeach, Paddle)
 
     var FishingNet = new DataCard("Fishing Net", "Plasă de Pescuit", "");
-    SetParentAndChild(TheBeach, FishingNet)
+    setParentAndChild(TheBeach, FishingNet)
 
     var Seaweed = new DataCard("Seaweed", "Alge", "");
-    SetParentAndChild(TheBeach, Seaweed)
+    setParentAndChild(TheBeach, Seaweed)
 
     var Pebbles = new DataCard("Pebbles", "Pietricele", "");
-    SetParentAndChild(TheBeach, Pebbles)
+    setParentAndChild(TheBeach, Pebbles)
 
     var Rope = new DataCard("Rope", "Frânghie", "");
-    SetParentAndChild(TheBeach, Rope)
+    setParentAndChild(TheBeach, Rope)
 
     var Canoe = new DataCard("Canoe", "Canoe", "");
-    SetParentAndChild(TheBeach, Canoe)
+    setParentAndChild(TheBeach, Canoe)
 
     var Ship = new DataCard("Ship", "Vapor (Vas)", "");
-    SetParentAndChild(TheBeach, Ship)
+    setParentAndChild(TheBeach, Ship)
 
     var Cliff = new DataCard("Cliff", "Faleză", "");
-    SetParentAndChild(TheBeach, Cliff)
+    setParentAndChild(TheBeach, Cliff)
 
     var Waves = new DataCard("Waves", "Valuri", "");
-    SetParentAndChild(TheBeach, Waves)
+    setParentAndChild(TheBeach, Waves)
 
     // #thefarm #farm
     var TheFarm = new DataCard("The Farm", "Ferma", "");
-    SetParentAndChild(nouns, TheFarm)
+    setParentAndChild(nouns, TheFarm)
 
     var Haystack = new DataCard("Haystack", "Căpiță de Fân", "");
-    SetParentAndChild(TheFarm, Haystack)
+    setParentAndChild(TheFarm, Haystack)
 
     var Pond = new DataCard("Pond", "Iaz (Heleșteu)", "");
-    SetParentAndChild(TheFarm, Pond)
+    setParentAndChild(TheFarm, Pond)
 
     var Hayloft = new DataCard("Hayloft", "Şură (pod)", "");
-    SetParentAndChild(TheFarm, Hayloft)
+    setParentAndChild(TheFarm, Hayloft)
 
     var Pigsty = new DataCard("Pigsty", "Cocină", "");
-    SetParentAndChild(TheFarm, Pigsty)
+    setParentAndChild(TheFarm, Pigsty)
 
     var ChickenShed = new DataCard("Chicken Shed", "Coteț de Păsări", "");
-    SetParentAndChild(TheFarm, ChickenShed)
+    setParentAndChild(TheFarm, ChickenShed)
 
     var Tractor = new DataCard("Tractor", "Tractor", "");
-    SetParentAndChild(TheFarm, Tractor)
+    setParentAndChild(TheFarm, Tractor)
 
     var Barn = new DataCard("Barn", "Hangar (Şopron)", "");
-    SetParentAndChild(TheFarm, Barn)
+    setParentAndChild(TheFarm, Barn)
 
     var Mud = new DataCard("Mud", "Nuroi", "");
-    SetParentAndChild(TheFarm, Mud)
+    setParentAndChild(TheFarm, Mud)
 
     var Cart = new DataCard("Cart", "Căruț", "");
-    SetParentAndChild(TheFarm, Cart)
+    setParentAndChild(TheFarm, Cart)
 
     var Hay = new DataCard("Hay", "Fân", "");
-    SetParentAndChild(TheFarm, Hay)
+    setParentAndChild(TheFarm, Hay)
 
     var StrawBales = new DataCard("Straw Bales", "Baloți de Paie", "");
-    SetParentAndChild(TheFarm, StrawBales)
+    setParentAndChild(TheFarm, StrawBales)
 
     var Farmhouse = new DataCard("Farmhouse", "Fermă", "");
-    SetParentAndChild(TheFarm, Farmhouse)
+    setParentAndChild(TheFarm, Farmhouse)
 
     var Scarecrow = new DataCard("Scarecrow", "Sperietoare (de Ciori)", "");
-    SetParentAndChild(TheFarm, Scarecrow)
+    setParentAndChild(TheFarm, Scarecrow)
 
     var Stable = new DataCard("Stable (Horses, Cows)", "Grajd de (Cai, Vite)", "");
-    SetParentAndChild(TheFarm, Stable)
+    setParentAndChild(TheFarm, Stable)
 
     var Saddle = new DataCard("Saddle", "Şa", "");
-    SetParentAndChild(TheFarm, Saddle)
+    setParentAndChild(TheFarm, Saddle)
 
     var Field = new DataCard("Field", "Câmo", "");
-    SetParentAndChild(TheFarm, Field)
+    setParentAndChild(TheFarm, Field)
 
     var Orchard = new DataCard("Orchard", "Livadă", "");
-    SetParentAndChild(TheFarm, Orchard)
+    setParentAndChild(TheFarm, Orchard)
 
     var Plough = new DataCard("Plough", "Plug", "");
-    SetParentAndChild(TheFarm, Plough)
+    setParentAndChild(TheFarm, Plough)
 
 
     //#thepark #park
     var ThePark = new DataCard("The Park", "Parcul", "");
-    SetParentAndChild(nouns, ThePark)
+    setParentAndChild(nouns, ThePark)
 
     var Swings = new DataCard("Swings", "Leagăne", "");
-    SetParentAndChild(ThePark, Swings)
+    setParentAndChild(ThePark, Swings)
 
     var Sandpit = new DataCard("Sandpit", "Groapă de Nisip", "");
-    SetParentAndChild(ThePark, Sandpit)
+    setParentAndChild(ThePark, Sandpit)
 
     var Picnic = new DataCard("Picnic", "Picnic", "");
-    SetParentAndChild(ThePark, Picnic)
+    setParentAndChild(ThePark, Picnic)
 
     var Kite = new DataCard("Kite", "Zmeu", "");
-    SetParentAndChild(ThePark, Kite)
+    setParentAndChild(ThePark, Kite)
 
     var Gate = new DataCard("Gate", "Poartă", "");
-    SetParentAndChild(ThePark, Gate)
+    setParentAndChild(ThePark, Gate)
 
     var Slide = new DataCard("Slide", "Tobogan", "");
-    SetParentAndChild(ThePark, Slide)
+    setParentAndChild(ThePark, Slide)
 
     var Lake = new DataCard("Lake", "Lac", "");
-    SetParentAndChild(ThePark, Lake)
+    setParentAndChild(ThePark, Lake)
 
     var Bush = new DataCard("Bush", "Tufiș", "");
-    SetParentAndChild(ThePark, Bush)
+    setParentAndChild(ThePark, Bush)
 
     var FlowerBed = new DataCard("Flower Bed", "Rond de Flori", "");
-    SetParentAndChild(ThePark, FlowerBed)
+    setParentAndChild(ThePark, FlowerBed)
 
     var Leash = new DataCard("Leash", "Leșă", "");
-    SetParentAndChild(ThePark, Leash)
+    setParentAndChild(ThePark, Leash)
 
     var SkippingRope = new DataCard("Skipping Rope", "Coardă de Sărit", "");
-    SetParentAndChild(ThePark, SkippingRope)
+    setParentAndChild(ThePark, SkippingRope)
 
     var Puddle = new DataCard("Puddle", "Baltă (Băltoacă)", "");
-    SetParentAndChild(ThePark, Puddle)
+    setParentAndChild(ThePark, Puddle)
 
     var String = new DataCard("String", "Sfoară", "");
-    SetParentAndChild(ThePark, String)
+    setParentAndChild(ThePark, String)
 
     var FenceRailings = new DataCard("Fence Railings", "Gard", "");
-    SetParentAndChild(ThePark, FenceRailings)
+    setParentAndChild(ThePark, FenceRailings)
 
     var Seesaw = new DataCard("Seesaw", "Balansoar", "");
-    SetParentAndChild(ThePark, Seesaw)
+    setParentAndChild(ThePark, Seesaw)
 
     var Earth = new DataCard("Earth", "Pământ (Soil)", "");
-    SetParentAndChild(ThePark, Earth)
+    setParentAndChild(ThePark, Earth)
 
     //#thestreet #street
     var TheStreet = new DataCard("The Street", "Strada", "");
-    SetParentAndChild(nouns, TheStreet)
+    setParentAndChild(nouns, TheStreet)
 
     var Shop = new DataCard("Shop", "Magazin", "");
-    SetParentAndChild(TheStreet, Shop)
+    setParentAndChild(TheStreet, Shop)
 
     var Hole = new DataCard("Hole", "Gaură", "");
-    SetParentAndChild(TheStreet, Hole)
+    setParentAndChild(TheStreet, Hole)
 
     var Cafe = new DataCard("Cafe", "Cafenea", "");
-    SetParentAndChild(TheStreet, Cafe)
+    setParentAndChild(TheStreet, Cafe)
 
     var Ambulance = new DataCard("Ambulance", "Ambulanță", "");
-    SetParentAndChild(TheStreet, Ambulance)
+    setParentAndChild(TheStreet, Ambulance)
 
     var Pavement = new DataCard("Pavement", "Trotuar", "");
-    SetParentAndChild(TheStreet, Pavement)
+    setParentAndChild(TheStreet, Pavement)
 
     var Statue = new DataCard("Statue", "Statuie", "");
-    SetParentAndChild(TheStreet, Statue)
+    setParentAndChild(TheStreet, Statue)
 
     var Roof = new DataCard("Roof", "Acoperiș", "");
-    SetParentAndChild(TheStreet, Roof)
+    setParentAndChild(TheStreet, Roof)
 
     var Digger = new DataCard("Digger", "Excavator", "");
-    SetParentAndChild(TheStreet, Digger)
+    setParentAndChild(TheStreet, Digger)
 
     var Hotel = new DataCard("Hotel", "Hotel", "");
-    SetParentAndChild(TheStreet, Hotel)
+    setParentAndChild(TheStreet, Hotel)
 
     var PoliceCar = new DataCard("Police Car", "Mașină de Poliție", "");
-    SetParentAndChild(TheStreet, PoliceCar)
+    setParentAndChild(TheStreet, PoliceCar)
 
     var Pipes = new DataCard("Pipes", "Țevi", "");
-    SetParentAndChild(TheStreet, Pipes)
+    setParentAndChild(TheStreet, Pipes)
 
     var JackHammer = new DataCard("Jack-hammer", "Picamăr", "");
-    SetParentAndChild(TheStreet, JackHammer)
+    setParentAndChild(TheStreet, JackHammer)
 
     var Playground = new DataCard("Playground", "Curtea Şcoală", "");
-    SetParentAndChild(TheStreet, Playground)
+    setParentAndChild(TheStreet, Playground)
 
     var ZebraCrossing = new DataCard("Zebra Crossing", "Trecere Pentru Pietoni (Zebră)", "");
-    SetParentAndChild(TheStreet, ZebraCrossing)
+    setParentAndChild(TheStreet, ZebraCrossing)
 
     var Factory = new DataCard("Factory", "Fabrică", "");
-    SetParentAndChild(TheStreet, Factory)
+    setParentAndChild(TheStreet, Factory)
 
     var Lorry = new DataCard("Lorry", "Camion", "");
-    SetParentAndChild(TheStreet, Lorry)
+    setParentAndChild(TheStreet, Lorry)
 
     var Cinema = new DataCard("Cinema", "Cinematograf", "");
-    SetParentAndChild(TheStreet, Cinema)
+    setParentAndChild(TheStreet, Cinema)
 
     var Van = new DataCard("Van", "Camionetă", "");
-    SetParentAndChild(TheStreet, Van)
+    setParentAndChild(TheStreet, Van)
 
     var Trailer = new DataCard("Trailer", "Remorcă", "");
-    SetParentAndChild(TheStreet, Trailer)
+    setParentAndChild(TheStreet, Trailer)
 
     var House = new DataCard("House", "Casă", "");
-    SetParentAndChild(TheStreet, House)
+    setParentAndChild(TheStreet, House)
 
     var Market = new DataCard("Market", "Piață", "");
-    SetParentAndChild(TheStreet, Market)
+    setParentAndChild(TheStreet, Market)
 
     var Steps = new DataCard("Steps", "Trepte (Scări)", "");
-    SetParentAndChild(TheStreet, Steps)
+    setParentAndChild(TheStreet, Steps)
 
     var Flats = new DataCard("Flats", "Bloc (Imobil)", "");
-    SetParentAndChild(TheStreet, Flats)
+    setParentAndChild(TheStreet, Flats)
 
     var LampPost = new DataCard("Lamp Post", "Stâlp de Iluminat", "");
-    SetParentAndChild(TheStreet, LampPost)
+    setParentAndChild(TheStreet, LampPost)
 
     var FireEngine = new DataCard("Fire Engine", "Mașină de Pompieri", "");
-    SetParentAndChild(TheStreet, FireEngine)
+    setParentAndChild(TheStreet, FireEngine)
 
     //#travel
     var Travel = new DataCard("Travel", "Călătoria", "");
-    SetParentAndChild(nouns, Travel)
+    setParentAndChild(nouns, Travel)
 
     var RollerBlades = new DataCard("Roller Blades", "Role", "");
-    SetParentAndChild(Travel, RollerBlades)
+    setParentAndChild(Travel, RollerBlades)
 
     var Yacht = new DataCard("Yacht", "Bărcuță (Barcă)", "");
-    SetParentAndChild(Travel, Yacht)
+    setParentAndChild(Travel, Yacht)
 
     var Tricycle = new DataCard("Tricycle", "Tricicletă", "");
-    SetParentAndChild(Travel, Tricycle)
+    setParentAndChild(Travel, Tricycle)
 
     var Skateboard = new DataCard("Skateboard", "Skateboard", "");
-    SetParentAndChild(Travel, Skateboard)
+    setParentAndChild(Travel, Skateboard)
 
     var Bicycle = new DataCard("Bicycle", "Bicicletă", "");
-    SetParentAndChild(Travel, Bicycle)
+    setParentAndChild(Travel, Bicycle)
 
     var Motorbike = new DataCard("Motorbike", "Motocicletă", "");
-    SetParentAndChild(Travel, Motorbike)
+    setParentAndChild(Travel, Motorbike)
 
     var Car = new DataCard("Car", "Mașină", "");
-    SetParentAndChild(TheStreet, Car)
+    setParentAndChild(TheStreet, Car)
 
     var Taxi = new DataCard("Taxi", "Taxi", "");
-    SetParentAndChild(Travel, Taxi)
+    setParentAndChild(Travel, Taxi)
 
     var Bus = new DataCard("Bus", "Autobuz", "");
-    SetParentAndChild(Travel, Bus)
+    setParentAndChild(Travel, Bus)
 
     var Train = new DataCard("Train", "Tren", "");
-    SetParentAndChild(Travel, Train)
+    setParentAndChild(Travel, Train)
 
     var Caravan = new DataCard("Caravan", "Rulotă", "");
-    SetParentAndChild(Travel, Caravan)
+    setParentAndChild(Travel, Caravan)
 
     var Barge = new DataCard("Barge", "Şalupă", "");
-    SetParentAndChild(Travel, Barge)
+    setParentAndChild(Travel, Barge)
 
     var RailwayStation = new DataCard("Railway Station", "Gara", "");
-    SetParentAndChild(Travel, RailwayStation)
+    setParentAndChild(Travel, RailwayStation)
 
     var CarGarage = new DataCard("Car Garage", "Garajul", "");
-    SetParentAndChild(Travel, CarGarage)
+    setParentAndChild(Travel, CarGarage)
 
     var Aeroport = new DataCard("Aeroport", "Aeroportul", "");
-    SetParentAndChild(Travel, Aeroport)
+    setParentAndChild(Travel, Aeroport)
 
     var CarWash = new DataCard("CarWash", "Spălătorie Auto", "");
-    SetParentAndChild(Travel, CarWash)
+    setParentAndChild(Travel, CarWash)
 
     var RailwayTrack = new DataCard("RailwayTrack", "Cale Ferată", "");
-    SetParentAndChild(Travel, RailwayTrack)
+    setParentAndChild(Travel, RailwayTrack)
 
     var TrainEngine = new DataCard("Train Engine", "Locomotivă", "");
-    SetParentAndChild(Travel, TrainEngine)
+    setParentAndChild(Travel, TrainEngine)
 
     var Platform = new DataCard("Platform", "Peron", "");
-    SetParentAndChild(Travel, Platform)
+    setParentAndChild(Travel, Platform)
 
     var TicketMachine = new DataCard("Ticket Machine", "Automat de Bilete", "");
-    SetParentAndChild(Travel, TicketMachine)
+    setParentAndChild(Travel, TicketMachine)
 
     var TrafficLight = new DataCard("Traffic Light", "Semafor", "");
-    SetParentAndChild(Travel, TrafficLight)
+    setParentAndChild(Travel, TrafficLight)
 
     var Backpack = new DataCard("Backpack", "Rucsac", "");
-    SetParentAndChild(Travel, Backpack)
+    setParentAndChild(Travel, Backpack)
 
     var Headlights = new DataCard("Headlights", "Faruri", "");
-    SetParentAndChild(Travel, Headlights)
+    setParentAndChild(Travel, Headlights)
 
     var Engine = new DataCard("Engine", "Motor", "");
-    SetParentAndChild(Travel, Engine)
+    setParentAndChild(Travel, Engine)
 
     var Wheel = new DataCard("Wheel", "Roată", "");
-    SetParentAndChild(Travel, Wheel)
+    setParentAndChild(Travel, Wheel)
 
     var Battery = new DataCard("Battery", "Baterie", "");
-    SetParentAndChild(Travel, Battery)
+    setParentAndChild(Travel, Battery)
 
     var Suitcase = new DataCard("Suitcase", "Valiză", "");
-    SetParentAndChild(Travel, Suitcase)
+    setParentAndChild(Travel, Suitcase)
 
     var Carriages = new DataCard("Carriages", "Vagoane", "");
-    SetParentAndChild(Travel, Carriages)
+    setParentAndChild(Travel, Carriages)
 
     var Aeroplane = new DataCard("Aeroplane", "Avion", "");
-    SetParentAndChild(Travel, Aeroplane)
+    setParentAndChild(Travel, Aeroplane)
 
     var Helicopter = new DataCard("Helicopter", "Elicopter", "");
-    SetParentAndChild(Travel, Helicopter)
+    setParentAndChild(Travel, Helicopter)
 
     var Runway = new DataCard("Runway", "Pistă", "");
-    SetParentAndChild(Travel, Runway)
+    setParentAndChild(Travel, Runway)
 
     var ControlTower = new DataCard("Control Tower", "Turn de Control", "");
-    SetParentAndChild(Travel, ControlTower)
+    setParentAndChild(Travel, ControlTower)
 
     var CarBoot = new DataCard("Car Boot", "Portbagaj", "");
-    SetParentAndChild(Travel, CarBoot)
+    setParentAndChild(Travel, CarBoot)
 
     var Petrol = new DataCard("Petrol", "Benzină", "");
-    SetParentAndChild(Travel, Petrol)
+    setParentAndChild(Travel, Petrol)
 
     var BreakdownLorry = new DataCard("Breakdown Lorry", "Mașină de Tractare", "");
-    SetParentAndChild(Travel, BreakdownLorry)
+    setParentAndChild(Travel, BreakdownLorry)
 
     var PetrolPump = new DataCard("Petrol Pump", "Pompă de Benzină", "");
-    SetParentAndChild(Travel, PetrolPump)
+    setParentAndChild(Travel, PetrolPump)
 
     var Oil = new DataCard("Oil", "Ulei", "");
-    SetParentAndChild(Travel, Oil)
+    setParentAndChild(Travel, Oil)
 
     var Bonnet = new DataCard("Bonnet", "Capotă", "");
-    SetParentAndChild(Travel, Bonnet)
+    setParentAndChild(Travel, Bonnet)
 
     var Tyre = new DataCard("Tyre", "Pneu (Cauciuc)", "");
-    SetParentAndChild(Travel, Tyre)
+    setParentAndChild(Travel, Tyre)
 
     var Spanner = new DataCard("Spanner", "Cheie Fixă", "");
-    SetParentAndChild(Travel, Spanner)
+    setParentAndChild(Travel, Spanner)
 
     var PetrolTanker = new DataCard("Petrol Tanker", "Camion-cisternă", "");
-    SetParentAndChild(Travel, PetrolTanker)
+    setParentAndChild(Travel, PetrolTanker)
 
     //#country #thecountry
     var TheCountry = new DataCard("The Country", "La Țară", "");
-    SetParentAndChild(nouns, TheCountry)
+    setParentAndChild(nouns, TheCountry)
 
     var Stream = new DataCard("Stream", "Pârâu", "");
-    SetParentAndChild(TheCountry, Stream)
+    setParentAndChild(TheCountry, Stream)
 
     var Windmill = new DataCard("Windmill", "Moară de Vânt", "");
-    SetParentAndChild(TheCountry, Windmill)
+    setParentAndChild(TheCountry, Windmill)
 
     var HotAirBalloon = new DataCard("Hot Air Balloon", "Balon (cu Aer Cald)", "");
-    SetParentAndChild(TheCountry, HotAirBalloon)
+    setParentAndChild(TheCountry, HotAirBalloon)
 
     var Stones = new DataCard("Stones", "Pietre", "");
-    SetParentAndChild(TheCountry, Stones)
+    setParentAndChild(TheCountry, Stones)
 
     var Signpost = new DataCard("Signpost", "Stâlp Indicator", "");
-    SetParentAndChild(TheCountry, Signpost)
+    setParentAndChild(TheCountry, Signpost)
 
     var CanalLock = new DataCard("Lock (for Canal)", "Ecluză", "");
-    SetParentAndChild(TheCountry, CanalLock)
+    setParentAndChild(TheCountry, CanalLock)
 
     var Forest = new DataCard("Forest", "Pădure", "");
-    SetParentAndChild(TheCountry, Forest)
+    setParentAndChild(TheCountry, Forest)
 
     var River = new DataCard("River", "Râu", "");
-    SetParentAndChild(TheCountry, River)
+    setParentAndChild(TheCountry, River)
 
     var Road = new DataCard("Road", "Drum (Şosea)", "");
-    SetParentAndChild(TheCountry, Road)
+    setParentAndChild(TheCountry, Road)
 
     var Rocks = new DataCard("Rocks", "Stânci", "");
-    SetParentAndChild(TheCountry, Rocks)
+    setParentAndChild(TheCountry, Rocks)
 
     var Hill = new DataCard("Hill", "Deal (Colină)", "");
-    SetParentAndChild(TheCountry, Hill)
+    setParentAndChild(TheCountry, Hill)
 
     var Tunnel = new DataCard("Tunnel", "Tunel", "");
-    SetParentAndChild(TheCountry, Tunnel)
+    setParentAndChild(TheCountry, Tunnel)
 
     var Waterfall = new DataCard("Waterfall", "Cascadă", "");
-    SetParentAndChild(TheCountry, Waterfall)
+    setParentAndChild(TheCountry, Waterfall)
 
     var Bridge = new DataCard("Bridge", "Pod", "");
-    SetParentAndChild(TheCountry, Bridge)
+    setParentAndChild(TheCountry, Bridge)
 
     var Village = new DataCard("Village", "Sat", "");
-    SetParentAndChild(TheCountry, Village)
+    setParentAndChild(TheCountry, Village)
 
     var Logs = new DataCard("Logs", "Bușteni (Lemne)", "");
-    SetParentAndChild(TheCountry, Logs)
+    setParentAndChild(TheCountry, Logs)
 
     var Canal = new DataCard("Canal", "Canal", "");
-    SetParentAndChild(TheCountry, Canal)
+    setParentAndChild(TheCountry, Canal)
 
     var Tents = new DataCard("Tents", "Corturi", "");
-    SetParentAndChild(TheCountry, Tents)
+    setParentAndChild(TheCountry, Tents)
 
     var Mountain = new DataCard("Mountain", "Munte", "");
-    SetParentAndChild(TheCountry, Mountain)
+    setParentAndChild(TheCountry, Mountain)
 
     //#animals
     var Animals = new DataCard("Animals", "Animalele", "");
-    SetParentAndChild(nouns, Animals)
+    setParentAndChild(nouns, Animals)
 
     var pet = new DataCard("Pet", "Animal de Companie", "");
-    SetParentAndChild(Animals, pet)
+    setParentAndChild(Animals, pet)
 
     var Pony = new DataCard("Pony", "Ponei", "");
-    SetParentAndChild(Sports, Pony)
+    setParentAndChild(Sports, Pony)
 
     var Hamster = new DataCard("Hamster", "Hamster", "");
-    SetParentAndChild(Animals, Hamster)
+    setParentAndChild(Animals, Hamster)
 
     var GuineaPig = new DataCard("GuineaPig", "Porcușor de Guineea", "");
-    SetParentAndChild(Animals, GuineaPig)
+    setParentAndChild(Animals, GuineaPig)
 
     var Parrot = new DataCard("Parrot", "Papagal", "");
-    SetParentAndChild(Animals, Parrot)
+    setParentAndChild(Animals, Parrot)
 
     var Beak = new DataCard("Beak", "Cioc", "");
-    SetParentAndChild(Animals, Beak)
+    setParentAndChild(Animals, Beak)
 
     var Mouse = new DataCard("Mouse", "Şoarece", "");
-    SetParentAndChild(Animals, Mouse)
+    setParentAndChild(Animals, Mouse)
 
     var Kitten = new DataCard("Kitten", "Pisoi", "");
-    SetParentAndChild(Animals, Kitten)
+    setParentAndChild(Animals, Kitten)
 
     var Kennel = new DataCard("Kennel", "Cușcă", "");
-    SetParentAndChild(Animals, Kennel)
+    setParentAndChild(Animals, Kennel)
 
     var Puppy = new DataCard("Puppy", "Cățeluș", "");
-    SetParentAndChild(Animals, Puppy)
+    setParentAndChild(Animals, Puppy)
 
     var PetFood = new DataCard("Pet Food", "Hrană", "");
-    SetParentAndChild(Animals, PetFood)
+    setParentAndChild(Animals, PetFood)
 
     var Budgeriagar = new DataCard("Budgeriagar", "Peruș", "");
-    SetParentAndChild(Animals, Budgeriagar)
+    setParentAndChild(Animals, Budgeriagar)
 
     var Canary = new DataCard("Canary", "Canar", "");
-    SetParentAndChild(Animals, Canary)
+    setParentAndChild(Animals, Canary)
 
     var Rabbit = new DataCard("Rabbit", "Iepure", "");
-    SetParentAndChild(Animals, Rabbit)
+    setParentAndChild(Animals, Rabbit)
 
     var Cat = new DataCard("Cat", "Pisică", "");
-    SetParentAndChild(Animals, Cat)
+    setParentAndChild(Animals, Cat)
 
     var Goldfish = new DataCard("Goldfish", "Peștișori Aurii", "");
-    SetParentAndChild(Animals, Goldfish)
+    setParentAndChild(Animals, Goldfish)
 
     var Cage = new DataCard("Cage", "Colivie", "");
-    SetParentAndChild(Animals, Cage)
+    setParentAndChild(Animals, Cage)
 
     var Crab = new DataCard("Crab", "Crab", "");
-    SetParentAndChild(Animals, Crab)
+    setParentAndChild(Animals, Crab)
 
     var Seagull = new DataCard("Seagull", "Pescăruș", "");
-    SetParentAndChild(Animals, Seagull)
+    setParentAndChild(Animals, Seagull)
 
     var Fish = new DataCard("Fish", "Pește", "");
-    SetParentAndChild(Animals, Fish)
+    setParentAndChild(Animals, Fish)
 
     var StarFish = new DataCard("StarFish", "Stea-de-mare", "");
-    SetParentAndChild(Animals, StarFish)
+    setParentAndChild(Animals, StarFish)
 
     var Lamb = new DataCard("Lamb", "Miel", "");
-    SetParentAndChild(Animals, Lamb)
+    setParentAndChild(Animals, Lamb)
 
     var Bull = new DataCard("Bull", "Taur", "");
-    SetParentAndChild(Animals, Bull)
+    setParentAndChild(Animals, Bull)
 
     var Geese = new DataCard("Geese", "Gâște", "");
-    SetParentAndChild(Animals, Geese)
+    setParentAndChild(Animals, Geese)
 
     var Sheep = new DataCard("Sheep", "Oaie", "");
-    SetParentAndChild(Animals, Sheep)
+    setParentAndChild(Animals, Sheep)
 
     var Horse = new DataCard("Horse", "Cal", "");
-    SetParentAndChild(Animals, Horse)
+    setParentAndChild(Animals, Horse)
 
     var Pig = new DataCard("Pig", "Porc", "");
-    SetParentAndChild(Animals, Pig)
+    setParentAndChild(Animals, Pig)
 
     var Piglets = new DataCard("Piglets", "Purcei", "");
-    SetParentAndChild(Animals, Piglets)
+    setParentAndChild(Animals, Piglets)
 
     var Cow = new DataCard("Cow", "Vacă", "");
-    SetParentAndChild(Animals, Cow)
+    setParentAndChild(Animals, Cow)
 
     var CalfCow = new DataCard("Calf (Cow)", "Vițel", "");
-    SetParentAndChild(Animals, CalfCow)
+    setParentAndChild(Animals, CalfCow)
 
     var Turkey = new DataCard("Turkey", "Curcan", "");
-    SetParentAndChild(Animals, Turkey)
+    setParentAndChild(Animals, Turkey)
 
     var Sheepdog = new DataCard("Sheepdog", "Câine Ciobânesc", "");
-    SetParentAndChild(Animals, Sheepdog)
+    setParentAndChild(Animals, Sheepdog)
 
     var Beehive = new DataCard("Beehive", "Stup", "");
-    SetParentAndChild(Animals, Beehive)
+    setParentAndChild(Animals, Beehive)
 
     var Snail = new DataCard("Snail", "Melc", "");
-    SetParentAndChild(Animals, Snail)
+    setParentAndChild(Animals, Snail)
 
     var Ladybird = new DataCard("Ladybird", "Gărgăriță", "");
-    SetParentAndChild(Animals, Ladybird)
+    setParentAndChild(Animals, Ladybird)
 
     var Caterpillar = new DataCard("Caterpillar", "omidă", "");
-    SetParentAndChild(Animals, Caterpillar)
+    setParentAndChild(Animals, Caterpillar)
 
     var Worm = new DataCard("Worm", "Râmă", "");
-    SetParentAndChild(Animals, Worm)
+    setParentAndChild(Animals, Worm)
 
     var Wasp = new DataCard("Wasp", "Viespe", "");
-    SetParentAndChild(Animals, Wasp)
+    setParentAndChild(Animals, Wasp)
 
     var Bee = new DataCard("Bee", "Albină", "");
-    SetParentAndChild(Animals, Bee)
+    setParentAndChild(Animals, Bee)
 
     var Birds = new DataCard("Birds", "Păsări", "");
-    SetParentAndChild(Animals, Birds)
+    setParentAndChild(Animals, Birds)
 
     var Pigeon = new DataCard("Pigeon", "Porumbel", "");
-    SetParentAndChild(Animals, Pigeon)
+    setParentAndChild(Animals, Pigeon)
 
     var Dog = new DataCard("Dog", "Câine", "");
-    SetParentAndChild(Animals, Dog)
+    setParentAndChild(Animals, Dog)
 
     var Frog = new DataCard("Frog", "Broască", "");
-    SetParentAndChild(Animals, Frog)
+    setParentAndChild(Animals, Frog)
 
     var Tadpoles = new DataCard("Tadpoles", "Mormoloci", "");
-    SetParentAndChild(Animals, Tadpoles)
+    setParentAndChild(Animals, Tadpoles)
 
     var Swans = new DataCard("Swans", "Lebede", "");
-    SetParentAndChild(Animals, Swans)
+    setParentAndChild(Animals, Swans)
 
     var Duck = new DataCard("Duck", "Rață", "");
-    SetParentAndChild(Animals, Duck)
+    setParentAndChild(Animals, Duck)
 
     var Ducklings = new DataCard("Ducklings", "Bobci de Rață", "");
-    SetParentAndChild(Animals, Ducklings)
+    setParentAndChild(Animals, Ducklings)
 
     var Butterfly = new DataCard("Butterfly", "Fluture", "");
-    SetParentAndChild(Animals, Butterfly)
+    setParentAndChild(Animals, Butterfly)
 
     var Lizard = new DataCard("Lizard", "Şopârlă", "");
-    SetParentAndChild(Animals, Lizard)
+    setParentAndChild(Animals, Lizard)
 
     var Fox = new DataCard("Fox", "Vulpe", "");
-    SetParentAndChild(Animals, Fox)
+    setParentAndChild(Animals, Fox)
 
     var Hedgehog = new DataCard("Hedgehog", "Arici", "");
-    SetParentAndChild(Animals, Hedgehog)
+    setParentAndChild(Animals, Hedgehog)
 
     var Squirrel = new DataCard("Squirrel", "Veveriță", "");
-    SetParentAndChild(Animals, Squirrel)
+    setParentAndChild(Animals, Squirrel)
 
     var Badger = new DataCard("Badger", "Bursuc", "");
-    SetParentAndChild(Animals, Badger)
+    setParentAndChild(Animals, Badger)
 
     var Toad = new DataCard("Toad", "Broască Râioasă", "");
-    SetParentAndChild(Animals, Toad)
+    setParentAndChild(Animals, Toad)
 
     var Mole = new DataCard("Mole", "Cârtiță", "");
-    SetParentAndChild(Animals, Mole)
+    setParentAndChild(Animals, Mole)
 
     var Owl = new DataCard("Owl", "Bufniță", "");
-    SetParentAndChild(Animals, Owl)
+    setParentAndChild(Animals, Owl)
 
     var FoxCubs = new DataCard("Fox Cubs", "Pui de Vulpe", "");
-    SetParentAndChild(Animals, FoxCubs)
+    setParentAndChild(Animals, FoxCubs)
 
     var Moth = new DataCard("Moth", "Fluture de Noapte (Molie)", "");
-    SetParentAndChild(Animals, Moth)
+    setParentAndChild(Animals, Moth)
 
     var FlyInsect = new DataCard("Fly (Insect)", "Muscă", "");
-    SetParentAndChild(Animals, FlyInsect)
+    setParentAndChild(Animals, FlyInsect)
 
     var Spider = new DataCard("Spider", "Păianjen", "");
-    SetParentAndChild(Animals, Spider)
+    setParentAndChild(Animals, Spider)
 
     var Cobweb = new DataCard("Cobweb", "Pânză de Păianjen", "");
-    SetParentAndChild(Animals, Cobweb)
+    setParentAndChild(Animals, Cobweb)
 
     var Panda = new DataCard("Panda", "Panda (Urs)", "");
-    SetParentAndChild(Animals, Panda)
+    setParentAndChild(Animals, Panda)
 
     var Eagle = new DataCard("Eagle", "Vultur", "");
-    SetParentAndChild(Animals, Eagle)
+    setParentAndChild(Animals, Eagle)
 
     var Wing = new DataCard("Wing", "Aripa", "");
-    SetParentAndChild(Animals, Wing)
+    setParentAndChild(Animals, Wing)
 
     var Hippopotamus = new DataCard("Hippopotamus", "Hipopotam", "");
-    SetParentAndChild(Animals, Hippopotamus)
+    setParentAndChild(Animals, Hippopotamus)
 
     var Bat = new DataCard("Bat", "Liliac", "");
-    SetParentAndChild(Animals, Bat)
+    setParentAndChild(Animals, Bat)
 
     var Monkey = new DataCard("Monkey", "Maimuță", "");
-    SetParentAndChild(Animals, Monkey)
+    setParentAndChild(Animals, Monkey)
 
     var Gorilla = new DataCard("Gorilla", "Gorilla", "");
-    SetParentAndChild(Animals, Gorilla)
+    setParentAndChild(Animals, Gorilla)
 
     var Paws = new DataCard("Paws", "Labe", "");
-    SetParentAndChild(Animals, Paws)
+    setParentAndChild(Animals, Paws)
 
     var Kangaroo = new DataCard("Kangaroo", "Cangur", "");
-    SetParentAndChild(Animals, Kangaroo)
+    setParentAndChild(Animals, Kangaroo)
 
     var Wolf = new DataCard("Wolf", "Lup", "");
-    SetParentAndChild(Animals, Wolf)
+    setParentAndChild(Animals, Wolf)
 
     var Penguin = new DataCard("Penguin", "Pinguin", "");
-    SetParentAndChild(Animals, Penguin)
+    setParentAndChild(Animals, Penguin)
 
     var Pelican = new DataCard("Pelican", "Pelican", "");
-    SetParentAndChild(Animals, Pelican)
+    setParentAndChild(Animals, Pelican)
 
     var Feathers = new DataCard("Feathers", "Pene", "");
-    SetParentAndChild(Animals, Feathers)
+    setParentAndChild(Animals, Feathers)
 
     var Crocodile = new DataCard("Crocodile", "Crocodil", "");
-    SetParentAndChild(Animals, Crocodile)
+    setParentAndChild(Animals, Crocodile)
 
     var Bear = new DataCard("Bear", "Urs", "");
-    SetParentAndChild(Animals, Bear)
+    setParentAndChild(Animals, Bear)
 
     var Ostrich = new DataCard("Ostrich", "Struț", "");
-    SetParentAndChild(Animals, Ostrich)
+    setParentAndChild(Animals, Ostrich)
 
     var Dolphin = new DataCard("Dolphin", "Delfin", "");
-    SetParentAndChild(Animals, Dolphin)
+    setParentAndChild(Animals, Dolphin)
 
     var Lion = new DataCard("Lion", "Leu", "");
-    SetParentAndChild(Animals, Lion)
+    setParentAndChild(Animals, Lion)
 
     var LionCubs = new DataCard("Lion Cubs", "Pui de Leu", "");
-    SetParentAndChild(Animals, LionCubs)
+    setParentAndChild(Animals, LionCubs)
 
     var Giraffe = new DataCard("Giraffe", "Girafă", "");
-    SetParentAndChild(Animals, Giraffe)
+    setParentAndChild(Animals, Giraffe)
 
     var Deer = new DataCard("Deer", "Cerb", "");
-    SetParentAndChild(Animals, Deer)
+    setParentAndChild(Animals, Deer)
 
     var Camel = new DataCard("Camel", "Cămilă", "");
-    SetParentAndChild(Animals, Camel)
+    setParentAndChild(Animals, Camel)
 
     var Seal = new DataCard("Seal", "Focă", "");
-    SetParentAndChild(Animals, Seal)
+    setParentAndChild(Animals, Seal)
 
     var Tortise = new DataCard("Tortise", "Broască-Țestoasă", "");
-    SetParentAndChild(Animals, Tortise)
+    setParentAndChild(Animals, Tortise)
 
     var Elephant = new DataCard("Elephant", "Elefant", "");
-    SetParentAndChild(Animals, Elephant)
+    setParentAndChild(Animals, Elephant)
 
     var Trunk = new DataCard("Trunk (Elephant)", "Trompă", "");
-    SetParentAndChild(Animals, Trunk)
+    setParentAndChild(Animals, Trunk)
 
     var Rhinoceros = new DataCard("Rhinoceros", "Rinocer", "");
-    SetParentAndChild(Animals, Rhinoceros)
+    setParentAndChild(Animals, Rhinoceros)
 
     var Bison = new DataCard("Bison", "Bizon", "");
-    SetParentAndChild(Animals, Bison)
+    setParentAndChild(Animals, Bison)
 
     var Beaver = new DataCard("Beaver", "Castor", "");
-    SetParentAndChild(Animals, Beaver)
+    setParentAndChild(Animals, Beaver)
 
     var Zebra = new DataCard("Zebra", "Zebra", "");
-    SetParentAndChild(Animals, Zebra)
+    setParentAndChild(Animals, Zebra)
 
     var Snake = new DataCard("Snake", "Şarpe", "");
-    SetParentAndChild(Animals, Snake)
+    setParentAndChild(Animals, Snake)
 
     var Goat = new DataCard("Goat", "Capră", "");
-    SetParentAndChild(Animals, Goat)
+    setParentAndChild(Animals, Goat)
 
     var Shark = new DataCard("Shark", "Rechin", "");
-    SetParentAndChild(Animals, Shark)
+    setParentAndChild(Animals, Shark)
 
     var Whale = new DataCard("Whale", "Balenă", "");
-    SetParentAndChild(Animals, Whale)
+    setParentAndChild(Animals, Whale)
 
     var Tiger = new DataCard("Tiger", "Tigru", "");
-    SetParentAndChild(Animals, Tiger)
+    setParentAndChild(Animals, Tiger)
 
     var Leopard = new DataCard("Leopard", "Leopard", "");
-    SetParentAndChild(Animals, Leopard)
+    setParentAndChild(Animals, Leopard)
 
 
     // #shop
     var theShop = new DataCard("The Shop", "Magazinul", "");
-    SetParentAndChild(nouns, theShop)
+    setParentAndChild(nouns, theShop)
 
     var Checkout = new DataCard("Checkout", "Casă (de marcat)", "");
-    SetParentAndChild(theShop, Checkout)
+    setParentAndChild(theShop, Checkout)
 
     var Trolley = new DataCard("Trolley", "Cărucior (de Cumpărături)", "");
-    SetParentAndChild(theShop, Trolley)
+    setParentAndChild(theShop, Trolley)
 
     var Money = new DataCard("Money", "Bani", "");
-    SetParentAndChild(theShop, Money)
+    setParentAndChild(theShop, Money)
 
     var Handbag = new DataCard("Handbag", "Poșetă (Geantă)", "");
-    SetParentAndChild(theShop, Handbag)
+    setParentAndChild(theShop, Handbag)
 
     var Bottles = new DataCard("Bottles", "Sticle", "");
-    SetParentAndChild(theShop, Bottles)
+    setParentAndChild(theShop, Bottles)
 
     var Basket = new DataCard("Basket (Chimney)", "Coș", "");
-    SetParentAndChild(theShop, Basket)
+    setParentAndChild(theShop, Basket)
 
     var Scales = new DataCard("Scales", "Cântar", "");
-    SetParentAndChild(theShop, Scales)
+    setParentAndChild(theShop, Scales)
 
     var CarrierBag = new DataCard("Carrier Bag", "Sacoșă", "");
-    SetParentAndChild(theShop, CarrierBag)
+    setParentAndChild(theShop, CarrierBag)
 
     // #food
     var food = new DataCard("Food", "Mâncarea", "");
-    SetParentAndChild(nouns, food)
+    setParentAndChild(nouns, food)
 
     var Orange = new DataCard("Orange", "Portocală", "");
-    SetParentAndChild(food, Orange)
+    setParentAndChild(food, Orange)
 
     var Pear = new DataCard("Pear", "Pară", "");
-    SetParentAndChild(food, Pear)
+    setParentAndChild(food, Pear)
 
     var Chocolate = new DataCard("Chocolate", "Ciocolată", "");
-    SetParentAndChild(food, Chocolate)
+    setParentAndChild(food, Chocolate)
 
     var Banana = new DataCard("Banana", "Banană", "");
-    SetParentAndChild(food, Banana)
+    setParentAndChild(food, Banana)
 
     var Sweet = new DataCard("Sweet", "Bomboană", "");
-    SetParentAndChild(food, Sweet)
+    setParentAndChild(food, Sweet)
 
     var Cake = new DataCard("Cake", "Tort", "");
-    SetParentAndChild(food, Cake)
+    setParentAndChild(food, Cake)
 
     var Straw = new DataCard("Straw", "Pai", "");
-    SetParentAndChild(food, Straw)
+    setParentAndChild(food, Straw)
 
     var Sandwich = new DataCard("Sandwich", "Sendviș", "");
-    SetParentAndChild(food, Sandwich)
+    setParentAndChild(food, Sandwich)
 
     var Butter = new DataCard("Butter", "Unt", "");
-    SetParentAndChild(food, Butter)
+    setParentAndChild(food, Butter)
 
     var Biscuit = new DataCard("Biscuit", "Biscuit", "");
-    SetParentAndChild(food, Biscuit)
+    setParentAndChild(food, Biscuit)
 
     var Cheese = new DataCard("Cheese", "Brânză", "");
-    SetParentAndChild(food, Cheese)
+    setParentAndChild(food, Cheese)
 
     var Bread = new DataCard("Bread", "Pâine", "");
-    SetParentAndChild(food, Bread)
+    setParentAndChild(food, Bread)
 
     var Strawberry = new DataCard("Strawberry", "Căpșună", "");
-    SetParentAndChild(food, Strawberry)
+    setParentAndChild(food, Strawberry)
 
     var Raspberry = new DataCard("Raspberry", "Zmeura", "");
-    SetParentAndChild(food, Raspberry)
+    setParentAndChild(food, Raspberry)
 
     var IceCream = new DataCard("Icecream", "Înghețată", "");
-    SetParentAndChild(food, IceCream)
+    setParentAndChild(food, IceCream)
 
     var FruitJuice = new DataCard("Fruit Juice", "Suc de Fructe", "");
-    SetParentAndChild(food, FruitJuice)
+    setParentAndChild(food, FruitJuice)
 
     var Cherry = new DataCard("Cherry", "Cireașă", "");
-    SetParentAndChild(food, Cherry)
+    setParentAndChild(food, Cherry)
 
     var Crisps = new DataCard("Crisps", "Chipsuri", "");
-    SetParentAndChild(food, Crisps)
+    setParentAndChild(food, Crisps)
 
     var Sausage = new DataCard("Sausage", "Cârnat", "");
-    SetParentAndChild(food, Sausage)
+    setParentAndChild(food, Sausage)
 
     var Salami = new DataCard("Salami", "Salam", "");
-    SetParentAndChild(food, Salami)
+    setParentAndChild(food, Salami)
 
     var Clementine = new DataCard("Clementine", "Clementină", "");
-    SetParentAndChild(food, Clementine)
+    setParentAndChild(food, Clementine)
 
     var Breakfast = new DataCard("Breakfast", "Mic Dejun", "");
-    SetParentAndChild(food, Breakfast)
+    setParentAndChild(food, Breakfast)
 
     var Lunch = new DataCard("Dinner", "Prânz", "");
-    SetParentAndChild(food, Lunch)
+    setParentAndChild(food, Lunch)
 
     var Dinner = new DataCard("Dinner", "Cină (Masă de Seară)", "");
-    SetParentAndChild(food, Dinner)
+    setParentAndChild(food, Dinner)
 
     var BoiledEgg = new DataCard("Boiled Egg (soft)", "Ou Fiert (Moale)", "");
-    SetParentAndChild(food, BoiledEgg)
+    setParentAndChild(food, BoiledEgg)
 
     var Coffee = new DataCard("Coffee", "Cafea", "");
-    SetParentAndChild(food, Coffee)
+    setParentAndChild(food, Coffee)
 
     var FriedEgg = new DataCard("Fried Egg", "Ou Ochi", "");
-    SetParentAndChild(food, FriedEgg)
+    setParentAndChild(food, FriedEgg)
 
     var Toast = new DataCard("Toast", "Pâine Prăjită", "");
-    SetParentAndChild(food, Toast)
+    setParentAndChild(food, Toast)
 
     var Jam = new DataCard("Jam", "Dulceață", "");
-    SetParentAndChild(food, Jam)
+    setParentAndChild(food, Jam)
 
     var Cream = new DataCard("Cream", "Smântână", "");
-    SetParentAndChild(food, Cream)
+    setParentAndChild(food, Cream)
 
     var Milk = new DataCard("Milk", "Lapte", "");
-    SetParentAndChild(food, Milk)
+    setParentAndChild(food, Milk)
 
     var Cereal = new DataCard("Cereal", "Cereale", "");
-    SetParentAndChild(food, Cereal)
+    setParentAndChild(food, Cereal)
 
     var HotChocolate = new DataCard("Hot Chocolate", "Ciocolată Caldă", "");
-    SetParentAndChild(food, HotChocolate)
+    setParentAndChild(food, HotChocolate)
 
     var Sugar = new DataCard("Sugar", "Zahăr", "");
-    SetParentAndChild(food, Sugar)
+    setParentAndChild(food, Sugar)
 
     var Tea = new DataCard("Tea", "Ceai", "");
-    SetParentAndChild(food, Tea)
+    setParentAndChild(food, Tea)
 
     var Honey = new DataCard("Honey", "Miere", "");
-    SetParentAndChild(food, Honey)
+    setParentAndChild(food, Honey)
 
     var Salt = new DataCard("Salt", "Sare", "");
-    SetParentAndChild(food, Salt)
+    setParentAndChild(food, Salt)
 
     var Pepper = new DataCard("Pepper", "Piper", "");
-    SetParentAndChild(food, Pepper)
+    setParentAndChild(food, Pepper)
 
     var Teapot = new DataCard("Teapot", "Ceainic", "");
-    SetParentAndChild(food, Teapot)
+    setParentAndChild(food, Teapot)
 
     var Pancakes = new DataCard("Pancakes", "Clătite", "");
-    SetParentAndChild(food, Pancakes)
+    setParentAndChild(food, Pancakes)
 
     var BreadRolls = new DataCard("Bread Rolls (Baps)", "Chifle", "");
-    SetParentAndChild(food, BreadRolls)
+    setParentAndChild(food, BreadRolls)
 
     var Ham = new DataCard("Ham", "Şuncă", "");
-    SetParentAndChild(food, Ham)
+    setParentAndChild(food, Ham)
 
     var Soup = new DataCard("Soup", "Supă", "");
-    SetParentAndChild(food, Soup)
+    setParentAndChild(food, Soup)
 
     var Omlette = new DataCard("Omlette", "Omletă", "");
-    SetParentAndChild(food, Omlette)
+    setParentAndChild(food, Omlette)
 
     var Chopsticks = new DataCard("Chopsticks", "Bețișoare", "");
-    SetParentAndChild(food, Chopsticks)
+    setParentAndChild(food, Chopsticks)
 
     var Salad = new DataCard("Salad", "Salată", "");
-    SetParentAndChild(food, Salad)
+    setParentAndChild(food, Salad)
 
     var Hamburger = new DataCard("Hamburger", "Hamburger", "");
-    SetParentAndChild(food, Hamburger)
+    setParentAndChild(food, Hamburger)
 
     var Chicken = new DataCard("Chicken", "Pui", "");
-    SetParentAndChild(food, Chicken)
+    setParentAndChild(food, Chicken)
 
     var Rice = new DataCard("Rice", "Orez", "");
-    SetParentAndChild(food, Rice)
+    setParentAndChild(food, Rice)
 
     var Ketchup = new DataCard("Ketchup", "Ketchup", "");
-    SetParentAndChild(food, Ketchup)
+    setParentAndChild(food, Ketchup)
 
     var Spaghetti = new DataCard("Spaghetti", "Spaghete", "");
-    SetParentAndChild(food, Spaghetti)
+    setParentAndChild(food, Spaghetti)
 
     var MashedPotatoes = new DataCard("Mashed Potatoes", "Piure de Cartofi", "");
-    SetParentAndChild(food, MashedPotatoes)
+    setParentAndChild(food, MashedPotatoes)
 
     var Pizza = new DataCard("Pizza", "Pizza", "");
-    SetParentAndChild(food, Pizza)
+    setParentAndChild(food, Pizza)
 
     var Chips = new DataCard("Chips", "Cartofi Prăjiți", "");
-    SetParentAndChild(food, Chips)
+    setParentAndChild(food, Chips)
 
     var Pudding = new DataCard("Pudding", "Deserturi", "");
-    SetParentAndChild(food, Pudding)
+    setParentAndChild(food, Pudding)
 
     var Grapefruit = new DataCard("Grapefruit", "Grepfrut", "");
-    SetParentAndChild(food, Grapefruit)
+    setParentAndChild(food, Grapefruit)
 
     var Carrot = new DataCard("Carrot", "Morcov", "");
-    SetParentAndChild(food, Carrot)
+    setParentAndChild(food, Carrot)
 
     var Cauliflower = new DataCard("Cauliflower", "Conopidă", "");
-    SetParentAndChild(food, Cauliflower)
+    setParentAndChild(food, Cauliflower)
 
     var Leek = new DataCard("Leek", "Praz", "");
-    SetParentAndChild(food, Leek)
+    setParentAndChild(food, Leek)
 
     var Mushroom = new DataCard("Mushroom", "Ciupercă", "");
-    SetParentAndChild(food, Mushroom)
+    setParentAndChild(food, Mushroom)
 
     var Cucumber = new DataCard("Cucumber", "Castravete", "");
-    SetParentAndChild(food, Cucumber)
+    setParentAndChild(food, Cucumber)
 
     var Lemon = new DataCard("Lemon", "Lămâie", "");
-    SetParentAndChild(food, Lemon)
+    setParentAndChild(food, Lemon)
 
     var Celery = new DataCard("Celery", "Țelină", "");
-    SetParentAndChild(food, Celery)
+    setParentAndChild(food, Celery)
 
     var Apricot = new DataCard("Apricot", "Caisă", "");
-    SetParentAndChild(food, Apricot)
+    setParentAndChild(food, Apricot)
 
     var Melon = new DataCard("Melon (Honeydew, Water)", "Pepene (Galben, Roșu)", "");
-    SetParentAndChild(food, Melon)
+    setParentAndChild(food, Melon)
 
     var Onion = new DataCard("Onion", "Ceapă", "");
-    SetParentAndChild(food, Onion)
+    setParentAndChild(food, Onion)
 
     var Cabbage = new DataCard("Cabbage", "Varză", "");
-    SetParentAndChild(food, Cabbage)
+    setParentAndChild(food, Cabbage)
 
     var Pearch = new DataCard("Pearch", "Piersică", "");
-    SetParentAndChild(food, Pearch)
+    setParentAndChild(food, Pearch)
 
     var Lettuce = new DataCard("Lettuce", "Salată Verde", "");
-    SetParentAndChild(food, Lettuce)
+    setParentAndChild(food, Lettuce)
 
     var Peas = new DataCard("Peas", "Mazăre", "");
-    SetParentAndChild(food, Peas)
+    setParentAndChild(food, Peas)
 
     var Tomato = new DataCard("Tomato", "Roșie", "");
-    SetParentAndChild(food, Tomato)
+    setParentAndChild(food, Tomato)
 
     var Potatoes = new DataCard("Potatoes", "Cartofi", "");
-    SetParentAndChild(food, Potatoes)
+    setParentAndChild(food, Potatoes)
 
     var Spinach = new DataCard("Spinach", "Spanac", "");
-    SetParentAndChild(food, Spinach)
+    setParentAndChild(food, Spinach)
 
     var Beans = new DataCard("Beans (Green)", "Fasole Verde", "");
-    SetParentAndChild(food, Beans)
+    setParentAndChild(food, Beans)
 
     var Pumpkin = new DataCard("Pumpkin", "Dovleac", "");
-    SetParentAndChild(food, Pumpkin)
+    setParentAndChild(food, Pumpkin)
 
     var Tins = new DataCard("Tins", "Cutii de Conserve", "");
-    SetParentAndChild(food, Tins)
+    setParentAndChild(food, Tins)
 
     var Yoghurt = new DataCard("Yoghurt", "Iaurt", "");
-    SetParentAndChild(food, Yoghurt)
+    setParentAndChild(food, Yoghurt)
 
     var Pineapple = new DataCard("Pineapple", "Ananas", "");
-    SetParentAndChild(food, Pineapple)
+    setParentAndChild(food, Pineapple)
 
     var Meat = new DataCard("Meat", "Carne", "");
-    SetParentAndChild(food, Meat)
+    setParentAndChild(food, Meat)
 
     var Flour = new DataCard("Flour", "Făină", "");
-    SetParentAndChild(food, Flour)
+    setParentAndChild(food, Flour)
 
     var Plum = new DataCard("Plum", "Prună", "");
-    SetParentAndChild(food, Plum)
+    setParentAndChild(food, Plum)
 
     var Eggs = new DataCard("Eggs", "Ouă", "");
-    SetParentAndChild(food, Eggs)
+    setParentAndChild(food, Eggs)
 
     // #home ===========================
 
     var atHome = new DataCard("At Home", "Acasă", "");
-    SetParentAndChild(nouns, atHome)
+    setParentAndChild(nouns, atHome)
 
     //#workshow
     var TheWorkshop = new DataCard("The Workshop", "Atelierul", "");
-    SetParentAndChild(atHome, TheWorkshop)
+    setParentAndChild(atHome, TheWorkshop)
 
     var Vice = new DataCard("Vice", "Menghină", "");
-    SetParentAndChild(TheWorkshop, Vice)
+    setParentAndChild(TheWorkshop, Vice)
 
     var Sandpaper = new DataCard("Sandpaper", "Şmirghel", "");
-    SetParentAndChild(TheWorkshop, Sandpaper)
+    setParentAndChild(TheWorkshop, Sandpaper)
 
     var Drill = new DataCard("Drill", "Bormașină", "");
-    SetParentAndChild(TheWorkshop, Drill)
+    setParentAndChild(TheWorkshop, Drill)
 
     var Ladder = new DataCard("Ladder", "Scară", "");
-    SetParentAndChild(TheWorkshop, Ladder)
+    setParentAndChild(TheWorkshop, Ladder)
 
     var Saw = new DataCard("Saw", "Fierăstrău", "");
-    SetParentAndChild(TheWorkshop, Saw)
+    setParentAndChild(TheWorkshop, Saw)
 
     var Sawdust = new DataCard("Sawdust", "Rumeguș", "");
-    SetParentAndChild(TheWorkshop, Sawdust)
+    setParentAndChild(TheWorkshop, Sawdust)
 
     var Calendar = new DataCard("Calendar", "Calendar", "");
-    SetParentAndChild(TheWorkshop, Calendar)
+    setParentAndChild(TheWorkshop, Calendar)
 
     var Toolbox = new DataCard("Toolbox", "Cutie de Scule", "");
-    SetParentAndChild(TheWorkshop, Toolbox)
+    setParentAndChild(TheWorkshop, Toolbox)
 
     var Screwdriver = new DataCard("Screwdriver", "Şurubelniță", "");
-    SetParentAndChild(TheWorkshop, Screwdriver)
+    setParentAndChild(TheWorkshop, Screwdriver)
 
     var Plank = new DataCard("Plank", "Scândură", "");
-    SetParentAndChild(TheWorkshop, Plank)
+    setParentAndChild(TheWorkshop, Plank)
 
     var WoodShavings = new DataCard("Shavings (Wood)", "Talaș", "");
-    SetParentAndChild(TheWorkshop, WoodShavings)
+    setParentAndChild(TheWorkshop, WoodShavings)
 
     var Penknife = new DataCard("Penknife", "Briceag", "");
-    SetParentAndChild(TheWorkshop, Penknife)
+    setParentAndChild(TheWorkshop, Penknife)
 
     var Wood = new DataCard("Wood (Chopped)", "Lemne Tăiate", "");
-    SetParentAndChild(TheWorkshop, Wood)
+    setParentAndChild(TheWorkshop, Wood)
 
     var Nails = new DataCard("Nails", "Cuie", "");
-    SetParentAndChild(TheWorkshop, Nails)
+    setParentAndChild(TheWorkshop, Nails)
 
     var Workbench = new DataCard("Workbench", "Banc de lucru (masă)", "");
-    SetParentAndChild(TheWorkshop, Workbench)
+    setParentAndChild(TheWorkshop, Workbench)
 
     var Jars = new DataCard("Jars", "Borcane", "");
-    SetParentAndChild(TheWorkshop, Jars)
+    setParentAndChild(TheWorkshop, Jars)
 
     var PaintPot = new DataCard("Paint Pot", "Găleată de vopsea", "");
-    SetParentAndChild(TheWorkshop, PaintPot)
+    setParentAndChild(TheWorkshop, PaintPot)
 
     var File = new DataCard("File", "Pilă", "");
-    SetParentAndChild(TheWorkshop, File)
+    setParentAndChild(TheWorkshop, File)
 
     var Hammer = new DataCard("Hammer", "Ciocan", "");
-    SetParentAndChild(TheWorkshop, Hammer)
+    setParentAndChild(TheWorkshop, Hammer)
 
     var TapeMeasure = new DataCard("Tape Measure", "Ruletă", "");
-    SetParentAndChild(TheWorkshop, TapeMeasure)
+    setParentAndChild(TheWorkshop, TapeMeasure)
 
     var Axe = new DataCard("Axe", "Topor", "");
-    SetParentAndChild(TheWorkshop, Axe)
+    setParentAndChild(TheWorkshop, Axe)
 
     var Barrel = new DataCard("Barrel", "Butol", "");
-    SetParentAndChild(TheWorkshop, Barrel)
+    setParentAndChild(TheWorkshop, Barrel)
 
     var Nuts = new DataCard("Nuts", "Piulițe", "");
-    SetParentAndChild(TheWorkshop, Nuts)
+    setParentAndChild(TheWorkshop, Nuts)
 
     var Bolts = new DataCard("Bolts", "Şuruburi", "");
-    SetParentAndChild(TheWorkshop, Bolts)
+    setParentAndChild(TheWorkshop, Bolts)
 
     var Screws = new DataCard("Screws", "Holțșuruburi", "");
-    SetParentAndChild(TheWorkshop, Screws)
+    setParentAndChild(TheWorkshop, Screws)
 
     //#garden
     var theGarden = new DataCard("The Garden", "Grădina", "");
-    SetParentAndChild(atHome, theGarden)
+    setParentAndChild(atHome, theGarden)
 
     var Wheelbarrow = new DataCard("Wheelbarrow", "Roabă", "");
-    SetParentAndChild(theGarden, Wheelbarrow)
+    setParentAndChild(theGarden, Wheelbarrow)
 
     var Bricks = new DataCard("Bricks", "Cărămizi", "");
-    SetParentAndChild(theGarden, Bricks)
+    setParentAndChild(theGarden, Bricks)
 
     var Spade = new DataCard("Spade", "Cazma", "");
-    SetParentAndChild(theGarden, Spade)
+    setParentAndChild(theGarden, Spade)
 
     var WateringCan = new DataCard("Watering Can", "Stropitoare", "");
-    SetParentAndChild(theGarden, WateringCan)
+    setParentAndChild(theGarden, WateringCan)
 
     var Dustbin = new DataCard("Dustbin", "Pubelă", "");
-    SetParentAndChild(theGarden, Dustbin)
+    setParentAndChild(theGarden, Dustbin)
 
     var Seeds = new DataCard("Seeds", "Semințe", "");
-    SetParentAndChild(theGarden, Seeds)
+    setParentAndChild(theGarden, Seeds)
 
     var Shed = new DataCard("Shed", "Magazie (Şproron", "");
-    SetParentAndChild(theGarden, Shed)
+    setParentAndChild(theGarden, Shed)
 
     var Flowers = new DataCard("Flowers", "Flori", "");
-    SetParentAndChild(theGarden, Flowers)
+    setParentAndChild(theGarden, Flowers)
 
     var Sprinkler = new DataCard("Sprinkler", "Aspersor", "");
-    SetParentAndChild(theGarden, Sprinkler)
+    setParentAndChild(theGarden, Sprinkler)
 
     var Hoe = new DataCard("Garden Hoe", "Sapă (Săpăligă)", "");
-    SetParentAndChild(theGarden, Hoe)
+    setParentAndChild(theGarden, Hoe)
 
     var Trowel = new DataCard("Trowel", "Lopățică", "");
-    SetParentAndChild(theGarden, Trowel)
+    setParentAndChild(theGarden, Trowel)
 
     var Bone = new DataCard("Bone", "Os", "");
-    SetParentAndChild(theGarden, Bone)
+    setParentAndChild(theGarden, Bone)
 
     var Hedge = new DataCard("Hedge", "Gard viu", "");
-    SetParentAndChild(theGarden, Hedge)
+    setParentAndChild(theGarden, Hedge)
 
     var GardenFork = new DataCard("Garden Fork", "Furcă de Grădină", "");
-    SetParentAndChild(theGarden, GardenFork)
+    setParentAndChild(theGarden, GardenFork)
 
     var Lawnmower = new DataCard("Lawnmower", "Mașină de tuns iarba", "");
-    SetParentAndChild(theGarden, Lawnmower)
+    setParentAndChild(theGarden, Lawnmower)
 
     var Path = new DataCard("Path", "Cărare (Potecă)", "");
-    SetParentAndChild(theGarden, Path)
+    setParentAndChild(theGarden, Path)
 
     var Leaves = new DataCard("Leaves", "Frunze", "");
-    SetParentAndChild(theGarden, Leaves)
+    setParentAndChild(theGarden, Leaves)
 
     var Tree = new DataCard("Tree", "Copac (Pom)", "");
-    SetParentAndChild(theGarden, Tree)
+    setParentAndChild(theGarden, Tree)
 
     var Smoke = new DataCard("Smoke", "Fum", "");
-    SetParentAndChild(theGarden, Smoke)
+    setParentAndChild(theGarden, Smoke)
 
     var Rake = new DataCard("Rake", "Greblă", "");
-    SetParentAndChild(theGarden, Rake)
+    setParentAndChild(theGarden, Rake)
 
     var Nest = new DataCard("Nest", "Cuib", "");
-    SetParentAndChild(theGarden, Nest)
+    setParentAndChild(theGarden, Nest)
 
     var Sticks = new DataCard("Sticks", "Crenguțe", "");
-    SetParentAndChild(theGarden, Sticks)
+    setParentAndChild(theGarden, Sticks)
 
     var Greenhouse = new DataCard("Greenhouse", "Seră", "");
-    SetParentAndChild(theGarden, Greenhouse)
+    setParentAndChild(theGarden, Greenhouse)
 
     var Hosepipe = new DataCard("Hosepipe", "Furtun de Grădină", "");
-    SetParentAndChild(theGarden, Hosepipe)
+    setParentAndChild(theGarden, Hosepipe)
 
     var Bonfire = new DataCard("Bonfire", "Foc (în aer liber)", "");
-    SetParentAndChild(theGarden, Bonfire)
+    setParentAndChild(theGarden, Bonfire)
 
     var Vegetables = new DataCard("Vegetables", "Legume", "");
-    SetParentAndChild(theGarden, Vegetables)
+    setParentAndChild(theGarden, Vegetables)
 
     var Pram = new DataCard("Pram", "Cărucior Pentru Copii", "");
-    SetParentAndChild(theGarden, Pram)
+    setParentAndChild(theGarden, Pram)
 
     var Grass = new DataCard("Grass", "Iarbă", "");
-    SetParentAndChild(theGarden, Grass)
+    setParentAndChild(theGarden, Grass)
 
     //#kitchen
     var theKitchen = new DataCard("The Kitchen", "Bucătăria", "");
-    SetParentAndChild(atHome, theKitchen)
+    setParentAndChild(atHome, theKitchen)
 
     var fridge = new DataCard("Fridge", "Frigider", "");
-    SetParentAndChild(theKitchen, fridge)
+    setParentAndChild(theKitchen, fridge)
 
     var Tray = new DataCard("Tray", "Tava", "");
-    SetParentAndChild(theKitchen, Tray)
+    setParentAndChild(theKitchen, Tray)
 
     var Clock = new DataCard("Clock", "Ceas de perete", "");
-    SetParentAndChild(theKitchen, Clock)
+    setParentAndChild(theKitchen, Clock)
 
     var Stool = new DataCard("Stool", "Taburet", "");
-    SetParentAndChild(theKitchen, Stool)
+    setParentAndChild(theKitchen, Stool)
 
     var TeaSpoons = new DataCard("Teaspoons", "Lingurițe", "");
-    SetParentAndChild(theKitchen, TeaSpoons)
+    setParentAndChild(theKitchen, TeaSpoons)
 
     var lightSwitch = new DataCard("Light-switch", "Întrerupător", "");
-    SetParentAndChild(theKitchen, lightSwitch)
+    setParentAndChild(theKitchen, lightSwitch)
 
     var washingPowder = new DataCard("Washing Powder", "Detergent Pudră", "");
-    SetParentAndChild(theKitchen, washingPowder)
+    setParentAndChild(theKitchen, washingPowder)
 
     var Key = new DataCard("Key", "Cheie", "");
-    SetParentAndChild(theKitchen, Key)
+    setParentAndChild(theKitchen, Key)
 
     var Door = new DataCard("Door", "Ușa", "");
-    SetParentAndChild(theKitchen, Door)
+    setParentAndChild(theKitchen, Door)
 
     var vacuumCleaner = new DataCard("Vacuum Cleaner", "Aspirator", "");
-    SetParentAndChild(theKitchen, vacuumCleaner)
+    setParentAndChild(theKitchen, vacuumCleaner)
 
     var Saucepans = new DataCard("Saucepans", "Oale (Cratițe)", "");
-    SetParentAndChild(theKitchen, Saucepans)
+    setParentAndChild(theKitchen, Saucepans)
 
     var Forks = new DataCard("Forks", "Furculițe", "");
-    SetParentAndChild(theKitchen, Forks)
+    setParentAndChild(theKitchen, Forks)
 
     var Apron = new DataCard("Apron", "Șorț (de bucătărie)", "");
-    SetParentAndChild(theKitchen, Apron)
+    setParentAndChild(theKitchen, Apron)
 
     var IroningBoard = new DataCard("Ironing Board", "Masă de Călcat", "");
-    SetParentAndChild(theKitchen, IroningBoard)
+    setParentAndChild(theKitchen, IroningBoard)
 
     var Rubbish = new DataCard("Rubbish", "Gunoi", "");
-    SetParentAndChild(theKitchen, Rubbish)
+    setParentAndChild(theKitchen, Rubbish)
 
     var Glasses = new DataCard("Glasses", "Pahare", "");
-    SetParentAndChild(theKitchen, Glasses)
+    setParentAndChild(theKitchen, Glasses)
 
     var kitchenSink = new DataCard("kitchen Sink", "Chiuvetă de Bucătărie", "");
-    SetParentAndChild(theKitchen, kitchenSink)
+    setParentAndChild(theKitchen, kitchenSink)
 
     var kettle = new DataCard("Kettle", "Ceainic", "");
-    SetParentAndChild(theKitchen, kettle)
+    setParentAndChild(theKitchen, kettle)
 
     var Knives = new DataCard("Knives", "Cuțite", "");
-    SetParentAndChild(theKitchen, Knives)
+    setParentAndChild(theKitchen, Knives)
 
     var Mop = new DataCard("Mop", "Mop", "");
-    SetParentAndChild(theKitchen, Mop)
+    setParentAndChild(theKitchen, Mop)
 
     var Duster = new DataCard("Duster", "Cârpă (de Praf)", "");
-    SetParentAndChild(theKitchen, Duster)
+    setParentAndChild(theKitchen, Duster)
 
     var Tiles = new DataCard("Tiles", "Faianță", "");
-    SetParentAndChild(theKitchen, Tiles)
+    setParentAndChild(theKitchen, Tiles)
 
     var Broom = new DataCard("Broom", "Mătură", "");
-    SetParentAndChild(theKitchen, Broom)
+    setParentAndChild(theKitchen, Broom)
 
     var WashingMachine = new DataCard("Washing Machine", "Mașină de Spălat Rufe", "");
-    SetParentAndChild(theKitchen, WashingMachine)
+    setParentAndChild(theKitchen, WashingMachine)
 
     var Dustpan = new DataCard("Dustpan", "Făraș", "");
-    SetParentAndChild(theKitchen, Dustpan)
+    setParentAndChild(theKitchen, Dustpan)
 
     var Drawer = new DataCard("Drawer", "Sertar", "");
-    SetParentAndChild(theKitchen, Drawer)
+    setParentAndChild(theKitchen, Drawer)
 
     var Saucers = new DataCard("Saucers", "Farfurioare (de Cafea)", "");
-    SetParentAndChild(theKitchen, Saucers)
+    setParentAndChild(theKitchen, Saucers)
 
     var FryingPan = new DataCard("Frying Pan", "Tigaie", "");
-    SetParentAndChild(theKitchen, FryingPan)
+    setParentAndChild(theKitchen, FryingPan)
 
     var Cooker = new DataCard("Cooker", "Aragaz", "");
-    SetParentAndChild(theKitchen, Cooker)
+    setParentAndChild(theKitchen, Cooker)
 
     var Spoons = new DataCard("Spoons", "Linguri", "");
-    SetParentAndChild(theKitchen, Spoons)
+    setParentAndChild(theKitchen, Spoons)
 
     var Plates = new DataCard("Plates", "Farfurii", "");
-    SetParentAndChild(theKitchen, Plates)
+    setParentAndChild(theKitchen, Plates)
 
     var ClothesIron = new DataCard("Clothes Iron", "Fier de călcat", "");
-    SetParentAndChild(theKitchen, ClothesIron)
+    setParentAndChild(theKitchen, ClothesIron)
 
     var broomCupboard = new DataCard("Broom Cupboard", "Dulap (de perete)", "");
-    SetParentAndChild(theKitchen, broomCupboard)
+    setParentAndChild(theKitchen, broomCupboard)
 
     var Bowls = new DataCard("Bowls", "Boluri", "");
-    SetParentAndChild(theKitchen, Bowls)
+    setParentAndChild(theKitchen, Bowls)
 
     var Brush = new DataCard("Brush", "Perie", "");
-    SetParentAndChild(theKitchen, Brush)
+    setParentAndChild(theKitchen, Brush)
 
     var Matches = new DataCard("Matches", "Chibrituri", "");
-    SetParentAndChild(theKitchen, Matches)
+    setParentAndChild(theKitchen, Matches)
 
     var Cups = new DataCard("Cups", "Cești", "");
-    SetParentAndChild(theKitchen, Cups)
+    setParentAndChild(theKitchen, Cups)
 
     var TeaTowel = new DataCard("Tea Towel", "Prosop de bucătărie", "");
-    SetParentAndChild(theKitchen, TeaTowel)
+    setParentAndChild(theKitchen, TeaTowel)
 
     //#inhome
     var home = new DataCard("Home", "Casă", "");
-    SetParentAndChild(atHome, home)
+    setParentAndChild(atHome, home)
 
     var Ceiling = new DataCard("Ceiling", "Plafon (Tavan)", "");
-    SetParentAndChild(home, Ceiling)
+    setParentAndChild(home, Ceiling)
 
     var Floor = new DataCard("Floor", "Podea", "");
-    SetParentAndChild(home, Floor)
+    setParentAndChild(home, Floor)
 
     var Wall = new DataCard("Wall", "Perete", "");
-    SetParentAndChild(home, Wall)
+    setParentAndChild(home, Wall)
 
     var bath = new DataCard(
         "Bath", "Baie",
         NounTemplateFemale("baie", "bai", "baia", "băile")
     )
-    SetParentAndChild(home, bath)
+    setParentAndChild(home, bath)
 
     var soap = new DataCard(
         "Soap", "Săpun",
         NounTemplateNeuter("săpun", "săpunuri", "sapunul", "săpunurile")
     )
-    SetParentAndChild(home, soap)
+    setParentAndChild(home, soap)
 
     var tap = new DataCard("Tap", "Robinet", "");
-    SetParentAndChild(home, tap)
+    setParentAndChild(home, tap)
 
     var toiletPaper = new DataCard("Toilet Paper", "Hârtie Igienică", "");
-    SetParentAndChild(home, toiletPaper)
+    setParentAndChild(home, toiletPaper)
 
     var Toothbrush = new DataCard("Toothbrush", "Periuță de dinți", "");
-    SetParentAndChild(home, Toothbrush)
+    setParentAndChild(home, Toothbrush)
 
     var Toilet = new DataCard("Toilet", "Toaletă", "");
-    SetParentAndChild(home, Toilet)
+    setParentAndChild(home, Toilet)
 
     var Sponge = new DataCard("Sponge", "Burete", "");
-    SetParentAndChild(home, Sponge)
+    setParentAndChild(home, Sponge)
 
     var SinkBasin = new DataCard("Sink Basin", "Chiuvetă", "");
-    SetParentAndChild(home, SinkBasin)
+    setParentAndChild(home, SinkBasin)
 
     var Shower = new DataCard("Shower", "Duș", "");
-    SetParentAndChild(home, Shower)
+    setParentAndChild(home, Shower)
 
     var Towel = new DataCard("Towel", "Prosop", "");
-    SetParentAndChild(home, Towel)
+    setParentAndChild(home, Towel)
 
     var toothpaste = new DataCard("Toothpaste", "Pasta de dinți", "");
-    SetParentAndChild(home, toothpaste)
+    setParentAndChild(home, toothpaste)
 
     var Radio = new DataCard("Radio", "Radio", "");
-    SetParentAndChild(home, Radio)
+    setParentAndChild(home, Radio)
 
     var cushion = new DataCard("Cushion", "Pernă", "");
-    SetParentAndChild(home, cushion)
+    setParentAndChild(home, cushion)
 
     var dvd = new DataCard("DVD", "DVD", "");
-    SetParentAndChild(home, dvd)
+    setParentAndChild(home, dvd)
 
     var Carpet = new DataCard("Carpet", "Mochetă", "");
-    SetParentAndChild(home, Carpet)
+    setParentAndChild(home, Carpet)
 
     var Rug = new DataCard("Rug", "Covor", "");
-    SetParentAndChild(home, Rug)
+    setParentAndChild(home, Rug)
 
     var Mat = new DataCard("Mat", "Covoraș", "");
-    SetParentAndChild(home, Mat)
+    setParentAndChild(home, Mat)
 
     var Water = new DataCard("Water", "Apă", "");
-    SetParentAndChild(home, Water)
+    setParentAndChild(home, Water)
 
     var Bed = new DataCard("Bed", "Pat", "");
-    SetParentAndChild(home, Bed)
+    setParentAndChild(home, Bed)
 
     var Sofa = new DataCard("Sofa", "Canapea", "");
-    SetParentAndChild(home, Sofa)
+    setParentAndChild(home, Sofa)
 
     var Bathroom = new DataCard("Bathroom", "Baia", "");
-    SetParentAndChild(home, Bathroom)
+    setParentAndChild(home, Bathroom)
 
     var LivingRoom = new DataCard("Living Room", "Sufrageria", "");
-    SetParentAndChild(home, LivingRoom)
+    setParentAndChild(home, LivingRoom)
 
     var Bedroom = new DataCard("Bedroom", "Dormitul", "");
-    SetParentAndChild(home, Bedroom)
+    setParentAndChild(home, Bedroom)
 
     var Hall = new DataCard("Hall", "Holul", "");
-    SetParentAndChild(home, Hall)
+    setParentAndChild(home, Hall)
 
     var Entrance = new DataCard("Entrance", "Intrarea", "");
-    SetParentAndChild(home, Entrance)
+    setParentAndChild(home, Entrance)
 
     var Chair = new DataCard("Chair", "Scaun", "");
-    SetParentAndChild(home, Chair)
+    setParentAndChild(home, Chair)
 
     var Duvet = new DataCard("Duvet", "Pilotă", "");
-    SetParentAndChild(home, Duvet)
+    setParentAndChild(home, Duvet)
 
     var Comb = new DataCard("Comb", "Pieptene", "");
-    SetParentAndChild(home, Comb)
+    setParentAndChild(home, Comb)
 
     var sheet = new DataCard("Sheet (bed)", "Cearșaf", "");
-    SetParentAndChild(home, sheet)
+    setParentAndChild(home, sheet)
 
     var Wardrobe = new DataCard("Wardrobe", "Dulap", "");
-    SetParentAndChild(home, Wardrobe)
+    setParentAndChild(home, Wardrobe)
 
     var Laundry = new DataCard("Laundry", "Rufe", "");
-    SetParentAndChild(home, Laundry)
+    setParentAndChild(home, Laundry)
 
     var Television = new DataCard("Television", "Televizor", "");
-    SetParentAndChild(home, Television)
+    setParentAndChild(home, Television)
 
     var drawers = new DataCard("Drawers (chest of)", "Comodă", "");
-    SetParentAndChild(home, drawers)
+    setParentAndChild(home, drawers)
 
     var Mirror = new DataCard("Mirror", "Oglindă", "");
-    SetParentAndChild(home, Mirror)
+    setParentAndChild(home, Mirror)
 
     var Hairbrush = new DataCard("Hairbrush", "Perie de păr", "");
-    SetParentAndChild(home, Hairbrush)
+    setParentAndChild(home, Hairbrush)
 
     var Lamp = new DataCard("Lamp", "Lampă (Veioză)", "");
-    SetParentAndChild(home, Lamp)
+    setParentAndChild(home, Lamp)
 
     var Pictures = new DataCard("Pictures", "Tablouri", "");
-    SetParentAndChild(home, Pictures)
+    setParentAndChild(home, Pictures)
 
     var Pegs = new DataCard("Pegs", "Cuier", "");
-    SetParentAndChild(home, Pegs)
+    setParentAndChild(home, Pegs)
 
     var Telephone = new DataCard("Telephone", "Telefon", "");
-    SetParentAndChild(home, Telephone)
+    setParentAndChild(home, Telephone)
 
     var stairs = new DataCard("Stairs", "Scară (trepte)", "");
-    SetParentAndChild(home, stairs)
+    setParentAndChild(home, stairs)
 
     var Letters = new DataCard("Letters", "Scrisori", "");
-    SetParentAndChild(home, Letters)
+    setParentAndChild(home, Letters)
 
     var Envelope = new DataCard("Envelope", "Plic", "");
-    SetParentAndChild(home, Envelope)
+    setParentAndChild(home, Envelope)
 
     var Table = new DataCard("Table", "Masă", "");
-    SetParentAndChild(home, Table)
+    setParentAndChild(home, Table)
 
     var Newspaper = new DataCard("Newspaper", "Ziar", "");
-    SetParentAndChild(home, Newspaper)
+    setParentAndChild(home, Newspaper)
 
     var Radiator = new DataCard("Radiator", "Calorifer", "");
-    SetParentAndChild(home, Radiator)
+    setParentAndChild(home, Radiator)
 
     var Ballooon = new DataCard("Ballooon", "Balon", "");
-    SetParentAndChild(home, Ballooon)
+    setParentAndChild(home, Ballooon)
 
     var EyeGlasses = new DataCard("Eye Glasses", "Ochelari", "");
-    SetParentAndChild(home, EyeGlasses)
+    setParentAndChild(home, EyeGlasses)
 
     var Window = new DataCard("Window", "Fereastră", "");
-    SetParentAndChild(home, Window)
+    setParentAndChild(home, Window)
 
     var Fireworks = new DataCard("Fireworks", "Artificii", "");
-    SetParentAndChild(home, Fireworks)
+    setParentAndChild(home, Fireworks)
 
     var Ribbon = new DataCard("Ribbon", "Fundă", "");
-    SetParentAndChild(home, Ribbon)
+    setParentAndChild(home, Ribbon)
 
     var Candle = new DataCard("Candle", "Lumânare", "");
-    SetParentAndChild(home, Candle)
+    setParentAndChild(home, Candle)
 
     var Paperchains = new DataCard("Paper Chains", "Ghirlandă", "");
-    SetParentAndChild(home, Paperchains)
+    setParentAndChild(home, Paperchains)
 
     var TableCloth = new DataCard("Table Cloth", "Față de Masă", "");
-    SetParentAndChild(home, TableCloth)
+    setParentAndChild(home, TableCloth)
 
     var Lightbulb = new DataCard("Lightbulb", "Bec", "");
-    SetParentAndChild(home, Lightbulb)
+    setParentAndChild(home, Lightbulb)
 
     var FancyDress = new DataCard("Fancy Dress", "Deghizări", "");
-    SetParentAndChild(home, FancyDress)
+    setParentAndChild(home, FancyDress)
 
     var TeddyBear = new DataCard("Teddy Bear", "Ursuleț de Pluș", "");
-    SetParentAndChild(home, TeddyBear)
+    setParentAndChild(home, TeddyBear)
 
     var Present = new DataCard("Present", "Cadou", "");
-    SetParentAndChild(home, Present)
+    setParentAndChild(home, Present)
 
     var Party = new DataCard("The Party", "Petrecerea", "");
-    SetParentAndChild(home, Party)
+    setParentAndChild(home, Party)
 
     var Pillow = new DataCard("Pillow", "Pernă", "");
-    SetParentAndChild(home, Pillow)
+    setParentAndChild(home, Pillow)
 
     var Computer = new DataCard("Computer", "Computer (Calculator)", "");
-    SetParentAndChild(home, Computer)
+    setParentAndChild(home, Computer)
 
     //#toys
     var Toys = new DataCard("Toys", "Jucării", "");
-    SetParentAndChild(atHome, Toys)
+    setParentAndChild(atHome, Toys)
 
     var Comic = new DataCard("Comic", "Revistă de Benzi Desenate", "");
-    SetParentAndChild(Toys, Comic)
+    setParentAndChild(Toys, Comic)
 
     var Jigsaw = new DataCard("Jigsaw Puzzle", "Puzzle", "");
-    SetParentAndChild(Toys, Jigsaw)
+    setParentAndChild(Toys, Jigsaw)
 
     var TrainSet = new DataCard("Train Set", "Trenuleț Electric", "");
-    SetParentAndChild(Toys, TrainSet)
+    setParentAndChild(Toys, TrainSet)
 
     var Dice = new DataCard("Dice", "Zaruri", "");
-    SetParentAndChild(Toys, Dice)
+    setParentAndChild(Toys, Dice)
 
     var Robot = new DataCard("Robot", "Robot", "");
-    SetParentAndChild(Toys, Robot)
+    setParentAndChild(Toys, Robot)
 
     var Necklace = new DataCard("Necklace", "Colier (Mărgele)", "");
-    SetParentAndChild(Toys, Necklace)
+    setParentAndChild(Toys, Necklace)
 
     var Beads = new DataCard("Beads", "Mărgele, (Perle)", "");
-    SetParentAndChild(Toys, Beads)
+    setParentAndChild(Toys, Beads)
 
     var Dolls = new DataCard("Dolls", "Păpuși", "");
-    SetParentAndChild(Toys, Dolls)
+    setParentAndChild(Toys, Dolls)
 
     var Guitar = new DataCard("Guitar", "Chitară", "");
-    SetParentAndChild(Toys, Guitar)
+    setParentAndChild(Toys, Guitar)
 
     var RingAcc = new DataCard("Ring (Accessory)", "Inel", "");
-    SetParentAndChild(Toys, RingAcc)
+    setParentAndChild(Toys, RingAcc)
 
     var Whistel = new DataCard("Whistel", "Fluier", "");
-    SetParentAndChild(Toys, Whistel)
+    setParentAndChild(Toys, Whistel)
 
     var Cubes = new DataCard("Cubes", "Cuburi", "");
-    SetParentAndChild(Toys, Cubes)
+    setParentAndChild(Toys, Cubes)
 
     var Castle = new DataCard("Castle", "Castel (Cetate)", "");
-    SetParentAndChild(Toys, Castle)
+    setParentAndChild(Toys, Castle)
 
     var Submarine = new DataCard("Submarine", "Submarin", "");
-    SetParentAndChild(Toys, Submarine)
+    setParentAndChild(Toys, Submarine)
 
     var Trumpet = new DataCard("Trumpet", "Trompetă", "");
-    SetParentAndChild(Toys, Trumpet)
+    setParentAndChild(Toys, Trumpet)
 
     var Arrows = new DataCard("Arrows", "Săgeți", "");
-    SetParentAndChild(Toys, Arrows)
+    setParentAndChild(Toys, Arrows)
 
     var Harmonica = new DataCard("Harmonica", "Muzicuță", "");
-    SetParentAndChild(Toys, Harmonica)
+    setParentAndChild(Toys, Harmonica)
 
     var Crane = new DataCard("Crane", "macara", "");
-    SetParentAndChild(Toys, Crane)
+    setParentAndChild(Toys, Crane)
 
     var PlayingCards = new DataCard("Playing Cards", "Cărți de joc", "");
-    SetParentAndChild(Toys, PlayingCards)
+    setParentAndChild(Toys, PlayingCards)
 
     var Drums = new DataCard("Drums", "Tobe", "");
-    SetParentAndChild(Toys, Drums)
+    setParentAndChild(Toys, Drums)
 
     var Soldiers = new DataCard("Soldiers", "Soldăței de plumb", "");
-    SetParentAndChild(Toys, Soldiers)
+    setParentAndChild(Toys, Soldiers)
 
     var Paints = new DataCard("Paints", "Acuarele", "");
-    SetParentAndChild(Toys, Paints)
+    setParentAndChild(Toys, Paints)
 
     var Rocket = new DataCard("Rocket", "Rachetă", "");
-    SetParentAndChild(Toys, Rocket)
+    setParentAndChild(Toys, Rocket)
 
     var Puppets = new DataCard("Puppets", "Marionete", "");
-    SetParentAndChild(Toys, Puppets)
+    setParentAndChild(Toys, Puppets)
 
     var Marbles = new DataCard("Marbles", "Bile", "");
-    SetParentAndChild(Toys, Marbles)
+    setParentAndChild(Toys, Marbles)
 
     var Masks = new DataCard("Masks", "Măști", "");
-    SetParentAndChild(Toys, Masks)
+    setParentAndChild(Toys, Masks)
 
     var Piano = new DataCard("Piano", "Pian", "");
-    SetParentAndChild(Toys, Piano)
+    setParentAndChild(Toys, Piano)
 
     var Boat = new DataCard("Boat", "Barcă", "");
-    SetParentAndChild(Toys, Boat)
+    setParentAndChild(Toys, Boat)
 
     var Parachute = new DataCard("Parachute", "Parașută", "");
-    SetParentAndChild(Toys, Parachute)
+    setParentAndChild(Toys, Parachute)
 
     var Bow = new DataCard("Bow (arrow)", "Arc", "");
-    SetParentAndChild(Toys, Bow)
+    setParentAndChild(Toys, Bow)
 
     // #people ================================
     var people = new DataCard("People", "Oamenii", "")
-    SetParentAndChild(nouns, people)
+    setParentAndChild(nouns, people)
 
     var men = new DataCard(
         "Man", "Barbat",
         NounTemplateMale("bărbat", "bărbați", "bărbatul", "bărbații")
     )
-    SetParentAndChild(people, men)
+    setParentAndChild(people, men)
 
     var woman = new DataCard(
         "Woman", "Femeie",
         NounTemplateFemale("femeie", "femei", "femeia", "femeile")
     )
-    SetParentAndChild(people, woman)
+    setParentAndChild(people, woman)
 
     var Child = new DataCard("Child", "Copil", NounTemplateMale("copil", "copi", "copilul", "copii"));
-    SetParentAndChild(people, Child)
+    setParentAndChild(people, Child)
 
     var Baby = new DataCard("Baby", "Bebeluș", "");
-    SetParentAndChild(people, Baby)
+    setParentAndChild(people, Baby)
 
     var Boy = new DataCard("Boy", "Băiat", "");
-    SetParentAndChild(people, Boy)
+    setParentAndChild(people, Boy)
 
     var Girl = new DataCard("Girl", "Fată", "");
-    SetParentAndChild(people, Girl)
+    setParentAndChild(people, Girl)
 
     // #clothes
     var Clothes = new DataCard("Clothes", "Hainele", "");
-    SetParentAndChild(people, Clothes)
+    setParentAndChild(people, Clothes)
 
     var DressingGown = new DataCard("Dressing Gown", "Halat", "");
-    SetParentAndChild(Clothes, DressingGown)
+    setParentAndChild(Clothes, DressingGown)
 
     var Watch = new DataCard("Watch", "Ceas de Mână", "");
-    SetParentAndChild(Clothes, Watch)
+    setParentAndChild(Clothes, Watch)
 
     var Nightdress = new DataCard("Nightdress", "Cămșă de Noapte", "");
-    SetParentAndChild(Clothes, Nightdress)
+    setParentAndChild(Clothes, Nightdress)
 
     var Pyjamas = new DataCard("Pyjamas", "Pijama", "");
-    SetParentAndChild(Clothes, Pyjamas)
+    setParentAndChild(Clothes, Pyjamas)
 
     var Nappy = new DataCard("Nappy", "Pampers", "");
-    SetParentAndChild(Clothes, Nappy)
+    setParentAndChild(Clothes, Nappy)
 
     var Slippers = new DataCard("Slippers", "Papuci", "");
-    SetParentAndChild(Clothes, Slippers)
+    setParentAndChild(Clothes, Slippers)
 
     var SwimmingCostume = new DataCard("Swimming Costume", "Costum de Baie", "");
-    SetParentAndChild(Clothes, SwimmingCostume)
+    setParentAndChild(Clothes, SwimmingCostume)
 
     var Sunhat = new DataCard("Sunhat", "Pălărie de Soare", "");
-    SetParentAndChild(Clothes, Sunhat)
+    setParentAndChild(Clothes, Sunhat)
 
     var Flippers = new DataCard("Flippers", "Labe de Scafandru", "");
-    SetParentAndChild(Clothes, Flippers)
+    setParentAndChild(Clothes, Flippers)
 
     var Socks = new DataCard("Socks", "Şosete", "");
-    SetParentAndChild(Clothes, Socks)
+    setParentAndChild(Clothes, Socks)
 
     var Pants = new DataCard("Pants", "Chiloți", "");
-    SetParentAndChild(Clothes, Pants)
+    setParentAndChild(Clothes, Pants)
 
     var Vest = new DataCard("Vest", "Maiou", "");
-    SetParentAndChild(Clothes, Vest)
+    setParentAndChild(Clothes, Vest)
 
     var Trousers = new DataCard("Trousers", "Pantaloni", "");
-    SetParentAndChild(Clothes, Trousers)
+    setParentAndChild(Clothes, Trousers)
 
     var Jeans = new DataCard("Jeans", "Blugi", "");
-    SetParentAndChild(Clothes, Jeans)
+    setParentAndChild(Clothes, Jeans)
 
     var tShirt = new DataCard("T-Shirt", "Tricou (T-shirt)", "");
-    SetParentAndChild(Clothes, tShirt)
+    setParentAndChild(Clothes, tShirt)
 
     var Skirt = new DataCard("Skirt", "Fustă", "");
-    SetParentAndChild(Clothes, Skirt)
+    setParentAndChild(Clothes, Skirt)
 
     var Shirt = new DataCard("Shirt", "Cămașă", "");
-    SetParentAndChild(Clothes, Shirt)
+    setParentAndChild(Clothes, Shirt)
 
     var Tie = new DataCard("Tie", "Cravată", "");
-    SetParentAndChild(Clothes, Tie)
+    setParentAndChild(Clothes, Tie)
 
     var Shorts = new DataCard("Shorts", "Pantaloni Scurți (șort)", "");
-    SetParentAndChild(Clothes, Shorts)
+    setParentAndChild(Clothes, Shorts)
 
     var Tights = new DataCard("Tights", "Dres", "");
-    SetParentAndChild(Clothes, Tights)
+    setParentAndChild(Clothes, Tights)
 
     var Dress = new DataCard("Dress", "Rochie", "");
-    SetParentAndChild(Clothes, Dress)
+    setParentAndChild(Clothes, Dress)
 
     var Jumper = new DataCard("Jumper", "Pulover", "");
-    SetParentAndChild(Clothes, Jumper)
+    setParentAndChild(Clothes, Jumper)
 
     var Sweatshirt = new DataCard("Sweatshirt", "Tricou de Sport", "Bluză Sport cu mânecă lungă");
-    SetParentAndChild(Clothes, Sweatshirt)
+    setParentAndChild(Clothes, Sweatshirt)
 
     var Cardigan = new DataCard("Cardigan", "Jachetă (Pulover cu nasturi)", "");
-    SetParentAndChild(Clothes, Cardigan)
+    setParentAndChild(Clothes, Cardigan)
 
     var Scarf = new DataCard("Scarf", "Fular", "");
-    SetParentAndChild(Clothes, Scarf)
+    setParentAndChild(Clothes, Scarf)
 
     var Handkerchief = new DataCard("Handkerchief", "Batistă", "");
-    SetParentAndChild(Clothes, Handkerchief)
+    setParentAndChild(Clothes, Handkerchief)
 
     var Trainers = new DataCard("Trainers", "Pantofi sport (Adidași)", "");
-    SetParentAndChild(Clothes, Trainers)
+    setParentAndChild(Clothes, Trainers)
 
     var Sandals = new DataCard("Sandals", "Sandale", "");
-    SetParentAndChild(Clothes, Sandals)
+    setParentAndChild(Clothes, Sandals)
 
     var Boots = new DataCard("Boots", "Cizme", "");
-    SetParentAndChild(Clothes, Boots)
+    setParentAndChild(Clothes, Boots)
 
     var Gloves = new DataCard("Gloves", "Mănuși", "");
-    SetParentAndChild(Clothes, Gloves)
+    setParentAndChild(Clothes, Gloves)
 
     var Belt = new DataCard("Belt", "Curea", "");
-    SetParentAndChild(Clothes, Belt)
+    setParentAndChild(Clothes, Belt)
 
     var Buckle = new DataCard("Buckle", "Cataramă", "");
-    SetParentAndChild(Clothes, Buckle)
+    setParentAndChild(Clothes, Buckle)
 
     var Zip = new DataCard("Zip", "Fermoar", "");
-    SetParentAndChild(Clothes, Zip)
+    setParentAndChild(Clothes, Zip)
 
     var Shoelace = new DataCard("Shoelace", "Şiret", "");
-    SetParentAndChild(Clothes, Shoelace)
+    setParentAndChild(Clothes, Shoelace)
 
     var Buttons = new DataCard("Buttons", "Nasturi", "");
-    SetParentAndChild(Clothes, Buttons)
+    setParentAndChild(Clothes, Buttons)
 
     var ButtonHoles = new DataCard("Button Holes", "Butoniere", "");
-    SetParentAndChild(Clothes, ButtonHoles)
+    setParentAndChild(Clothes, ButtonHoles)
 
     var Pockets = new DataCard("Pockets", "Buzunare", "");
-    SetParentAndChild(Clothes, Pockets)
+    setParentAndChild(Clothes, Pockets)
 
     var Coat = new DataCard("Coat", "Palton (Haină)", "");
-    SetParentAndChild(Clothes, Coat)
+    setParentAndChild(Clothes, Coat)
 
     var Jacket = new DataCard("Jacket", "Jachetă", "");
-    SetParentAndChild(Clothes, Jacket)
+    setParentAndChild(Clothes, Jacket)
 
     var BaseballCap = new DataCard("Cap (Baseball)", "Şapcă", "");
-    SetParentAndChild(Clothes, BaseballCap)
+    setParentAndChild(Clothes, BaseballCap)
 
     var Hat = new DataCard("Hat", "Pălărie", "");
-    SetParentAndChild(Clothes, Hat)
+    setParentAndChild(Clothes, Hat)
 
     var Bag = new DataCard("Bag", "Punga", "");
-    SetParentAndChild(Clothes, Bag)
+    setParentAndChild(Clothes, Bag)
 
 
     // #families
@@ -3241,280 +3241,280 @@ export function BuildLanguageTree() // returns romanian
         "Families", "Familiile",
         NounTemplateFemale("", "", "", "")
     )
-    SetParentAndChild(people, families)
+    setParentAndChild(people, families)
 
     var son = new DataCard("Son", "Fiu", NounTemplateMale("", "", "", ""));
-    SetParentAndChild(families, son)
+    setParentAndChild(families, son)
 
     var brother = new DataCard("Brother", "Frate", NounTemplateMale("", "", "", ""));
-    SetParentAndChild(families, brother)
+    setParentAndChild(families, brother)
 
     var daughter = new DataCard("Daughter", "Fiică", NounTemplateFemale("", "", "", ""));
-    SetParentAndChild(families, daughter)
+    setParentAndChild(families, daughter)
 
     var sister = new DataCard("Sister", "Soră", NounTemplateFemale("", "", "", ""));
-    SetParentAndChild(families, sister)
+    setParentAndChild(families, sister)
 
     var mother = new DataCard("Mother", "Mamă", NounTemplateFemale("", "", "", ""));
-    SetParentAndChild(families, mother)
+    setParentAndChild(families, mother)
 
     var wife = new DataCard("Wife", "Soție", NounTemplateFemale("", "", "", ""));
-    SetParentAndChild(families, wife)
+    setParentAndChild(families, wife)
 
     var father = new DataCard("Father", "Tată", NounTemplateMale("", "", "", ""));
-    SetParentAndChild(families, father)
+    setParentAndChild(families, father)
 
     var husband = new DataCard("Husband", "Soț", NounTemplateMale("", "", "", ""));
-    SetParentAndChild(families, husband)
+    setParentAndChild(families, husband)
 
     var aunt = new DataCard("Aunt", "Mătușă", NounTemplateFemale("", "", "", ""));
-    SetParentAndChild(families, aunt)
+    setParentAndChild(families, aunt)
 
     var uncle = new DataCard("Uncle", "Unchi", NounTemplateMale("", "", "", ""));
-    SetParentAndChild(families, uncle)
+    setParentAndChild(families, uncle)
 
     var cousinM = new DataCard("Cousin (male)", "Văr", NounTemplateMale("", "", "", ""));
-    SetParentAndChild(families, cousinM)
+    setParentAndChild(families, cousinM)
 
     var cousinF = new DataCard("Cousin (female)", "Verișor", NounTemplateFemale("", "", "", ""));
-    SetParentAndChild(families, cousinF)
+    setParentAndChild(families, cousinF)
 
     var grandfather = new DataCard("Grandfather", "Bunic", NounTemplateMale("", "", "", ""));
-    SetParentAndChild(families, grandfather)
+    setParentAndChild(families, grandfather)
 
     var grandmother = new DataCard("Grandmother", "Bunică", NounTemplateFemale("", "", "", ""));
-    SetParentAndChild(families, grandmother)
+    setParentAndChild(families, grandmother)
 
     // #jobs
     var workJob = new DataCard(
         "Work (job)", "Mancă",
         NounTemplateFemale("", "", "", "")
     )
-    SetParentAndChild(people, workJob)
+    setParentAndChild(people, workJob)
 
     var Teacher = new DataCard("Teacher", "Învătăoare (Profesoară)", "");
-    SetParentAndChild(workJob, Teacher)
+    setParentAndChild(workJob, Teacher)
 
     var Nurse = new DataCard("Nurse", "Infirmier", "");
-    SetParentAndChild(workJob, Nurse)
+    setParentAndChild(workJob, Nurse)
 
     var HealthCareAssistant = new DataCard("Health Care Assistant", "Asistent Medical", "");
-    SetParentAndChild(workJob, HealthCareAssistant)
+    setParentAndChild(workJob, HealthCareAssistant)
 
     var Doctor = new DataCard("Doctor", "Doctor", "");
-    SetParentAndChild(workJob, Doctor)
+    setParentAndChild(workJob, Doctor)
 
     var WaterSkier = new DataCard("Water Skier", "Schior Nautic", "");
-    SetParentAndChild(workJob, WaterSkier)
+    setParentAndChild(workJob, WaterSkier)
 
     var Sailor = new DataCard("Sailor", "Marinar", "");
-    SetParentAndChild(workJob, Sailor)
+    setParentAndChild(workJob, Sailor)
 
     var Farmer = new DataCard("Farmer", "Fermier", "");
-    SetParentAndChild(workJob, Farmer)
+    setParentAndChild(workJob, Farmer)
 
     var TrainDriver = new DataCard("Train Driver", "Mecanic de Locomotivă", "");
-    SetParentAndChild(workJob, TrainDriver)
+    setParentAndChild(workJob, TrainDriver)
 
     var TicketInspector = new DataCard("Ticket Inspector", "Conductoare", "Controloare de bilete");
-    SetParentAndChild(workJob, TicketInspector)
+    setParentAndChild(workJob, TicketInspector)
 
     var Pilot = new DataCard("Pilot", "Pilot", "");
-    SetParentAndChild(workJob, Pilot)
+    setParentAndChild(workJob, Pilot)
 
     var CabinCrew = new DataCard("Cabin Crew", "Echipaj", "");
-    SetParentAndChild(workJob, CabinCrew)
+    setParentAndChild(workJob, CabinCrew)
 
     var Fisherman = new DataCard("Fisherman", "Pescar", "");
-    SetParentAndChild(workJob, Fisherman)
+    setParentAndChild(workJob, Fisherman)
 
     var actor = new DataCard("Actor", "Actor", "");
-    SetParentAndChild(workJob, actor)
+    setParentAndChild(workJob, actor)
 
     var actress = new DataCard("Actress", "Actriță", "");
-    SetParentAndChild(workJob, actress)
+    setParentAndChild(workJob, actress)
 
     var butcher = new DataCard("Butcher", "Măcelar", "");
-    SetParentAndChild(workJob, butcher)
+    setParentAndChild(workJob, butcher)
 
     var policeman = new DataCard("Policeman", "Polițist", "");
-    SetParentAndChild(workJob, policeman)
+    setParentAndChild(workJob, policeman)
 
     var policewoman = new DataCard("Policewoman", "Polițistă", "");
-    SetParentAndChild(workJob, policewoman)
+    setParentAndChild(workJob, policewoman)
 
     var artist = new DataCard("Artist", "artist", "");
-    SetParentAndChild(workJob, artist)
+    setParentAndChild(workJob, artist)
 
     var chef = new DataCard("Chef", "Bucătar", "");
-    SetParentAndChild(workJob, chef)
+    setParentAndChild(workJob, chef)
 
     var singers = new DataCard("Singers", "Cântăreți", "");
-    SetParentAndChild(workJob, singers)
+    setParentAndChild(workJob, singers)
 
     var dancers = new DataCard("Dancers", "Dansatori", "");
-    SetParentAndChild(workJob, dancers)
+    setParentAndChild(workJob, dancers)
 
     var astronaut = new DataCard("Astronaut", "Astronaut", "");
-    SetParentAndChild(workJob, astronaut)
+    setParentAndChild(workJob, astronaut)
 
     var Carpenter = new DataCard("Carpentar", "Tâmplar", "");
-    SetParentAndChild(workJob, Carpenter)
+    setParentAndChild(workJob, Carpenter)
 
     var Firefighter = new DataCard("Firefighter", "Pompier", "");
-    SetParentAndChild(workJob, Firefighter)
+    setParentAndChild(workJob, Firefighter)
 
     var Judge = new DataCard("Judge", "Judecător", "");
-    SetParentAndChild(workJob, Judge)
+    setParentAndChild(workJob, Judge)
 
     var Mechanics = new DataCard("Mechanics", "Mechanici", "");
-    SetParentAndChild(workJob, Mechanics)
+    setParentAndChild(workJob, Mechanics)
 
     var Hairdresser = new DataCard("Hairdresser", "Frizer", "");
-    SetParentAndChild(workJob, Hairdresser)
+    setParentAndChild(workJob, Hairdresser)
 
     var lorryDriver = new DataCard("Lorry driver", "Şofer de autobuz", "");
-    SetParentAndChild(workJob, lorryDriver)
+    setParentAndChild(workJob, lorryDriver)
 
     var waiter = new DataCard("Waiter", "Chelner", "");
-    SetParentAndChild(workJob, waiter)
+    setParentAndChild(workJob, waiter)
 
     var Waitress = new DataCard("Waitress", "Chelnerița", "");
-    SetParentAndChild(workJob, Waitress)
+    setParentAndChild(workJob, Waitress)
 
     var Postman = new DataCard("Postman", "Poștaș", "");
-    SetParentAndChild(workJob, Postman)
+    setParentAndChild(workJob, Postman)
 
     var painter = new DataCard("Painter (decorator)", "Zugrav", "");
-    SetParentAndChild(workJob, painter)
+    setParentAndChild(workJob, painter)
 
     var diver = new DataCard("Diver", "Scanfandru", "");
-    SetParentAndChild(workJob, diver)
+    setParentAndChild(workJob, diver)
 
     var baker = new DataCard("Baker", "Brutăriță", "");
-    SetParentAndChild(workJob, baker)
+    setParentAndChild(workJob, baker)
 
     // #shapes =================================
     var shapes = new DataCard("Shapes", "Formele geometrice", "")
-    SetParentAndChild(nouns, shapes)
+    setParentAndChild(nouns, shapes)
 
     var diamond = new DataCard("Diamond", "Romb", "")
-    SetParentAndChild(shapes, diamond)
+    setParentAndChild(shapes, diamond)
 
     var oval = new DataCard("Oval", "Oval", "")
-    SetParentAndChild(shapes, oval)
+    setParentAndChild(shapes, oval)
 
     var cone = new DataCard("Cone", "Con", "")
-    SetParentAndChild(shapes, cone)
+    setParentAndChild(shapes, cone)
 
     var rectangle = new DataCard("Rectangle", "Dreptunghi", "")
-    SetParentAndChild(shapes, rectangle)
+    setParentAndChild(shapes, rectangle)
 
     var triangle = new DataCard("Triangle", "Triunghi", "")
-    SetParentAndChild(shapes, triangle)
+    setParentAndChild(shapes, triangle)
 
     var star = new DataCard("Star", "Stea", "")
-    SetParentAndChild(shapes, star)
+    setParentAndChild(shapes, star)
 
     var square = new DataCard("Square", "Pătrat", "")
-    SetParentAndChild(shapes, square)
+    setParentAndChild(shapes, square)
 
     var circle = new DataCard("Circle", "Cerc", "")
-    SetParentAndChild(shapes, circle)
+    setParentAndChild(shapes, circle)
 
     var cube = new DataCard("Cube", "Cub", "")
-    SetParentAndChild(shapes, cube)
+    setParentAndChild(shapes, cube)
 
     var crescent = new DataCard("Crescent", "Semilună", "")
-    SetParentAndChild(shapes, crescent)
+    setParentAndChild(shapes, crescent)
 
     // #body =======================================
     var theBody = new DataCard("The body", "Corpul", "")
-    SetParentAndChild(nouns, theBody)
+    setParentAndChild(nouns, theBody)
 
     var head = new DataCard("Head", "Cap", "")
-    SetParentAndChild(theBody, head)
+    setParentAndChild(theBody, head)
 
     var hair = new DataCard("Hair", "Păr", "")
-    SetParentAndChild(theBody, hair)
+    setParentAndChild(theBody, hair)
 
     var face = new DataCard("Face", "Față", "")
-    SetParentAndChild(theBody, face)
+    setParentAndChild(theBody, face)
 
     var arm = new DataCard("Arm", "Braț", "")
-    SetParentAndChild(theBody, arm)
+    setParentAndChild(theBody, arm)
 
     var elbow = new DataCard("Elbow", "Cot", "")
-    SetParentAndChild(theBody, elbow)
+    setParentAndChild(theBody, elbow)
 
     var tummy = new DataCard("Tummy", "Burtică", "")
-    SetParentAndChild(theBody, tummy)
+    setParentAndChild(theBody, tummy)
 
     var toes = new DataCard("Toes", "Degete de la picioare", "")
-    SetParentAndChild(theBody, toes)
+    setParentAndChild(theBody, toes)
 
     var foot = new DataCard("Foot", "Laba piciorului", "")
-    SetParentAndChild(theBody, foot)
+    setParentAndChild(theBody, foot)
 
     var leg = new DataCard("Leg", "Picior", "Gambă")
-    SetParentAndChild(theBody, leg)
+    setParentAndChild(theBody, leg)
 
     var knee = new DataCard("Knee", "Genunchi", "")
-    SetParentAndChild(theBody, knee)
+    setParentAndChild(theBody, knee)
 
     var eyebrow = new DataCard("Eyebrow", "Sprânceană", "")
-    SetParentAndChild(theBody, eyebrow)
+    setParentAndChild(theBody, eyebrow)
 
     var eye = new DataCard("Eye", "Ochi", "")
-    SetParentAndChild(theBody, eye)
+    setParentAndChild(theBody, eye)
 
     var nose = new DataCard("Nose", "Nas", "")
-    SetParentAndChild(theBody, nose)
+    setParentAndChild(theBody, nose)
 
     var cheek = new DataCard("Cheek", "Obraz", "")
-    SetParentAndChild(theBody, cheek)
+    setParentAndChild(theBody, cheek)
 
     var mouth = new DataCard("Mouth", "Gură", "")
-    SetParentAndChild(theBody, mouth)
+    setParentAndChild(theBody, mouth)
 
     var lips = new DataCard("Lips", "Buze", "")
-    SetParentAndChild(theBody, lips)
+    setParentAndChild(theBody, lips)
 
     var teeth = new DataCard("Teeth", "Dinți", "")
-    SetParentAndChild(theBody, teeth)
+    setParentAndChild(theBody, teeth)
 
     var tongue = new DataCard("Tongue", "Limbă", "")
-    SetParentAndChild(theBody, tongue)
+    setParentAndChild(theBody, tongue)
 
     var chin = new DataCard("Chin", "Bărbie", "")
-    SetParentAndChild(theBody, chin)
+    setParentAndChild(theBody, chin)
 
     var ears = new DataCard("Ears", "Urechi", "")
-    SetParentAndChild(theBody, ears)
+    setParentAndChild(theBody, ears)
 
     var neck = new DataCard("Neck", "Gât", "")
-    SetParentAndChild(theBody, neck)
+    setParentAndChild(theBody, neck)
 
     var shoulders = new DataCard("Shoulders", "Umeri", "")
-    SetParentAndChild(theBody, shoulders)
+    setParentAndChild(theBody, shoulders)
 
     var chest = new DataCard("Chest", "Piept", "")
-    SetParentAndChild(theBody, chest)
+    setParentAndChild(theBody, chest)
 
     var back = new DataCard("Back", "Spate", "")
-    SetParentAndChild(theBody, back)
+    setParentAndChild(theBody, back)
 
     var bottom = new DataCard("Bottom", "Fund", "")
-    SetParentAndChild(theBody, bottom)
+    setParentAndChild(theBody, bottom)
 
     var hand = new DataCard("Hand", "Mână", "")
-    SetParentAndChild(theBody, hand)
+    setParentAndChild(theBody, hand)
 
     var thumb = new DataCard("Thumb", "Degetul mare", "")
-    SetParentAndChild(theBody, thumb)
+    setParentAndChild(theBody, thumb)
 
     var fingers = new DataCard("Fingers", "Degete de la mână", "")
-    SetParentAndChild(theBody, fingers)
+    setParentAndChild(theBody, fingers)
 
 
     // =============================================================================
@@ -3524,47 +3524,47 @@ export function BuildLanguageTree() // returns romanian
     var adverbs = new DataCard(
         "Adverbs", "Adverbe",
         "")
-    SetParentAndChild(romanian, adverbs);
+    setParentAndChild(romanian, adverbs);
 
     var when = new DataCard(
         "When", "Când",
         "")
-    SetParentAndChild(adverbs, when);
+    setParentAndChild(adverbs, when);
 
     var either = new DataCard(
         "Either", "Fie",
         "")
-    SetParentAndChild(adverbs, either);
+    setParentAndChild(adverbs, either);
 
     var neither = new DataCard(
         "Neither", "Nici",
         "")
-    SetParentAndChild(adverbs, neither);
+    setParentAndChild(adverbs, neither);
 
     var never = new DataCard(
         "Never", "Niciodată",
         "")
-    SetParentAndChild(adverbs, never);
+    setParentAndChild(adverbs, never);
 
     var Only = new DataCard(
         "Only", "Numai",
         "")
-    SetParentAndChild(adverbs, Only);
+    setParentAndChild(adverbs, Only);
 
     var how = new DataCard(
         "How", "Cum",
         "")
-    SetParentAndChild(adverbs, how);
+    setParentAndChild(adverbs, how);
 
     var where = new DataCard(
         "Where", "Unde",
         "")
-    SetParentAndChild(adverbs, where);
+    setParentAndChild(adverbs, where);
 
     var Almost = new DataCard(
         "Almost", "Abia",
         "")
-    SetParentAndChild(adverbs, Almost);
+    setParentAndChild(adverbs, Almost);
 
 
     // =============================================================================
@@ -3574,52 +3574,52 @@ export function BuildLanguageTree() // returns romanian
     var conjunctions = new DataCard(
         "Conjunctions", "Conjuncții",
         "")
-    SetParentAndChild(romanian, conjunctions);
+    setParentAndChild(romanian, conjunctions);
 
     var _for = new DataCard(
         "For", "Pentru",
         "")
-    SetParentAndChild(conjunctions, _for);
+    setParentAndChild(conjunctions, _for);
 
     var because = new DataCard(
         "Because", "Pentru că",
         "")
-    SetParentAndChild(conjunctions, because);
+    setParentAndChild(conjunctions, because);
 
     var and = new DataCard(
         "And", "Şi",
         "")
-    SetParentAndChild(conjunctions, and);
+    setParentAndChild(conjunctions, and);
 
     var and2 = new DataCard(
         "And (alt)", "Iar",
         "")
-    SetParentAndChild(conjunctions, and2);
+    setParentAndChild(conjunctions, and2);
 
     var _if = new DataCard(
         "If", "Daca",
         "")
-    SetParentAndChild(conjunctions, _if);
+    setParentAndChild(conjunctions, _if);
 
     var _or = new DataCard(
         "Or", "Sau",
         "")
-    SetParentAndChild(conjunctions, _or);
+    setParentAndChild(conjunctions, _or);
 
     var _or2 = new DataCard(
         "Or (alt)", "Ori",
         "")
-    SetParentAndChild(conjunctions, _or2);
+    setParentAndChild(conjunctions, _or2);
 
     var but = new DataCard(
         "But", "Dar",
         "")
-    SetParentAndChild(conjunctions, but);
+    setParentAndChild(conjunctions, but);
 
     var before = new DataCard(
         "Before", "Inainte de",
         "")
-    SetParentAndChild(conjunctions, before);
+    setParentAndChild(conjunctions, before);
 
 
     // =============================================================================
@@ -3629,57 +3629,57 @@ export function BuildLanguageTree() // returns romanian
     var numbers = new DataCard(
         "Numbers", "Numere",
         "Todo")
-    SetParentAndChild(romanian, numbers);
+    setParentAndChild(romanian, numbers);
 
     var one = new DataCard(
         "1 One", "1 Unu",
         "")
-    SetParentAndChild(numbers, one);
+    setParentAndChild(numbers, one);
 
     var two = new DataCard(
         "2 Two", "2 Doi",
         "")
-    SetParentAndChild(numbers, two);
+    setParentAndChild(numbers, two);
 
     var three = new DataCard(
         "3 Three", "3 Trei",
         "")
-    SetParentAndChild(numbers, three);
+    setParentAndChild(numbers, three);
 
     var four = new DataCard(
         "4 Four", "4 Patru",
         "")
-    SetParentAndChild(numbers, four);
+    setParentAndChild(numbers, four);
 
     var five = new DataCard(
         "5 Five", "5 Cinci",
         "")
-    SetParentAndChild(numbers, five);
+    setParentAndChild(numbers, five);
 
     var six = new DataCard(
         "6 Six", "6 Şase",
         "")
-    SetParentAndChild(numbers, six);
+    setParentAndChild(numbers, six);
 
     var seven = new DataCard(
         "7 Seven", "7 Şapte",
         "")
-    SetParentAndChild(numbers, seven);
+    setParentAndChild(numbers, seven);
 
     var eight = new DataCard(
         "8 Eight", "8 Opt",
         "")
-    SetParentAndChild(numbers, eight);
+    setParentAndChild(numbers, eight);
 
     var nine = new DataCard(
         "9 Nine", "9 Nouă",
         "")
-    SetParentAndChild(numbers, nine);
+    setParentAndChild(numbers, nine);
 
     var ten = new DataCard(
         "10 Ten", "10 Zece",
         "")
-    SetParentAndChild(numbers, ten);
+    setParentAndChild(numbers, ten);
 
 
 
@@ -3691,17 +3691,17 @@ export function BuildLanguageTree() // returns romanian
     var pronouns = new DataCard(
         "Pronouns", "Pronume",
         "")
-    SetParentAndChild(romanian, pronouns);
+    setParentAndChild(romanian, pronouns);
 
     var another = new DataCard(
         "Another", "Alt",
         "")
-    SetParentAndChild(pronouns, another);
+    setParentAndChild(pronouns, another);
 
     var something = new DataCard(
         "Something", "Ceva",
         "")
-    SetParentAndChild(pronouns, something);
+    setParentAndChild(pronouns, something);
 
 
 
@@ -3712,62 +3712,62 @@ export function BuildLanguageTree() // returns romanian
     var emotions = new DataCard(
         "Emotions", "Emoții",
         "")
-    SetParentAndChild(romanian, emotions);
+    setParentAndChild(romanian, emotions);
 
     var Happy = new DataCard(
         "Happy", "Fericit",
         "")
-    SetParentAndChild(emotions, Happy);
+    setParentAndChild(emotions, Happy);
 
     var Sad = new DataCard(
         "Sad", "Trist",
         "")
-    SetParentAndChild(emotions, Sad);
+    setParentAndChild(emotions, Sad);
 
     var Bored = new DataCard(
         "Bored", "Plictisit",
         "")
-    SetParentAndChild(emotions, Bored);
+    setParentAndChild(emotions, Bored);
 
     var Cheerful = new DataCard(
         "Cheerful", "Vesel",
         "")
-    SetParentAndChild(emotions, Cheerful);
+    setParentAndChild(emotions, Cheerful);
 
     var Shy = new DataCard(
         "Shy (Timid)", "Timid",
         "")
-    SetParentAndChild(emotions, Shy);
+    setParentAndChild(emotions, Shy);
 
     var Angry = new DataCard(
         "Angry", "Nervos",
         "")
-    SetParentAndChild(emotions, Angry);
+    setParentAndChild(emotions, Angry);
 
     var Tired = new DataCard(
         "Tired", "Obosit",
         "")
-    SetParentAndChild(emotions, Tired);
+    setParentAndChild(emotions, Tired);
 
     var Worried = new DataCard(
         "Worried", "Îngrijorat",
         "")
-    SetParentAndChild(emotions, Worried);
+    setParentAndChild(emotions, Worried);
 
     var Upset = new DataCard(
         "Upset", "Supărat",
         "")
-    SetParentAndChild(emotions, Upset);
+    setParentAndChild(emotions, Upset);
 
     var Excited = new DataCard(
         "Excited", "Entuziasmat",
         "")
-    SetParentAndChild(emotions, Excited);
+    setParentAndChild(emotions, Excited);
 
     var Jealous = new DataCard(
         "Jealous", "Gelos",
         "")
-    SetParentAndChild(emotions, Jealous);
+    setParentAndChild(emotions, Jealous);
 
     return romanian;
 }

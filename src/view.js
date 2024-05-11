@@ -1,4 +1,4 @@
-import { RainbowColorWheel } from "./color.js";
+import { RainbowColorWheel } from "./colors/rainbowColorWheel.js";
 // =============================================================================
 //  DISPLAY FUNCTIONS
 // =============================================================================
@@ -60,7 +60,7 @@ export class View
 
 
         let colorIndex = "";
-        let colorWheel = new RainbowColorWheel();
+        let colorWheel = RainbowColorWheel();
 
         // child cards
         for (var idx = 0; idx < displayList.length; idx++)

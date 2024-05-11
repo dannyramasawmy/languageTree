@@ -1,17 +1,17 @@
 import { View, Components, Button } from "./view.js";
 import { BuildLanguageTree, searchPlaceholder } from "../data/romanian-tree.js";
-import { 
-  SortDisplayList} from "./languageTree.js";
+import { sortDataCardArray } from "./tree/functions.js";
 import { buildDataCardMappingRecursive } from "./search/functions.js";
 import { resetSearchBar } from "./search/view.js";
 import { ElementID } from "./elementID.js";
-import { GetChildren } from "./tree/functions.js";
-import { GetTreeDepth } from "./tree/functions.js";
-import { ScrollHandler } from "./scroll.js";
-import { RandomElementInArray } from "./random.js";
+import { getChildren } from "./tree/functions.js";
+import { getTreeDepth } from "./tree/functions.js";
+import { ScrollHandler } from "./history/scroll.js";
+import { RandomElementInArray } from "./utils/random.js";
 import { DataCardMapping } from "./search/models.js";
 import { searchForMatchingCards, getNumberOfCards, getDataCardFromState, getAllCards } from "./search/functions.js";
-import { prepareEnglishString, prepareRomanianString } from "../data/romanian-functions.js";
+import { prepareEnglishString, prepareRomanianString, sortEnglish, sortRomanian } from "../data/romanian-functions.js";
+import { tryRegisterServiceWorker } from "./sw/register.js";
 
 // =============================================================================
 // Global variables
@@ -30,7 +30,7 @@ const SETTINGS_PANEL_ID = "settings-panel";
 const GLOBAL = {
   "PrimaryLanguageFirst": true,
   "CurrentNode": ROOT_NODE,
-  "DisplayCards": GetChildren(ROOT_NODE)
+  "DisplayCards": getChildren(ROOT_NODE)
 };
 
 const SETTINGS_COLOR_THEME = "color-theme";
@@ -80,7 +80,7 @@ VIEW
     B_SORT.Current(),
     B_SEARCH.Current(),
     B_SWAP.Current(),
-    B_TRAVEL.Select(GetTreeDepth(GLOBAL.CurrentNode))
+    B_TRAVEL.Select(getTreeDepth(GLOBAL.CurrentNode))
   ]);
 
 var G_searchable = buildDataCardMappingRecursive(
@@ -91,6 +91,8 @@ var G_searchable = buildDataCardMappingRecursive(
 let resetSearch = () => resetSearchBar(getNumberOfCards(G_searchable));
 resetSearch()
 
+const sortDisplayList = (GLOBAL, displayCards) => 
+  sortDataCardArray(GLOBAL.PrimaryLanguageFirst, displayCards, sortEnglish, sortRomanian)
 
 // =============================================================================
 // SETTINGS
@@ -143,7 +145,7 @@ function updateSettings()
       B_SORT.Current(),
       B_SEARCH.Current(),
       B_SWAP.Current(),
-      B_TRAVEL.Select(GetTreeDepth(GLOBAL.CurrentNode))]);
+      B_TRAVEL.Select(getTreeDepth(GLOBAL.CurrentNode))]);
 }
 document.getElementById(UPDATE_SETTINGS_BUTTON).addEventListener("click", updateSettings)
 
@@ -170,7 +172,7 @@ window.addEventListener('popstate',
       ? ROOT_NODE
       : getDataCardFromState(G_searchable, event.state);
 
-    GLOBAL.DisplayCards = GetChildren(GLOBAL.CurrentNode);
+    GLOBAL.DisplayCards = getChildren(GLOBAL.CurrentNode);
     VIEW
       .ClearCards()
       .UpdateCards(GLOBAL, SETTINGS, GLOBAL.CurrentNode, GLOBAL.DisplayCards, 0)
@@ -180,7 +182,7 @@ window.addEventListener('popstate',
         B_SORT.Current(),
         B_SEARCH.Current(),
         B_SWAP.Current(),
-        B_TRAVEL.Select(GetTreeDepth(GLOBAL.CurrentNode))]);
+        B_TRAVEL.Select(getTreeDepth(GLOBAL.CurrentNode))]);
   });
 
 window.onkeyup = function (e)
@@ -225,13 +227,13 @@ window.addEventListener('click',
         {
           // state
           GLOBAL.CurrentNode = GLOBAL.DisplayCards[idNumber];
-          GLOBAL.DisplayCards = GetChildren(GLOBAL.CurrentNode);
+          GLOBAL.DisplayCards = getChildren(GLOBAL.CurrentNode);
           pushState(GLOBAL.CurrentNode)
           SCROLL.AddHistory();
 
           // display
           resetSearch();
-          GLOBAL.DisplayCards = SortDisplayList(GLOBAL, GLOBAL.DisplayCards);
+          GLOBAL.DisplayCards = sortDisplayList(GLOBAL, GLOBAL.DisplayCards);
 
           VIEW
             .ClearCards()
@@ -242,7 +244,7 @@ window.addEventListener('click',
               B_SORT.Current(),
               B_SEARCH.Current(),
               B_SWAP.Current(),
-              B_TRAVEL.Select(GetTreeDepth(GLOBAL.CurrentNode))]);
+              B_TRAVEL.Select(getTreeDepth(GLOBAL.CurrentNode))]);
         }
 
         return;
@@ -254,7 +256,7 @@ window.addEventListener('click',
         GLOBAL.CurrentNode = RandomElementInArray(getAllCards(G_searchable, GLOBAL.PrimaryLanguageFirst));
       
         pushState(GLOBAL.CurrentNode);
-        GLOBAL.DisplayCards = GetChildren(GLOBAL.CurrentNode);
+        GLOBAL.DisplayCards = getChildren(GLOBAL.CurrentNode);
 
         resetSearch();
         VIEW
@@ -266,7 +268,7 @@ window.addEventListener('click',
             B_SORT.Current(),
             B_SEARCH.Current(),
             B_SWAP.Current(),
-            B_TRAVEL.Select(GetTreeDepth(GLOBAL.CurrentNode))]);
+            B_TRAVEL.Select(getTreeDepth(GLOBAL.CurrentNode))]);
 
         return;
       }
@@ -274,7 +276,7 @@ window.addEventListener('click',
       // sort cards
       if (event.composedPath()[idx].id == "sort-button")
       {
-        GLOBAL.DisplayCards = SortDisplayList(GLOBAL, GLOBAL.DisplayCards);
+        GLOBAL.DisplayCards = sortDisplayList(GLOBAL, GLOBAL.DisplayCards);
 
         VIEW
           .ClearCards()
@@ -285,7 +287,7 @@ window.addEventListener('click',
             B_SORT.Current(),
             B_SEARCH.Current(),
             B_SWAP.Current(),
-            B_TRAVEL.Select(GetTreeDepth(GLOBAL.CurrentNode))]);
+            B_TRAVEL.Select(getTreeDepth(GLOBAL.CurrentNode))]);
 
         return;
       }
@@ -309,7 +311,7 @@ window.addEventListener('click',
             B_SORT.Current(),
             B_SEARCH.Current(),
             B_SWAP.Select(GLOBAL.PrimaryLanguageFirst ? 0 : 1),
-            B_TRAVEL.Select(GetTreeDepth(GLOBAL.CurrentNode))]);
+            B_TRAVEL.Select(getTreeDepth(GLOBAL.CurrentNode))]);
 
         return;
       }
@@ -318,13 +320,13 @@ window.addEventListener('click',
       if (event.composedPath()[idx].id == "travel-button")
       {
         GLOBAL.CurrentNode = GLOBAL.CurrentNode.Parent;
-        GLOBAL.DisplayCards = GetChildren(GLOBAL.CurrentNode);
+        GLOBAL.DisplayCards = getChildren(GLOBAL.CurrentNode);
         pushState(GLOBAL.CurrentNode)
 
         // display
         var heightToSet = SCROLL.GetPreviousHeight();
         resetSearch();
-        GLOBAL.DisplayCards = SortDisplayList(GLOBAL, GLOBAL.DisplayCards);
+        GLOBAL.DisplayCards = sortDisplayList(GLOBAL, GLOBAL.DisplayCards);
 
         VIEW
           .ClearCards()
@@ -335,7 +337,7 @@ window.addEventListener('click',
             B_SORT.Current(),
             B_SEARCH.Current(),
             B_SWAP.Current(),
-            B_TRAVEL.Select(GetTreeDepth(GLOBAL.CurrentNode))]);
+            B_TRAVEL.Select(getTreeDepth(GLOBAL.CurrentNode))]);
 
         return;
       }
@@ -394,49 +396,5 @@ function animateButtons()
 document.getElementById(NAVAR_BRAND_BUTTON).addEventListener("click", animateButtons)
 document.getElementById(NAVAR_HOME_BRAND_BUTTON).addEventListener("click", animateButtons)
 
-// =============================================================================
-// Cache and service worker
-// =============================================================================
 
-// Register service worker to control making site work offline
-if ('serviceWorker' in navigator)
-{
-  navigator.serviceWorker
-    .register('/languageTree/sw.js')
-    .then(() => { console.log('Service Worker Registered'); });
-}
-
-// Code to handle install prompt on desktop
-let deferredPrompt;
-const addBtn = document.getElementById('install-button');
-addBtn.style.display = 'none';
-
-window.addEventListener('beforeinstallprompt', (e) =>
-{
-  // Prevent Chrome 67 and earlier from automatically showing the prompt
-  e.preventDefault();
-  // Stash the event so it can be triggered later.
-  deferredPrompt = e;
-  // Update UI to notify the user they can add to home screen
-  addBtn.style.display = 'block';
-
-  addBtn.addEventListener('click', () =>
-  {
-    // hide our user interface that shows our A2HS button
-    addBtn.style.display = 'none';
-    // Show the prompt
-    deferredPrompt.prompt();
-    // Wait for the user to respond to the prompt
-    deferredPrompt.userChoice.then((choiceResult) =>
-    {
-      if (choiceResult.outcome === 'accepted')
-      {
-        console.log('User accepted the A2HS prompt');
-      } else
-      {
-        console.log('User dismissed the A2HS prompt');
-      }
-      deferredPrompt = null;
-    });
-  });
-});
+tryRegisterServiceWorker()
