@@ -33,7 +33,8 @@ const VIEW = new View(
   ElementID.MAIN_CARD_ID, 
   ElementID.DATA_CARDS_ID, 
   ElementID.BUTTON_PANEL_ID, 
-  SETTINGS.IsDarkTheme);
+  SETTINGS,
+  GLOBAL);
 
 const SCROLL = new ScrollHandler();
 
@@ -46,7 +47,7 @@ const B_TRAVEL = new Button(SETTINGS, ButtonsID.TRAVEL, "Travel", ButtonIcons.TR
 
 VIEW
   .ClearCards()
-  .UpdateCards(GLOBAL, SETTINGS, GLOBAL.CurrentNode, GLOBAL.DisplayCards, 0)
+  .UpdateCards(0)
   .ClearButtons()
   .UpdateButtons([
     B_SHUFFLE.Current(),
@@ -85,7 +86,7 @@ function updateSettings()
   SETTINGS.IsDarkTheme ? VIEW.SetDarkTheme() : VIEW.SetLightTheme();
   VIEW
     .ClearCards()
-    .UpdateCards(GLOBAL, SETTINGS, GLOBAL.CurrentNode, GLOBAL.DisplayCards, SCROLL.GetCurrentHeight())
+    .UpdateCards(SCROLL.GetCurrentHeight())
     .ClearButtons()
     .UpdateButtons([
       B_SHUFFLE.Current(),
@@ -122,7 +123,7 @@ window.addEventListener('popstate',
     GLOBAL.DisplayCards = tree.functions.getChildren(GLOBAL.CurrentNode);
     VIEW
       .ClearCards()
-      .UpdateCards(GLOBAL, SETTINGS, GLOBAL.CurrentNode, GLOBAL.DisplayCards, 0)
+      .UpdateCards(0)
       .ClearButtons()
       .UpdateButtons([
         B_SHUFFLE.Previous(),
@@ -184,7 +185,7 @@ window.addEventListener('click',
 
           VIEW
             .ClearCards()
-            .UpdateCards(GLOBAL, SETTINGS, GLOBAL.CurrentNode, GLOBAL.DisplayCards, 0)
+            .UpdateCards(0)
             .ClearButtons()
             .UpdateButtons([
               B_SHUFFLE.Current(),
@@ -208,7 +209,7 @@ window.addEventListener('click',
         resetSearch();
         VIEW
           .ClearCards()
-          .UpdateCards(GLOBAL, SETTINGS, GLOBAL.CurrentNode, GLOBAL.DisplayCards, 0)
+          .UpdateCards(0)
           .ClearButtons()
           .UpdateButtons([
             B_SHUFFLE.Next(),
@@ -227,7 +228,7 @@ window.addEventListener('click',
 
         VIEW
           .ClearCards()
-          .UpdateCards(GLOBAL, SETTINGS, GLOBAL.CurrentNode, GLOBAL.DisplayCards, 0)
+          .UpdateCards(0)
           .ClearButtons()
           .UpdateButtons([
             B_SHUFFLE.Current(),
@@ -248,10 +249,7 @@ window.addEventListener('click',
         let currentHeight = SCROLL.GetCurrentHeight();
         VIEW
           .ClearCards()
-          .UpdateCards(GLOBAL, SETTINGS, 
-            GLOBAL.CurrentNode,
-            GLOBAL.DisplayCards,
-            currentHeight)
+          .UpdateCards(currentHeight)
           .ClearButtons()
           .UpdateButtons([
             B_SHUFFLE.Current(),
@@ -277,7 +275,7 @@ window.addEventListener('click',
 
         VIEW
           .ClearCards()
-          .UpdateCards(GLOBAL, SETTINGS, GLOBAL.CurrentNode, GLOBAL.DisplayCards, heightToSet)
+          .UpdateCards(heightToSet)
           .ClearButtons()
           .UpdateButtons([
             B_SHUFFLE.Current(),
@@ -303,7 +301,7 @@ function keyboardInput()
 
   VIEW
     .ClearCards()
-    .UpdateCards(GLOBAL, SETTINGS, CONFIG.SEARCH_PLACEHOLDER, GLOBAL.DisplayCards, 0);
+    .UpdateCards(0);
 };
 document.getElementById(ElementID.SEARCH_BAR_ID).addEventListener("input", keyboardInput)
 

@@ -3,15 +3,17 @@ import { createParentCard, createChildCard } from "./tree/view.js";
 
 export class View
 {
-    constructor(mainCardId, dataCardsId, buttonPanelId, isDarkTheme)
+    constructor(mainCardId, dataCardsId, buttonPanelId, settings, global)
     {
         // TODO: add error checks
 
         this.mainCardId = mainCardId;
         this.dataCardsId = dataCardsId;
         this.buttonPanelId = buttonPanelId;
+        this.SETTINGS = settings;
+        this.GLOBAL = global;
 
-        if (isDarkTheme)
+        if (this.SETTINGS.IsDarkTheme)
             this.SetDarkTheme();
         else
             this.SetLightTheme();
@@ -47,12 +49,15 @@ export class View
         return this;
     }
 
-    UpdateCards(GLOBAL, SETTINGS, currentNode, displayList, yScrollHeight)
+    UpdateCards(yScrollHeight)
     {
 
         // main card
+        let currentNode = this.GLOBAL.CurrentNode;
+        let displayList = this.GLOBAL.DisplayCards;
+
         document.getElementById(this.mainCardId).appendChild(
-            GLOBAL.PrimaryLanguageFirst
+            this.GLOBAL.PrimaryLanguageFirst
                 ? createParentCard(currentNode.Primary, currentNode.Secondary, currentNode.Data)
                 : createParentCard(currentNode.Secondary, currentNode.Primary, currentNode.Data));
 
@@ -65,18 +70,28 @@ export class View
         {
             let cardId = `card-number-${idx}`;
 
-            if (SETTINGS.HasRainbowHover)
+            if (this.SETTINGS.HasRainbowHover)
                 colorIndex = colorWheel.GetNextColorIndex();
 
-            let dataCard = GLOBAL.PrimaryLanguageFirst
-                ? createChildCard(SETTINGS.IsCompactView, displayList[idx].Primary, displayList[idx].Secondary, cardId, colorIndex)
-                : createChildCard(SETTINGS.IsCompactView, displayList[idx].Secondary, displayList[idx].Primary, cardId, colorIndex);
+            let dataCard = this.GLOBAL.PrimaryLanguageFirst
+                ? createChildCard(
+                    this.SETTINGS.IsCompactView, 
+                    displayList[idx].Primary, 
+                    displayList[idx].Secondary, 
+                    cardId, 
+                    colorIndex)
+                : createChildCard(
+                    this.SETTINGS.IsCompactView, 
+                    displayList[idx].Secondary, 
+                    displayList[idx].Primary, 
+                    cardId, 
+                    colorIndex);
 
             dataCard.style.visibility = "hidden";
             document.getElementById(this.dataCardsId).appendChild(dataCard);
 
             // make sliding in animation
-            let settingAnimation = SETTINGS.ShowAnimations ? 1 : 0;
+            let settingAnimation = this.SETTINGS.ShowAnimations ? 1 : 0;
             let animationTime = 1 * settingAnimation * idx / displayList.length;
             dataCard.style.animation = `${animationTime}s slide-in`;
             dataCard.style.visibility = "visible";

@@ -28,7 +28,6 @@ export const ButtonsID = {
     TRAVEL: "travel-button"
 }
 
-
 export const ButtonIcons = {
     SHUFFLE: [
         "img/shuffle-icon-1.svg", 
