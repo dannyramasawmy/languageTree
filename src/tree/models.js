@@ -1,4 +1,4 @@
-import { defaultSort } from "./functions.js";
+import { primarySort } from "./functions.js";
 
 class Node {
     constructor(primary, secondary, data, isRoot = false) {
@@ -11,7 +11,7 @@ class Node {
 
         this.IsRoot = isRoot;
 
-        this.AddChild = (dataCard, sortFunction=defaultSort) => {
+        this.AddChild = (dataCard, sortFunction=primarySort) => {
             this.Child.push(dataCard);
             this.Child.sort(sortFunction);
         };

@@ -19,7 +19,7 @@ export function SearchableDictionary()
         // console.log(words)
 
         var wordMask = words.map((x) => x.includes(searchString.toLowerCase()));
-        var filteredWords = words.filter((x, i) => wordMask[i]);
+        var filteredWords = words.filter((_, i) => wordMask[i]);
 
         var filteredDataCards = filteredWords.map(
             x => searchPrimary

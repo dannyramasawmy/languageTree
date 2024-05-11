@@ -1,4 +1,4 @@
-export function defaultSort (x, y) {
+export function primarySort (x, y) {
     let left = x.Primary.toLowerCase().trim()
     let right = y.Primary.toLowerCase().trim()
 
@@ -6,7 +6,6 @@ export function defaultSort (x, y) {
     if (left > right) return 1;
     return 0; 
 }
-
 
 export function GetTreeDepth(currentNode) {
     if (currentNode.IsRoot) return 0;
