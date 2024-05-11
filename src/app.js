@@ -1,17 +1,15 @@
-import { View, Components, Button } from "./view.js";
+import { View } from "./view.js";
+import { Button, SearchButton } from "./buttons/button.js";
 import { BuildLanguageTree, searchPlaceholder } from "../data/romanian-tree.js";
-import { sortDataCardArray } from "./tree/functions.js";
-import { buildDataCardMappingRecursive } from "./search/functions.js";
-import { resetSearchBar } from "./search/view.js";
-import { ElementID } from "./elementID.js";
-import { getChildren } from "./tree/functions.js";
-import { getTreeDepth } from "./tree/functions.js";
+import { ElementID, SettingsID } from "./identifiers.js";
+import * as search from "./search/index.js"
+import * as tree from "./tree/index.js"
 import { ScrollHandler } from "./history/scroll.js";
 import { RandomElementInArray } from "./utils/random.js";
-import { DataCardMapping } from "./search/models.js";
-import { searchForMatchingCards, getNumberOfCards, getDataCardFromState, getAllCards } from "./search/functions.js";
 import { prepareEnglishString, prepareRomanianString, sortEnglish, sortRomanian } from "../data/romanian-functions.js";
 import { tryRegisterServiceWorker } from "./sw/register.js";
+import { Settings } from "./settings/settings.js";
+import { updateSettingsState } from "./settings/functions.js";
 
 // =============================================================================
 // Global variables
@@ -25,31 +23,17 @@ const ROOT_NODE = BuildLanguageTree();
 const MAIN_CARD_ID = "main-card";
 const DATA_CARDS_ID = "data-cards";
 const BUTTON_PANEL_ID = "buttons-panel";
-const SETTINGS_PANEL_ID = "settings-panel";
 
 const GLOBAL = {
   "PrimaryLanguageFirst": true,
   "CurrentNode": ROOT_NODE,
-  "DisplayCards": getChildren(ROOT_NODE)
+  "DisplayCards": tree.functions.getChildren(ROOT_NODE)
 };
 
-const SETTINGS_COLOR_THEME = "color-theme";
-const SETTINGS_HOVER_COLOR = "hover-color-theme";
-const SETTINGS_COMPACT_CARDS = "compact-data-cards";
-const SETTINGS_ANIMATIONS = "animations-switch";
-const SETTINGS_BUTTON_LABELS = "button-labels";
 const NAVAR_BRAND_BUTTON = "navbar-brand-button"
 const NAVAR_HOME_BRAND_BUTTON = "navbar-active-home-button"
-const UPDATE_SETTINGS_BUTTON = "update-settings-button"
 
-const SETTINGS = {
-  "IsDarkTheme": getBooleanSetting(SETTINGS_COLOR_THEME, true),
-  "HasRainbowHover": getBooleanSetting(SETTINGS_HOVER_COLOR, false),
-  "IsCompactView": getBooleanSetting(SETTINGS_COMPACT_CARDS, false),
-  "ShowAnimations": getBooleanSetting(SETTINGS_ANIMATIONS, true),
-  "ShowButtonLabels": getBooleanSetting(SETTINGS_BUTTON_LABELS, true),
-};
-
+const SETTINGS = Settings.default()
 console.log(SETTINGS)
 // =============================================================================
 // Initialise
@@ -66,10 +50,10 @@ const B_SHUFFLE = new Button(SETTINGS,
     "img/shuffle-icon-5.svg", "img/shuffle-icon-6.svg", "img/shuffle-icon-7.svg", "img/shuffle-icon-8.svg"],
   "shuffle-button",
   false);
-const B_SORT = new Button(SETTINGS, "sort-button", "Sort", ["../img/sort-icon.svg"], "sort-button", false);
-const B_SEARCH = new Button(SETTINGS, "search-button", "Search", ["img/search-icon.svg"], "search-button", true);
-const B_SWAP = new Button(SETTINGS, "swap-button", "Swap", ["img/swap-language-icon-1.svg", "img/swap-language-icon-2.svg"], "swap-button", false);
-const B_TRAVEL = new Button(SETTINGS, "travel-button", "Travel", ["img/root-icon.svg", "img/parent-icon.svg", "img/leaf-icon.svg"], "travel-button", false);
+const B_SORT = new Button(SETTINGS, "sort-button", "Sort", ["../img/sort-icon.svg"], "sort-button");
+const B_SEARCH = new SearchButton(SETTINGS, "search-button", "Search", ["img/search-icon.svg"], "search-button");
+const B_SWAP = new Button(SETTINGS, "swap-button", "Swap", ["img/swap-language-icon-1.svg", "img/swap-language-icon-2.svg"], "swap-button");
+const B_TRAVEL = new Button(SETTINGS, "travel-button", "Travel", ["img/root-icon.svg", "img/parent-icon.svg", "img/leaf-icon.svg"], "travel-button");
 
 VIEW
   .ClearCards()
@@ -80,60 +64,27 @@ VIEW
     B_SORT.Current(),
     B_SEARCH.Current(),
     B_SWAP.Current(),
-    B_TRAVEL.Select(getTreeDepth(GLOBAL.CurrentNode))
+    B_TRAVEL.Select(tree.functions.getNodeType(GLOBAL.CurrentNode))
   ]);
 
-var G_searchable = buildDataCardMappingRecursive(
+var G_searchable = search.functions.buildDataCardMappingRecursive(
   ROOT_NODE, 
-  new DataCardMapping(),
+  new search.models.DataCardMapping(),
   prepareEnglishString, prepareRomanianString);
 
-let resetSearch = () => resetSearchBar(getNumberOfCards(G_searchable));
+let resetSearch = () => search.view.resetSearchBar(search.functions.getNumberOfCards(G_searchable));
 resetSearch()
 
 const sortDisplayList = (GLOBAL, displayCards) => 
-  sortDataCardArray(GLOBAL.PrimaryLanguageFirst, displayCards, sortEnglish, sortRomanian)
+  tree.functions.sortDataCardArray(GLOBAL.PrimaryLanguageFirst, displayCards, sortEnglish, sortRomanian)
 
 // =============================================================================
 // SETTINGS
 // =============================================================================
 
-var settingsPanel = document.getElementById(SETTINGS_PANEL_ID);
-settingsPanel.appendChild(Components.CreateSettingsSubtitle("Theme"));
-settingsPanel.appendChild(Components.CreateBooleanSetting(SETTINGS_COLOR_THEME, "Enable dark mode", SETTINGS.IsDarkTheme));
-settingsPanel.appendChild(Components.CreateBooleanSetting(SETTINGS_HOVER_COLOR, "Use rainbow hover colours", SETTINGS.HasRainbowHover));
-settingsPanel.appendChild(Components.HorizontalRule());
-
-settingsPanel.appendChild(Components.CreateSettingsSubtitle("Data cards"));
-settingsPanel.appendChild(Components.CreateBooleanSetting(SETTINGS_COMPACT_CARDS, "Show data cards with a compact view", SETTINGS.IsCompactView));
-settingsPanel.appendChild(Components.CreateBooleanSetting(SETTINGS_ANIMATIONS, "Show animations", SETTINGS.ShowAnimations));
-settingsPanel.appendChild(Components.HorizontalRule());
-
-settingsPanel.appendChild(Components.CreateSettingsSubtitle("Navigation"));
-settingsPanel.appendChild(Components.CreateBooleanSetting(SETTINGS_BUTTON_LABELS, "Show button labels", SETTINGS.ShowButtonLabels));
-settingsPanel.appendChild(Components.HorizontalRule());
-
-function saveBooleanSetting(key)
-{
-  let currentState = document.getElementById(key).checked;
-  window.localStorage.setItem(key, currentState);
-  return currentState
-}
-
-function getBooleanSetting(key, defaultValue)
-{
-  return window.localStorage.getItem(key) === null
-    ? defaultValue
-    : window.localStorage.getItem(key) == "true";
-}
-
 function updateSettings()
 {
-  SETTINGS.IsDarkTheme = saveBooleanSetting(SETTINGS_COLOR_THEME);
-  SETTINGS.HasRainbowHover = saveBooleanSetting(SETTINGS_HOVER_COLOR);
-  SETTINGS.IsCompactView = saveBooleanSetting(SETTINGS_COMPACT_CARDS);
-  SETTINGS.ShowAnimations = saveBooleanSetting(SETTINGS_ANIMATIONS);
-  SETTINGS.ShowButtonLabels = saveBooleanSetting(SETTINGS_BUTTON_LABELS);
+  SETTINGS.update()
 
   SETTINGS.IsDarkTheme ? VIEW.SetDarkTheme() : VIEW.SetLightTheme();
   VIEW
@@ -145,9 +96,9 @@ function updateSettings()
       B_SORT.Current(),
       B_SEARCH.Current(),
       B_SWAP.Current(),
-      B_TRAVEL.Select(getTreeDepth(GLOBAL.CurrentNode))]);
+      B_TRAVEL.Select(tree.functions.getNodeType(GLOBAL.CurrentNode))]);
 }
-document.getElementById(UPDATE_SETTINGS_BUTTON).addEventListener("click", updateSettings)
+document.getElementById(SettingsID.UPDATE_SETTINGS).addEventListener("click", updateSettings)
 
 // =============================================================================
 // Events
@@ -170,9 +121,9 @@ window.addEventListener('popstate',
 
     GLOBAL.CurrentNode = event.state == null
       ? ROOT_NODE
-      : getDataCardFromState(G_searchable, event.state);
+      : search.functions.getDataCardFromState(G_searchable, event.state);
 
-    GLOBAL.DisplayCards = getChildren(GLOBAL.CurrentNode);
+    GLOBAL.DisplayCards = tree.functions.getChildren(GLOBAL.CurrentNode);
     VIEW
       .ClearCards()
       .UpdateCards(GLOBAL, SETTINGS, GLOBAL.CurrentNode, GLOBAL.DisplayCards, 0)
@@ -182,7 +133,7 @@ window.addEventListener('popstate',
         B_SORT.Current(),
         B_SEARCH.Current(),
         B_SWAP.Current(),
-        B_TRAVEL.Select(getTreeDepth(GLOBAL.CurrentNode))]);
+        B_TRAVEL.Select(tree.functions.getNodeType(GLOBAL.CurrentNode))]);
   });
 
 window.onkeyup = function (e)
@@ -227,7 +178,7 @@ window.addEventListener('click',
         {
           // state
           GLOBAL.CurrentNode = GLOBAL.DisplayCards[idNumber];
-          GLOBAL.DisplayCards = getChildren(GLOBAL.CurrentNode);
+          GLOBAL.DisplayCards = tree.functions.getChildren(GLOBAL.CurrentNode);
           pushState(GLOBAL.CurrentNode)
           SCROLL.AddHistory();
 
@@ -244,7 +195,7 @@ window.addEventListener('click',
               B_SORT.Current(),
               B_SEARCH.Current(),
               B_SWAP.Current(),
-              B_TRAVEL.Select(getTreeDepth(GLOBAL.CurrentNode))]);
+              B_TRAVEL.Select(tree.functions.getNodeType(GLOBAL.CurrentNode))]);
         }
 
         return;
@@ -253,10 +204,10 @@ window.addEventListener('click',
       // shuffle current node
       if (event.composedPath()[idx].id == "shuffle-button")
       {
-        GLOBAL.CurrentNode = RandomElementInArray(getAllCards(G_searchable, GLOBAL.PrimaryLanguageFirst));
+        GLOBAL.CurrentNode = RandomElementInArray(search.functions.getAllCards(G_searchable, GLOBAL.PrimaryLanguageFirst));
       
         pushState(GLOBAL.CurrentNode);
-        GLOBAL.DisplayCards = getChildren(GLOBAL.CurrentNode);
+        GLOBAL.DisplayCards = tree.functions.getChildren(GLOBAL.CurrentNode);
 
         resetSearch();
         VIEW
@@ -268,7 +219,7 @@ window.addEventListener('click',
             B_SORT.Current(),
             B_SEARCH.Current(),
             B_SWAP.Current(),
-            B_TRAVEL.Select(getTreeDepth(GLOBAL.CurrentNode))]);
+            B_TRAVEL.Select(tree.functions.getNodeType(GLOBAL.CurrentNode))]);
 
         return;
       }
@@ -287,7 +238,7 @@ window.addEventListener('click',
             B_SORT.Current(),
             B_SEARCH.Current(),
             B_SWAP.Current(),
-            B_TRAVEL.Select(getTreeDepth(GLOBAL.CurrentNode))]);
+            B_TRAVEL.Select(tree.functions.getNodeType(GLOBAL.CurrentNode))]);
 
         return;
       }
@@ -311,7 +262,7 @@ window.addEventListener('click',
             B_SORT.Current(),
             B_SEARCH.Current(),
             B_SWAP.Select(GLOBAL.PrimaryLanguageFirst ? 0 : 1),
-            B_TRAVEL.Select(getTreeDepth(GLOBAL.CurrentNode))]);
+            B_TRAVEL.Select(tree.functions.getNodeType(GLOBAL.CurrentNode))]);
 
         return;
       }
@@ -320,7 +271,7 @@ window.addEventListener('click',
       if (event.composedPath()[idx].id == "travel-button")
       {
         GLOBAL.CurrentNode = GLOBAL.CurrentNode.Parent;
-        GLOBAL.DisplayCards = getChildren(GLOBAL.CurrentNode);
+        GLOBAL.DisplayCards = tree.functions.getChildren(GLOBAL.CurrentNode);
         pushState(GLOBAL.CurrentNode)
 
         // display
@@ -337,7 +288,7 @@ window.addEventListener('click',
             B_SORT.Current(),
             B_SEARCH.Current(),
             B_SWAP.Current(),
-            B_TRAVEL.Select(getTreeDepth(GLOBAL.CurrentNode))]);
+            B_TRAVEL.Select(tree.functions.getNodeType(GLOBAL.CurrentNode))]);
 
         return;
       }
@@ -349,7 +300,7 @@ function keyboardInput()
 {
   let searchString = document.getElementById(ElementID.SEARCH_BAR_ID).value;
   GLOBAL.CurrentNode = ROOT_NODE;
-  GLOBAL.DisplayCards = searchForMatchingCards(G_searchable, GLOBAL.PrimaryLanguageFirst, searchString);
+  GLOBAL.DisplayCards = search.functions.searchForMatchingCards(G_searchable, GLOBAL.PrimaryLanguageFirst, searchString);
 
   console.log("Searching keyboard input");
   console.log(searchString);

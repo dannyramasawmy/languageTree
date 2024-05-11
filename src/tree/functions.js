@@ -1,3 +1,5 @@
+import { TreeDepth } from "./enums.js";
+
 export function primarySort (x, y) {
     let left = x.Primary.toLowerCase().trim()
     let right = y.Primary.toLowerCase().trim()
@@ -20,10 +22,10 @@ export function sortDataCardArray(
     return dataCardArray;
 }
 
-export function getTreeDepth(currentNode) {
-    if (currentNode.IsRoot) return 0;
-    if (currentNode.Child.length == 0) return 2;
-    return 1;
+export function getNodeType(currentNode) {
+    if (currentNode.IsRoot) return TreeDepth.ROOT;
+    if (currentNode.Child.length == 0) return TreeDepth.LEAF;
+    return TreeDepth.BRANCH;
 }
 
 export function getChildren(node) {
