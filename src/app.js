@@ -1,6 +1,6 @@
 import { View } from "./view.js";
 import { Button, SearchButton } from "./buttons/button.js";
-import { ElementID, SettingsID } from "./identifiers.js";
+import { ElementID, SettingsID, ButtonsID, NavbarId, ButtonIcons } from "./identifiers.js";
 import * as search from "./search/index.js"
 import * as tree from "./tree/index.js"
 import { CONFIG } from "./configuration.js";
@@ -17,41 +17,32 @@ const DEBUG = true;
 
 const ROOT_NODE = CONFIG.DATA_TREE;
 
-// HTML COMPONENT ID's
-const MAIN_CARD_ID = "main-card";
-const DATA_CARDS_ID = "data-cards";
-const BUTTON_PANEL_ID = "buttons-panel";
-
 const GLOBAL = {
   "PrimaryLanguageFirst": true,
   "CurrentNode": ROOT_NODE,
   "DisplayCards": tree.functions.getChildren(ROOT_NODE)
 };
 
-const NAVAR_BRAND_BUTTON = "navbar-brand-button"
-const NAVAR_HOME_BRAND_BUTTON = "navbar-active-home-button"
-
 const SETTINGS = Settings.default()
-console.log(SETTINGS)
+
 // =============================================================================
 // Initialise
 // =============================================================================
 
-const VIEW = new View(MAIN_CARD_ID, DATA_CARDS_ID, BUTTON_PANEL_ID, SETTINGS.IsDarkTheme);
+const VIEW = new View(
+  ElementID.MAIN_CARD_ID, 
+  ElementID.DATA_CARDS_ID, 
+  ElementID.BUTTON_PANEL_ID, 
+  SETTINGS.IsDarkTheme);
+
 const SCROLL = new ScrollHandler();
 
 // define buttons
-const B_SHUFFLE = new Button(SETTINGS,
-  "shuffle-button",
-  "Shuffle",
-  ["img/shuffle-icon-1.svg", "img/shuffle-icon-2.svg", "img/shuffle-icon-3.svg", "img/shuffle-icon-4.svg",
-    "img/shuffle-icon-5.svg", "img/shuffle-icon-6.svg", "img/shuffle-icon-7.svg", "img/shuffle-icon-8.svg"],
-  "shuffle-button",
-  false);
-const B_SORT = new Button(SETTINGS, "sort-button", "Sort", ["../img/sort-icon.svg"], "sort-button");
-const B_SEARCH = new SearchButton(SETTINGS, "search-button", "Search", ["img/search-icon.svg"], "search-button");
-const B_SWAP = new Button(SETTINGS, "swap-button", "Swap", ["img/swap-language-icon-1.svg", "img/swap-language-icon-2.svg"], "swap-button");
-const B_TRAVEL = new Button(SETTINGS, "travel-button", "Travel", ["img/root-icon.svg", "img/parent-icon.svg", "img/leaf-icon.svg"], "travel-button");
+const B_SHUFFLE = new Button(SETTINGS, ButtonsID.SHUFFLE, "Shuffle", ButtonIcons.SHUFFLE, "shuffle-button");
+const B_SORT = new Button(SETTINGS, ButtonsID.SORT, "Sort", ButtonIcons.SORT, "sort-button");
+const B_SEARCH = new SearchButton(SETTINGS, ButtonsID.SEARCH, "Search", ButtonIcons.SEARCH, "search-button");
+const B_SWAP = new Button(SETTINGS, ButtonsID.SWAP, "Swap", ButtonIcons.SWAP, "swap-button");
+const B_TRAVEL = new Button(SETTINGS, ButtonsID.TRAVEL, "Travel", ButtonIcons.TRAVEL, "travel-button");
 
 VIEW
   .ClearCards()
@@ -207,7 +198,7 @@ window.addEventListener('click',
       }
 
       // shuffle current node
-      if (event.composedPath()[idx].id == "shuffle-button")
+      if (event.composedPath()[idx].id == ButtonsID.SHUFFLE)
       {
         GLOBAL.CurrentNode = RandomElementInArray(search.functions.getAllCards(G_searchable, GLOBAL.PrimaryLanguageFirst));
       
@@ -230,7 +221,7 @@ window.addEventListener('click',
       }
 
       // sort cards
-      if (event.composedPath()[idx].id == "sort-button")
+      if (event.composedPath()[idx].id == ButtonsID.SORT)
       {
         GLOBAL.DisplayCards = sortDisplayList(GLOBAL, GLOBAL.DisplayCards);
 
@@ -249,7 +240,7 @@ window.addEventListener('click',
       }
 
       // swap language shown
-      if (event.composedPath()[idx].id == "swap-button")
+      if (event.composedPath()[idx].id == ButtonsID.SWAP)
       {
         // state
         GLOBAL.PrimaryLanguageFirst = GLOBAL.PrimaryLanguageFirst ? false : true;
@@ -273,7 +264,7 @@ window.addEventListener('click',
       }
 
       // go to parent
-      if (event.composedPath()[idx].id == "travel-button")
+      if (event.composedPath()[idx].id == ButtonsID.TRAVEL)
       {
         GLOBAL.CurrentNode = GLOBAL.CurrentNode.Parent;
         GLOBAL.DisplayCards = tree.functions.getChildren(GLOBAL.CurrentNode);
@@ -354,8 +345,7 @@ function animateButtons()
   counter = counter < 1 ? 7 : counter;
   animateShuffle(counter);
 }
-document.getElementById(NAVAR_BRAND_BUTTON).addEventListener("click", animateButtons)
-document.getElementById(NAVAR_HOME_BRAND_BUTTON).addEventListener("click", animateButtons)
-
+document.getElementById(NavbarId.BRAND_BUTTON).addEventListener("click", animateButtons)
+document.getElementById(NavbarId.HOME_BRAND_BUTTON).addEventListener("click", animateButtons)
 
 tryRegisterServiceWorker()
