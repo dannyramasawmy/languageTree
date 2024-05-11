@@ -1,30 +1,3 @@
-// =============================================================================
-// Containers
-// =============================================================================
-
-export function DataCard(primary, secondary, data, isRoot = false)
-{
-    this.Primary = primary;
-    this.Secondary = secondary;
-    this.Data = data;
-
-    this.Parent = [];
-    this.Child = [];
-
-    this.IsRoot = isRoot;
-
-    this.AddChild = (dataCard) =>
-    {
-        this.Child.push(dataCard);
-        this.Child.sort(SortEnglish);
-    }
-
-    this.SetParent = (dataCard) =>
-    {
-        this.Parent = dataCard;
-    }
-}
-
 export function SearchableDictionary()
 {
     this.Secondary = {};
@@ -60,16 +33,6 @@ export function SearchableDictionary()
     {
         return this.Primary[state];
     };
-}
-
-// =============================================================================
-// Data Functions
-// =============================================================================
-
-export function SetParentAndChild(parentDataCard, childDataCard)
-{
-    parentDataCard.AddChild(childDataCard);
-    childDataCard.SetParent(parentDataCard);
 }
 
 export function GetSearchableWords(rootDataCard, searchableDictionary)
@@ -119,26 +82,6 @@ export function ResetSearch(GLOBAL, G_searchable)
     let searchBar = document.getElementById("SearchBar")
     searchBar.value = "";
     searchBar.placeholder = `Search (${G_searchable.GetDataCards(GLOBAL, "").length})`;
-}
-
-// =============================================================================
-// Display Functions
-// =============================================================================
-
-export function GetDisplayNodes(node)
-{
-    var displayList = [];
-    for (var idx = 0; idx < node.Child.length; idx++)
-        displayList.push(node.Child[idx])
-
-    return displayList;
-}
-
-export function TreeDepth(currentNode)
-{
-    if (currentNode.IsRoot) return 0;
-    if (currentNode.Child.length == 0) return 2;
-    return 1;
 }
 
 

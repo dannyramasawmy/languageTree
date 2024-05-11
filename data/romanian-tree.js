@@ -2,10 +2,8 @@
 // #Root
 // =============================================================================
 
-import { 
-    DataCard, 
-    SetParentAndChild
-} from "../src/languageTree.js";
+import { SetParentAndChild } from "../src/tree/functions.js";
+import { DataCard, DataRoot } from "../src/tree/models.js";
 
 import { NounTemplateNeuter,
     NounTemplateMale,
@@ -31,12 +29,11 @@ SetParentAndChild(verbs, );
 
 export const searchPlaceholder = new DataCard("Search", "Căuta", "");
 
-export function BuildLanguageTree() // reurns romanian
+export function BuildLanguageTree() // returns romanian
 {
-    var romanian = new DataCard(
+    var romanian = new DataRoot(
         "Romanian", "Română",
-        "Romanian language tree. <br>",
-        true);
+        "Romanian language tree. <br>");
 
     romanian.SetParent(romanian);
 

@@ -1,12 +1,12 @@
 import { View, Components, Button } from "./view.js";
 import { BuildLanguageTree, searchPlaceholder } from "../data/romanian-tree.js";
 import { 
-  GetDisplayNodes, 
   SortDisplayList,
   SearchableDictionary,
   GetSearchableWords,
-  ResetSearch,
-  TreeDepth} from "./languageTree.js";
+  ResetSearch} from "./languageTree.js";
+import { GetChildren } from "./tree/functions.js";
+import { GetTreeDepth } from "./tree/functions.js";
 import { ScrollHandler } from "./scroll.js";
 import { RandomElementInArray } from "./random.js";
 
@@ -29,7 +29,7 @@ const SEARCH_BAR_ID = "SearchBar";
 const GLOBAL = {
   "PrimaryLanguageFirst": true,
   "CurrentNode": ROOT_NODE,
-  "DisplayCards": GetDisplayNodes(ROOT_NODE)
+  "DisplayCards": GetChildren(ROOT_NODE)
 };
 
 const SETTINGS_COLOR_THEME = "color-theme";
@@ -79,7 +79,7 @@ VIEW
     B_SORT.Current(),
     B_SEARCH.Current(),
     B_SWAP.Current(),
-    B_TRAVEL.Select(TreeDepth(GLOBAL.CurrentNode))
+    B_TRAVEL.Select(GetTreeDepth(GLOBAL.CurrentNode))
   ]);
 
 var G_searchable = new SearchableDictionary();
@@ -138,7 +138,7 @@ function updateSettings()
       B_SORT.Current(),
       B_SEARCH.Current(),
       B_SWAP.Current(),
-      B_TRAVEL.Select(TreeDepth(GLOBAL.CurrentNode))]);
+      B_TRAVEL.Select(GetTreeDepth(GLOBAL.CurrentNode))]);
 }
 document.getElementById(UPDATE_SETTINGS_BUTTON).addEventListener("click", updateSettings)
 
@@ -165,7 +165,7 @@ window.addEventListener('popstate',
       ? ROOT_NODE
       : G_searchable.GetDataCardFromState(event.state);
 
-    GLOBAL.DisplayCards = GetDisplayNodes(GLOBAL.CurrentNode);
+    GLOBAL.DisplayCards = GetChildren(GLOBAL.CurrentNode);
     VIEW
       .ClearCards()
       .UpdateCards(GLOBAL, SETTINGS, GLOBAL.CurrentNode, GLOBAL.DisplayCards, 0)
@@ -175,7 +175,7 @@ window.addEventListener('popstate',
         B_SORT.Current(),
         B_SEARCH.Current(),
         B_SWAP.Current(),
-        B_TRAVEL.Select(TreeDepth(GLOBAL.CurrentNode))]);
+        B_TRAVEL.Select(GetTreeDepth(GLOBAL.CurrentNode))]);
   });
 
 window.onkeyup = function (e)
@@ -220,7 +220,7 @@ window.addEventListener('click',
         {
           // state
           GLOBAL.CurrentNode = GLOBAL.DisplayCards[idNumber];
-          GLOBAL.DisplayCards = GetDisplayNodes(GLOBAL.CurrentNode);
+          GLOBAL.DisplayCards = GetChildren(GLOBAL.CurrentNode);
           pushState(GLOBAL.CurrentNode)
           SCROLL.AddHistory();
 
@@ -237,7 +237,7 @@ window.addEventListener('click',
               B_SORT.Current(),
               B_SEARCH.Current(),
               B_SWAP.Current(),
-              B_TRAVEL.Select(TreeDepth(GLOBAL.CurrentNode))]);
+              B_TRAVEL.Select(GetTreeDepth(GLOBAL.CurrentNode))]);
         }
 
         return;
@@ -250,7 +250,7 @@ window.addEventListener('click',
         GLOBAL.CurrentNode = RandomElementInArray(G_searchable.GetDataCards(GLOBAL, ""));
       
         pushState(GLOBAL.CurrentNode);
-        GLOBAL.DisplayCards = GetDisplayNodes(GLOBAL.CurrentNode);
+        GLOBAL.DisplayCards = GetChildren(GLOBAL.CurrentNode);
 
         ResetSearch(GLOBAL, G_searchable);
         VIEW
@@ -262,7 +262,7 @@ window.addEventListener('click',
             B_SORT.Current(),
             B_SEARCH.Current(),
             B_SWAP.Current(),
-            B_TRAVEL.Select(TreeDepth(GLOBAL.CurrentNode))]);
+            B_TRAVEL.Select(GetTreeDepth(GLOBAL.CurrentNode))]);
 
         return;
       }
@@ -281,7 +281,7 @@ window.addEventListener('click',
             B_SORT.Current(),
             B_SEARCH.Current(),
             B_SWAP.Current(),
-            B_TRAVEL.Select(TreeDepth(GLOBAL.CurrentNode))]);
+            B_TRAVEL.Select(GetTreeDepth(GLOBAL.CurrentNode))]);
 
         return;
       }
@@ -305,7 +305,7 @@ window.addEventListener('click',
             B_SORT.Current(),
             B_SEARCH.Current(),
             B_SWAP.Select(GLOBAL.PrimaryLanguageFirst ? 0 : 1),
-            B_TRAVEL.Select(TreeDepth(GLOBAL.CurrentNode))]);
+            B_TRAVEL.Select(GetTreeDepth(GLOBAL.CurrentNode))]);
 
         return;
       }
@@ -314,7 +314,7 @@ window.addEventListener('click',
       if (event.composedPath()[idx].id == "travel-button")
       {
         GLOBAL.CurrentNode = GLOBAL.CurrentNode.Parent;
-        GLOBAL.DisplayCards = GetDisplayNodes(GLOBAL.CurrentNode);
+        GLOBAL.DisplayCards = GetChildren(GLOBAL.CurrentNode);
         pushState(GLOBAL.CurrentNode)
 
         // display
@@ -331,7 +331,7 @@ window.addEventListener('click',
             B_SORT.Current(),
             B_SEARCH.Current(),
             B_SWAP.Current(),
-            B_TRAVEL.Select(TreeDepth(GLOBAL.CurrentNode))]);
+            B_TRAVEL.Select(GetTreeDepth(GLOBAL.CurrentNode))]);
 
         return;
       }
