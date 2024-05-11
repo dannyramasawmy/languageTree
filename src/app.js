@@ -1,15 +1,13 @@
 import { View } from "./view.js";
 import { Button, SearchButton } from "./buttons/button.js";
-import { BuildLanguageTree, searchPlaceholder } from "../data/romanian-tree.js";
 import { ElementID, SettingsID } from "./identifiers.js";
 import * as search from "./search/index.js"
 import * as tree from "./tree/index.js"
+import { CONFIG } from "./configuration.js";
 import { ScrollHandler } from "./history/scroll.js";
 import { RandomElementInArray } from "./utils/random.js";
-import { prepareEnglishString, prepareRomanianString, sortEnglish, sortRomanian } from "../data/romanian-functions.js";
 import { tryRegisterServiceWorker } from "./sw/register.js";
 import { Settings } from "./settings/settings.js";
-import { updateSettingsState } from "./settings/functions.js";
 
 // =============================================================================
 // Global variables
@@ -17,7 +15,7 @@ import { updateSettingsState } from "./settings/functions.js";
 
 const DEBUG = true;
 
-const ROOT_NODE = BuildLanguageTree();
+const ROOT_NODE = CONFIG.DATA_TREE;
 
 // HTML COMPONENT ID's
 const MAIN_CARD_ID = "main-card";
@@ -67,16 +65,23 @@ VIEW
     B_TRAVEL.Select(tree.functions.getNodeType(GLOBAL.CurrentNode))
   ]);
 
-var G_searchable = search.functions.buildDataCardMappingRecursive(
+const G_searchable = search.functions.buildDataCardMappingRecursive(
   ROOT_NODE, 
   new search.models.DataCardMapping(),
-  prepareEnglishString, prepareRomanianString);
+  CONFIG.PRIMARY_STRING_CLEAN_FUNCTION, 
+  CONFIG.SECONDARY_STRING_CLEAN_FUNCTION);
 
-let resetSearch = () => search.view.resetSearchBar(search.functions.getNumberOfCards(G_searchable));
+let resetSearch = () => 
+  search.view.resetSearchBar(search.functions.getNumberOfCards(G_searchable));
+
 resetSearch()
 
 const sortDisplayList = (GLOBAL, displayCards) => 
-  tree.functions.sortDataCardArray(GLOBAL.PrimaryLanguageFirst, displayCards, sortEnglish, sortRomanian)
+  tree.functions.sortDataCardArray(
+    GLOBAL.PrimaryLanguageFirst, 
+    displayCards, 
+    CONFIG.PRIMARY_SORT_FUNCTION, 
+    CONFIG.SECONDARY_SORT_FUNCTION)  
 
 // =============================================================================
 // SETTINGS
@@ -307,7 +312,7 @@ function keyboardInput()
 
   VIEW
     .ClearCards()
-    .UpdateCards(GLOBAL, SETTINGS, searchPlaceholder, GLOBAL.DisplayCards, 0);
+    .UpdateCards(GLOBAL, SETTINGS, CONFIG.SEARCH_PLACEHOLDER, GLOBAL.DisplayCards, 0);
 };
 document.getElementById(ElementID.SEARCH_BAR_ID).addEventListener("input", keyboardInput)
 
@@ -326,11 +331,16 @@ function animateShuffle(counter)
 
     counter--;
     if (counter <= 0)
+    {
+
       clearInterval(id);
+    }
   }
 
   const id = setInterval(frame, 50);
 }
+
+
 
 function animateButtons()
 {
