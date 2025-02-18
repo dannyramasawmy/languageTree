@@ -5,16 +5,64 @@ export function getAllCards(dataCardMapping, isSearchPrimary) {
 
 export function searchForMatchingCards(dataCardMapping, isSearchPrimary, searchString) {
 
-    let words = isSearchPrimary
-        ? Object.getOwnPropertyNames(dataCardMapping.Primary)
-        : Object.getOwnPropertyNames(dataCardMapping.Secondary);
+    // special characters
+    var words = []
+    let stringToSearch = ""
+    let mapping
 
-    let filteredWords = words.filter(x => x.includes(searchString));
+    switch (searchString[0]) {
+        case '!':
+            // Search in secondary language
+            console.log("!")
+            words.push(...
+                (isSearchPrimary 
+                    ? Object.getOwnPropertyNames(dataCardMapping.Secondary)
+                    : Object.getOwnPropertyNames(dataCardMapping.Primary)));
+                    
+            stringToSearch = searchString.slice(1);
 
-    let filteredDataCards = filteredWords.map(
-        x => isSearchPrimary
-            ? dataCardMapping.Primary[x]
-            : dataCardMapping.Secondary[x]);
+            mapping = x => isSearchPrimary
+                ? dataCardMapping.Secondary[x]
+                : dataCardMapping.Primary[x];
+            break;
+        
+        case '*':
+            // Search in both languages
+            console.log("!")
+            words.push(
+                ...Object.getOwnPropertyNames(dataCardMapping.Primary), 
+                ...Object.getOwnPropertyNames(dataCardMapping.Secondary));
+            
+            stringToSearch = searchString.slice(1);
+            
+            mapping = x => {
+                console.log("Debuge")
+                console.log(x)
+                
+                return x in dataCardMapping.Primary
+                    ? dataCardMapping.Primary[x]
+                    : dataCardMapping.Secondary[x]
+            }
+            break;
+
+        default:
+            // Search in primary languages
+            words.push(...
+                (isSearchPrimary 
+                ? Object.getOwnPropertyNames(dataCardMapping.Primary)
+                : Object.getOwnPropertyNames(dataCardMapping.Secondary)));
+            
+            stringToSearch = searchString;
+
+            mapping = x => isSearchPrimary
+                ? dataCardMapping.Primary[x]
+                : dataCardMapping.Secondary[x];
+      }
+
+    console.log(words.length)
+    let filteredWords = words.filter(x => x.includes(stringToSearch));
+
+    let filteredDataCards = filteredWords.map(mapping);
 
     return filteredDataCards;
 }
