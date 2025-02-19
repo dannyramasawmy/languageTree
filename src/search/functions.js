@@ -35,14 +35,9 @@ export function searchForMatchingCards(dataCardMapping, isSearchPrimary, searchS
             
             stringToSearch = searchString.slice(1);
             
-            mapping = x => {
-                console.log("Debuge")
-                console.log(x)
-                
-                return x in dataCardMapping.Primary
+            mapping = x => x in dataCardMapping.Primary
                     ? dataCardMapping.Primary[x]
                     : dataCardMapping.Secondary[x]
-            }
             break;
 
         default:
