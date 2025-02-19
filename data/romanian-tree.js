@@ -882,7 +882,7 @@ export function BuildLanguageTree() // returns romanian
     var hold = new DataCard("Hold", "Ține",
         "To hold <br> "
         + VerbTemplate("țin", "ții", "ține", "ținem", "țineți", "țin", "ținut", "ține"));
-    setParentAndChild(verbs, holdHands);
+    setParentAndChild(verbs, hold);
     
     var interrupt = new DataCard("Interrupt", "Întrerupe",
         "To interrupt <br> "
@@ -1123,7 +1123,6 @@ export function BuildLanguageTree() // returns romanian
         "To hang out <br> "
         + VerbTemplate("petrec", "petreci", "petrece", "petrecem", "petreceți", "petrec", "petrecut", "petrece"));
     setParentAndChild(verbs, hangOut);
-    
     
     var tie = new DataCard("Tie", "Lega",
         "To tie <br> "
