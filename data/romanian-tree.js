@@ -519,9 +519,677 @@ export function BuildLanguageTree() // returns romanian
         + VerbTemplate("urc", "urci", "urcă", "urcăm", "urcați", "urcă", "urcat", "urca"));
     setParentAndChild(verbs, climb);
 
+    var forgive = new DataCard("Forgive", "Ierta",
+        "To forgive <br> "
+        + VerbTemplate("iert", "ierți", "iertă", "iertăm", "iertați", "iertă", "iertat", "ierta"));
+    setParentAndChild(verbs, forgive);
+    
+    var toParty = new DataCard("Party", "Petrece",
+        "To party <br> "
+        + VerbTemplate("petrec", "petreci", "petrece", "petrecem", "petreceți", "petrec", "petrecut", "petrece"));
+    setParentAndChild(verbs, toParty);
 
-
-
+    var win = new DataCard("Win", "Câștiga",
+        "To win <br> "
+        + VerbTemplate("câștig", "câștigi", "câștigă", "câștigăm", "câștigați", "câștigă", "câștigat", "câștiga"));
+    setParentAndChild(verbs, win);
+    
+    var remember = new DataCard("Remember", "A-și aduce aminte",
+        "To remember <br> "
+        + ReflexiveVerbTemplateSi("aduc aminte", "aduci aminte", "aduce aminte", "aducem aminte", "aduceți aminte", "aduc aminte", "adus aminte", "aduce aminte", "am adus aminte", "voi aduce aminte"));
+    setParentAndChild(verbs, remember);
+    
+    var change = new DataCard("Change", "Schimba",
+        "To change <br> "
+        + VerbTemplate("schimb", "schimbi", "schimbă", "schimbăm", "schimbați", "schimbă", "schimbat", "schimba"));
+    setParentAndChild(verbs, change);
+        
+    var become = new DataCard("Become", "Deveni",
+        "To become <br> "
+        + VerbTemplate("devin", "devii", "devine", "devenim", "deveniți", "devin", "devenit", "deveni"));
+    setParentAndChild(verbs, become);
+    
+    var improve = new DataCard("Improve", "Îmbunătăți",
+        "To improve <br> "
+        + VerbTemplate("îmbunătățesc", "îmbunătățești", "îmbunătățește", "îmbunătățim", "îmbunătățiți", "îmbunătățesc", "îmbunătățit", "îmbunătăți"));
+    setParentAndChild(verbs, improve);
+    
+    var pass = new DataCard("Pass", "Trece",
+        "To pass <br> "
+        + VerbTemplate("trec", "treci", "trece", "trecem", "treceți", "trec", "trecut", "trece"));
+    setParentAndChild(verbs, pass);
+    
+    var fail = new DataCard("Fail", "Eșua",
+        "To fail <br> "
+        + VerbTemplate("eșuez", "eșuezi", "eșuează", "eșuăm", "eșuați", "eșuează", "eșuat", "eșua"));
+    setParentAndChild(verbs, fail);
+    
+    var celebrate = new DataCard("Celebrate", "Sărbători",
+        "To celebrate <br> "
+        + VerbTemplate("sărbătoresc", "sărbătorești", "sărbătorește", "sărbătorim", "sărbătoriți", "sărbătoresc", "sărbătorit", "sărbători"));
+    setParentAndChild(verbs, celebrate);
+    
+    var shower = new DataCard("Shower", "Face duș",
+        "To shower <br> "
+        + VerbTemplate("fac duș", "faci duș", "face duș", "facem duș", "faceți duș", "fac duș", "făcut duș", "face duș"));
+    setParentAndChild(verbs, shower);
+    
+    var recover = new DataCard("Recuperate", "Se recupera",
+        "To recuperate <br> "
+        + ReflexiveVerbTemplateSe("recuperez", "recuperezi", "recuperează", "recuperăm", "recuperați", "recuperează", "recuperat", "recupera"));
+    setParentAndChild(verbs, recover);
+    
+    var brushTeeth = new DataCard("Brush Teeth", "Se spăla pe dinți",
+        "To brush teeth <br> "
+        + ReflexiveVerbTemplateSe("spăl pe dinți", "speli pe dinți", "spală pe dinți", "spălăm pe dinți", "spălați pe dinți", "spală pe dinți", "spălat pe dinți", "spăla pe dinți"));
+    setParentAndChild(verbs, brushTeeth);
+    
+    var exercise = new DataCard("Exercise", "Face exerciții",
+        "To exercise <br> "
+        + VerbTemplate("fac exerciții", "faci exerciții", "face exerciții", "facem exerciții", "faceți exerciții", "fac exerciții", "făcut exerciții", "face exerciții"));
+    setParentAndChild(verbs, exercise);
+    
+    var prove = new DataCard("Prove", "Dovedi",
+        "To prove <br> "
+        + VerbTemplate("dovedesc", "dovedești", "dovedește", "dovedim", "dovediți", "dovedesc", "dovedit", "dovedi"));
+    setParentAndChild(verbs, prove);
+    
+    var admit = new DataCard("Admit", "Recunoaște",
+        "To admit <br> "
+        + VerbTemplate("recunosc", "recunoști", "recunoaște", "recunoaștem", "recunoașteți", "recunosc", "recunoscut", "recunoaște"));
+    setParentAndChild(verbs, admit);
+    
+    var confess = new DataCard("Confess", "Mărturisi",
+        "To confess <br> "
+        + VerbTemplate("mărturisesc", "mărturisești", "mărturisește", "mărturisim", "mărturisiți", "mărturisesc", "mărturisit", "mărturisi"));
+    setParentAndChild(verbs, confess);
+    
+    var deny = new DataCard("Deny", "Nega",
+        "To deny <br> "
+        + VerbTemplate("neg", "negi", "neagă", "negăm", "negați", "neagă", "negat", "nega"));
+    setParentAndChild(verbs, deny);
+    
+    var commitSuicide = new DataCard("Commit Suicide", "Se sinucide",
+        "To commit suicide <br> "
+        + ReflexiveVerbTemplateSe("sinucid", "sinucizi", "sinucide", "sinucidem", "sinucideți", "sinucid", "sinucis", "sinucide"));
+    setParentAndChild(verbs, commitSuicide);
+    
+    var apologize = new DataCard("Apologize", "Cere scuze",
+        "To apologize <br> "
+        + VerbTemplate("cer scuze", "ceri scuze", "cere scuze", "cerem scuze", "cereți scuze", "cer scuze", "cerut scuze", "cere scuze"));
+    setParentAndChild(verbs, apologize);
+    
+    var rob = new DataCard("Rob", "Jefui",
+        "To rob <br> "
+        + VerbTemplate("jefuiesc", "jefuiești", "jefuiește", "jefuim", "jefuiți", "jefuiesc", "jefuit", "jefui"));
+    setParentAndChild(verbs, rob);
+    
+    var cheat = new DataCard("Cheat", "Trișa",
+        "To cheat <br> "
+        + VerbTemplate("trișez", "trișezi", "trișează", "trișăm", "trișați", "trișează", "trișat", "trișa"));
+    setParentAndChild(verbs, cheat);
+    
+    var breakIn = new DataCard("Break Into", "Sparge",
+        "To break into <br> "
+        + VerbTemplate("sparg", "spargi", "sparge", "spargem", "spargeți", "sparg", "spart", "sparge"));
+    setParentAndChild(verbs, breakIn);
+    
+    var escape = new DataCard("Escape", "Scăpa",
+        "To escape <br> "
+        + VerbTemplate("scap", "scapi", "scapă", "scăpăm", "scăpați", "scapă", "scăpat", "scăpa"));
+    setParentAndChild(verbs, escape);
+    
+    var replace = new DataCard("Replace", "Înlocui",
+        "To replace <br> "
+        + VerbTemplate("înlocuiesc", "înlocuiești", "înlocuiește", "înlocuim", "înlocuiți", "înlocuiesc", "înlocuit", "înlocui"));
+    setParentAndChild(verbs, replace);
+    
+    var renovate = new DataCard("Renovate", "Renova",
+        "To renovate <br> "
+        + VerbTemplate("renovez", "renovezi", "renovează", "renovăm", "renovați", "renovează", "renovat", "renova"));
+    setParentAndChild(verbs, renovate);
+    
+    var paint = new DataCard("Paint", "Vopsi",
+        "To paint <br> "
+        + VerbTemplate("vopsesc", "vopsești", "vopsește", "vopsim", "vopsiți", "vopsesc", "vopsit", "vopsi"));
+    setParentAndChild(verbs, paint);
+    
+    var keep = new DataCard("Keep", "Ține",
+        "To keep <br> "
+        + VerbTemplate("țin", "ții", "ține", "ținem", "țineți", "țin", "ținut", "ține"));
+    setParentAndChild(verbs, keep);
+    
+    var suppose = new DataCard("Suppose", "Presupune",
+        "To suppose <br> "
+        + VerbTemplate("presupun", "presupui", "presupune", "presupunem", "presupuneți", "presupun", "presupus", "presupune"));
+    setParentAndChild(verbs, suppose);
+    
+    var imagine = new DataCard("Imagine", "Își imagina",
+        "To imagine <br> "
+        + ReflexiveVerbTemplateSi("imaginez", "imaginezi", "imaginează", "imaginăm", "imaginați", "imaginează", "imaginat", "imagina"));
+    setParentAndChild(verbs, imagine);
+    
+    var doubt = new DataCard("Doubt", "Îndoi",
+        "To doubt <br> "
+        + VerbTemplate("îndoiesc", "îndoiești", "îndoiește", "îndoim", "îndoiți", "îndoiesc", "îndoit", "îndoi"));
+    setParentAndChild(verbs, doubt);
+    
+    var observe = new DataCard("Observe (gase)", "Observa",
+        "To observe (gaze) <br> "
+        + VerbTemplate("observ", "observi", "observă", "observăm", "observați", "observă", "observat", "observa"));
+    setParentAndChild(verbs, observe);
+    
+    var die = new DataCard("Die", "Muri",
+        "To die <br> "
+        + VerbTemplate("mor", "mori", "moare", "murim", "muriți", "mor", "murit", "muri"));
+    setParentAndChild(verbs, die);
+    
+    var ruin = new DataCard("Ruin", "Ruina",
+        "To ruin <br> "
+        + VerbTemplate("ruinez", "ruinezi", "ruinează", "ruinăm", "ruinați", "ruinează", "ruinat", "ruina"));
+    setParentAndChild(verbs, ruin);
+    
+    var cause = new DataCard("Cause", "Provoca",
+        "To cause <br> "
+        + VerbTemplate("provoc", "provoci", "provoacă", "provocăm", "provocați", "provoacă", "provocat", "provoca"));
+    setParentAndChild(verbs, cause);
+    
+    var damage = new DataCard("Damage", "Avaria",
+        "To damage <br> "
+        + VerbTemplate("avariez", "avariezi", "avariază", "avariem", "avariați", "avariază", "avariat", "avaria"));
+    setParentAndChild(verbs, damage);
+    
+    var wipeOut = new DataCard("Wipe Out", "Nimici",
+        "To wipe out <br> "
+        + VerbTemplate("nimicesc", "nimicești", "nimicește", "nimicim", "nimiciți", "nimicesc", "nimicit", "nimici"));
+    setParentAndChild(verbs, wipeOut);
+    
+    var destroy = new DataCard("Destroy", "Distruge",
+        "To destroy <br> "
+        + VerbTemplate("distrug", "distrugi", "distruge", "distrugem", "distrugeți", "distrug", "distrus", "distruge"));
+    setParentAndChild(verbs, destroy);
+    
+    var occur = new DataCard("Occur", "Apară",
+        "To occur <br> "
+        + VerbTemplate("apăr", "aperi", "apără", "apărăm", "apăraţi", "apără", "apărat", "apără"));
+    setParentAndChild(verbs, occur);
+    
+    var quit = new DataCard("Quit", "Demisiona",
+        "To quit <br> "
+        + VerbTemplate("demisionez", "demisionezi", "demisionează", "demisionăm", "demisionați", "demisionează", "demisionat", "demisiona"));
+    setParentAndChild(verbs, quit);
+    
+    var praise = new DataCard("Praise", "Lăuda",
+        "To praise <br> "
+        + VerbTemplate("laud", "lauzi", "laudă", "lăudăm", "lăudați", "laudă", "lăudat", "lăuda"));
+    setParentAndChild(verbs, praise);
+    
+    var prefer = new DataCard("Prefer", "Prefera",
+        "To prefer <br> "
+        + VerbTemplate("prefer", "preferi", "preferă", "preferăm", "preferați", "preferă", "preferat", "prefera"));
+    setParentAndChild(verbs, prefer);
+    
+    var gather = new DataCard("Gather", "Aduna",
+        "To gather <br> "
+        + VerbTemplate("adun", "aduni", "adună", "adunăm", "adunați", "adună", "adunat", "aduna"));
+    setParentAndChild(verbs, gather);
+    
+    var lead = new DataCard("Lead", "Conduce",
+        "To lead <br> "
+        + VerbTemplate("conduc", "conduci", "conduce", "conducem", "conduceți", "conduc", "condus", "conduce"));
+    setParentAndChild(verbs, lead);
+    
+    var apply = new DataCard("Apply", "Aplica",
+        "To apply <br> "
+        + VerbTemplate("aplic", "aplici", "aplică", "aplicăm", "aplicați", "aplică", "aplicat", "aplica"));
+    setParentAndChild(verbs, apply);
+    
+    var obtain = new DataCard("Obtain", "Obține",
+        "To obtain <br> "
+        + VerbTemplate("obțin", "obții", "obține", "obținem", "obțineți", "obțin", "obținut", "obține"));
+    setParentAndChild(verbs, obtain);
+    
+    var interview = new DataCard("Interview", "Intervieva",
+        "To interview <br> "
+        + VerbTemplate("intervievez", "intervievezi", "intervievează", "intervievăm", "intervievati", "intervievează", "intervievat", "intervieva"));
+    setParentAndChild(verbs, interview);
+    
+    var approve = new DataCard("Approve", "Aproba",
+        "To approve <br> "
+        + VerbTemplate("aprob", "aprobi", "aprobă", "aprobăm", "aprobați", "aprobă", "aprobat", "aproba"));
+    setParentAndChild(verbs, approve);
+    
+    var verify = new DataCard("Verify", "Verifica",
+        "To verify <br> "
+        + VerbTemplate("verific", "verifici", "verifică", "verificăm", "verificați", "verifică", "verificat", "verifica"));
+    setParentAndChild(verbs, verify);
+    
+    var analyze = new DataCard("Analyze", "Analiza",
+        "To analyze <br> "
+        + VerbTemplate("analizez", "analizezi", "analizează", "analizăm", "analizați", "analizează", "analizat", "analiza"));
+    setParentAndChild(verbs, analyze);
+    
+    var present = new DataCard("Present", "Prezenta",
+        "To present <br> "
+        + VerbTemplate("prezint", "prezinți", "prezintă", "prezentăm", "prezentați", "prezintă", "prezentat", "prezenta"));
+    setParentAndChild(verbs, present);
+    
+    var discuss = new DataCard("Discuss", "Discuta",
+        "To discuss <br> "
+        + VerbTemplate("discut", "discuți", "discută", "discutăm", "discutați", "discută", "discutat", "discuta"));
+    setParentAndChild(verbs, discuss);
+    
+    var agree = new DataCard("Agree", "Fi de acord",
+        "To agree <br> "
+        + VerbTemplate("sunt de acord", "ești de acord", "este de acord", "suntem de acord", "sunteți de acord", "sunt de acord", "fost de acord", "fi de acord"));
+    setParentAndChild(verbs, agree);
+    
+    var achieve = new DataCard("Achieve", "Realiza",
+        "To achieve <br> "
+        + VerbTemplate("realizez", "realizezi", "realizează", "realizăm", "realizați", "realizează", "realizat", "realiza"));
+    setParentAndChild(verbs, achieve);
+    
+    var resolve = new DataCard("Resolve", "Rezolva",
+        "To resolve <br> "
+        + VerbTemplate("rezolv", "rezolvi", "rezolvă", "rezolvăm", "rezolvați", "rezolvă", "rezolvat", "rezolva"));
+    setParentAndChild(verbs, resolve);
+    
+    var review = new DataCard("Review", "Revizui",
+        "To review <br> "
+        + VerbTemplate("revizuiesc", "revizuiești", "revizuiește", "revizuim", "revizuiți", "revizuiesc", "revizuit", "revizui"));
+    setParentAndChild(verbs, review);
+    
+    var continueVerb = new DataCard("Continue", "Continua",
+        "To continue <br> "
+        + VerbTemplate("continuu", "continui", "continuă", "continuăm", "continuați", "continuă", "continuat", "continua"));
+    setParentAndChild(verbs, continueVerb);
+    
+    var repeat = new DataCard("Repeat", "Repeta",
+        "To repeat <br> "
+        + VerbTemplate("repet", "repeți", "repetă", "repetăm", "repetați", "repetă", "repetat", "repeta"));
+    setParentAndChild(verbs, repeat);
+    
+    var suggest = new DataCard("Suggest", "Sugera",
+        "To suggest <br> "
+        + VerbTemplate("sugerez", "sugerezi", "sugerează", "sugerăm", "sugerați", "sugerează", "sugerat", "sugera"));
+    setParentAndChild(verbs, suggest);
+    
+    var explain = new DataCard("Explain", "Explica",
+        "To explain <br> "
+        + VerbTemplate("explic", "explici", "explică", "explicăm", "explicați", "explică", "explicat", "explica"));
+    setParentAndChild(verbs, explain);
+    
+    var express = new DataCard("Express", "Exprima",
+        "To express <br> "
+        + VerbTemplate("exprim", "exprimi", "exprimă", "exprimăm", "exprimați", "exprimă", "exprimat", "exprima"));
+    setParentAndChild(verbs, express);
+    
+    var seem = new DataCard("Seem", "Se părea",
+        "To seem <br> "
+        + ReflexiveVerbTemplateSe("par", "pari", "pare", "părem", "păreți", "par", "părut", "părea"));
+    setParentAndChild(verbs, seem);
+    
+    var kill = new DataCard("Kill", "Ucide",
+        "To kill <br> "
+        + VerbTemplate("ucid", "ucizi", "ucide", "ucidem", "ucideți", "ucid", "ucis", "ucide"));
+    setParentAndChild(verbs, kill);
+    
+    var heat = new DataCard("Heat", "Încălzi",
+        "To heat <br> "
+        + VerbTemplate("încălzesc", "încălzești", "încălzește", "încălzim", "încălziți", "încălzesc", "încălzit", "încălzi"));
+    setParentAndChild(verbs, heat);
+    
+    var boil = new DataCard("Boil", "Fierbe",
+        "To boil <br> "
+        + VerbTemplate("fierb", "fierbi", "fierbe", "fierbem", "fierbeți", "fierb", "fiert", "fierbe"));
+    setParentAndChild(verbs, boil);
+    
+    var bake = new DataCard("Bake", "Coace",
+        "To bake <br> "
+        + VerbTemplate("coc", "coci", "coace", "coacem", "coaceți", "coc", "copt", "coace"));
+    setParentAndChild(verbs, bake);
+    
+    var grill = new DataCard("Grill", "Frige la grătar",
+        "To grill <br> "
+        + VerbTemplate("frig la grătar", "frigi la grătar", "frige la grătar", "frigem la grătar", "frigeți la grătar", "frig la grătar", "fript la grătar", "frige la grătar"));
+    setParentAndChild(verbs, grill);
+    
+    var chop = new DataCard("Chop", "Toca",
+        "To chop <br> "
+        + VerbTemplate("toc", "toci", "toacă", "tocăm", "tocați", "toacă", "tocat", "toca"));
+    setParentAndChild(verbs, chop);
+    
+    var stirFry = new DataCard("Stir Fry", "Căli",
+        "To stir fry <br> "
+        + VerbTemplate("călesc", "călești", "călește", "călim", "căliți", "călesc", "călit", "căli"));
+    setParentAndChild(verbs, stirFry);
+    
+    var mix = new DataCard("Mix", "Amesteca",
+        "To mix <br> "
+        + VerbTemplate("amestec", "amesteci", "amestecă", "amestecăm", "amestecați", "amestecă", "amestecat", "amesteca"));
+    setParentAndChild(verbs, mix);
+    
+    var peel = new DataCard("Peel", "Decoji",
+        "To peel <br> "
+        + VerbTemplate("decojesc", "decojești", "decojește", "decojim", "decojiți", "decojesc", "decojit", "decoji"));
+    setParentAndChild(verbs, peel);
+    
+    var hug = new DataCard("Hug", "Îmbrățișa",
+        "To hug <br> "
+        + VerbTemplate("îmbrățișez", "îmbrățișezi", "îmbrățișează", "îmbrățișăm", "îmbrățișați", "îmbrățișează", "îmbrățișat", "îmbrățișa"));
+    setParentAndChild(verbs, hug);
+    
+    var hold = new DataCard("Hold", "Ține",
+        "To hold <br> "
+        + VerbTemplate("țin", "ții", "ține", "ținem", "țineți", "țin", "ținut", "ține"));
+    setParentAndChild(verbs, holdHands);
+    
+    var interrupt = new DataCard("Interrupt", "Întrerupe",
+        "To interrupt <br> "
+        + VerbTemplate("întrerup", "întrerupi", "întrerupe", "întrerupem", "întrerupeți", "întrerup", "întrerupt", "întrerupe"));
+    setParentAndChild(verbs, interrupt);
+    
+    var type = new DataCard("Type", "Tasta",
+        "To type <br> "
+        + VerbTemplate("tastez", "tastezi", "tastează", "tastăm", "tastați", "tastează", "tastat", "tasta"));
+    setParentAndChild(verbs, type);
+    
+    var like = new DataCard("Like", "Plăcea",
+        "To like <br> "
+        + ReflexiveVerbTemplateSi("place", "place", "place", "place", "place", "place", "plăcut", "plăcea"));
+    setParentAndChild(verbs, like);
+    
+    var dream = new DataCard("Dream", "Visa",
+        "To dream <br> "
+        + VerbTemplate("visez", "visezi", "visează", "visăm", "visați", "visează", "visat", "visa"));
+    setParentAndChild(verbs, dream);
+    
+    var beHonest = new DataCard("Be Honest", "Fi cinstit",
+        "To be honest <br> "
+        + VerbTemplate("sunt cinstit", "ești cinstit", "este cinstit", "suntem cinstiți", "sunteți cinstiți", "sunt cinstiți", "fost cinstit", "fi cinstit"));
+    setParentAndChild(verbs, beHonest);
+    
+    var beSure = new DataCard("Be Sure", "Fi sigur",
+        "To be sure <br> "
+        + VerbTemplate("sunt sigur", "ești sigur", "este sigur", "suntem siguri", "sunteți siguri", "sunt siguri", "fost sigur", "fi sigur"));
+    setParentAndChild(verbs, beSure);
+    
+    var treat = new DataCard("Treat", "Trata",
+        "To treat <br> "
+        + VerbTemplate("tratez", "tratezi", "tratează", "tratăm", "trataţi", "tratează", "tratat", "trata"));
+    setParentAndChild(verbs, treat);
+    
+    var blush = new DataCard("Blush", "Roși",
+        "To blush <br> "
+        + VerbTemplate("roșesc", "roșești", "roșește", "roșim", "roșiți", "roșesc", "roșit", "roși"));
+    setParentAndChild(verbs, blush);
+    
+    var smile = new DataCard("Smile", "Zâmbi",
+        "To smile <br> "
+        + VerbTemplate("zâmbesc", "zâmbești", "zâmbește", "zâmbim", "zâmbiți", "zâmbesc", "zâmbit", "zâmbi"));
+    setParentAndChild(verbs, smile);
+    
+    var beAvailable = new DataCard("Be Available", "Fi disponibil",
+        "To be available <br> "
+        + VerbTemplate("sunt disponibil", "ești disponibil", "este disponibil", "suntem disponibili", "sunteți disponibili", "sunt disponibili", "fost disponibil", "fi disponibil"));
+    setParentAndChild(verbs, beAvailable);
+    
+    var rise = new DataCard("Rise", "Crește",
+        "To rise <br> "
+        + VerbTemplate("cresc", "crești", "crește", "creștem", "creșteți", "cresc", "crescut", "crește"));
+    setParentAndChild(verbs, rise);
+    
+    var tryVerb = new DataCard("Try", "Încerca",
+        "To try <br> "
+        + VerbTemplate("încerc", "încerci", "încearcă", "încercăm", "încercați", "încearcă", "încercat", "încerca"));
+    setParentAndChild(verbs, tryVerb);
+    
+    var invite = new DataCard("Invite", "Invita",
+        "To invite <br> "
+        + VerbTemplate("invit", "inviţi", "invită", "invităm", "invitați", "invită", "invitat", "invita"));
+    setParentAndChild(verbs, invite);
+    
+    var join = new DataCard("Join", "Se alătura",
+        "To join <br> "
+        + ReflexiveVerbTemplateSe("alătur", "alături", "alătură", "alăturăm", "alăturați", "alătură", "alăturat", "alătura"));
+    setParentAndChild(verbs, join);
+    
+    var cancel = new DataCard("Cancel", "Anula",
+        "To cancel <br> "
+        + VerbTemplate("anulez", "anulezi", "anulează", "anulăm", "anulați", "anulează", "anulat", "anula"));
+    setParentAndChild(verbs, cancel);
+    
+    var sweat = new DataCard("Sweat", "Transpira",
+        "To sweat <br> "
+        + VerbTemplate("transpir", "transpiri", "transpiră", "transpirăm", "transpirați", "transpiră", "transpirat", "transpira"));
+    setParentAndChild(verbs, sweat);
+    
+    var forecast = new DataCard("Forecast", "Prognoza",
+        "To forecast <br> "
+        + VerbTemplate("prognozez", "prognozezi", "prognozează", "prognozăm", "prognozați", "prognozează", "prognozat", "prognoza"));
+    setParentAndChild(verbs, forecast);
+    
+    var describe = new DataCard("Describe", "Descrie",
+        "To describe <br> "
+        + VerbTemplate("descriu", "descrii", "descrie", "descriem", "descrieți", "descriu", "descris", "descrie"));
+    setParentAndChild(verbs, describe);
+    
+    var compare = new DataCard("Compare", "Compara",
+        "To compare <br> "
+        + VerbTemplate("compar", "compari", "compară", "comparăm", "comparați", "compară", "comparat", "compara"));
+    setParentAndChild(verbs, compare);
+    
+    var getHurt = new DataCard("Get Hurt", "Fi rănit",
+        "To get hurt <br> "
+        + VerbTemplate("sunt rănit", "ești rănit", "este rănit", "suntem răniți", "sunteți răniți", "sunt răniți", "fost rănit", "fi rănit"));
+    setParentAndChild(verbs, getHurt);
+    
+    var comeBack = new DataCard("Come Back", "Se întoarce",
+        "To come back <br> "
+        + ReflexiveVerbTemplateSe("întorc", "întorci", "întoarce", "întoarcem", "întoarceți", "întorc", "întors", "întoarce"));
+    setParentAndChild(verbs, comeBack);
+    
+    var move = new DataCard("Move", "Muta",
+        "To move <br> "
+        + VerbTemplate("mut", "muți", "mută", "mutăm", "mutați", "mută", "mutat", "muta"));
+    setParentAndChild(verbs, move);
+    
+    var follow = new DataCard("Follow", "Urma",
+        "To follow <br> "
+        + VerbTemplate("urmez", "urmezi", "urmează", "urmăm", "urmați", "urmează", "urmat", "urma"));
+    setParentAndChild(verbs, follow);
+    
+    var dateVerb = new DataCard("Date", "Se întâlni",
+        "To date <br> "
+        + ReflexiveVerbTemplateSe("întâlnesc", "întâlnești", "întâlnește", "întâlnim", "întâlniți", "întâlnesc", "întâlnit", "întâlni"));
+    setParentAndChild(verbs, dateVerb);
+    
+    var place = new DataCard("Place", "Așeza",
+        "To place / to lay <br> "
+        + VerbTemplate("așez", "așezi", "așează", "așezăm", "așezați", "așează", "așezat", "așeza"));
+    setParentAndChild(verbs, place);
+    
+    var present = new DataCard("Present", "Prezenta",
+        "To present / to show <br> "
+        + VerbTemplate("prezint", "prezinți", "prezintă", "prezentăm", "prezentați", "prezintă", "prezentat", "prezenta"));
+    setParentAndChild(verbs, present);
+    
+    var meet = new DataCard("Meet", "Cunoaște",
+        "To meet <br> "
+        + VerbTemplate("cunosc", "cunoști", "cunoaște", "cunoaștem", "cunoașteți", "cunosc", "cunoscut", "cunoaște"));
+    setParentAndChild(verbs, meet);
+    
+    var argue = new DataCard("Argue", "Se certa",
+        "To argue <br> "
+        + ReflexiveVerbTemplateSe("cert", "cerți", "certă", "certăm", "certați", "certă", "certat", "certa"));
+    setParentAndChild(verbs, argue);
+    
+    var cry = new DataCard("Cry", "Plânge",
+        "To cry <br> "
+        + VerbTemplate("plâng", "plângi", "plânge", "plângem", "plângeți", "plâng", "plâns", "plânge"));
+    setParentAndChild(verbs, cry);
+    
+    var propose = new DataCard("Propose", "Cere în căsătorie",
+        "To propose <br> "
+        + VerbTemplate("cer în căsătorie", "cere în căsătorie", "cere în căsătorie", "cerem în căsătorie", "cereți în căsătorie", "cer în căsătorie", "cerut în căsătorie", "cere în căsătorie"));
+    setParentAndChild(verbs, propose);
+    
+    var beDivorced = new DataCard("Be Divorced", "Fi divorțat",
+        "To be divorced <br> "
+        + VerbTemplate("sunt divorțat", "ești divorțat", "este divorțat", "suntem divorțați", "sunteți divorțați", "sunt divorțați", "fost divorțat", "fi divorțat"));
+    setParentAndChild(verbs, beDivorced);
+    
+    var breakUp = new DataCard("Break Up", "Se despărți",
+        "To break up <br> "
+        + ReflexiveVerbTemplateSe("despart", "desparți", "desparte", "despărțim", "despărțiți", "despart", "despărțit", "despărți"));
+    setParentAndChild(verbs, breakUp);
+    
+    var beEngaged = new DataCard("Be Engaged", "Fi logodit",
+        "To be engaged <br> "
+        + VerbTemplate("sunt logodit", "ești logodit", "este logodit", "suntem logodiți", "sunteți logodiți", "sunt logodiți", "fost logodit", "fi logodit"));
+    setParentAndChild(verbs, beEngaged);
+    
+    var clean = new DataCard("Clean", "Face curățenie",
+        "To clean <br> "
+        + VerbTemplate("fac curățenie", "faci curățenie", "face curățenie", "facem curățenie", "faceți curățenie", "fac curățenie", "făcut curățenie", "face curățenie"));
+    setParentAndChild(verbs, clean);
+    
+    var rest = new DataCard("Rest", "Se odihni",
+        "To rest <br> "
+        + ReflexiveVerbTemplateSe("odihnesc", "odihnești", "odihnește", "odihnim", "odihniți", "odihnesc", "odihnit", "odihni"));
+    setParentAndChild(verbs, rest);
+    
+    var allow = new DataCard("Allow", "Permite",
+        "To permit / to allow <br> "
+        + VerbTemplate("permit", "permiți", "permite", "permitem", "permiteți", "permit", "permis", "permite"));
+    setParentAndChild(verbs, allow);
+    
+    var decide = new DataCard("Decide", "Decide",
+        "To decide <br> "
+        + VerbTemplate("decid", "decizi", "decide", "decidem", "decideți", "decid", "decis", "decide"));
+    setParentAndChild(verbs, decide);
+    
+    var miss = new DataCard("Miss", "Rata",
+        "To miss (e.g. a taxi) <br> "
+        + VerbTemplate("ratez", "ratezi", "ratează", "ratăm", "ratați", "ratează", "ratat", "rata"));
+    setParentAndChild(verbs, miss);
+    
+    var rent = new DataCard("Rent", "Închiria",
+        "To rent <br> "
+        + VerbTemplate("închiriez", "închiriezi", "închiriază", "închiriem", "închiriați", "închiriază", "închiriat", "închiria"));
+    setParentAndChild(verbs, rent);
+    
+    var plan = new DataCard("Plan", "Planifica",
+        "To plan <br> "
+        + VerbTemplate("planific", "planifici", "planifică", "planificăm", "planificați", "planifică", "planificat", "planifica"));
+    setParentAndChild(verbs, plan);
+    
+    var exchange = new DataCard("Exchange", "Schimba",
+        "To exchange <br> "
+        + VerbTemplate("schimb", "schimbi", "schimbă", "schimbăm", "schimbați", "schimbă", "schimbat", "schimba"));
+    setParentAndChild(verbs, exchange);
+    
+    var deposit = new DataCard("Deposit", "Depune",
+        "To deposit <br> "
+        + VerbTemplate("depun", "depui", "depune", "depunem", "depuneți", "depun", "depus", "depune"));
+    setParentAndChild(verbs, deposit);
+    
+    var register = new DataCard("Register", "Înregistra",
+        "To register <br> "
+        + VerbTemplate("înregistrez", "înregistrezi", "înregistrează", "înregistrăm", "înregistrați", "înregistrează", "înregistrat", "înregistra"));
+    setParentAndChild(verbs, register);
+    
+    var guess = new DataCard("Guess", "Ghici",
+        "To guess <br> "
+        + VerbTemplate("ghicesc", "ghicești", "ghicește", "ghicim", "ghiciți", "ghicesc", "ghicit", "ghici"));
+    setParentAndChild(verbs, guess);
+    
+    var practice = new DataCard("Practice", "Exersa",
+        "To practice <br> "
+        + VerbTemplate("exersez", "exersezi", "exersează", "exersăm", "exersați", "exersează", "exersat", "exersa"));
+    setParentAndChild(verbs, practice);
+    
+    var enroll = new DataCard("Enroll", "Se înscrie",
+        "To enroll <br> "
+        + ReflexiveVerbTemplateSe("înscriu", "înscrii", "înscrie", "înscriem", "înscrieți", "înscriu", "înscris", "înscrie"));
+    setParentAndChild(verbs, enroll);
+    
+    var forget = new DataCard("Forget", "Uita",
+        "To forget <br> "
+        + VerbTemplate("uit", "uiți", "uită", "uităm", "uitați", "uită", "uitat", "uita"));
+    setParentAndChild(verbs, forget);
+    
+    var hangOut = new DataCard("Hang Out", "Petrece timpul",
+        "To hang out <br> "
+        + VerbTemplate("petrec", "petreci", "petrece", "petrecem", "petreceți", "petrec", "petrecut", "petrece"));
+    setParentAndChild(verbs, hangOut);
+    
+    
+    var tie = new DataCard("Tie", "Lega",
+        "To tie <br> "
+        + VerbTemplate("leg", "legi", "leagă", "legăm", "legați", "leagă", "legat", "lega"));
+    setParentAndChild(verbs, tie);
+    
+    var repair = new DataCard("Repair", "Repara",
+        "To repair <br> "
+        + VerbTemplate("repar", "repari", "repară", "reparăm", "reparați", "repară", "reparat", "repara"));
+    setParentAndChild(verbs, repair);
+    
+    var prepare = new DataCard("Prepare", "Pregăti",
+        "To prepare <br> "
+        + VerbTemplate("pregătesc", "pregătești", "pregătește", "pregătim", "pregătiți", "pregătesc", "pregătit", "pregăti"));
+    setParentAndChild(verbs, prepare);
+    
+    var fit = new DataCard("Fit", "Se potrivi",
+        "To fit <br> "
+        + ReflexiveVerbTemplateSe("potrivesc", "potrivești", "potrivește", "potrivim", "potriviți", "potrivesc", "potrivit", "potrivi"));
+    setParentAndChild(verbs, fit);
+    
+    var tryOn = new DataCard("Try On", "Proba",
+        "To try on <br> "
+        + VerbTemplate("prob", "probi", "probă", "probăm", "probați", "probă", "probat", "proba"));
+    setParentAndChild(verbs, tryOn);
+    
+    var feel = new DataCard("Feel", "Simți",
+        "To feel <br> "
+        + VerbTemplate("simt", "simți", "simte", "simțim", "simțiți", "simt", "simțit", "simți"));
+    setParentAndChild(verbs, feel);
+    
+    var teach = new DataCard("Teach", "Preda",
+        "To teach <br> "
+        + VerbTemplate("predau", "predai", "predă", "predăm", "predați", "predau", "predat", "preda"));
+    setParentAndChild(verbs, teach);
+    
+    var meet = new DataCard("Meet", "Întâlni",
+        "To meet <br> "
+        + VerbTemplate("întâlnesc", "întâlnești", "întâlnește", "întâlnim", "întâlniți", "întâlnesc", "întâlnit", "întâlni"));
+    setParentAndChild(verbs, meet);
+    
+    var turn = new DataCard("Turn", "Vira",
+        "To turn <br> "
+        + VerbTemplate("virez", "virezi", "virează", "virăm", "virați", "virează", "virat", "vira"));
+    setParentAndChild(verbs, turn);
+    
+    var stop = new DataCard("Stop", "Opri",
+        "To stop <br> "
+        + VerbTemplate("opresc", "oprești", "oprește", "oprim", "opriți", "opresc", "oprit", "opri"));
+    setParentAndChild(verbs, stop);
+    
+    var pay = new DataCard("Pay", "Plăti",
+        "To pay <br> "
+        + VerbTemplate("plătesc", "plătești", "plătește", "plătim", "plătiți", "plătesc", "plătit", "plăti"));
+    setParentAndChild(verbs, pay);
+        
+    var order = new DataCard("Order", "Comanda",
+        "To order <br> "
+        + VerbTemplate("comand", "comanzi", "comandă", "comandăm", "comandați", "comandă", "comandat", "comanda"));
+    setParentAndChild(verbs, order);
+    
+    var enter = new DataCard("Enter", "Intra",
+        "To enter / to come in <br> "
+        + VerbTemplate("intru", "intri", "intră", "intrăm", "intrați", "intră", "intrat", "intra"));
+    setParentAndChild(verbs, enter);
+    
 
     // =============================================================================
     // #Prepositions
