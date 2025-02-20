@@ -38,7 +38,10 @@ export function BuildLanguageTree() // returns romanian
     romanian.SetParent(romanian);
 
     // =============================================================================
-    // #Verbs : https://cooljugator.com/ro/suna
+    // #Verbs :
+    // Checked against 
+    //  - https://cooljugator.com/ro/suna
+    //  - https://www.verbix.com/webverbix/go.php?T1=s%C4%83rb%C4%83tori&D1=5&H1=105
     // =============================================================================
 
     var verbs = new DataCard("Verbs", "Verbe", "Common verbs are listed here.")
@@ -1379,6 +1382,18 @@ export function BuildLanguageTree() // returns romanian
 
     var Low = new DataCard("Low", "Jos", "");
     setParentAndChild(prepositions, Low)
+
+    var AwayFrom = new DataCard("Away From", "Departe de", "");
+    setParentAndChild(prepositions, AwayFrom);
+
+    var OppositeTo = new DataCard("Opposite To", "Peste drum de", "");
+    setParentAndChild(prepositions, OppositeTo);
+
+    var By = new DataCard("By", "De către", "");
+    setParentAndChild(prepositions, By);
+
+    var Until = new DataCard("Until", "Până când", "");
+    setParentAndChild(prepositions, Until);
 
 
     // =============================================================================
@@ -2762,6 +2777,51 @@ export function BuildLanguageTree() // returns romanian
     var PetrolTanker = new DataCard("Petrol Tanker", "Camion-cisternă", "");
     setParentAndChild(Travel, PetrolTanker)
 
+    var Escalator = new DataCard("Escalator", "Scară rulantă", "");
+    setParentAndChild(Travel, Escalator);
+
+    var ConveyorBelt = new DataCard("Conveyor Belt", "Bandă rulantă", "");
+    setParentAndChild(Travel, ConveyorBelt);
+
+    var Lobby = new DataCard("Lobby", "Holul", "");
+    setParentAndChild(Travel, Lobby);
+
+    var Coin = new DataCard("Coin", "Moneda", "");
+    setParentAndChild(Travel, Coin);
+
+    var Currency = new DataCard("Currency", "Curs valutar", "");
+    setParentAndChild(Travel, Currency);
+
+    var ExchangeRate = new DataCard("Exchange Rate", "Curs de schimb", "");
+    setParentAndChild(Travel, ExchangeRate);
+
+    var BankAccount = new DataCard("Bank Account", "Cont bancar", "");
+    setParentAndChild(Travel, BankAccount);
+
+    var Stamp = new DataCard("Stamp", "Timbru", "");
+    setParentAndChild(Travel, Stamp);
+
+    var Souvenir = new DataCard("Souvenir", "Suvenir", "");
+    setParentAndChild(Travel, Souvenir);
+
+    var Course = new DataCard("Course", "Curs", "");
+    setParentAndChild(Travel, Course);
+
+    var Trip = new DataCard("Trip (Excursion)", "Excursie", "");
+    setParentAndChild(Travel, Trip);
+
+    var Ferry = new DataCard("Ferry", "Feribot", "");
+    setParentAndChild(Travel, Ferry);
+
+    var Schedule = new DataCard("Schedule", "Un orar", "");
+    setParentAndChild(Travel, Schedule);
+
+    var Passenger = new DataCard("Passenger", "Un pasager", "");
+    setParentAndChild(Travel, Passenger);
+
+    var Tourist = new DataCard("Tourist", "Turist (turistă)", "");
+    setParentAndChild(Travel, Tourist);
+
     //#country #thecountry
     var TheCountry = new DataCard("The Country", "La Țară", "");
     setParentAndChild(nouns, TheCountry)
@@ -3421,12 +3481,73 @@ export function BuildLanguageTree() // returns romanian
     var Eggs = new DataCard("Eggs", "Ouă", "");
     setParentAndChild(food, Eggs)
 
+    // #atwork
+    var AtWork = new DataCard("At Work", "La muncă", "");
+    setParentAndChild(noun, AtWork);
+
+    var Project = new DataCard("Project", "Proiect", "");
+    setParentAndChild(AtWork, Project);
+
+    var Meeting = new DataCard("Meeting", "Ședința", "");
+    setParentAndChild(AtWork, Meeting);
+
+    var Report = new DataCard("Report", "Raport", "");
+    setParentAndChild(AtWork, Report);
+
+    var Method = new DataCard("Method", "Metodă", "");
+    setParentAndChild(AtWork, Method);
+
+    var Employee = new DataCard("Employee", "Angajat", "");
+    setParentAndChild(AtWork, Employee);
+
+    var HumanResources = new DataCard("Human Resources", "Resurse Umane", "");
+    setParentAndChild(AtWork, HumanResources);
+
+    var Opportunity = new DataCard("Opportunity", "Oportunitate", "");
+    setParentAndChild(AtWork, Opportunity);
+
+    var Boss = new DataCard("Boss", "Șef", "");
+    setParentAndChild(AtWork, Boss);
+
+    var Target = new DataCard("Target", "Obiectiv", "");
+    setParentAndChild(AtWork, Target);
+
+    var Job = new DataCard("Job", "Post", "");
+    setParentAndChild(AtWork, Job);
+
+    var Problem = new DataCard("Problem", "Problemă", "");
+    setParentAndChild(AtWork, Problem);
+
+    var Promotion = new DataCard("Promotion", "Promovarea", "");
+    setParentAndChild(AtWork, Promotion);
+
+    var Appointment = new DataCard("Meeting", "Întâlnire", "");
+    setParentAndChild(AtWork, Appointment);
+
+    var Result = new DataCard("Result", "Rezultat", "");
+    setParentAndChild(AtWork, Result);
+
+    var Salary = new DataCard("Salary", "Salariu", "");
+    setParentAndChild(AtWork, Salary);
+
+    var Experience = new DataCard("Experience", "Experiență", "");
+    setParentAndChild(AtWork, Experience);
+
+    var Skills = new DataCard("Skills", "Aptitudini", "");
+    setParentAndChild(AtWork, Skills);
+
+    var Details = new DataCard("Details", "Detalii", "");
+    setParentAndChild(AtWork, Details);
+
+    var Facility = new DataCard("Facility", "Facilitate", "");
+    setParentAndChild(AtWork, Facility);
+
     // #home ===========================
 
     var atHome = new DataCard("At Home", "Acasă", "");
     setParentAndChild(nouns, atHome)
 
-    //#workshow
+    //#workshop
     var TheWorkshop = new DataCard("The Workshop", "Atelierul", "");
     setParentAndChild(atHome, TheWorkshop)
 
@@ -4540,6 +4661,44 @@ export function BuildLanguageTree() // returns romanian
         "")
     setParentAndChild(adverbs, Almost);
 
+    var SoMuch = new DataCard("So Much", "Atât de mult", "");
+    setParentAndChild(adverbs, SoMuch);
+
+    var Yet = new DataCard("Yet", "Încă", "");
+    setParentAndChild(adverbs, Yet);
+
+    var Now = new DataCard("Now", "Fix", "");
+    setParentAndChild(adverbs, Now);
+
+    var Usually = new DataCard("Usually", "De obicei", "");
+    setParentAndChild(adverbs, Usually);
+
+    var Too = new DataCard("Too", "Prea", "");
+    setParentAndChild(adverbs, Too);
+
+    var Already = new DataCard("Already", "Deja", "");
+    setParentAndChild(adverbs, Already);
+
+    var Again = new DataCard("Again", "Din nou", "");
+    setParentAndChild(adverbs, Again);
+
+    var Clearly = new DataCard("Clearly", "Clar", "");
+    setParentAndChild(adverbs, Clearly);
+
+    var Finally = new DataCard("Finally", "În final", "");
+    setParentAndChild(adverbs, Finally);
+
+    var Just = new DataCard("Just", "Tocmai", "");
+    setParentAndChild(adverbs, Just);
+
+    var Early = new DataCard("Early", "Devreme", "");
+    setParentAndChild(adverbs, Early);
+
+    var Rather = new DataCard("Rather", "Destul de", "");
+    setParentAndChild(adverbs, Rather);
+
+    var Forever = new DataCard("Forever", "Pentru totdeauna", "");
+    setParentAndChild(adverbs, Forever);
 
     // =============================================================================
     // #Conjunctions
@@ -4595,6 +4754,23 @@ export function BuildLanguageTree() // returns romanian
         "")
     setParentAndChild(conjunctions, before);
 
+    var Because = new DataCard("Because", "Deoarece", "");
+    setParentAndChild(conjunctions, Because);
+
+    var Although = new DataCard("Although", "Deși", "");
+    setParentAndChild(conjunctions, Although);
+    
+    var Therefore = new DataCard("Therefore", "Deci", "");
+    setParentAndChild(conjunctions, Therefore);
+    
+    var EvenThough = new DataCard("Even Though", "Chiar dacă", "");
+    setParentAndChild(conjunctions, EvenThough);
+    
+    var So = new DataCard("So", "Așa că", "");
+    setParentAndChild(conjunctions, So);
+    
+    var AsWell = new DataCard("As Well", "De asemenea", "");
+    setParentAndChild(conjunctions, AsWell);
 
     // =============================================================================
     // #Numbers
@@ -4677,7 +4853,17 @@ export function BuildLanguageTree() // returns romanian
         "")
     setParentAndChild(pronouns, something);
 
+    var Which = new DataCard("Which", "Pe care", "");
+    setParentAndChild(pronouns, Which);
 
+    var Some = new DataCard("Some", "Niște", "");
+    setParentAndChild(pronouns, Some);
+
+    var Whose = new DataCard("Whose", "Al cui", "");
+    setParentAndChild(pronouns, Whose);
+
+    var AnyKindOf = new DataCard("Any Kind Of", "Niciun fel de", "");
+    setParentAndChild(pronouns, AnyKindOf);
 
     // =============================================================================
     // #Emotions
