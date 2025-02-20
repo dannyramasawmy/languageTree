@@ -1442,11 +1442,6 @@ export function BuildLanguageTree() // returns romanian
         "")
     setParentAndChild(adjectives, who);
 
-    var sure = new DataCard(
-        "Sure", "Sigur",
-        "")
-    setParentAndChild(adjectives, sure);
-
     var what = new DataCard(
         "What", "Ce",
         "")
@@ -1613,6 +1608,11 @@ export function BuildLanguageTree() // returns romanian
 
     var Rough = new DataCard("Rough", "Brut", "");
     setParentAndChild(DescriptiveAdjective, Rough);
+
+    var sure = new DataCard(
+        "Sure", "Sigur",
+        "")
+    setParentAndChild(DescriptiveAdjective, sure);
 
     var Loose = new DataCard("Loose", "Larg", "");
     setParentAndChild(DescriptiveAdjective, Loose);
