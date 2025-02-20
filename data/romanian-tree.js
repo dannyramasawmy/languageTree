@@ -1191,6 +1191,31 @@ export function BuildLanguageTree() // returns romanian
         "To enter / to come in <br> "
         + VerbTemplate("intru", "intri", "intră", "intrăm", "intrați", "intră", "intrat", "intra"));
     setParentAndChild(verbs, enter);
+
+    var cross = new DataCard("Cross", "Traversa",
+        "To cross <br> "
+        + VerbTemplate("traversez", "traversezi", "traversează", "traversăm", "traversați", "traversează", "traversat", "traversa"));
+    setParentAndChild(verbs, cross);
+    
+    var add = new DataCard("Add", "Adăuga",
+        "To add <br> "
+        + VerbTemplate("adaug", "adaugi", "adaugă", "adăugăm", "adăugați", "adaugă", "adăugat", "adăuga"));
+    setParentAndChild(verbs, add);
+    
+    var recommend = new DataCard("Recommend", "Recomanda",
+        "To recommend <br> "
+        + VerbTemplate("recomand", "recomanzi", "recomandă", "recomandăm", "recomandați", "recomandă", "recomandat", "recomanda"));
+    setParentAndChild(verbs, recommend);
+    
+    var turnOn = new DataCard("Turn on", "Porni",
+        "To turn on <br> "
+        + VerbTemplate("pornesc", "pornești", "pornește", "pornim", "porniți", "pornesc", "pornit", "porni"));
+    setParentAndChild(verbs, turnOn);
+    
+    var takeOff = new DataCard("Take off", "Dezbrăca",
+        "To take off <br> "
+        + ReflexiveVerbTemplateSe("dezbrac", "dezbraci", "dezbracă", "dezbrăcăm", "dezbrăcați", "dezbracă", "dezbrăcat", "dezbrăca"));
+    setParentAndChild(verbs, takeOff);
     
 
     // =============================================================================
@@ -1394,6 +1419,13 @@ export function BuildLanguageTree() // returns romanian
 
     var Until = new DataCard("Until", "Până când", "");
     setParentAndChild(prepositions, Until);
+
+    var via = new DataCard("Via", "Prin", "");  
+    setParentAndChild(prepositions, via);  
+
+    var abroad = new DataCard("Abroad", "În străinătate", "");  
+    setParentAndChild(prepositions, abroad);  
+
 
 
     // =============================================================================
@@ -2646,6 +2678,9 @@ export function BuildLanguageTree() // returns romanian
 
     var Shop = new DataCard("Shop", "Magazin", "");
     setParentAndChild(TheStreet, Shop)
+    
+    var ShoeShop = new DataCard("Shoe shop", "Magazine de încălțăminte", "");
+    setParentAndChild(TheStreet, ShoeShop)
 
     var Hole = new DataCard("Hole", "Gaură", "");
     setParentAndChild(TheStreet, Hole)
@@ -3552,7 +3587,7 @@ export function BuildLanguageTree() // returns romanian
 
     // #atwork
     var AtWork = new DataCard("At Work", "La muncă", "");
-    setParentAndChild(noun, AtWork);
+    setParentAndChild(nouns, AtWork);
 
     var Project = new DataCard("Project", "Proiect", "");
     setParentAndChild(AtWork, Project);
@@ -4558,6 +4593,22 @@ export function BuildLanguageTree() // returns romanian
     var baker = new DataCard("Baker", "Brutăriță", "");
     setParentAndChild(workJob, baker)
 
+    var Singer = new DataCard("Singer", "Cântăreț", "");
+    setParentAndChild(workJob, Singer);
+
+    var RoomMaid = new DataCard("Room Maid", "Cameristă", "");
+    setParentAndChild(workJob, RoomMaid);
+
+    var Apprenticeship = new DataCard("Apprenticeship", "Ucenicie", "");
+    setParentAndChild(workJob, Apprenticeship);
+
+    var OfficeWorker = new DataCard("Office Worker", "Funcționar", "");
+    setParentAndChild(workJob, OfficeWorker);
+
+    var BusinessMan = new DataCard("Business Man", "Om de afaceri", "");
+    setParentAndChild(workJob, BusinessMan);
+
+
     // #shapes =================================
     var shapes = new DataCard("Shapes", "Formele geometrice", "")
     setParentAndChild(nouns, shapes)
@@ -4784,6 +4835,19 @@ export function BuildLanguageTree() // returns romanian
     var InTheFuture = new DataCard("In the future", "În viitor", "");
     setParentAndChild(adverbs, InTheFuture);
 
+    var firstly = new DataCard("Firstly", "Mai întâi", "");  
+    setParentAndChild(adverbs, firstly);  
+
+    var already = new DataCard("Already", "Deja", "");  
+    setParentAndChild(adverbs, already);  
+
+    var first = new DataCard("First", "În primul rând", "");  
+    setParentAndChild(adverbs, first);  
+
+    var notAtAll = new DataCard("Not at all", "Deloc", "");  
+    setParentAndChild(adverbs, notAtAll);  
+
+
     // =============================================================================
     // #Conjunctions
     // =============================================================================
@@ -4861,6 +4925,16 @@ export function BuildLanguageTree() // returns romanian
 
     var InCase = new DataCard("In case", "În caz că", "");
     setParentAndChild(conjunctions, InCase);
+
+    var still = new DataCard("Still", "Totuși", "");  
+    setParentAndChild(conjunctions, still);  
+
+    var isntIt = new DataCard("Isn't it", "Nu-i așa", "");  
+    setParentAndChild(conjunctions, isntIt);  
+
+    var okay = new DataCard("Okay", "Atunci", "");  
+    setParentAndChild(conjunctions, okay);  
+
 
 
     // =============================================================================
@@ -4955,6 +5029,19 @@ export function BuildLanguageTree() // returns romanian
 
     var AnyKindOf = new DataCard("Any Kind Of", "Niciun fel de", "");
     setParentAndChild(pronouns, AnyKindOf);
+
+    var everyone = new DataCard("Everyone", "Tuturor", "");  
+    setParentAndChild(pronouns, everyone);  
+
+    var eachOther = new DataCard("Each other / with each other", "Unul pe/cu celălalte", "");  
+    setParentAndChild(pronouns, eachOther);  
+
+    var someone = new DataCard("Someone", "Cineva", "");  
+    setParentAndChild(pronouns, someone);  
+
+    var whatKindOf = new DataCard("What kind of", "Ce fel de", "");  
+    setParentAndChild(pronouns, whatKindOf);  
+
 
     // =============================================================================
     // #Emotions
