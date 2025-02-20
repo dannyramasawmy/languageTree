@@ -1874,6 +1874,30 @@ export function BuildLanguageTree() // returns romanian
     var Rainbow = new DataCard("Rainbow", "Curcubeu", "");
     setParentAndChild(Weather, Rainbow)
 
+    var Flood = new DataCard("Flood", "Inundație", ""); 
+    setParentAndChild(Weather, Flood);
+
+    var Hurricane = new DataCard("Hurricane", "Uragan", ""); 
+    setParentAndChild(Weather, Hurricane);
+
+    var MudSlide = new DataCard("Mud Slide", "Alunecare de teren", ""); 
+    setParentAndChild(Weather, MudSlide);
+
+    var Earthquake = new DataCard("Earthquake", "Cutremur", ""); 
+    setParentAndChild(Weather, Earthquake);
+
+    var Snow = new DataCard("Snow", "Ninsoarea", ""); 
+    setParentAndChild(Weather, Snow);
+
+    var SnowStorm = new DataCard("Snow Storm", "Viscol", ""); 
+    setParentAndChild(Weather, SnowStorm);
+
+    var Typhoon = new DataCard("Typhoon", "Taifun", ""); 
+    setParentAndChild(Weather, Typhoon);
+
+    var ForestFire = new DataCard("Forest Fire", "Incendiu de pădure", ""); 
+    setParentAndChild(Weather, ForestFire);
+
     // #specialdays #holidays
     var SpecialDays = new DataCard("Special Days", "Zile de Sărbătoare", "");
     setParentAndChild(Time, SpecialDays)
@@ -1936,24 +1960,6 @@ export function BuildLanguageTree() // returns romanian
     var Night = new DataCard("Night", "Noapte", "");
     setParentAndChild(DaysOfTheWeek, Night)
 
-    var Space = new DataCard("Space", "Spațiu", "");
-    setParentAndChild(DaysOfTheWeek, Space)
-
-    var Planet = new DataCard("Planet", "Planetă", "");
-    setParentAndChild(DaysOfTheWeek, Planet)
-
-    var Moon = new DataCard("Month (Moon)", "Lună", "");
-    setParentAndChild(DaysOfTheWeek, Moon)
-
-    var Star = new DataCard("Star", "Stea", "");
-    setParentAndChild(DaysOfTheWeek, Star)
-
-    var Spaceship = new DataCard("Spaceship", "Navă Spațială", "");
-    setParentAndChild(DaysOfTheWeek, Spaceship)
-
-    var Telescope = new DataCard("Telescope", "Telescop", "");
-    setParentAndChild(DaysOfTheWeek, Telescope)
-
     var Monday = new DataCard("Monday", "Luni", "");
     setParentAndChild(DaysOfTheWeek, Monday)
 
@@ -1977,6 +1983,123 @@ export function BuildLanguageTree() // returns romanian
 
     var Calendar = new DataCard("Calendar", "Calendar", "");
     setParentAndChild(DaysOfTheWeek, Calendar)
+
+    // #Measurements
+    var Measurements = new DataCard("Measurements", "Măsurători", ""); 
+    setParentAndChild(nouns, Measurements);
+    
+    var Size = new DataCard("Size", "Mărime", ""); 
+    setParentAndChild(Measurements, Size);
+
+    var Meter = new DataCard("Meter", "Metru", ""); 
+    setParentAndChild(Measurements, Meter);
+
+    var Centimeter = new DataCard("Centimeter", "Centimetru", ""); 
+    setParentAndChild(Measurements, Centimeter);
+
+    var Kilometer = new DataCard("Kilometer", "Kilometru", ""); 
+    setParentAndChild(Measurements, Kilometer);
+
+    var Gram = new DataCard("Gram", "Gram", ""); 
+    setParentAndChild(Measurements, Gram);
+
+    var Kilogram = new DataCard("Kilogram", "Kilogram", ""); 
+    setParentAndChild(Measurements, Kilogram);
+
+    var Liter = new DataCard("Liter", "Litrul", ""); 
+    setParentAndChild(Measurements, Liter);
+
+    var Milliliter = new DataCard("Milliliter", "Mililitru", ""); 
+    setParentAndChild(Measurements, Milliliter);
+
+    var Celsius = new DataCard("Celsius", "Celsius", ""); 
+    setParentAndChild(Measurements, Celsius);
+
+    var Fahrenheit = new DataCard("Fahrenheit", "Fahrenheit", ""); 
+    setParentAndChild(Measurements, Fahrenheit);
+
+    var Second = new DataCard("Second", "Secundă", ""); 
+    setParentAndChild(Measurements, Second);
+
+    var Minute = new DataCard("Minute", "Minut", ""); 
+    setParentAndChild(Measurements, Minute);
+
+    var Hour = new DataCard("Hour", "Oră", ""); 
+    setParentAndChild(Measurements, Hour);
+
+    var Kilowatt = new DataCard("Kilowatt", "Kilowatt", ""); 
+    setParentAndChild(Measurements, Kilowatt);
+
+    var Watt = new DataCard("Watt", "Watt", ""); 
+    setParentAndChild(Measurements, Watt);
+
+    var Pound = new DataCard("Pound", "Libră", ""); 
+    setParentAndChild(Measurements, Pound);
+
+    var Ounce = new DataCard("Ounce", "Uncie", ""); 
+    setParentAndChild(Measurements, Ounce);
+
+    // # space
+    var Space = new DataCard("Space", "Spațiu", "");
+    setParentAndChild(nouns, Space)
+
+    var Planet = new DataCard("Planet", "Planetă", "");
+    setParentAndChild(Space, Planet)
+
+    var Moon = new DataCard("Month (Moon)", "Lună", "");
+    setParentAndChild(Space, Moon)
+
+    var Star = new DataCard("Star", "Stea", "");
+    setParentAndChild(Space, Star)
+
+    var Telescope = new DataCard("Telescope", "Telescop", "");
+    setParentAndChild(Space, Telescope)
+
+    var Orbit = new DataCard("Orbit", "Orbită", ""); 
+    setParentAndChild(Space, Orbit);
+
+    var Galaxy = new DataCard("Galaxy", "Galaxie", ""); 
+    setParentAndChild(Space, Galaxy);
+
+    var Universe = new DataCard("Universe", "Univers", ""); 
+    setParentAndChild(Space, Universe);
+
+    var Satellite = new DataCard("Satellite", "Satelit", ""); 
+    setParentAndChild(Space, Satellite);
+
+    var Spaceship = new DataCard("Spaceship", "Navă spațială", ""); 
+    setParentAndChild(Space, Spaceship);
+
+    var SolarSystem = new DataCard("Solar System", "Sistem solar", ""); 
+    setParentAndChild(Space, SolarSystem);
+
+    var SolarEclipse = new DataCard("Solar Eclipse", "Eclipsă de soare", ""); 
+    setParentAndChild(Space, SolarEclipse);
+
+    var FullMoon = new DataCard("Full Moon", "Lună plină", ""); 
+    setParentAndChild(Space, FullMoon);
+
+    var Atmosphere = new DataCard("Atmosphere", "Atmosferă", ""); 
+    setParentAndChild(Space, Atmosphere);
+
+    var LunarEclipse = new DataCard("Lunar Eclipse", "Eclipsă de lună", ""); 
+    setParentAndChild(Space, LunarEclipse);
+
+    var Astronaut = new DataCard("Astronaut", "Astronaut", ""); 
+    setParentAndChild(Space, Astronaut);
+
+    var Rocket = new DataCard("Rocket", "Rachetă", ""); 
+    setParentAndChild(Space, Rocket);
+
+    var Meteor = new DataCard("Meteor", "Meteor", ""); 
+    setParentAndChild(Space, Meteor);
+
+    var Moon = new DataCard("Moon", "Lună", ""); 
+    setParentAndChild(Space, Moon);
+
+    var Extraterrestrial = new DataCard("Extraterrestrial", "Extraterestru", ""); 
+    setParentAndChild(Space, Extraterrestrial);
+
 
     // #school #atschool
     var AtSchool = new DataCard("At School", "La Şcoală", "");
@@ -2072,9 +2195,62 @@ export function BuildLanguageTree() // returns romanian
     var WastePaperBin = new DataCard("Waste Paper Bin", "Coș de Hârtii", "");
     setParentAndChild(AtSchool, WastePaperBin)
 
+    // #emergency services
+    var TheEmergencyServices = new DataCard("The Emergency Services", "Serviciile de Urgență", ""); 
+    setParentAndChild(nouns, TheEmergencyServices)
+
+    // #police #thepoliec
+    var ThePolice = new DataCard("The Police", "Poliția", ""); 
+    setParentAndChild(TheEmergencyServices, ThePolice);
+
+    var Case = new DataCard("Case", "Caz", ""); 
+    setParentAndChild(ThePolice, Case);
+
+    var Suspect = new DataCard("Suspect", "Suspect", ""); 
+    setParentAndChild(ThePolice, Suspect);
+
+    var Innocent = new DataCard("Innocent", "Nevinovat", ""); 
+    setParentAndChild(ThePolice, Innocent);
+
+    var Witness = new DataCard("Witness", "Martor", ""); 
+    setParentAndChild(ThePolice, Witness);
+
+    var Victim = new DataCard("Victim", "Victimă", ""); 
+    setParentAndChild(ThePolice, Victim);
+
+    var Court = new DataCard("Court", "Instanță", ""); 
+    setParentAndChild(ThePolice, Court);
+
+    var Guilty = new DataCard("Guilty", "Vinovat", ""); 
+    setParentAndChild(ThePolice, Guilty);
+
+    var Defendant = new DataCard("Defendant", "Pârât", ""); 
+    setParentAndChild(ThePolice, Defendant);
+
+    var Stealing = new DataCard("Stealing", "Furtul", ""); 
+    setParentAndChild(ThePolice, Stealing);
+
+    var Crime = new DataCard("Crime", "Crimă", ""); 
+    setParentAndChild(ThePolice, Crime);
+
+    var Offense = new DataCard("Offense", "Infracțiunea", ""); 
+    setParentAndChild(ThePolice, Offense);
+
+    var Burglar = new DataCard("Burglar", "Hoț", ""); 
+    setParentAndChild(ThePolice, Burglar);
+
+    var Stolen = new DataCard("Stolen", "Furată", ""); 
+    setParentAndChild(ThePolice, Stolen);
+
+    var Motive = new DataCard("Motive", "Motiv", ""); 
+    setParentAndChild(ThePolice, Motive);
+
+    var Murder = new DataCard("Murder", "Crimă", ""); 
+    setParentAndChild(ThePolice, Murder);
+
     // #hospital #thehospital / #doctor #thedoctor
     var TheHospitalAndTheDoctor = new DataCard("The Hospital and The Doctor", "Spitalul ș Doctorul", "");
-    setParentAndChild(nouns, TheHospitalAndTheDoctor)
+    setParentAndChild(TheEmergencyServices, TheHospitalAndTheDoctor)
 
     var CottolWool = new DataCard("Cottol Wool", "Vată", "");
     setParentAndChild(TheHospitalAndTheDoctor, CottolWool)
@@ -2129,6 +2305,66 @@ export function BuildLanguageTree() // returns romanian
 
     var Plaster = new DataCard("Plaster", "Plasture", "");
     setParentAndChild(TheHospitalAndTheDoctor, Plaster)
+
+    var Operation = new DataCard("Operation", "Operație", ""); 
+    setParentAndChild(TheHospitalAndTheDoctor, Operation);
+
+    var Treatment = new DataCard("Treatment", "Tratament", ""); 
+    setParentAndChild(TheHospitalAndTheDoctor, Treatment);
+
+    var Painkiller = new DataCard("Painkiller", "Analgezic", ""); 
+    setParentAndChild(TheHospitalAndTheDoctor, Painkiller);
+
+    var ShoulderPain = new DataCard("Shoulder Pain", "Durere de umăr", ""); 
+    setParentAndChild(TheHospitalAndTheDoctor, ShoulderPain);
+
+    var Flu = new DataCard("Flu", "Gripă", ""); 
+    setParentAndChild(TheHospitalAndTheDoctor, Flu);
+
+    var InGoodShape = new DataCard("In Good Shape", "În formă bună", ""); 
+    setParentAndChild(TheHospitalAndTheDoctor, InGoodShape);
+
+    var BodyTemperature = new DataCard("Body Temperature", "Temperatura corpului", ""); 
+    setParentAndChild(TheHospitalAndTheDoctor, BodyTemperature);
+
+    var Diabetes = new DataCard("Diabetes", "Diabet", ""); 
+    setParentAndChild(TheHospitalAndTheDoctor, Diabetes);
+
+    var BackAche = new DataCard("Back Ache", "Durere de spate", ""); 
+    setParentAndChild(TheHospitalAndTheDoctor, BackAche);
+
+    var Nurse = new DataCard("Nurse", "Asistentă medicală", ""); 
+    setParentAndChild(TheHospitalAndTheDoctor, Nurse);
+
+    var Medic = new DataCard("Medic", "Medic", ""); 
+    setParentAndChild(TheHospitalAndTheDoctor, Medic);
+
+    var Symptom = new DataCard("Symptom", "Simptom", ""); 
+    setParentAndChild(TheHospitalAndTheDoctor, Symptom);
+
+    var FoodPoisoning = new DataCard("Food Poisoning", "Intoxicație alimentară", ""); 
+    setParentAndChild(TheHospitalAndTheDoctor, FoodPoisoning);
+
+    var Diarrhea = new DataCard("Diarrhea", "Diaree", ""); 
+    setParentAndChild(TheHospitalAndTheDoctor, Diarrhea);
+
+    var StomachAche = new DataCard("Stomach Ache", "Durere de stomac", ""); 
+    setParentAndChild(TheHospitalAndTheDoctor, StomachAche);
+
+    var Patient = new DataCard("Patient", "Pacient", ""); 
+    setParentAndChild(TheHospitalAndTheDoctor, Patient);
+
+    var Fever = new DataCard("Fever", "Febră", ""); 
+    setParentAndChild(TheHospitalAndTheDoctor, Fever);
+
+    var Headache = new DataCard("Headache", "Durere de cap", ""); 
+    setParentAndChild(TheHospitalAndTheDoctor, Headache);
+
+    var Emergency = new DataCard("Emergency", "De Urgență", ""); 
+    setParentAndChild(TheHospitalAndTheDoctor, Emergency);
+
+    var Gums = new DataCard("Gums", "Gingie", ""); 
+    setParentAndChild(TheHospitalAndTheDoctor, Gums);
 
     // #thebeach #beach #seaside
     var TheBeach = new DataCard("The Beach", "Plaja", "");
@@ -2586,6 +2822,30 @@ export function BuildLanguageTree() // returns romanian
 
     var Mountain = new DataCard("Mountain", "Munte", "");
     setParentAndChild(TheCountry, Mountain)
+
+    var Volcano = new DataCard("Volcano", "Vulcan", ""); 
+    setParentAndChild(TheCountry, Volcano);
+
+    var Nature = new DataCard("Nature", "Natură", ""); 
+    setParentAndChild(TheCountry, Nature);
+
+    var Lake = new DataCard("Lake", "Lac", ""); 
+    setParentAndChild(TheCountry, Lake);
+
+    var Jungle = new DataCard("Jungle", "Junglă", ""); 
+    setParentAndChild(TheCountry, Jungle);
+
+    var Island = new DataCard("Island", "Insulă", ""); 
+    setParentAndChild(TheCountry, Island);
+
+    var Desert = new DataCard("Desert", "Deșert", ""); 
+    setParentAndChild(TheCountry, Desert);
+
+    var River = new DataCard("River", "Râu", ""); 
+    setParentAndChild(TheCountry, River);
+
+    var Ocean = new DataCard("Ocean", "Ocean", ""); 
+    setParentAndChild(TheCountry, Ocean);
 
     //#animals
     var Animals = new DataCard("Animals", "Animalele", "");
@@ -3902,6 +4162,53 @@ export function BuildLanguageTree() // returns romanian
     var Bag = new DataCard("Bag", "Punga", "");
     setParentAndChild(Clothes, Bag)
 
+    var Lace = new DataCard("Lace", "Șiret", ""); 
+    setParentAndChild(Clothes, Lace);
+
+    var Sole = new DataCard("Sole", "Talpă", ""); 
+    setParentAndChild(Clothes, Sole);
+
+    var Rubber = new DataCard("Rubber", "Cauciuc", ""); 
+    setParentAndChild(Clothes, Rubber);
+
+    var Bag = new DataCard("Bag", "Geanta", ""); 
+    setParentAndChild(Clothes, Bag);
+
+    var HighHeels = new DataCard("High Heels", "Tocuri Înalte", ""); 
+    setParentAndChild(Clothes, HighHeels);
+
+    var Shoes = new DataCard("Shoes", "Încălțăminte", ""); 
+    setParentAndChild(Clothes, Shoes);
+
+    var Pair = new DataCard("Pair/Pairs", "Pereche/Perechi", ""); 
+    setParentAndChild(Clothes, Pair);
+
+    var FlipFlops = new DataCard("Flip Flops", "Șlapi", ""); 
+    setParentAndChild(Clothes, FlipFlops);
+
+    var Leather = new DataCard("Leather", "Piele", ""); 
+    setParentAndChild(Clothes, Leather);
+
+    var Silk = new DataCard("Silk", "Mătase", ""); 
+    setParentAndChild(Clothes, Silk);
+
+    var Gem = new DataCard("Gem", "Piatră Prețioasă", ""); 
+    setParentAndChild(Clothes, Gem);
+
+    var Raincoat = new DataCard("Raincoat", "Pelerină de Ploaie", ""); 
+    setParentAndChild(Clothes, Raincoat);
+
+    var SmallJacket = new DataCard("Small Jacket", "Sacou", ""); 
+    setParentAndChild(Clothes, SmallJacket);
+
+    var Bracelet = new DataCard("Bracelet", "Brățară", ""); 
+    setParentAndChild(Clothes, Bracelet);
+
+    var Tag = new DataCard("Tag", "A Eticheta", ""); 
+    setParentAndChild(Clothes, Tag);
+
+    var Necklace = new DataCard("Necklace", "Colier", ""); 
+    setParentAndChild(Clothes, Necklace);
 
     // #families
     var families = new DataCard(
