@@ -1445,6 +1445,75 @@ export function BuildLanguageTree() // returns romanian
         "")
     setParentAndChild(adjectives, some);
 
+    var Fragrant = new DataCard("Fragrant", "Aromat", "");
+    setParentAndChild(adjectives, Fragrant);
+
+    var Shy = new DataCard("Shy", "Rușinos", "");
+    setParentAndChild(adjectives, Shy);
+
+    var Lucky = new DataCard("Lucky", "Norocos", "");
+    setParentAndChild(adjectives, Lucky);
+
+    var Handsome = new DataCard("Handsome", "Chipeș", "");
+    setParentAndChild(adjectives, Handsome);
+
+    var Bored = new DataCard("Bored", "Plictisit", "");
+    setParentAndChild(adjectives, Bored);
+
+    var Thirsty = new DataCard("Thirsty", "Însetat", "");
+    setParentAndChild(adjectives, Thirsty);
+
+    var Sick = new DataCard("Sick", "Bolnav", "");
+    setParentAndChild(adjectives, Sick);
+
+    var Sunny = new DataCard("Sunny", "Însorit", "");
+    setParentAndChild(adjectives, Sunny);
+
+    var HighTemperature = new DataCard("High (temperature)", "Ridicat", "");
+    setParentAndChild(adjectives, HighTemperature);
+
+    var LowTemperature = new DataCard("Low (temperature)", "Scăzut", "");
+    setParentAndChild(adjectives, LowTemperature);
+
+    var Cheerful = new DataCard("Cheerful", "Vesel", "");
+    setParentAndChild(adjectives, Cheerful);
+
+    var Smart = new DataCard("Smart", "Inteligent", "");
+    setParentAndChild(adjectives, Smart);
+
+    var Muscular = new DataCard("Muscular", "Musculos", "");
+    setParentAndChild(adjectives, Muscular);
+
+    var Curly = new DataCard("Curly", "Creț", "");
+    setParentAndChild(adjectives, Curly);
+
+    var Brown = new DataCard("Brown", "Căprui", "");
+    setParentAndChild(adjectives, Brown);
+
+    var Available = new DataCard("Available", "Disponibil", "");
+    setParentAndChild(adjectives, Available);
+
+    var Smooth = new DataCard("Smooth", "Neted", "");
+    setParentAndChild(adjectives, Smooth);
+
+    var Rough = new DataCard("Rough", "Brut", "");
+    setParentAndChild(adjectives, Rough);
+
+    var Loose = new DataCard("Loose", "Larg", "");
+    setParentAndChild(adjectives, Loose);
+
+    var Tight = new DataCard("Tight", "Strâmt", "");
+    setParentAndChild(adjectives, Tight);
+
+    var JustRight = new DataCard("Just right", "Potrivit", "");
+    setParentAndChild(adjectives, JustRight);
+
+    var Sufficient = new DataCard("Sufficient", "Suficient", "");
+    setParentAndChild(adjectives, Sufficient);
+
+    var Foreign = new DataCard("Foreign", "Străine", "");
+    setParentAndChild(adjectives, Foreign);
+
     var DescriptiveAdjective = new DataCard("Descriptive Adjective", "Adjective Descriptive", "");
     setParentAndChild(adjectives, DescriptiveAdjective)
 
@@ -4700,6 +4769,21 @@ export function BuildLanguageTree() // returns romanian
     var Forever = new DataCard("Forever", "Pentru totdeauna", "");
     setParentAndChild(adverbs, Forever);
 
+    var Still = new DataCard("Still", "Totuși", "");
+    setParentAndChild(adverbs, Still);
+
+    var Anyway = new DataCard("Anyway", "Oricum", "");
+    setParentAndChild(adverbs, Anyway);
+
+    var Already = new DataCard("Already", "Deja", "");
+    setParentAndChild(adverbs, Already);
+
+    var NotAtAll = new DataCard("Not at all", "Deloc", "");
+    setParentAndChild(adverbs, NotAtAll);
+
+    var InTheFuture = new DataCard("In the future", "În viitor", "");
+    setParentAndChild(adverbs, InTheFuture);
+
     // =============================================================================
     // #Conjunctions
     // =============================================================================
@@ -4771,6 +4855,13 @@ export function BuildLanguageTree() // returns romanian
     
     var AsWell = new DataCard("As Well", "De asemenea", "");
     setParentAndChild(conjunctions, AsWell);
+    
+    var Like = new DataCard("Like (A is like B)", "Asemenea", "");
+    setParentAndChild(conjunctions, Like);
+
+    var InCase = new DataCard("In case", "În caz că", "");
+    setParentAndChild(conjunctions, InCase);
+
 
     // =============================================================================
     // #Numbers
@@ -4928,6 +5019,22 @@ export function BuildLanguageTree() // returns romanian
         "Jealous", "Gelos",
         "")
     setParentAndChild(emotions, Jealous);
+    
+    var Heartbroken = new DataCard("Heartbroken", "Fi cu inima frântă", "");
+    setParentAndChild(emotions, Heartbroken);
+
+    var Horror = new DataCard("Horror", "Groază", "");
+    setParentAndChild(emotions, Horror);
+
+    var Unfortunate = new DataCard("Unfortunate", "Ghinion", "");
+    setParentAndChild(emotions, Unfortunate);
+
+    var Crush = new DataCard("A crush (romantic)", "O pasiune", "");
+    setParentAndChild(emotions, Crush);
+
+    var Hope = new DataCard("Hope", "Sper", "");
+    setParentAndChild(emotions, Hope);
+
 
     return romanian;
 }
