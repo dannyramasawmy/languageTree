@@ -1437,16 +1437,6 @@ export function BuildLanguageTree() // returns romanian
         "")
     setParentAndChild(romanian, adjectives);
 
-    var every = new DataCard(
-        "Every", "Fiecare",
-        "")
-    setParentAndChild(adjectives, every);
-
-    var all = new DataCard(
-        "All", "Toate",
-        "")
-    setParentAndChild(adjectives, all);
-
     var who = new DataCard(
         "Who", "Cine",
         "")
@@ -1472,80 +1462,56 @@ export function BuildLanguageTree() // returns romanian
         "")
     setParentAndChild(adjectives, how);
 
+    // #quantities
+    var quantities = new DataCard("Quantities", "Cantități", "");  
+    setParentAndChild(adjectives, quantities);  
+
+    var every = new DataCard(
+        "Every", "Fiecare",
+        "")
+    setParentAndChild(quantities, every);
+
+    var all = new DataCard(
+        "All", "Toate",
+        "")
+    setParentAndChild(quantities, all);
+
     var some = new DataCard(
         "Some (approximately)", "Vreo",
         "")
-    setParentAndChild(adjectives, some);
+    setParentAndChild(quantities, some);
 
-    var Fragrant = new DataCard("Fragrant", "Aromat", "");
-    setParentAndChild(adjectives, Fragrant);
+    var full = new DataCard("Full", "Sătul", "");  
+    setParentAndChild(quantities, full);  
+    
+    var frequent = new DataCard("Frequent", "Frecvente", "");  
+    setParentAndChild(quantities, frequent);
+    
+    var justRight = new DataCard("Just right", "Potrivit", "");  
+    setParentAndChild(quantities, justRight);  
 
-    var Shy = new DataCard("Shy", "Rușinos", "");
-    setParentAndChild(adjectives, Shy);
+    var sufficient = new DataCard("Sufficient", "Suficient", "");  
+    setParentAndChild(quantities, sufficient);  
 
-    var Lucky = new DataCard("Lucky", "Norocos", "");
-    setParentAndChild(adjectives, Lucky);
+    var Long = new DataCard("Long", "Lung", "");
+    setParentAndChild(quantities, Long)
 
-    var Handsome = new DataCard("Handsome", "Chipeș", "");
-    setParentAndChild(adjectives, Handsome);
+    var Short = new DataCard("Short", "Scurt", "");
+    setParentAndChild(quantities, Short)
 
-    var Bored = new DataCard("Bored", "Plictisit", "");
-    setParentAndChild(adjectives, Bored);
+    var Empty = new DataCard("Empty", "Gol", "");
+    setParentAndChild(quantities, Empty)
 
-    var Thirsty = new DataCard("Thirsty", "Însetat", "");
-    setParentAndChild(adjectives, Thirsty);
+    var Full = new DataCard("Full", "Plin", "");
+    setParentAndChild(quantities, Full)
 
-    var Sick = new DataCard("Sick", "Bolnav", "");
-    setParentAndChild(adjectives, Sick);
+    var Few = new DataCard("Few", "Puține", "Puțini");
+    setParentAndChild(quantities, Few)
 
-    var Sunny = new DataCard("Sunny", "Însorit", "");
-    setParentAndChild(adjectives, Sunny);
+    var Many = new DataCard("Many", "Multe", "Mulți");
+    setParentAndChild(quantities, Many)
 
-    var HighTemperature = new DataCard("High (temperature)", "Ridicat", "");
-    setParentAndChild(adjectives, HighTemperature);
-
-    var LowTemperature = new DataCard("Low (temperature)", "Scăzut", "");
-    setParentAndChild(adjectives, LowTemperature);
-
-    var Cheerful = new DataCard("Cheerful", "Vesel", "");
-    setParentAndChild(adjectives, Cheerful);
-
-    var Smart = new DataCard("Smart", "Inteligent", "");
-    setParentAndChild(adjectives, Smart);
-
-    var Muscular = new DataCard("Muscular", "Musculos", "");
-    setParentAndChild(adjectives, Muscular);
-
-    var Curly = new DataCard("Curly", "Creț", "");
-    setParentAndChild(adjectives, Curly);
-
-    var Brown = new DataCard("Brown", "Căprui", "");
-    setParentAndChild(adjectives, Brown);
-
-    var Available = new DataCard("Available", "Disponibil", "");
-    setParentAndChild(adjectives, Available);
-
-    var Smooth = new DataCard("Smooth", "Neted", "");
-    setParentAndChild(adjectives, Smooth);
-
-    var Rough = new DataCard("Rough", "Brut", "");
-    setParentAndChild(adjectives, Rough);
-
-    var Loose = new DataCard("Loose", "Larg", "");
-    setParentAndChild(adjectives, Loose);
-
-    var Tight = new DataCard("Tight", "Strâmt", "");
-    setParentAndChild(adjectives, Tight);
-
-    var JustRight = new DataCard("Just right", "Potrivit", "");
-    setParentAndChild(adjectives, JustRight);
-
-    var Sufficient = new DataCard("Sufficient", "Suficient", "");
-    setParentAndChild(adjectives, Sufficient);
-
-    var Foreign = new DataCard("Foreign", "Străine", "");
-    setParentAndChild(adjectives, Foreign);
-
+    // #descriptiveadjectives
     var DescriptiveAdjective = new DataCard("Descriptive Adjective", "Adjective Descriptive", "");
     setParentAndChild(adjectives, DescriptiveAdjective)
 
@@ -1561,20 +1527,23 @@ export function BuildLanguageTree() // returns romanian
     var Thin = new DataCard("Thin", "Slab", "");
     setParentAndChild(DescriptiveAdjective, Thin)
 
-    var Few = new DataCard("Few", "Puține", "Puțini");
-    setParentAndChild(adjectives, Few)
-
-    var Many = new DataCard("Many", "Multe", "Mulți");
-    setParentAndChild(adjectives, Many)
-
     var Cold = new DataCard("Cold", "Rece", "");
     setParentAndChild(DescriptiveAdjective, Cold)
 
     var Hot = new DataCard("Hot", "Cald (Fierbinte)", "");
     setParentAndChild(DescriptiveAdjective, Hot)
 
+    var HighTemperature = new DataCard("High (temperature)", "Ridicat", "");
+    setParentAndChild(DescriptiveAdjective, HighTemperature);
+
+    var LowTemperature = new DataCard("Low (temperature)", "Scăzut", "");
+    setParentAndChild(DescriptiveAdjective, LowTemperature);
+
     var Dirty = new DataCard("Dirty", "Murdar", "");
     setParentAndChild(DescriptiveAdjective, Dirty)
+    
+    var Available = new DataCard("Available", "Disponibil", "");
+    setParentAndChild(DescriptiveAdjective, Available);
 
     var Clean = new DataCard("Clean", "Curat", "");
     setParentAndChild(DescriptiveAdjective, Clean)
@@ -1603,18 +1572,6 @@ export function BuildLanguageTree() // returns romanian
     var Big = new DataCard("Big", "Mare", "");
     setParentAndChild(DescriptiveAdjective, Big)
 
-    var Empty = new DataCard("Empty", "Gol", "");
-    setParentAndChild(DescriptiveAdjective, Empty)
-
-    var Full = new DataCard("Full", "Plin", "");
-    setParentAndChild(DescriptiveAdjective, Full)
-
-    var Dark = new DataCard("Dark", "Întunecos", "");
-    setParentAndChild(DescriptiveAdjective, Dark)
-
-    var Light = new DataCard("Light", "Luminos", "");
-    setParentAndChild(DescriptiveAdjective, Light)
-
     var New = new DataCard("New", "Nou", "");
     setParentAndChild(DescriptiveAdjective, New)
 
@@ -1639,12 +1596,6 @@ export function BuildLanguageTree() // returns romanian
     var Fast = new DataCard("Fast", "Repede", "");
     setParentAndChild(DescriptiveAdjective, Fast)
 
-    var Long = new DataCard("Long", "Lung", "");
-    setParentAndChild(DescriptiveAdjective, Long)
-
-    var Short = new DataCard("Short", "Scurt", "");
-    setParentAndChild(DescriptiveAdjective, Short)
-
     var Dead = new DataCard("Dead (Wilted)", "Ofilit (Uscat)", "");
     setParentAndChild(DescriptiveAdjective, Dead)
 
@@ -1656,6 +1607,131 @@ export function BuildLanguageTree() // returns romanian
 
     var False_ = new DataCard("False", "Fals", "");
     setParentAndChild(DescriptiveAdjective, False_)
+
+    var Smooth = new DataCard("Smooth", "Neted", "");
+    setParentAndChild(DescriptiveAdjective, Smooth);
+
+    var Rough = new DataCard("Rough", "Brut", "");
+    setParentAndChild(DescriptiveAdjective, Rough);
+
+    var Loose = new DataCard("Loose", "Larg", "");
+    setParentAndChild(DescriptiveAdjective, Loose);
+
+    var Tight = new DataCard("Tight", "Strâmt", "");
+    setParentAndChild(DescriptiveAdjective, Tight);
+
+    // #flavours
+    var flavours = new DataCard("Flavours", "Arome", "");  
+    setParentAndChild(adjectives, flavours);  
+
+    var sweet = new DataCard("Sweet", "Dulce", "");  
+    setParentAndChild(flavours, sweet);  
+    
+    var sour = new DataCard("Sour", "Acru", "");  
+    setParentAndChild(flavours, sour);  
+    
+    var salty = new DataCard("Salty", "Sărat", "");  
+    setParentAndChild(flavours, salty);  
+    
+    var spicy = new DataCard("Spicy", "Picant", "");  
+    setParentAndChild(flavours, spicy);  
+    
+    var bitter = new DataCard("Bitter", "Amar", "");  
+    setParentAndChild(flavours, bitter);  
+    
+    var delicious = new DataCard("Delicious", "Delicios", "");  
+    setParentAndChild(flavours, delicious);  
+     
+    var Fragrant = new DataCard("Fragrant", "Aromat", "");
+    setParentAndChild(flavours, Fragrant);
+
+    // #AboutPeople =======================================
+    var aboutPeople = new DataCard("About People", "Despre oameni", "");  
+    setParentAndChild(adjectives, aboutPeople);  
+    
+    var hungry = new DataCard("Hungry", "Înfometat", "");  
+    setParentAndChild(aboutPeople, hungry);  
+
+    var allergic = new DataCard("Allergic", "Alergic", "");  
+    setParentAndChild(aboutPeople, allergic);  
+
+    var strict = new DataCard("Strict", "Strict", "");  
+    setParentAndChild(aboutPeople, strict);  
+
+    var sad = new DataCard("Sad", "Trist", "");  
+    setParentAndChild(aboutPeople, sad);  
+
+    var amusing = new DataCard("Amusing (funny)", "Amuzant", "");  
+    setParentAndChild(aboutPeople, amusing);  
+
+    var boring = new DataCard("Boring", "Plictisitor", "");  
+    setParentAndChild(aboutPeople, boring);  
+
+    var interesting = new DataCard("Interesting", "Interesant", "");  
+    setParentAndChild(aboutPeople, interesting);  
+
+    var romantic = new DataCard("Romantic", "Romantic", "");  
+    setParentAndChild(aboutPeople, romantic);  
+
+    var dangerous = new DataCard("Dangerous", "Periculos", "");  
+    setParentAndChild(aboutPeople, dangerous);  
+    
+    var strange = new DataCard("Strange", "Ciudat", "");  
+    setParentAndChild(aboutPeople, strange);  
+
+    var muscular = new DataCard("Muscular", "Musculos", "");  
+    setParentAndChild(aboutPeople, muscular);  
+
+    var crazy = new DataCard("Crazy", "Nebun", "");  
+    setParentAndChild(aboutPeople, crazy);  
+
+    var busy = new DataCard("Busy (occupied)", "Ocupat", "");  
+    setParentAndChild(aboutPeople, busy);  
+
+    var cool = new DataCard("Cool (today is cool)", "Răcore", "");  
+    setParentAndChild(aboutPeople, cool);  
+
+    var missing = new DataCard("Missing", "Dispărut", "");  
+    setParentAndChild(aboutPeople, missing);  
+
+    var alone = new DataCard("Alone", "Singur", "");  
+    setParentAndChild(aboutPeople, alone);  
+
+    var Shy = new DataCard("Shy", "Rușinos", "");
+    setParentAndChild(aboutPeople, Shy);
+
+    var Lucky = new DataCard("Lucky", "Norocos", "");
+    setParentAndChild(aboutPeople, Lucky);
+
+    var Handsome = new DataCard("Handsome", "Chipeș", "");
+    setParentAndChild(aboutPeople, Handsome);
+
+    var Bored = new DataCard("Bored", "Plictisit", "");
+    setParentAndChild(aboutPeople, Bored);
+
+    var Thirsty = new DataCard("Thirsty", "Însetat", "");
+    setParentAndChild(aboutPeople, Thirsty);
+
+    var Sick = new DataCard("Sick", "Bolnav", "");
+    setParentAndChild(aboutPeople, Sick);
+
+    var Sunny = new DataCard("Sunny", "Însorit", "");
+    setParentAndChild(aboutPeople, Sunny);
+
+    var Cheerful = new DataCard("Cheerful", "Vesel", "");
+    setParentAndChild(aboutPeople, Cheerful);
+
+    var Smart = new DataCard("Smart", "Inteligent", "");
+    setParentAndChild(aboutPeople, Smart);
+
+    var Muscular = new DataCard("Muscular", "Musculos", "");
+    setParentAndChild(aboutPeople, Muscular);
+
+    var Curly = new DataCard("Curly", "Creț", "");
+    setParentAndChild(aboutPeople, Curly);
+
+    var Foreign = new DataCard("Foreign", "Străine", "");
+    setParentAndChild(aboutPeople, Foreign);
 
 
     // #Colours =======================================
@@ -1669,6 +1745,9 @@ export function BuildLanguageTree() // returns romanian
 
     var white = new DataCard("White", "Alb", "")
     setParentAndChild(colours, white);
+
+    var Brown = new DataCard("Brown", "Căprui", "");
+    setParentAndChild(colours, Brown);
 
     var blue = new DataCard("Blue", "Albastru", "")
     setParentAndChild(colours, blue);
@@ -1693,8 +1772,21 @@ export function BuildLanguageTree() // returns romanian
 
     var yellow = new DataCard("Yellow", "Galben", "")
     setParentAndChild(colours, yellow);
+    
+    var bright = new DataCard("Bright", "Strălucitor", "");  
+    setParentAndChild(colours, bright);
 
+    var blonde = new DataCard("Blonde", "Blond", "");  
+    setParentAndChild(colours, blonde);  
 
+    var Dark = new DataCard("Dark", "Întunecos", "");
+    setParentAndChild(colours, Dark)
+
+    var Light = new DataCard("Light", "Luminos", "");
+    setParentAndChild(colours, Light)
+
+    var gold = new DataCard("Gold", "Aur", "");  
+    setParentAndChild(colours, gold);  
 
 
     // =============================================================================
