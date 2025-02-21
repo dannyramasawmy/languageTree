@@ -62,9 +62,9 @@ export class View
                 ? createParentCard(currentNode.Primary, currentNode.Secondary, currentNode.Data)
                 : createParentCard(currentNode.Secondary, currentNode.Primary, currentNode.Data));
 
-        let nodeStats = this.GLOBAL.CurrentNode.GetNodeStats()
-        document.getElementById(NodeStatsID.GENERATION).innerText = nodeStats.Generation
-        document.getElementById(NodeStatsID.NUMBER_OF_CHILDREN).innerText = nodeStats.NumberOfChildren
+        document.getElementById(NodeStatsID.GENERATION).innerText = this.GLOBAL.CurrentNode.Generation
+        document.getElementById(NodeStatsID.NUMBER_OF_CHILDREN).innerText = this.GLOBAL.DisplayCards.length
+
 
         let colorIndex = "";
         let colorWheel = RainbowColorWheel();
