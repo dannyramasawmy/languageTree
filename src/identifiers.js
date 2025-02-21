@@ -56,3 +56,8 @@ export const ButtonIcons = {
         "img/leaf-icon.svg"]
 }
     
+
+export const NodeStatsID = {
+    GENERATION: "generation-number",
+    NUMBER_OF_CHILDREN: "number-of-children",
+}

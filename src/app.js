@@ -17,6 +17,8 @@ const DEBUG = true;
 
 const ROOT_NODE = CONFIG.DATA_TREE;
 
+console.log(ROOT_NODE)
+
 const GLOBAL = {
   "PrimaryLanguageFirst": true,
   "CurrentNode": ROOT_NODE,
@@ -30,9 +32,9 @@ const SETTINGS = Settings.default()
 // =============================================================================
 
 const VIEW = new View(
-  ElementID.MAIN_CARD_ID, 
-  ElementID.DATA_CARDS_ID, 
-  ElementID.BUTTON_PANEL_ID, 
+  ElementID.MAIN_CARD_ID,
+  ElementID.DATA_CARDS_ID,
+  ElementID.BUTTON_PANEL_ID,
   SETTINGS,
   GLOBAL);
 
@@ -58,29 +60,28 @@ VIEW
   ]);
 
 const G_searchable = search.functions.buildDataCardMappingRecursive(
-  ROOT_NODE, 
+  ROOT_NODE,
   new search.models.DataCardMapping(),
-  CONFIG.PRIMARY_STRING_CLEAN_FUNCTION, 
+  CONFIG.PRIMARY_STRING_CLEAN_FUNCTION,
   CONFIG.SECONDARY_STRING_CLEAN_FUNCTION);
 
-let resetSearch = () => 
+let resetSearch = () =>
   search.view.resetSearchBar(search.functions.getNumberOfCards(G_searchable));
 
 resetSearch()
 
-const sortDisplayList = (GLOBAL, displayCards) => 
+const sortDisplayList = (GLOBAL, displayCards) =>
   tree.functions.sortDataCardArray(
-    GLOBAL.PrimaryLanguageFirst, 
-    displayCards, 
-    CONFIG.PRIMARY_SORT_FUNCTION, 
-    CONFIG.SECONDARY_SORT_FUNCTION)  
+    GLOBAL.PrimaryLanguageFirst,
+    displayCards,
+    CONFIG.PRIMARY_SORT_FUNCTION,
+    CONFIG.SECONDARY_SORT_FUNCTION)
 
 // =============================================================================
 // SETTINGS
 // =============================================================================
 
-function updateSettings()
-{
+function updateSettings() {
   SETTINGS.update()
 
   SETTINGS.IsDarkTheme ? VIEW.SetDarkTheme() : VIEW.SetLightTheme();
@@ -102,17 +103,14 @@ document.getElementById(SettingsID.UPDATE_SETTINGS).addEventListener("click", up
 // =============================================================================
 
 // add history
-function pushState(node)
-{
+function pushState(node) {
   history.pushState(node.Primary.toLowerCase(), null, `?${node.Primary}`);
 }
 
 // set next history state
 window.addEventListener('popstate',
-  function (event)
-  {
-    if (DEBUG)
-    {
+  function (event) {
+    if (DEBUG) {
       console.log("Popstate");
     }
 
@@ -133,10 +131,8 @@ window.addEventListener('popstate',
         B_TRAVEL.Select(tree.functions.getNodeType(GLOBAL.CurrentNode))]);
   });
 
-window.onkeyup = function (e)
-{
-  if (e.ctrlKey && e.keyCode === 81)
-  {
+window.onkeyup = function (e) {
+  if (e.ctrlKey && e.keyCode === 81) {
     console.log("Search shortcut");
 
     let myModal = new bootstrap.Modal(document.getElementById('searchModal'), {});
@@ -147,32 +143,26 @@ window.onkeyup = function (e)
 
 // clicking
 window.addEventListener('click',
-  function (event)
-  {
-    if (DEBUG)
-    {
+  function (event) {
+    if (DEBUG) {
       console.log(`click event '${event}'`);
       console.log(event.composedPath());
     }
 
-    for (var idx = 0; idx < event.composedPath().length; idx++)
-    {
+    for (var idx = 0; idx < event.composedPath().length; idx++) {
 
       let currentClickPathId = event.composedPath()[idx].id;
 
       // data card
-      if (typeof currentClickPathId === 'string' && currentClickPathId.includes("card-number-"))
-      {
+      if (typeof currentClickPathId === 'string' && currentClickPathId.includes("card-number-")) {
         let idNumber = currentClickPathId.slice(12);
 
-        if (DEBUG)
-        {
+        if (DEBUG) {
           console.log(currentClickPathId);
         }
 
         // when clicking on a card
-        if (GLOBAL.DisplayCards[idNumber] !== undefined)
-        {
+        if (GLOBAL.DisplayCards[idNumber] !== undefined) {
           // state
           GLOBAL.CurrentNode = GLOBAL.DisplayCards[idNumber];
           GLOBAL.DisplayCards = tree.functions.getChildren(GLOBAL.CurrentNode);
@@ -199,10 +189,9 @@ window.addEventListener('click',
       }
 
       // shuffle current node
-      if (event.composedPath()[idx].id == ButtonsID.SHUFFLE)
-      {
+      if (event.composedPath()[idx].id == ButtonsID.SHUFFLE) {
         GLOBAL.CurrentNode = RandomElementInArray(search.functions.getAllCards(G_searchable, GLOBAL.PrimaryLanguageFirst));
-      
+
         pushState(GLOBAL.CurrentNode);
         GLOBAL.DisplayCards = tree.functions.getChildren(GLOBAL.CurrentNode);
 
@@ -222,8 +211,7 @@ window.addEventListener('click',
       }
 
       // sort cards
-      if (event.composedPath()[idx].id == ButtonsID.SORT)
-      {
+      if (event.composedPath()[idx].id == ButtonsID.SORT) {
         GLOBAL.DisplayCards = sortDisplayList(GLOBAL, GLOBAL.DisplayCards);
 
         VIEW
@@ -241,8 +229,7 @@ window.addEventListener('click',
       }
 
       // swap language shown
-      if (event.composedPath()[idx].id == ButtonsID.SWAP)
-      {
+      if (event.composedPath()[idx].id == ButtonsID.SWAP) {
         // state
         GLOBAL.PrimaryLanguageFirst = GLOBAL.PrimaryLanguageFirst ? false : true;
 
@@ -262,8 +249,7 @@ window.addEventListener('click',
       }
 
       // go to parent
-      if (event.composedPath()[idx].id == ButtonsID.TRAVEL)
-      {
+      if (event.composedPath()[idx].id == ButtonsID.TRAVEL) {
         GLOBAL.CurrentNode = GLOBAL.CurrentNode.Parent;
         GLOBAL.DisplayCards = tree.functions.getChildren(GLOBAL.CurrentNode);
         pushState(GLOBAL.CurrentNode)
@@ -289,9 +275,15 @@ window.addEventListener('click',
     }
   })
 
+// for bootstrap tooltip
+document.addEventListener("DOMContentLoaded", function () {
+  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl);
+  });
+});
 
-function keyboardInput()
-{
+function keyboardInput() {
   let searchString = document.getElementById(ElementID.SEARCH_BAR_ID).value;
   GLOBAL.CurrentNode = ROOT_NODE;
   GLOBAL.DisplayCards = search.functions.searchForMatchingCards(G_searchable, GLOBAL.PrimaryLanguageFirst, searchString);
@@ -310,17 +302,14 @@ document.getElementById(ElementID.SEARCH_BAR_ID).addEventListener("input", keybo
 // Animations
 // =============================================================================
 
-function animateShuffle(counter)
-{
-  var frame = () =>
-  {
+function animateShuffle(counter) {
+  var frame = () => {
     console.log(`Animate shuffle: ${counter}`);
     counter = Math.abs(counter);
     VIEW.ClearButton(0).SetButton(0, B_SHUFFLE.Previous());
 
     counter--;
-    if (counter <= 0)
-    {
+    if (counter <= 0) {
 
       clearInterval(id);
     }
@@ -331,13 +320,11 @@ function animateShuffle(counter)
 
 
 
-function animateButtons()
-{
-  if (DEBUG)
-  {
+function animateButtons() {
+  if (DEBUG) {
     console.log("Animate buttons")
   }
-  
+
   // shuffle button
   let counter = B_SHUFFLE.state + B_SHUFFLE.numberOfStates - 1;
   counter = counter < 1 ? 7 : counter;

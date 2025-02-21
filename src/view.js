@@ -1,5 +1,6 @@
 import { RainbowColorWheel } from "./colors/rainbowColorWheel.js";
 import { createParentCard, createChildCard } from "./tree/view.js";
+import { NodeStatsID } from "./identifiers.js";
 
 export class View
 {
@@ -61,6 +62,9 @@ export class View
                 ? createParentCard(currentNode.Primary, currentNode.Secondary, currentNode.Data)
                 : createParentCard(currentNode.Secondary, currentNode.Primary, currentNode.Data));
 
+        let nodeStats = this.GLOBAL.CurrentNode.GetNodeStats()
+        document.getElementById(NodeStatsID.GENERATION).innerText = nodeStats.Generation
+        document.getElementById(NodeStatsID.NUMBER_OF_CHILDREN).innerText = nodeStats.NumberOfChildren
 
         let colorIndex = "";
         let colorWheel = RainbowColorWheel();
