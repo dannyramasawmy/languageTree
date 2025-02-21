@@ -60,4 +60,5 @@ export const ButtonIcons = {
 export const NodeStatsID = {
     GENERATION: "generation-number",
     NUMBER_OF_CHILDREN: "number-of-children",
+    NUMBER_OF_VIEWS: "number-of-views",
 }

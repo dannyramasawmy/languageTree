@@ -14,6 +14,7 @@ class Node {
         this.IsRoot = isRoot;
 
         this.Generation = 0
+        this.Views = this.IsRoot ? '-' : 0
 
         this.AddChild = (dataCard, sortFunction=primarySort) => {
             this.Child.push(dataCard);
@@ -22,8 +23,12 @@ class Node {
 
         this.SetParent = (dataCard) => {
             this.Parent = dataCard;
-            this.Generation = this.IsRoot ? 0 : dataCard.Generation + 1 
+            this.Generation = this.IsRoot ? 0 : this.Generation + 1 
         };
+
+        this.IncrementView = () => {
+            this.Views = this.IsRoot ? '-' : this.Views + 1
+        }
     } 
 }
 
