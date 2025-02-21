@@ -23,7 +23,7 @@ class Node {
 
         this.SetParent = (dataCard) => {
             this.Parent = dataCard;
-            this.Generation = this.IsRoot ? 0 : this.Generation + 1 
+            this.Generation = this.IsRoot ? 0 : this.Parent.Generation + 1 
         };
 
         this.IncrementView = () => {
