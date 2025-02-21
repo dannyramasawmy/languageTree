@@ -16,6 +16,7 @@ export const SettingsID = {
     HOVER_COLOR: "hover-color-theme",
     COMPACT_CARDS: "compact-data-cards",
     ANIMATIONS: "animations-switch",
+    SMOOTH_SCROLLING: "animations-smooth-scrolling",
     BUTTON_LABELS: "button-labels",
     UPDATE_SETTINGS: "update-settings-button"
     };
