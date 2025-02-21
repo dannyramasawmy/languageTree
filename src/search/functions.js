@@ -6,9 +6,10 @@ export function getAllCards(dataCardMapping, isSearchPrimary) {
 export function searchForMatchingCards(dataCardMapping, isSearchPrimary, searchString) {
 
     // special characters
-    var words = []
-    let stringToSearch = ""
-    let mapping
+    let searchString_ = searchString.toLowerCase().trim();
+    var words = [];
+    let stringToSearch = "";
+    let mapping;
 
     switch (searchString[0]) {
         case '!':
@@ -19,7 +20,7 @@ export function searchForMatchingCards(dataCardMapping, isSearchPrimary, searchS
                     ? Object.getOwnPropertyNames(dataCardMapping.Secondary)
                     : Object.getOwnPropertyNames(dataCardMapping.Primary)));
                     
-            stringToSearch = searchString.slice(1);
+            stringToSearch = searchString_.slice(1);
 
             mapping = x => isSearchPrimary
                 ? dataCardMapping.Secondary[x]
@@ -33,7 +34,7 @@ export function searchForMatchingCards(dataCardMapping, isSearchPrimary, searchS
                 ...Object.getOwnPropertyNames(dataCardMapping.Primary), 
                 ...Object.getOwnPropertyNames(dataCardMapping.Secondary));
             
-            stringToSearch = searchString.slice(1);
+            stringToSearch = searchString_.slice(1);
             
             mapping = x => x in dataCardMapping.Primary
                     ? dataCardMapping.Primary[x]
@@ -47,7 +48,7 @@ export function searchForMatchingCards(dataCardMapping, isSearchPrimary, searchS
                 ? Object.getOwnPropertyNames(dataCardMapping.Primary)
                 : Object.getOwnPropertyNames(dataCardMapping.Secondary)));
             
-            stringToSearch = searchString;
+            stringToSearch = searchString_;
 
             mapping = x => isSearchPrimary
                 ? dataCardMapping.Primary[x]
