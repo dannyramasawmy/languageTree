@@ -1,7 +1,7 @@
 //
 // Major version: changes in behavior / new buttons etc
 // Minor version: new/edited words / bug fixes
-const version = "v21.1.3";
+const version = "v21.1.4";
 const staticCacheName = 'languageTree-' + version;
 
 self.addEventListener('install', (e) =>

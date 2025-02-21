@@ -1,7 +1,7 @@
 export function createParentCard(title, subtitle, data)
 {
     let card = document.createElement("div");
-    card.className = "col-12 gap-2";
+    card.className = "col-12 gap-2 pb-0";
 
     let innerCard = document.createElement("div");
     innerCard.className = "card text-bg-secondary mb-3 p-md-4";

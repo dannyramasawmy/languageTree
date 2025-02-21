@@ -2,6 +2,8 @@ import { primarySort } from "./functions.js";
 
 class Node {
     constructor(primary, secondary, data, isRoot = false) {
+        this.ID = crypto.randomUUID()
+
         this.Primary = primary;
         this.Secondary = secondary;
         this.Data = data;
@@ -11,6 +13,9 @@ class Node {
 
         this.IsRoot = isRoot;
 
+        this.Generation = 0
+        this.Views = this.IsRoot ? '-' : 0
+
         this.AddChild = (dataCard, sortFunction=primarySort) => {
             this.Child.push(dataCard);
             this.Child.sort(sortFunction);
@@ -18,10 +23,14 @@ class Node {
 
         this.SetParent = (dataCard) => {
             this.Parent = dataCard;
+            this.Generation = this.IsRoot ? 0 : this.Generation + 1 
         };
+
+        this.IncrementView = () => {
+            this.Views = this.IsRoot ? '-' : this.Views + 1
+        }
     } 
 }
-
 
 export class DataRoot extends Node {
     constructor(primary, secondary, data) {
