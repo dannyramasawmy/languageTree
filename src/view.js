@@ -97,7 +97,14 @@ export class View
             dataCard.style.visibility = "visible";
         }
 
-        window.scrollTo(0, yScrollHeight);
+        window.scrollTo(
+        {
+            left : 0, 
+            top : yScrollHeight, 
+            behavior : this.SETTINGS.HasSmoothScrolling 
+                ? "smooth" 
+                : "instant"
+        });
         return this;
     }
 

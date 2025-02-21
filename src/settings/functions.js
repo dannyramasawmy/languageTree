@@ -21,6 +21,7 @@ export function updateSettingsState()  {
         saveBooleanSetting(SettingsID.HOVER_COLOR),
         saveBooleanSetting(SettingsID.COMPACT_CARDS),
         saveBooleanSetting(SettingsID.ANIMATIONS),
+        saveBooleanSetting(SettingsID.SMOOTH_SCROLLING),
         saveBooleanSetting(SettingsID.BUTTON_LABELS)
     )
 }
