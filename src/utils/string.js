@@ -6,3 +6,4 @@ export function formatNumber(num) {
     let shortNumber = num / Math.pow(1000, exponent);
     return shortNumber.toFixed(0) + units[exponent];
 }
+

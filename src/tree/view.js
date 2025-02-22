@@ -1,5 +1,4 @@
-export function createParentCard(title, subtitle, data)
-{
+export function createParentCard(title, subtitle, data) {
     let card = document.createElement("div");
     card.className = "col-12 gap-2 pb-0";
 
@@ -30,8 +29,7 @@ export function createParentCard(title, subtitle, data)
     return card;
 }
 
-export function createChildCard(isCompactView, title, subtitle, id, colorIndex)
-{
+export function createChildCard(isCompactView, title, subtitle, id, colorIndex) {
     let card = document.createElement("div");
     card.className = "col-12 col-lg-3 col-md-4 gap-2";
     card.id = id;
@@ -46,8 +44,7 @@ export function createChildCard(isCompactView, title, subtitle, id, colorIndex)
     card.appendChild(innerCard);
     innerCard.appendChild(cardTitle);
 
-    if (!isCompactView)
-    {
+    if (!isCompactView) {
         let cardSubtitle = document.createElement("h5");
         cardSubtitle.className = "card-subtitle subtle";
         cardSubtitle.innerHTML = subtitle;
@@ -55,4 +52,30 @@ export function createChildCard(isCompactView, title, subtitle, id, colorIndex)
     }
 
     return card;
+}
+
+export function createNodeStats(id, stat, svgElement, description) {
+    let pill = document.createElement("div");
+    pill.className = "col-4 gap-2 pb-0";
+
+    let pillBody = document.createElement("div");
+    pillBody.className = "card text-bg mb-3 pt-0 pb-0 rounded-pill";
+    pillBody.setAttribute("data-bs-toggle", "tooltip");
+    pillBody.setAttribute("data-bs-placement", "top");
+    pillBody.setAttribute("title", description);
+
+    let pillContent = document.createElement("div");
+    pillContent.className = "d-inline-flex justify-content-center"
+
+    let statView = document.createElement("p");
+    statView.className = "px-2 my-1"
+    statView.id = id
+    statView.innerText = stat
+
+    pillContent.appendChild(svgElement)
+    pillContent.appendChild(statView)
+    pillBody.appendChild(pillContent)
+    pill.appendChild(pillBody)
+
+    return pill
 }
