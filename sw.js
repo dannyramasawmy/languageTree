@@ -1,7 +1,7 @@
 //
 // Major version: changes in behavior / new buttons etc
 // Minor version: new/edited words / bug fixes
-const version = "v21.1.5";
+const version = "v22.0.0";
 const staticCacheName = 'languageTree-' + version;
 
 self.addEventListener('install', (e) =>
@@ -39,21 +39,29 @@ self.addEventListener('install', (e) =>
       'languageTree/src/configuration.js',
       'languageTree/src/identifiers.js',
       'languageTree/src/view.js',
+      // src/buttons
       'languageTree/src/buttons/button.js',
       'languageTree/src/buttons/view.js',
+      // src/colours
       'languageTree/src/colors/colorWheel.js',
       'languageTree/src/colors/rainbowColorWheel.js',
+      // src/history
       'languageTree/src/history/scroll.js',
+      // src/search
       'languageTree/src/search/functions.js',
       'languageTree/src/search/index.js',
       'languageTree/src/search/models.js',
       'languageTree/src/search/view.js',
+      // src/settings
       'languageTree/src/settings/functions.js',
       'languageTree/src/settings/settings.js',
       'languageTree/src/settings/view.js',
+      // src/state
       'languageTree/src/state/localStorage.js',
+      // src/stats
       'languageTree/src/stats/svg.js',
       'languageTree/src/stats/view.js',
+      // src/tree
       'languageTree/src/tree/enums.js',
       'languageTree/src/tree/functions.js',
       'languageTree/src/tree/index.js',
