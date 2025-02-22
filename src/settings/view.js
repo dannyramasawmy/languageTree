@@ -48,8 +48,8 @@ export function createSettingsPanel(settings) {
     settingsPanel.appendChild(horizontalRule());
 
     settingsPanel.appendChild(settingSubtitle("Animations"));
-    settingsPanel.appendChild(booleanSetting(SettingsID.ANIMATIONS, "Show animations", settings.ShowAnimations));
-    settingsPanel.appendChild(booleanSetting(SettingsID.SMOOTH_SCROLLING, "Enable smooth scrolling animations", settings.HasSmoothScrolling));
+    settingsPanel.appendChild(booleanSetting(SettingsID.ANIMATIONS, "Enable card fade in", settings.ShowAnimations));
+    settingsPanel.appendChild(booleanSetting(SettingsID.SMOOTH_SCROLLING, "Enable smooth scrolling", settings.HasSmoothScrolling));
     settingsPanel.appendChild(horizontalRule());
 
     settingsPanel.appendChild(settingSubtitle("Navigation"));
