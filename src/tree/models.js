@@ -1,9 +1,10 @@
 import { primarySort } from "./functions.js";
+import { getIntFromLocal, saveIntToLocal } from "../state/localStorage.js";
 
 class Node {
     constructor(primary, secondary, data, isRoot = false) {
-        this.ID = crypto.randomUUID()
-
+        this.UID = crypto.randomUUID()
+        
         this.Primary = primary;
         this.Secondary = secondary;
         this.Data = data;
@@ -14,7 +15,7 @@ class Node {
         this.IsRoot = isRoot;
 
         this.Generation = 0
-        this.Views = this.IsRoot ? '-' : 0
+        this.Views = '-'
 
         this.AddChild = (dataCard, sortFunction=primarySort) => {
             this.Child.push(dataCard);
@@ -26,9 +27,23 @@ class Node {
             this.Generation = this.IsRoot ? 0 : this.Parent.Generation + 1 
         };
 
-        this.IncrementView = () => {
-            this.Views = this.IsRoot ? '-' : this.Views + 1
+        this.GetHashId = () => {
+            return `ID-${this.Primary}-${this.Secondary}-${this.Generation}`            
         }
+
+        this.IncrementView = () => {
+            if (this.IsRoot) return
+            
+            let key = this.GetHashId()
+
+            if (this.Views == '-') 
+                this.Views = getIntFromLocal(key, 0)
+
+            this.Views = this.IsRoot ? '-' : this.Views + 1
+            saveIntToLocal(key, this.Views)
+        }
+
+
     } 
 }
 

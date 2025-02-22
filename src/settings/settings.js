@@ -1,4 +1,5 @@
-import { getBooleanSetting, saveBooleanSetting } from "./functions.js"
+import { getBooleanFromLocal } from "../state/localStorage.js";
+import { saveBooleanSettingToLocal } from "../state/localStorage.js";
 import { SettingsID } from "../identifiers.js"
 import { createSettingsPanel } from "./view.js";
 
@@ -10,12 +11,12 @@ export class Settings {
         hasSmoothScrolling,
         showButtonLabels}) {
 
-        this.IsDarkTheme = getBooleanSetting(SettingsID.COLOR_THEME, isDarkTheme);
-        this.HasRainbowHover = getBooleanSetting(SettingsID.HOVER_COLOR, hasRainbowHover);
-        this.IsCompactView = getBooleanSetting(SettingsID.COMPACT_CARDS, isCompactView);
-        this.ShowAnimations = getBooleanSetting(SettingsID.ANIMATIONS, showAnimations);
-        this.HasSmoothScrolling = getBooleanSetting(SettingsID.SMOOTH_SCROLLING, hasSmoothScrolling);
-        this.ShowButtonLabels = getBooleanSetting(SettingsID.BUTTON_LABELS, showButtonLabels);    
+        this.IsDarkTheme = getBooleanFromLocal(SettingsID.COLOR_THEME, isDarkTheme);
+        this.HasRainbowHover = getBooleanFromLocal(SettingsID.HOVER_COLOR, hasRainbowHover);
+        this.IsCompactView = getBooleanFromLocal(SettingsID.COMPACT_CARDS, isCompactView);
+        this.ShowAnimations = getBooleanFromLocal(SettingsID.ANIMATIONS, showAnimations);
+        this.HasSmoothScrolling = getBooleanFromLocal(SettingsID.SMOOTH_SCROLLING, hasSmoothScrolling);
+        this.ShowButtonLabels = getBooleanFromLocal(SettingsID.BUTTON_LABELS, showButtonLabels);    
 
 
         createSettingsPanel(this)
@@ -32,11 +33,11 @@ export class Settings {
         })
 
     update = () => {
-        this.IsDarkTheme = saveBooleanSetting(SettingsID.COLOR_THEME),
-        this.HasRainbowHover = saveBooleanSetting(SettingsID.HOVER_COLOR),
-        this.IsCompactView = saveBooleanSetting(SettingsID.COMPACT_CARDS),
-        this.ShowAnimations = saveBooleanSetting(SettingsID.ANIMATIONS),
-        this.HasSmoothScrolling = saveBooleanSetting(SettingsID.SMOOTH_SCROLLING),
-        this.ShowButtonLabels = saveBooleanSetting(SettingsID.BUTTON_LABELS)
+        this.IsDarkTheme = saveBooleanSettingToLocal(SettingsID.COLOR_THEME),
+        this.HasRainbowHover = saveBooleanSettingToLocal(SettingsID.HOVER_COLOR),
+        this.IsCompactView = saveBooleanSettingToLocal(SettingsID.COMPACT_CARDS),
+        this.ShowAnimations = saveBooleanSettingToLocal(SettingsID.ANIMATIONS),
+        this.HasSmoothScrolling = saveBooleanSettingToLocal(SettingsID.SMOOTH_SCROLLING),
+        this.ShowButtonLabels = saveBooleanSettingToLocal(SettingsID.BUTTON_LABELS)
     }
 }
