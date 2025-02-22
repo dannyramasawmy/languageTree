@@ -1,11 +1,8 @@
 import { RainbowColorWheel } from "./colors/rainbowColorWheel.js";
 import {
     createParentCard,
-    createChildCard,
-    createGenerationStat,
-    createNumberOfChildrenStat,
-    createNumberOfViewsStat
-} from "./tree/view.js";
+    createChildCard} from "./tree/view.js";
+import { createGenerationStat, createNumberOfChildrenStat, createNumberOfViewsStat } from "./stats/view.js";
 import { NodeStatsID } from "./identifiers.js";
 import { formatNumber } from "./utils/string.js";
 
@@ -134,3 +131,4 @@ export class View {
             displayDiv.removeChild(displayDiv.children[idx - 1]);
     }
 }
+

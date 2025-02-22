@@ -51,6 +51,8 @@ self.addEventListener('install', (e) =>
       'languageTree/src/settings/functions.js',
       'languageTree/src/settings/settings.js',
       'languageTree/src/settings/view.js',
+      'languageTree/src/stats/svg.js',
+      'languageTree/src/stats/view.js',
       'languageTree/src/tree/enums.js',
       'languageTree/src/tree/functions.js',
       'languageTree/src/tree/index.js',
