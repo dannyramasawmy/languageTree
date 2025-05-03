@@ -1,5 +1,5 @@
 import { View } from "./view.js";
-import { Button, SearchButton } from "./buttons/button.js";
+import { Button } from "./buttons/button.js";
 import { ElementID, SettingsID, ButtonsID, NavbarId, ButtonIcons } from "./identifiers.js";
 import * as search from "./search/index.js"
 import * as tree from "./tree/index.js"
@@ -43,7 +43,7 @@ const SCROLL = new ScrollHandler();
 // define buttons
 const B_SHUFFLE = new Button(SETTINGS, ButtonsID.SHUFFLE, "Shuffle", ButtonIcons.SHUFFLE, "shuffle-button");
 const B_SORT = new Button(SETTINGS, ButtonsID.SORT, "Sort", ButtonIcons.SORT, "sort-button");
-const B_SEARCH = new SearchButton(SETTINGS, ButtonsID.SEARCH, "Search", ButtonIcons.SEARCH, "search-button");
+const B_SEARCH = new Button(SETTINGS, ButtonsID.SEARCH, "Search", ButtonIcons.SEARCH, "search-button").IsSearchButton();
 const B_SWAP = new Button(SETTINGS, ButtonsID.SWAP, "Swap", ButtonIcons.SWAP, "swap-button");
 const B_TRAVEL = new Button(SETTINGS, ButtonsID.TRAVEL, "Travel", ButtonIcons.TRAVEL, "travel-button");
 
