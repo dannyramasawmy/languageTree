@@ -3,44 +3,47 @@ import { NounFemaleView, NounMaleView, NounNeuterView, VerbDataView } from "./ro
 
 
 export class VerbDataCard extends AbstractNode {
-    constructor(englishInfinitive, romanianInfinitive, presentI, presentYou, presentHeShe, presentWe, presentYouPlural, presentThey, past, relfexivePast, reflexiveFuture) {
-        super(englishInfinitive, romanianInfinitive, false)
+    constructor(english, romanian, I, You, HeShe, We, YouPlural, They, past, relfexivePast, reflexiveFuture) {
+        super(english, romanian, false)
 
-        this.englishInfinitive = englishInfinitive
-        this.romanianInfinitive = romanianInfinitive
+        this.english = english
+        this.romanian = romanian
 
-        this.presentI = presentI
-        this.presentYou = presentYou
-        this.presentHeShe = presentHeShe
-        this.presentWe = presentWe
-        this.presentYouPlural = presentYouPlural
-        this.presentThey = presentThey
+        this.I = I
+        this.You = You
+        this.HeShe = HeShe
+        this.We = We
+        this.YouPlural = YouPlural
+        this.They = They
         this.past = past
         this.relfexivePast = relfexivePast
         this.reflexiveFuture = reflexiveFuture
     }
 
     DataView = () => VerbDataView(this)
-    PrimaryView = () => `To ${this.englishInfinitive}`
-    SecondaryView = () => `A ${this.romanianInfinitive}`
+    PrimaryView = () => `To ${this.english}`
+    SecondaryView = () => `A ${this.romanian}`
+    SearchableTerms = () => [
+        this.english, this.romanian, this.I, this.You, this.HeShe, this.We, this.YouPlural, this.They, this.past, this.relfexivePast, this.reflexiveFuture,
+    ]
 }
 
 export class Verb extends VerbDataCard {
-    constructor(englishInfinitive, romanianInfinitive, presentI, presentYou, presentHeShe, presentWe, presentYouPlural, presentThey, past) {
-        super(englishInfinitive, romanianInfinitive, presentI, presentYou, presentHeShe, presentWe, presentYouPlural, presentThey, past, "", "")
+    constructor(english, romanian, I, You, HeShe, We, YouPlural, They, past) {
+        super(english, romanian, I, You, HeShe, We, YouPlural, They, past, "", "")
     }
 }
 
 export class VerbReflexiveSe extends VerbDataCard {
-    constructor(englishInfinitive, romanianInfinitive, presentI, presentYou, presentHeShe, presentWe, presentYouPlural, presentThey, past, relfexivePast, reflexiveFuture) {
-        super(englishInfinitive, romanianInfinitive, "mă " + presentI, "te " + presentYou, "se " + presentHeShe, "ne " + presentWe, "vă " + presentYouPlural, "se " + presentThey, past, relfexivePast, reflexiveFuture)
+    constructor(eng, rom, I, You, HeShe, We, YouPlural, They, past, relfexivePast, reflexiveFuture) {
+        super(eng, rom, `mă ${I}`, `te ${You}`, `se ${HeShe}`, `ne ${We}`, `vă ${YouPlural}`, `se ${They}`, past, relfexivePast, reflexiveFuture)
 
     }
 }
 
 export class VerbReflexiveSi extends VerbDataCard {
-    constructor(englishInfinitive, romanianInfinitive, presentI, presentYou, presentHeShe, presentWe, presentYouPlural, presentThey, past, relfexivePast, reflexiveFuture) {
-        super(englishInfinitive, romanianInfinitive, "îmi " + presentI, "îți " + presentYou, "își " + presentHeShe, "ne " + presentWe, "vă " + presentYouPlural, "își " + presentThey, past, relfexivePast, reflexiveFuture)
+    constructor(eng, rom, I, You, HeShe, We, YouPlural, They, past, relfexivePast, reflexiveFuture) {
+        super(eng, rom, `îmi ${I}`, `îți ${You}`, `își ${HeShe}`, `ne ${We}`, `vă  ${YouPlural}`, `își ${They}`, past, relfexivePast, reflexiveFuture)
     }
 }
 
@@ -57,6 +60,9 @@ export class NounDataCard extends AbstractNode{
 
     PrimaryView = () => `${this.english}`
     SecondaryView = () => `${this.romanian}`
+    SearchableTerms = () => [
+        this.english, this.romanian, this.singluar, this.plural, this.definiteArticle, this.definitePlural,
+    ]
 }
 
 export class NounNeuter extends NounDataCard {

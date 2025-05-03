@@ -160,9 +160,17 @@ export class DataRoot extends AbstractNode {
     * @override
     * @returns {string}  A string that parses to HTML to render as the sub-title view 
     */
-    SecondaryView = () => {
-        return this.Secondary
+   SecondaryView = () => {
+       return this.Secondary
     }
+    
+    
+    /**
+    * A method that presents the searchable terms
+    * @override
+    * @returns {string[]}  A collection of search terms that can map this object
+    */
+    SearchableTerms = () => [this.Primary, this.Secondary]
 }
 
 /**
@@ -206,4 +214,11 @@ export class DataCard extends AbstractNode {
     SecondaryView = () => {
         return this.Secondary
     }
+
+    /**
+    * A method that presents the searchable terms
+    * @override
+    * @returns {string[]}  A collection of search terms that can map this object
+    */
+    SearchableTerms = () => [this.Primary, this.Secondary]
 }

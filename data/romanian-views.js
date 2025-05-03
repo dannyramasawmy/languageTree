@@ -63,12 +63,12 @@ export function VerbDataView(verbDataCard)
         <div class="row gy-4">
             <div class="${columnSettings}">
                 <h4>Present</h4>
-                ${MakeCopyable(`Eu ${verbDataCard.presentI}`)}
-                ${MakeCopyable(`Tu ${verbDataCard.presentYou}`)}
-                ${MakeCopyable(`El/Ea ${verbDataCard.presentHeShe}`)}
-                ${MakeCopyable(`Noi ${verbDataCard.presentWe}`)}
-                ${MakeCopyable(`Voi ${verbDataCard.presentYouPlural}`)}
-                ${MakeCopyable(`Ei/Ele ${verbDataCard.presentThey}`)}
+                ${MakeCopyable(`Eu ${verbDataCard.I}`)}
+                ${MakeCopyable(`Tu ${verbDataCard.You}`)}
+                ${MakeCopyable(`El/Ea ${verbDataCard.HeShe}`)}
+                ${MakeCopyable(`Noi ${verbDataCard.We}`)}
+                ${MakeCopyable(`Voi ${verbDataCard.YouPlural}`)}
+                ${MakeCopyable(`Ei/Ele ${verbDataCard.They}`)}
                 </div>
             <div class="${columnSettings}">
                 <h4>Past</h4>
@@ -81,21 +81,21 @@ export function VerbDataView(verbDataCard)
             </div>
             <div class="${columnSettings}">
                 <h4>Future</h4>
-                ${MakeCopyable(`Eu ${verbDataCard.reflexiveFuture} voi ${verbDataCard.romanianInfinitive}`)}
-                ${MakeCopyable(`Tu ${verbDataCard.reflexiveFuture} vei ${verbDataCard.romanianInfinitive}`)}
-                ${MakeCopyable(`El/Ea ${verbDataCard.reflexiveFuture} va ${verbDataCard.romanianInfinitive}`)}
-                ${MakeCopyable(`Noi ${verbDataCard.reflexiveFuture} vom ${verbDataCard.romanianInfinitive}`)}
-                ${MakeCopyable(`Voi ${verbDataCard.reflexiveFuture} veți ${verbDataCard.romanianInfinitive}`)}
-                ${MakeCopyable(`Ei/Ele ${verbDataCard.reflexiveFuture} vor ${verbDataCard.romanianInfinitive}`)}
+                ${MakeCopyable(`Eu ${verbDataCard.reflexiveFuture} voi ${verbDataCard.romanian}`)}
+                ${MakeCopyable(`Tu ${verbDataCard.reflexiveFuture} vei ${verbDataCard.romanian}`)}
+                ${MakeCopyable(`El/Ea ${verbDataCard.reflexiveFuture} va ${verbDataCard.romanian}`)}
+                ${MakeCopyable(`Noi ${verbDataCard.reflexiveFuture} vom ${verbDataCard.romanian}`)}
+                ${MakeCopyable(`Voi ${verbDataCard.reflexiveFuture} veți ${verbDataCard.romanian}`)}
+                ${MakeCopyable(`Ei/Ele ${verbDataCard.reflexiveFuture} vor ${verbDataCard.romanian}`)}
             </div>
             <div class="${columnSettings}">
                 <h4>Conditional (you would)</h4>
-                ${MakeCopyable(`Eu aș ${verbDataCard.romanianInfinitive}`)}
-                ${MakeCopyable(`Tu ai ${verbDataCard.romanianInfinitive}`)}
-                ${MakeCopyable(`El/Ea ar ${verbDataCard.romanianInfinitive}`)}
-                ${MakeCopyable(`Noi am ${verbDataCard.romanianInfinitive}`)}
-                ${MakeCopyable(`Voi ați ${verbDataCard.romanianInfinitive}`)}
-                ${MakeCopyable(`Ei/Ele ar ${verbDataCard.romanianInfinitive}`)}
+                ${MakeCopyable(`Eu aș ${verbDataCard.romanian}`)}
+                ${MakeCopyable(`Tu ai ${verbDataCard.romanian}`)}
+                ${MakeCopyable(`El/Ea ar ${verbDataCard.romanian}`)}
+                ${MakeCopyable(`Noi am ${verbDataCard.romanian}`)}
+                ${MakeCopyable(`Voi ați ${verbDataCard.romanian}`)}
+                ${MakeCopyable(`Ei/Ele ar ${verbDataCard.romanian}`)}
             </div>
         </div>
         <br> <br>`)
