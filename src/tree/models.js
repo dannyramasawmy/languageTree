@@ -28,6 +28,9 @@ export class AbstractNode {
 
         /** @type {AbstractNode[]} */
         this.Child = [];
+        
+        /** @type {AbstractNode[]} */
+        this.Relations = [] // TODO: Add relations / crosslinks
 
         /** @type {boolean} */
         this.IsRoot = isRoot;
@@ -46,6 +49,15 @@ export class AbstractNode {
    */
     DataView = () => {
         throw new Error("Abstract method 'DataView' must be implemented")
+    }
+
+    /**
+   * A method that produces a collection of searchable terms that are not the primary or secondary key
+   * @abstract
+   * @returns {string[]} - A collection of searchable terms that are not the primary or secondary key
+   */
+    SearchableTerms = () => {
+        throw new Error("Abstract method 'SearchableTerms' must be implemented")
     }
 
     /**
@@ -94,6 +106,9 @@ export class AbstractNode {
     }
 }
 
+/**
+ * A concrete DataCard Root
+ */
 export class DataRoot extends AbstractNode {
     /**
     * @param {string} primary - The primary key or main title.
@@ -116,7 +131,9 @@ export class DataRoot extends AbstractNode {
     }
 }
 
-
+/**
+ * A concrete DataCard
+ */
 export class DataCard extends AbstractNode {
     /**
     * @param {string} primary - The primary key or main title.
