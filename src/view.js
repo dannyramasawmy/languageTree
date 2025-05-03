@@ -3,10 +3,19 @@ import {
     createParentCard,
     createChildCard} from "./tree/view.js";
 import { createGenerationStat, createNumberOfChildrenStat, createNumberOfViewsStat } from "./stats/view.js";
-import { NodeStatsID } from "./identifiers.js";
-
+import { ButtonsID, ElementID, NodeStatsID } from "./identifiers.js";
+import { Settings } from "./settings/settings.js";
+import { GlobalState } from "./state/models.js";
 
 export class View {
+    /**
+     * A class for controlling the view / display
+     * @param {ElementID} mainCardId - The Element ID on the main html-body for the main card (currently selected node)
+     * @param {ElementID} dataCardsId - The Element ID on the main html-body for the data cards
+     * @param {ButtonsID} buttonPanelId - The Element ID's for the buttons panel
+     * @param {Settings} settings - A Global Settings object
+     * @param {GlobalState} global - A GlobalState object
+     */
     constructor(mainCardId, dataCardsId, buttonPanelId, settings, global) {
         // TODO: add error checks
 
@@ -22,9 +31,20 @@ export class View {
             this.SetLightTheme();
     }
 
+    /**
+     * Set the colour scheme to light mode
+     */
     SetLightTheme() { document.getElementById("html").setAttribute("data-bs-theme", "light") }
+
+    /**
+     * Set the colour scheme to dark mode
+     */
     SetDarkTheme() { document.getElementById("html").setAttribute("data-bs-theme", "dark") }
 
+    /**
+     * Clear the visibile cards
+     * @returns {View} - the View Object
+     */
     ClearCards() {
         View.ClearComponents(this.mainCardId);
         View.ClearComponents(this.dataCardsId);
@@ -32,23 +52,43 @@ export class View {
         return this;
     }
 
+    /**
+     * Clear the button at the given index
+     * @param {number} index - index of the button
+     * @returns {View} - the View Object
+     */
     ClearButton(index) {
         var displayDiv = document.getElementById(this.buttonPanelId);
         displayDiv.removeChild(displayDiv.children[index]);
         return this;
     }
 
-    SetButton(index, button) {
+    /**
+     * Set the button at the given index
+     * @param {number} index - index of the button
+     * @param {HTMLElement} buttonHTML - HTML for the button
+     * @returns {View} - the View Object
+     */
+    SetButton(index, buttonHTML) {
         var displayDiv = document.getElementById(this.buttonPanelId);
-        displayDiv.insertBefore(button, displayDiv.children[index]);
+        displayDiv.insertBefore(buttonHTML, displayDiv.children[index]);
         return this;
     }
 
+    /**
+     * Clear all the buttons
+     * @returns {View} - the View Object
+     */
     ClearButtons() {
         View.ClearComponents(this.buttonPanelId);
         return this;
     }
 
+    /**
+     * Update all the cards
+     * @param {number} yScrollHeight - the scroll height to set the display
+     * @returns {View} - the View Object
+     */
     UpdateCards(yScrollHeight) {
 
         // main card
@@ -56,7 +96,7 @@ export class View {
         let displayList = this.GLOBAL.DisplayCards;
 
         document.getElementById(this.mainCardId).appendChild(
-            this.GLOBAL.PrimaryLanguageFirst
+            this.GLOBAL.PrimaryKeyFirst
                 ? createParentCard(currentNode.Primary, currentNode.Secondary, currentNode.DataView())
                 : createParentCard(currentNode.Secondary, currentNode.Primary, currentNode.DataView()));
 
@@ -67,7 +107,7 @@ export class View {
         nodeStats.appendChild(createNumberOfChildrenStat(this.GLOBAL.DisplayCards.length))
         nodeStats.appendChild(createNumberOfViewsStat(this.GLOBAL.CurrentNode.Views))
 
-        let colorIndex = "";
+        let colorIndex = 0;
         let colorWheel = RainbowColorWheel();
 
         // child cards
@@ -77,7 +117,7 @@ export class View {
             if (this.SETTINGS.HasRainbowHover)
                 colorIndex = colorWheel.GetNextColorIndex();
 
-            let dataCard = this.GLOBAL.PrimaryLanguageFirst
+            let dataCard = this.GLOBAL.PrimaryKeyFirst
                 ? createChildCard(
                     this.SETTINGS.IsCompactView,
                     displayList[idx].Primary,
@@ -112,6 +152,11 @@ export class View {
         return this;
     }
 
+    /**
+     * Update the buttons panel
+     * @param {HTMLElement[]} buttons - buttons to populate button panel
+     * @returns {View} - the View Object
+     */
     UpdateButtons(buttons) {
         if (!Array.isArray(buttons)) {
             console.error("Buttons to show are invalid");
@@ -125,6 +170,10 @@ export class View {
         return this;
     }
 
+    /**
+     * Clear all the child components on an HTML element referenced by the given id
+     * @param {string} elementId - element id
+     */
     static ClearComponents(elementId) {
         var displayDiv = document.getElementById(elementId);
         for (var idx = displayDiv.children.length; idx > 0; idx--)

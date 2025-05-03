@@ -42,7 +42,7 @@ export function createParentCard(title, subtitle, data) {
  * @param {string} title - the title of the data card
  * @param {string} subtitle - the subitle of the data card
  * @param {string} id - the id of the card
- * @param {string} colorIndex - a hex colour
+ * @param {number} colorIndex - a hex colour
  * @returns {HTMLDivElement} - The Div element for a child data card
  */
 export function createChildCard(isCompactView, title, subtitle, id, colorIndex) {

@@ -38,8 +38,8 @@ export class AbstractNode {
         /** @type {number} */
         this.Generation = 0
 
-        /** @type {number | "-"} */
-        this.Views = '-'
+        /** @type {number} */
+        this.Views = NaN
     }
 
     /**
@@ -98,10 +98,10 @@ export class AbstractNode {
 
         let key = this.GetHashId()
 
-        if (this.Views == '-')
+        if (Number.isNaN(this.Views))
             this.Views = getIntFromLocal(key, 0)
 
-        this.Views = this.IsRoot ? '-' : this.Views + 1
+        this.Views = this.IsRoot ? NaN : this.Views + 1
         saveIntToLocal(key, this.Views)
     }
 }

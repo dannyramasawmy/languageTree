@@ -301,7 +301,6 @@ document.getElementById(ElementID.SEARCH_BAR_ID).addEventListener("input", keybo
 
 function animateShuffle(counter) {
   var frame = () => {
-    console.log(`Animate shuffle: ${counter}`);
     counter = Math.abs(counter);
     VIEW.ClearButton(0).SetButton(0, B_SHUFFLE.Previous());
 

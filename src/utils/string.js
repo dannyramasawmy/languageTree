@@ -5,6 +5,7 @@
  */
 export function formatNumber(num) {
     if (typeof num === "string") return num
+    if (Number.isNaN(num)) return '-'
     if (num < 1000) return num.toString();
     let units = ["", "K", "M", "B", "T"]; 
     let exponent = Math.floor(Math.log10(num) / 3);
