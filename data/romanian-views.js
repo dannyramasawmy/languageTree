@@ -1,4 +1,4 @@
-import { VerbDataCard } from "./romanian-language-models.js";
+import { NounDataCard, VerbDataCard } from "./romanian-language-models.js";
 
 export const MakeCopyable = (text) => `
     <copy class="copyable" onclick="navigator.clipboard.writeText('${text}')">
@@ -7,7 +7,52 @@ export const MakeCopyable = (text) => `
 
 /**
  * 
- * @param {VerbDataCard} verbDataCard 
+ * @param {NounDataCard} nounDataCard - a noun data object
+ * @returns {string} string that can be parsed as HTML 
+ */
+export function NounMaleView(nounDataCard)
+{
+    return (`
+        Un ${nounDataCard.singluar} <br>
+        doi ${nounDataCard.plural} <br>
+        ${nounDataCard.definiteArticle} <br>
+        ${nounDataCard.definitePlural} <br>
+    `);
+}
+
+/**
+ * 
+ * @param {NounDataCard} nounDataCard - a noun data object
+ * @returns {string} string that can be parsed as HTML 
+ */
+export function NounFemaleView(nounDataCard)
+{
+    return (`
+        o ${nounDataCard.singluar} <br>
+        două ${nounDataCard.plural} <br>
+        ${nounDataCard.definiteArticle} <br>
+        ${nounDataCard.definitePlural} <br>
+    `);
+}
+
+/**
+ * 
+ * @param {NounDataCard} nounDataCard - a noun data object
+ * @returns {string} string that can be parsed as HTML 
+ */
+export function NounNeuterView(nounDataCard)
+{
+    return (`
+        un ${nounDataCard.singluar} <br>
+        două ${nounDataCard.plural} <br>
+        ${nounDataCard.definiteArticle} <br>
+        ${nounDataCard.definitePlural} <br>
+    `);
+}
+
+/**
+ * 
+ * @param {VerbDataCard} verbDataCard - a verb data object
  * @returns {string} string that can be parsed as HTML 
  */
 export function VerbDataView(verbDataCard)

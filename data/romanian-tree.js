@@ -4,12 +4,7 @@
 
 import { setParentAndChild } from "../src/tree/functions.js";
 import { DataCard, DataRoot } from "../src/tree/models.js";
-
-import { NounTemplateNeuter,
-    NounTemplateMale,
-    NounTemplateFemale
-} from "./romanian-language-models-legacy.js";
-import { ReflexiveSeVerbDataCard, ReflexiveSiVerbDataCard, VerbDataCard } from "./romanian-language-models.js";
+import { VerbReflexiveSe, VerbReflexiveSi, Verb, NounNeuter, NounMale, NounFemale } from "./romanian-language-models.js";
 
 /*
 a ă â b c d e f g h i î j k l m n o p q r s ș t ț u v w x y z
@@ -45,235 +40,235 @@ export function BuildLanguageTree() // returns romanian
     let verbs = new DataCard("Verbs", "Verbe", "Common verbs are listed here.")
     setParentAndChild(romanian, verbs);
 
-    let have = new VerbDataCard("Have", "Avea", "am", "ai", "are", "avem", "aveți", "au", "a")
+    let have = new Verb("Have", "Avea", "am", "ai", "are", "avem", "aveți", "au", "a")
     setParentAndChild(verbs, have);
 
-    let be = new VerbDataCard("Be", "Fi", "sunt", "ești", "este", "suntem", "sunteți", "sunt", "fost");
+    let be = new Verb("Be", "Fi", "sunt", "ești", "este", "suntem", "sunteți", "sunt", "fost");
     setParentAndChild(verbs, be);
 
-    let eat = new VerbDataCard("Eat", "Mânca", "mănânc", "mănânci", "mănâncă", "mâncăm", "mâncați", "mănâncă", "mâncat");
+    let eat = new Verb("Eat", "Mânca", "mănânc", "mănânci", "mănâncă", "mâncăm", "mâncați", "mănâncă", "mâncat");
     setParentAndChild(verbs, eat);
 
-    let drink = new VerbDataCard("Drink", "Bea", "beau", "bei", "bea", "bem", "beți", "beau", "băut");
+    let drink = new Verb("Drink", "Bea", "beau", "bei", "bea", "bem", "beți", "beau", "băut");
     setParentAndChild(verbs, drink);
 
-    let smell = new VerbDataCard("Smell", "Mirosi","miros", "miroși", "miroase", "mirosim", "mirosiți", "miros", "mirosit");
+    let smell = new Verb("Smell", "Mirosi","miros", "miroși", "miroase", "mirosim", "mirosiți", "miros", "mirosit");
     setParentAndChild(verbs, smell);
 
-    let say = new VerbDataCard("Say", "Spune","spun", "spui", "spune", "spunem", "spuneți", "spun", "spus");
+    let say = new Verb("Say", "Spune","spun", "spui", "spune", "spunem", "spuneți", "spun", "spus");
     setParentAndChild(verbs, say);
 
-    let say2 = new VerbDataCard("Say (alt)", "Zice","zic", "zici", "zice", "zicem", "ziceți", "zic", "zis");
+    let say2 = new Verb("Say (alt)", "Zice","zic", "zici", "zice", "zicem", "ziceți", "zic", "zis");
     setParentAndChild(verbs, say2);
 
-    let speak = new VerbDataCard("Speak", "Vorbi","vorbesc", "vorbești", "vorbește", "vorbim", "vorbiți", "vorbesc", "vorbit");
+    let speak = new Verb("Speak", "Vorbi","vorbesc", "vorbești", "vorbește", "vorbim", "vorbiți", "vorbesc", "vorbit");
     setParentAndChild(verbs, speak);
 
-    let ring = new VerbDataCard("Ring", "Suna","sun", "suni", "sună", "sunăm", "sunați", "sună", "sunat");
+    let ring = new Verb("Ring", "Suna","sun", "suni", "sună", "sunăm", "sunați", "sună", "sunat");
     setParentAndChild(verbs, ring);
 
-    let walk = new VerbDataCard("Walk (go)", "Merge","merg", "mergi", "merge", "mergem", "mergeți", "merg", "mers");
+    let walk = new Verb("Walk (go)", "Merge","merg", "mergi", "merge", "mergem", "mergeți", "merg", "mers");
     setParentAndChild(verbs, walk);
 
-    let run = new VerbDataCard("Run", "Alerga","alerg", "alergi", "aleargă", "alergăm", "alergați", "aleargă", "alergat");
+    let run = new Verb("Run", "Alerga","alerg", "alergi", "aleargă", "alergăm", "alergați", "aleargă", "alergat");
     setParentAndChild(verbs, run);
 
-    let choose = new VerbDataCard("Choose", "Alege","aleg", "alegi", "alege", "alegem", "alegeți", "aleg", "ales");
+    let choose = new Verb("Choose", "Alege","aleg", "alegi", "alege", "alegem", "alegeți", "aleg", "ales");
     setParentAndChild(verbs, choose);
 
-    let runAway = new VerbDataCard("Run (flee)", "Fugi","fug", "fugi", "fuge", "fugim", "fugiți", "fug", "fugit");
+    let runAway = new Verb("Run (flee)", "Fugi","fug", "fugi", "fuge", "fugim", "fugiți", "fug", "fugit");
     setParentAndChild(verbs, runAway);
 
-    let jump = new VerbDataCard("Jump", "Sări","sar", "sări", "sare", "sărim", "săriți", "sar", "sărit");
+    let jump = new Verb("Jump", "Sări","sar", "sări", "sare", "sărim", "săriți", "sar", "sărit");
     setParentAndChild(verbs, jump);
 
-    let call = new VerbDataCard("Call (shout)", "Striga","strig", "strigi", "strigă", "strigăm", "strigați", "strigă", "strigat");
+    let call = new Verb("Call (shout)", "Striga","strig", "strigi", "strigă", "strigăm", "strigați", "strigă", "strigat");
     setParentAndChild(verbs, call);
 
-    let give = new VerbDataCard("Give", "Da","dau", "dai", "dă", "dăm", "dați", "dau", "dat");
+    let give = new Verb("Give", "Da","dau", "dai", "dă", "dăm", "dați", "dau", "dat");
     setParentAndChild(verbs, give);
 
-    let take = new VerbDataCard("Take", "Lua","iau", "iei", "ia", "luăm", "luați", "iau", "luat");
+    let take = new Verb("Take", "Lua","iau", "iei", "ia", "luăm", "luați", "iau", "luat");
     setParentAndChild(verbs, take);
 
-    let _open = new VerbDataCard("Open", "Deschide","deschid", "deschizi", "deschide", "deschidem", "deschideți", "deschid", "deschis");
+    let _open = new Verb("Open", "Deschide","deschid", "deschizi", "deschide", "deschidem", "deschideți", "deschid", "deschis");
     setParentAndChild(verbs, _open);
 
-    let _close = new VerbDataCard("Close", "Închide","închid", "închizi", "închide", "închidem", "închideți", "închid", "închis");
+    let _close = new Verb("Close", "Închide","închid", "închizi", "închide", "închidem", "închideți", "închid", "închis");
     setParentAndChild(verbs, _close);
 
-    let play = new ReflexiveSeVerbDataCard("Play", "Juca", "joc", "joci", "joacă", "jucăm", "jucați", "joacă", "jucat", "juca");
+    let play = new VerbReflexiveSe("Play", "Juca", "joc", "joci", "joacă", "jucăm", "jucați", "joacă", "jucat", "juca");
     setParentAndChild(verbs, play);
 
-    let sing = new VerbDataCard("Sing", "Cânta","cânt", "cânți", "cântă", "cântăm", "cântați", "cântă", "cântat");
+    let sing = new Verb("Sing", "Cânta","cânt", "cânți", "cântă", "cântăm", "cântați", "cântă", "cântat");
     setParentAndChild(verbs, sing);
 
-    let seat = new ReflexiveSeVerbDataCard("Stay (sit)", "Așeza", "așez", "așezi", "așază", "așezăm", "așezați", "așază", "așezat", "așeza");
+    let seat = new VerbReflexiveSe("Stay (sit)", "Așeza", "așez", "așezi", "așază", "așezăm", "așezați", "așază", "așezat", "așeza");
     setParentAndChild(verbs, seat);
 
-    let stand = new ReflexiveSeVerbDataCard("Stand", "Ridica", "ridic", "ridici", "ridică", "ridicăm", "ridicați", "ridică", "ridicat", "ridica");
+    let stand = new VerbReflexiveSe("Stand", "Ridica", "ridic", "ridici", "ridică", "ridicăm", "ridicați", "ridică", "ridicat", "ridica");
     setParentAndChild(verbs, stand);
 
-    let stay = new VerbDataCard("Stay", "Sta","stau", "stai", "stă", "stăm", "stați", "stau", "stat");
+    let stay = new Verb("Stay", "Sta","stau", "stai", "stă", "stăm", "stați", "stau", "stat");
     setParentAndChild(verbs, stay);
 
-    let leave = new VerbDataCard("Leave", "Pleca","plec", "pleci", "pleacă", "plecăm", "plecați", "pleacă", "plecat");
+    let leave = new Verb("Leave", "Pleca","plec", "pleci", "pleacă", "plecăm", "plecați", "pleacă", "plecat");
     setParentAndChild(verbs, leave);
 
-    let visit = new VerbDataCard("Visit", "Vizita","vizitez", "vizitezi", "vizitează", "vizităm", "vizitați", "vizitează", "vizitat");
+    let visit = new Verb("Visit", "Vizita","vizitez", "vizitezi", "vizitează", "vizităm", "vizitați", "vizitează", "vizitat");
     setParentAndChild(verbs, visit);
 
-    let come = new VerbDataCard("Come", "Veni","vin", "vii", "vine", "venim", "veniți", "vin", "venit");
+    let come = new Verb("Come", "Veni","vin", "vii", "vine", "venim", "veniți", "vin", "venit");
     setParentAndChild(verbs, come);
 
-    let sleep = new VerbDataCard("Sleep", "Dormi","dorm", "dormi", "doarme", "dormim", "dormiți", "dorm", "dormit");
+    let sleep = new Verb("Sleep", "Dormi","dorm", "dormi", "doarme", "dormim", "dormiți", "dorm", "dormit");
     setParentAndChild(verbs, sleep);
 
-    let sleepWith = new ReflexiveSeVerbDataCard("Sleep (with)", "Culci", "culc", "culci", "culca", "culcam", "culcați", "culca", "culcat", "culci");
+    let sleepWith = new VerbReflexiveSe("Sleep (with)", "Culci", "culc", "culci", "culca", "culcam", "culcați", "culca", "culcat", "culci");
     setParentAndChild(verbs, sleepWith);
 
-    let fallAsleep = new VerbDataCard("Fall Asleep", "Adormi","adorm", "adormi", "adoarme", "adormim", "adormiți", "adorm", "adormit");
+    let fallAsleep = new Verb("Fall Asleep", "Adormi","adorm", "adormi", "adoarme", "adormim", "adormiți", "adorm", "adormit");
     setParentAndChild(verbs, fallAsleep);
 
-    let getUp = new ReflexiveSeVerbDataCard("Get up", "Trezi", "trezesc", "trezești", "trezește", "trezim", "treziți", "trezesc", "trezit", "trezi");
+    let getUp = new VerbReflexiveSe("Get up", "Trezi", "trezesc", "trezești", "trezește", "trezim", "treziți", "trezesc", "trezit", "trezi");
     setParentAndChild(verbs, getUp);
 
-    let guessBelieve = new VerbDataCard("Guess (believe)", "Crede","cred", "crezi", "crede", "credem", "credeți", "cred", "crezut");
+    let guessBelieve = new Verb("Guess (believe)", "Crede","cred", "crezi", "crede", "credem", "credeți", "cred", "crezut");
     setParentAndChild(verbs, guessBelieve);
 
-    let bring = new VerbDataCard("Bring", "Aduce","aduc", "aduci", "aduce", "aducem", "aduceți", "aduc", "adus");
+    let bring = new Verb("Bring", "Aduce","aduc", "aduci", "aduce", "aducem", "aduceți", "aduc", "adus");
     setParentAndChild(verbs, bring);
 
-    let think = new ReflexiveSeVerbDataCard("Think", "Gândi", "gândesc", "gândești", "gândește", "gândim", "gândiți", "gândesc", "gândit", "gândi");
+    let think = new VerbReflexiveSe("Think", "Gândi", "gândesc", "gândești", "gândește", "gândim", "gândiți", "gândesc", "gândit", "gândi");
     setParentAndChild(verbs, think);
 
-    let love = new VerbDataCard("Love", "Iubi","iubesc", "iubești", "iubește", "iubim", "iubiți", "iubesc", "iubit");
+    let love = new Verb("Love", "Iubi","iubesc", "iubești", "iubește", "iubim", "iubiți", "iubesc", "iubit");
     setParentAndChild(verbs, love);
 
-    let laugh = new VerbDataCard("Laugh", "Râde","râd", "râzi", "râde", "râdem", "râdeți", "râd", "râs");
+    let laugh = new Verb("Laugh", "Râde","râd", "râzi", "râde", "râdem", "râdeți", "râd", "râs");
     setParentAndChild(verbs, laugh);
 
-    let search = new VerbDataCard("Search", "Căuta","caut", "cauți", "caută", "căutăm", "căutați", "caută", "căutat");
+    let search = new Verb("Search", "Căuta","caut", "cauți", "caută", "căutăm", "căutați", "caută", "căutat");
     setParentAndChild(verbs, search);
 
-    let find = new VerbDataCard("Find", "Găsi","găsesc", "găsești", "găsește", "găsim", "găsiți", "găsesc", "găsit");
+    let find = new Verb("Find", "Găsi","găsesc", "găsești", "găsește", "găsim", "găsiți", "găsesc", "găsit");
     setParentAndChild(verbs, find);
 
-    let cook = new VerbDataCard("Cook (prepare)", "Găti","gătesc", "gătești", "gătește", "gătim", "gătiți", "gătesc", "gătit");
+    let cook = new Verb("Cook (prepare)", "Găti","gătesc", "gătești", "gătește", "gătim", "gătiți", "gătesc", "gătit");
     setParentAndChild(verbs, cook);
 
-    let joke = new VerbDataCard("Joke", "Glumi","glumesc", "glumești", "glumește", "glumim", "glumiți", "glumesc", "glumit");
+    let joke = new Verb("Joke", "Glumi","glumesc", "glumești", "glumește", "glumim", "glumiți", "glumesc", "glumit");
     setParentAndChild(verbs, joke);
 
-    let read = new VerbDataCard("Read", "Citi","citesc", "citești", "citește", "citim", "citiți", "citesc", "citit");
+    let read = new Verb("Read", "Citi","citesc", "citești", "citește", "citim", "citiți", "citesc", "citit");
     setParentAndChild(verbs, read);
 
-    let write = new VerbDataCard("Write", "Scrie","scriu", "scrii", "scrie", "scriem", "scrieți", "scriu", "scris");
+    let write = new Verb("Write", "Scrie","scriu", "scrii", "scrie", "scriem", "scrieți", "scriu", "scris");
     setParentAndChild(verbs, write);
 
-    let buy = new VerbDataCard("Buy", "Cumpăra","cumpăr", "cumpări", "cumpără", "cumpărăm", "cumpărați", "cumpără", "cumpărat");
+    let buy = new Verb("Buy", "Cumpăra","cumpăr", "cumpări", "cumpără", "cumpărăm", "cumpărați", "cumpără", "cumpărat");
     setParentAndChild(verbs, buy);
 
-    let _do = new VerbDataCard("Do", "Face","fac", "faci", "face", "facem", "faceți", "fac", "făcut");
+    let _do = new Verb("Do", "Face","fac", "faci", "face", "facem", "faceți", "fac", "făcut");
     setParentAndChild(verbs, _do);
 
-    let listen = new VerbDataCard("Listen", "Asculta","ascult", "asculți", "ascultă", "ascultăm", "ascultați", "ascultă", "ascultat");
+    let listen = new Verb("Listen", "Asculta","ascult", "asculți", "ascultă", "ascultăm", "ascultați", "ascultă", "ascultat");
     setParentAndChild(verbs, listen);
 
-    let hear = new VerbDataCard("Hear", "Auzi","aud", "auzi", "aude", "auzim", "auziți", "aud", "auzit");
+    let hear = new Verb("Hear", "Auzi","aud", "auzi", "aude", "auzim", "auziți", "aud", "auzit");
     setParentAndChild(verbs, hear);
 
-    let kiss = new VerbDataCard("Kiss", "Săruta","sărut", "săruți", "sărută", "sărutăm", "sărutați", "sărută", "sărutat");
+    let kiss = new Verb("Kiss", "Săruta","sărut", "săruți", "sărută", "sărutăm", "sărutați", "sărută", "sărutat");
     setParentAndChild(verbs, kiss);
 
-    let ask = new VerbDataCard("Ask", "Întreba","întreb", "întrebi", "întreabă", "întrebăm", "întrebați", "întreabă", "întrebat");
+    let ask = new Verb("Ask", "Întreba","întreb", "întrebi", "întreabă", "întrebăm", "întrebați", "întreabă", "întrebat");
     setParentAndChild(verbs, ask);
 
-    let learn = new VerbDataCard("Learn", "Învăța","învăț", "înveți", "învață", "învățăm", "învățați", "învață", "învățat");
+    let learn = new Verb("Learn", "Învăța","învăț", "înveți", "învață", "învățăm", "învățați", "învață", "învățat");
     setParentAndChild(verbs, learn);
 
-    let _try = new VerbDataCard("Try", "Incerca","încerc", "încerci", "încearcă", "încercăm", "încercați", "încearcă", "încercat");
+    let _try = new Verb("Try", "Incerca","încerc", "încerci", "încearcă", "încercăm", "încercați", "încearcă", "încercat");
     setParentAndChild(verbs, _try);
 
-    let see = new VerbDataCard("See", "Vedea","văd", "vezi", "vede", "vedem", "vedeți", "văd", "văzut");
+    let see = new Verb("See", "Vedea","văd", "vezi", "vede", "vedem", "vedeți", "văd", "văzut");
     setParentAndChild(verbs, see);
 
-    let toSmile = new VerbDataCard("Smile", "Zămbi","zămbesc", "zămbesti", "zămbeste", "zămbim", "zămbiți", "zămbesc", "zămbit");
+    let toSmile = new Verb("Smile", "Zămbi","zămbesc", "zămbesti", "zămbeste", "zămbim", "zămbiți", "zămbesc", "zămbit");
     setParentAndChild(verbs, toSmile);
 
-    let forget = new VerbDataCard("Forget", "Uita","uit", "uiți", "uită", "uităm", "uitați", "uită", "uitat");
+    let forget = new Verb("Forget", "Uita","uit", "uiți", "uită", "uităm", "uitați", "uită", "uitat");
     setParentAndChild(verbs, forget);
 
-    let want = new VerbDataCard("Want", "Vrea","vreau", "vrei", "vrea", "vrem", "vreți", "vor", "vrut");
+    let want = new Verb("Want", "Vrea","vreau", "vrei", "vrea", "vrem", "vreți", "vor", "vrut");
     setParentAndChild(verbs, want);
 
-    let put = new VerbDataCard("Put", "Pune","pun", "pui", "pune", "punem", "puneți", "pun", "pus");
+    let put = new Verb("Put", "Pune","pun", "pui", "pune", "punem", "puneți", "pun", "pus");
     setParentAndChild(verbs, put);
 
-    let can = new VerbDataCard("Can", "Putea","pot", "poți", "poate", "putem", "puteți", "pot", "putut");
+    let can = new Verb("Can", "Putea","pot", "poți", "poate", "putem", "puteți", "pot", "putut");
     setParentAndChild(verbs, can);
 
-    let understand = new VerbDataCard("Understand", "Înțelege","înțeleg", "înțelegi", "înțelege", "înțelegem", "înțelegeți", "înțeleg", "înțeles");
+    let understand = new Verb("Understand", "Înțelege","înțeleg", "înțelegi", "înțelege", "înțelegem", "înțelegeți", "înțeleg", "înțeles");
     setParentAndChild(verbs, understand);
 
-    let know = new VerbDataCard("Know", "Ști","știu", "știi", "știe", "știm", "știți", "știu", "știut");
+    let know = new Verb("Know", "Ști","știu", "știi", "știe", "știm", "știți", "știu", "știut");
     setParentAndChild(verbs, know);
 
-    let know2 = new VerbDataCard("Know (alt)", "Cunoaște","cunosc", "cunoști", "cunoaște", "cunoaștem", "cunoașteți", "cunosc", "cunoscut");
+    let know2 = new Verb("Know (alt)", "Cunoaște","cunosc", "cunoști", "cunoaște", "cunoaștem", "cunoașteți", "cunosc", "cunoscut");
     setParentAndChild(verbs, know2);
 
-    let drive = new VerbDataCard("Drive", "Conduce","conduc", "conduci", "conduce", "conducem", "conduceți", "conduc", "condus");
+    let drive = new Verb("Drive", "Conduce","conduc", "conduci", "conduce", "conducem", "conduceți", "conduc", "condus");
     setParentAndChild(verbs, drive);
 
-    let fly = new VerbDataCard("Fly", "Zbura","zbor", "zbori", "zboară", "zburăm", "zburați", "zboară", "zburat");
+    let fly = new Verb("Fly", "Zbura","zbor", "zbori", "zboară", "zburăm", "zburați", "zboară", "zburat");
     setParentAndChild(verbs, fly);
 
-    let arrive = new VerbDataCard("Arrive", "Ajunge","ajung", "ajungi", "ajunge", "ajungem", "ajungeți", "ajung", "ajuns");
+    let arrive = new Verb("Arrive", "Ajunge","ajung", "ajungi", "ajunge", "ajungem", "ajungeți", "ajung", "ajuns");
     setParentAndChild(verbs, arrive);
 
-    let carry = new VerbDataCard("Carry", "Duce","duc", "duci", "duce", "ducem", "duceți", "duc", "dus");
+    let carry = new Verb("Carry", "Duce","duc", "duci", "duce", "ducem", "duceți", "duc", "dus");
     setParentAndChild(verbs, carry);
 
-    let party = new VerbDataCard("Party", "Petrece","petrec", "petreci", "petrece", "petrecem", "petreceți", "petrec", "petrecut");
+    let party = new Verb("Party", "Petrece","petrec", "petreci", "petrece", "petrecem", "petreceți", "petrec", "petrecut");
     setParentAndChild(verbs, party);
 
-    let live = new VerbDataCard("Live", "Trăi","trăiesc", "trăiești", "trăiește", "trăim", "trăiți", "trăiesc", "trăit");
+    let live = new Verb("Live", "Trăi","trăiesc", "trăiești", "trăiește", "trăim", "trăiți", "trăiesc", "trăit");
     setParentAndChild(verbs, live);
 
-    let reside = new VerbDataCard("Reside (live)", "Locui","locuiesc", "locuiești", "locuiește", "locuim", "locuiți", "locuiesc", "locuit");
+    let reside = new Verb("Reside (live)", "Locui","locuiesc", "locuiești", "locuiește", "locuim", "locuiți", "locuiesc", "locuit");
     setParentAndChild(verbs, reside);
 
-    let work = new VerbDataCard("Work", "Munci","muncesc", "muncești", "muncește", "muncim", "munciți", "muncesc", "muncit");
+    let work = new Verb("Work", "Munci","muncesc", "muncești", "muncește", "muncim", "munciți", "muncesc", "muncit");
     setParentAndChild(verbs, work);
 
-    let work2 = new VerbDataCard("Work (alt)", "Lucra","lucrez", "lucrezi", "lucrează", "lucrăm", "lucrați", "lucrează", "lucrat");
+    let work2 = new Verb("Work (alt)", "Lucra","lucrez", "lucrezi", "lucrează", "lucrăm", "lucrați", "lucrează", "lucrat");
     setParentAndChild(verbs, work2);
 
-    let divorce = new VerbDataCard("Divorce", "Divorța","divorțez", "divorțezi", "divorțează", "divorțăm", "divorțați", "divorțează", "divorțat");
+    let divorce = new Verb("Divorce", "Divorța","divorțez", "divorțezi", "divorțează", "divorțăm", "divorțați", "divorțează", "divorțat");
     setParentAndChild(verbs, divorce);
 
-    let marry = new ReflexiveSeVerbDataCard("Marry", "Căsători", "căsătoresc", "căsătorești", "căsătorește", "căsătorim", "căsătoriți", "căsătoresc", "căsătorit", "căsători");
+    let marry = new VerbReflexiveSe("Marry", "Căsători", "căsătoresc", "căsătorești", "căsătorește", "căsătorim", "căsătoriți", "căsătoresc", "căsătorit", "căsători");
     setParentAndChild(verbs, marry);
 
-    let lie = new VerbDataCard("Lie", "Minți","mint", "minți", "minte", "mințim", "mințiți", "mint", "mințit");
+    let lie = new Verb("Lie", "Minți","mint", "minți", "minte", "mințim", "mințiți", "mint", "mințit");
     setParentAndChild(verbs, lie);
 
-    let hit = new VerbDataCard("Hit (kick)", "Lovi","lovesc", "lovești", "lovește", "lovim", "loviți", "lovesc", "lovit");
+    let hit = new Verb("Hit (kick)", "Lovi","lovesc", "lovești", "lovește", "lovim", "loviți", "lovesc", "lovit");
     setParentAndChild(verbs, hit);
 
-    let desire = new ReflexiveSiVerbDataCard("Desire (wish)", "Dori", "doresc", "dorești", "dorește", "dorim", "doriți", "doresc", "dorit", "dori");
+    let desire = new VerbReflexiveSi("Desire (wish)", "Dori", "doresc", "dorești", "dorește", "dorim", "doriți", "doresc", "dorit", "dori");
     setParentAndChild(verbs, desire);
 
-    let hide = new VerbDataCard("Hide", "Ascunde","ascund", "ascunzi", "ascunde", "ascundem", "ascundeți", "ascund", "ascuns");
+    let hide = new Verb("Hide", "Ascunde","ascund", "ascunzi", "ascunde", "ascundem", "ascundeți", "ascund", "ascuns");
     setParentAndChild(verbs, hide);
 
-    let receive = new VerbDataCard("Receive", "Primi","primesc", "primești", "primește", "primim", "primiți", "primesc", "primit");
+    let receive = new Verb("Receive", "Primi","primesc", "primești", "primește", "primim", "primiți", "primesc", "primit");
     setParentAndChild(verbs, receive);
 
-    let wash = new ReflexiveSeVerbDataCard("Wash", "Spăla", "spăl", "speli", "spală", "spălăm", "spălați", "spală", "spălat", "spăla");
+    let wash = new VerbReflexiveSe("Wash", "Spăla", "spăl", "speli", "spală", "spălăm", "spălați", "spală", "spălat", "spăla");
     setParentAndChild(verbs, wash);
 
-    let lose = new VerbDataCard("Lose", "Pierde","pierd", "pierzi", "pierde", "pierdem", "pierd", "pierd", "pierdut");
+    let lose = new Verb("Lose", "Pierde","pierd", "pierzi", "pierde", "pierdem", "pierd", "pierd", "pierdut");
     setParentAndChild(verbs, lose);
 
     let couldModal = new DataCard("Could (modal)", "Putea (modal)",
@@ -306,446 +301,446 @@ export function BuildLanguageTree() // returns romanian
     Ei/Ele trebuie să [...]<br>`)
     setParentAndChild(verbs, must);
 
-    let send = new VerbDataCard("Send", "Trimite","trimit", "trimiți", "trimite", "trimitem", "trimiteți", "trimit", "trimis");
+    let send = new Verb("Send", "Trimite","trimit", "trimiți", "trimite", "trimitem", "trimiteți", "trimit", "trimis");
     setParentAndChild(verbs, send);
 
-    let cut = new VerbDataCard("Cut", "Tăia","tai", "tai", "taie", "tăiem", "tăiați", "taie", "tăiat");
+    let cut = new Verb("Cut", "Tăia","tai", "tai", "taie", "tăiem", "tăiați", "taie", "tăiat");
     setParentAndChild(verbs, cut);
 
-    let wait = new VerbDataCard("Wait", "Aștepta","aștept", "aștepți", "așteaptă", "așteptăm", "așteptați", "așteaptă", "așteptat");
+    let wait = new Verb("Wait", "Aștepta","aștept", "aștepți", "așteaptă", "așteptăm", "așteptați", "așteaptă", "așteptat");
     setParentAndChild(verbs, wait);
 
-    let dance = new VerbDataCard("Dance", "Dansa","dansez", "dansezi", "dansează", "dansăm", "dansați", "dansează", "dansat");
+    let dance = new Verb("Dance", "Dansa","dansez", "dansezi", "dansează", "dansăm", "dansați", "dansează", "dansat");
     setParentAndChild(verbs, dance);
 
-    let _catch = new VerbDataCard("Catch", "Prinde","prind", "prinzi", "prinde", "prindem", "prindeți", "prind", "prins");
+    let _catch = new Verb("Catch", "Prinde","prind", "prinzi", "prinde", "prindem", "prindeți", "prind", "prins");
     setParentAndChild(verbs, _catch);
 
-    let fight = new VerbDataCard("Fight", "Lupta","lupt", "lupți", "luptă", "luptăm", "luptați", "luptă", "luptat");
+    let fight = new Verb("Fight", "Lupta","lupt", "lupți", "luptă", "luptăm", "luptați", "luptă", "luptat");
     setParentAndChild(verbs, fight);
 
-    let fall = new VerbDataCard("Fall", "Cădea","cad", "cazi", "cade", "cădem", "cădeți", "cad", "căzut");
+    let fall = new Verb("Fall", "Cădea","cad", "cazi", "cade", "cădem", "cădeți", "cad", "căzut");
     setParentAndChild(verbs, fall);
 
-    let pull = new VerbDataCard("Pull", "Trage","trag", "tragi", "trage", "tragem", "trageți", "trag", "tras");
+    let pull = new Verb("Pull", "Trage","trag", "tragi", "trage", "tragem", "trageți", "trag", "tras");
     setParentAndChild(verbs, pull);
 
-    let push = new VerbDataCard("Push", "Împinge","împing", "împingi", "împinge", "împingem", "împingeți", "împing", "împins");
+    let push = new Verb("Push", "Împinge","împing", "împingi", "împinge", "împingem", "împingeți", "împing", "împins");
     setParentAndChild(verbs, push);
 
-    let climb = new VerbDataCard("Climb", "Urca","urc", "urci", "urcă", "urcăm", "urcați", "urcă", "urcat");
+    let climb = new Verb("Climb", "Urca","urc", "urci", "urcă", "urcăm", "urcați", "urcă", "urcat");
     setParentAndChild(verbs, climb);
 
-    let forgive = new VerbDataCard("Forgive", "Ierta","iert", "ierți", "iertă", "iertăm", "iertați", "iertă", "iertat");
+    let forgive = new Verb("Forgive", "Ierta","iert", "ierți", "iertă", "iertăm", "iertați", "iertă", "iertat");
     setParentAndChild(verbs, forgive);
     
-    let toParty = new VerbDataCard("Party", "Petrece","petrec", "petreci", "petrece", "petrecem", "petreceți", "petrec", "petrecut");
+    let toParty = new Verb("Party", "Petrece","petrec", "petreci", "petrece", "petrecem", "petreceți", "petrec", "petrecut");
     setParentAndChild(verbs, toParty);
 
-    let win = new VerbDataCard("Win", "Câștiga","câștig", "câștigi", "câștigă", "câștigăm", "câștigați", "câștigă", "câștigat");
+    let win = new Verb("Win", "Câștiga","câștig", "câștigi", "câștigă", "câștigăm", "câștigați", "câștigă", "câștigat");
     setParentAndChild(verbs, win);
 
     // TODO: FINDME
     // let remember = new ReflexiveSiVerbDataCard("Remember", "A-și aduce aminte", "aduc aminte", "aduci aminte", "aduce aminte", "aducem aminte", "aduceți aminte", "aduc aminte", "adus aminte");
     // setParentAndChild(verbs, remember);
     
-    let change = new VerbDataCard("Change", "Schimba","schimb", "schimbi", "schimbă", "schimbăm", "schimbați", "schimbă", "schimbat");
+    let change = new Verb("Change", "Schimba","schimb", "schimbi", "schimbă", "schimbăm", "schimbați", "schimbă", "schimbat");
     setParentAndChild(verbs, change);
         
-    let become = new VerbDataCard("Become", "Deveni","devin", "devii", "devine", "devenim", "deveniți", "devin", "devenit");
+    let become = new Verb("Become", "Deveni","devin", "devii", "devine", "devenim", "deveniți", "devin", "devenit");
     setParentAndChild(verbs, become);
     
-    let improve = new VerbDataCard("Improve", "Îmbunătăți","îmbunătățesc", "îmbunătățești", "îmbunătățește", "îmbunătățim", "îmbunătățiți", "îmbunătățesc", "îmbunătățit");
+    let improve = new Verb("Improve", "Îmbunătăți","îmbunătățesc", "îmbunătățești", "îmbunătățește", "îmbunătățim", "îmbunătățiți", "îmbunătățesc", "îmbunătățit");
     setParentAndChild(verbs, improve);
     
-    let pass = new VerbDataCard("Pass", "Trece","trec", "treci", "trece", "trecem", "treceți", "trec", "trecut");
+    let pass = new Verb("Pass", "Trece","trec", "treci", "trece", "trecem", "treceți", "trec", "trecut");
     setParentAndChild(verbs, pass);
     
-    let fail = new VerbDataCard("Fail", "Eșua","eșuez", "eșuezi", "eșuează", "eșuăm", "eșuați", "eșuează", "eșuat");
+    let fail = new Verb("Fail", "Eșua","eșuez", "eșuezi", "eșuează", "eșuăm", "eșuați", "eșuează", "eșuat");
     setParentAndChild(verbs, fail);
     
-    let celebrate = new VerbDataCard("Celebrate", "Sărbători","sărbătoresc", "sărbătorești", "sărbătorește", "sărbătorim", "sărbătoriți", "sărbătoresc", "sărbătorit");
+    let celebrate = new Verb("Celebrate", "Sărbători","sărbătoresc", "sărbătorești", "sărbătorește", "sărbătorim", "sărbătoriți", "sărbătoresc", "sărbătorit");
     setParentAndChild(verbs, celebrate);
     
-    let shower = new VerbDataCard("Shower", "Face duș","fac duș", "faci duș", "face duș", "facem duș", "faceți duș", "fac duș", "făcut duș");
+    let shower = new Verb("Shower", "Face duș","fac duș", "faci duș", "face duș", "facem duș", "faceți duș", "fac duș", "făcut duș");
     setParentAndChild(verbs, shower);
     
-    let recover = new ReflexiveSeVerbDataCard("Recuperate", "Se recupera", "recuperez", "recuperezi", "recuperează", "recuperăm", "recuperați", "recuperează", "recuperat", "recupera");
+    let recover = new VerbReflexiveSe("Recuperate", "Se recupera", "recuperez", "recuperezi", "recuperează", "recuperăm", "recuperați", "recuperează", "recuperat", "recupera");
     setParentAndChild(verbs, recover);
     
-    let brushTeeth = new ReflexiveSeVerbDataCard("Brush Teeth", "Se spăla pe dinți", "spăl pe dinți", "speli pe dinți", "spală pe dinți", "spălăm pe dinți", "spălați pe dinți", "spală pe dinți", "spălat pe dinți", "spăla pe dinți");
+    let brushTeeth = new VerbReflexiveSe("Brush Teeth", "Se spăla pe dinți", "spăl pe dinți", "speli pe dinți", "spală pe dinți", "spălăm pe dinți", "spălați pe dinți", "spală pe dinți", "spălat pe dinți", "spăla pe dinți");
     setParentAndChild(verbs, brushTeeth);
     
-    let exercise = new VerbDataCard("Exercise", "Face exerciții","fac exerciții", "faci exerciții", "face exerciții", "facem exerciții", "faceți exerciții", "fac exerciții", "făcut exerciții");
+    let exercise = new Verb("Exercise", "Face exerciții","fac exerciții", "faci exerciții", "face exerciții", "facem exerciții", "faceți exerciții", "fac exerciții", "făcut exerciții");
     setParentAndChild(verbs, exercise);
     
-    let prove = new VerbDataCard("Prove", "Dovedi","dovedesc", "dovedești", "dovedește", "dovedim", "dovediți", "dovedesc", "dovedit");
+    let prove = new Verb("Prove", "Dovedi","dovedesc", "dovedești", "dovedește", "dovedim", "dovediți", "dovedesc", "dovedit");
     setParentAndChild(verbs, prove);
     
-    let admit = new VerbDataCard("Admit", "Recunoaște","recunosc", "recunoști", "recunoaște", "recunoaștem", "recunoașteți", "recunosc", "recunoscut");
+    let admit = new Verb("Admit", "Recunoaște","recunosc", "recunoști", "recunoaște", "recunoaștem", "recunoașteți", "recunosc", "recunoscut");
     setParentAndChild(verbs, admit);
     
-    let confess = new VerbDataCard("Confess", "Mărturisi","mărturisesc", "mărturisești", "mărturisește", "mărturisim", "mărturisiți", "mărturisesc", "mărturisit");
+    let confess = new Verb("Confess", "Mărturisi","mărturisesc", "mărturisești", "mărturisește", "mărturisim", "mărturisiți", "mărturisesc", "mărturisit");
     setParentAndChild(verbs, confess);
     
-    let deny = new VerbDataCard("Deny", "Nega","neg", "negi", "neagă", "negăm", "negați", "neagă", "negat");
+    let deny = new Verb("Deny", "Nega","neg", "negi", "neagă", "negăm", "negați", "neagă", "negat");
     setParentAndChild(verbs, deny);
     
-    let commitSuicide = new ReflexiveSeVerbDataCard("Commit Suicide", "Se sinucide", "sinucid", "sinucizi", "sinucide", "sinucidem", "sinucideți", "sinucid", "sinucis", "sinucide");
+    let commitSuicide = new VerbReflexiveSe("Commit Suicide", "Se sinucide", "sinucid", "sinucizi", "sinucide", "sinucidem", "sinucideți", "sinucid", "sinucis", "sinucide");
     setParentAndChild(verbs, commitSuicide);
     
-    let apologize = new VerbDataCard("Apologize", "Cere scuze","cer scuze", "ceri scuze", "cere scuze", "cerem scuze", "cereți scuze", "cer scuze", "cerut scuze");
+    let apologize = new Verb("Apologize", "Cere scuze","cer scuze", "ceri scuze", "cere scuze", "cerem scuze", "cereți scuze", "cer scuze", "cerut scuze");
     setParentAndChild(verbs, apologize);
     
-    let rob = new VerbDataCard("Rob", "Jefui","jefuiesc", "jefuiești", "jefuiește", "jefuim", "jefuiți", "jefuiesc", "jefuit");
+    let rob = new Verb("Rob", "Jefui","jefuiesc", "jefuiești", "jefuiește", "jefuim", "jefuiți", "jefuiesc", "jefuit");
     setParentAndChild(verbs, rob);
     
-    let cheat = new VerbDataCard("Cheat", "Trișa","trișez", "trișezi", "trișează", "trișăm", "trișați", "trișează", "trișat");
+    let cheat = new Verb("Cheat", "Trișa","trișez", "trișezi", "trișează", "trișăm", "trișați", "trișează", "trișat");
     setParentAndChild(verbs, cheat);
     
-    let breakIn = new VerbDataCard("Break Into", "Sparge","sparg", "spargi", "sparge", "spargem", "spargeți", "sparg", "spart");
+    let breakIn = new Verb("Break Into", "Sparge","sparg", "spargi", "sparge", "spargem", "spargeți", "sparg", "spart");
     setParentAndChild(verbs, breakIn);
     
-    let escape = new VerbDataCard("Escape", "Scăpa","scap", "scapi", "scapă", "scăpăm", "scăpați", "scapă", "scăpat");
+    let escape = new Verb("Escape", "Scăpa","scap", "scapi", "scapă", "scăpăm", "scăpați", "scapă", "scăpat");
     setParentAndChild(verbs, escape);
     
-    let replace = new VerbDataCard("Replace", "Înlocui","înlocuiesc", "înlocuiești", "înlocuiește", "înlocuim", "înlocuiți", "înlocuiesc", "înlocuit");
+    let replace = new Verb("Replace", "Înlocui","înlocuiesc", "înlocuiești", "înlocuiește", "înlocuim", "înlocuiți", "înlocuiesc", "înlocuit");
     setParentAndChild(verbs, replace);
     
-    let renovate = new VerbDataCard("Renovate", "Renova","renovez", "renovezi", "renovează", "renovăm", "renovați", "renovează", "renovat");
+    let renovate = new Verb("Renovate", "Renova","renovez", "renovezi", "renovează", "renovăm", "renovați", "renovează", "renovat");
     setParentAndChild(verbs, renovate);
     
-    let paint = new VerbDataCard("Paint", "Vopsi","vopsesc", "vopsești", "vopsește", "vopsim", "vopsiți", "vopsesc", "vopsit");
+    let paint = new Verb("Paint", "Vopsi","vopsesc", "vopsești", "vopsește", "vopsim", "vopsiți", "vopsesc", "vopsit");
     setParentAndChild(verbs, paint);
     
-    let keep = new VerbDataCard("Keep", "Ține","țin", "ții", "ține", "ținem", "țineți", "țin", "ținut");
+    let keep = new Verb("Keep", "Ține","țin", "ții", "ține", "ținem", "țineți", "țin", "ținut");
     setParentAndChild(verbs, keep);
     
-    let suppose = new VerbDataCard("Suppose", "Presupune","presupun", "presupui", "presupune", "presupunem", "presupuneți", "presupun", "presupus");
+    let suppose = new Verb("Suppose", "Presupune","presupun", "presupui", "presupune", "presupunem", "presupuneți", "presupun", "presupus");
     setParentAndChild(verbs, suppose);
     
-    let imagine = new ReflexiveSiVerbDataCard("Imagine", "Își imagina", "imaginez", "imaginezi", "imaginează", "imaginăm", "imaginați", "imaginează", "imaginat", "imagina");
+    let imagine = new VerbReflexiveSi("Imagine", "Își imagina", "imaginez", "imaginezi", "imaginează", "imaginăm", "imaginați", "imaginează", "imaginat", "imagina");
     setParentAndChild(verbs, imagine);
     
-    let doubt = new VerbDataCard("Doubt", "Îndoi","îndoiesc", "îndoiești", "îndoiește", "îndoim", "îndoiți", "îndoiesc", "îndoit");
+    let doubt = new Verb("Doubt", "Îndoi","îndoiesc", "îndoiești", "îndoiește", "îndoim", "îndoiți", "îndoiesc", "îndoit");
     setParentAndChild(verbs, doubt);
     
-    let observe = new VerbDataCard("Observe (gase)", "Observa","observ", "observi", "observă", "observăm", "observați", "observă", "observat");
+    let observe = new Verb("Observe (gase)", "Observa","observ", "observi", "observă", "observăm", "observați", "observă", "observat");
     setParentAndChild(verbs, observe);
     
-    let die = new VerbDataCard("Die", "Muri","mor", "mori", "moare", "murim", "muriți", "mor", "murit");
+    let die = new Verb("Die", "Muri","mor", "mori", "moare", "murim", "muriți", "mor", "murit");
     setParentAndChild(verbs, die);
     
-    let ruin = new VerbDataCard("Ruin", "Ruina","ruinez", "ruinezi", "ruinează", "ruinăm", "ruinați", "ruinează", "ruinat");
+    let ruin = new Verb("Ruin", "Ruina","ruinez", "ruinezi", "ruinează", "ruinăm", "ruinați", "ruinează", "ruinat");
     setParentAndChild(verbs, ruin);
     
-    let cause = new VerbDataCard("Cause", "Provoca","provoc", "provoci", "provoacă", "provocăm", "provocați", "provoacă", "provocat");
+    let cause = new Verb("Cause", "Provoca","provoc", "provoci", "provoacă", "provocăm", "provocați", "provoacă", "provocat");
     setParentAndChild(verbs, cause);
     
-    let damage = new VerbDataCard("Damage", "Aletia","aletiez", "aletiezi", "aletiază", "aletiem", "aletiați", "aletiază", "aletiat");
+    let damage = new Verb("Damage", "Aletia","aletiez", "aletiezi", "aletiază", "aletiem", "aletiați", "aletiază", "aletiat");
     setParentAndChild(verbs, damage);
     
-    let wipeOut = new VerbDataCard("Wipe Out", "Nimici","nimicesc", "nimicești", "nimicește", "nimicim", "nimiciți", "nimicesc", "nimicit");
+    let wipeOut = new Verb("Wipe Out", "Nimici","nimicesc", "nimicești", "nimicește", "nimicim", "nimiciți", "nimicesc", "nimicit");
     setParentAndChild(verbs, wipeOut);
     
-    let destroy = new VerbDataCard("Destroy", "Distruge","distrug", "distrugi", "distruge", "distrugem", "distrugeți", "distrug", "distrus");
+    let destroy = new Verb("Destroy", "Distruge","distrug", "distrugi", "distruge", "distrugem", "distrugeți", "distrug", "distrus");
     setParentAndChild(verbs, destroy);
     
-    let occur = new VerbDataCard("Occur", "Apară","apăr", "aperi", "apără", "apărăm", "apăraţi", "apără", "apărat");
+    let occur = new Verb("Occur", "Apară","apăr", "aperi", "apără", "apărăm", "apăraţi", "apără", "apărat");
     setParentAndChild(verbs, occur);
     
-    let quit = new VerbDataCard("Quit", "Demisiona","demisionez", "demisionezi", "demisionează", "demisionăm", "demisionați", "demisionează", "demisionat");
+    let quit = new Verb("Quit", "Demisiona","demisionez", "demisionezi", "demisionează", "demisionăm", "demisionați", "demisionează", "demisionat");
     setParentAndChild(verbs, quit);
     
-    let praise = new VerbDataCard("Praise", "Lăuda","laud", "lauzi", "laudă", "lăudăm", "lăudați", "laudă", "lăudat");
+    let praise = new Verb("Praise", "Lăuda","laud", "lauzi", "laudă", "lăudăm", "lăudați", "laudă", "lăudat");
     setParentAndChild(verbs, praise);
     
-    let prefer = new VerbDataCard("Prefer", "Prefera","prefer", "preferi", "preferă", "preferăm", "preferați", "preferă", "preferat");
+    let prefer = new Verb("Prefer", "Prefera","prefer", "preferi", "preferă", "preferăm", "preferați", "preferă", "preferat");
     setParentAndChild(verbs, prefer);
     
-    let gather = new VerbDataCard("Gather", "Aduna","adun", "aduni", "adună", "adunăm", "adunați", "adună", "adunat");
+    let gather = new Verb("Gather", "Aduna","adun", "aduni", "adună", "adunăm", "adunați", "adună", "adunat");
     setParentAndChild(verbs, gather);
     
-    let lead = new VerbDataCard("Lead", "Conduce","conduc", "conduci", "conduce", "conducem", "conduceți", "conduc", "condus");
+    let lead = new Verb("Lead", "Conduce","conduc", "conduci", "conduce", "conducem", "conduceți", "conduc", "condus");
     setParentAndChild(verbs, lead);
     
-    let apply = new VerbDataCard("Apply", "Aplica","aplic", "aplici", "aplică", "aplicăm", "aplicați", "aplică", "aplicat");
+    let apply = new Verb("Apply", "Aplica","aplic", "aplici", "aplică", "aplicăm", "aplicați", "aplică", "aplicat");
     setParentAndChild(verbs, apply);
     
-    let obtain = new VerbDataCard("Obtain", "Obține","obțin", "obții", "obține", "obținem", "obțineți", "obțin", "obținut");
+    let obtain = new Verb("Obtain", "Obține","obțin", "obții", "obține", "obținem", "obțineți", "obțin", "obținut");
     setParentAndChild(verbs, obtain);
     
-    let interview = new VerbDataCard("Interview", "Intervieva","intervievez", "intervievezi", "intervievează", "intervievăm", "intervievati", "intervievează", "intervievat");
+    let interview = new Verb("Interview", "Intervieva","intervievez", "intervievezi", "intervievează", "intervievăm", "intervievati", "intervievează", "intervievat");
     setParentAndChild(verbs, interview);
     
-    let approve = new VerbDataCard("Approve", "Aproba","aprob", "aprobi", "aprobă", "aprobăm", "aprobați", "aprobă", "aprobat");
+    let approve = new Verb("Approve", "Aproba","aprob", "aprobi", "aprobă", "aprobăm", "aprobați", "aprobă", "aprobat");
     setParentAndChild(verbs, approve);
     
-    let verify = new VerbDataCard("Verify", "Verifica","verific", "verifici", "verifică", "verificăm", "verificați", "verifică", "verificat");
+    let verify = new Verb("Verify", "Verifica","verific", "verifici", "verifică", "verificăm", "verificați", "verifică", "verificat");
     setParentAndChild(verbs, verify);
     
-    let analyze = new VerbDataCard("Analyze", "Analiza","analizez", "analizezi", "analizează", "analizăm", "analizați", "analizează", "analizat");
+    let analyze = new Verb("Analyze", "Analiza","analizez", "analizezi", "analizează", "analizăm", "analizați", "analizează", "analizat");
     setParentAndChild(verbs, analyze);
     
-    let present = new VerbDataCard("Present", "Prezenta","prezint", "prezinți", "prezintă", "prezentăm", "prezentați", "prezintă", "prezentat");
+    let present = new Verb("Present", "Prezenta","prezint", "prezinți", "prezintă", "prezentăm", "prezentați", "prezintă", "prezentat");
     setParentAndChild(verbs, present);
     
-    let discuss = new VerbDataCard("Discuss", "Discuta","discut", "discuți", "discută", "discutăm", "discutați", "discută", "discutat");
+    let discuss = new Verb("Discuss", "Discuta","discut", "discuți", "discută", "discutăm", "discutați", "discută", "discutat");
     setParentAndChild(verbs, discuss);
     
-    let agree = new VerbDataCard("Agree", "Fi de acord","sunt de acord", "ești de acord", "este de acord", "suntem de acord", "sunteți de acord", "sunt de acord", "fost de acord");
+    let agree = new Verb("Agree", "Fi de acord","sunt de acord", "ești de acord", "este de acord", "suntem de acord", "sunteți de acord", "sunt de acord", "fost de acord");
     setParentAndChild(verbs, agree);
     
-    let achieve = new VerbDataCard("Achieve", "Realiza","realizez", "realizezi", "realizează", "realizăm", "realizați", "realizează", "realizat");
+    let achieve = new Verb("Achieve", "Realiza","realizez", "realizezi", "realizează", "realizăm", "realizați", "realizează", "realizat");
     setParentAndChild(verbs, achieve);
     
-    let resolve = new VerbDataCard("Resolve", "Rezolva","rezolv", "rezolvi", "rezolvă", "rezolvăm", "rezolvați", "rezolvă", "rezolvat");
+    let resolve = new Verb("Resolve", "Rezolva","rezolv", "rezolvi", "rezolvă", "rezolvăm", "rezolvați", "rezolvă", "rezolvat");
     setParentAndChild(verbs, resolve);
     
-    let review = new VerbDataCard("Review", "Revizui","revizuiesc", "revizuiești", "revizuiește", "revizuim", "revizuiți", "revizuiesc", "revizuit");
+    let review = new Verb("Review", "Revizui","revizuiesc", "revizuiești", "revizuiește", "revizuim", "revizuiți", "revizuiesc", "revizuit");
     setParentAndChild(verbs, review);
     
-    let continueVerb = new VerbDataCard("Continue", "Continua","continuu", "continui", "continuă", "continuăm", "continuați", "continuă", "continuat");
+    let continueVerb = new Verb("Continue", "Continua","continuu", "continui", "continuă", "continuăm", "continuați", "continuă", "continuat");
     setParentAndChild(verbs, continueVerb);
     
-    let repeat = new VerbDataCard("Repeat", "Repeta","repet", "repeți", "repetă", "repetăm", "repetați", "repetă", "repetat");
+    let repeat = new Verb("Repeat", "Repeta","repet", "repeți", "repetă", "repetăm", "repetați", "repetă", "repetat");
     setParentAndChild(verbs, repeat);
     
-    let suggest = new VerbDataCard("Suggest", "Sugera","sugerez", "sugerezi", "sugerează", "sugerăm", "sugerați", "sugerează", "sugerat");
+    let suggest = new Verb("Suggest", "Sugera","sugerez", "sugerezi", "sugerează", "sugerăm", "sugerați", "sugerează", "sugerat");
     setParentAndChild(verbs, suggest);
     
-    let explain = new VerbDataCard("Explain", "Explica","explic", "explici", "explică", "explicăm", "explicați", "explică", "explicat");
+    let explain = new Verb("Explain", "Explica","explic", "explici", "explică", "explicăm", "explicați", "explică", "explicat");
     setParentAndChild(verbs, explain);
     
-    let express = new VerbDataCard("Express", "Exprima","exprim", "exprimi", "exprimă", "exprimăm", "exprimați", "exprimă", "exprimat");
+    let express = new Verb("Express", "Exprima","exprim", "exprimi", "exprimă", "exprimăm", "exprimați", "exprimă", "exprimat");
     setParentAndChild(verbs, express);
     
-    let seem = new ReflexiveSeVerbDataCard("Seem", "Se părea", "par", "pari", "pare", "părem", "păreți", "par", "părut", "părea");
+    let seem = new VerbReflexiveSe("Seem", "Se părea", "par", "pari", "pare", "părem", "păreți", "par", "părut", "părea");
     setParentAndChild(verbs, seem);
     
-    let kill = new VerbDataCard("Kill", "Ucide","ucid", "ucizi", "ucide", "ucidem", "ucideți", "ucid", "ucis");
+    let kill = new Verb("Kill", "Ucide","ucid", "ucizi", "ucide", "ucidem", "ucideți", "ucid", "ucis");
     setParentAndChild(verbs, kill);
     
-    let heat = new VerbDataCard("Heat", "Încălzi","încălzesc", "încălzești", "încălzește", "încălzim", "încălziți", "încălzesc", "încălzit");
+    let heat = new Verb("Heat", "Încălzi","încălzesc", "încălzești", "încălzește", "încălzim", "încălziți", "încălzesc", "încălzit");
     setParentAndChild(verbs, heat);
     
-    let boil = new VerbDataCard("Boil", "Fierbe","fierb", "fierbi", "fierbe", "fierbem", "fierbeți", "fierb", "fiert");
+    let boil = new Verb("Boil", "Fierbe","fierb", "fierbi", "fierbe", "fierbem", "fierbeți", "fierb", "fiert");
     setParentAndChild(verbs, boil);
     
-    let bake = new VerbDataCard("Bake", "Coace","coc", "coci", "coace", "coacem", "coaceți", "coc", "copt");
+    let bake = new Verb("Bake", "Coace","coc", "coci", "coace", "coacem", "coaceți", "coc", "copt");
     setParentAndChild(verbs, bake);
     
-    let grill = new VerbDataCard("Grill", "Frige la grătar","frig la grătar", "frigi la grătar", "frige la grătar", "frigem la grătar", "frigeți la grătar", "frig la grătar", "fript la grătar");
+    let grill = new Verb("Grill", "Frige la grătar","frig la grătar", "frigi la grătar", "frige la grătar", "frigem la grătar", "frigeți la grătar", "frig la grătar", "fript la grătar");
     setParentAndChild(verbs, grill);
     
-    let chop = new VerbDataCard("Chop", "Toca","toc", "toci", "toacă", "tocăm", "tocați", "toacă", "tocat");
+    let chop = new Verb("Chop", "Toca","toc", "toci", "toacă", "tocăm", "tocați", "toacă", "tocat");
     setParentAndChild(verbs, chop);
     
-    let stirFry = new VerbDataCard("Stir Fry", "Căli","călesc", "călești", "călește", "călim", "căliți", "călesc", "călit");
+    let stirFry = new Verb("Stir Fry", "Căli","călesc", "călești", "călește", "călim", "căliți", "călesc", "călit");
     setParentAndChild(verbs, stirFry);
     
-    let mix = new VerbDataCard("Mix", "Amesteca","amestec", "amesteci", "amestecă", "amestecăm", "amestecați", "amestecă", "amestecat");
+    let mix = new Verb("Mix", "Amesteca","amestec", "amesteci", "amestecă", "amestecăm", "amestecați", "amestecă", "amestecat");
     setParentAndChild(verbs, mix);
     
-    let peel = new VerbDataCard("Peel", "Decoji","decojesc", "decojești", "decojește", "decojim", "decojiți", "decojesc", "decojit");
+    let peel = new Verb("Peel", "Decoji","decojesc", "decojești", "decojește", "decojim", "decojiți", "decojesc", "decojit");
     setParentAndChild(verbs, peel);
     
-    let hug = new VerbDataCard("Hug", "Îmbrățișa","îmbrățișez", "îmbrățișezi", "îmbrățișează", "îmbrățișăm", "îmbrățișați", "îmbrățișează", "îmbrățișat");
+    let hug = new Verb("Hug", "Îmbrățișa","îmbrățișez", "îmbrățișezi", "îmbrățișează", "îmbrățișăm", "îmbrățișați", "îmbrățișează", "îmbrățișat");
     setParentAndChild(verbs, hug);
     
-    let hold = new VerbDataCard("Hold", "Ține","țin", "ții", "ține", "ținem", "țineți", "țin", "ținut");
+    let hold = new Verb("Hold", "Ține","țin", "ții", "ține", "ținem", "țineți", "țin", "ținut");
     setParentAndChild(verbs, hold);
     
-    let interrupt = new VerbDataCard("Interrupt", "Întrerupe","întrerup", "întrerupi", "întrerupe", "întrerupem", "întrerupeți", "întrerup", "întrerupt");
+    let interrupt = new Verb("Interrupt", "Întrerupe","întrerup", "întrerupi", "întrerupe", "întrerupem", "întrerupeți", "întrerup", "întrerupt");
     setParentAndChild(verbs, interrupt);
     
-    let type = new VerbDataCard("Type", "Tasta","tastez", "tastezi", "tastează", "tastăm", "tastați", "tastează", "tastat");
+    let type = new Verb("Type", "Tasta","tastez", "tastezi", "tastează", "tastăm", "tastați", "tastează", "tastat");
     setParentAndChild(verbs, type);
     
-    let like = new ReflexiveSiVerbDataCard("Like", "Plăcea", "place", "place", "place", "place", "place", "place", "plăcut", "plăcea");
+    let like = new VerbReflexiveSi("Like", "Plăcea", "place", "place", "place", "place", "place", "place", "plăcut", "plăcea");
     setParentAndChild(verbs, like);
     
-    let dream = new VerbDataCard("Dream", "Visa","visez", "visezi", "visează", "visăm", "visați", "visează", "visat");
+    let dream = new Verb("Dream", "Visa","visez", "visezi", "visează", "visăm", "visați", "visează", "visat");
     setParentAndChild(verbs, dream);
     
-    let beHonest = new VerbDataCard("Be Honest", "Fi cinstit","sunt cinstit", "ești cinstit", "este cinstit", "suntem cinstiți", "sunteți cinstiți", "sunt cinstiți", "fost cinstit");
+    let beHonest = new Verb("Be Honest", "Fi cinstit","sunt cinstit", "ești cinstit", "este cinstit", "suntem cinstiți", "sunteți cinstiți", "sunt cinstiți", "fost cinstit");
     setParentAndChild(verbs, beHonest);
     
-    let beSure = new VerbDataCard("Be Sure", "Fi sigur","sunt sigur", "ești sigur", "este sigur", "suntem siguri", "sunteți siguri", "sunt siguri", "fost sigur");
+    let beSure = new Verb("Be Sure", "Fi sigur","sunt sigur", "ești sigur", "este sigur", "suntem siguri", "sunteți siguri", "sunt siguri", "fost sigur");
     setParentAndChild(verbs, beSure);
     
-    let treat = new VerbDataCard("Treat", "Trata","tratez", "tratezi", "tratează", "tratăm", "trataţi", "tratează", "tratat");
+    let treat = new Verb("Treat", "Trata","tratez", "tratezi", "tratează", "tratăm", "trataţi", "tratează", "tratat");
     setParentAndChild(verbs, treat);
     
-    let blush = new VerbDataCard("Blush", "Roși","roșesc", "roșești", "roșește", "roșim", "roșiți", "roșesc", "roșit");
+    let blush = new Verb("Blush", "Roși","roșesc", "roșești", "roșește", "roșim", "roșiți", "roșesc", "roșit");
     setParentAndChild(verbs, blush);
     
-    let beAvailable = new VerbDataCard("Be Available", "Fi disponibil","sunt disponibil", "ești disponibil", "este disponibil", "suntem disponibili", "sunteți disponibili", "sunt disponibili", "fost disponibil");
+    let beAvailable = new Verb("Be Available", "Fi disponibil","sunt disponibil", "ești disponibil", "este disponibil", "suntem disponibili", "sunteți disponibili", "sunt disponibili", "fost disponibil");
     setParentAndChild(verbs, beAvailable);
     
-    let rise = new VerbDataCard("Rise", "Crește","cresc", "crești", "crește", "creștem", "creșteți", "cresc", "crescut");
+    let rise = new Verb("Rise", "Crește","cresc", "crești", "crește", "creștem", "creșteți", "cresc", "crescut");
     setParentAndChild(verbs, rise);
     
-    let tryVerb = new VerbDataCard("Try", "Încerca","încerc", "încerci", "încearcă", "încercăm", "încercați", "încearcă", "încercat");
+    let tryVerb = new Verb("Try", "Încerca","încerc", "încerci", "încearcă", "încercăm", "încercați", "încearcă", "încercat");
     setParentAndChild(verbs, tryVerb);
     
-    let invite = new VerbDataCard("Invite", "Invita","invit", "inviţi", "invită", "invităm", "invitați", "invită", "invitat");
+    let invite = new Verb("Invite", "Invita","invit", "inviţi", "invită", "invităm", "invitați", "invită", "invitat");
     setParentAndChild(verbs, invite);
     
-    let join = new ReflexiveSeVerbDataCard("Join", "Se alătura", "alătur", "alături", "alătură", "alăturăm", "alăturați", "alătură", "alăturat", "alătura");
+    let join = new VerbReflexiveSe("Join", "Se alătura", "alătur", "alături", "alătură", "alăturăm", "alăturați", "alătură", "alăturat", "alătura");
     setParentAndChild(verbs, join);
     
-    let cancel = new VerbDataCard("Cancel", "Anula","anulez", "anulezi", "anulează", "anulăm", "anulați", "anulează", "anulat");
+    let cancel = new Verb("Cancel", "Anula","anulez", "anulezi", "anulează", "anulăm", "anulați", "anulează", "anulat");
     setParentAndChild(verbs, cancel);
     
-    let sweat = new VerbDataCard("Sweat", "Transpira","transpir", "transpiri", "transpiră", "transpirăm", "transpirați", "transpiră", "transpirat");
+    let sweat = new Verb("Sweat", "Transpira","transpir", "transpiri", "transpiră", "transpirăm", "transpirați", "transpiră", "transpirat");
     setParentAndChild(verbs, sweat);
     
-    let forecast = new VerbDataCard("Forecast", "Prognoza","prognozez", "prognozezi", "prognozează", "prognozăm", "prognozați", "prognozează", "prognozat");
+    let forecast = new Verb("Forecast", "Prognoza","prognozez", "prognozezi", "prognozează", "prognozăm", "prognozați", "prognozează", "prognozat");
     setParentAndChild(verbs, forecast);
     
-    let describe = new VerbDataCard("Describe", "Descrie","descriu", "descrii", "descrie", "descriem", "descrieți", "descriu", "descris");
+    let describe = new Verb("Describe", "Descrie","descriu", "descrii", "descrie", "descriem", "descrieți", "descriu", "descris");
     setParentAndChild(verbs, describe);
     
-    let compare = new VerbDataCard("Compare", "Compara","compar", "compari", "compară", "comparăm", "comparați", "compară", "comparat");
+    let compare = new Verb("Compare", "Compara","compar", "compari", "compară", "comparăm", "comparați", "compară", "comparat");
     setParentAndChild(verbs, compare);
     
-    let getHurt = new VerbDataCard("Get Hurt", "Fi rănit","sunt rănit", "ești rănit", "este rănit", "suntem răniți", "sunteți răniți", "sunt răniți", "fost rănit");
+    let getHurt = new Verb("Get Hurt", "Fi rănit","sunt rănit", "ești rănit", "este rănit", "suntem răniți", "sunteți răniți", "sunt răniți", "fost rănit");
     setParentAndChild(verbs, getHurt);
     
-    let comeBack = new ReflexiveSeVerbDataCard("Come Back", "Se întoarce", "întorc", "întorci", "întoarce", "întoarcem", "întoarceți", "întorc", "întors", "întoarce");
+    let comeBack = new VerbReflexiveSe("Come Back", "Se întoarce", "întorc", "întorci", "întoarce", "întoarcem", "întoarceți", "întorc", "întors", "întoarce");
     setParentAndChild(verbs, comeBack);
     
-    let move = new VerbDataCard("Move", "Muta","mut", "muți", "mută", "mutăm", "mutați", "mută", "mutat");
+    let move = new Verb("Move", "Muta","mut", "muți", "mută", "mutăm", "mutați", "mută", "mutat");
     setParentAndChild(verbs, move);
     
-    let follow = new VerbDataCard("Follow", "Urma","urmez", "urmezi", "urmează", "urmăm", "urmați", "urmează", "urmat");
+    let follow = new Verb("Follow", "Urma","urmez", "urmezi", "urmează", "urmăm", "urmați", "urmează", "urmat");
     setParentAndChild(verbs, follow);
     
-    let dateVerb = new ReflexiveSeVerbDataCard("Date", "Se întâlni", "întâlnesc", "întâlnești", "întâlnește", "întâlnim", "întâlniți", "întâlnesc", "întâlnit", "întâlni");
+    let dateVerb = new VerbReflexiveSe("Date", "Se întâlni", "întâlnesc", "întâlnești", "întâlnește", "întâlnim", "întâlniți", "întâlnesc", "întâlnit", "întâlni");
     setParentAndChild(verbs, dateVerb);
     
-    let toPlace = new VerbDataCard("Place", "Așeza","așez", "așezi", "așează", "așezăm", "așezați", "așează", "așezat");
+    let toPlace = new Verb("Place", "Așeza","așez", "așezi", "așează", "așezăm", "așezați", "așează", "așezat");
     setParentAndChild(verbs, toPlace);
     
-    let toPresent = new VerbDataCard("Present", "Prezenta","prezint", "prezinți", "prezintă", "prezentăm", "prezentați", "prezintă", "prezentat");
+    let toPresent = new Verb("Present", "Prezenta","prezint", "prezinți", "prezintă", "prezentăm", "prezentați", "prezintă", "prezentat");
     setParentAndChild(verbs, toPresent);
     
-    let toMeet = new VerbDataCard("Meet", "Cunoaște","cunosc", "cunoști", "cunoaște", "cunoaștem", "cunoașteți", "cunosc", "cunoscut");
+    let toMeet = new Verb("Meet", "Cunoaște","cunosc", "cunoști", "cunoaște", "cunoaștem", "cunoașteți", "cunosc", "cunoscut");
     setParentAndChild(verbs, toMeet);
     
-    let argue = new ReflexiveSeVerbDataCard("Argue", "Se certa", "cert", "cerți", "certă", "certăm", "certați", "certă", "certat", "certa");
+    let argue = new VerbReflexiveSe("Argue", "Se certa", "cert", "cerți", "certă", "certăm", "certați", "certă", "certat", "certa");
     setParentAndChild(verbs, argue);
     
-    let cry = new VerbDataCard("Cry", "Plânge","plâng", "plângi", "plânge", "plângem", "plângeți", "plâng", "plâns");
+    let cry = new Verb("Cry", "Plânge","plâng", "plângi", "plânge", "plângem", "plângeți", "plâng", "plâns");
     setParentAndChild(verbs, cry);
     
-    let propose = new VerbDataCard("Propose", "Cere în căsătorie","cer în căsătorie", "cere în căsătorie", "cere în căsătorie", "cerem în căsătorie", "cereți în căsătorie", "cer în căsătorie", "cerut în căsătorie");
+    let propose = new Verb("Propose", "Cere în căsătorie","cer în căsătorie", "cere în căsătorie", "cere în căsătorie", "cerem în căsătorie", "cereți în căsătorie", "cer în căsătorie", "cerut în căsătorie");
     setParentAndChild(verbs, propose);
     
-    let beDivorced = new VerbDataCard("Be Divorced", "Fi divorțat","sunt divorțat", "ești divorțat", "este divorțat", "suntem divorțați", "sunteți divorțați", "sunt divorțați", "fost divorțat");
+    let beDivorced = new Verb("Be Divorced", "Fi divorțat","sunt divorțat", "ești divorțat", "este divorțat", "suntem divorțați", "sunteți divorțați", "sunt divorțați", "fost divorțat");
     setParentAndChild(verbs, beDivorced);
     
-    let breakUp = new ReflexiveSeVerbDataCard("Break Up", "Se despărți", "despart", "desparți", "desparte", "despărțim", "despărțiți", "despart", "despărțit", "despărți");
+    let breakUp = new VerbReflexiveSe("Break Up", "Se despărți", "despart", "desparți", "desparte", "despărțim", "despărțiți", "despart", "despărțit", "despărți");
     setParentAndChild(verbs, breakUp);
     
-    let beEngaged = new VerbDataCard("Be Engaged", "Fi logodit","sunt logodit", "ești logodit", "este logodit", "suntem logodiți", "sunteți logodiți", "sunt logodiți", "fost logodit");
+    let beEngaged = new Verb("Be Engaged", "Fi logodit","sunt logodit", "ești logodit", "este logodit", "suntem logodiți", "sunteți logodiți", "sunt logodiți", "fost logodit");
     setParentAndChild(verbs, beEngaged);
     
-    let clean = new VerbDataCard("Clean", "Face curățenie","fac curățenie", "faci curățenie", "face curățenie", "facem curățenie", "faceți curățenie", "fac curățenie", "făcut curățenie");
+    let clean = new Verb("Clean", "Face curățenie","fac curățenie", "faci curățenie", "face curățenie", "facem curățenie", "faceți curățenie", "fac curățenie", "făcut curățenie");
     setParentAndChild(verbs, clean);
     
-    let rest = new ReflexiveSeVerbDataCard("Rest", "Se odihni", "odihnesc", "odihnești", "odihnește", "odihnim", "odihniți", "odihnesc", "odihnit", "odihni");
+    let rest = new VerbReflexiveSe("Rest", "Se odihni", "odihnesc", "odihnești", "odihnește", "odihnim", "odihniți", "odihnesc", "odihnit", "odihni");
     setParentAndChild(verbs, rest);
     
-    let allow = new VerbDataCard("Allow", "Permite","permit", "permiți", "permite", "permitem", "permiteți", "permit", "permis");
+    let allow = new Verb("Allow", "Permite","permit", "permiți", "permite", "permitem", "permiteți", "permit", "permis");
     setParentAndChild(verbs, allow);
     
-    let decide = new VerbDataCard("Decide", "Decide","decid", "decizi", "decide", "decidem", "decideți", "decid", "decis");
+    let decide = new Verb("Decide", "Decide","decid", "decizi", "decide", "decidem", "decideți", "decid", "decis");
     setParentAndChild(verbs, decide);
     
-    let miss = new VerbDataCard("Miss", "Rata","ratez", "ratezi", "ratează", "ratăm", "ratați", "ratează", "ratat");
+    let miss = new Verb("Miss", "Rata","ratez", "ratezi", "ratează", "ratăm", "ratați", "ratează", "ratat");
     setParentAndChild(verbs, miss);
     
-    let rent = new VerbDataCard("Rent", "Închiria","închiriez", "închiriezi", "închiriază", "închiriem", "închiriați", "închiriază", "închiriat");
+    let rent = new Verb("Rent", "Închiria","închiriez", "închiriezi", "închiriază", "închiriem", "închiriați", "închiriază", "închiriat");
     setParentAndChild(verbs, rent);
     
-    let plan = new VerbDataCard("Plan", "Planifica","planific", "planifici", "planifică", "planificăm", "planificați", "planifică", "planificat");
+    let plan = new Verb("Plan", "Planifica","planific", "planifici", "planifică", "planificăm", "planificați", "planifică", "planificat");
     setParentAndChild(verbs, plan);
     
-    let exchange = new VerbDataCard("Exchange", "Schimba","schimb", "schimbi", "schimbă", "schimbăm", "schimbați", "schimbă", "schimbat");
+    let exchange = new Verb("Exchange", "Schimba","schimb", "schimbi", "schimbă", "schimbăm", "schimbați", "schimbă", "schimbat");
     setParentAndChild(verbs, exchange);
     
-    let deposit = new VerbDataCard("Deposit", "Depune","depun", "depui", "depune", "depunem", "depuneți", "depun", "depus");
+    let deposit = new Verb("Deposit", "Depune","depun", "depui", "depune", "depunem", "depuneți", "depun", "depus");
     setParentAndChild(verbs, deposit);
     
-    let register = new VerbDataCard("Register", "Înregistra","înregistrez", "înregistrezi", "înregistrează", "înregistrăm", "înregistrați", "înregistrează", "înregistrat");
+    let register = new Verb("Register", "Înregistra","înregistrez", "înregistrezi", "înregistrează", "înregistrăm", "înregistrați", "înregistrează", "înregistrat");
     setParentAndChild(verbs, register);
     
-    let guess = new VerbDataCard("Guess", "Ghici","ghicesc", "ghicești", "ghicește", "ghicim", "ghiciți", "ghicesc", "ghicit");
+    let guess = new Verb("Guess", "Ghici","ghicesc", "ghicești", "ghicește", "ghicim", "ghiciți", "ghicesc", "ghicit");
     setParentAndChild(verbs, guess);
     
-    let practice = new VerbDataCard("Practice", "Exersa","exersez", "exersezi", "exersează", "exersăm", "exersați", "exersează", "exersat");
+    let practice = new Verb("Practice", "Exersa","exersez", "exersezi", "exersează", "exersăm", "exersați", "exersează", "exersat");
     setParentAndChild(verbs, practice);
     
-    let enroll = new ReflexiveSeVerbDataCard("Enroll", "Se înscrie", "înscriu", "înscrii", "înscrie", "înscriem", "înscrieți", "înscriu", "înscris", "înscrie");
+    let enroll = new VerbReflexiveSe("Enroll", "Se înscrie", "înscriu", "înscrii", "înscrie", "înscriem", "înscrieți", "înscriu", "înscris", "înscrie");
     setParentAndChild(verbs, enroll);
         
-    let hangOut = new VerbDataCard("Hang Out", "Petrece timpul","petrec", "petreci", "petrece", "petrecem", "petreceți", "petrec", "petrecut");
+    let hangOut = new Verb("Hang Out", "Petrece timpul","petrec", "petreci", "petrece", "petrecem", "petreceți", "petrec", "petrecut");
     setParentAndChild(verbs, hangOut);
     
-    let tie = new VerbDataCard("Tie", "Lega","leg", "legi", "leagă", "legăm", "legați", "leagă", "legat");
+    let tie = new Verb("Tie", "Lega","leg", "legi", "leagă", "legăm", "legați", "leagă", "legat");
     setParentAndChild(verbs, tie);
     
-    let repair = new VerbDataCard("Repair", "Repara","repar", "repari", "repară", "reparăm", "reparați", "repară", "reparat");
+    let repair = new Verb("Repair", "Repara","repar", "repari", "repară", "reparăm", "reparați", "repară", "reparat");
     setParentAndChild(verbs, repair);
     
-    let prepare = new VerbDataCard("Prepare", "Pregăti","pregătesc", "pregătești", "pregătește", "pregătim", "pregătiți", "pregătesc", "pregătit");
+    let prepare = new Verb("Prepare", "Pregăti","pregătesc", "pregătești", "pregătește", "pregătim", "pregătiți", "pregătesc", "pregătit");
     setParentAndChild(verbs, prepare);
     
-    let fit = new ReflexiveSeVerbDataCard("Fit", "Se potrivi", "potrivesc", "potrivești", "potrivește", "potrivim", "potriviți", "potrivesc", "potrivit", "potrivi");
+    let fit = new VerbReflexiveSe("Fit", "Se potrivi", "potrivesc", "potrivești", "potrivește", "potrivim", "potriviți", "potrivesc", "potrivit", "potrivi");
     setParentAndChild(verbs, fit);
     
-    let tryOn = new VerbDataCard("Try On", "Proba","prob", "probi", "probă", "probăm", "probați", "probă", "probat");
+    let tryOn = new Verb("Try On", "Proba","prob", "probi", "probă", "probăm", "probați", "probă", "probat");
     setParentAndChild(verbs, tryOn);
     
-    let feel = new VerbDataCard("Feel", "Simți","simt", "simți", "simte", "simțim", "simțiți", "simt", "simțit");
+    let feel = new Verb("Feel", "Simți","simt", "simți", "simte", "simțim", "simțiți", "simt", "simțit");
     setParentAndChild(verbs, feel);
     
-    let teach = new VerbDataCard("Teach", "Preda","predau", "predai", "predă", "predăm", "predați", "predau", "predat");
+    let teach = new Verb("Teach", "Preda","predau", "predai", "predă", "predăm", "predați", "predau", "predat");
     setParentAndChild(verbs, teach);
     
-    let meet = new VerbDataCard("Meet", "Întâlni","întâlnesc", "întâlnești", "întâlnește", "întâlnim", "întâlniți", "întâlnesc", "întâlnit");
+    let meet = new Verb("Meet", "Întâlni","întâlnesc", "întâlnești", "întâlnește", "întâlnim", "întâlniți", "întâlnesc", "întâlnit");
     setParentAndChild(verbs, meet);
     
-    let turn = new VerbDataCard("Turn", "Vira","virez", "virezi", "virează", "virăm", "virați", "virează", "virat");
+    let turn = new Verb("Turn", "Vira","virez", "virezi", "virează", "virăm", "virați", "virează", "virat");
     setParentAndChild(verbs, turn);
     
-    let stop = new VerbDataCard("Stop", "Opri","opresc", "oprești", "oprește", "oprim", "opriți", "opresc", "oprit");
+    let stop = new Verb("Stop", "Opri","opresc", "oprești", "oprește", "oprim", "opriți", "opresc", "oprit");
     setParentAndChild(verbs, stop);
     
-    let pay = new VerbDataCard("Pay", "Plăti","plătesc", "plătești", "plătește", "plătim", "plătiți", "plătesc", "plătit");
+    let pay = new Verb("Pay", "Plăti","plătesc", "plătești", "plătește", "plătim", "plătiți", "plătesc", "plătit");
     setParentAndChild(verbs, pay);
         
-    let order = new VerbDataCard("Order", "Comanda","comand", "comanzi", "comandă", "comandăm", "comandați", "comandă", "comandat");
+    let order = new Verb("Order", "Comanda","comand", "comanzi", "comandă", "comandăm", "comandați", "comandă", "comandat");
     setParentAndChild(verbs, order);
     
-    let enter = new VerbDataCard("Enter", "Intra","intru", "intri", "intră", "intrăm", "intrați", "intră", "intrat");
+    let enter = new Verb("Enter", "Intra","intru", "intri", "intră", "intrăm", "intrați", "intră", "intrat");
     setParentAndChild(verbs, enter);
 
-    let cross = new VerbDataCard("Cross", "Traversa","traversez", "traversezi", "traversează", "traversăm", "traversați", "traversează", "traversat");
+    let cross = new Verb("Cross", "Traversa","traversez", "traversezi", "traversează", "traversăm", "traversați", "traversează", "traversat");
     setParentAndChild(verbs, cross);
     
-    let add = new VerbDataCard("Add", "Adăuga","adaug", "adaugi", "adaugă", "adăugăm", "adăugați", "adaugă", "adăugat");
+    let add = new Verb("Add", "Adăuga","adaug", "adaugi", "adaugă", "adăugăm", "adăugați", "adaugă", "adăugat");
     setParentAndChild(verbs, add);
     
-    let recommend = new VerbDataCard("Recommend", "Recomanda","recomand", "recomanzi", "recomandă", "recomandăm", "recomandați", "recomandă", "recomandat");
+    let recommend = new Verb("Recommend", "Recomanda","recomand", "recomanzi", "recomandă", "recomandăm", "recomandați", "recomandă", "recomandat");
     setParentAndChild(verbs, recommend);
     
-    let turnOn = new VerbDataCard("Turn on", "Porni","pornesc", "pornești", "pornește", "pornim", "porniți", "pornesc", "pornit");
+    let turnOn = new Verb("Turn on", "Porni","pornesc", "pornești", "pornește", "pornim", "porniți", "pornesc", "pornit");
     setParentAndChild(verbs, turnOn);
     
-    let takeOff = new ReflexiveSeVerbDataCard("Take off", "Dezbrăca", "dezbrac", "dezbraci", "dezbracă", "dezbrăcăm", "dezbrăcați", "dezbracă", "dezbrăcat", "dezbrăca");
+    let takeOff = new VerbReflexiveSe("Take off", "Dezbrăca", "dezbrac", "dezbraci", "dezbracă", "dezbrăcăm", "dezbrăcați", "dezbracă", "dezbrăcat", "dezbrăca");
     setParentAndChild(verbs, takeOff);
     
 
@@ -3742,16 +3737,10 @@ export function BuildLanguageTree() // returns romanian
     let Wall = new DataCard("Wall", "Perete", "");
     setParentAndChild(home, Wall)
 
-    let bath = new DataCard(
-        "Bath", "Baie",
-        NounTemplateFemale("baie", "bai", "baia", "băile")
-    )
+    let bath = new NounFemale("Bath", "Baie", "baie", "bai", "baia", "băile")
     setParentAndChild(home, bath)
 
-    let soap = new DataCard(
-        "Soap", "Săpun",
-        NounTemplateNeuter("săpun", "săpunuri", "sapunul", "săpunurile")
-    )
+    let soap = new NounNeuter("Soap", "Săpun", "săpun", "săpunuri", "sapunul", "săpunurile")
     setParentAndChild(home, soap)
 
     let tap = new DataCard("Tap", "Robinet", "");
@@ -4041,19 +4030,13 @@ export function BuildLanguageTree() // returns romanian
     let people = new DataCard("People", "Oamenii", "")
     setParentAndChild(nouns, people)
 
-    let men = new DataCard(
-        "Man", "Barbat",
-        NounTemplateMale("bărbat", "bărbați", "bărbatul", "bărbații")
-    )
+    let men = new NounMale("Man", "Barbat", "bărbat", "bărbați", "bărbatul", "bărbații")
     setParentAndChild(people, men)
 
-    let woman = new DataCard(
-        "Woman", "Femeie",
-        NounTemplateFemale("femeie", "femei", "femeia", "femeile")
-    )
+    let woman = new NounFemale("Woman", "Femeie", "femeie", "femei", "femeia", "femeile")
     setParentAndChild(people, woman)
 
-    let Child = new DataCard("Child", "Copil", NounTemplateMale("copil", "copi", "copilul", "copii"));
+    let Child = new NounMale("Child", "Copil", "copil", "copi", "copilul", "copii");
     setParentAndChild(people, Child)
 
     let Baby = new DataCard("Baby", "Bebeluș", "");
@@ -4240,62 +4223,62 @@ export function BuildLanguageTree() // returns romanian
     // #families
     let families = new DataCard(
         "Families", "Familiile",
-        NounTemplateFemale("", "", "", "")
+        ""
     )
     setParentAndChild(people, families)
 
-    let son = new DataCard("Son", "Fiu", NounTemplateMale("", "", "", ""));
+    let son = new DataCard("Son", "Fiu", "");
     setParentAndChild(families, son)
 
-    let brother = new DataCard("Brother", "Frate", NounTemplateMale("", "", "", ""));
+    let brother = new DataCard("Brother", "Frate", "");
     setParentAndChild(families, brother)
 
-    let daughter = new DataCard("Daughter", "Fiică", NounTemplateFemale("", "", "", ""));
+    let daughter = new DataCard("Daughter", "Fiică", "");
     setParentAndChild(families, daughter)
 
-    let sister = new DataCard("Sister", "Soră", NounTemplateFemale("", "", "", ""));
+    let sister = new DataCard("Sister", "Soră", "");
     setParentAndChild(families, sister)
 
     let relatives = new DataCard("Relatives", "Rude", "");  
     setParentAndChild(families, relatives);  
 
-    let mother = new DataCard("Mother", "Mamă", NounTemplateFemale("", "", "", ""));
+    let mother = new DataCard("Mother", "Mamă", "");
     setParentAndChild(families, mother)
 
-    let wife = new DataCard("Wife", "Soție", NounTemplateFemale("", "", "", ""));
+    let wife = new DataCard("Wife", "Soție", "");
     setParentAndChild(families, wife)
 
     let widow = new DataCard("Widow", "Văduvă", "");  
     setParentAndChild(families, widow);  
 
-    let father = new DataCard("Father", "Tată", NounTemplateMale("", "", "", ""));
+    let father = new DataCard("Father", "Tată", "");
     setParentAndChild(families, father)
 
-    let husband = new DataCard("Husband", "Soț", NounTemplateMale("", "", "", ""));
+    let husband = new DataCard("Husband", "Soț", "");
     setParentAndChild(families, husband)
 
-    let aunt = new DataCard("Aunt", "Mătușă", NounTemplateFemale("", "", "", ""));
+    let aunt = new DataCard("Aunt", "Mătușă", "");
     setParentAndChild(families, aunt)
 
-    let uncle = new DataCard("Uncle", "Unchi", NounTemplateMale("", "", "", ""));
+    let uncle = new DataCard("Uncle", "Unchi", "");
     setParentAndChild(families, uncle)
 
-    let cousinM = new DataCard("Cousin (male)", "Văr", NounTemplateMale("", "", "", ""));
+    let cousinM = new DataCard("Cousin (male)", "Văr", "");
     setParentAndChild(families, cousinM)
 
-    let cousinF = new DataCard("Cousin (female)", "Verișor", NounTemplateFemale("", "", "", ""));
+    let cousinF = new DataCard("Cousin (female)", "Verișor", "");
     setParentAndChild(families, cousinF)
 
-    let grandfather = new DataCard("Grandfather", "Bunic", NounTemplateMale("", "", "", ""));
+    let grandfather = new DataCard("Grandfather", "Bunic", "");
     setParentAndChild(families, grandfather)
 
-    let grandmother = new DataCard("Grandmother", "Bunică", NounTemplateFemale("", "", "", ""));
+    let grandmother = new DataCard("Grandmother", "Bunică", "");
     setParentAndChild(families, grandmother)
 
     // #jobs
     let workJob = new DataCard(
         "Work (job)", "Mancă",
-        NounTemplateFemale("", "", "", "")
+        ""
     )
     setParentAndChild(people, workJob)
 
