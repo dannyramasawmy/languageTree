@@ -250,7 +250,7 @@ window.addEventListener('click',
 
       // go to parent
       if (event.composedPath()[idx].id == ButtonsID.TRAVEL) {
-        GLOBAL.CurrentNode = GLOBAL.CurrentNode.Parent;
+        GLOBAL.CurrentNode = GLOBAL.CurrentNode.Parent[0];
         GLOBAL.DisplayCards = tree.functions.getChildren(GLOBAL.CurrentNode);
         pushState(GLOBAL.CurrentNode)
 

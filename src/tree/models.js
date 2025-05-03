@@ -1,12 +1,7 @@
 import { primarySort } from "./functions.js";
 import { getIntFromLocal, saveIntToLocal } from "../state/localStorage.js";
 
-/**
- * @callback NodeComparator
- * @param {AbstractNode} a
- * @param {AbstractNode} b
- * @returns {1 | 0 | -1}
- */
+/** @typedef {import('./functions.js').NodeComparator} NodeComparator */
 
 /**
  * @abstract
@@ -21,28 +16,28 @@ export class AbstractNode {
     constructor(primary, secondary, isRoot = false) {
         /** @type {string} */
         this.UID = crypto.randomUUID()
-        
+
         /** @type {string} */
         this.Primary = primary;
 
         /** @type {string} */
         this.Secondary = secondary;
-        
+
         /** @type {AbstractNode[]} */
         this.Parent = [];
 
         /** @type {AbstractNode[]} */
         this.Child = [];
-        
+
         /** @type {boolean} */
         this.IsRoot = isRoot;
-        
+
         /** @type {number} */
         this.Generation = 0
 
         /** @type {number | "-"} */
         this.Views = '-'
-    } 
+    }
 
     /**
    * A method that produces the inner-html to render
@@ -58,7 +53,7 @@ export class AbstractNode {
      * @param {AbstractNode} node - An Abstract Node object
      * @param {NodeComparator} sortFunction - A supplied function that sorts the node objects
      */
-    AddChild = (node, sortFunction=primarySort) => {
+    AddChild = (node, sortFunction = primarySort) => {
         this.Child.push(node);
         this.Child.sort(sortFunction);
     }
@@ -69,8 +64,8 @@ export class AbstractNode {
      */
     SetParent = (node) => {
         // TODO: allow multiple parents in future
-        this.Parent = node;
-        this.Generation = this.IsRoot ? 0 : this.Parent.Generation + 1 
+        this.Parent.push(node);
+        this.Generation = this.IsRoot ? 0 : this.Parent[0].Generation + 1
     }
 
     /**
@@ -78,7 +73,7 @@ export class AbstractNode {
      * @returns {string} - a unique hash-id for the current node
      */
     GetHashId = () => {
-        return `ID-${this.Primary}-${this.Secondary}-${this.Generation}`            
+        return `ID-${this.Primary}-${this.Secondary}-${this.Generation}`
     }
 
     /**
@@ -88,10 +83,10 @@ export class AbstractNode {
      */
     IncrementView = () => {
         if (this.IsRoot) return
-        
+
         let key = this.GetHashId()
 
-        if (this.Views == '-') 
+        if (this.Views == '-')
             this.Views = getIntFromLocal(key, 0)
 
         this.Views = this.IsRoot ? '-' : this.Views + 1
@@ -109,15 +104,15 @@ export class DataRoot extends AbstractNode {
         super(primary, secondary, true);
 
         this.Data = data
-      }
+    }
 
     /**
     * A method that produces the inner-html to render
     * @override
     * @returns {string}  A string that parses to HTML to render as the main content view 
     */
-    DataView = () => { 
-        return this.Data 
+    DataView = () => {
+        return this.Data
     }
 }
 
@@ -129,8 +124,8 @@ export class DataCard extends AbstractNode {
     * @param {string} data - The data in the node.
     */
     constructor(primary, secondary, data) {
-        super(primary, secondary, data, false);  
-        
+        super(primary, secondary, false);
+
         this.Data = data
     }
 
@@ -139,7 +134,7 @@ export class DataCard extends AbstractNode {
     * @override
     * @returns {string}  A string that parses to HTML to render as the main content view 
     */
-    DataView = () => { 
-        return this.Data 
+    DataView = () => {
+        return this.Data
     }
 }

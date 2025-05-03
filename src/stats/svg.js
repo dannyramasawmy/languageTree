@@ -1,4 +1,7 @@
-
+/**
+ * Create an SVGElement of a delta icon
+ * @returns {SVGElement} an SVGElement of a delta icon
+ */
 export function createDelatSvg() {
     let svgElement = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     svgElement.setAttribute("xmlns", "http://www.w3.org/2000/svg");
@@ -13,7 +16,13 @@ export function createDelatSvg() {
 
     svgElement.appendChild(pathElement);
     return svgElement;
-}export function createCardSvg() {
+}
+
+/**
+ * Create an SVGElement of a card icon
+ * @returns {SVGElement} an SVGElement of a card icon
+ */
+export function createCardSvg() {
     let svgElement = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     svgElement.setAttribute("xmlns", "http://www.w3.org/2000/svg");
     svgElement.setAttribute("height", "1em");
@@ -33,6 +42,11 @@ export function createDelatSvg() {
 
     return svgElement;
 }
+
+/**
+ * Create an SVGElement of an eye icon
+ * @returns {SVGElement} an SVGElement of an eye icon
+ */
 export function createEyeSvg() {
     let svgEyeFill = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     svgEyeFill.setAttribute("xmlns", "http://www.w3.org/2000/svg");

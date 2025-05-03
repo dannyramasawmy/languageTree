@@ -4,7 +4,6 @@ import {
     createChildCard} from "./tree/view.js";
 import { createGenerationStat, createNumberOfChildrenStat, createNumberOfViewsStat } from "./stats/view.js";
 import { NodeStatsID } from "./identifiers.js";
-import { formatNumber } from "./utils/string.js";
 
 export class View {
     constructor(mainCardId, dataCardsId, buttonPanelId, settings, global) {
@@ -65,7 +64,7 @@ export class View {
         let nodeStats = document.getElementById(NodeStatsID.CONTAINER)
         nodeStats.appendChild(createGenerationStat(this.GLOBAL.CurrentNode.Generation))
         nodeStats.appendChild(createNumberOfChildrenStat(this.GLOBAL.DisplayCards.length))
-        nodeStats.appendChild(createNumberOfViewsStat(formatNumber(this.GLOBAL.CurrentNode.Views)))
+        nodeStats.appendChild(createNumberOfViewsStat(this.GLOBAL.CurrentNode.Views))
 
         let colorIndex = "";
         let colorWheel = RainbowColorWheel();
