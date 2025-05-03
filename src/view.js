@@ -97,10 +97,9 @@ export class View {
 
         document.getElementById(this.mainCardId).appendChild(
             this.GLOBAL.PrimaryKeyFirst
-                ? createParentCard(currentNode.Primary, currentNode.Secondary, currentNode.DataView())
-                : createParentCard(currentNode.Secondary, currentNode.Primary, currentNode.DataView()));
+                ? createParentCard(currentNode.PrimaryView(), currentNode.SecondaryView(), currentNode.DataView())
+                : createParentCard(currentNode.SecondaryView(), currentNode.PrimaryView(), currentNode.DataView()));
 
-        // stats
         this.GLOBAL.CurrentNode.IncrementView()
         let nodeStats = document.getElementById(NodeStatsID.CONTAINER)
         nodeStats.appendChild(createGenerationStat(this.GLOBAL.CurrentNode.Generation))
@@ -120,14 +119,14 @@ export class View {
             let dataCard = this.GLOBAL.PrimaryKeyFirst
                 ? createChildCard(
                     this.SETTINGS.IsCompactView,
-                    displayList[idx].Primary,
-                    displayList[idx].Secondary,
+                    displayList[idx].PrimaryView(),
+                    displayList[idx].SecondaryView(),
                     cardId,
                     colorIndex)
                 : createChildCard(
                     this.SETTINGS.IsCompactView,
-                    displayList[idx].Secondary,
-                    displayList[idx].Primary,
+                    displayList[idx].SecondaryView(),
+                    displayList[idx].PrimaryView(),
                     cardId,
                     colorIndex);
 

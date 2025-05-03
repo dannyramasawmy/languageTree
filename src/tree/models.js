@@ -43,12 +43,28 @@ export class AbstractNode {
     }
 
     /**
-   * A method that produces the inner-html to render
+   * A method that produces the inner-html to render for the card content
    * @abstract
    * @returns {string} A string that parses to HTML to render as the main content view 
    */
     DataView = () => {
         throw new Error("Abstract method 'DataView' must be implemented")
+    }
+    /**
+   * A method that produces the inner-html to render for the Primary title / key
+   * @abstract
+   * @returns {string} A string that parses to HTML to render as the main content view 
+   */
+    PrimaryView = () => {
+        throw new Error("Abstract method 'PrimaryView' must be implemented")
+    }
+    /**
+   * A method that produces the inner-html to render for the Secondary sub-title / key
+   * @abstract
+   * @returns {string} A string that parses to HTML to render as the main content view 
+   */
+    SecondaryView = () => {
+        throw new Error("Abstract method 'SecondaryView' must be implemented")
     }
 
     /**
@@ -129,6 +145,24 @@ export class DataRoot extends AbstractNode {
     DataView = () => {
         return this.Data
     }
+
+    /**
+    * A method that produces the inner-html to render
+    * @override
+    * @returns {string}  A string that parses to HTML to render as the main title view 
+    */
+    PrimaryView = () => {
+        return this.Primary
+    }
+
+    /**
+    * A method that produces the inner-html to render
+    * @override
+    * @returns {string}  A string that parses to HTML to render as the sub-title view 
+    */
+    SecondaryView = () => {
+        return this.Secondary
+    }
 }
 
 /**
@@ -153,5 +187,23 @@ export class DataCard extends AbstractNode {
     */
     DataView = () => {
         return this.Data
+    }
+
+    /**
+    * A method that produces the inner-html to render
+    * @override
+    * @returns {string}  A string that parses to HTML to render as the main title view 
+    */
+    PrimaryView = () => {
+        return this.Primary
+    }
+    
+    /**
+    * A method that produces the inner-html to render
+    * @override
+    * @returns {string}  A string that parses to HTML to render as the sub-title view 
+    */
+    SecondaryView = () => {
+        return this.Secondary
     }
 }
