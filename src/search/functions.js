@@ -14,7 +14,6 @@ export function searchForMatchingCards(dataCardMapping, isSearchPrimary, searchS
     switch (searchString[0]) {
         case '!':
             // Search in secondary language
-            console.log("!")
             words.push(...
                 (isSearchPrimary 
                     ? Object.getOwnPropertyNames(dataCardMapping.Secondary)
@@ -29,7 +28,6 @@ export function searchForMatchingCards(dataCardMapping, isSearchPrimary, searchS
         
         case '*':
             // Search in both languages
-            console.log("!")
             words.push(
                 ...Object.getOwnPropertyNames(dataCardMapping.Primary), 
                 ...Object.getOwnPropertyNames(dataCardMapping.Secondary));
@@ -40,7 +38,7 @@ export function searchForMatchingCards(dataCardMapping, isSearchPrimary, searchS
                     ? dataCardMapping.Primary[x]
                     : dataCardMapping.Secondary[x]
             break;
-
+  
         default:
             // Search in primary languages
             words.push(...
@@ -53,6 +51,9 @@ export function searchForMatchingCards(dataCardMapping, isSearchPrimary, searchS
             mapping = x => isSearchPrimary
                 ? dataCardMapping.Primary[x]
                 : dataCardMapping.Secondary[x];
+     
+            break;
+
       }
 
     console.log(words.length)

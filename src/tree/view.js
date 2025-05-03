@@ -1,3 +1,10 @@
+/**
+ * Create the Main DataCard
+ * @param {string} title - the title of the data card
+ * @param {string} subtitle - the subitle of the data card
+ * @param {string} data - the data of the data card (in the form of a string that can be parsed as html)
+ * @returns {HTMLDivElement} - The Div element for the main data card
+ */
 export function createParentCard(title, subtitle, data) {
     let card = document.createElement("div");
     card.className = "col-12 gap-2 pb-0";
@@ -29,6 +36,15 @@ export function createParentCard(title, subtitle, data) {
     return card;
 }
 
+/**
+ * Create a child DataCard
+ * @param {boolean} isCompactView - whether to show a compress view (that only shows the primary key title)
+ * @param {string} title - the title of the data card
+ * @param {string} subtitle - the subitle of the data card
+ * @param {string} id - the id of the card
+ * @param {number} colorIndex - a hex colour
+ * @returns {HTMLDivElement} - The Div element for a child data card
+ */
 export function createChildCard(isCompactView, title, subtitle, id, colorIndex) {
     let card = document.createElement("div");
     card.className = "col-12 col-lg-3 col-md-4 gap-2";
@@ -54,6 +70,14 @@ export function createChildCard(isCompactView, title, subtitle, id, colorIndex) 
     return card;
 }
 
+/**
+ * Create a stat view pill-view
+ * @param {string} id - The target Element ID 
+ * @param {string | number} stat - The statistic to show
+ * @param {SVGElement} svgElement - The icon as an svg
+ * @param {string} description - Hover information about the statistic
+ * @returns {HTMLDivElement} - The Div element for the stat pill-view
+ */
 export function createNodeStats(id, stat, svgElement, description) {
     let pill = document.createElement("div");
     pill.className = "col-4 gap-2 pb-0";
@@ -70,7 +94,7 @@ export function createNodeStats(id, stat, svgElement, description) {
     let statView = document.createElement("p");
     statView.className = "px-2 my-1"
     statView.id = id
-    statView.innerText = stat
+    statView.innerText = `${stat}`
 
     pillContent.appendChild(svgElement)
     pillContent.appendChild(statView)

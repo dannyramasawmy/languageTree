@@ -1,7 +1,7 @@
 //
 // Major version: changes in behavior / new buttons etc
 // Minor version: new/edited words / bug fixes
-const version = "v22.0.0";
+const version = "v23.0.0";
 const staticCacheName = 'languageTree-' + version;
 
 self.addEventListener('install', (e) =>
@@ -11,10 +11,12 @@ self.addEventListener('install', (e) =>
     caches.open(staticCacheName).then((cache) => cache.addAll([
       // root
       'languageTree/index.html',
+      'languageTree/configuration.js',
       // data
       'languageTree/data/romanian-functions.js',
       'languageTree/data/romanian-language-models.js',
       'languageTree/data/romanian-tree.js ',
+      'languageTree/data/romanian-views.js ',
       // img
       'languageTree/img/background-tree.svg',
       'languageTree/img/delta-icon.png',
@@ -36,7 +38,6 @@ self.addEventListener('install', (e) =>
       'languageTree/img/swap-language-icon-2.svg',
       // src
       'languageTree/src/app.js',
-      'languageTree/src/configuration.js',
       'languageTree/src/identifiers.js',
       'languageTree/src/view.js',
       // src/buttons
@@ -53,11 +54,11 @@ self.addEventListener('install', (e) =>
       'languageTree/src/search/models.js',
       'languageTree/src/search/view.js',
       // src/settings
-      'languageTree/src/settings/functions.js',
       'languageTree/src/settings/settings.js',
       'languageTree/src/settings/view.js',
       // src/state
       'languageTree/src/state/localStorage.js',
+      'languageTree/src/state/models.js',
       // src/stats
       'languageTree/src/stats/svg.js',
       'languageTree/src/stats/view.js',
@@ -67,6 +68,8 @@ self.addEventListener('install', (e) =>
       'languageTree/src/tree/index.js',
       'languageTree/src/tree/models.js',
       'languageTree/src/tree/view.js',
+      'languageTree/src/tree/types.js',
+      // src/utils
       'languageTree/src/utils/random.js',
       'languageTree/src/utils/string.js',
       // style

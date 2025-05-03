@@ -1,113 +1,98 @@
-export const MakeCopyable = (text) => 
-    `
-    <copy class="copyable" onclick="navigator.clipboard.writeText('${text}')">
-        ○ ${text} <br>
-    </copy>`;
-    
-export function VerbTemplate(
-    presentI,
-    presentYou,
-    presentHeShe,
-    presentWe,
-    presentYouPlural,
-    presentThey,
-    past,
-    infinitive,
-    relfexivePast = "",
-    reflexiveFuture = "") {
-    let columnSettings = "col-lg-3 col-md-6 gap-2 verb";
+import { AbstractNode } from "../src/tree/models.js";
+import { NounFemaleView, NounMaleView, NounNeuterView, VerbDataView, VerbReflexiveSeDataView, VerbReflexiveSiDataView } from "./romanian-views.js";
 
-    return (`
-    <br>
-    <div class="row gy-4">
-        <div class="${columnSettings}">
-            <h4>Present</h4>
-            ${MakeCopyable(`Eu ${presentI}`)}
-            ${MakeCopyable(`Tu ${presentYou}`)}
-            ${MakeCopyable(`El/Ea ${presentHeShe}`)}
-            ${MakeCopyable(`Noi ${presentWe}`)}
-            ${MakeCopyable(`Voi ${presentYouPlural}`)}
-            ${MakeCopyable(`Ei/Ele ${presentThey}`)}
-            </div>
-        <div class="${columnSettings}">
-            <h4>Past</h4>
-            ${MakeCopyable(`Eu ${relfexivePast} am ${past}`)}
-            ${MakeCopyable(`Tu ${relfexivePast} ai ${past}`)}
-            ${MakeCopyable(`El/Ea ${relfexivePast} a ${past}`)}
-            ${MakeCopyable(`Noi ${relfexivePast} am ${past}`)}
-            ${MakeCopyable(`Voi ${relfexivePast} ați ${past}`)}
-            ${MakeCopyable(`Ei/Ele ${relfexivePast} au ${past}`)}
-        </div>
-        <div class="${columnSettings}">
-            <h4>Future</h4>
-            ${MakeCopyable(`Eu ${reflexiveFuture} voi ${infinitive}`)}
-            ${MakeCopyable(`Tu ${reflexiveFuture} vei ${infinitive}`)}
-            ${MakeCopyable(`El/Ea ${reflexiveFuture} va ${infinitive}`)}
-            ${MakeCopyable(`Noi ${reflexiveFuture} vom ${infinitive}`)}
-            ${MakeCopyable(`Voi ${reflexiveFuture} veți ${infinitive}`)}
-            ${MakeCopyable(`Ei/Ele ${reflexiveFuture} vor ${infinitive}`)}
-        </div>
-        <div class="${columnSettings}">
-            <h4>Conditional (you would)</h4>
-            ${MakeCopyable(`Eu aș ${infinitive}`)}
-            ${MakeCopyable(`Tu ai ${infinitive}`)}
-            ${MakeCopyable(`El/Ea ar ${infinitive}`)}
-            ${MakeCopyable(`Noi am ${infinitive}`)}
-            ${MakeCopyable(`Voi ați ${infinitive}`)}
-            ${MakeCopyable(`Ei/Ele ar ${infinitive}`)}
-        </div>
-    </div>
-        <br> <br>`);
+
+export class VerbDataCard extends AbstractNode {
+    /**
+     * Generic verb data card
+     * @param {string} english - English infinitive
+     * @param {string} romanian - Romanian infinitive
+     * @param {string} I - present I form
+     * @param {string} You - present You form
+     * @param {string} HeShe - present He/She form
+     * @param {string} We - present We form
+     * @param {string} YouPlural - present YouPlural form
+     * @param {string} They - present They form
+     * @param {string} past - past form
+     */
+    constructor(english, romanian, I, You, HeShe, We, YouPlural, They, past) {
+        super(english, romanian, false)
+
+        this.english = english.toLowerCase()
+        this.romanian = romanian.toLowerCase()
+
+        this.I = I
+        this.You = You
+        this.HeShe = HeShe
+        this.We = We
+        this.YouPlural = YouPlural
+        this.They = They
+        this.past = past
+    }
+
+    PrimaryView = () => `To ${this.Primary}`
+    SecondaryView = () => `A ${this.Secondary}`
+    SearchableTerms = () => [this.english, this.romanian, this.I, this.You, this.HeShe, this.We, this.YouPlural, this.They, this.past]
 }
 
-export function ReflexiveVerbTemplateSe(presentI, presentYou, presentHeShe, presentWe,
-    presentYouPlural, presentThey, past, infinitive) {
-    return VerbTemplate(
-        "mă " + presentI,
-        "te " + presentYou,
-        "se " + presentHeShe,
-        "ne " + presentWe,
-        "vă " + presentYouPlural,
-        "se " + presentThey,
-        past, infinitive, "(-) ", "(-) ");
+/**
+ * A common verb DataCard
+ */
+export class Verb extends VerbDataCard {
+    DataView = () => VerbDataView(this)
 }
 
-export function ReflexiveVerbTemplateSi(presentI, presentYou, presentHeShe, presentWe,
-    presentYouPlural, presentThey, past, infinitive) {
-    return VerbTemplate(
-        "îmi " + presentI,
-        "îți " + presentYou,
-        "își " + presentHeShe,
-        "ne " + presentWe,
-        "vă " + presentYouPlural,
-        "își " + presentThey,
-        past, infinitive, "(-) ", "(-) ");
+/**
+ * A Reflexive 'Se' form DataCard
+ */
+export class VerbReflexiveSe extends VerbDataCard {
+    DataView = () => VerbReflexiveSeDataView(this)
+    SecondaryView = () => `A Se ${this.Secondary}`
 }
 
-export function NounTemplateFemale(singluar, plural, definiteArticle, definitePlural) {
-    return (`
-        o ${singluar} <br>
-        două ${plural} <br>
-        ${definiteArticle} <br>
-        ${definitePlural} <br>
-    `);
+/**
+ * A Reflexive 'Si' form DataCard
+ */
+export class VerbReflexiveSi extends VerbDataCard {
+    DataView = () => VerbReflexiveSiDataView(this)
+    SecondaryView = () => `A Si ${this.Secondary}`
 }
 
-export function NounTemplateMale(singluar, plural, definiteArticle, definitePlural) {
-    return (`
-        Un ${singluar} <br>
-        doi ${plural} <br>
-        ${definiteArticle} <br>
-        ${definitePlural} <br>
-    `);
+export class NounDataCard extends AbstractNode{
+    /**
+     * A generic Noun data card
+     * @param {string} english - English 
+     * @param {string} romanian - Romanian 
+     * @param {string} singluar - Singluar form (a ...)
+     * @param {string} plural - Plural form (many ...)
+     * @param {string} definiteArticle - The definite article (The ...)
+     * @param {string} definitePlural - The definite article in plural (The many ...)
+     */
+    constructor(english, romanian, singluar, plural, definiteArticle, definitePlural) {
+        super(english, romanian, false)
+        this.english = english
+        this.romanian = romanian
+        this.singluar = singluar
+        this.plural = plural
+        this.definiteArticle = definiteArticle
+        this.definitePlural = definitePlural
+    }
+
+    PrimaryView = () => `${this.english}`
+    SecondaryView = () => `${this.romanian}`
+    SearchableTerms = () => [
+        this.english, this.romanian, this.singluar, this.plural, this.definiteArticle, this.definitePlural,
+    ]
 }
 
-export function NounTemplateNeuter(singluar, plural, definiteArticle, definitePlural) {
-    return (`
-        un ${singluar} <br>
-        două ${plural} <br>
-        ${definiteArticle} <br>
-        ${definitePlural} <br>
-    `);
+export class NounNeuter extends NounDataCard {
+    DataView = () => NounNeuterView(this)
 }
 
+export class NounMale extends NounDataCard {
+    DataView = () => NounMaleView(this)
+}
+
+export class NounFemale extends NounDataCard {
+    DataView = () => NounFemaleView(this)
+}

@@ -1,5 +1,9 @@
 import { ColorWheel } from "./colorWheel.js";
 
+/**
+ * Create a Rainbow ColorWheel
+ * @returns {ColorWheel} - A ColorWheel object with Rainbow colours
+ */
 export function RainbowColorWheel() {
     return new ColorWheel(
         5, 

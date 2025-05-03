@@ -1,3 +1,8 @@
+/**
+ * The Element ID on the main html-body 
+ * @readonly
+ * @enum {string}
+ */
 export const ElementID = {
     SEARCH_BAR_ID: "SearchBar",
     MAIN_CARD_ID: "main-card",
@@ -5,11 +10,21 @@ export const ElementID = {
     BUTTON_PANEL_ID: "buttons-panel"
 };
 
+/**
+ * Element ID's for the navigation bar
+ * @readonly
+ * @enum {string}
+ */
 export const NavbarId = {
     BRAND_BUTTON: "navbar-brand-button",
     HOME_BRAND_BUTTON: "navbar-active-home-button"
 }
 
+/**
+ * Element ID's for the settings panel
+ * @readonly
+ * @enum {string}
+ */
 export const SettingsID = {
     PANEL_ID: "settings-panel",
     COLOR_THEME: "color-theme",
@@ -21,6 +36,11 @@ export const SettingsID = {
     UPDATE_SETTINGS: "update-settings-button"
     };
 
+/**
+ * Element ID's for the buttons panel
+ * @readonly
+ * @enum {string}
+ */
 export const ButtonsID = {
     SHUFFLE: "shuffle-button",
     SORT: "sort-button",
@@ -29,6 +49,11 @@ export const ButtonsID = {
     TRAVEL: "travel-button"
 }
 
+/**
+ * SVG paths for the button icons
+ * @readonly
+ * @enum {string[]}
+ */
 export const ButtonIcons = {
     SHUFFLE: [
         "img/shuffle-icon-1.svg", 
@@ -56,7 +81,11 @@ export const ButtonIcons = {
         "img/leaf-icon.svg"]
 }
     
-
+/**
+ * Element ID's for the statistics views
+ * @readonly
+ * @enum {string}
+ */
 export const NodeStatsID = {
     CONTAINER : "node-stat",
     GENERATION: "generation-number",

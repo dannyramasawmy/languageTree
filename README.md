@@ -11,7 +11,6 @@ The current page of the app will show the current node you are on, as well as it
 This can be installed to your device and used offline by clicking the menu option in your browser, then click install-app.
 
 ## Author:
-
 Danny Ramasawmy
 
 ## Acknowledgments

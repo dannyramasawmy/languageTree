@@ -1,20 +1,34 @@
 import { SettingsID } from "../identifiers.js"
+import { Settings } from "./settings.js";
 
-function horizontalRule()
-{
+/**
+ * Create a horizontal rule element
+ * @returns {HTMLElement} - A horizontal rule
+ */
+function horizontalRule() {
     return document.createElement("hr");
 }
 
-function settingSubtitle(title)
-{
+/**
+ * Create a settings group
+ * @param {string} title - the title for the group of settings
+ * @returns {HTMLElement} - the title element
+ */
+function settingSubtitle(title) {
     let settingsTitle = document.createElement("h4");
     settingsTitle.className = "modal-subtitle";
     settingsTitle.innerHTML = title;
     return settingsTitle;
 }
 
-function booleanSetting(switchId, description, isChecked)
-{
+/**
+ * Create a boolean setting element
+ * @param {string} switchId - the element id for the boolean setting
+ * @param {string} description - the description of the setting
+ * @param {boolean} isChecked - whether the setting is checked or not
+ * @returns {HTMLElement} - a boolean setting element
+ */
+function booleanSetting(switchId, description, isChecked) {
     let booleanSwitch = document.createElement("div");
     booleanSwitch.className = "form-check";
 
@@ -36,6 +50,10 @@ function booleanSetting(switchId, description, isChecked)
     return booleanSwitch;
 }
 
+/**
+ * Create the settings view
+ * @param {Settings} settings - the settings to display
+ */
 export function createSettingsPanel(settings) {
     var settingsPanel = document.getElementById(SettingsID.PANEL_ID);
     settingsPanel.appendChild(settingSubtitle("Theme"));
