@@ -57,8 +57,8 @@ export class View {
 
         document.getElementById(this.mainCardId).appendChild(
             this.GLOBAL.PrimaryLanguageFirst
-                ? createParentCard(currentNode.Primary, currentNode.Secondary, currentNode.Data)
-                : createParentCard(currentNode.Secondary, currentNode.Primary, currentNode.Data));
+                ? createParentCard(currentNode.Primary, currentNode.Secondary, currentNode.DataView())
+                : createParentCard(currentNode.Secondary, currentNode.Primary, currentNode.DataView()));
 
         // stats
         this.GLOBAL.CurrentNode.IncrementView()
