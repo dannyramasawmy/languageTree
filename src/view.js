@@ -5,6 +5,7 @@ import {
 import { createGenerationStat, createNumberOfChildrenStat, createNumberOfViewsStat } from "./stats/view.js";
 import { NodeStatsID } from "./identifiers.js";
 
+
 export class View {
     constructor(mainCardId, dataCardsId, buttonPanelId, settings, global) {
         // TODO: add error checks
