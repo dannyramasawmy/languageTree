@@ -1,7 +1,7 @@
 import { primarySort } from "./functions.js";
 import { getIntFromLocal, saveIntToLocal } from "../state/localStorage.js";
 
-/** @typedef {import('./functions.js').NodeComparator} NodeComparator */
+/** @typedef {import('./types.js').NodeComparator} NodeComparator */
 
 /**
  * @abstract

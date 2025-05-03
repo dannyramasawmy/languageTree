@@ -1,13 +1,7 @@
 import { TreeDepth } from "./enums.js";
 import { AbstractNode } from "./models.js";
 
-/**
- * A function to sort DataCards
- * @callback NodeComparator
- * @param {AbstractNode} a
- * @param {AbstractNode} b
- * @returns {1 | 0 | -1}
- */
+/** @typedef {import('./types.js').NodeComparator} NodeComparator */
 
 /**
  * A basic function to sort DataCards

@@ -27,7 +27,7 @@ var  = new DataCard(
 SetParentAndChild(verbs, );
 */
 
-export const searchPlaceholder = new DataCard("Search", "Căuta", "");
+// export const searchPlaceholder = new DataCard("Search", "Căuta", "");
 
 export function BuildLanguageTree() // returns romanian
 {

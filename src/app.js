@@ -4,7 +4,7 @@ import { ElementID, SettingsID, ButtonsID, NavbarId, ButtonIcons } from "./ident
 import * as search from "./search/index.js"
 import * as tree from "./tree/index.js"
 import { GlobalState } from "./state/models.js"
-import { CONFIG } from "./configuration.js";
+import { CONFIG } from "../configuration.js";
 import { ScrollHandler } from "./history/scroll.js";
 import { RandomElementInArray } from "./utils/random.js";
 import { tryRegisterServiceWorker } from "./sw/register.js";
@@ -69,7 +69,7 @@ resetSearch()
 
 const sortDisplayList = (GLOBAL, displayCards) =>
   tree.functions.sortDataCardArray(
-    GLOBAL.PrimaryLanguageFirst,
+    GLOBAL.PrimaryKeyFirst,
     displayCards,
     CONFIG.PRIMARY_SORT_FUNCTION,
     CONFIG.SECONDARY_SORT_FUNCTION)
