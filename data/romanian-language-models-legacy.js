@@ -1,11 +1,5 @@
 import { AbstractNode } from "../src/tree/models.js";
 
-export const MakeCopyable = (text) => 
-    `
-    <copy class="copyable" onclick="navigator.clipboard.writeText('${text}')">
-        ○ ${text} <br>
-    </copy>`;
-    
 export function NounTemplateFemale(singluar, plural, definiteArticle, definitePlural) {
     return (`
         o ${singluar} <br>

@@ -1,5 +1,5 @@
 import { AbstractNode } from "../src/tree/models.js";
-import { MakeCopyable } from "./romanian-language-models-legacy.js";
+import { MakeCopyable, VerbDataView } from "./romanian-views.js";
 
 
 export class VerbDataCard extends AbstractNode {
@@ -31,48 +31,7 @@ export class VerbDataCard extends AbstractNode {
     }
 
     DataView = () => {
-        let columnSettings = "col-lg-3 col-md-6 gap-2 verb";
-        return (`
-            <br>
-            <div class="row gy-4">
-                <div class="${columnSettings}">
-                    <h4>Present</h4>
-                    ${MakeCopyable(`Eu ${this.presentI}`)}
-                    ${MakeCopyable(`Tu ${this.presentYou}`)}
-                    ${MakeCopyable(`El/Ea ${this.presentHeShe}`)}
-                    ${MakeCopyable(`Noi ${this.presentWe}`)}
-                    ${MakeCopyable(`Voi ${this.presentYouPlural}`)}
-                    ${MakeCopyable(`Ei/Ele ${this.presentThey}`)}
-                    </div>
-                <div class="${columnSettings}">
-                    <h4>Past</h4>
-                    ${MakeCopyable(`Eu ${this.relfexivePast} am ${this.past}`)}
-                    ${MakeCopyable(`Tu ${this.relfexivePast} ai ${this.past}`)}
-                    ${MakeCopyable(`El/Ea ${this.relfexivePast} a ${this.past}`)}
-                    ${MakeCopyable(`Noi ${this.relfexivePast} am ${this.past}`)}
-                    ${MakeCopyable(`Voi ${this.relfexivePast} ați ${this.past}`)}
-                    ${MakeCopyable(`Ei/Ele ${this.relfexivePast} au ${this.past}`)}
-                </div>
-                <div class="${columnSettings}">
-                    <h4>Future</h4>
-                    ${MakeCopyable(`Eu ${this.reflexiveFuture} voi ${this.romanianInfinitive}`)}
-                    ${MakeCopyable(`Tu ${this.reflexiveFuture} vei ${this.romanianInfinitive}`)}
-                    ${MakeCopyable(`El/Ea ${this.reflexiveFuture} va ${this.romanianInfinitive}`)}
-                    ${MakeCopyable(`Noi ${this.reflexiveFuture} vom ${this.romanianInfinitive}`)}
-                    ${MakeCopyable(`Voi ${this.reflexiveFuture} veți ${this.romanianInfinitive}`)}
-                    ${MakeCopyable(`Ei/Ele ${this.reflexiveFuture} vor ${this.romanianInfinitive}`)}
-                </div>
-                <div class="${columnSettings}">
-                    <h4>Conditional (you would)</h4>
-                    ${MakeCopyable(`Eu aș ${this.romanianInfinitive}`)}
-                    ${MakeCopyable(`Tu ai ${this.romanianInfinitive}`)}
-                    ${MakeCopyable(`El/Ea ar ${this.romanianInfinitive}`)}
-                    ${MakeCopyable(`Noi am ${this.romanianInfinitive}`)}
-                    ${MakeCopyable(`Voi ați ${this.romanianInfinitive}`)}
-                    ${MakeCopyable(`Ei/Ele ar ${this.romanianInfinitive}`)}
-                </div>
-            </div>
-            <br> <br>`)
+        return VerbDataView(this)
     }
 
     PrimaryView = () => `To ${this.englishInfinitive}`
