@@ -97,16 +97,16 @@ export function BuildLanguageTree() // returns romanian
     let _close = new Verb("Close", "Închide","închid", "închizi", "închide", "închidem", "închideți", "închid", "închis");
     setParentAndChild(verbs, _close);
 
-    let play = new VerbReflexiveSe("Play", "Juca", "joc", "joci", "joacă", "jucăm", "jucați", "joacă", "jucat", "juca");
+    let play = new VerbReflexiveSe("Play", "Juca", "joc", "joci", "joacă", "jucăm", "jucați", "joacă", "jucat");
     setParentAndChild(verbs, play);
 
     let sing = new Verb("Sing", "Cânta","cânt", "cânți", "cântă", "cântăm", "cântați", "cântă", "cântat");
     setParentAndChild(verbs, sing);
 
-    let seat = new VerbReflexiveSe("Stay (sit)", "Așeza", "așez", "așezi", "așază", "așezăm", "așezați", "așază", "așezat", "așeza");
+    let seat = new VerbReflexiveSe("Stay (sit)", "Așeza", "așez", "așezi", "așază", "așezăm", "așezați", "așază", "așezat");
     setParentAndChild(verbs, seat);
 
-    let stand = new VerbReflexiveSe("Stand", "Ridica", "ridic", "ridici", "ridică", "ridicăm", "ridicați", "ridică", "ridicat", "ridica");
+    let stand = new VerbReflexiveSe("Stand", "Ridica", "ridic", "ridici", "ridică", "ridicăm", "ridicați", "ridică", "ridicat");
     setParentAndChild(verbs, stand);
 
     let stay = new Verb("Stay", "Sta","stau", "stai", "stă", "stăm", "stați", "stau", "stat");
@@ -124,13 +124,13 @@ export function BuildLanguageTree() // returns romanian
     let sleep = new Verb("Sleep", "Dormi","dorm", "dormi", "doarme", "dormim", "dormiți", "dorm", "dormit");
     setParentAndChild(verbs, sleep);
 
-    let sleepWith = new VerbReflexiveSe("Sleep (with)", "Culci", "culc", "culci", "culca", "culcam", "culcați", "culca", "culcat", "culci");
+    let sleepWith = new VerbReflexiveSe("Sleep (with)", "Culci", "culc", "culci", "culca", "culcam", "culcați", "culca", "culcat");
     setParentAndChild(verbs, sleepWith);
 
     let fallAsleep = new Verb("Fall Asleep", "Adormi","adorm", "adormi", "adoarme", "adormim", "adormiți", "adorm", "adormit");
     setParentAndChild(verbs, fallAsleep);
 
-    let getUp = new VerbReflexiveSe("Get up", "Trezi", "trezesc", "trezești", "trezește", "trezim", "treziți", "trezesc", "trezit", "trezi");
+    let getUp = new VerbReflexiveSe("Get up", "Trezi", "trezesc", "trezești", "trezește", "trezim", "treziți", "trezesc", "trezit");
     setParentAndChild(verbs, getUp);
 
     let guessBelieve = new Verb("Guess (believe)", "Crede","cred", "crezi", "crede", "credem", "credeți", "cred", "crezut");
@@ -139,7 +139,7 @@ export function BuildLanguageTree() // returns romanian
     let bring = new Verb("Bring", "Aduce","aduc", "aduci", "aduce", "aducem", "aduceți", "aduc", "adus");
     setParentAndChild(verbs, bring);
 
-    let think = new VerbReflexiveSe("Think", "Gândi", "gândesc", "gândești", "gândește", "gândim", "gândiți", "gândesc", "gândit", "gândi");
+    let think = new VerbReflexiveSe("Think", "Gândi", "gândesc", "gândești", "gândește", "gândim", "gândiți", "gândesc", "gândit");
     setParentAndChild(verbs, think);
 
     let love = new Verb("Love", "Iubi","iubesc", "iubești", "iubește", "iubim", "iubiți", "iubesc", "iubit");
@@ -247,7 +247,7 @@ export function BuildLanguageTree() // returns romanian
     let divorce = new Verb("Divorce", "Divorța","divorțez", "divorțezi", "divorțează", "divorțăm", "divorțați", "divorțează", "divorțat");
     setParentAndChild(verbs, divorce);
 
-    let marry = new VerbReflexiveSe("Marry", "Căsători", "căsătoresc", "căsătorești", "căsătorește", "căsătorim", "căsătoriți", "căsătoresc", "căsătorit", "căsători");
+    let marry = new VerbReflexiveSe("Marry", "Căsători", "căsătoresc", "căsătorești", "căsătorește", "căsătorim", "căsătoriți", "căsătoresc", "căsătorit");
     setParentAndChild(verbs, marry);
 
     let lie = new Verb("Lie", "Minți","mint", "minți", "minte", "mințim", "mințiți", "mint", "mințit");
@@ -256,7 +256,7 @@ export function BuildLanguageTree() // returns romanian
     let hit = new Verb("Hit (kick)", "Lovi","lovesc", "lovești", "lovește", "lovim", "loviți", "lovesc", "lovit");
     setParentAndChild(verbs, hit);
 
-    let desire = new VerbReflexiveSi("Desire (wish)", "Dori", "doresc", "dorești", "dorește", "dorim", "doriți", "doresc", "dorit", "dori");
+    let desire = new VerbReflexiveSi("Desire (wish)", "Dori", "doresc", "dorești", "dorește", "dorim", "doriți", "doresc", "dorit");
     setParentAndChild(verbs, desire);
 
     let hide = new Verb("Hide", "Ascunde","ascund", "ascunzi", "ascunde", "ascundem", "ascundeți", "ascund", "ascuns");
@@ -265,7 +265,7 @@ export function BuildLanguageTree() // returns romanian
     let receive = new Verb("Receive", "Primi","primesc", "primești", "primește", "primim", "primiți", "primesc", "primit");
     setParentAndChild(verbs, receive);
 
-    let wash = new VerbReflexiveSe("Wash", "Spăla", "spăl", "speli", "spală", "spălăm", "spălați", "spală", "spălat", "spăla");
+    let wash = new VerbReflexiveSe("Wash", "Spăla", "spăl", "speli", "spală", "spălăm", "spălați", "spală", "spălat");
     setParentAndChild(verbs, wash);
 
     let lose = new Verb("Lose", "Pierde","pierd", "pierzi", "pierde", "pierdem", "pierd", "pierd", "pierdut");
@@ -365,11 +365,8 @@ export function BuildLanguageTree() // returns romanian
     let shower = new Verb("Shower", "Face duș","fac duș", "faci duș", "face duș", "facem duș", "faceți duș", "fac duș", "făcut duș");
     setParentAndChild(verbs, shower);
     
-    let recover = new VerbReflexiveSe("Recuperate", "Se recupera", "recuperez", "recuperezi", "recuperează", "recuperăm", "recuperați", "recuperează", "recuperat", "recupera");
+    let recover = new VerbReflexiveSe("Recuperate", "recupera", "recuperez", "recuperezi", "recuperează", "recuperăm", "recuperați", "recuperează", "recuperat");
     setParentAndChild(verbs, recover);
-    
-    let brushTeeth = new VerbReflexiveSe("Brush Teeth", "Se spăla pe dinți", "spăl pe dinți", "speli pe dinți", "spală pe dinți", "spălăm pe dinți", "spălați pe dinți", "spală pe dinți", "spălat pe dinți", "spăla pe dinți");
-    setParentAndChild(verbs, brushTeeth);
     
     let exercise = new Verb("Exercise", "Face exerciții","fac exerciții", "faci exerciții", "face exerciții", "facem exerciții", "faceți exerciții", "fac exerciții", "făcut exerciții");
     setParentAndChild(verbs, exercise);
@@ -386,7 +383,7 @@ export function BuildLanguageTree() // returns romanian
     let deny = new Verb("Deny", "Nega","neg", "negi", "neagă", "negăm", "negați", "neagă", "negat");
     setParentAndChild(verbs, deny);
     
-    let commitSuicide = new VerbReflexiveSe("Commit Suicide", "Se sinucide", "sinucid", "sinucizi", "sinucide", "sinucidem", "sinucideți", "sinucid", "sinucis", "sinucide");
+    let commitSuicide = new VerbReflexiveSe("Commit Suicide", "sinucide", "sinucid", "sinucizi", "sinucide", "sinucidem", "sinucideți", "sinucid", "sinucis");
     setParentAndChild(verbs, commitSuicide);
     
     let apologize = new Verb("Apologize", "Cere scuze","cer scuze", "ceri scuze", "cere scuze", "cerem scuze", "cereți scuze", "cer scuze", "cerut scuze");
@@ -419,7 +416,7 @@ export function BuildLanguageTree() // returns romanian
     let suppose = new Verb("Suppose", "Presupune","presupun", "presupui", "presupune", "presupunem", "presupuneți", "presupun", "presupus");
     setParentAndChild(verbs, suppose);
     
-    let imagine = new VerbReflexiveSi("Imagine", "Își imagina", "imaginez", "imaginezi", "imaginează", "imaginăm", "imaginați", "imaginează", "imaginat", "imagina");
+    let imagine = new VerbReflexiveSi("Imagine", "Imagina", "imaginez", "imaginezi", "imaginează", "imaginăm", "imaginați", "imaginează", "imaginat");
     setParentAndChild(verbs, imagine);
     
     let doubt = new Verb("Doubt", "Îndoi","îndoiesc", "îndoiești", "îndoiește", "îndoim", "îndoiți", "îndoiesc", "îndoit");
@@ -515,7 +512,7 @@ export function BuildLanguageTree() // returns romanian
     let express = new Verb("Express", "Exprima","exprim", "exprimi", "exprimă", "exprimăm", "exprimați", "exprimă", "exprimat");
     setParentAndChild(verbs, express);
     
-    let seem = new VerbReflexiveSe("Seem", "Se părea", "par", "pari", "pare", "părem", "păreți", "par", "părut", "părea");
+    let seem = new VerbReflexiveSe("Seem", "Părea", "par", "pari", "pare", "părem", "păreți", "par", "părut");
     setParentAndChild(verbs, seem);
     
     let kill = new Verb("Kill", "Ucide","ucid", "ucizi", "ucide", "ucidem", "ucideți", "ucid", "ucis");
@@ -557,7 +554,7 @@ export function BuildLanguageTree() // returns romanian
     let type = new Verb("Type", "Tasta","tastez", "tastezi", "tastează", "tastăm", "tastați", "tastează", "tastat");
     setParentAndChild(verbs, type);
     
-    let like = new VerbReflexiveSi("Like", "Plăcea", "place", "place", "place", "place", "place", "place", "plăcut", "plăcea");
+    let like = new VerbReflexiveSi("Like", "Plăcea", "place", "place", "place", "place", "place", "place", "plăcut");
     setParentAndChild(verbs, like);
     
     let dream = new Verb("Dream", "Visa","visez", "visezi", "visează", "visăm", "visați", "visează", "visat");
@@ -587,7 +584,7 @@ export function BuildLanguageTree() // returns romanian
     let invite = new Verb("Invite", "Invita","invit", "inviţi", "invită", "invităm", "invitați", "invită", "invitat");
     setParentAndChild(verbs, invite);
     
-    let join = new VerbReflexiveSe("Join", "Se alătura", "alătur", "alături", "alătură", "alăturăm", "alăturați", "alătură", "alăturat", "alătura");
+    let join = new VerbReflexiveSe("Join", "Alătura", "alătur", "alături", "alătură", "alăturăm", "alăturați", "alătură", "alăturat");
     setParentAndChild(verbs, join);
     
     let cancel = new Verb("Cancel", "Anula","anulez", "anulezi", "anulează", "anulăm", "anulați", "anulează", "anulat");
@@ -608,7 +605,7 @@ export function BuildLanguageTree() // returns romanian
     let getHurt = new Verb("Get Hurt", "Fi rănit","sunt rănit", "ești rănit", "este rănit", "suntem răniți", "sunteți răniți", "sunt răniți", "fost rănit");
     setParentAndChild(verbs, getHurt);
     
-    let comeBack = new VerbReflexiveSe("Come Back", "Se întoarce", "întorc", "întorci", "întoarce", "întoarcem", "întoarceți", "întorc", "întors", "întoarce");
+    let comeBack = new VerbReflexiveSe("Come Back", "Întoarce", "întorc", "întorci", "întoarce", "întoarcem", "întoarceți", "întorc", "întors");
     setParentAndChild(verbs, comeBack);
     
     let move = new Verb("Move", "Muta","mut", "muți", "mută", "mutăm", "mutați", "mută", "mutat");
@@ -617,7 +614,7 @@ export function BuildLanguageTree() // returns romanian
     let follow = new Verb("Follow", "Urma","urmez", "urmezi", "urmează", "urmăm", "urmați", "urmează", "urmat");
     setParentAndChild(verbs, follow);
     
-    let dateVerb = new VerbReflexiveSe("Date", "Se întâlni", "întâlnesc", "întâlnești", "întâlnește", "întâlnim", "întâlniți", "întâlnesc", "întâlnit", "întâlni");
+    let dateVerb = new VerbReflexiveSe("Date", "Întâlni", "întâlnesc", "întâlnești", "întâlnește", "întâlnim", "întâlniți", "întâlnesc", "întâlnit");
     setParentAndChild(verbs, dateVerb);
     
     let toPlace = new Verb("Place", "Așeza","așez", "așezi", "așează", "așezăm", "așezați", "așează", "așezat");
@@ -629,7 +626,7 @@ export function BuildLanguageTree() // returns romanian
     let toMeet = new Verb("Meet", "Cunoaște","cunosc", "cunoști", "cunoaște", "cunoaștem", "cunoașteți", "cunosc", "cunoscut");
     setParentAndChild(verbs, toMeet);
     
-    let argue = new VerbReflexiveSe("Argue", "Se certa", "cert", "cerți", "certă", "certăm", "certați", "certă", "certat", "certa");
+    let argue = new VerbReflexiveSe("Argue", "Certa", "cert", "cerți", "certă", "certăm", "certați", "certă", "certat");
     setParentAndChild(verbs, argue);
     
     let cry = new Verb("Cry", "Plânge","plâng", "plângi", "plânge", "plângem", "plângeți", "plâng", "plâns");
@@ -641,7 +638,7 @@ export function BuildLanguageTree() // returns romanian
     let beDivorced = new Verb("Be Divorced", "Fi divorțat","sunt divorțat", "ești divorțat", "este divorțat", "suntem divorțați", "sunteți divorțați", "sunt divorțați", "fost divorțat");
     setParentAndChild(verbs, beDivorced);
     
-    let breakUp = new VerbReflexiveSe("Break Up", "Se despărți", "despart", "desparți", "desparte", "despărțim", "despărțiți", "despart", "despărțit", "despărți");
+    let breakUp = new VerbReflexiveSe("Break Up", "Despărți", "despart", "desparți", "desparte", "despărțim", "despărțiți", "despart", "despărțit");
     setParentAndChild(verbs, breakUp);
     
     let beEngaged = new Verb("Be Engaged", "Fi logodit","sunt logodit", "ești logodit", "este logodit", "suntem logodiți", "sunteți logodiți", "sunt logodiți", "fost logodit");
@@ -650,7 +647,7 @@ export function BuildLanguageTree() // returns romanian
     let clean = new Verb("Clean", "Face curățenie","fac curățenie", "faci curățenie", "face curățenie", "facem curățenie", "faceți curățenie", "fac curățenie", "făcut curățenie");
     setParentAndChild(verbs, clean);
     
-    let rest = new VerbReflexiveSe("Rest", "Se odihni", "odihnesc", "odihnești", "odihnește", "odihnim", "odihniți", "odihnesc", "odihnit", "odihni");
+    let rest = new VerbReflexiveSe("Rest", "Odihni", "odihnesc", "odihnești", "odihnește", "odihnim", "odihniți", "odihnesc", "odihnit");
     setParentAndChild(verbs, rest);
     
     let allow = new Verb("Allow", "Permite","permit", "permiți", "permite", "permitem", "permiteți", "permit", "permis");
@@ -683,7 +680,7 @@ export function BuildLanguageTree() // returns romanian
     let practice = new Verb("Practice", "Exersa","exersez", "exersezi", "exersează", "exersăm", "exersați", "exersează", "exersat");
     setParentAndChild(verbs, practice);
     
-    let enroll = new VerbReflexiveSe("Enroll", "Se înscrie", "înscriu", "înscrii", "înscrie", "înscriem", "înscrieți", "înscriu", "înscris", "înscrie");
+    let enroll = new VerbReflexiveSe("Enroll", "Înscrie", "înscriu", "înscrii", "înscrie", "înscriem", "înscrieți", "înscriu", "înscris");
     setParentAndChild(verbs, enroll);
         
     let hangOut = new Verb("Hang Out", "Petrece timpul","petrec", "petreci", "petrece", "petrecem", "petreceți", "petrec", "petrecut");
@@ -698,7 +695,7 @@ export function BuildLanguageTree() // returns romanian
     let prepare = new Verb("Prepare", "Pregăti","pregătesc", "pregătești", "pregătește", "pregătim", "pregătiți", "pregătesc", "pregătit");
     setParentAndChild(verbs, prepare);
     
-    let fit = new VerbReflexiveSe("Fit", "Se potrivi", "potrivesc", "potrivești", "potrivește", "potrivim", "potriviți", "potrivesc", "potrivit", "potrivi");
+    let fit = new VerbReflexiveSe("Fit", "Potrivi", "potrivesc", "potrivești", "potrivește", "potrivim", "potriviți", "potrivesc", "potrivit");
     setParentAndChild(verbs, fit);
     
     let tryOn = new Verb("Try On", "Proba","prob", "probi", "probă", "probăm", "probați", "probă", "probat");
@@ -740,7 +737,7 @@ export function BuildLanguageTree() // returns romanian
     let turnOn = new Verb("Turn on", "Porni","pornesc", "pornești", "pornește", "pornim", "porniți", "pornesc", "pornit");
     setParentAndChild(verbs, turnOn);
     
-    let takeOff = new VerbReflexiveSe("Take off", "Dezbrăca", "dezbrac", "dezbraci", "dezbracă", "dezbrăcăm", "dezbrăcați", "dezbracă", "dezbrăcat", "dezbrăca");
+    let takeOff = new VerbReflexiveSe("Take off", "Dezbrăca", "dezbrac", "dezbraci", "dezbracă", "dezbrăcăm", "dezbrăcați", "dezbracă", "dezbrăcat");
     setParentAndChild(verbs, takeOff);
     
 

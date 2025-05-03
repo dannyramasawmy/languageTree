@@ -15,13 +15,8 @@ import { Settings } from "./settings/settings.js";
 // =============================================================================
 
 const DEBUG = true;
-
 const ROOT_NODE = CONFIG.DATA_TREE;
-
-console.log(ROOT_NODE)
-
 const GLOBAL = new GlobalState(true, ROOT_NODE, tree.functions.getChildren(ROOT_NODE))
-
 const SETTINGS = Settings.default()
 
 // =============================================================================
