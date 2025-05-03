@@ -3,6 +3,7 @@ import { Button } from "./buttons/button.js";
 import { ElementID, SettingsID, ButtonsID, NavbarId, ButtonIcons } from "./identifiers.js";
 import * as search from "./search/index.js"
 import * as tree from "./tree/index.js"
+import { GlobalState } from "./state/models.js"
 import { CONFIG } from "./configuration.js";
 import { ScrollHandler } from "./history/scroll.js";
 import { RandomElementInArray } from "./utils/random.js";
@@ -19,11 +20,7 @@ const ROOT_NODE = CONFIG.DATA_TREE;
 
 console.log(ROOT_NODE)
 
-const GLOBAL = {
-  "PrimaryLanguageFirst": true,
-  "CurrentNode": ROOT_NODE,
-  "DisplayCards": tree.functions.getChildren(ROOT_NODE)
-};
+const GLOBAL = new GlobalState(true, ROOT_NODE, tree.functions.getChildren(ROOT_NODE))
 
 const SETTINGS = Settings.default()
 
@@ -190,7 +187,7 @@ window.addEventListener('click',
 
       // shuffle current node
       if (event.composedPath()[idx].id == ButtonsID.SHUFFLE) {
-        GLOBAL.CurrentNode = RandomElementInArray(search.functions.getAllCards(G_searchable, GLOBAL.PrimaryLanguageFirst));
+        GLOBAL.CurrentNode = RandomElementInArray(search.functions.getAllCards(G_searchable, GLOBAL.PrimaryKeyFirst));
 
         pushState(GLOBAL.CurrentNode);
         GLOBAL.DisplayCards = tree.functions.getChildren(GLOBAL.CurrentNode);
@@ -231,7 +228,7 @@ window.addEventListener('click',
       // swap language shown
       if (event.composedPath()[idx].id == ButtonsID.SWAP) {
         // state
-        GLOBAL.PrimaryLanguageFirst = GLOBAL.PrimaryLanguageFirst ? false : true;
+        GLOBAL.PrimaryKeyFirst = GLOBAL.PrimaryKeyFirst ? false : true;
 
         let currentHeight = SCROLL.GetCurrentHeight();
         VIEW
@@ -242,7 +239,7 @@ window.addEventListener('click',
             B_SHUFFLE.Current(),
             B_SORT.Current(),
             B_SEARCH.Current(),
-            B_SWAP.Select(GLOBAL.PrimaryLanguageFirst ? 0 : 1),
+            B_SWAP.Select(GLOBAL.PrimaryKeyFirst ? 0 : 1),
             B_TRAVEL.Select(tree.functions.getNodeType(GLOBAL.CurrentNode))]);
 
         return;
@@ -286,7 +283,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function keyboardInput() {
   let searchString = document.getElementById(ElementID.SEARCH_BAR_ID).value;
   GLOBAL.CurrentNode = ROOT_NODE;
-  GLOBAL.DisplayCards = search.functions.searchForMatchingCards(G_searchable, GLOBAL.PrimaryLanguageFirst, searchString);
+  GLOBAL.DisplayCards = search.functions.searchForMatchingCards(G_searchable, GLOBAL.PrimaryKeyFirst, searchString);
 
   console.log("Searching keyboard input");
   console.log(searchString);
