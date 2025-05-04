@@ -2,11 +2,11 @@ import { RainbowColorWheel } from "./colors/rainbowColorWheel.js";
 import {
     createParentCard,
     createChildCard} from "./tree/view.js";
-import { createGenerationStat, createNumberOfChildrenStat, createNumberOfRelaionsStat, createNumberOfViewsStat } from "./stats/view.js";
+import { createParentStat, createNumberOfChildrenStat, createNumberOfRelaionsStat, createNumberOfViewsStat } from "./stats/view.js";
 import { ButtonsID, ElementID, NodeStatsID } from "./identifiers.js";
 import { Settings } from "./settings/settings.js";
 import { GlobalState } from "./state/models.js";
-import { createLinkSvg } from "./stats/svg.js";
+import { createDelatSvg, createLinkSvg } from "./stats/svg.js";
 
 export class View {
     /**
@@ -96,6 +96,7 @@ export class View {
         let currentNode = this.GLOBAL.CurrentNode;
         let displayList = this.GLOBAL.DisplayCards;
         let relations = this.GLOBAL.CurrentNode.Relations;
+        let parents = this.GLOBAL.CurrentNode.Parent;
 
         document.getElementById(this.mainCardId).appendChild(
             this.GLOBAL.PrimaryKeyFirst
@@ -104,13 +105,42 @@ export class View {
 
         this.GLOBAL.CurrentNode.IncrementView()
         let nodeStats = document.getElementById(NodeStatsID.CONTAINER)
-        nodeStats.appendChild(createGenerationStat(this.GLOBAL.CurrentNode.Generation))
+        nodeStats.appendChild(createParentStat(this.GLOBAL.CurrentNode.Parent.length))
         nodeStats.appendChild(createNumberOfChildrenStat(this.GLOBAL.DisplayCards.length))
         nodeStats.appendChild(createNumberOfRelaionsStat(relations.length))
         nodeStats.appendChild(createNumberOfViewsStat(this.GLOBAL.CurrentNode.Views))
 
         let colorIndex = 0;
         let colorWheel = RainbowColorWheel();
+
+        // relation cards
+        let start_idx = currentNode.IsRoot ? 1 : 0
+        for (var idx = start_idx; idx < parents.length; idx++) {
+            let cardId = `parent-card-number-${idx}`;
+
+            if (this.SETTINGS.HasRainbowHover)
+                colorIndex = colorWheel.GetNextColorIndex();
+
+            let d = document.createElement('div')
+            d.appendChild(createDelatSvg())
+            d.className = "d-inline-flex justify-content-center"
+            let v = this.GLOBAL.PrimaryKeyFirst 
+                ? parents[idx].PrimaryView()
+                : parents[idx].SecondaryView()
+            v.className = "px-2 my-1"
+            d.appendChild(v)
+
+            let dataCard = createChildCard(true, d, document.createElement("h5"), cardId, colorIndex);
+
+            // dataCard.style.visibility = "hidden";
+            document.getElementById(this.dataCardsId).appendChild(dataCard);
+
+            // make sliding in animation
+            let settingAnimation = this.SETTINGS.ShowAnimations ? 1 : 0;
+            let animationTime = 1 * settingAnimation * idx / displayList.length;
+            dataCard.style.animation = `${animationTime}s slide-in`;
+            dataCard.style.visibility = "visible";
+        }
 
         // relation cards
         for (var idx = 0; idx < relations.length; idx++) {

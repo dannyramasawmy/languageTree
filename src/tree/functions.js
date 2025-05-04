@@ -72,3 +72,13 @@ export function setParentAndChild(parentNode, childNode) {
     parentNode.AddChild(childNode);
     childNode.SetParent(parentNode);
 }
+
+/**
+ * Define a Parent-Child relationship between two AbstractNode objects
+ * @param {AbstractNode} leftNode - An AbstractNode object
+ * @param {AbstractNode} rightNode - An AbstractNode object
+ */
+export function defineCrossLinkRelationship(leftNode, rightNode) {
+    leftNode.AddCrossLinkRelation(rightNode);
+    rightNode.AddCrossLinkRelation(leftNode);
+}

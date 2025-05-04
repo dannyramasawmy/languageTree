@@ -2,7 +2,7 @@
 // #Root
 // =============================================================================
 
-import { setParentAndChild } from "../src/tree/functions.js";
+import { defineCrossLinkRelationship, setParentAndChild } from "../src/tree/functions.js";
 import { DataCard, DataRoot } from "../src/tree/models.js";
 import { VerbReflexiveSe, VerbReflexiveSi, Verb, NounNeuter, NounMale, NounFemale } from "./romanian-language-models.js";
 
@@ -29,6 +29,44 @@ export function BuildLanguageTree() // returns romanian
         "Romanian language tree. <br>");
 
     romanian.SetParent(romanian);
+    
+    let verbs = new DataCard("Verbs", "Verbe", "Common verbs are listed here.")
+    setParentAndChild(romanian, verbs);
+
+    let a1 = new DataCard('a1-e','a1-r', "")
+    let a2 = new DataCard('a2-e','a2-r', "")
+    let a3 = new DataCard('a3-e','a3-r', "")
+    let a4 = new DataCard('a4-e','a4-r', "")
+    let a5 = new DataCard('a5-e','a5-r', "")
+    let a6 = new DataCard('a6-e','a6-r', "")
+    
+    setParentAndChild(romanian, a1);
+    setParentAndChild(romanian, a2);
+    setParentAndChild(romanian, a3);
+    setParentAndChild(romanian, a4);
+    setParentAndChild(romanian, a5);
+    setParentAndChild(romanian, a6);
+    
+    let a1c1 = new DataCard('a1c1-e','a1c1-r', "")
+    let a1c2 = new DataCard('a1c2-e','a1c2-r', "")
+    let a1c3 = new DataCard('a1c3-e','a1c3-r', "")
+    let a1c4 = new DataCard('a1c4-e','a1c4-r', "")
+    setParentAndChild(a1, a1c1);
+    setParentAndChild(a1, a1c2);
+    setParentAndChild(a1, a1c3);
+    setParentAndChild(a1, a1c4);
+
+    setParentAndChild(verbs, a1)
+    setParentAndChild(verbs, a2)
+    setParentAndChild(verbs, a3)
+    setParentAndChild(verbs, a4)
+    setParentAndChild(verbs, a5)
+
+    defineCrossLinkRelationship(a1, a2)
+    defineCrossLinkRelationship(a1, a3)
+    defineCrossLinkRelationship(a1, a4)
+    defineCrossLinkRelationship(a1, a5)
+
 
     // =============================================================================
     // #Verbs :
@@ -37,8 +75,7 @@ export function BuildLanguageTree() // returns romanian
     //  - https://www.verbix.com/webverbix/go.php?T1=s%C4%83rb%C4%83tori&D1=5&H1=105
     // =============================================================================
 
-    let verbs = new DataCard("Verbs", "Verbe", "Common verbs are listed here.")
-    setParentAndChild(romanian, verbs);
+ 
 
     let have = new Verb("Have", "Avea", "am", "ai", "are", "avem", "aveți", "au", "a")
     setParentAndChild(verbs, have);

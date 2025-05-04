@@ -4,15 +4,15 @@ import { createNodeStats } from "../tree/view.js";
 import { createCardSvg, createDelatSvg, createEyeSvg, createLinkSvg } from "./svg.js";
 
 /**
- * Create the generation number stat
- * @param {number} generationNumber - the generation number of the current DataCard
+ * Create the parent number stat
+ * @param {number} numberOfParents - the number of parents for the current DataCard
  * @returns {HTMLDivElement} The Div element for the stat pill-view
  */
-export function createGenerationStat(generationNumber) {
-    const id = NodeStatsID.GENERATION;
+export function createParentStat(numberOfParents) {
+    const id = NodeStatsID.NUMBER_OF_PARENTS;
     const deltaSvg = createDelatSvg();
-    const description = "The number of ancestors for this node.";
-    return createNodeStats(id, generationNumber, deltaSvg, description);
+    const description = "The number of parents for this node.";
+    return createNodeStats(id, numberOfParents, deltaSvg, description);
 }
 
 /**
