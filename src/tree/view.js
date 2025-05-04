@@ -1,8 +1,8 @@
 /**
  * Create the Main DataCard
- * @param {string} title - the title of the data card
- * @param {string} subtitle - the subitle of the data card
- * @param {string} data - the data of the data card (in the form of a string that can be parsed as html)
+ * @param {HTMLElement} title - the title of the data card
+ * @param {HTMLElement} subtitle - the subitle of the data card
+ * @param {HTMLElement} data - the data of the data card
  * @returns {HTMLDivElement} - The Div element for the main data card
  */
 export function createParentCard(title, subtitle, data) {
@@ -14,18 +14,18 @@ export function createParentCard(title, subtitle, data) {
 
     let cardTitle = document.createElement("h1");
     cardTitle.className = "card-title";
-    cardTitle.innerHTML = title;
+    cardTitle.appendChild(title);
 
     let cardSubtitle = document.createElement("h2");
     cardSubtitle.className = "card-subtitle";
-    cardSubtitle.innerHTML = subtitle;
+    cardSubtitle.appendChild(subtitle);
 
     let cardBody = document.createElement("div");
     cardBody.className = "card-body";
 
     let cardText = document.createElement("p");
     cardText.className = "card-text";
-    cardText.innerHTML = data;
+    cardText.appendChild(data);
 
     card.appendChild(innerCard);
     innerCard.appendChild(cardTitle);
@@ -39,8 +39,8 @@ export function createParentCard(title, subtitle, data) {
 /**
  * Create a child DataCard
  * @param {boolean} isCompactView - whether to show a compress view (that only shows the primary key title)
- * @param {string} title - the title of the data card
- * @param {string} subtitle - the subitle of the data card
+ * @param {HTMLElement} title - the title of the data card
+ * @param {HTMLElement} subtitle - the subitle of the data card
  * @param {string} id - the id of the card
  * @param {number} colorIndex - a hex colour
  * @returns {HTMLDivElement} - The Div element for a child data card
@@ -55,7 +55,7 @@ export function createChildCard(isCompactView, title, subtitle, id, colorIndex) 
 
     let cardTitle = document.createElement("h4");
     cardTitle.className = "card-title";
-    cardTitle.innerHTML = title;
+    cardTitle.appendChild(title);
 
     card.appendChild(innerCard);
     innerCard.appendChild(cardTitle);
@@ -63,7 +63,7 @@ export function createChildCard(isCompactView, title, subtitle, id, colorIndex) 
     if (!isCompactView) {
         let cardSubtitle = document.createElement("h5");
         cardSubtitle.className = "card-subtitle subtle";
-        cardSubtitle.innerHTML = subtitle;
+        cardSubtitle.appendChild(subtitle);
         innerCard.appendChild(cardSubtitle);
     }
 

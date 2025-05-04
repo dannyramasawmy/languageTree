@@ -1,3 +1,4 @@
+import { stringToHTMLElement } from "../src/utils/string.js";
 import { AbstractNode } from "../src/tree/models.js";
 import { NounFemaleView, NounMaleView, NounNeuterView, VerbDataView, VerbReflexiveSeDataView, VerbReflexiveSiDataView } from "./romanian-views.js";
 
@@ -30,8 +31,8 @@ export class VerbDataCard extends AbstractNode {
         this.past = past
     }
 
-    PrimaryView = () => `To ${this.Primary}`
-    SecondaryView = () => `A ${this.Secondary}`
+    PrimaryView = () => stringToHTMLElement(`To ${this.Primary}`)
+    SecondaryView = () => stringToHTMLElement(`A ${this.Secondary}`)
     SearchableTerms = () => [this.english, this.romanian, this.I, this.You, this.HeShe, this.We, this.YouPlural, this.They, this.past]
 }
 
@@ -47,7 +48,7 @@ export class Verb extends VerbDataCard {
  */
 export class VerbReflexiveSe extends VerbDataCard {
     DataView = () => VerbReflexiveSeDataView(this)
-    SecondaryView = () => `A Se ${this.Secondary}`
+    SecondaryView = () => stringToHTMLElement(`A Se ${this.Secondary}`)
 }
 
 /**
@@ -55,7 +56,7 @@ export class VerbReflexiveSe extends VerbDataCard {
  */
 export class VerbReflexiveSi extends VerbDataCard {
     DataView = () => VerbReflexiveSiDataView(this)
-    SecondaryView = () => `A Si ${this.Secondary}`
+    SecondaryView = () => stringToHTMLElement(`A Si ${this.Secondary}`)
 }
 
 export class NounDataCard extends AbstractNode{
@@ -78,8 +79,8 @@ export class NounDataCard extends AbstractNode{
         this.definitePlural = definitePlural
     }
 
-    PrimaryView = () => `${this.english}`
-    SecondaryView = () => `${this.romanian}`
+    PrimaryView = () => stringToHTMLElement(`${this.english}`)
+    SecondaryView = () => stringToHTMLElement(`${this.romanian}`)
     SearchableTerms = () => [
         this.english, this.romanian, this.singluar, this.plural, this.definiteArticle, this.definitePlural,
     ]
