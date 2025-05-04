@@ -1,205 +1,183 @@
+import { buildColumnDiv, buildLinesDiv } from "./romanian-functions.js";
 import { NounDataCard, VerbDataCard } from "./romanian-language-models.js";
 
-export const MakeCopyable = (text) => `
-    <copy class="copyable" onclick="navigator.clipboard.writeText('${text}')">
-        ○ ${text} <br>
-    </copy>`;
+/**
+ * 
+ * @param {NounDataCard} nounDataCard - a noun data object
+ * @returns {HTMLDivElement} - HTML data
+ */
+export const NounMaleView = (nounDataCard) =>
+    buildLinesDiv([`Un ${nounDataCard.singluar}`, `doi ${nounDataCard.plural}`, nounDataCard.definiteArticle, nounDataCard.definitePlural])
 
 /**
  * 
  * @param {NounDataCard} nounDataCard - a noun data object
- * @returns {string} string that can be parsed as HTML 
+ * @returns {HTMLDivElement} - HTML data
  */
-export function NounMaleView(nounDataCard)
-{
-    return (`
-        Un ${nounDataCard.singluar} <br>
-        doi ${nounDataCard.plural} <br>
-        ${nounDataCard.definiteArticle} <br>
-        ${nounDataCard.definitePlural} <br>
-    `);
-}
+export const NounFemaleView = (nounDataCard) =>
+    buildLinesDiv([`O ${nounDataCard.singluar}`, `Doua ${nounDataCard.plural}`, nounDataCard.definiteArticle, nounDataCard.definitePlural])
 
-/**
- * 
- * @param {NounDataCard} nounDataCard - a noun data object
- * @returns {string} string that can be parsed as HTML 
- */
-export function NounFemaleView(nounDataCard)
-{
-    return (`
-        o ${nounDataCard.singluar} <br>
-        două ${nounDataCard.plural} <br>
-        ${nounDataCard.definiteArticle} <br>
-        ${nounDataCard.definitePlural} <br>
-    `);
-}
 
 /**
  * The html string view for a noun data card
  * @param {NounDataCard} nounDataCard - a noun data object
- * @returns {string} string that can be parsed as HTML 
+ * @returns {HTMLDivElement} - HTML data
  */
-export function NounNeuterView(nounDataCard)
-{
-    return (`
-        un ${nounDataCard.singluar} <br>
-        două ${nounDataCard.plural} <br>
-        ${nounDataCard.definiteArticle} <br>
-        ${nounDataCard.definitePlural} <br>
-    `);
-}
-
+export const NounNeuterView = (nounDataCard) =>
+    buildLinesDiv([`Un ${nounDataCard.singluar}`, `Doua ${nounDataCard.plural}`, nounDataCard.definiteArticle, nounDataCard.definitePlural])
 
 /**
  * The html string view for a verb data card
  * @param {VerbDataCard} verbDataCard - a verb data object
- * @returns {string} string that can be parsed as HTML 
+ * @returns {HTMLElement} - HTML data
  */
-export function VerbDataView(verbDataCard)
-{
-    let columnSettings = "col-lg-3 col-md-6 gap-2 verb";
-    return (`
-        <br>
-        <div class="row gy-4">
-            <div class="${columnSettings}">
-                <h4>Present</h4>
-                ${MakeCopyable(`Eu ${verbDataCard.I}`)}
-                ${MakeCopyable(`Tu ${verbDataCard.You}`)}
-                ${MakeCopyable(`El/Ea ${verbDataCard.HeShe}`)}
-                ${MakeCopyable(`Noi ${verbDataCard.We}`)}
-                ${MakeCopyable(`Voi ${verbDataCard.YouPlural}`)}
-                ${MakeCopyable(`Ei/Ele ${verbDataCard.They}`)}
-                </div>
-            <div class="${columnSettings}">
-                <h4>Past</h4>
-                ${MakeCopyable(`Eu am ${verbDataCard.past}`)}
-                ${MakeCopyable(`Tu ai ${verbDataCard.past}`)}
-                ${MakeCopyable(`El/Ea a ${verbDataCard.past}`)}
-                ${MakeCopyable(`Noi am ${verbDataCard.past}`)}
-                ${MakeCopyable(`Voi ați ${verbDataCard.past}`)}
-                ${MakeCopyable(`Ei/Ele au ${verbDataCard.past}`)}
-            </div>
-            <div class="${columnSettings}">
-                <h4>Future</h4>
-                ${MakeCopyable(`Eu voi ${verbDataCard.romanian}`)}
-                ${MakeCopyable(`Tu vei ${verbDataCard.romanian}`)}
-                ${MakeCopyable(`El/Ea va ${verbDataCard.romanian}`)}
-                ${MakeCopyable(`Noi vom ${verbDataCard.romanian}`)}
-                ${MakeCopyable(`Voi veți ${verbDataCard.romanian}`)}
-                ${MakeCopyable(`Ei/Ele vor ${verbDataCard.romanian}`)}
-            </div>
-            <div class="${columnSettings}">
-                <h4>Conditional (you would)</h4>
-                ${MakeCopyable(`Eu aș ${verbDataCard.romanian}`)}
-                ${MakeCopyable(`Tu ai ${verbDataCard.romanian}`)}
-                ${MakeCopyable(`El/Ea ar ${verbDataCard.romanian}`)}
-                ${MakeCopyable(`Noi am ${verbDataCard.romanian}`)}
-                ${MakeCopyable(`Voi ați ${verbDataCard.romanian}`)}
-                ${MakeCopyable(`Ei/Ele ar ${verbDataCard.romanian}`)}
-            </div>
-        </div>
-        <br> <br>`)
+export function VerbDataView(verbDataCard) {
+    let div = document.createElement("div");
+    div.appendChild(document.createElement('br'))
+
+    let row = document.createElement("div")
+    row.classList.add("row", "gy-4")
+
+    row.appendChild(buildColumnDiv("Present", [
+        `Eu ${verbDataCard.I}`,
+        `Tu ${verbDataCard.You}`,
+        `El/Ea ${verbDataCard.HeShe}`,
+        `Noi ${verbDataCard.We}`,
+        `Voi ${verbDataCard.YouPlural}`,
+        `Ei/Ele ${verbDataCard.They}`,
+    ]))
+
+    row.appendChild(buildColumnDiv("Past", [
+        `Eu am ${verbDataCard.past}`,
+        `Tu ai ${verbDataCard.past}`,
+        `El/Ea a ${verbDataCard.past}`,
+        `Noi am ${verbDataCard.past}`,
+        `Voi ați ${verbDataCard.past}`,
+        `Ei/Ele au ${verbDataCard.past}`,
+    ]))
+
+    row.appendChild(buildColumnDiv("Future", [
+        `Eu voi ${verbDataCard.romanian}`,
+        `Tu vei ${verbDataCard.romanian}`,
+        `El/Ea va ${verbDataCard.romanian}`,
+        `Noi vom ${verbDataCard.romanian}`,
+        `Voi veți ${verbDataCard.romanian}`,
+        `Ei/Ele vor ${verbDataCard.romanian}`,
+    ]))
+
+    row.appendChild(buildColumnDiv("Conditional (would)", [
+        `Eu aș ${verbDataCard.romanian}`,
+        `Tu ai ${verbDataCard.romanian}`,
+        `El/Ea ar ${verbDataCard.romanian}`,
+        `Noi am ${verbDataCard.romanian}`,
+        `Voi ați ${verbDataCard.romanian}`,
+        `Ei/Ele ar ${verbDataCard.romanian}`,
+    ]))
+
+    div.appendChild(row)
+    return div
 }
 
 /**
  * The html string view for a verb data card
  * @param {VerbDataCard} verbDataCard - a verb data object
- * @returns {string} string that can be parsed as HTML 
+ * @returns {HTMLElement} - HTML data
  */
-export function VerbReflexiveSeDataView(verbDataCard)
-{
-    let columnSettings = "col-lg-3 col-md-6 gap-2 verb";
-    return (`
-        <br>
-        <div class="row gy-4">
-            <div class="${columnSettings}">
-                <h4>Present</h4>
-                ${MakeCopyable(`Eu mă ${verbDataCard.I}`)}
-                ${MakeCopyable(`Tu te ${verbDataCard.You}`)}
-                ${MakeCopyable(`El/Ea se ${verbDataCard.HeShe}`)}
-                ${MakeCopyable(`Noi ne ${verbDataCard.We}`)}
-                ${MakeCopyable(`Voi vă ${verbDataCard.YouPlural}`)}
-                ${MakeCopyable(`Ei/Ele se ${verbDataCard.They}`)}
-                </div>
-            <div class="${columnSettings}">
-                <h4>Past</h4>
-                ${MakeCopyable(`Eu m-am ${verbDataCard.past}`)}
-                ${MakeCopyable(`Tu t-ai ${verbDataCard.past}`)}
-                ${MakeCopyable(`El/Ea s-a ${verbDataCard.past}`)}
-                ${MakeCopyable(`Noi ne-am ${verbDataCard.past}`)}
-                ${MakeCopyable(`Voi v-ăți ${verbDataCard.past}`)}
-                ${MakeCopyable(`Ei/Ele s-au ${verbDataCard.past}`)}
-            </div>
-            <div class="${columnSettings}">
-                <h4>Future</h4>
-                ${MakeCopyable(`Eu mă voi ${verbDataCard.romanian}`)}
-                ${MakeCopyable(`Tu te vei ${verbDataCard.romanian}`)}
-                ${MakeCopyable(`El/Ea se va ${verbDataCard.romanian}`)}
-                ${MakeCopyable(`Noi ne vom ${verbDataCard.romanian}`)}
-                ${MakeCopyable(`Voi vă veți ${verbDataCard.romanian}`)}
-                ${MakeCopyable(`Ei/Ele se vor ${verbDataCard.romanian}`)}
-            </div>
-            <div class="${columnSettings}">
-                <h4>Conditional (you would)</h4>
-                ${MakeCopyable(`Eu aș ${verbDataCard.romanian}`)}
-                ${MakeCopyable(`Tu ai ${verbDataCard.romanian}`)}
-                ${MakeCopyable(`El/Ea ar ${verbDataCard.romanian}`)}
-                ${MakeCopyable(`Noi am ${verbDataCard.romanian}`)}
-                ${MakeCopyable(`Voi ați ${verbDataCard.romanian}`)}
-                ${MakeCopyable(`Ei/Ele ar ${verbDataCard.romanian}`)}
-            </div>
-        </div>
-        <br> <br>`)
+export function VerbReflexiveSeDataView(verbDataCard) {
+    let div = document.createElement("div");
+    div.appendChild(document.createElement('br'))
+
+    let row = document.createElement("div")
+    row.classList.add("row", "gy-4")
+
+    row.appendChild(buildColumnDiv("Present", [
+        `Eu mă ${verbDataCard.I}`,
+        `Tu te ${verbDataCard.You}`,
+        `El/Ea se ${verbDataCard.HeShe}`,
+        `Noi ne ${verbDataCard.We}`,
+        `Voi vă ${verbDataCard.YouPlural}`,
+        `Ei/Ele se ${verbDataCard.They}`,
+    ]))
+
+    row.appendChild(buildColumnDiv("Past", [
+        `Eu m-am ${verbDataCard.past}`,
+        `Tu t-ai ${verbDataCard.past}`,
+        `El/Ea s-a ${verbDataCard.past}`,
+        `Noi ne-am ${verbDataCard.past}`,
+        `Voi v-ăți ${verbDataCard.past}`,
+        `Ei/Ele s-au ${verbDataCard.past}`,
+    ]))
+
+    row.appendChild(buildColumnDiv("Future", [
+        `Eu mă voi ${verbDataCard.romanian}`,
+        `Tu te vei ${verbDataCard.romanian}`,
+        `El/Ea se va ${verbDataCard.romanian}`,
+        `Noi ne vom ${verbDataCard.romanian}`,
+        `Voi vă veți ${verbDataCard.romanian}`,
+        `Ei/Ele se vor ${verbDataCard.romanian}`,
+    ]))
+
+    row.appendChild(buildColumnDiv("Conditional (would)", [
+        `Eu aș ${verbDataCard.romanian}`,
+        `Tu ai ${verbDataCard.romanian}`,
+        `El/Ea ar ${verbDataCard.romanian}`,
+        `Noi am ${verbDataCard.romanian}`,
+        `Voi ați ${verbDataCard.romanian}`,
+        `Ei/Ele ar ${verbDataCard.romanian}`,
+    ]))
+
+    div.appendChild(row)
+    return div
 }
 
 /**
  * The html string view for a verb data card
  * @param {VerbDataCard} verbDataCard - a verb data object
- * @returns {string} string that can be parsed as HTML 
+ * @returns {HTMLElement} - HTML data
  */
-export function VerbReflexiveSiDataView(verbDataCard)
-{
-    let columnSettings = "col-lg-3 col-md-6 gap-2 verb";
-    return (`
-        <br>
-        <div class="row gy-4">
-            <div class="${columnSettings}">
-                <h4>Present</h4>
-                ${MakeCopyable(`Eu îmi ${verbDataCard.I}`)}
-                ${MakeCopyable(`Tu îți ${verbDataCard.You}`)}
-                ${MakeCopyable(`El/Ea își ${verbDataCard.HeShe}`)}
-                ${MakeCopyable(`Noi ne ${verbDataCard.We}`)}
-                ${MakeCopyable(`Voi vă ${verbDataCard.YouPlural}`)}
-                ${MakeCopyable(`Ei/Ele își ${verbDataCard.They}`)}
-                </div>
-            <div class="${columnSettings}">
-                <h4>Past</h4>
-                ${MakeCopyable(`Eu mi-am ${verbDataCard.past}`)}
-                ${MakeCopyable(`Tu ți-ai ${verbDataCard.past}`)}
-                ${MakeCopyable(`El/Ea și-a ${verbDataCard.past}`)}
-                ${MakeCopyable(`Noi ne-am ${verbDataCard.past}`)}
-                ${MakeCopyable(`Voi v-ați ${verbDataCard.past}`)}
-                ${MakeCopyable(`Ei/Ele și-au ${verbDataCard.past}`)}
-            </div>
-            <div class="${columnSettings}">
-                <h4>Future</h4>
-                ${MakeCopyable(`Eu îmi voi ${verbDataCard.romanian}`)}
-                ${MakeCopyable(`Tu îți vei ${verbDataCard.romanian}`)}
-                ${MakeCopyable(`El/Ea își va ${verbDataCard.romanian}`)}
-                ${MakeCopyable(`Noi ne vom ${verbDataCard.romanian}`)}
-                ${MakeCopyable(`Voi vă veți ${verbDataCard.romanian}`)}
-                ${MakeCopyable(`Ei/Ele își vor ${verbDataCard.romanian}`)}
-            </div>
-            <div class="${columnSettings}">
-                <h4>Conditional (you would)</h4>
-                ${MakeCopyable(`Eu aș ${verbDataCard.romanian}`)}
-                ${MakeCopyable(`Tu ai ${verbDataCard.romanian}`)}
-                ${MakeCopyable(`El/Ea ar ${verbDataCard.romanian}`)}
-                ${MakeCopyable(`Noi am ${verbDataCard.romanian}`)}
-                ${MakeCopyable(`Voi ați ${verbDataCard.romanian}`)}
-                ${MakeCopyable(`Ei/Ele ar ${verbDataCard.romanian}`)}
-            </div>
-        </div>
-        <br> <br>`)
+export function VerbReflexiveSiDataView(verbDataCard) {
+    let div = document.createElement("div");
+    div.appendChild(document.createElement('br'))
+
+    let row = document.createElement("div")
+    row.classList.add("row", "gy-4")
+
+    row.appendChild(buildColumnDiv("Present", [
+        `Eu îmi ${verbDataCard.I}`,
+        `Tu îți ${verbDataCard.You}`,
+        `El/Ea își ${verbDataCard.HeShe}`,
+        `Noi ne ${verbDataCard.We}`,
+        `Voi vă ${verbDataCard.YouPlural}`,
+        `Ei/Ele își ${verbDataCard.They}`,
+    ]))
+
+    row.appendChild(buildColumnDiv("Past", [
+        `Eu mi-am ${verbDataCard.past}`,
+        `Tu ți-ai ${verbDataCard.past}`,
+        `El/Ea și-a ${verbDataCard.past}`,
+        `Noi ne-am ${verbDataCard.past}`,
+        `Voi v-ați ${verbDataCard.past}`,
+        `Ei/Ele și-au ${verbDataCard.past}`,
+    ]))
+
+    row.appendChild(buildColumnDiv("Future", [
+        `Eu îmi voi ${verbDataCard.romanian}`,
+        `Tu îți vei ${verbDataCard.romanian}`,
+        `El/Ea își va ${verbDataCard.romanian}`,
+        `Noi ne vom ${verbDataCard.romanian}`,
+        `Voi vă veți ${verbDataCard.romanian}`,
+        `Ei/Ele își vor ${verbDataCard.romanian}`,
+    ]))
+
+    row.appendChild(buildColumnDiv("Conditional (would)", [
+        `Eu aș ${verbDataCard.romanian}`,
+        `Tu ai ${verbDataCard.romanian}`,
+        `El/Ea ar ${verbDataCard.romanian}`,
+        `Noi am ${verbDataCard.romanian}`,
+        `Voi ați ${verbDataCard.romanian}`,
+        `Ei/Ele ar ${verbDataCard.romanian}`,
+    ]))
+
+    div.appendChild(row)
+    return div
 }

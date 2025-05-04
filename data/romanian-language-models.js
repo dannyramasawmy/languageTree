@@ -40,14 +40,14 @@ export class VerbDataCard extends AbstractNode {
  * A common verb DataCard
  */
 export class Verb extends VerbDataCard {
-    DataView = () => stringToHTMLElement(VerbDataView(this))
+    DataView = () => VerbDataView(this)
 }
 
 /**
  * A Reflexive 'Se' form DataCard
  */
 export class VerbReflexiveSe extends VerbDataCard {
-    DataView = () => stringToHTMLElement(VerbReflexiveSeDataView(this))
+    DataView = () => VerbReflexiveSeDataView(this)
     SecondaryView = () => stringToHTMLElement(`A Se ${this.Secondary}`)
 }
 
@@ -55,7 +55,7 @@ export class VerbReflexiveSe extends VerbDataCard {
  * A Reflexive 'Si' form DataCard
  */
 export class VerbReflexiveSi extends VerbDataCard {
-    DataView = () => stringToHTMLElement(VerbReflexiveSiDataView(this))
+    DataView = () => VerbReflexiveSiDataView(this)
     SecondaryView = () => stringToHTMLElement(`A Si ${this.Secondary}`)
 }
 
@@ -87,13 +87,13 @@ export class NounDataCard extends AbstractNode{
 }
 
 export class NounNeuter extends NounDataCard {
-    DataView = () => stringToHTMLElement(NounNeuterView(this))
+    DataView = () => NounNeuterView(this)
 }
 
 export class NounMale extends NounDataCard {
-    DataView = () => stringToHTMLElement(NounMaleView(this))
+    DataView = () => NounMaleView(this)
 }
 
 export class NounFemale extends NounDataCard {
-    DataView = () => stringToHTMLElement(NounFemaleView(this))
+    DataView = () => NounFemaleView(this)
 }
