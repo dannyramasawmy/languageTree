@@ -1,7 +1,9 @@
 import { RainbowColorWheel } from "./colors/rainbowColorWheel.js";
 import {
     createParentCard,
-    createChildCard} from "./tree/view.js";
+    createChildCard,
+    prefixWithSVG
+} from "./tree/view.js";
 import { createParentStat, createNumberOfChildrenStat, createNumberOfRelaionsStat, createNumberOfViewsStat } from "./stats/view.js";
 import { ButtonsID, ElementID, NodeStatsID } from "./identifiers.js";
 import { Settings } from "./settings/settings.js";
@@ -113,7 +115,7 @@ export class View {
         let colorIndex = 0;
         let colorWheel = RainbowColorWheel();
 
-        // relation cards
+        // parent cards
         let start_idx = currentNode.IsRoot ? 1 : 0
         for (var idx = start_idx; idx < parents.length; idx++) {
             let cardId = `parent-card-number-${idx}`;
@@ -121,16 +123,17 @@ export class View {
             if (this.SETTINGS.HasRainbowHover)
                 colorIndex = colorWheel.GetNextColorIndex();
 
-            let d = document.createElement('div')
-            d.appendChild(createDelatSvg())
-            d.className = "d-inline-flex justify-content-center"
-            let v = this.GLOBAL.PrimaryKeyFirst 
+            let title = this.GLOBAL.PrimaryKeyFirst
                 ? parents[idx].PrimaryView()
                 : parents[idx].SecondaryView()
-            v.className = "px-2 my-1"
-            d.appendChild(v)
 
-            let dataCard = createChildCard(true, d, document.createElement("h5"), cardId, colorIndex);
+            let dataCard = createChildCard(
+                true,
+                prefixWithSVG(title, createDelatSvg()),
+                document.createElement("h5"),
+                cardId,
+                colorIndex);
+
             document.getElementById(this.dataCardsId).appendChild(dataCard);
         }
 
@@ -141,16 +144,17 @@ export class View {
             if (this.SETTINGS.HasRainbowHover)
                 colorIndex = colorWheel.GetNextColorIndex();
 
-            let d = document.createElement('div')
-            d.appendChild(createLinkSvg())
-            d.className = "d-inline-flex justify-content-center"
-            let v = this.GLOBAL.PrimaryKeyFirst 
+            let title = this.GLOBAL.PrimaryKeyFirst
                 ? relations[idx].PrimaryView()
                 : relations[idx].SecondaryView()
-            v.className = "px-2 my-1"
-            d.appendChild(v)
 
-            let dataCard = createChildCard(true, d, document.createElement("h5"), cardId, colorIndex);
+            let dataCard = createChildCard(
+                true,
+                prefixWithSVG(title, createLinkSvg()),
+                document.createElement("h5"),
+                cardId,
+                colorIndex);
+
             document.getElementById(this.dataCardsId).appendChild(dataCard);
         }
 

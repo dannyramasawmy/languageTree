@@ -71,6 +71,22 @@ export function createChildCard(isCompactView, title, subtitle, id, colorIndex) 
 }
 
 /**
+ * Wrap title with an svg prefix
+ * @param {HTMLElement} title - the card title as an html element
+ * @param {SVGElement} svgElement 
+ * @returns {HTMLElement}
+ */
+export function prefixWithSVG(title, svgElement)
+{
+    let d = document.createElement('div')
+    d.appendChild(svgElement)
+    d.className = "d-inline-flex justify-content-center"
+    title.className = "px-2 my-1"
+    d.appendChild(title)
+    return d
+}
+
+/**
  * Create a stat view pill-view
  * @param {string} id - The target Element ID 
  * @param {string | number} stat - The statistic to show
