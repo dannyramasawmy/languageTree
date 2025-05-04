@@ -106,8 +106,8 @@ export class View {
         this.GLOBAL.CurrentNode.IncrementView()
         let nodeStats = document.getElementById(NodeStatsID.CONTAINER)
         nodeStats.appendChild(createParentStat(this.GLOBAL.CurrentNode.Parent.length))
-        nodeStats.appendChild(createNumberOfChildrenStat(this.GLOBAL.DisplayCards.length))
         nodeStats.appendChild(createNumberOfRelaionsStat(relations.length))
+        nodeStats.appendChild(createNumberOfChildrenStat(this.GLOBAL.DisplayCards.length))
         nodeStats.appendChild(createNumberOfViewsStat(this.GLOBAL.CurrentNode.Views))
 
         let colorIndex = 0;
@@ -131,15 +131,7 @@ export class View {
             d.appendChild(v)
 
             let dataCard = createChildCard(true, d, document.createElement("h5"), cardId, colorIndex);
-
-            // dataCard.style.visibility = "hidden";
             document.getElementById(this.dataCardsId).appendChild(dataCard);
-
-            // make sliding in animation
-            let settingAnimation = this.SETTINGS.ShowAnimations ? 1 : 0;
-            let animationTime = 1 * settingAnimation * idx / displayList.length;
-            dataCard.style.animation = `${animationTime}s slide-in`;
-            dataCard.style.visibility = "visible";
         }
 
         // relation cards
@@ -159,15 +151,7 @@ export class View {
             d.appendChild(v)
 
             let dataCard = createChildCard(true, d, document.createElement("h5"), cardId, colorIndex);
-
-            // dataCard.style.visibility = "hidden";
             document.getElementById(this.dataCardsId).appendChild(dataCard);
-
-            // make sliding in animation
-            let settingAnimation = this.SETTINGS.ShowAnimations ? 1 : 0;
-            let animationTime = 1 * settingAnimation * idx / displayList.length;
-            dataCard.style.animation = `${animationTime}s slide-in`;
-            dataCard.style.visibility = "visible";
         }
 
         // child cards

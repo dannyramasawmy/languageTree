@@ -38,7 +38,7 @@ const B_SHUFFLE = new Button(SETTINGS, ButtonsID.SHUFFLE, "Shuffle", ButtonIcons
 const B_SORT = new Button(SETTINGS, ButtonsID.SORT, "Sort", ButtonIcons.SORT, "sort-button");
 const B_SEARCH = new Button(SETTINGS, ButtonsID.SEARCH, "Search", ButtonIcons.SEARCH, "search-button").IsSearchButton();
 const B_SWAP = new Button(SETTINGS, ButtonsID.SWAP, "Swap", ButtonIcons.SWAP, "swap-button");
-const B_TRAVEL = new Button(SETTINGS, ButtonsID.TRAVEL, "Travel", ButtonIcons.TRAVEL, "travel-button");
+const B_TRAVEL = new Button(SETTINGS, ButtonsID.TRAVEL, "Return", ButtonIcons.TRAVEL, "travel-button");
 
 VIEW
   .ClearCards()
@@ -313,27 +313,30 @@ window.addEventListener('click',
         return;
       }
 
-      // go to parent
+      // go to parent / travel
       if (event.composedPath()[idx].id == ButtonsID.TRAVEL) {
-        GLOBAL.CurrentNode = GLOBAL.CurrentNode.Parent[0];
-        GLOBAL.DisplayCards = tree.functions.getChildren(GLOBAL.CurrentNode);
-        pushState(GLOBAL.CurrentNode)
+        window.history.back();
+        
 
-        // display
-        var heightToSet = SCROLL.GetPreviousHeight();
-        resetSearch();
-        GLOBAL.DisplayCards = sortDisplayList(GLOBAL, GLOBAL.DisplayCards);
+        // GLOBAL.CurrentNode = GLOBAL.CurrentNode.Parent[0];
+        // GLOBAL.DisplayCards = tree.functions.getChildren(GLOBAL.CurrentNode);
+        // pushState(GLOBAL.CurrentNode)
 
-        VIEW
-          .ClearCards()
-          .UpdateCards(heightToSet)
-          .ClearButtons()
-          .UpdateButtons([
-            B_SHUFFLE.Current(),
-            B_SORT.Current(),
-            B_SEARCH.Current(),
-            B_SWAP.Current(),
-            B_TRAVEL.Select(tree.functions.getNodeType(GLOBAL.CurrentNode))]);
+        // // display
+        // var heightToSet = SCROLL.GetPreviousHeight();
+        // resetSearch();
+        // GLOBAL.DisplayCards = sortDisplayList(GLOBAL, GLOBAL.DisplayCards);
+
+        // VIEW
+        //   .ClearCards()
+        //   .UpdateCards(heightToSet)
+        //   .ClearButtons()
+        //   .UpdateButtons([
+        //     B_SHUFFLE.Current(),
+        //     B_SORT.Current(),
+        //     B_SEARCH.Current(),
+        //     B_SWAP.Current(),
+        //     B_TRAVEL.Select(tree.functions.getNodeType(GLOBAL.CurrentNode))]);
 
         return;
       }
