@@ -315,28 +315,25 @@ window.addEventListener('click',
 
       // go to parent / travel
       if (event.composedPath()[idx].id == ButtonsID.TRAVEL) {
-        window.history.back();
-        
+        GLOBAL.CurrentNode = GLOBAL.CurrentNode.Parent[0];
+        GLOBAL.DisplayCards = tree.functions.getChildren(GLOBAL.CurrentNode);
+        pushState(GLOBAL.CurrentNode)
 
-        // GLOBAL.CurrentNode = GLOBAL.CurrentNode.Parent[0];
-        // GLOBAL.DisplayCards = tree.functions.getChildren(GLOBAL.CurrentNode);
-        // pushState(GLOBAL.CurrentNode)
+        // display
+        var heightToSet = SCROLL.GetPreviousHeight();
+        resetSearch();
+        GLOBAL.DisplayCards = sortDisplayList(GLOBAL, GLOBAL.DisplayCards);
 
-        // // display
-        // var heightToSet = SCROLL.GetPreviousHeight();
-        // resetSearch();
-        // GLOBAL.DisplayCards = sortDisplayList(GLOBAL, GLOBAL.DisplayCards);
-
-        // VIEW
-        //   .ClearCards()
-        //   .UpdateCards(heightToSet)
-        //   .ClearButtons()
-        //   .UpdateButtons([
-        //     B_SHUFFLE.Current(),
-        //     B_SORT.Current(),
-        //     B_SEARCH.Current(),
-        //     B_SWAP.Current(),
-        //     B_TRAVEL.Select(tree.functions.getNodeType(GLOBAL.CurrentNode))]);
+        VIEW
+          .ClearCards()
+          .UpdateCards(heightToSet)
+          .ClearButtons()
+          .UpdateButtons([
+            B_SHUFFLE.Current(),
+            B_SORT.Current(),
+            B_SEARCH.Current(),
+            B_SWAP.Current(),
+            B_TRAVEL.Select(tree.functions.getNodeType(GLOBAL.CurrentNode))]);
 
         return;
       }
