@@ -2,10 +2,11 @@ import { RainbowColorWheel } from "./colors/rainbowColorWheel.js";
 import {
     createParentCard,
     createChildCard} from "./tree/view.js";
-import { createGenerationStat, createNumberOfChildrenStat, createNumberOfViewsStat } from "./stats/view.js";
+import { createGenerationStat, createNumberOfChildrenStat, createNumberOfRelaionsStat, createNumberOfViewsStat } from "./stats/view.js";
 import { ButtonsID, ElementID, NodeStatsID } from "./identifiers.js";
 import { Settings } from "./settings/settings.js";
 import { GlobalState } from "./state/models.js";
+import { createLinkSvg } from "./stats/svg.js";
 
 export class View {
     /**
@@ -94,6 +95,7 @@ export class View {
         // main card
         let currentNode = this.GLOBAL.CurrentNode;
         let displayList = this.GLOBAL.DisplayCards;
+        let relations = this.GLOBAL.CurrentNode.Relations;
 
         document.getElementById(this.mainCardId).appendChild(
             this.GLOBAL.PrimaryKeyFirst
@@ -104,10 +106,39 @@ export class View {
         let nodeStats = document.getElementById(NodeStatsID.CONTAINER)
         nodeStats.appendChild(createGenerationStat(this.GLOBAL.CurrentNode.Generation))
         nodeStats.appendChild(createNumberOfChildrenStat(this.GLOBAL.DisplayCards.length))
+        nodeStats.appendChild(createNumberOfRelaionsStat(relations.length))
         nodeStats.appendChild(createNumberOfViewsStat(this.GLOBAL.CurrentNode.Views))
 
         let colorIndex = 0;
         let colorWheel = RainbowColorWheel();
+
+        // relation cards
+        for (var idx = 0; idx < relations.length; idx++) {
+            let cardId = `relation-card-number-${idx}`;
+
+            if (this.SETTINGS.HasRainbowHover)
+                colorIndex = colorWheel.GetNextColorIndex();
+
+            let d = document.createElement('div')
+            d.appendChild(createLinkSvg())
+            d.className = "d-inline-flex justify-content-center"
+            let v = this.GLOBAL.PrimaryKeyFirst 
+                ? relations[idx].PrimaryView()
+                : relations[idx].SecondaryView()
+            v.className = "px-2 my-1"
+            d.appendChild(v)
+
+            let dataCard = createChildCard(true, d, document.createElement("h5"), cardId, colorIndex);
+
+            // dataCard.style.visibility = "hidden";
+            document.getElementById(this.dataCardsId).appendChild(dataCard);
+
+            // make sliding in animation
+            let settingAnimation = this.SETTINGS.ShowAnimations ? 1 : 0;
+            let animationTime = 1 * settingAnimation * idx / displayList.length;
+            dataCard.style.animation = `${animationTime}s slide-in`;
+            dataCard.style.visibility = "visible";
+        }
 
         // child cards
         for (var idx = 0; idx < displayList.length; idx++) {

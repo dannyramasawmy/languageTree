@@ -154,6 +154,42 @@ window.addEventListener('click',
           console.log(currentClickPathId);
         }
 
+        if (typeof currentClickPathId === 'string' && currentClickPathId.includes("relation-card-number-")) {
+          let idNumber = currentClickPathId.slice(21);
+  
+          if (DEBUG) {
+            console.log("Clicked");
+            console.log(currentClickPathId);
+            console.log(idNumber);
+          }
+  
+          // when clicking on a card
+          if (GLOBAL.CurrentNode.Relations[idNumber] !== undefined) {
+            // state
+            GLOBAL.CurrentNode = GLOBAL.CurrentNode.Relations[idNumber];
+            GLOBAL.DisplayCards = tree.functions.getChildren(GLOBAL.CurrentNode);
+            pushState(GLOBAL.CurrentNode)
+            SCROLL.AddHistory();
+  
+            // display
+            resetSearch();
+            GLOBAL.DisplayCards = sortDisplayList(GLOBAL, GLOBAL.DisplayCards);
+  
+            VIEW
+              .ClearCards()
+              .UpdateCards(0)
+              .ClearButtons()
+              .UpdateButtons([
+                B_SHUFFLE.Current(),
+                B_SORT.Current(),
+                B_SEARCH.Current(),
+                B_SWAP.Current(),
+                B_TRAVEL.Select(tree.functions.getNodeType(GLOBAL.CurrentNode))]);
+          }
+  
+          return;
+        }
+  
         // when clicking on a card
         if (GLOBAL.DisplayCards[idNumber] !== undefined) {
           // state

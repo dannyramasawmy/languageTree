@@ -80,7 +80,7 @@ export function createChildCard(isCompactView, title, subtitle, id, colorIndex) 
  */
 export function createNodeStats(id, stat, svgElement, description) {
     let pill = document.createElement("div");
-    pill.className = "col-4 gap-2 pb-0";
+    pill.className = "col-3 gap-2 pb-0";
 
     let pillBody = document.createElement("div");
     pillBody.className = "card text-bg mb-3 pt-0 pb-0 rounded-pill";

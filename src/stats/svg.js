@@ -44,6 +44,31 @@ export function createCardSvg() {
 }
 
 /**
+ * Create an SVGElement of a link icon
+ * @returns {SVGElement} an SVGElement of a link icon
+ */
+export function createLinkSvg() {
+    let svgElement = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svgElement.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+    svgElement.setAttribute("height", "1em");
+    svgElement.setAttribute("stroke", "#e67e22");
+    svgElement.setAttribute("fill", "currentColor");
+    svgElement.setAttribute("class", "bi bi-card-text my-2");
+    svgElement.setAttribute("viewBox", "0 0 16 16");
+
+    let path1 = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    path1.setAttribute("d", "M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9q-.13 0-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z");
+
+    let path2 = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    path2.setAttribute("d", "M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4 4 0 0 1-.82 1H12a3 3 0 1 0 0-6z");
+
+    svgElement.appendChild(path1);
+    svgElement.appendChild(path2);
+
+    return svgElement;
+}
+
+/**
  * Create an SVGElement of an eye icon
  * @returns {SVGElement} an SVGElement of an eye icon
  */
