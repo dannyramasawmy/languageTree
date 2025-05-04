@@ -74,6 +74,19 @@ export function setParentAndChild(parentNode, childNode) {
 }
 
 /**
+ * Define a Parent-Child relationship between one parent and multiple children
+ * @param {AbstractNode} parentNode - An AbstractNode object
+ * @param {AbstractNode[]} children - A collection of AbstractNode objects
+ */
+export function setParentAndMultipleChildren(parentNode, children) {
+    for (let node of children)
+    {
+        parentNode.AddChild(node);
+        node.SetParent(parentNode);
+    }
+}
+
+/**
  * Define a Parent-Child relationship between two AbstractNode objects
  * @param {AbstractNode} leftNode - An AbstractNode object
  * @param {AbstractNode} rightNode - An AbstractNode object
