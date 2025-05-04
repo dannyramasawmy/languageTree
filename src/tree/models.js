@@ -1,5 +1,6 @@
 import { primarySort } from "./functions.js";
 import { getIntFromLocal, saveIntToLocal } from "../state/localStorage.js";
+import { stringToHTMLElement } from "../utils/string.js";
 
 /** @typedef {import('./types.js').NodeComparator} NodeComparator */
 
@@ -43,25 +44,25 @@ export class AbstractNode {
     }
 
     /**
-   * A method that produces the inner-html to render for the card content
+   * A method that produces the html to render for the card content
    * @abstract
-   * @returns {string} A string that parses to HTML to render as the main content view 
+   * @returns {HTMLElement} An HTML to render as the main content view 
    */
     DataView = () => {
         throw new Error("Abstract method 'DataView' must be implemented")
     }
     /**
-   * A method that produces the inner-html to render for the Primary title / key
+   * A method that produces the html to render for the Primary title / key
    * @abstract
-   * @returns {string} A string that parses to HTML to render as the main content view 
+   * @returns {HTMLElement} HTML to render as the Primary title view 
    */
     PrimaryView = () => {
         throw new Error("Abstract method 'PrimaryView' must be implemented")
     }
     /**
-   * A method that produces the inner-html to render for the Secondary sub-title / key
+   * A method that produces the html to render for the Secondary sub-title / key
    * @abstract
-   * @returns {string} A string that parses to HTML to render as the main content view 
+   * @returns {HTMLElement} HTML to render as the Secondary sub-title view 
    */
     SecondaryView = () => {
         throw new Error("Abstract method 'SecondaryView' must be implemented")
@@ -138,30 +139,30 @@ export class DataRoot extends AbstractNode {
     }
 
     /**
-    * A method that produces the inner-html to render
+    * A method that produces the html to render
     * @override
-    * @returns {string}  A string that parses to HTML to render as the main content view 
+    * @returns {HTMLElement}  HTML to render as the main content view 
     */
     DataView = () => {
-        return this.Data
+        return stringToHTMLElement(this.Data)
     }
 
     /**
-    * A method that produces the inner-html to render
+    * A method that produces the html to render
     * @override
-    * @returns {string}  A string that parses to HTML to render as the main title view 
+    * @returns {HTMLElement}  HTML to render as the main title view 
     */
     PrimaryView = () => {
-        return this.Primary
+        return stringToHTMLElement(this.Primary)
     }
 
     /**
-    * A method that produces the inner-html to render
+    * A method that produces the html to render
     * @override
-    * @returns {string}  A string that parses to HTML to render as the sub-title view 
+    * @returns {HTMLElement}  HTML to render as the sub-title view 
     */
    SecondaryView = () => {
-       return this.Secondary
+       return stringToHTMLElement(this.Secondary)
     }
     
     
@@ -189,30 +190,30 @@ export class DataCard extends AbstractNode {
     }
 
     /**
-    * A method that produces the inner-html to render
+    * A method that produces the html to render
     * @override
-    * @returns {string}  A string that parses to HTML to render as the main content view 
+    * @returns {HTMLElement}  HTML to render as the main content view 
     */
     DataView = () => {
-        return this.Data
+        return stringToHTMLElement(this.Data)
     }
 
     /**
-    * A method that produces the inner-html to render
+    * A method that produces the html to render
     * @override
-    * @returns {string}  A string that parses to HTML to render as the main title view 
+    * @returns {HTMLElement}  HTML to render as the main title view 
     */
     PrimaryView = () => {
-        return this.Primary
+        return stringToHTMLElement(this.Primary)
     }
     
     /**
-    * A method that produces the inner-html to render
+    * A method that produces the html to render
     * @override
-    * @returns {string}  A string that parses to HTML to render as the sub-title view 
+    * @returns {HTMLElement}  HTML to render as the sub-title view 
     */
     SecondaryView = () => {
-        return this.Secondary
+        return stringToHTMLElement(this.Secondary)
     }
 
     /**

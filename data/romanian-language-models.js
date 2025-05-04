@@ -1,3 +1,4 @@
+import { stringToHTMLElement } from "../src/utils/string.js";
 import { AbstractNode } from "../src/tree/models.js";
 import { NounFemaleView, NounMaleView, NounNeuterView, VerbDataView, VerbReflexiveSeDataView, VerbReflexiveSiDataView } from "./romanian-views.js";
 
@@ -30,8 +31,8 @@ export class VerbDataCard extends AbstractNode {
         this.past = past
     }
 
-    PrimaryView = () => `To ${this.Primary}`
-    SecondaryView = () => `A ${this.Secondary}`
+    PrimaryView = () => stringToHTMLElement(`To ${this.Primary}`)
+    SecondaryView = () => stringToHTMLElement(`A ${this.Secondary}`)
     SearchableTerms = () => [this.english, this.romanian, this.I, this.You, this.HeShe, this.We, this.YouPlural, this.They, this.past]
 }
 
@@ -39,23 +40,23 @@ export class VerbDataCard extends AbstractNode {
  * A common verb DataCard
  */
 export class Verb extends VerbDataCard {
-    DataView = () => VerbDataView(this)
+    DataView = () => stringToHTMLElement(VerbDataView(this))
 }
 
 /**
  * A Reflexive 'Se' form DataCard
  */
 export class VerbReflexiveSe extends VerbDataCard {
-    DataView = () => VerbReflexiveSeDataView(this)
-    SecondaryView = () => `A Se ${this.Secondary}`
+    DataView = () => stringToHTMLElement(VerbReflexiveSeDataView(this))
+    SecondaryView = () => stringToHTMLElement(`A Se ${this.Secondary}`)
 }
 
 /**
  * A Reflexive 'Si' form DataCard
  */
 export class VerbReflexiveSi extends VerbDataCard {
-    DataView = () => VerbReflexiveSiDataView(this)
-    SecondaryView = () => `A Si ${this.Secondary}`
+    DataView = () => stringToHTMLElement(VerbReflexiveSiDataView(this))
+    SecondaryView = () => stringToHTMLElement(`A Si ${this.Secondary}`)
 }
 
 export class NounDataCard extends AbstractNode{
@@ -78,21 +79,21 @@ export class NounDataCard extends AbstractNode{
         this.definitePlural = definitePlural
     }
 
-    PrimaryView = () => `${this.english}`
-    SecondaryView = () => `${this.romanian}`
+    PrimaryView = () => stringToHTMLElement(`${this.english}`)
+    SecondaryView = () => stringToHTMLElement(`${this.romanian}`)
     SearchableTerms = () => [
         this.english, this.romanian, this.singluar, this.plural, this.definiteArticle, this.definitePlural,
     ]
 }
 
 export class NounNeuter extends NounDataCard {
-    DataView = () => NounNeuterView(this)
+    DataView = () => stringToHTMLElement(NounNeuterView(this))
 }
 
 export class NounMale extends NounDataCard {
-    DataView = () => NounMaleView(this)
+    DataView = () => stringToHTMLElement(NounMaleView(this))
 }
 
 export class NounFemale extends NounDataCard {
-    DataView = () => NounFemaleView(this)
+    DataView = () => stringToHTMLElement(NounFemaleView(this))
 }

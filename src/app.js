@@ -10,6 +10,7 @@ import { RandomElementInArray } from "./utils/random.js";
 import { tryRegisterServiceWorker } from "./sw/register.js";
 import { Settings } from "./settings/settings.js";
 
+
 // =============================================================================
 // Global variables
 // =============================================================================
