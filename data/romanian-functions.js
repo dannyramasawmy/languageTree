@@ -70,5 +70,8 @@ export function buildColumnDiv(title, lines) {
  */
 export const copyToClipboard = (line) => {
     navigator.clipboard.writeText(line);
+    const utterance = new SpeechSynthesisUtterance(line);
+    utterance.lang = "it-It"; // Set language (e.g. Romanian)
+    speechSynthesis.speak(utterance);
 };
 

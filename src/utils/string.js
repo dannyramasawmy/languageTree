@@ -24,3 +24,61 @@ export function stringToHTMLElement(text) {
     div.innerHTML = text
     return div
 }
+
+/**
+ * TODO: Revisit and make less janky
+ * Creates a scrollable div that shows max 10 characters horizontally.
+ * @param {string} text - The full text content to display.
+ * @returns {HTMLElement}
+ */
+export function createScrollableTextDiv(text) {
+    
+    let numberOfCharacters = 15;
+    
+    if (text.length < numberOfCharacters)
+        return stringToHTMLElement(text)
+
+    let scroll_text = `${text} `
+
+    const div = document.createElement("div");
+    div.textContent = scroll_text;
+  
+    // Minimal necessary layout for overflow scrolling
+    div.style.whiteSpace = "nowrap";
+    div.style.overflow = "hidden"; // Hide scrollbars
+    div.style.maxWidth = `${numberOfCharacters}ch`;
+    div.style.margin = "0 auto";   // Center within parent
+    div.style.display = "block";  // Ensure it's treated like a block-level element
+  
+    // Wrap content in inner scrolling span
+    const span = document.createElement("span");
+    span.textContent = scroll_text;
+    span.style.display = "inline-block";
+    span.style.paddingRight = "10ch"; // ensure space before reset (optional)
+    div.appendChild(span);
+    
+    let scrollSpeed = 0.5;
+  
+    function scrollLoop() {
+      div.scrollLeft += scrollSpeed;
+  
+      if (div.scrollLeft >= span.offsetWidth) {
+        div.scrollLeft = 0;
+      }
+  
+      requestAnimationFrame(scrollLoop);
+    }
+  
+    requestAnimationFrame(scrollLoop);
+  
+    return div;
+  }
+  
+/**
+ * Lower case and whitespace removed 
+ * @param {string} inputString - raw string
+ * @returns {string} - clean string
+ */
+export function prepareString(inputString) { 
+    return inputString.toLowerCase().trim(); 
+}

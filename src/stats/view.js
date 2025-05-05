@@ -1,18 +1,18 @@
 import { formatNumber } from "../utils/string.js";
 import { NodeStatsID } from "../identifiers.js";
 import { createNodeStats } from "../tree/view.js";
-import { createCardSvg, createDelatSvg, createEyeSvg } from "./svg.js";
+import { createCardSvg, createDelatSvg, createEyeSvg, createLinkSvg } from "./svg.js";
 
 /**
- * Create the generation number stat
- * @param {number} generationNumber - the generation number of the current DataCard
+ * Create the parent number stat
+ * @param {number} numberOfParents - the number of parents for the current DataCard
  * @returns {HTMLDivElement} The Div element for the stat pill-view
  */
-export function createGenerationStat(generationNumber) {
-    const id = NodeStatsID.GENERATION;
+export function createParentStat(numberOfParents) {
+    const id = NodeStatsID.NUMBER_OF_PARENTS;
     const deltaSvg = createDelatSvg();
-    const description = "The number of ancestors for this node.";
-    return createNodeStats(id, generationNumber, deltaSvg, description);
+    const description = "The number of parents for this node.";
+    return createNodeStats(id, numberOfParents, deltaSvg, description);
 }
 
 /**
@@ -25,6 +25,18 @@ export function createNumberOfChildrenStat(numberOfChildren) {
     const cardSvg = createCardSvg();
     const description = "The number of children for this node.";
     return createNodeStats(id, numberOfChildren, cardSvg, description);
+}
+
+/**
+ * Create the number of relations stat
+ * @param {number} numberOfRelations - the number of relations of the current DataCard
+ * @returns {HTMLDivElement} The Div element for the stat pill-view
+ */
+export function createNumberOfRelaionsStat(numberOfRelations) {
+    const id = NodeStatsID.NUMBER_OF_RELATIONS;
+    const cardSvg = createLinkSvg();
+    const description = "The number of relations (cross-links) for this node.";
+    return createNodeStats(id, numberOfRelations, cardSvg, description);
 }
 
 /**

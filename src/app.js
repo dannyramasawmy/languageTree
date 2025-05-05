@@ -38,7 +38,7 @@ const B_SHUFFLE = new Button(SETTINGS, ButtonsID.SHUFFLE, "Shuffle", ButtonIcons
 const B_SORT = new Button(SETTINGS, ButtonsID.SORT, "Sort", ButtonIcons.SORT, "sort-button");
 const B_SEARCH = new Button(SETTINGS, ButtonsID.SEARCH, "Search", ButtonIcons.SEARCH, "search-button").IsSearchButton();
 const B_SWAP = new Button(SETTINGS, ButtonsID.SWAP, "Swap", ButtonIcons.SWAP, "swap-button");
-const B_TRAVEL = new Button(SETTINGS, ButtonsID.TRAVEL, "Travel", ButtonIcons.TRAVEL, "travel-button");
+const B_TRAVEL = new Button(SETTINGS, ButtonsID.TRAVEL, "Ascend", ButtonIcons.TRAVEL, "travel-button");
 
 VIEW
   .ClearCards()
@@ -146,6 +146,78 @@ window.addEventListener('click',
 
       let currentClickPathId = event.composedPath()[idx].id;
 
+      if (typeof currentClickPathId === 'string' && currentClickPathId.includes("parent-card-number-")) {
+        let idNumber = currentClickPathId.slice(19);
+
+        if (DEBUG) {
+          console.log("Clicked");
+          console.log(currentClickPathId);
+          console.log(idNumber);
+        }
+
+        // when clicking on a card
+        if (GLOBAL.CurrentNode.Parent[idNumber] !== undefined) {
+          // state
+          GLOBAL.CurrentNode = GLOBAL.CurrentNode.Parent[idNumber];
+          GLOBAL.DisplayCards = tree.functions.getChildren(GLOBAL.CurrentNode);
+          pushState(GLOBAL.CurrentNode)
+          SCROLL.AddHistory();
+
+          // display
+          resetSearch();
+          GLOBAL.DisplayCards = sortDisplayList(GLOBAL, GLOBAL.DisplayCards);
+
+          VIEW
+            .ClearCards()
+            .UpdateCards(0)
+            .ClearButtons()
+            .UpdateButtons([
+              B_SHUFFLE.Current(),
+              B_SORT.Current(),
+              B_SEARCH.Current(),
+              B_SWAP.Current(),
+              B_TRAVEL.Select(tree.functions.getNodeType(GLOBAL.CurrentNode))]);
+        }
+
+        return;
+      }
+
+      if (typeof currentClickPathId === 'string' && currentClickPathId.includes("relation-card-number-")) {
+        let idNumber = currentClickPathId.slice(21);
+
+        if (DEBUG) {
+          console.log("Clicked");
+          console.log(currentClickPathId);
+          console.log(idNumber);
+        }
+
+        // when clicking on a card
+        if (GLOBAL.CurrentNode.Relations[idNumber] !== undefined) {
+          // state
+          GLOBAL.CurrentNode = GLOBAL.CurrentNode.Relations[idNumber];
+          GLOBAL.DisplayCards = tree.functions.getChildren(GLOBAL.CurrentNode);
+          pushState(GLOBAL.CurrentNode)
+          SCROLL.AddHistory();
+
+          // display
+          resetSearch();
+          GLOBAL.DisplayCards = sortDisplayList(GLOBAL, GLOBAL.DisplayCards);
+
+          VIEW
+            .ClearCards()
+            .UpdateCards(0)
+            .ClearButtons()
+            .UpdateButtons([
+              B_SHUFFLE.Current(),
+              B_SORT.Current(),
+              B_SEARCH.Current(),
+              B_SWAP.Current(),
+              B_TRAVEL.Select(tree.functions.getNodeType(GLOBAL.CurrentNode))]);
+        }
+
+        return;
+      }
+
       // data card
       if (typeof currentClickPathId === 'string' && currentClickPathId.includes("card-number-")) {
         let idNumber = currentClickPathId.slice(12);
@@ -153,7 +225,7 @@ window.addEventListener('click',
         if (DEBUG) {
           console.log(currentClickPathId);
         }
-
+  
         // when clicking on a card
         if (GLOBAL.DisplayCards[idNumber] !== undefined) {
           // state
@@ -241,7 +313,7 @@ window.addEventListener('click',
         return;
       }
 
-      // go to parent
+      // go to parent / travel
       if (event.composedPath()[idx].id == ButtonsID.TRAVEL) {
         GLOBAL.CurrentNode = GLOBAL.CurrentNode.Parent[0];
         GLOBAL.DisplayCards = tree.functions.getChildren(GLOBAL.CurrentNode);

@@ -31,13 +31,10 @@ export class AbstractNode {
         this.Child = [];
         
         /** @type {AbstractNode[]} */
-        this.Relations = [] // TODO: Add relations / crosslinks
+        this.Relations = []
 
         /** @type {boolean} */
         this.IsRoot = isRoot;
-
-        /** @type {number} */
-        this.Generation = 0
 
         /** @type {number} */
         this.Views = NaN
@@ -88,13 +85,21 @@ export class AbstractNode {
     }
 
     /**
+     * Add a child to the node
+     * @param {AbstractNode} node - An Abstract Node object
+     * @param {NodeComparator} sortFunction - A supplied function that sorts the node objects
+     */
+    AddCrossLinkRelation = (node, sortFunction = primarySort) => {
+        this.Relations.push(node);
+        this.Relations.sort(sortFunction);
+    }
+
+    /**
      * Set the parent to the node
      * @param {AbstractNode} node - An Abstract Node object
      */
     SetParent = (node) => {
-        // TODO: allow multiple parents in future
         this.Parent.push(node);
-        this.Generation = this.IsRoot ? 0 : this.Parent[0].Generation + 1
     }
 
     /**
@@ -102,7 +107,7 @@ export class AbstractNode {
      * @returns {string} - a unique hash-id for the current node
      */
     GetHashId = () => {
-        return `ID-${this.Primary}-${this.Secondary}-${this.Generation}`
+        return `ID-${this.Primary}-${this.Secondary}`
     }
 
     /**
@@ -223,3 +228,4 @@ export class DataCard extends AbstractNode {
     */
     SearchableTerms = () => [this.Primary, this.Secondary]
 }
+

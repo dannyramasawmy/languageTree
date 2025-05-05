@@ -1,8 +1,4 @@
-// =============================================================================
-// #Root
-// =============================================================================
-
-import { setParentAndChild } from "../src/tree/functions.js";
+import { defineCrossLinkRelationship, setParentAndChild, setParentAndMultipleChildren } from "../src/tree/functions.js";
 import { DataCard, DataRoot } from "../src/tree/models.js";
 import { VerbReflexiveSe, VerbReflexiveSi, Verb, NounNeuter, NounMale, NounFemale } from "./romanian-language-models.js";
 
@@ -17,10 +13,7 @@ special characters
 let  = new DataCard(
         "", "",
         "")
-SetParentAndChild(verbs, );
 */
-
-// export const searchPlaceholder = new DataCard("Search", "Căuta", "");
 
 export function BuildLanguageTree() // returns romanian
 {
@@ -30,6 +23,41 @@ export function BuildLanguageTree() // returns romanian
 
     romanian.SetParent(romanian);
 
+    // -Word Classes    
+    // --Multiclass
+    // ---Adjective + Adverb
+    // ---Adjective + Noun
+    // ---Adverb + Interjection
+
+    let wordclass_adjectives = new DataCard("Adjectives", "Adjective","")
+    let wordclass_adverbs = new DataCard("Adverbs", "Adverbe","")
+    let wordclass_conjunctions = new DataCard("Conjunctions", "Conjuncții","")
+    let wordclass_nouns = new DataCard("Nouns", "Substantive","")
+    let wordclass_numbers = new DataCard("Numbers", "Numere","Todo")
+    let wordclass_prepositions = new DataCard("Prepositions", "Prepoziţii","")
+    let wordclass_pronouns = new DataCard("Pronouns", "Pronume","")
+    let wordclass_verbs = new DataCard("Verbs", "Verbe", "")
+    let wordclass_verbs_modal = new DataCard("Modal Verbs", "Verbe Modal", "")
+    // let wordclass_interjections = new DataCard("Interjections", "Interjecţii", "")
+    // let wordclass_determiners = new DataCard("Determiners", "Determinatori", "")
+    
+    setParentAndMultipleChildren(romanian, [
+        wordclass_adjectives, 
+        wordclass_adverbs, 
+        wordclass_conjunctions, 
+        wordclass_nouns, 
+        wordclass_numbers, 
+        wordclass_prepositions, 
+        wordclass_pronouns, 
+        wordclass_verbs, 
+        wordclass_verbs_modal, 
+        // wordclass_interjections, 
+        // wordclass_determiners
+    ])
+
+
+    defineCrossLinkRelationship(wordclass_verbs, wordclass_verbs_modal)
+
     // =============================================================================
     // #Verbs :
     // Checked against 
@@ -37,942 +65,357 @@ export function BuildLanguageTree() // returns romanian
     //  - https://www.verbix.com/webverbix/go.php?T1=s%C4%83rb%C4%83tori&D1=5&H1=105
     // =============================================================================
 
-    let verbs = new DataCard("Verbs", "Verbe", "Common verbs are listed here.")
-    setParentAndChild(romanian, verbs);
-
-    let have = new Verb("Have", "Avea", "am", "ai", "are", "avem", "aveți", "au", "a")
-    setParentAndChild(verbs, have);
-
-    let be = new Verb("Be", "Fi", "sunt", "ești", "este", "suntem", "sunteți", "sunt", "fost");
-    setParentAndChild(verbs, be);
-
-    let eat = new Verb("Eat", "Mânca", "mănânc", "mănânci", "mănâncă", "mâncăm", "mâncați", "mănâncă", "mâncat");
-    setParentAndChild(verbs, eat);
-
-    let drink = new Verb("Drink", "Bea", "beau", "bei", "bea", "bem", "beți", "beau", "băut");
-    setParentAndChild(verbs, drink);
-
-    let smell = new Verb("Smell", "Mirosi","miros", "miroși", "miroase", "mirosim", "mirosiți", "miros", "mirosit");
-    setParentAndChild(verbs, smell);
-
-    let say = new Verb("Say", "Spune","spun", "spui", "spune", "spunem", "spuneți", "spun", "spus");
-    setParentAndChild(verbs, say);
-
-    let say2 = new Verb("Say (alt)", "Zice","zic", "zici", "zice", "zicem", "ziceți", "zic", "zis");
-    setParentAndChild(verbs, say2);
-
-    let speak = new Verb("Speak", "Vorbi","vorbesc", "vorbești", "vorbește", "vorbim", "vorbiți", "vorbesc", "vorbit");
-    setParentAndChild(verbs, speak);
-
-    let ring = new Verb("Ring", "Suna","sun", "suni", "sună", "sunăm", "sunați", "sună", "sunat");
-    setParentAndChild(verbs, ring);
-
-    let walk = new Verb("Walk (go)", "Merge","merg", "mergi", "merge", "mergem", "mergeți", "merg", "mers");
-    setParentAndChild(verbs, walk);
-
-    let run = new Verb("Run", "Alerga","alerg", "alergi", "aleargă", "alergăm", "alergați", "aleargă", "alergat");
-    setParentAndChild(verbs, run);
-
-    let choose = new Verb("Choose", "Alege","aleg", "alegi", "alege", "alegem", "alegeți", "aleg", "ales");
-    setParentAndChild(verbs, choose);
-
-    let runAway = new Verb("Run (flee)", "Fugi","fug", "fugi", "fuge", "fugim", "fugiți", "fug", "fugit");
-    setParentAndChild(verbs, runAway);
-
-    let jump = new Verb("Jump", "Sări","sar", "sări", "sare", "sărim", "săriți", "sar", "sărit");
-    setParentAndChild(verbs, jump);
-
-    let call = new Verb("Call (shout)", "Striga","strig", "strigi", "strigă", "strigăm", "strigați", "strigă", "strigat");
-    setParentAndChild(verbs, call);
-
-    let give = new Verb("Give", "Da","dau", "dai", "dă", "dăm", "dați", "dau", "dat");
-    setParentAndChild(verbs, give);
-
-    let take = new Verb("Take", "Lua","iau", "iei", "ia", "luăm", "luați", "iau", "luat");
-    setParentAndChild(verbs, take);
-
-    let _open = new Verb("Open", "Deschide","deschid", "deschizi", "deschide", "deschidem", "deschideți", "deschid", "deschis");
-    setParentAndChild(verbs, _open);
-
-    let _close = new Verb("Close", "Închide","închid", "închizi", "închide", "închidem", "închideți", "închid", "închis");
-    setParentAndChild(verbs, _close);
-
-    let play = new VerbReflexiveSe("Play", "Juca", "joc", "joci", "joacă", "jucăm", "jucați", "joacă", "jucat");
-    setParentAndChild(verbs, play);
-
-    let sing = new Verb("Sing", "Cânta","cânt", "cânți", "cântă", "cântăm", "cântați", "cântă", "cântat");
-    setParentAndChild(verbs, sing);
-
-    let seat = new VerbReflexiveSe("Stay (sit)", "Așeza", "așez", "așezi", "așază", "așezăm", "așezați", "așază", "așezat");
-    setParentAndChild(verbs, seat);
-
-    let stand = new VerbReflexiveSe("Stand", "Ridica", "ridic", "ridici", "ridică", "ridicăm", "ridicați", "ridică", "ridicat");
-    setParentAndChild(verbs, stand);
-
-    let stay = new Verb("Stay", "Sta","stau", "stai", "stă", "stăm", "stați", "stau", "stat");
-    setParentAndChild(verbs, stay);
-
-    let leave = new Verb("Leave", "Pleca","plec", "pleci", "pleacă", "plecăm", "plecați", "pleacă", "plecat");
-    setParentAndChild(verbs, leave);
-
-    let visit = new Verb("Visit", "Vizita","vizitez", "vizitezi", "vizitează", "vizităm", "vizitați", "vizitează", "vizitat");
-    setParentAndChild(verbs, visit);
-
-    let come = new Verb("Come", "Veni","vin", "vii", "vine", "venim", "veniți", "vin", "venit");
-    setParentAndChild(verbs, come);
-
-    let sleep = new Verb("Sleep", "Dormi","dorm", "dormi", "doarme", "dormim", "dormiți", "dorm", "dormit");
-    setParentAndChild(verbs, sleep);
-
-    let sleepWith = new VerbReflexiveSe("Sleep (with)", "Culci", "culc", "culci", "culca", "culcam", "culcați", "culca", "culcat");
-    setParentAndChild(verbs, sleepWith);
-
-    let fallAsleep = new Verb("Fall Asleep", "Adormi","adorm", "adormi", "adoarme", "adormim", "adormiți", "adorm", "adormit");
-    setParentAndChild(verbs, fallAsleep);
-
-    let getUp = new VerbReflexiveSe("Get up", "Trezi", "trezesc", "trezești", "trezește", "trezim", "treziți", "trezesc", "trezit");
-    setParentAndChild(verbs, getUp);
-
-    let guessBelieve = new Verb("Guess (believe)", "Crede","cred", "crezi", "crede", "credem", "credeți", "cred", "crezut");
-    setParentAndChild(verbs, guessBelieve);
-
-    let bring = new Verb("Bring", "Aduce","aduc", "aduci", "aduce", "aducem", "aduceți", "aduc", "adus");
-    setParentAndChild(verbs, bring);
-
-    let think = new VerbReflexiveSe("Think", "Gândi", "gândesc", "gândești", "gândește", "gândim", "gândiți", "gândesc", "gândit");
-    setParentAndChild(verbs, think);
-
-    let love = new Verb("Love", "Iubi","iubesc", "iubești", "iubește", "iubim", "iubiți", "iubesc", "iubit");
-    setParentAndChild(verbs, love);
-
-    let laugh = new Verb("Laugh", "Râde","râd", "râzi", "râde", "râdem", "râdeți", "râd", "râs");
-    setParentAndChild(verbs, laugh);
-
-    let search = new Verb("Search", "Căuta","caut", "cauți", "caută", "căutăm", "căutați", "caută", "căutat");
-    setParentAndChild(verbs, search);
-
-    let find = new Verb("Find", "Găsi","găsesc", "găsești", "găsește", "găsim", "găsiți", "găsesc", "găsit");
-    setParentAndChild(verbs, find);
-
-    let cook = new Verb("Cook (prepare)", "Găti","gătesc", "gătești", "gătește", "gătim", "gătiți", "gătesc", "gătit");
-    setParentAndChild(verbs, cook);
-
-    let joke = new Verb("Joke", "Glumi","glumesc", "glumești", "glumește", "glumim", "glumiți", "glumesc", "glumit");
-    setParentAndChild(verbs, joke);
-
-    let read = new Verb("Read", "Citi","citesc", "citești", "citește", "citim", "citiți", "citesc", "citit");
-    setParentAndChild(verbs, read);
-
-    let write = new Verb("Write", "Scrie","scriu", "scrii", "scrie", "scriem", "scrieți", "scriu", "scris");
-    setParentAndChild(verbs, write);
-
-    let buy = new Verb("Buy", "Cumpăra","cumpăr", "cumpări", "cumpără", "cumpărăm", "cumpărați", "cumpără", "cumpărat");
-    setParentAndChild(verbs, buy);
-
-    let _do = new Verb("Do", "Face","fac", "faci", "face", "facem", "faceți", "fac", "făcut");
-    setParentAndChild(verbs, _do);
-
-    let listen = new Verb("Listen", "Asculta","ascult", "asculți", "ascultă", "ascultăm", "ascultați", "ascultă", "ascultat");
-    setParentAndChild(verbs, listen);
-
-    let hear = new Verb("Hear", "Auzi","aud", "auzi", "aude", "auzim", "auziți", "aud", "auzit");
-    setParentAndChild(verbs, hear);
-
-    let kiss = new Verb("Kiss", "Săruta","sărut", "săruți", "sărută", "sărutăm", "sărutați", "sărută", "sărutat");
-    setParentAndChild(verbs, kiss);
-
-    let ask = new Verb("Ask", "Întreba","întreb", "întrebi", "întreabă", "întrebăm", "întrebați", "întreabă", "întrebat");
-    setParentAndChild(verbs, ask);
-
-    let learn = new Verb("Learn", "Învăța","învăț", "înveți", "învață", "învățăm", "învățați", "învață", "învățat");
-    setParentAndChild(verbs, learn);
-
-    let _try = new Verb("Try", "Incerca","încerc", "încerci", "încearcă", "încercăm", "încercați", "încearcă", "încercat");
-    setParentAndChild(verbs, _try);
-
-    let see = new Verb("See", "Vedea","văd", "vezi", "vede", "vedem", "vedeți", "văd", "văzut");
-    setParentAndChild(verbs, see);
-
-    let toSmile = new Verb("Smile", "Zămbi","zămbesc", "zămbesti", "zămbeste", "zămbim", "zămbiți", "zămbesc", "zămbit");
-    setParentAndChild(verbs, toSmile);
-
-    let forget = new Verb("Forget", "Uita","uit", "uiți", "uită", "uităm", "uitați", "uită", "uitat");
-    setParentAndChild(verbs, forget);
-
-    let want = new Verb("Want", "Vrea","vreau", "vrei", "vrea", "vrem", "vreți", "vor", "vrut");
-    setParentAndChild(verbs, want);
-
-    let put = new Verb("Put", "Pune","pun", "pui", "pune", "punem", "puneți", "pun", "pus");
-    setParentAndChild(verbs, put);
-
-    let can = new Verb("Can", "Putea","pot", "poți", "poate", "putem", "puteți", "pot", "putut");
-    setParentAndChild(verbs, can);
-
-    let understand = new Verb("Understand", "Înțelege","înțeleg", "înțelegi", "înțelege", "înțelegem", "înțelegeți", "înțeleg", "înțeles");
-    setParentAndChild(verbs, understand);
-
-    let know = new Verb("Know", "Ști","știu", "știi", "știe", "știm", "știți", "știu", "știut");
-    setParentAndChild(verbs, know);
-
-    let know2 = new Verb("Know (alt)", "Cunoaște","cunosc", "cunoști", "cunoaște", "cunoaștem", "cunoașteți", "cunosc", "cunoscut");
-    setParentAndChild(verbs, know2);
-
-    let drive = new Verb("Drive", "Conduce","conduc", "conduci", "conduce", "conducem", "conduceți", "conduc", "condus");
-    setParentAndChild(verbs, drive);
-
-    let fly = new Verb("Fly", "Zbura","zbor", "zbori", "zboară", "zburăm", "zburați", "zboară", "zburat");
-    setParentAndChild(verbs, fly);
-
-    let arrive = new Verb("Arrive", "Ajunge","ajung", "ajungi", "ajunge", "ajungem", "ajungeți", "ajung", "ajuns");
-    setParentAndChild(verbs, arrive);
-
-    let carry = new Verb("Carry", "Duce","duc", "duci", "duce", "ducem", "duceți", "duc", "dus");
-    setParentAndChild(verbs, carry);
-
-    let party = new Verb("Party", "Petrece","petrec", "petreci", "petrece", "petrecem", "petreceți", "petrec", "petrecut");
-    setParentAndChild(verbs, party);
-
-    let live = new Verb("Live", "Trăi","trăiesc", "trăiești", "trăiește", "trăim", "trăiți", "trăiesc", "trăit");
-    setParentAndChild(verbs, live);
-
-    let reside = new Verb("Reside (live)", "Locui","locuiesc", "locuiești", "locuiește", "locuim", "locuiți", "locuiesc", "locuit");
-    setParentAndChild(verbs, reside);
-
-    let work = new Verb("Work", "Munci","muncesc", "muncești", "muncește", "muncim", "munciți", "muncesc", "muncit");
-    setParentAndChild(verbs, work);
-
-    let work2 = new Verb("Work (alt)", "Lucra","lucrez", "lucrezi", "lucrează", "lucrăm", "lucrați", "lucrează", "lucrat");
-    setParentAndChild(verbs, work2);
-
-    let divorce = new Verb("Divorce", "Divorța","divorțez", "divorțezi", "divorțează", "divorțăm", "divorțați", "divorțează", "divorțat");
-    setParentAndChild(verbs, divorce);
-
-    let marry = new VerbReflexiveSe("Marry", "Căsători", "căsătoresc", "căsătorești", "căsătorește", "căsătorim", "căsătoriți", "căsătoresc", "căsătorit");
-    setParentAndChild(verbs, marry);
-
-    let lie = new Verb("Lie", "Minți","mint", "minți", "minte", "mințim", "mințiți", "mint", "mințit");
-    setParentAndChild(verbs, lie);
-
-    let hit = new Verb("Hit (kick)", "Lovi","lovesc", "lovești", "lovește", "lovim", "loviți", "lovesc", "lovit");
-    setParentAndChild(verbs, hit);
-
-    let desire = new VerbReflexiveSi("Desire (wish)", "Dori", "doresc", "dorești", "dorește", "dorim", "doriți", "doresc", "dorit");
-    setParentAndChild(verbs, desire);
-
-    let hide = new Verb("Hide", "Ascunde","ascund", "ascunzi", "ascunde", "ascundem", "ascundeți", "ascund", "ascuns");
-    setParentAndChild(verbs, hide);
-
-    let receive = new Verb("Receive", "Primi","primesc", "primești", "primește", "primim", "primiți", "primesc", "primit");
-    setParentAndChild(verbs, receive);
-
-    let wash = new VerbReflexiveSe("Wash", "Spăla", "spăl", "speli", "spală", "spălăm", "spălați", "spală", "spălat");
-    setParentAndChild(verbs, wash);
-
-    let lose = new Verb("Lose", "Pierde","pierd", "pierzi", "pierde", "pierdem", "pierd", "pierd", "pierdut");
-    setParentAndChild(verbs, lose);
-
-    let couldModal = new DataCard("Could (modal)", "Putea (modal)",
+    let modal_could = new DataCard("Could", "Putea",
         `<h2>Modal</h2>
-    Eu aș putea să [...]<br>
-    Tu ai putea să [...]<br>
-    El/Ea ar putea să [...]<br>
-    Noi am putea să [...]<br>
-    Voi ați putea să [...]<br>
-    Ei/Ele ar putea să [...]<br>`)
-    setParentAndChild(verbs, couldModal);
-
-    let should = new DataCard("Should", "Ar trebui",
+        Eu aș putea să [...]<br>
+        Tu ai putea să [...]<br>
+        El/Ea ar putea să [...]<br>
+        Noi am putea să [...]<br>
+        Voi ați putea să [...]<br>
+        Ei/Ele ar putea să [...]<br>`)
+    
+    let modal_must = new DataCard("Must", "Trebuie",
         `<h2>Modal</h2>
-    Eu ar trebui să [...]<br>
-    Tu ar trebui să [...]<br>
-    El/Ea ar trebui să [...]<br>
-    Noi ar trebui să [...]<br>
-    Voi ar trebui să [...]<br>
-    Ei/Ele ar trebui să [...]<br>`)
-    setParentAndChild(verbs, should);
+        Eu trebuie să [...]<br>
+        Tu trebuie să [...]<br>
+        El/Ea trebuie să [...]<br>
+        Noi trebuie să [...]<br>
+        Voi trebuie să [...]<br>
+        Ei/Ele trebuie să [...]<br>`)
 
-    let must = new DataCard("Must", "Trebuie",
+    let modal_should = new DataCard("Should", "Ar Trebui",
         `<h2>Modal</h2>
-    Eu trebuie să [...]<br>
-    Tu trebuie să [...]<br>
-    El/Ea trebuie să [...]<br>
-    Noi trebuie să [...]<br>
-    Voi trebuie să [...]<br>
-    Ei/Ele trebuie să [...]<br>`)
-    setParentAndChild(verbs, must);
+        Eu ar trebui să [...]<br>
+        Tu ar trebui să [...]<br>
+        El/Ea ar trebui să [...]<br>
+        Noi ar trebui să [...]<br>
+        Voi ar trebui să [...]<br>
+        Ei/Ele ar trebui să [...]<br>`)
+    
+    setParentAndMultipleChildren(wordclass_verbs_modal, [
+        modal_could, modal_must, modal_should
+    ])
 
-    let send = new Verb("Send", "Trimite","trimit", "trimiți", "trimite", "trimitem", "trimiteți", "trimit", "trimis");
-    setParentAndChild(verbs, send);
-
-    let cut = new Verb("Cut", "Tăia","tai", "tai", "taie", "tăiem", "tăiați", "taie", "tăiat");
-    setParentAndChild(verbs, cut);
-
-    let wait = new Verb("Wait", "Aștepta","aștept", "aștepți", "așteaptă", "așteptăm", "așteptați", "așteaptă", "așteptat");
-    setParentAndChild(verbs, wait);
-
-    let dance = new Verb("Dance", "Dansa","dansez", "dansezi", "dansează", "dansăm", "dansați", "dansează", "dansat");
-    setParentAndChild(verbs, dance);
-
-    let _catch = new Verb("Catch", "Prinde","prind", "prinzi", "prinde", "prindem", "prindeți", "prind", "prins");
-    setParentAndChild(verbs, _catch);
-
-    let fight = new Verb("Fight", "Lupta","lupt", "lupți", "luptă", "luptăm", "luptați", "luptă", "luptat");
-    setParentAndChild(verbs, fight);
-
-    let fall = new Verb("Fall", "Cădea","cad", "cazi", "cade", "cădem", "cădeți", "cad", "căzut");
-    setParentAndChild(verbs, fall);
-
-    let pull = new Verb("Pull", "Trage","trag", "tragi", "trage", "tragem", "trageți", "trag", "tras");
-    setParentAndChild(verbs, pull);
-
-    let push = new Verb("Push", "Împinge","împing", "împingi", "împinge", "împingem", "împingeți", "împing", "împins");
-    setParentAndChild(verbs, push);
-
-    let climb = new Verb("Climb", "Urca","urc", "urci", "urcă", "urcăm", "urcați", "urcă", "urcat");
-    setParentAndChild(verbs, climb);
-
-    let forgive = new Verb("Forgive", "Ierta","iert", "ierți", "iertă", "iertăm", "iertați", "iertă", "iertat");
-    setParentAndChild(verbs, forgive);
+    let to_achieve = new Verb("Achieve", "Realiza","realizez", "realizezi", "realizează", "realizăm", "realizați", "realizează", "realizat");
+    let to_add = new Verb("Add", "Adăuga","adaug", "adaugi", "adaugă", "adăugăm", "adăugați", "adaugă", "adăugat");
+    let to_admit = new Verb("Admit", "Recunoaște","recunosc", "recunoști", "recunoaște", "recunoaștem", "recunoașteți", "recunosc", "recunoscut");
+    let to_agree = new Verb("Agree", "Fi de acord","sunt de acord", "ești de acord", "este de acord", "suntem de acord", "sunteți de acord", "sunt de acord", "fost de acord");
+    let to_allow = new Verb("Allow", "Permite","permit", "permiți", "permite", "permitem", "permiteți", "permit", "permis");
+    let to_analyze = new Verb("Analyze", "Analiza","analizez", "analizezi", "analizează", "analizăm", "analizați", "analizează", "analizat");
+    let to_apologize = new Verb("Apologize", "Cere scuze","cer scuze", "ceri scuze", "cere scuze", "cerem scuze", "cereți scuze", "cer scuze", "cerut scuze");
+    let to_apply = new Verb("Apply", "Aplica","aplic", "aplici", "aplică", "aplicăm", "aplicați", "aplică", "aplicat");
+    let to_approve = new Verb("Approve", "Aproba","aprob", "aprobi", "aprobă", "aprobăm", "aprobați", "aprobă", "aprobat");
+    let to_argue = new VerbReflexiveSe("Argue", "Certa", "cert", "cerți", "certă", "certăm", "certați", "certă", "certat");
+    let to_arrive = new Verb("Arrive", "Ajunge","ajung", "ajungi", "ajunge", "ajungem", "ajungeți", "ajung", "ajuns");
+    let to_ask = new Verb("Ask", "Întreba","întreb", "întrebi", "întreabă", "întrebăm", "întrebați", "întreabă", "întrebat");
+    let to_bake = new Verb("Bake", "Coace","coc", "coci", "coace", "coacem", "coaceți", "coc", "copt");
+    let to_be = new Verb("Be", "Fi", "sunt", "ești", "este", "suntem", "sunteți", "sunt", "fost");
+    let to_beAvailable = new Verb("Be Available", "Fi disponibil","sunt disponibil", "ești disponibil", "este disponibil", "suntem disponibili", "sunteți disponibili", "sunt disponibili", "fost disponibil");
+    let to_become = new Verb("Become", "Deveni","devin", "devii", "devine", "devenim", "deveniți", "devin", "devenit");
+    let to_beDivorced = new Verb("Be Divorced", "Fi divorțat","sunt divorțat", "ești divorțat", "este divorțat", "suntem divorțați", "sunteți divorțați", "sunt divorțați", "fost divorțat");
+    let to_beEngaged = new Verb("Be Engaged", "Fi logodit","sunt logodit", "ești logodit", "este logodit", "suntem logodiți", "sunteți logodiți", "sunt logodiți", "fost logodit");
+    let to_beHonest = new Verb("Be Honest", "Fi cinstit","sunt cinstit", "ești cinstit", "este cinstit", "suntem cinstiți", "sunteți cinstiți", "sunt cinstiți", "fost cinstit");
+    let to_beSure = new Verb("Be Sure", "Fi sigur","sunt sigur", "ești sigur", "este sigur", "suntem siguri", "sunteți siguri", "sunt siguri", "fost sigur");
+    let to_blush = new Verb("Blush", "Roși","roșesc", "roșești", "roșește", "roșim", "roșiți", "roșesc", "roșit");
+    let to_boil = new Verb("Boil", "Fierbe","fierb", "fierbi", "fierbe", "fierbem", "fierbeți", "fierb", "fiert");
+    let to_breakIn = new Verb("Break Into", "Sparge","sparg", "spargi", "sparge", "spargem", "spargeți", "sparg", "spart");
+    let to_breakUp = new VerbReflexiveSe("Break Up", "Despărți", "despart", "desparți", "desparte", "despărțim", "despărțiți", "despart", "despărțit");
+    let to_bring = new Verb("Bring", "Aduce","aduc", "aduci", "aduce", "aducem", "aduceți", "aduc", "adus");
+    let to_buy = new Verb("Buy", "Cumpăra","cumpăr", "cumpări", "cumpără", "cumpărăm", "cumpărați", "cumpără", "cumpărat");
+    let to_call = new Verb("Call (shout)", "Striga","strig", "strigi", "strigă", "strigăm", "strigați", "strigă", "strigat");
+    let to_can = new Verb("Can", "Putea","pot", "poți", "poate", "putem", "puteți", "pot", "putut");
+    let to_cancel = new Verb("Cancel", "Anula","anulez", "anulezi", "anulează", "anulăm", "anulați", "anulează", "anulat");
+    let to_carry = new Verb("Carry", "Duce","duc", "duci", "duce", "ducem", "duceți", "duc", "dus");
+    let to_catch = new Verb("Catch", "Prinde","prind", "prinzi", "prinde", "prindem", "prindeți", "prind", "prins");
+    let to_cause = new Verb("Cause", "Provoca","provoc", "provoci", "provoacă", "provocăm", "provocați", "provoacă", "provocat");
+    let to_celebrate = new Verb("Celebrate", "Sărbători","sărbătoresc", "sărbătorești", "sărbătorește", "sărbătorim", "sărbătoriți", "sărbătoresc", "sărbătorit");
+    let to_change = new Verb("Change", "Schimba","schimb", "schimbi", "schimbă", "schimbăm", "schimbați", "schimbă", "schimbat");
+    let to_cheat = new Verb("Cheat", "Trișa","trișez", "trișezi", "trișează", "trișăm", "trișați", "trișează", "trișat");
+    let to_choose = new Verb("Choose", "Alege","aleg", "alegi", "alege", "alegem", "alegeți", "aleg", "ales");
+    let to_chop = new Verb("Chop", "Toca","toc", "toci", "toacă", "tocăm", "tocați", "toacă", "tocat");
+    let to_clean = new Verb("Clean", "Face curățenie","fac curățenie", "faci curățenie", "face curățenie", "facem curățenie", "faceți curățenie", "fac curățenie", "făcut curățenie");
+    let to_climb = new Verb("Climb", "Urca","urc", "urci", "urcă", "urcăm", "urcați", "urcă", "urcat");
+    let to_close = new Verb("Close", "Închide","închid", "închizi", "închide", "închidem", "închideți", "închid", "închis");
+    let to_come = new Verb("Come", "Veni","vin", "vii", "vine", "venim", "veniți", "vin", "venit");
+    let to_comeBack = new VerbReflexiveSe("Come Back", "Întoarce", "întorc", "întorci", "întoarce", "întoarcem", "întoarceți", "întorc", "întors");
+    let to_commitSuicide = new VerbReflexiveSe("Commit Suicide", "sinucide", "sinucid", "sinucizi", "sinucide", "sinucidem", "sinucideți", "sinucid", "sinucis");
+    let to_compare = new Verb("Compare", "Compara","compar", "compari", "compară", "comparăm", "comparați", "compară", "comparat");
+    let to_confess = new Verb("Confess", "Mărturisi","mărturisesc", "mărturisești", "mărturisește", "mărturisim", "mărturisiți", "mărturisesc", "mărturisit");
+    let to_continueVerb = new Verb("Continue", "Continua","continuu", "continui", "continuă", "continuăm", "continuați", "continuă", "continuat");
+    let to_cook = new Verb("Cook (prepare)", "Găti","gătesc", "gătești", "gătește", "gătim", "gătiți", "gătesc", "gătit");
+    let to_cross = new Verb("Cross", "Traversa","traversez", "traversezi", "traversează", "traversăm", "traversați", "traversează", "traversat");
+    let to_cry = new Verb("Cry", "Plânge","plâng", "plângi", "plânge", "plângem", "plângeți", "plâng", "plâns");
+    let to_cut = new Verb("Cut", "Tăia","tai", "tai", "taie", "tăiem", "tăiați", "taie", "tăiat");
+    let to_damage = new Verb("Damage", "Aletia","aletiez", "aletiezi", "aletiază", "aletiem", "aletiați", "aletiază", "aletiat");
+    let to_dance = new Verb("Dance", "Dansa","dansez", "dansezi", "dansează", "dansăm", "dansați", "dansează", "dansat");
+    let to_dateVerb = new VerbReflexiveSe("Date", "Întâlni", "întâlnesc", "întâlnești", "întâlnește", "întâlnim", "întâlniți", "întâlnesc", "întâlnit");
+    let to_decide = new Verb("Decide", "Decide","decid", "decizi", "decide", "decidem", "decideți", "decid", "decis");
+    let to_deny = new Verb("Deny", "Nega","neg", "negi", "neagă", "negăm", "negați", "neagă", "negat");
+    let to_deposit = new Verb("Deposit", "Depune","depun", "depui", "depune", "depunem", "depuneți", "depun", "depus");
+    let to_describe = new Verb("Describe", "Descrie","descriu", "descrii", "descrie", "descriem", "descrieți", "descriu", "descris");
+    let to_desire = new VerbReflexiveSi("Desire (wish)", "Dori", "doresc", "dorești", "dorește", "dorim", "doriți", "doresc", "dorit");
+    let to_destroy = new Verb("Destroy", "Distruge","distrug", "distrugi", "distruge", "distrugem", "distrugeți", "distrug", "distrus");
+    let to_die = new Verb("Die", "Muri","mor", "mori", "moare", "murim", "muriți", "mor", "murit");
+    let to_discuss = new Verb("Discuss", "Discuta","discut", "discuți", "discută", "discutăm", "discutați", "discută", "discutat");
+    let to_divorce = new Verb("Divorce", "Divorța","divorțez", "divorțezi", "divorțează", "divorțăm", "divorțați", "divorțează", "divorțat");
+    let to_do = new Verb("Do", "Face","fac", "faci", "face", "facem", "faceți", "fac", "făcut");
+    let to_doubt = new Verb("Doubt", "Îndoi","îndoiesc", "îndoiești", "îndoiește", "îndoim", "îndoiți", "îndoiesc", "îndoit");
+    let to_dream = new Verb("Dream", "Visa","visez", "visezi", "visează", "visăm", "visați", "visează", "visat");
+    let to_drink = new Verb("Drink", "Bea", "beau", "bei", "bea", "bem", "beți", "beau", "băut");
+    let to_drive = new Verb("Drive", "Conduce","conduc", "conduci", "conduce", "conducem", "conduceți", "conduc", "condus");
+    let to_eat = new Verb("Eat", "Mânca", "mănânc", "mănânci", "mănâncă", "mâncăm", "mâncați", "mănâncă", "mâncat");
+    let to_enroll = new VerbReflexiveSe("Enroll", "Înscrie", "înscriu", "înscrii", "înscrie", "înscriem", "înscrieți", "înscriu", "înscris");
+    let to_enter = new Verb("Enter", "Intra","intru", "intri", "intră", "intrăm", "intrați", "intră", "intrat");
+    let to_escape = new Verb("Escape", "Scăpa","scap", "scapi", "scapă", "scăpăm", "scăpați", "scapă", "scăpat");
+    let to_exchange = new Verb("Exchange", "Schimba","schimb", "schimbi", "schimbă", "schimbăm", "schimbați", "schimbă", "schimbat");
+    let to_exercise = new Verb("Exercise", "Face exerciții","fac exerciții", "faci exerciții", "face exerciții", "facem exerciții", "faceți exerciții", "fac exerciții", "făcut exerciții");
+    let to_explain = new Verb("Explain", "Explica","explic", "explici", "explică", "explicăm", "explicați", "explică", "explicat");
+    let to_express = new Verb("Express", "Exprima","exprim", "exprimi", "exprimă", "exprimăm", "exprimați", "exprimă", "exprimat");
+    let to_fail = new Verb("Fail", "Eșua","eșuez", "eșuezi", "eșuează", "eșuăm", "eșuați", "eșuează", "eșuat");
+    let to_fall = new Verb("Fall", "Cădea","cad", "cazi", "cade", "cădem", "cădeți", "cad", "căzut");
+    let to_fallAsleep = new Verb("Fall Asleep", "Adormi","adorm", "adormi", "adoarme", "adormim", "adormiți", "adorm", "adormit");
+    let to_feel = new Verb("Feel", "Simți","simt", "simți", "simte", "simțim", "simțiți", "simt", "simțit");
+    let to_fight = new Verb("Fight", "Lupta","lupt", "lupți", "luptă", "luptăm", "luptați", "luptă", "luptat");
+    let to_find = new Verb("Find", "Găsi","găsesc", "găsești", "găsește", "găsim", "găsiți", "găsesc", "găsit");
+    let to_fit = new VerbReflexiveSe("Fit", "Potrivi", "potrivesc", "potrivești", "potrivește", "potrivim", "potriviți", "potrivesc", "potrivit");
+    let to_fly = new Verb("Fly", "Zbura","zbor", "zbori", "zboară", "zburăm", "zburați", "zboară", "zburat");
+    let to_follow = new Verb("Follow", "Urma","urmez", "urmezi", "urmează", "urmăm", "urmați", "urmează", "urmat");
+    let to_forecast = new Verb("Forecast", "Prognoza","prognozez", "prognozezi", "prognozează", "prognozăm", "prognozați", "prognozează", "prognozat");
+    let to_forget = new Verb("Forget", "Uita","uit", "uiți", "uită", "uităm", "uitați", "uită", "uitat");
+    let to_forgive = new Verb("Forgive", "Ierta","iert", "ierți", "iertă", "iertăm", "iertați", "iertă", "iertat");
+    let to_gather = new Verb("Gather", "Aduna","adun", "aduni", "adună", "adunăm", "adunați", "adună", "adunat");
+    let to_getHurt = new Verb("Get Hurt", "Fi rănit","sunt rănit", "ești rănit", "este rănit", "suntem răniți", "sunteți răniți", "sunt răniți", "fost rănit");
+    let to_getUp = new VerbReflexiveSe("Get up", "Trezi", "trezesc", "trezești", "trezește", "trezim", "treziți", "trezesc", "trezit");
+    let to_give = new Verb("Give", "Da","dau", "dai", "dă", "dăm", "dați", "dau", "dat");
+    let to_grill = new Verb("Grill", "Frige la grătar","frig la grătar", "frigi la grătar", "frige la grătar", "frigem la grătar", "frigeți la grătar", "frig la grătar", "fript la grătar");
+    let to_guess = new Verb("Guess", "Ghici","ghicesc", "ghicești", "ghicește", "ghicim", "ghiciți", "ghicesc", "ghicit");
+    let to_guessBelieve = new Verb("Guess (believe)", "Crede","cred", "crezi", "crede", "credem", "credeți", "cred", "crezut");
+    let to_hangOut = new Verb("Hang Out", "Petrece timpul","petrec", "petreci", "petrece", "petrecem", "petreceți", "petrec", "petrecut");
+    let to_have = new Verb("Have", "Avea", "am", "ai", "are", "avem", "aveți", "au", "a")
+    let to_hear = new Verb("Hear", "Auzi","aud", "auzi", "aude", "auzim", "auziți", "aud", "auzit");
+    let to_heat = new Verb("Heat", "Încălzi","încălzesc", "încălzești", "încălzește", "încălzim", "încălziți", "încălzesc", "încălzit");
+    let to_hide = new Verb("Hide", "Ascunde","ascund", "ascunzi", "ascunde", "ascundem", "ascundeți", "ascund", "ascuns");
+    let to_hit = new Verb("Hit (kick)", "Lovi","lovesc", "lovești", "lovește", "lovim", "loviți", "lovesc", "lovit");
+    let to_hold = new Verb("Hold", "Ține","țin", "ții", "ține", "ținem", "țineți", "țin", "ținut");
+    let to_hug = new Verb("Hug", "Îmbrățișa","îmbrățișez", "îmbrățișezi", "îmbrățișează", "îmbrățișăm", "îmbrățișați", "îmbrățișează", "îmbrățișat");
+    let to_imagine = new VerbReflexiveSi("Imagine", "Imagina", "imaginez", "imaginezi", "imaginează", "imaginăm", "imaginați", "imaginează", "imaginat");
+    let to_improve = new Verb("Improve", "Îmbunătăți","îmbunătățesc", "îmbunătățești", "îmbunătățește", "îmbunătățim", "îmbunătățiți", "îmbunătățesc", "îmbunătățit");
+    let to_interrupt = new Verb("Interrupt", "Întrerupe","întrerup", "întrerupi", "întrerupe", "întrerupem", "întrerupeți", "întrerup", "întrerupt");
+    let to_interview = new Verb("Interview", "Intervieva","intervievez", "intervievezi", "intervievează", "intervievăm", "intervievati", "intervievează", "intervievat");
+    let to_invite = new Verb("Invite", "Invita","invit", "inviţi", "invită", "invităm", "invitați", "invită", "invitat");
+    let to_join = new VerbReflexiveSe("Join", "Alătura", "alătur", "alături", "alătură", "alăturăm", "alăturați", "alătură", "alăturat");
+    let to_joke = new Verb("Joke", "Glumi","glumesc", "glumești", "glumește", "glumim", "glumiți", "glumesc", "glumit");
+    let to_jump = new Verb("Jump", "Sări","sar", "sări", "sare", "sărim", "săriți", "sar", "sărit");
+    let to_keep = new Verb("Keep", "Ține","țin", "ții", "ține", "ținem", "țineți", "țin", "ținut");
+    let to_kill = new Verb("Kill", "Ucide","ucid", "ucizi", "ucide", "ucidem", "ucideți", "ucid", "ucis");
+    let to_kiss = new Verb("Kiss", "Săruta","sărut", "săruți", "sărută", "sărutăm", "sărutați", "sărută", "sărutat");
+    let to_know = new Verb("Know", "Ști","știu", "știi", "știe", "știm", "știți", "știu", "știut");
+    let to_know2 = new Verb("Know (alt)", "Cunoaște","cunosc", "cunoști", "cunoaște", "cunoaștem", "cunoașteți", "cunosc", "cunoscut");
+    let to_laugh = new Verb("Laugh", "Râde","râd", "râzi", "râde", "râdem", "râdeți", "râd", "râs");
+    let to_lead = new Verb("Lead", "Conduce","conduc", "conduci", "conduce", "conducem", "conduceți", "conduc", "condus");
+    let to_learn = new Verb("Learn", "Învăța","învăț", "înveți", "învață", "învățăm", "învățați", "învață", "învățat");
+    let to_leave = new Verb("Leave", "Pleca","plec", "pleci", "pleacă", "plecăm", "plecați", "pleacă", "plecat");
+    let to_lie = new Verb("Lie", "Minți","mint", "minți", "minte", "mințim", "mințiți", "mint", "mințit");
+    let to_like = new VerbReflexiveSi("Like", "Plăcea", "place", "place", "place", "place", "place", "place", "plăcut");
+    let to_listen = new Verb("Listen", "Asculta","ascult", "asculți", "ascultă", "ascultăm", "ascultați", "ascultă", "ascultat");
+    let to_live = new Verb("Live", "Trăi","trăiesc", "trăiești", "trăiește", "trăim", "trăiți", "trăiesc", "trăit");
+    let to_lose = new Verb("Lose", "Pierde","pierd", "pierzi", "pierde", "pierdem", "pierd", "pierd", "pierdut");
+    let to_love = new Verb("Love", "Iubi","iubesc", "iubești", "iubește", "iubim", "iubiți", "iubesc", "iubit");
+    let to_marry = new VerbReflexiveSe("Marry", "Căsători", "căsătoresc", "căsătorești", "căsătorește", "căsătorim", "căsătoriți", "căsătoresc", "căsătorit");
+    let to_meet = new Verb("Meet", "Întâlni","întâlnesc", "întâlnești", "întâlnește", "întâlnim", "întâlniți", "întâlnesc", "întâlnit");
+    let to_miss = new Verb("Miss", "Rata","ratez", "ratezi", "ratează", "ratăm", "ratați", "ratează", "ratat");
+    let to_mix = new Verb("Mix", "Amesteca","amestec", "amesteci", "amestecă", "amestecăm", "amestecați", "amestecă", "amestecat");
+    let to_move = new Verb("Move", "Muta","mut", "muți", "mută", "mutăm", "mutați", "mută", "mutat");
+    let to_observe = new Verb("Observe (gase)", "Observa","observ", "observi", "observă", "observăm", "observați", "observă", "observat");
+    let to_obtain = new Verb("Obtain", "Obține","obțin", "obții", "obține", "obținem", "obțineți", "obțin", "obținut");
+    let to_occur = new Verb("Occur", "Apară","apăr", "aperi", "apără", "apărăm", "apăraţi", "apără", "apărat");
+    let to_open = new Verb("Open", "Deschide","deschid", "deschizi", "deschide", "deschidem", "deschideți", "deschid", "deschis");
+    let to_order = new Verb("Order", "Comanda","comand", "comanzi", "comandă", "comandăm", "comandați", "comandă", "comandat");
+    let to_paint = new Verb("Paint", "Vopsi","vopsesc", "vopsești", "vopsește", "vopsim", "vopsiți", "vopsesc", "vopsit");
+    let to_party = new Verb("Party", "Petrece","petrec", "petreci", "petrece", "petrecem", "petreceți", "petrec", "petrecut");
+    let to_pass = new Verb("Pass", "Trece","trec", "treci", "trece", "trecem", "treceți", "trec", "trecut");
+    let to_pay = new Verb("Pay", "Plăti","plătesc", "plătești", "plătește", "plătim", "plătiți", "plătesc", "plătit");
+    let to_peel = new Verb("Peel", "Decoji","decojesc", "decojești", "decojește", "decojim", "decojiți", "decojesc", "decojit");
+    let to_plan = new Verb("Plan", "Planifica","planific", "planifici", "planifică", "planificăm", "planificați", "planifică", "planificat");
+    let to_play = new VerbReflexiveSe("Play", "Juca", "joc", "joci", "joacă", "jucăm", "jucați", "joacă", "jucat");
+    let to_practice = new Verb("Practice", "Exersa","exersez", "exersezi", "exersează", "exersăm", "exersați", "exersează", "exersat");
+    let to_praise = new Verb("Praise", "Lăuda","laud", "lauzi", "laudă", "lăudăm", "lăudați", "laudă", "lăudat");
+    let to_prefer = new Verb("Prefer", "Prefera","prefer", "preferi", "preferă", "preferăm", "preferați", "preferă", "preferat");
+    let to_prepare = new Verb("Prepare", "Pregăti","pregătesc", "pregătești", "pregătește", "pregătim", "pregătiți", "pregătesc", "pregătit");
+    let to_present = new Verb("Present", "Prezenta","prezint", "prezinți", "prezintă", "prezentăm", "prezentați", "prezintă", "prezentat");
+    let to_propose = new Verb("Propose", "Cere în căsătorie","cer în căsătorie", "cere în căsătorie", "cere în căsătorie", "cerem în căsătorie", "cereți în căsătorie", "cer în căsătorie", "cerut în căsătorie");
+    let to_prove = new Verb("Prove", "Dovedi","dovedesc", "dovedești", "dovedește", "dovedim", "dovediți", "dovedesc", "dovedit");
+    let to_pull = new Verb("Pull", "Trage","trag", "tragi", "trage", "tragem", "trageți", "trag", "tras");
+    let to_push = new Verb("Push", "Împinge","împing", "împingi", "împinge", "împingem", "împingeți", "împing", "împins");
+    let to_put = new Verb("Put", "Pune","pun", "pui", "pune", "punem", "puneți", "pun", "pus");
+    let to_quit = new Verb("Quit", "Demisiona","demisionez", "demisionezi", "demisionează", "demisionăm", "demisionați", "demisionează", "demisionat");
+    let to_read = new Verb("Read", "Citi","citesc", "citești", "citește", "citim", "citiți", "citesc", "citit");
+    let to_receive = new Verb("Receive", "Primi","primesc", "primești", "primește", "primim", "primiți", "primesc", "primit");
+    let to_recommend = new Verb("Recommend", "Recomanda","recomand", "recomanzi", "recomandă", "recomandăm", "recomandați", "recomandă", "recomandat");
+    let to_recover = new VerbReflexiveSe("Recuperate", "recupera", "recuperez", "recuperezi", "recuperează", "recuperăm", "recuperați", "recuperează", "recuperat");
+    let to_register = new Verb("Register", "Înregistra","înregistrez", "înregistrezi", "înregistrează", "înregistrăm", "înregistrați", "înregistrează", "înregistrat");
+    let to_renovate = new Verb("Renovate", "Renova","renovez", "renovezi", "renovează", "renovăm", "renovați", "renovează", "renovat");
+    let to_rent = new Verb("Rent", "Închiria","închiriez", "închiriezi", "închiriază", "închiriem", "închiriați", "închiriază", "închiriat");
+    let to_repair = new Verb("Repair", "Repara","repar", "repari", "repară", "reparăm", "reparați", "repară", "reparat");
+    let to_repeat = new Verb("Repeat", "Repeta","repet", "repeți", "repetă", "repetăm", "repetați", "repetă", "repetat");
+    let to_replace = new Verb("Replace", "Înlocui","înlocuiesc", "înlocuiești", "înlocuiește", "înlocuim", "înlocuiți", "înlocuiesc", "înlocuit");
+    let to_reside = new Verb("Reside (live)", "Locui","locuiesc", "locuiești", "locuiește", "locuim", "locuiți", "locuiesc", "locuit");
+    let to_resolve = new Verb("Resolve", "Rezolva","rezolv", "rezolvi", "rezolvă", "rezolvăm", "rezolvați", "rezolvă", "rezolvat");
+    let to_rest = new VerbReflexiveSe("Rest", "Odihni", "odihnesc", "odihnești", "odihnește", "odihnim", "odihniți", "odihnesc", "odihnit");
+    let to_review = new Verb("Review", "Revizui","revizuiesc", "revizuiești", "revizuiește", "revizuim", "revizuiți", "revizuiesc", "revizuit");
+    let to_ring = new Verb("Ring", "Suna","sun", "suni", "sună", "sunăm", "sunați", "sună", "sunat");
+    let to_rise = new Verb("Rise", "Crește","cresc", "crești", "crește", "creștem", "creșteți", "cresc", "crescut");
+    let to_rob = new Verb("Rob", "Jefui","jefuiesc", "jefuiești", "jefuiește", "jefuim", "jefuiți", "jefuiesc", "jefuit");
+    let to_ruin = new Verb("Ruin", "Ruina","ruinez", "ruinezi", "ruinează", "ruinăm", "ruinați", "ruinează", "ruinat");
+    let to_run = new Verb("Run", "Alerga","alerg", "alergi", "aleargă", "alergăm", "alergați", "aleargă", "alergat");
+    let to_runAway = new Verb("Run (flee)", "Fugi","fug", "fugi", "fuge", "fugim", "fugiți", "fug", "fugit");
+    let to_say = new Verb("Say", "Spune","spun", "spui", "spune", "spunem", "spuneți", "spun", "spus");
+    let to_say2 = new Verb("Say (alt)", "Zice","zic", "zici", "zice", "zicem", "ziceți", "zic", "zis");
+    let to_search = new Verb("Search", "Căuta","caut", "cauți", "caută", "căutăm", "căutați", "caută", "căutat");
+    let to_seat = new VerbReflexiveSe("Stay (sit)", "Așeza", "așez", "așezi", "așază", "așezăm", "așezați", "așază", "așezat");
+    let to_see = new Verb("See", "Vedea","văd", "vezi", "vede", "vedem", "vedeți", "văd", "văzut");
+    let to_seem = new VerbReflexiveSe("Seem", "Părea", "par", "pari", "pare", "părem", "păreți", "par", "părut");
+    let to_send = new Verb("Send", "Trimite","trimit", "trimiți", "trimite", "trimitem", "trimiteți", "trimit", "trimis");
+    let to_shower = new Verb("Shower", "Face duș","fac duș", "faci duș", "face duș", "facem duș", "faceți duș", "fac duș", "făcut duș");
+    let to_sing = new Verb("Sing", "Cânta","cânt", "cânți", "cântă", "cântăm", "cântați", "cântă", "cântat");
+    let to_sleep = new Verb("Sleep", "Dormi","dorm", "dormi", "doarme", "dormim", "dormiți", "dorm", "dormit");
+    let to_sleepWith = new VerbReflexiveSe("Sleep (with)", "Culci", "culc", "culci", "culca", "culcam", "culcați", "culca", "culcat");
+    let to_smell = new Verb("Smell", "Mirosi","miros", "miroși", "miroase", "mirosim", "mirosiți", "miros", "mirosit");
+    let to_smile = new Verb("Smile", "Zămbi","zămbesc", "zămbesti", "zămbeste", "zămbim", "zămbiți", "zămbesc", "zămbit");    
+    let to_speak = new Verb("Speak", "Vorbi","vorbesc", "vorbești", "vorbește", "vorbim", "vorbiți", "vorbesc", "vorbit");
+    let to_stand = new VerbReflexiveSe("Stand", "Ridica", "ridic", "ridici", "ridică", "ridicăm", "ridicați", "ridică", "ridicat");
+    let to_stay = new Verb("Stay", "Sta","stau", "stai", "stă", "stăm", "stați", "stau", "stat");
+    let to_stirFry = new Verb("Stir Fry", "Căli","călesc", "călești", "călește", "călim", "căliți", "călesc", "călit");
+    let to_stop = new Verb("Stop", "Opri","opresc", "oprești", "oprește", "oprim", "opriți", "opresc", "oprit");
+    let to_suggest = new Verb("Suggest", "Sugera","sugerez", "sugerezi", "sugerează", "sugerăm", "sugerați", "sugerează", "sugerat");
+    let to_suppose = new Verb("Suppose", "Presupune","presupun", "presupui", "presupune", "presupunem", "presupuneți", "presupun", "presupus");
+    let to_sweat = new Verb("Sweat", "Transpira","transpir", "transpiri", "transpiră", "transpirăm", "transpirați", "transpiră", "transpirat");
+    let to_take = new Verb("Take", "Lua","iau", "iei", "ia", "luăm", "luați", "iau", "luat");
+    let to_takeOff = new VerbReflexiveSe("Take off", "Dezbrăca", "dezbrac", "dezbraci", "dezbracă", "dezbrăcăm", "dezbrăcați", "dezbracă", "dezbrăcat");
+    let to_teach = new Verb("Teach", "Preda","predau", "predai", "predă", "predăm", "predați", "predau", "predat");
+    let to_think = new VerbReflexiveSe("Think", "Gândi", "gândesc", "gândești", "gândește", "gândim", "gândiți", "gândesc", "gândit");
+    let to_tie = new Verb("Tie", "Lega","leg", "legi", "leagă", "legăm", "legați", "leagă", "legat");
+    let to_toMeet = new Verb("Meet", "Cunoaște","cunosc", "cunoști", "cunoaște", "cunoaștem", "cunoașteți", "cunosc", "cunoscut");
+    let to_toPlace = new Verb("Place", "Așeza","așez", "așezi", "așează", "așezăm", "așezați", "așează", "așezat");
+    let to_toPresent = new Verb("Present", "Prezenta","prezint", "prezinți", "prezintă", "prezentăm", "prezentați", "prezintă", "prezentat");
+    let to_treat = new Verb("Treat", "Trata","tratez", "tratezi", "tratează", "tratăm", "trataţi", "tratează", "tratat");
+    let to_try = new Verb("Try", "Incerca","încerc", "încerci", "încearcă", "încercăm", "încercați", "încearcă", "încercat");
+    let to_tryOn = new Verb("Try On", "Proba","prob", "probi", "probă", "probăm", "probați", "probă", "probat");
+    let to_tryVerb = new Verb("Try", "Încerca","încerc", "încerci", "încearcă", "încercăm", "încercați", "încearcă", "încercat");
+    let to_turn = new Verb("Turn", "Vira","virez", "virezi", "virează", "virăm", "virați", "virează", "virat");
+    let to_turnOn = new Verb("Turn on", "Porni","pornesc", "pornești", "pornește", "pornim", "porniți", "pornesc", "pornit");
+    let to_type = new Verb("Type", "Tasta","tastez", "tastezi", "tastează", "tastăm", "tastați", "tastează", "tastat");
+    let to_understand = new Verb("Understand", "Înțelege","înțeleg", "înțelegi", "înțelege", "înțelegem", "înțelegeți", "înțeleg", "înțeles");
+    let to_verify = new Verb("Verify", "Verifica","verific", "verifici", "verifică", "verificăm", "verificați", "verifică", "verificat");
+    let to_visit = new Verb("Visit", "Vizita","vizitez", "vizitezi", "vizitează", "vizităm", "vizitați", "vizitează", "vizitat");
+    let to_wait = new Verb("Wait", "Aștepta","aștept", "aștepți", "așteaptă", "așteptăm", "așteptați", "așteaptă", "așteptat");
+    let to_walk = new Verb("Walk (go)", "Merge","merg", "mergi", "merge", "mergem", "mergeți", "merg", "mers");
+    let to_want = new Verb("Want", "Vrea","vreau", "vrei", "vrea", "vrem", "vreți", "vor", "vrut");
+    let to_wash = new VerbReflexiveSe("Wash", "Spăla", "spăl", "speli", "spală", "spălăm", "spălați", "spală", "spălat");
+    let to_win = new Verb("Win", "Câștiga","câștig", "câștigi", "câștigă", "câștigăm", "câștigați", "câștigă", "câștigat");
+    let to_wipeOut = new Verb("Wipe Out", "Nimici","nimicesc", "nimicești", "nimicește", "nimicim", "nimiciți", "nimicesc", "nimicit");
+    let to_work = new Verb("Work", "Munci","muncesc", "muncești", "muncește", "muncim", "munciți", "muncesc", "muncit");
+    let to_work2 = new Verb("Work (alt)", "Lucra","lucrez", "lucrezi", "lucrează", "lucrăm", "lucrați", "lucrează", "lucrat");
+    let to_write = new Verb("Write", "Scrie","scriu", "scrii", "scrie", "scriem", "scrieți", "scriu", "scris");
+    
+    setParentAndMultipleChildren(wordclass_verbs, [
+        to_achieve, to_add, to_admit, to_agree, to_allow, to_analyze, to_apologize, to_apply, to_approve, to_argue, to_arrive, to_ask, to_bake, to_be, to_beAvailable, 
+        to_become, to_beDivorced, to_beEngaged, to_beHonest, to_beSure, to_blush, to_boil, to_breakIn, to_breakUp, to_bring, to_buy, to_call, to_can, to_cancel, to_carry, 
+        to_catch, to_cause, to_celebrate, to_change, to_cheat, to_choose, to_chop, to_clean, to_climb, to_close, to_come, to_comeBack, to_commitSuicide, to_compare, to_confess, 
+        to_continueVerb, to_cook, to_cross, to_cry, to_cut, to_damage, to_dance, to_dateVerb, to_decide, to_deny, to_deposit, to_describe, to_desire, to_destroy, to_die, to_discuss, 
+        to_divorce, to_do, to_doubt, to_dream, to_drink, to_drive, to_eat, to_enroll, to_enter, to_escape, to_exchange, to_exercise, to_explain, to_express, to_fail, to_fall, 
+        to_fallAsleep, to_feel, to_fight, to_find, to_fit, to_fly, to_follow, to_forecast, to_forget, to_forgive, to_gather, to_getHurt, to_getUp, to_give, to_grill, to_guess, 
+        to_guessBelieve, to_hangOut, to_have, to_hear, to_heat, to_hide, to_hit, to_hold, to_hug, to_imagine, to_improve, to_interrupt, to_interview, to_invite, to_join, to_joke, 
+        to_jump, to_keep, to_kill, to_kiss, to_know, to_know2, to_laugh, to_lead, to_learn, to_leave, to_lie, to_like, to_listen, to_live, to_lose, to_love, to_marry, to_meet, to_miss, 
+        to_mix, to_move, to_observe, to_obtain, to_occur, to_open, to_order, to_paint, to_party, to_pass, to_pay, to_peel, to_plan, to_play, to_practice, to_praise, to_prefer, to_prepare, 
+        to_present, to_propose, to_prove, to_pull, to_push, to_put,to_quit,to_read,to_receive,to_recommend,to_recover,to_register,to_renovate,to_rent,to_repair,to_repeat,to_replace,
+        to_reside,to_resolve,to_rest,to_review,to_ring,to_rise,to_rob,to_ruin,to_run,to_runAway,to_say,to_say2,to_search,to_seat,to_see,to_seem,to_send,to_shower,to_sing,to_sleep,
+        to_sleepWith,to_smell,to_smile,to_speak,to_stand,to_stay,to_stirFry,to_stop,to_suggest,to_suppose,to_sweat,to_take,to_takeOff,to_teach,to_think,to_tie,to_toMeet,to_toPlace,
+        to_toPresent,to_treat,to_try,to_tryOn,to_tryVerb,to_turn,to_turnOn,to_type,to_understand,to_verify,to_visit,to_wait,to_walk,to_want,to_wash,to_win,to_wipeOut,to_work,
+        to_work2,to_write])
     
-    let toParty = new Verb("Party", "Petrece","petrec", "petreci", "petrece", "petrecem", "petreceți", "petrec", "petrecut");
-    setParentAndChild(verbs, toParty);
-
-    let win = new Verb("Win", "Câștiga","câștig", "câștigi", "câștigă", "câștigăm", "câștigați", "câștigă", "câștigat");
-    setParentAndChild(verbs, win);
-
-    // TODO: FINDME
-    // let remember = new ReflexiveSiVerbDataCard("Remember", "A-și aduce aminte", "aduc aminte", "aduci aminte", "aduce aminte", "aducem aminte", "aduceți aminte", "aduc aminte", "adus aminte");
-    // setParentAndChild(verbs, remember);
-    
-    let change = new Verb("Change", "Schimba","schimb", "schimbi", "schimbă", "schimbăm", "schimbați", "schimbă", "schimbat");
-    setParentAndChild(verbs, change);
-        
-    let become = new Verb("Become", "Deveni","devin", "devii", "devine", "devenim", "deveniți", "devin", "devenit");
-    setParentAndChild(verbs, become);
-    
-    let improve = new Verb("Improve", "Îmbunătăți","îmbunătățesc", "îmbunătățești", "îmbunătățește", "îmbunătățim", "îmbunătățiți", "îmbunătățesc", "îmbunătățit");
-    setParentAndChild(verbs, improve);
-    
-    let pass = new Verb("Pass", "Trece","trec", "treci", "trece", "trecem", "treceți", "trec", "trecut");
-    setParentAndChild(verbs, pass);
-    
-    let fail = new Verb("Fail", "Eșua","eșuez", "eșuezi", "eșuează", "eșuăm", "eșuați", "eșuează", "eșuat");
-    setParentAndChild(verbs, fail);
-    
-    let celebrate = new Verb("Celebrate", "Sărbători","sărbătoresc", "sărbătorești", "sărbătorește", "sărbătorim", "sărbătoriți", "sărbătoresc", "sărbătorit");
-    setParentAndChild(verbs, celebrate);
-    
-    let shower = new Verb("Shower", "Face duș","fac duș", "faci duș", "face duș", "facem duș", "faceți duș", "fac duș", "făcut duș");
-    setParentAndChild(verbs, shower);
-    
-    let recover = new VerbReflexiveSe("Recuperate", "recupera", "recuperez", "recuperezi", "recuperează", "recuperăm", "recuperați", "recuperează", "recuperat");
-    setParentAndChild(verbs, recover);
-    
-    let exercise = new Verb("Exercise", "Face exerciții","fac exerciții", "faci exerciții", "face exerciții", "facem exerciții", "faceți exerciții", "fac exerciții", "făcut exerciții");
-    setParentAndChild(verbs, exercise);
-    
-    let prove = new Verb("Prove", "Dovedi","dovedesc", "dovedești", "dovedește", "dovedim", "dovediți", "dovedesc", "dovedit");
-    setParentAndChild(verbs, prove);
-    
-    let admit = new Verb("Admit", "Recunoaște","recunosc", "recunoști", "recunoaște", "recunoaștem", "recunoașteți", "recunosc", "recunoscut");
-    setParentAndChild(verbs, admit);
-    
-    let confess = new Verb("Confess", "Mărturisi","mărturisesc", "mărturisești", "mărturisește", "mărturisim", "mărturisiți", "mărturisesc", "mărturisit");
-    setParentAndChild(verbs, confess);
-    
-    let deny = new Verb("Deny", "Nega","neg", "negi", "neagă", "negăm", "negați", "neagă", "negat");
-    setParentAndChild(verbs, deny);
-    
-    let commitSuicide = new VerbReflexiveSe("Commit Suicide", "sinucide", "sinucid", "sinucizi", "sinucide", "sinucidem", "sinucideți", "sinucid", "sinucis");
-    setParentAndChild(verbs, commitSuicide);
-    
-    let apologize = new Verb("Apologize", "Cere scuze","cer scuze", "ceri scuze", "cere scuze", "cerem scuze", "cereți scuze", "cer scuze", "cerut scuze");
-    setParentAndChild(verbs, apologize);
-    
-    let rob = new Verb("Rob", "Jefui","jefuiesc", "jefuiești", "jefuiește", "jefuim", "jefuiți", "jefuiesc", "jefuit");
-    setParentAndChild(verbs, rob);
-    
-    let cheat = new Verb("Cheat", "Trișa","trișez", "trișezi", "trișează", "trișăm", "trișați", "trișează", "trișat");
-    setParentAndChild(verbs, cheat);
-    
-    let breakIn = new Verb("Break Into", "Sparge","sparg", "spargi", "sparge", "spargem", "spargeți", "sparg", "spart");
-    setParentAndChild(verbs, breakIn);
-    
-    let escape = new Verb("Escape", "Scăpa","scap", "scapi", "scapă", "scăpăm", "scăpați", "scapă", "scăpat");
-    setParentAndChild(verbs, escape);
-    
-    let replace = new Verb("Replace", "Înlocui","înlocuiesc", "înlocuiești", "înlocuiește", "înlocuim", "înlocuiți", "înlocuiesc", "înlocuit");
-    setParentAndChild(verbs, replace);
-    
-    let renovate = new Verb("Renovate", "Renova","renovez", "renovezi", "renovează", "renovăm", "renovați", "renovează", "renovat");
-    setParentAndChild(verbs, renovate);
-    
-    let paint = new Verb("Paint", "Vopsi","vopsesc", "vopsești", "vopsește", "vopsim", "vopsiți", "vopsesc", "vopsit");
-    setParentAndChild(verbs, paint);
-    
-    let keep = new Verb("Keep", "Ține","țin", "ții", "ține", "ținem", "țineți", "țin", "ținut");
-    setParentAndChild(verbs, keep);
-    
-    let suppose = new Verb("Suppose", "Presupune","presupun", "presupui", "presupune", "presupunem", "presupuneți", "presupun", "presupus");
-    setParentAndChild(verbs, suppose);
-    
-    let imagine = new VerbReflexiveSi("Imagine", "Imagina", "imaginez", "imaginezi", "imaginează", "imaginăm", "imaginați", "imaginează", "imaginat");
-    setParentAndChild(verbs, imagine);
-    
-    let doubt = new Verb("Doubt", "Îndoi","îndoiesc", "îndoiești", "îndoiește", "îndoim", "îndoiți", "îndoiesc", "îndoit");
-    setParentAndChild(verbs, doubt);
-    
-    let observe = new Verb("Observe (gase)", "Observa","observ", "observi", "observă", "observăm", "observați", "observă", "observat");
-    setParentAndChild(verbs, observe);
-    
-    let die = new Verb("Die", "Muri","mor", "mori", "moare", "murim", "muriți", "mor", "murit");
-    setParentAndChild(verbs, die);
-    
-    let ruin = new Verb("Ruin", "Ruina","ruinez", "ruinezi", "ruinează", "ruinăm", "ruinați", "ruinează", "ruinat");
-    setParentAndChild(verbs, ruin);
-    
-    let cause = new Verb("Cause", "Provoca","provoc", "provoci", "provoacă", "provocăm", "provocați", "provoacă", "provocat");
-    setParentAndChild(verbs, cause);
-    
-    let damage = new Verb("Damage", "Aletia","aletiez", "aletiezi", "aletiază", "aletiem", "aletiați", "aletiază", "aletiat");
-    setParentAndChild(verbs, damage);
-    
-    let wipeOut = new Verb("Wipe Out", "Nimici","nimicesc", "nimicești", "nimicește", "nimicim", "nimiciți", "nimicesc", "nimicit");
-    setParentAndChild(verbs, wipeOut);
-    
-    let destroy = new Verb("Destroy", "Distruge","distrug", "distrugi", "distruge", "distrugem", "distrugeți", "distrug", "distrus");
-    setParentAndChild(verbs, destroy);
-    
-    let occur = new Verb("Occur", "Apară","apăr", "aperi", "apără", "apărăm", "apăraţi", "apără", "apărat");
-    setParentAndChild(verbs, occur);
-    
-    let quit = new Verb("Quit", "Demisiona","demisionez", "demisionezi", "demisionează", "demisionăm", "demisionați", "demisionează", "demisionat");
-    setParentAndChild(verbs, quit);
-    
-    let praise = new Verb("Praise", "Lăuda","laud", "lauzi", "laudă", "lăudăm", "lăudați", "laudă", "lăudat");
-    setParentAndChild(verbs, praise);
-    
-    let prefer = new Verb("Prefer", "Prefera","prefer", "preferi", "preferă", "preferăm", "preferați", "preferă", "preferat");
-    setParentAndChild(verbs, prefer);
-    
-    let gather = new Verb("Gather", "Aduna","adun", "aduni", "adună", "adunăm", "adunați", "adună", "adunat");
-    setParentAndChild(verbs, gather);
-    
-    let lead = new Verb("Lead", "Conduce","conduc", "conduci", "conduce", "conducem", "conduceți", "conduc", "condus");
-    setParentAndChild(verbs, lead);
-    
-    let apply = new Verb("Apply", "Aplica","aplic", "aplici", "aplică", "aplicăm", "aplicați", "aplică", "aplicat");
-    setParentAndChild(verbs, apply);
-    
-    let obtain = new Verb("Obtain", "Obține","obțin", "obții", "obține", "obținem", "obțineți", "obțin", "obținut");
-    setParentAndChild(verbs, obtain);
-    
-    let interview = new Verb("Interview", "Intervieva","intervievez", "intervievezi", "intervievează", "intervievăm", "intervievati", "intervievează", "intervievat");
-    setParentAndChild(verbs, interview);
-    
-    let approve = new Verb("Approve", "Aproba","aprob", "aprobi", "aprobă", "aprobăm", "aprobați", "aprobă", "aprobat");
-    setParentAndChild(verbs, approve);
-    
-    let verify = new Verb("Verify", "Verifica","verific", "verifici", "verifică", "verificăm", "verificați", "verifică", "verificat");
-    setParentAndChild(verbs, verify);
-    
-    let analyze = new Verb("Analyze", "Analiza","analizez", "analizezi", "analizează", "analizăm", "analizați", "analizează", "analizat");
-    setParentAndChild(verbs, analyze);
-    
-    let present = new Verb("Present", "Prezenta","prezint", "prezinți", "prezintă", "prezentăm", "prezentați", "prezintă", "prezentat");
-    setParentAndChild(verbs, present);
-    
-    let discuss = new Verb("Discuss", "Discuta","discut", "discuți", "discută", "discutăm", "discutați", "discută", "discutat");
-    setParentAndChild(verbs, discuss);
-    
-    let agree = new Verb("Agree", "Fi de acord","sunt de acord", "ești de acord", "este de acord", "suntem de acord", "sunteți de acord", "sunt de acord", "fost de acord");
-    setParentAndChild(verbs, agree);
-    
-    let achieve = new Verb("Achieve", "Realiza","realizez", "realizezi", "realizează", "realizăm", "realizați", "realizează", "realizat");
-    setParentAndChild(verbs, achieve);
-    
-    let resolve = new Verb("Resolve", "Rezolva","rezolv", "rezolvi", "rezolvă", "rezolvăm", "rezolvați", "rezolvă", "rezolvat");
-    setParentAndChild(verbs, resolve);
-    
-    let review = new Verb("Review", "Revizui","revizuiesc", "revizuiești", "revizuiește", "revizuim", "revizuiți", "revizuiesc", "revizuit");
-    setParentAndChild(verbs, review);
-    
-    let continueVerb = new Verb("Continue", "Continua","continuu", "continui", "continuă", "continuăm", "continuați", "continuă", "continuat");
-    setParentAndChild(verbs, continueVerb);
-    
-    let repeat = new Verb("Repeat", "Repeta","repet", "repeți", "repetă", "repetăm", "repetați", "repetă", "repetat");
-    setParentAndChild(verbs, repeat);
-    
-    let suggest = new Verb("Suggest", "Sugera","sugerez", "sugerezi", "sugerează", "sugerăm", "sugerați", "sugerează", "sugerat");
-    setParentAndChild(verbs, suggest);
-    
-    let explain = new Verb("Explain", "Explica","explic", "explici", "explică", "explicăm", "explicați", "explică", "explicat");
-    setParentAndChild(verbs, explain);
-    
-    let express = new Verb("Express", "Exprima","exprim", "exprimi", "exprimă", "exprimăm", "exprimați", "exprimă", "exprimat");
-    setParentAndChild(verbs, express);
-    
-    let seem = new VerbReflexiveSe("Seem", "Părea", "par", "pari", "pare", "părem", "păreți", "par", "părut");
-    setParentAndChild(verbs, seem);
-    
-    let kill = new Verb("Kill", "Ucide","ucid", "ucizi", "ucide", "ucidem", "ucideți", "ucid", "ucis");
-    setParentAndChild(verbs, kill);
-    
-    let heat = new Verb("Heat", "Încălzi","încălzesc", "încălzești", "încălzește", "încălzim", "încălziți", "încălzesc", "încălzit");
-    setParentAndChild(verbs, heat);
-    
-    let boil = new Verb("Boil", "Fierbe","fierb", "fierbi", "fierbe", "fierbem", "fierbeți", "fierb", "fiert");
-    setParentAndChild(verbs, boil);
-    
-    let bake = new Verb("Bake", "Coace","coc", "coci", "coace", "coacem", "coaceți", "coc", "copt");
-    setParentAndChild(verbs, bake);
-    
-    let grill = new Verb("Grill", "Frige la grătar","frig la grătar", "frigi la grătar", "frige la grătar", "frigem la grătar", "frigeți la grătar", "frig la grătar", "fript la grătar");
-    setParentAndChild(verbs, grill);
-    
-    let chop = new Verb("Chop", "Toca","toc", "toci", "toacă", "tocăm", "tocați", "toacă", "tocat");
-    setParentAndChild(verbs, chop);
-    
-    let stirFry = new Verb("Stir Fry", "Căli","călesc", "călești", "călește", "călim", "căliți", "călesc", "călit");
-    setParentAndChild(verbs, stirFry);
-    
-    let mix = new Verb("Mix", "Amesteca","amestec", "amesteci", "amestecă", "amestecăm", "amestecați", "amestecă", "amestecat");
-    setParentAndChild(verbs, mix);
-    
-    let peel = new Verb("Peel", "Decoji","decojesc", "decojești", "decojește", "decojim", "decojiți", "decojesc", "decojit");
-    setParentAndChild(verbs, peel);
-    
-    let hug = new Verb("Hug", "Îmbrățișa","îmbrățișez", "îmbrățișezi", "îmbrățișează", "îmbrățișăm", "îmbrățișați", "îmbrățișează", "îmbrățișat");
-    setParentAndChild(verbs, hug);
-    
-    let hold = new Verb("Hold", "Ține","țin", "ții", "ține", "ținem", "țineți", "țin", "ținut");
-    setParentAndChild(verbs, hold);
-    
-    let interrupt = new Verb("Interrupt", "Întrerupe","întrerup", "întrerupi", "întrerupe", "întrerupem", "întrerupeți", "întrerup", "întrerupt");
-    setParentAndChild(verbs, interrupt);
-    
-    let type = new Verb("Type", "Tasta","tastez", "tastezi", "tastează", "tastăm", "tastați", "tastează", "tastat");
-    setParentAndChild(verbs, type);
-    
-    let like = new VerbReflexiveSi("Like", "Plăcea", "place", "place", "place", "place", "place", "place", "plăcut");
-    setParentAndChild(verbs, like);
-    
-    let dream = new Verb("Dream", "Visa","visez", "visezi", "visează", "visăm", "visați", "visează", "visat");
-    setParentAndChild(verbs, dream);
-    
-    let beHonest = new Verb("Be Honest", "Fi cinstit","sunt cinstit", "ești cinstit", "este cinstit", "suntem cinstiți", "sunteți cinstiți", "sunt cinstiți", "fost cinstit");
-    setParentAndChild(verbs, beHonest);
-    
-    let beSure = new Verb("Be Sure", "Fi sigur","sunt sigur", "ești sigur", "este sigur", "suntem siguri", "sunteți siguri", "sunt siguri", "fost sigur");
-    setParentAndChild(verbs, beSure);
-    
-    let treat = new Verb("Treat", "Trata","tratez", "tratezi", "tratează", "tratăm", "trataţi", "tratează", "tratat");
-    setParentAndChild(verbs, treat);
-    
-    let blush = new Verb("Blush", "Roși","roșesc", "roșești", "roșește", "roșim", "roșiți", "roșesc", "roșit");
-    setParentAndChild(verbs, blush);
-    
-    let beAvailable = new Verb("Be Available", "Fi disponibil","sunt disponibil", "ești disponibil", "este disponibil", "suntem disponibili", "sunteți disponibili", "sunt disponibili", "fost disponibil");
-    setParentAndChild(verbs, beAvailable);
-    
-    let rise = new Verb("Rise", "Crește","cresc", "crești", "crește", "creștem", "creșteți", "cresc", "crescut");
-    setParentAndChild(verbs, rise);
-    
-    let tryVerb = new Verb("Try", "Încerca","încerc", "încerci", "încearcă", "încercăm", "încercați", "încearcă", "încercat");
-    setParentAndChild(verbs, tryVerb);
-    
-    let invite = new Verb("Invite", "Invita","invit", "inviţi", "invită", "invităm", "invitați", "invită", "invitat");
-    setParentAndChild(verbs, invite);
-    
-    let join = new VerbReflexiveSe("Join", "Alătura", "alătur", "alături", "alătură", "alăturăm", "alăturați", "alătură", "alăturat");
-    setParentAndChild(verbs, join);
-    
-    let cancel = new Verb("Cancel", "Anula","anulez", "anulezi", "anulează", "anulăm", "anulați", "anulează", "anulat");
-    setParentAndChild(verbs, cancel);
-    
-    let sweat = new Verb("Sweat", "Transpira","transpir", "transpiri", "transpiră", "transpirăm", "transpirați", "transpiră", "transpirat");
-    setParentAndChild(verbs, sweat);
-    
-    let forecast = new Verb("Forecast", "Prognoza","prognozez", "prognozezi", "prognozează", "prognozăm", "prognozați", "prognozează", "prognozat");
-    setParentAndChild(verbs, forecast);
-    
-    let describe = new Verb("Describe", "Descrie","descriu", "descrii", "descrie", "descriem", "descrieți", "descriu", "descris");
-    setParentAndChild(verbs, describe);
-    
-    let compare = new Verb("Compare", "Compara","compar", "compari", "compară", "comparăm", "comparați", "compară", "comparat");
-    setParentAndChild(verbs, compare);
-    
-    let getHurt = new Verb("Get Hurt", "Fi rănit","sunt rănit", "ești rănit", "este rănit", "suntem răniți", "sunteți răniți", "sunt răniți", "fost rănit");
-    setParentAndChild(verbs, getHurt);
-    
-    let comeBack = new VerbReflexiveSe("Come Back", "Întoarce", "întorc", "întorci", "întoarce", "întoarcem", "întoarceți", "întorc", "întors");
-    setParentAndChild(verbs, comeBack);
-    
-    let move = new Verb("Move", "Muta","mut", "muți", "mută", "mutăm", "mutați", "mută", "mutat");
-    setParentAndChild(verbs, move);
-    
-    let follow = new Verb("Follow", "Urma","urmez", "urmezi", "urmează", "urmăm", "urmați", "urmează", "urmat");
-    setParentAndChild(verbs, follow);
-    
-    let dateVerb = new VerbReflexiveSe("Date", "Întâlni", "întâlnesc", "întâlnești", "întâlnește", "întâlnim", "întâlniți", "întâlnesc", "întâlnit");
-    setParentAndChild(verbs, dateVerb);
-    
-    let toPlace = new Verb("Place", "Așeza","așez", "așezi", "așează", "așezăm", "așezați", "așează", "așezat");
-    setParentAndChild(verbs, toPlace);
-    
-    let toPresent = new Verb("Present", "Prezenta","prezint", "prezinți", "prezintă", "prezentăm", "prezentați", "prezintă", "prezentat");
-    setParentAndChild(verbs, toPresent);
-    
-    let toMeet = new Verb("Meet", "Cunoaște","cunosc", "cunoști", "cunoaște", "cunoaștem", "cunoașteți", "cunosc", "cunoscut");
-    setParentAndChild(verbs, toMeet);
-    
-    let argue = new VerbReflexiveSe("Argue", "Certa", "cert", "cerți", "certă", "certăm", "certați", "certă", "certat");
-    setParentAndChild(verbs, argue);
-    
-    let cry = new Verb("Cry", "Plânge","plâng", "plângi", "plânge", "plângem", "plângeți", "plâng", "plâns");
-    setParentAndChild(verbs, cry);
-    
-    let propose = new Verb("Propose", "Cere în căsătorie","cer în căsătorie", "cere în căsătorie", "cere în căsătorie", "cerem în căsătorie", "cereți în căsătorie", "cer în căsătorie", "cerut în căsătorie");
-    setParentAndChild(verbs, propose);
-    
-    let beDivorced = new Verb("Be Divorced", "Fi divorțat","sunt divorțat", "ești divorțat", "este divorțat", "suntem divorțați", "sunteți divorțați", "sunt divorțați", "fost divorțat");
-    setParentAndChild(verbs, beDivorced);
-    
-    let breakUp = new VerbReflexiveSe("Break Up", "Despărți", "despart", "desparți", "desparte", "despărțim", "despărțiți", "despart", "despărțit");
-    setParentAndChild(verbs, breakUp);
-    
-    let beEngaged = new Verb("Be Engaged", "Fi logodit","sunt logodit", "ești logodit", "este logodit", "suntem logodiți", "sunteți logodiți", "sunt logodiți", "fost logodit");
-    setParentAndChild(verbs, beEngaged);
-    
-    let clean = new Verb("Clean", "Face curățenie","fac curățenie", "faci curățenie", "face curățenie", "facem curățenie", "faceți curățenie", "fac curățenie", "făcut curățenie");
-    setParentAndChild(verbs, clean);
-    
-    let rest = new VerbReflexiveSe("Rest", "Odihni", "odihnesc", "odihnești", "odihnește", "odihnim", "odihniți", "odihnesc", "odihnit");
-    setParentAndChild(verbs, rest);
-    
-    let allow = new Verb("Allow", "Permite","permit", "permiți", "permite", "permitem", "permiteți", "permit", "permis");
-    setParentAndChild(verbs, allow);
-    
-    let decide = new Verb("Decide", "Decide","decid", "decizi", "decide", "decidem", "decideți", "decid", "decis");
-    setParentAndChild(verbs, decide);
-    
-    let miss = new Verb("Miss", "Rata","ratez", "ratezi", "ratează", "ratăm", "ratați", "ratează", "ratat");
-    setParentAndChild(verbs, miss);
-    
-    let rent = new Verb("Rent", "Închiria","închiriez", "închiriezi", "închiriază", "închiriem", "închiriați", "închiriază", "închiriat");
-    setParentAndChild(verbs, rent);
-    
-    let plan = new Verb("Plan", "Planifica","planific", "planifici", "planifică", "planificăm", "planificați", "planifică", "planificat");
-    setParentAndChild(verbs, plan);
-    
-    let exchange = new Verb("Exchange", "Schimba","schimb", "schimbi", "schimbă", "schimbăm", "schimbați", "schimbă", "schimbat");
-    setParentAndChild(verbs, exchange);
-    
-    let deposit = new Verb("Deposit", "Depune","depun", "depui", "depune", "depunem", "depuneți", "depun", "depus");
-    setParentAndChild(verbs, deposit);
-    
-    let register = new Verb("Register", "Înregistra","înregistrez", "înregistrezi", "înregistrează", "înregistrăm", "înregistrați", "înregistrează", "înregistrat");
-    setParentAndChild(verbs, register);
-    
-    let guess = new Verb("Guess", "Ghici","ghicesc", "ghicești", "ghicește", "ghicim", "ghiciți", "ghicesc", "ghicit");
-    setParentAndChild(verbs, guess);
-    
-    let practice = new Verb("Practice", "Exersa","exersez", "exersezi", "exersează", "exersăm", "exersați", "exersează", "exersat");
-    setParentAndChild(verbs, practice);
-    
-    let enroll = new VerbReflexiveSe("Enroll", "Înscrie", "înscriu", "înscrii", "înscrie", "înscriem", "înscrieți", "înscriu", "înscris");
-    setParentAndChild(verbs, enroll);
-        
-    let hangOut = new Verb("Hang Out", "Petrece timpul","petrec", "petreci", "petrece", "petrecem", "petreceți", "petrec", "petrecut");
-    setParentAndChild(verbs, hangOut);
-    
-    let tie = new Verb("Tie", "Lega","leg", "legi", "leagă", "legăm", "legați", "leagă", "legat");
-    setParentAndChild(verbs, tie);
-    
-    let repair = new Verb("Repair", "Repara","repar", "repari", "repară", "reparăm", "reparați", "repară", "reparat");
-    setParentAndChild(verbs, repair);
-    
-    let prepare = new Verb("Prepare", "Pregăti","pregătesc", "pregătești", "pregătește", "pregătim", "pregătiți", "pregătesc", "pregătit");
-    setParentAndChild(verbs, prepare);
-    
-    let fit = new VerbReflexiveSe("Fit", "Potrivi", "potrivesc", "potrivești", "potrivește", "potrivim", "potriviți", "potrivesc", "potrivit");
-    setParentAndChild(verbs, fit);
-    
-    let tryOn = new Verb("Try On", "Proba","prob", "probi", "probă", "probăm", "probați", "probă", "probat");
-    setParentAndChild(verbs, tryOn);
-    
-    let feel = new Verb("Feel", "Simți","simt", "simți", "simte", "simțim", "simțiți", "simt", "simțit");
-    setParentAndChild(verbs, feel);
-    
-    let teach = new Verb("Teach", "Preda","predau", "predai", "predă", "predăm", "predați", "predau", "predat");
-    setParentAndChild(verbs, teach);
-    
-    let meet = new Verb("Meet", "Întâlni","întâlnesc", "întâlnești", "întâlnește", "întâlnim", "întâlniți", "întâlnesc", "întâlnit");
-    setParentAndChild(verbs, meet);
-    
-    let turn = new Verb("Turn", "Vira","virez", "virezi", "virează", "virăm", "virați", "virează", "virat");
-    setParentAndChild(verbs, turn);
-    
-    let stop = new Verb("Stop", "Opri","opresc", "oprești", "oprește", "oprim", "opriți", "opresc", "oprit");
-    setParentAndChild(verbs, stop);
-    
-    let pay = new Verb("Pay", "Plăti","plătesc", "plătești", "plătește", "plătim", "plătiți", "plătesc", "plătit");
-    setParentAndChild(verbs, pay);
-        
-    let order = new Verb("Order", "Comanda","comand", "comanzi", "comandă", "comandăm", "comandați", "comandă", "comandat");
-    setParentAndChild(verbs, order);
-    
-    let enter = new Verb("Enter", "Intra","intru", "intri", "intră", "intrăm", "intrați", "intră", "intrat");
-    setParentAndChild(verbs, enter);
-
-    let cross = new Verb("Cross", "Traversa","traversez", "traversezi", "traversează", "traversăm", "traversați", "traversează", "traversat");
-    setParentAndChild(verbs, cross);
-    
-    let add = new Verb("Add", "Adăuga","adaug", "adaugi", "adaugă", "adăugăm", "adăugați", "adaugă", "adăugat");
-    setParentAndChild(verbs, add);
-    
-    let recommend = new Verb("Recommend", "Recomanda","recomand", "recomanzi", "recomandă", "recomandăm", "recomandați", "recomandă", "recomandat");
-    setParentAndChild(verbs, recommend);
-    
-    let turnOn = new Verb("Turn on", "Porni","pornesc", "pornești", "pornește", "pornim", "porniți", "pornesc", "pornit");
-    setParentAndChild(verbs, turnOn);
-    
-    let takeOff = new VerbReflexiveSe("Take off", "Dezbrăca", "dezbrac", "dezbraci", "dezbracă", "dezbrăcăm", "dezbrăcați", "dezbracă", "dezbrăcat");
-    setParentAndChild(verbs, takeOff);
-    
-
     // =============================================================================
     // #Prepositions
     // =============================================================================
+    
+    let preposition_about = new DataCard("About", "Despre","")
+    let preposition_above = new DataCard("Above", "De mai sus","")
+    let preposition_abroad = new DataCard("Abroad", "În străinătate", "");  
+    let preposition_after = new DataCard("After", "După","")
+    let preposition_against = new DataCard("Against", "Împotriva","")
+    let preposition_alongSide = new DataCard("Along side (next to)", "Pe langa","")
+    let preposition_amid = new DataCard("Amid (in the middle of)", "În mijlocul","")
+    let preposition_among = new DataCard("Among", "Printre","")
+    let preposition_apartFrom = new DataCard("Apart from", "În afară de","")
+    let preposition_at = new DataCard("At", "La","")
+    let preposition_awayFrom = new DataCard("Away From", "Departe de", "");
+    let preposition_behind = new DataCard("Behind", "In spate","")
+    let preposition_beneath = new DataCard("Beneath", "Sub","")
+    let preposition_beside = new DataCard("Beside (next to)", "Lângă","")
+    let preposition_beyond = new DataCard("Beyond", "Dincolo","")
+    let preposition_bottom = new DataCard("Bottom", "De Jos", "");
+    let preposition_by = new DataCard("By", "De către", "");
+    let preposition_closeTo = new DataCard("Close to", "Aproape de","")
+    let preposition_from = new DataCard("From", "Din","")
+    let preposition_high = new DataCard("High", "Sus", "");
+    let preposition_in = new DataCard("In", "În (Înăuntru)","")
+    let preposition_inBetween = new DataCard("In between", "Între","")
+    let preposition_inFrontOf = new DataCard("In front of", "În fața","")
+    let preposition_inside = new DataCard("Inside", "Interior","")
+    let preposition_left = new DataCard("Left", "La Stânga", "");
+    let preposition_low = new DataCard("Low", "Jos", "");
+    let preposition_near = new DataCard("Near", "Apropape","")
+    let preposition_of = new DataCard("Of", "De","")
+    let preposition_on = new DataCard("On", "Pe","")
+    let preposition_oppositeTo = new DataCard("Opposite To", "Peste drum de", "");
+    let preposition_out = new DataCard("Out", "Afară", "");
+    let preposition_outside = new DataCard("Outside", "In afara","")
+    let preposition_over = new DataCard("Over", "Peste","")
+    let preposition_right = new DataCard("Right", "La Dreapta", "");
+    let preposition_since = new DataCard("Since", "De când","")
+    let preposition_through = new DataCard("Through", "Prin","")
+    let preposition_till = new DataCard("Until (till)", "Până (la)","")
+    let preposition_together = new DataCard("Together", "Impreuna","")
+    let preposition_top = new DataCard("Top", "De Sus", "");
+    let preposition_towards = new DataCard("Towards", "Spre","")
+    let preposition_until = new DataCard("Until", "Până când", "");
+    let preposition_via = new DataCard("Via", "Prin", "");  
+    let preposition_with = new DataCard("With", "Cu","")
+    let preposition_without = new DataCard("Without", "Fără","")
 
-    let prepositions = new DataCard(
-        "Prepositions", "Prepoziţii",
-        "")
-    setParentAndChild(romanian, prepositions);
-
-    let after = new DataCard(
-        "After", "După",
-        "")
-    setParentAndChild(prepositions, after);
-
-    let about = new DataCard(
-        "About", "Despre",
-        "")
-    setParentAndChild(prepositions, about);
-
-    let at = new DataCard(
-        "At", "La",
-        "")
-    setParentAndChild(prepositions, at);
-
-    let from = new DataCard(
-        "From", "Din",
-        "")
-    setParentAndChild(prepositions, from);
-
-    let _in = new DataCard(
-        "In", "În (Înăuntru)",
-        "")
-    setParentAndChild(prepositions, _in);
-
-    let _out = new DataCard("Out", "Afară", "");
-    setParentAndChild(prepositions, _out)
-
-    let on = new DataCard(
-        "On", "Pe",
-        "")
-    setParentAndChild(prepositions, on);
-
-    let since = new DataCard(
-        "Since", "De când",
-        "")
-    setParentAndChild(prepositions, since);
-
-    let until = new DataCard(
-        "Until (till)", "Până (la)",
-        "")
-    setParentAndChild(prepositions, until);
-
-    let above = new DataCard(
-        "Above", "De mai sus",
-        "")
-    setParentAndChild(prepositions, above);
-
-    let against = new DataCard(
-        "Against", "Împotriva",
-        "")
-    setParentAndChild(prepositions, against);
-
-    let alongSide = new DataCard(
-        "Along side (next to)", "Pe langa",
-        "")
-    setParentAndChild(prepositions, alongSide);
-
-    let amid = new DataCard(
-        "Amid (in the middle of)", "În mijlocul",
-        "")
-    setParentAndChild(prepositions, amid);
-
-    let among = new DataCard(
-        "Among", "Printre",
-        "")
-    setParentAndChild(prepositions, among);
-
-    let apartFrom = new DataCard(
-        "Apart from", "În afară de",
-        "")
-    setParentAndChild(prepositions, apartFrom);
-
-    let behind = new DataCard(
-        "Behind", "In spate",
-        "")
-    setParentAndChild(prepositions, behind);
-
-    let beneath = new DataCard(
-        "Beneath", "Sub",
-        "")
-    setParentAndChild(prepositions, beneath);
-
-    let by = new DataCard(
-        "Of", "De",
-        "")
-    setParentAndChild(prepositions, by);
-
-    let beside = new DataCard(
-        "Beside (next to)", "Lângă",
-        "")
-    setParentAndChild(prepositions, beside);
-
-    let beyond = new DataCard(
-        "Beyond", "Dincolo",
-        "")
-    setParentAndChild(prepositions, beyond);
-
-    let closeTo = new DataCard(
-        "Close to", "Aproape de",
-        "")
-    setParentAndChild(prepositions, closeTo);
-
-    let inBetween = new DataCard(
-        "In between", "Între",
-        "")
-    setParentAndChild(prepositions, inBetween);
-
-    let inFrontOf = new DataCard(
-        "In front of", "În fața",
-        "")
-    setParentAndChild(prepositions, inFrontOf);
-
-    let inside = new DataCard(
-        "Inside", "Interior",
-        "")
-    setParentAndChild(prepositions, inside);
-
-    let near = new DataCard(
-        "Near", "Apropape",
-        "")
-    setParentAndChild(prepositions, near);
-
-    let over = new DataCard(
-        "Over", "Peste",
-        "")
-    setParentAndChild(prepositions, over);
-
-    let towards = new DataCard(
-        "Towards", "Spre",
-        "")
-    setParentAndChild(prepositions, towards);
-
-    let without = new DataCard(
-        "Without", "Fără",
-        "")
-    setParentAndChild(prepositions, without);
-
-    let through = new DataCard(
-        "Through", "Prin",
-        "")
-    setParentAndChild(prepositions, through);
-
-    let together = new DataCard(
-        "Together", "Impreuna",
-        "")
-    setParentAndChild(prepositions, together);
-
-    let outside = new DataCard(
-        "Outside", "In afara",
-        "")
-    setParentAndChild(prepositions, outside);
-
-    let _with = new DataCard(
-        "With", "Cu",
-        "")
-    setParentAndChild(prepositions, _with);
-
-    let Top = new DataCard("Top", "De Sus", "");
-    setParentAndChild(prepositions, Top)
-
-    let Bottom = new DataCard("Bottom", "De Jos", "");
-    setParentAndChild(prepositions, Bottom)
-
-    let Left = new DataCard("Left", "La Stânga", "");
-    setParentAndChild(prepositions, Left)
-
-    let Right = new DataCard("Right", "La Dreapta", "");
-    setParentAndChild(prepositions, Right)
-
-    let High = new DataCard("High", "Sus", "");
-    setParentAndChild(prepositions, High)
-
-    let Low = new DataCard("Low", "Jos", "");
-    setParentAndChild(prepositions, Low)
-
-    let AwayFrom = new DataCard("Away From", "Departe de", "");
-    setParentAndChild(prepositions, AwayFrom);
-
-    let OppositeTo = new DataCard("Opposite To", "Peste drum de", "");
-    setParentAndChild(prepositions, OppositeTo);
-
-    let By = new DataCard("By", "De către", "");
-    setParentAndChild(prepositions, By);
-
-    let Until = new DataCard("Until", "Până când", "");
-    setParentAndChild(prepositions, Until);
-
-    let via = new DataCard("Via", "Prin", "");  
-    setParentAndChild(prepositions, via);  
-
-    let abroad = new DataCard("Abroad", "În străinătate", "");  
-    setParentAndChild(prepositions, abroad);  
-
+    setParentAndMultipleChildren(wordclass_prepositions, [
+        preposition_about, preposition_above, preposition_abroad, preposition_after, preposition_against, preposition_alongSide, preposition_amid, preposition_among, 
+        preposition_apartFrom, preposition_at, preposition_awayFrom, preposition_behind, preposition_beneath, preposition_beside, preposition_beyond, preposition_bottom, 
+        preposition_by, preposition_closeTo, preposition_from, preposition_high, preposition_in, preposition_inBetween, preposition_inFrontOf, preposition_inside, 
+        preposition_left, preposition_low, preposition_near, preposition_of, preposition_on, preposition_oppositeTo, preposition_out, preposition_outside, 
+        preposition_over, preposition_right, preposition_since, preposition_through, preposition_till, preposition_together, preposition_top, preposition_towards, 
+        preposition_until, preposition_via, preposition_with, preposition_without])
 
 
     // =============================================================================
     // #Adjectives
     // =============================================================================
 
-    let adjectives = new DataCard(
-        "Adjectives", "Adjective",
-        "")
-    setParentAndChild(romanian, adjectives);
+
 
     let who = new DataCard(
         "Who", "Cine",
         "")
-    setParentAndChild(adjectives, who);
+    setParentAndChild(wordclass_adjectives, who);
 
     let what = new DataCard(
         "What", "Ce",
         "")
-    setParentAndChild(adjectives, what);
+    setParentAndChild(wordclass_adjectives, what);
 
     let which = new DataCard(
         "Which", "Care",
         "")
-    setParentAndChild(adjectives, which);
+    setParentAndChild(wordclass_adjectives, which);
 
     // #quantities
     let quantities = new DataCard("Quantities", "Cantități", "");  
-    setParentAndChild(adjectives, quantities);  
+    setParentAndChild(wordclass_adjectives, quantities);  
 
     let every = new DataCard(
         "Every", "Fiecare",
@@ -1021,7 +464,7 @@ export function BuildLanguageTree() // returns romanian
 
     // #descriptiveadjectives
     let DescriptiveAdjective = new DataCard("Descriptive Adjective", "Adjective Descriptive", "");
-    setParentAndChild(adjectives, DescriptiveAdjective)
+    setParentAndChild(wordclass_adjectives, DescriptiveAdjective)
 
     let Good = new DataCard("Good", "Bine", "");
     setParentAndChild(DescriptiveAdjective, Good)
@@ -1135,7 +578,7 @@ export function BuildLanguageTree() // returns romanian
 
     // #flavours
     let flavours = new DataCard("Flavours", "Arome", "");  
-    setParentAndChild(adjectives, flavours);  
+    setParentAndChild(wordclass_adjectives, flavours);  
 
     let sweet = new DataCard("Sweet", "Dulce", "");  
     setParentAndChild(flavours, sweet);  
@@ -1160,7 +603,7 @@ export function BuildLanguageTree() // returns romanian
 
     // #AboutPeople =======================================
     let aboutPeople = new DataCard("About People", "Despre oameni", "");  
-    setParentAndChild(adjectives, aboutPeople);  
+    setParentAndChild(wordclass_adjectives, aboutPeople);  
     
     let hungry = new DataCard("Hungry", "Înfometat", "");  
     setParentAndChild(aboutPeople, hungry);  
@@ -1242,72 +685,40 @@ export function BuildLanguageTree() // returns romanian
 
 
     // #Colours =======================================
-    let colours = new DataCard(
-        "Colours", "Culorile",
-        "")
-    setParentAndChild(adjectives, colours);
-
-    let brown = new DataCard("Brown", "Maro", "")
-    setParentAndChild(colours, brown);
-
-    let white = new DataCard("White", "Alb", "")
-    setParentAndChild(colours, white);
-
-    let Brown = new DataCard("Brown", "Căprui", "");
-    setParentAndChild(colours, Brown);
-
-    let blue = new DataCard("Blue", "Albastru", "")
-    setParentAndChild(colours, blue);
-
+    let colours = new DataCard("Colours", "Culorile","")
+        
     let black = new DataCard("Black", "Negru", "")
-    setParentAndChild(colours, black);
-
-    let orange = new DataCard("Orange", "Portocaliu", "")
-    setParentAndChild(colours, orange);
-
-    let grey = new DataCard("Grey", "Gri", "")
-    setParentAndChild(colours, grey);
-
-    let green = new DataCard("Green", "Verde", "")
-    setParentAndChild(colours, green);
-
-    let red = new DataCard("Red", "Roșu", "")
-    setParentAndChild(colours, red);
-
-    let purple = new DataCard("Purple", "Mov", "")
-    setParentAndChild(colours, purple);
-
-    let yellow = new DataCard("Yellow", "Galben", "")
-    setParentAndChild(colours, yellow);
-    
-    let bright = new DataCard("Bright", "Strălucitor", "");  
-    setParentAndChild(colours, bright);
-
     let blonde = new DataCard("Blonde", "Blond", "");  
-    setParentAndChild(colours, blonde);  
-
-    let Dark = new DataCard("Dark", "Întunecos", "");
-    setParentAndChild(colours, Dark)
-
-    let Light = new DataCard("Light", "Luminos", "");
-    setParentAndChild(colours, Light)
-
+    let blue = new DataCard("Blue", "Albastru", "")
+    let bright = new DataCard("Bright", "Strălucitor", "");  
+    let brown = new DataCard("Brown", "Maro", "")
+    let dark = new DataCard("Dark", "Întunecos", "");
     let gold = new DataCard("Gold", "Aur", "");  
-    setParentAndChild(colours, gold);  
+    let green = new DataCard("Green", "Verde", "")
+    let grey = new DataCard("Grey", "Gri", "")
+    let hazel = new DataCard("Hazel", "Căprui", "");
+    let light = new DataCard("Light", "Luminos", "");
+    let orange = new DataCard("Orange", "Portocaliu", "")
+    let purple = new DataCard("Purple", "Mov", "")
+    let red = new DataCard("Red", "Roșu", "")
+    let white = new DataCard("White", "Alb", "")
+    let yellow = new DataCard("Yellow", "Galben", "")
+
+    setParentAndMultipleChildren(
+        colours, [
+            black, blonde, blue, bright, brown, dark, gold, green, grey, 
+            hazel, light, orange, purple, red, white, yellow, 
+        ]
+    )
 
 
     // =============================================================================
     // #Nouns
     // =============================================================================
 
-    let nouns = new DataCard(
-        "Nouns", "Substantive",
-        "Todo")
-    setParentAndChild(romanian, nouns);
-
     //#thecircus
     let TheCircus = new DataCard("The Circus", "Circul", "");
-    setParentAndChild(nouns, TheCircus)
+    setParentAndChild(wordclass_nouns, TheCircus)
 
     let Unicyclist = new DataCard("Unicyclist", "Acrobat pe Bicicletă", "");
     setParentAndChild(TheCircus, Unicyclist)
@@ -1375,7 +786,7 @@ export function BuildLanguageTree() // returns romanian
 
     //#sports
     let Sports = new DataCard("Sports", "Sporturile", "");
-    setParentAndChild(nouns, Sports)
+    setParentAndChild(wordclass_nouns, Sports)
 
     let Ball = new DataCard("Ball", "Minge", "");
     setParentAndChild(Sports, Ball)
@@ -1502,7 +913,7 @@ export function BuildLanguageTree() // returns romanian
 
     //#Days #week #time
     let Time = new DataCard("Time", "Timp", "");
-    setParentAndChild(nouns, Time)
+    setParentAndChild(wordclass_nouns, Time)
 
     // #relativeTime
     let RelativeTime = new DataCard("Relative Time", "Timp Relativ", "");
@@ -1787,7 +1198,7 @@ export function BuildLanguageTree() // returns romanian
 
     // #Measurements
     let Measurements = new DataCard("Measurements", "Măsurători", ""); 
-    setParentAndChild(nouns, Measurements);
+    setParentAndChild(wordclass_nouns, Measurements);
     
     let Size = new DataCard("Size", "Mărime", ""); 
     setParentAndChild(Measurements, Size);
@@ -1848,7 +1259,7 @@ export function BuildLanguageTree() // returns romanian
 
     // #misc nouns
     let miscellaneous = new DataCard("Miscellaneous", "Diverse", "");  
-    setParentAndChild(nouns, miscellaneous);  
+    setParentAndChild(wordclass_nouns, miscellaneous);  
 
     let opinion = new DataCard("Opinion", "Opinie", "");  
     setParentAndChild(miscellaneous, opinion);  
@@ -1900,7 +1311,7 @@ export function BuildLanguageTree() // returns romanian
 
     // # space
     let Space = new DataCard("Space", "Spațiu", "");
-    setParentAndChild(nouns, Space)
+    setParentAndChild(wordclass_nouns, Space)
 
     let Planet = new DataCard("Planet", "Planetă", "");
     setParentAndChild(Space, Planet)
@@ -1959,7 +1370,7 @@ export function BuildLanguageTree() // returns romanian
 
     // #school #atschool
     let AtSchool = new DataCard("At School", "La Şcoală", "");
-    setParentAndChild(nouns, AtSchool)
+    setParentAndChild(wordclass_nouns, AtSchool)
 
     let Scissors = new DataCard("Scissors", "Foarfecă", "");
     setParentAndChild(AtSchool, Scissors)
@@ -2053,7 +1464,7 @@ export function BuildLanguageTree() // returns romanian
 
     // #emergency services
     let TheEmergencyServices = new DataCard("The Emergency Services", "Serviciile de Urgență", ""); 
-    setParentAndChild(nouns, TheEmergencyServices)
+    setParentAndChild(wordclass_nouns, TheEmergencyServices)
 
     // #police #thepoliec
     let ThePolice = new DataCard("The Police", "Poliția", ""); 
@@ -2218,7 +1629,7 @@ export function BuildLanguageTree() // returns romanian
 
     // #thebeach #beach #seaside
     let TheBeach = new DataCard("The Beach", "Plaja", "");
-    setParentAndChild(nouns, TheBeach)
+    setParentAndChild(wordclass_nouns, TheBeach)
 
     let SailingBoat = new DataCard("Sailing Boat", "Barcă cu Pânze", "");
     setParentAndChild(TheBeach, SailingBoat)
@@ -2297,7 +1708,7 @@ export function BuildLanguageTree() // returns romanian
 
     // #thefarm #farm
     let TheFarm = new DataCard("The Farm", "Ferma", "");
-    setParentAndChild(nouns, TheFarm)
+    setParentAndChild(wordclass_nouns, TheFarm)
 
     let Haystack = new DataCard("Haystack", "Căpiță de Fân", "");
     setParentAndChild(TheFarm, Haystack)
@@ -2356,7 +1767,7 @@ export function BuildLanguageTree() // returns romanian
 
     //#thepark #park
     let ThePark = new DataCard("The Park", "Parcul", "");
-    setParentAndChild(nouns, ThePark)
+    setParentAndChild(wordclass_nouns, ThePark)
 
     let Swings = new DataCard("Swings", "Leagăne", "");
     setParentAndChild(ThePark, Swings)
@@ -2405,7 +1816,7 @@ export function BuildLanguageTree() // returns romanian
 
     //#thestreet #street
     let TheStreet = new DataCard("The Street", "Strada", "");
-    setParentAndChild(nouns, TheStreet)
+    setParentAndChild(wordclass_nouns, TheStreet)
 
     let Shop = new DataCard("Shop", "Magazin", "");
     setParentAndChild(TheStreet, Shop)
@@ -2487,7 +1898,7 @@ export function BuildLanguageTree() // returns romanian
 
     //#travel
     let Travel = new DataCard("Travel", "Călătoria", "");
-    setParentAndChild(nouns, Travel)
+    setParentAndChild(wordclass_nouns, Travel)
 
     let phoneNumber = new DataCard("Telephone number", "Număr de telefon", "");  
     setParentAndChild(Travel, phoneNumber);  
@@ -2692,7 +2103,7 @@ export function BuildLanguageTree() // returns romanian
 
     //#country #thecountry
     let TheCountry = new DataCard("The Country", "La Țară", "");
-    setParentAndChild(nouns, TheCountry)
+    setParentAndChild(wordclass_nouns, TheCountry)
 
     let Stream = new DataCard("Stream", "Pârâu", "");
     setParentAndChild(TheCountry, Stream)
@@ -2771,7 +2182,7 @@ export function BuildLanguageTree() // returns romanian
 
     //#animals
     let Animals = new DataCard("Animals", "Animalele", "");
-    setParentAndChild(nouns, Animals)
+    setParentAndChild(wordclass_nouns, Animals)
 
     let pet = new DataCard("Pet", "Animal de Companie", "");
     setParentAndChild(Animals, pet)
@@ -3067,7 +2478,7 @@ export function BuildLanguageTree() // returns romanian
 
     // #shop
     let theShop = new DataCard("The Shop", "Magazinul", "");
-    setParentAndChild(nouns, theShop)
+    setParentAndChild(wordclass_nouns, theShop)
 
     let Checkout = new DataCard("Checkout", "Casă (de marcat)", "");
     setParentAndChild(theShop, Checkout)
@@ -3095,7 +2506,7 @@ export function BuildLanguageTree() // returns romanian
 
     // #food
     let food = new DataCard("Food", "Mâncarea", "");
-    setParentAndChild(nouns, food)
+    setParentAndChild(wordclass_nouns, food)
 
     let Orange = new DataCard("Orange", "Portocală", "");
     setParentAndChild(food, Orange)
@@ -3351,7 +2762,7 @@ export function BuildLanguageTree() // returns romanian
 
     // #atwork
     let AtWork = new DataCard("At Work", "La muncă", "");
-    setParentAndChild(nouns, AtWork);
+    setParentAndChild(wordclass_nouns, AtWork);
 
     let Project = new DataCard("Project", "Proiect", "");
     setParentAndChild(AtWork, Project);
@@ -3416,7 +2827,7 @@ export function BuildLanguageTree() // returns romanian
     // #home ===========================
 
     let atHome = new DataCard("At Home", "Acasă", "");
-    setParentAndChild(nouns, atHome)
+    setParentAndChild(wordclass_nouns, atHome)
 
     //#workshop
     let TheWorkshop = new DataCard("The Workshop", "Atelierul", "");
@@ -4025,7 +3436,7 @@ export function BuildLanguageTree() // returns romanian
 
     // #people ================================
     let people = new DataCard("People", "Oamenii", "")
-    setParentAndChild(nouns, people)
+    setParentAndChild(wordclass_nouns, people)
 
     let men = new NounMale("Man", "Barbat", "bărbat", "bărbați", "bărbatul", "bărbații")
     setParentAndChild(people, men)
@@ -4280,7 +3691,7 @@ export function BuildLanguageTree() // returns romanian
     setParentAndChild(people, workJob)
 
     let guy = new DataCard("Guy", "Tip", "");  
-    setParentAndChild(nouns, guy);  
+    setParentAndChild(wordclass_nouns, guy);  
 
     let Teacher = new DataCard("Teacher", "Învătăoare (Profesoară)", "");
     setParentAndChild(workJob, Teacher)
@@ -4405,7 +3816,7 @@ export function BuildLanguageTree() // returns romanian
 
     // #shapes =================================
     let shapes = new DataCard("Shapes", "Formele geometrice", "")
-    setParentAndChild(nouns, shapes)
+    setParentAndChild(wordclass_nouns, shapes)
 
     let diamond = new DataCard("Diamond", "Romb", "")
     setParentAndChild(shapes, diamond)
@@ -4417,7 +3828,7 @@ export function BuildLanguageTree() // returns romanian
     setParentAndChild(shapes, cone)
 
     let line = new DataCard("Line", "Linie", "");  
-    setParentAndChild(nouns, line); 
+    setParentAndChild(wordclass_nouns, line); 
 
     let rectangle = new DataCard("Rectangle", "Dreptunghi", "")
     setParentAndChild(shapes, rectangle)
@@ -4442,7 +3853,7 @@ export function BuildLanguageTree() // returns romanian
 
     // #body =======================================
     let theBody = new DataCard("The body", "Corpul", "")
-    setParentAndChild(nouns, theBody)
+    setParentAndChild(wordclass_nouns, theBody)
 
     let head = new DataCard("Head", "Cap", "")
     setParentAndChild(theBody, head)
@@ -4542,198 +3953,188 @@ export function BuildLanguageTree() // returns romanian
     // #Adverbs
     // =============================================================================
 
-    let adverbs = new DataCard(
-        "Adverbs", "Adverbe",
-        "")
-    setParentAndChild(romanian, adverbs);
-
     let when = new DataCard(
         "When", "Când",
         "")
-    setParentAndChild(adverbs, when);
+    setParentAndChild(wordclass_adverbs, when);
 
     let either = new DataCard(
         "Either", "Fie",
         "")
-    setParentAndChild(adverbs, either);
+    setParentAndChild(wordclass_adverbs, either);
 
     let neither = new DataCard(
         "Neither", "Nici",
         "")
-    setParentAndChild(adverbs, neither);
+    setParentAndChild(wordclass_adverbs, neither);
 
     let never = new DataCard(
         "Never", "Niciodată",
         "")
-    setParentAndChild(adverbs, never);
+    setParentAndChild(wordclass_adverbs, never);
 
     let Only = new DataCard(
         "Only", "Numai",
         "")
-    setParentAndChild(adverbs, Only);
+    setParentAndChild(wordclass_adverbs, Only);
 
     let how = new DataCard(
         "How", "Cum",
         "")
-    setParentAndChild(adverbs, how);
+    setParentAndChild(wordclass_adverbs, how);
 
     let where = new DataCard(
         "Where", "Unde",
         "")
-    setParentAndChild(adverbs, where);
+    setParentAndChild(wordclass_adverbs, where);
 
     let Almost = new DataCard(
         "Almost", "Abia",
         "")
-    setParentAndChild(adverbs, Almost);
+    setParentAndChild(wordclass_adverbs, Almost);
 
     let SoMuch = new DataCard("So Much", "Atât de mult", "");
-    setParentAndChild(adverbs, SoMuch);
+    setParentAndChild(wordclass_adverbs, SoMuch);
 
     let Yet = new DataCard("Yet", "Încă", "");
-    setParentAndChild(adverbs, Yet);
+    setParentAndChild(wordclass_adverbs, Yet);
 
     let Now = new DataCard("Now", "Fix", "");
-    setParentAndChild(adverbs, Now);
+    setParentAndChild(wordclass_adverbs, Now);
 
     let Usually = new DataCard("Usually", "De obicei", "");
-    setParentAndChild(adverbs, Usually);
+    setParentAndChild(wordclass_adverbs, Usually);
 
     let Too = new DataCard("Too", "Prea", "");
-    setParentAndChild(adverbs, Too);
+    setParentAndChild(wordclass_adverbs, Too);
 
     let Already = new DataCard("Already", "Deja", "");
-    setParentAndChild(adverbs, Already);
+    setParentAndChild(wordclass_adverbs, Already);
 
     let Again = new DataCard("Again", "Din nou", "");
-    setParentAndChild(adverbs, Again);
+    setParentAndChild(wordclass_adverbs, Again);
 
     let Clearly = new DataCard("Clearly", "Clar", "");
-    setParentAndChild(adverbs, Clearly);
+    setParentAndChild(wordclass_adverbs, Clearly);
 
     let Finally = new DataCard("Finally", "În final", "");
-    setParentAndChild(adverbs, Finally);
+    setParentAndChild(wordclass_adverbs, Finally);
 
     let Just = new DataCard("Just", "Tocmai", "");
-    setParentAndChild(adverbs, Just);
+    setParentAndChild(wordclass_adverbs, Just);
 
     let Early = new DataCard("Early", "Devreme", "");
-    setParentAndChild(adverbs, Early);
+    setParentAndChild(wordclass_adverbs, Early);
 
     let Rather = new DataCard("Rather", "Destul de", "");
-    setParentAndChild(adverbs, Rather);
+    setParentAndChild(wordclass_adverbs, Rather);
 
     let Forever = new DataCard("Forever", "Pentru totdeauna", "");
-    setParentAndChild(adverbs, Forever);
+    setParentAndChild(wordclass_adverbs, Forever);
 
     let Still = new DataCard("Still", "Totuși", "");
-    setParentAndChild(adverbs, Still);
+    setParentAndChild(wordclass_adverbs, Still);
 
     let Anyway = new DataCard("Anyway", "Oricum", "");
-    setParentAndChild(adverbs, Anyway);
+    setParentAndChild(wordclass_adverbs, Anyway);
 
     let NotAtAll = new DataCard("Not at all", "Deloc", "");
-    setParentAndChild(adverbs, NotAtAll);
+    setParentAndChild(wordclass_adverbs, NotAtAll);
 
     let InTheFuture = new DataCard("In the future", "În viitor", "");
-    setParentAndChild(adverbs, InTheFuture);
+    setParentAndChild(wordclass_adverbs, InTheFuture);
 
     let firstly = new DataCard("Firstly", "Mai întâi", "");  
-    setParentAndChild(adverbs, firstly);  
+    setParentAndChild(wordclass_adverbs, firstly);  
 
     let first = new DataCard("First", "În primul rând", "");  
-    setParentAndChild(adverbs, first);  
+    setParentAndChild(wordclass_adverbs, first);  
 
     let notAtAll = new DataCard("Not at all", "Deloc", "");  
-    setParentAndChild(adverbs, notAtAll);  
+    setParentAndChild(wordclass_adverbs, notAtAll);  
 
 
     // =============================================================================
     // #Conjunctions
     // =============================================================================
 
-    let conjunctions = new DataCard(
-        "Conjunctions", "Conjuncții",
-        "")
-    setParentAndChild(romanian, conjunctions);
-
     let _for = new DataCard(
         "For", "Pentru",
         "")
-    setParentAndChild(conjunctions, _for);
+    setParentAndChild(wordclass_conjunctions, _for);
 
     let because = new DataCard(
         "Because", "Pentru că",
         "")
-    setParentAndChild(conjunctions, because);
+    setParentAndChild(wordclass_conjunctions, because);
 
     let and = new DataCard(
         "And", "Şi",
         "")
-    setParentAndChild(conjunctions, and);
+    setParentAndChild(wordclass_conjunctions, and);
 
     let and2 = new DataCard(
         "And (alt)", "Iar",
         "")
-    setParentAndChild(conjunctions, and2);
+    setParentAndChild(wordclass_conjunctions, and2);
 
     let _if = new DataCard(
         "If", "Daca",
         "")
-    setParentAndChild(conjunctions, _if);
+    setParentAndChild(wordclass_conjunctions, _if);
 
     let _or = new DataCard(
         "Or", "Sau",
         "")
-    setParentAndChild(conjunctions, _or);
+    setParentAndChild(wordclass_conjunctions, _or);
 
     let _or2 = new DataCard(
         "Or (alt)", "Ori",
         "")
-    setParentAndChild(conjunctions, _or2);
+    setParentAndChild(wordclass_conjunctions, _or2);
 
     let but = new DataCard(
         "But", "Dar",
         "")
-    setParentAndChild(conjunctions, but);
+    setParentAndChild(wordclass_conjunctions, but);
 
     let before = new DataCard(
         "Before", "Inainte de",
         "")
-    setParentAndChild(conjunctions, before);
+    setParentAndChild(wordclass_conjunctions, before);
 
     let Because = new DataCard("Because", "Deoarece", "");
-    setParentAndChild(conjunctions, Because);
+    setParentAndChild(wordclass_conjunctions, Because);
 
     let Although = new DataCard("Although", "Deși", "");
-    setParentAndChild(conjunctions, Although);
+    setParentAndChild(wordclass_conjunctions, Although);
     
     let Therefore = new DataCard("Therefore", "Deci", "");
-    setParentAndChild(conjunctions, Therefore);
+    setParentAndChild(wordclass_conjunctions, Therefore);
     
     let EvenThough = new DataCard("Even Though", "Chiar dacă", "");
-    setParentAndChild(conjunctions, EvenThough);
+    setParentAndChild(wordclass_conjunctions, EvenThough);
     
     let So = new DataCard("So", "Așa că", "");
-    setParentAndChild(conjunctions, So);
+    setParentAndChild(wordclass_conjunctions, So);
     
     let AsWell = new DataCard("As Well", "De asemenea", "");
-    setParentAndChild(conjunctions, AsWell);
+    setParentAndChild(wordclass_conjunctions, AsWell);
     
     let Like = new DataCard("Like (A is like B)", "Asemenea", "");
-    setParentAndChild(conjunctions, Like);
+    setParentAndChild(wordclass_conjunctions, Like);
 
     let InCase = new DataCard("In case", "În caz că", "");
-    setParentAndChild(conjunctions, InCase);
+    setParentAndChild(wordclass_conjunctions, InCase);
 
     let still = new DataCard("Still", "Totuși", "");  
-    setParentAndChild(conjunctions, still);  
+    setParentAndChild(wordclass_conjunctions, still);  
 
     let isntIt = new DataCard("Isn't it", "Nu-i așa", "");  
-    setParentAndChild(conjunctions, isntIt);  
+    setParentAndChild(wordclass_conjunctions, isntIt);  
 
     let okay = new DataCard("Okay", "Atunci", "");  
-    setParentAndChild(conjunctions, okay);  
+    setParentAndChild(wordclass_conjunctions, okay);  
 
 
 
@@ -4741,60 +4142,55 @@ export function BuildLanguageTree() // returns romanian
     // #Numbers
     // =============================================================================
 
-    let numbers = new DataCard(
-        "Numbers", "Numere",
-        "Todo")
-    setParentAndChild(romanian, numbers);
-
     let one = new DataCard(
         "1 One", "1 Unu",
         "")
-    setParentAndChild(numbers, one);
+    setParentAndChild(wordclass_numbers, one);
 
     let two = new DataCard(
         "2 Two", "2 Doi",
         "")
-    setParentAndChild(numbers, two);
+    setParentAndChild(wordclass_numbers, two);
 
     let three = new DataCard(
         "3 Three", "3 Trei",
         "")
-    setParentAndChild(numbers, three);
+    setParentAndChild(wordclass_numbers, three);
 
     let four = new DataCard(
         "4 Four", "4 Patru",
         "")
-    setParentAndChild(numbers, four);
+    setParentAndChild(wordclass_numbers, four);
 
     let five = new DataCard(
         "5 Five", "5 Cinci",
         "")
-    setParentAndChild(numbers, five);
+    setParentAndChild(wordclass_numbers, five);
 
     let six = new DataCard(
         "6 Six", "6 Şase",
         "")
-    setParentAndChild(numbers, six);
+    setParentAndChild(wordclass_numbers, six);
 
     let seven = new DataCard(
         "7 Seven", "7 Şapte",
         "")
-    setParentAndChild(numbers, seven);
+    setParentAndChild(wordclass_numbers, seven);
 
     let eight = new DataCard(
         "8 Eight", "8 Opt",
         "")
-    setParentAndChild(numbers, eight);
+    setParentAndChild(wordclass_numbers, eight);
 
     let nine = new DataCard(
         "9 Nine", "9 Nouă",
         "")
-    setParentAndChild(numbers, nine);
+    setParentAndChild(wordclass_numbers, nine);
 
     let ten = new DataCard(
         "10 Ten", "10 Zece",
         "")
-    setParentAndChild(numbers, ten);
+    setParentAndChild(wordclass_numbers, ten);
 
 
 
@@ -4803,44 +4199,39 @@ export function BuildLanguageTree() // returns romanian
     // #Pronouns
     // =============================================================================
 
-    let pronouns = new DataCard(
-        "Pronouns", "Pronume",
-        "")
-    setParentAndChild(romanian, pronouns);
-
     let another = new DataCard(
         "Another", "Alt",
         "")
-    setParentAndChild(pronouns, another);
+    setParentAndChild(wordclass_pronouns, another);
 
     let something = new DataCard(
         "Something", "Ceva",
         "")
-    setParentAndChild(pronouns, something);
+    setParentAndChild(wordclass_pronouns, something);
 
     let Which = new DataCard("Which", "Pe care", "");
-    setParentAndChild(pronouns, Which);
+    setParentAndChild(wordclass_pronouns, Which);
 
     let Some = new DataCard("Some", "Niște", "");
-    setParentAndChild(pronouns, Some);
+    setParentAndChild(wordclass_pronouns, Some);
 
     let Whose = new DataCard("Whose", "Al cui", "");
-    setParentAndChild(pronouns, Whose);
+    setParentAndChild(wordclass_pronouns, Whose);
 
     let AnyKindOf = new DataCard("Any Kind Of", "Niciun fel de", "");
-    setParentAndChild(pronouns, AnyKindOf);
+    setParentAndChild(wordclass_pronouns, AnyKindOf);
 
     let everyone = new DataCard("Everyone", "Tuturor", "");  
-    setParentAndChild(pronouns, everyone);  
+    setParentAndChild(wordclass_pronouns, everyone);  
 
     let eachOther = new DataCard("Each other / with each other", "Unul pe/cu celălalte", "");  
-    setParentAndChild(pronouns, eachOther);  
+    setParentAndChild(wordclass_pronouns, eachOther);  
 
     let someone = new DataCard("Someone", "Cineva", "");  
-    setParentAndChild(pronouns, someone);  
+    setParentAndChild(wordclass_pronouns, someone);  
 
     let whatKindOf = new DataCard("What kind of", "Ce fel de", "");  
-    setParentAndChild(pronouns, whatKindOf);  
+    setParentAndChild(wordclass_pronouns, whatKindOf);  
 
 
     // =============================================================================

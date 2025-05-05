@@ -7,6 +7,9 @@ import {
     prepareRomanianString
 } from "./data/romanian-functions.js";
 import { AbstractNode } from "./src/tree/models.js";
+import { primarySort } from "./src/tree/functions.js";
+import { prepareString } from "./src/utils/string.js";
+import { BuildMusicTree } from "./data/music-tree.js";
 
 /** @typedef {import('./src/tree/types.js').NodeComparator} NodeComparator */
 /** @typedef {import('./src/tree/types.js').StringCleaner} StringCleaner */
@@ -21,7 +24,7 @@ import { AbstractNode } from "./src/tree/models.js";
  */
 
 /** @type {AppConfig} */
-export const CONFIG = {
+const CONFIG_ROMANIAN = {
 
     DATA_TREE: BuildLanguageTree(),
 
@@ -34,3 +37,20 @@ export const CONFIG = {
     SECONDARY_STRING_CLEAN_FUNCTION: prepareRomanianString
 
 }
+
+/** @type {AppConfig} - MusicTree */
+const CONFIG_MUSIC = {
+
+    DATA_TREE: BuildMusicTree(),
+
+    PRIMARY_SORT_FUNCTION: primarySort,
+
+    PRIMARY_STRING_CLEAN_FUNCTION: prepareString,
+
+    SECONDARY_SORT_FUNCTION: primarySort,
+
+    SECONDARY_STRING_CLEAN_FUNCTION: prepareString
+
+}
+
+export const CONFIG = CONFIG_ROMANIAN

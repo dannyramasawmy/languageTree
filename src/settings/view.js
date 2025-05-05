@@ -63,6 +63,7 @@ export function createSettingsPanel(settings) {
 
     settingsPanel.appendChild(settingSubtitle("Data cards"));
     settingsPanel.appendChild(booleanSetting(SettingsID.COMPACT_CARDS, "Show data cards with a compact view", settings.IsCompactView));
+    settingsPanel.appendChild(booleanSetting(SettingsID.SEPARATE_CARDS, "Physicaly separate data cards by relationships", settings.DoSeparateCards));
     settingsPanel.appendChild(horizontalRule());
 
     settingsPanel.appendChild(settingSubtitle("Animations"));

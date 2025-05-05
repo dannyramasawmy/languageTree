@@ -30,6 +30,7 @@ export const SettingsID = {
     COLOR_THEME: "color-theme",
     HOVER_COLOR: "hover-color-theme",
     COMPACT_CARDS: "compact-data-cards",
+    SEPARATE_CARDS: "separate-data-card",
     ANIMATIONS: "animations-switch",
     SMOOTH_SCROLLING: "animations-smooth-scrolling",
     BUTTON_LABELS: "button-labels",
@@ -88,7 +89,8 @@ export const ButtonIcons = {
  */
 export const NodeStatsID = {
     CONTAINER : "node-stat",
-    GENERATION: "generation-number",
+    NUMBER_OF_PARENTS: "number-of-parents",
     NUMBER_OF_CHILDREN: "number-of-children",
+    NUMBER_OF_RELATIONS: "number-of-relations",
     NUMBER_OF_VIEWS: "number-of-views",
 }

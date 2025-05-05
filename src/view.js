@@ -1,11 +1,15 @@
 import { RainbowColorWheel } from "./colors/rainbowColorWheel.js";
 import {
     createParentCard,
-    createChildCard} from "./tree/view.js";
-import { createGenerationStat, createNumberOfChildrenStat, createNumberOfViewsStat } from "./stats/view.js";
+    createChildCard,
+    prefixWithSVG,
+    createCardSeparator
+} from "./tree/view.js";
+import { createParentStat, createNumberOfChildrenStat, createNumberOfRelaionsStat, createNumberOfViewsStat } from "./stats/view.js";
 import { ButtonsID, ElementID, NodeStatsID } from "./identifiers.js";
 import { Settings } from "./settings/settings.js";
 import { GlobalState } from "./state/models.js";
+import { createDelatSvg, createLinkSvg } from "./stats/svg.js";
 
 export class View {
     /**
@@ -94,6 +98,8 @@ export class View {
         // main card
         let currentNode = this.GLOBAL.CurrentNode;
         let displayList = this.GLOBAL.DisplayCards;
+        let relations = this.GLOBAL.CurrentNode.Relations;
+        let parents = this.GLOBAL.CurrentNode.Parent;
 
         document.getElementById(this.mainCardId).appendChild(
             this.GLOBAL.PrimaryKeyFirst
@@ -102,15 +108,76 @@ export class View {
 
         this.GLOBAL.CurrentNode.IncrementView()
         let nodeStats = document.getElementById(NodeStatsID.CONTAINER)
-        nodeStats.appendChild(createGenerationStat(this.GLOBAL.CurrentNode.Generation))
+        nodeStats.appendChild(createParentStat(this.GLOBAL.CurrentNode.Parent.length))
+        nodeStats.appendChild(createNumberOfRelaionsStat(relations.length))
         nodeStats.appendChild(createNumberOfChildrenStat(this.GLOBAL.DisplayCards.length))
         nodeStats.appendChild(createNumberOfViewsStat(this.GLOBAL.CurrentNode.Views))
 
         let colorIndex = 0;
         let colorWheel = RainbowColorWheel();
 
+        // parent cards
+        let start_idx = currentNode.IsRoot ? 1 : 0
+        for (var idx = start_idx; idx < parents.length; idx++) {
+            if (idx == 0 && this.SETTINGS.DoSeparateCards)
+            {
+                document.getElementById(this.dataCardsId).appendChild(createCardSeparator("Parents"))
+            }
+
+            let cardId = `parent-card-number-${idx}`;
+
+            if (this.SETTINGS.HasRainbowHover)
+                colorIndex = colorWheel.GetNextColorIndex();
+
+            let title = this.GLOBAL.PrimaryKeyFirst
+                ? parents[idx].PrimaryView()
+                : parents[idx].SecondaryView()
+
+            let dataCard = createChildCard(
+                true,
+                prefixWithSVG(title, createDelatSvg()),
+                document.createElement("h5"),
+                cardId,
+                colorIndex);
+
+            document.getElementById(this.dataCardsId).appendChild(dataCard);
+        }
+
+        // relation cards
+        for (var idx = 0; idx < relations.length; idx++) {
+            if (idx == 0 && this.SETTINGS.DoSeparateCards)
+            {
+                document.getElementById(this.dataCardsId).appendChild(createCardSeparator("Related"))
+            }
+
+            let cardId = `relation-card-number-${idx}`;
+
+            if (this.SETTINGS.HasRainbowHover)
+                colorIndex = colorWheel.GetNextColorIndex();
+
+            let title = this.GLOBAL.PrimaryKeyFirst
+                ? relations[idx].PrimaryView()
+                : relations[idx].SecondaryView()
+
+            let dataCard = createChildCard(
+                true,
+                prefixWithSVG(title, createLinkSvg()),
+                document.createElement("h5"),
+                cardId,
+                colorIndex);
+
+            document.getElementById(this.dataCardsId).appendChild(dataCard);
+        }
+
         // child cards
         for (var idx = 0; idx < displayList.length; idx++) {
+
+            let showing_cards = document.getElementById(this.dataCardsId).children.length
+            if (idx == 0 && showing_cards > 0 && this.SETTINGS.DoSeparateCards)
+            {
+                document.getElementById(this.dataCardsId).appendChild(createCardSeparator("Cards"))
+            }
+
             let cardId = `card-number-${idx}`;
 
             if (this.SETTINGS.HasRainbowHover)

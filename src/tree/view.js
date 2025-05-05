@@ -71,6 +71,21 @@ export function createChildCard(isCompactView, title, subtitle, id, colorIndex) 
 }
 
 /**
+ * Wrap title with an svg prefix
+ * @param {HTMLElement} title - the card title as an html element
+ * @param {SVGElement} svgElement 
+ * @returns {HTMLElement}
+ */
+export function prefixWithSVG(title, svgElement) {
+    let d = document.createElement('div')
+    d.appendChild(svgElement)
+    d.className = "d-inline-flex justify-content-center"
+    title.className = "px-2 my-1"
+    d.appendChild(title)
+    return d
+}
+
+/**
  * Create a stat view pill-view
  * @param {string} id - The target Element ID 
  * @param {string | number} stat - The statistic to show
@@ -80,7 +95,7 @@ export function createChildCard(isCompactView, title, subtitle, id, colorIndex) 
  */
 export function createNodeStats(id, stat, svgElement, description) {
     let pill = document.createElement("div");
-    pill.className = "col-4 gap-2 pb-0";
+    pill.className = "col-3 gap-2 pb-0";
 
     let pillBody = document.createElement("div");
     pillBody.className = "card text-bg mb-3 pt-0 pb-0 rounded-pill";
@@ -102,4 +117,30 @@ export function createNodeStats(id, stat, svgElement, description) {
     pill.appendChild(pillBody)
 
     return pill
+}
+
+/**
+ * Creates a separator between cards
+ * @param {string} label - label for the separator
+ * @returns {HTMLElement} - Separator element
+ */
+export function createCardSeparator(label) {
+    let container = document.createElement("div");
+    container.className = "d-flex align-items-center my-4";
+
+    let hr1 = document.createElement("hr");
+    hr1.className = "flex-grow-1";
+
+    let span = document.createElement("span");
+    span.className = "px-3 text-muted";
+    span.textContent = label;
+
+    let hr2 = document.createElement("hr");
+    hr2.className = "flex-grow-1";
+
+    container.appendChild(hr1);
+    container.appendChild(span);
+    container.appendChild(hr2);
+
+    return container;
 }
