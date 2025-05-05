@@ -2,7 +2,6 @@ import { stringToHTMLElement } from "../src/utils/string.js";
 import { AbstractNode } from "../src/tree/models.js";
 import { NounFemaleView, NounMaleView, NounNeuterView, VerbDataView, VerbReflexiveSeDataView, VerbReflexiveSiDataView } from "./romanian-views.js";
 
-
 export class VerbDataCard extends AbstractNode {
     /**
      * Generic verb data card
@@ -59,7 +58,7 @@ export class VerbReflexiveSi extends VerbDataCard {
     SecondaryView = () => stringToHTMLElement(`A Si ${this.Secondary}`)
 }
 
-export class NounDataCard extends AbstractNode{
+export class NounDataCard extends AbstractNode {
     /**
      * A generic Noun data card
      * @param {string} english - English 

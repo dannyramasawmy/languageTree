@@ -1,7 +1,3 @@
-// =============================================================================
-// #Root
-// =============================================================================
-
 import { defineCrossLinkRelationship, setParentAndChild, setParentAndMultipleChildren } from "../src/tree/functions.js";
 import { DataCard, DataRoot } from "../src/tree/models.js";
 import { VerbReflexiveSe, VerbReflexiveSi, Verb, NounNeuter, NounMale, NounFemale } from "./romanian-language-models.js";
@@ -27,12 +23,40 @@ export function BuildLanguageTree() // returns romanian
 
     romanian.SetParent(romanian);
 
-    // word classes
-    let verbs = new DataCard("Verbs", "Verbe", "Common verbs are listed here.")
-    setParentAndChild(romanian, verbs);
+    // -Word Classes    
+    // --Multiclass
+    // ---Adjective + Adverb
+    // ---Adjective + Noun
+    // ---Adverb + Interjection
+
+    let wordclass_adjectives = new DataCard("Adjectives", "Adjective","")
+    let wordclass_adverbs = new DataCard("Adverbs", "Adverbe","")
+    let wordclass_conjunctions = new DataCard("Conjunctions", "Conjuncții","")
+    let wordclass_nouns = new DataCard("Nouns", "Substantive","")
+    let wordclass_numbers = new DataCard("Numbers", "Numere","Todo")
+    let wordclass_prepositions = new DataCard("Prepositions", "Prepoziţii","")
+    let wordclass_pronouns = new DataCard("Pronouns", "Pronume","")
+    let wordclass_verbs = new DataCard("Verbs", "Verbe", "")
+    let wordclass_verbs_modal = new DataCard("Modal Verbs", "Verbe Modal", "")
+    // let wordclass_interjections = new DataCard("Interjections", "Interjecţii", "")
+    // let wordclass_determiners = new DataCard("Determiners", "Determinatori", "")
     
-    let modal_verbs = new DataCard("Modal Verbs", "Verbe Modal", "Common verbs are listed here.")
-    setParentAndChild(romanian, modal_verbs);
+    setParentAndMultipleChildren(romanian, [
+        wordclass_adjectives, 
+        wordclass_adverbs, 
+        wordclass_conjunctions, 
+        wordclass_nouns, 
+        wordclass_numbers, 
+        wordclass_prepositions, 
+        wordclass_pronouns, 
+        wordclass_verbs, 
+        wordclass_verbs_modal, 
+        // wordclass_interjections, 
+        // wordclass_determiners
+    ])
+
+
+    defineCrossLinkRelationship(wordclass_verbs, wordclass_verbs_modal)
 
     // =============================================================================
     // #Verbs :
@@ -41,7 +65,7 @@ export function BuildLanguageTree() // returns romanian
     //  - https://www.verbix.com/webverbix/go.php?T1=s%C4%83rb%C4%83tori&D1=5&H1=105
     // =============================================================================
 
-    let modal_could = new DataCard("Could (modal)", "Putea (modal)",
+    let modal_could = new DataCard("Could", "Putea",
         `<h2>Modal</h2>
         Eu aș putea să [...]<br>
         Tu ai putea să [...]<br>
@@ -59,7 +83,7 @@ export function BuildLanguageTree() // returns romanian
         Voi trebuie să [...]<br>
         Ei/Ele trebuie să [...]<br>`)
 
-    let modal_should = new DataCard("Should", "Ar trebui",
+    let modal_should = new DataCard("Should", "Ar Trebui",
         `<h2>Modal</h2>
         Eu ar trebui să [...]<br>
         Tu ar trebui să [...]<br>
@@ -68,7 +92,7 @@ export function BuildLanguageTree() // returns romanian
         Voi ar trebui să [...]<br>
         Ei/Ele ar trebui să [...]<br>`)
     
-    setParentAndMultipleChildren(modal_verbs, [
+    setParentAndMultipleChildren(wordclass_verbs_modal, [
         modal_could, modal_must, modal_should
     ])
 
@@ -294,7 +318,7 @@ export function BuildLanguageTree() // returns romanian
     let to_work2 = new Verb("Work (alt)", "Lucra","lucrez", "lucrezi", "lucrează", "lucrăm", "lucrați", "lucrează", "lucrat");
     let to_write = new Verb("Write", "Scrie","scriu", "scrii", "scrie", "scriem", "scrieți", "scriu", "scris");
     
-    setParentAndMultipleChildren(verbs, [
+    setParentAndMultipleChildren(wordclass_verbs, [
         to_achieve, to_add, to_admit, to_agree, to_allow, to_analyze, to_apologize, to_apply, to_approve, to_argue, to_arrive, to_ask, to_bake, to_be, to_beAvailable, 
         to_become, to_beDivorced, to_beEngaged, to_beHonest, to_beSure, to_blush, to_boil, to_breakIn, to_breakUp, to_bring, to_buy, to_call, to_can, to_cancel, to_carry, 
         to_catch, to_cause, to_celebrate, to_change, to_cheat, to_choose, to_chop, to_clean, to_climb, to_close, to_come, to_comeBack, to_commitSuicide, to_compare, to_confess, 
@@ -313,235 +337,85 @@ export function BuildLanguageTree() // returns romanian
     // =============================================================================
     // #Prepositions
     // =============================================================================
+    
+    let preposition_about = new DataCard("About", "Despre","")
+    let preposition_above = new DataCard("Above", "De mai sus","")
+    let preposition_abroad = new DataCard("Abroad", "În străinătate", "");  
+    let preposition_after = new DataCard("After", "După","")
+    let preposition_against = new DataCard("Against", "Împotriva","")
+    let preposition_alongSide = new DataCard("Along side (next to)", "Pe langa","")
+    let preposition_amid = new DataCard("Amid (in the middle of)", "În mijlocul","")
+    let preposition_among = new DataCard("Among", "Printre","")
+    let preposition_apartFrom = new DataCard("Apart from", "În afară de","")
+    let preposition_at = new DataCard("At", "La","")
+    let preposition_awayFrom = new DataCard("Away From", "Departe de", "");
+    let preposition_behind = new DataCard("Behind", "In spate","")
+    let preposition_beneath = new DataCard("Beneath", "Sub","")
+    let preposition_beside = new DataCard("Beside (next to)", "Lângă","")
+    let preposition_beyond = new DataCard("Beyond", "Dincolo","")
+    let preposition_bottom = new DataCard("Bottom", "De Jos", "");
+    let preposition_by = new DataCard("By", "De către", "");
+    let preposition_closeTo = new DataCard("Close to", "Aproape de","")
+    let preposition_from = new DataCard("From", "Din","")
+    let preposition_high = new DataCard("High", "Sus", "");
+    let preposition_in = new DataCard("In", "În (Înăuntru)","")
+    let preposition_inBetween = new DataCard("In between", "Între","")
+    let preposition_inFrontOf = new DataCard("In front of", "În fața","")
+    let preposition_inside = new DataCard("Inside", "Interior","")
+    let preposition_left = new DataCard("Left", "La Stânga", "");
+    let preposition_low = new DataCard("Low", "Jos", "");
+    let preposition_near = new DataCard("Near", "Apropape","")
+    let preposition_of = new DataCard("Of", "De","")
+    let preposition_on = new DataCard("On", "Pe","")
+    let preposition_oppositeTo = new DataCard("Opposite To", "Peste drum de", "");
+    let preposition_out = new DataCard("Out", "Afară", "");
+    let preposition_outside = new DataCard("Outside", "In afara","")
+    let preposition_over = new DataCard("Over", "Peste","")
+    let preposition_right = new DataCard("Right", "La Dreapta", "");
+    let preposition_since = new DataCard("Since", "De când","")
+    let preposition_through = new DataCard("Through", "Prin","")
+    let preposition_till = new DataCard("Until (till)", "Până (la)","")
+    let preposition_together = new DataCard("Together", "Impreuna","")
+    let preposition_top = new DataCard("Top", "De Sus", "");
+    let preposition_towards = new DataCard("Towards", "Spre","")
+    let preposition_until = new DataCard("Until", "Până când", "");
+    let preposition_via = new DataCard("Via", "Prin", "");  
+    let preposition_with = new DataCard("With", "Cu","")
+    let preposition_without = new DataCard("Without", "Fără","")
 
-    let prepositions = new DataCard(
-        "Prepositions", "Prepoziţii",
-        "")
-    setParentAndChild(romanian, prepositions);
-
-    let after = new DataCard(
-        "After", "După",
-        "")
-    setParentAndChild(prepositions, after);
-
-    let about = new DataCard(
-        "About", "Despre",
-        "")
-    setParentAndChild(prepositions, about);
-
-    let at = new DataCard(
-        "At", "La",
-        "")
-    setParentAndChild(prepositions, at);
-
-    let from = new DataCard(
-        "From", "Din",
-        "")
-    setParentAndChild(prepositions, from);
-
-    let _in = new DataCard(
-        "In", "În (Înăuntru)",
-        "")
-    setParentAndChild(prepositions, _in);
-
-    let _out = new DataCard("Out", "Afară", "");
-    setParentAndChild(prepositions, _out)
-
-    let on = new DataCard(
-        "On", "Pe",
-        "")
-    setParentAndChild(prepositions, on);
-
-    let since = new DataCard(
-        "Since", "De când",
-        "")
-    setParentAndChild(prepositions, since);
-
-    let until = new DataCard(
-        "Until (till)", "Până (la)",
-        "")
-    setParentAndChild(prepositions, until);
-
-    let above = new DataCard(
-        "Above", "De mai sus",
-        "")
-    setParentAndChild(prepositions, above);
-
-    let against = new DataCard(
-        "Against", "Împotriva",
-        "")
-    setParentAndChild(prepositions, against);
-
-    let alongSide = new DataCard(
-        "Along side (next to)", "Pe langa",
-        "")
-    setParentAndChild(prepositions, alongSide);
-
-    let amid = new DataCard(
-        "Amid (in the middle of)", "În mijlocul",
-        "")
-    setParentAndChild(prepositions, amid);
-
-    let among = new DataCard(
-        "Among", "Printre",
-        "")
-    setParentAndChild(prepositions, among);
-
-    let apartFrom = new DataCard(
-        "Apart from", "În afară de",
-        "")
-    setParentAndChild(prepositions, apartFrom);
-
-    let behind = new DataCard(
-        "Behind", "In spate",
-        "")
-    setParentAndChild(prepositions, behind);
-
-    let beneath = new DataCard(
-        "Beneath", "Sub",
-        "")
-    setParentAndChild(prepositions, beneath);
-
-    let by = new DataCard(
-        "Of", "De",
-        "")
-    setParentAndChild(prepositions, by);
-
-    let beside = new DataCard(
-        "Beside (next to)", "Lângă",
-        "")
-    setParentAndChild(prepositions, beside);
-
-    let beyond = new DataCard(
-        "Beyond", "Dincolo",
-        "")
-    setParentAndChild(prepositions, beyond);
-
-    let closeTo = new DataCard(
-        "Close to", "Aproape de",
-        "")
-    setParentAndChild(prepositions, closeTo);
-
-    let inBetween = new DataCard(
-        "In between", "Între",
-        "")
-    setParentAndChild(prepositions, inBetween);
-
-    let inFrontOf = new DataCard(
-        "In front of", "În fața",
-        "")
-    setParentAndChild(prepositions, inFrontOf);
-
-    let inside = new DataCard(
-        "Inside", "Interior",
-        "")
-    setParentAndChild(prepositions, inside);
-
-    let near = new DataCard(
-        "Near", "Apropape",
-        "")
-    setParentAndChild(prepositions, near);
-
-    let over = new DataCard(
-        "Over", "Peste",
-        "")
-    setParentAndChild(prepositions, over);
-
-    let towards = new DataCard(
-        "Towards", "Spre",
-        "")
-    setParentAndChild(prepositions, towards);
-
-    let without = new DataCard(
-        "Without", "Fără",
-        "")
-    setParentAndChild(prepositions, without);
-
-    let through = new DataCard(
-        "Through", "Prin",
-        "")
-    setParentAndChild(prepositions, through);
-
-    let together = new DataCard(
-        "Together", "Impreuna",
-        "")
-    setParentAndChild(prepositions, together);
-
-    let outside = new DataCard(
-        "Outside", "In afara",
-        "")
-    setParentAndChild(prepositions, outside);
-
-    let _with = new DataCard(
-        "With", "Cu",
-        "")
-    setParentAndChild(prepositions, _with);
-
-    let Top = new DataCard("Top", "De Sus", "");
-    setParentAndChild(prepositions, Top)
-
-    let Bottom = new DataCard("Bottom", "De Jos", "");
-    setParentAndChild(prepositions, Bottom)
-
-    let Left = new DataCard("Left", "La Stânga", "");
-    setParentAndChild(prepositions, Left)
-
-    let Right = new DataCard("Right", "La Dreapta", "");
-    setParentAndChild(prepositions, Right)
-
-    let High = new DataCard("High", "Sus", "");
-    setParentAndChild(prepositions, High)
-
-    let Low = new DataCard("Low", "Jos", "");
-    setParentAndChild(prepositions, Low)
-
-    let AwayFrom = new DataCard("Away From", "Departe de", "");
-    setParentAndChild(prepositions, AwayFrom);
-
-    let OppositeTo = new DataCard("Opposite To", "Peste drum de", "");
-    setParentAndChild(prepositions, OppositeTo);
-
-    let By = new DataCard("By", "De către", "");
-    setParentAndChild(prepositions, By);
-
-    let Until = new DataCard("Until", "Până când", "");
-    setParentAndChild(prepositions, Until);
-
-    let via = new DataCard("Via", "Prin", "");  
-    setParentAndChild(prepositions, via);  
-
-    let abroad = new DataCard("Abroad", "În străinătate", "");  
-    setParentAndChild(prepositions, abroad);  
-
+    setParentAndMultipleChildren(wordclass_prepositions, [
+        preposition_about, preposition_above, preposition_abroad, preposition_after, preposition_against, preposition_alongSide, preposition_amid, preposition_among, 
+        preposition_apartFrom, preposition_at, preposition_awayFrom, preposition_behind, preposition_beneath, preposition_beside, preposition_beyond, preposition_bottom, 
+        preposition_by, preposition_closeTo, preposition_from, preposition_high, preposition_in, preposition_inBetween, preposition_inFrontOf, preposition_inside, 
+        preposition_left, preposition_low, preposition_near, preposition_of, preposition_on, preposition_oppositeTo, preposition_out, preposition_outside, 
+        preposition_over, preposition_right, preposition_since, preposition_through, preposition_till, preposition_together, preposition_top, preposition_towards, 
+        preposition_until, preposition_via, preposition_with, preposition_without])
 
 
     // =============================================================================
     // #Adjectives
     // =============================================================================
 
-    let adjectives = new DataCard(
-        "Adjectives", "Adjective",
-        "")
-    setParentAndChild(romanian, adjectives);
+
 
     let who = new DataCard(
         "Who", "Cine",
         "")
-    setParentAndChild(adjectives, who);
+    setParentAndChild(wordclass_adjectives, who);
 
     let what = new DataCard(
         "What", "Ce",
         "")
-    setParentAndChild(adjectives, what);
+    setParentAndChild(wordclass_adjectives, what);
 
     let which = new DataCard(
         "Which", "Care",
         "")
-    setParentAndChild(adjectives, which);
+    setParentAndChild(wordclass_adjectives, which);
 
     // #quantities
     let quantities = new DataCard("Quantities", "Cantități", "");  
-    setParentAndChild(adjectives, quantities);  
+    setParentAndChild(wordclass_adjectives, quantities);  
 
     let every = new DataCard(
         "Every", "Fiecare",
@@ -590,7 +464,7 @@ export function BuildLanguageTree() // returns romanian
 
     // #descriptiveadjectives
     let DescriptiveAdjective = new DataCard("Descriptive Adjective", "Adjective Descriptive", "");
-    setParentAndChild(adjectives, DescriptiveAdjective)
+    setParentAndChild(wordclass_adjectives, DescriptiveAdjective)
 
     let Good = new DataCard("Good", "Bine", "");
     setParentAndChild(DescriptiveAdjective, Good)
@@ -704,7 +578,7 @@ export function BuildLanguageTree() // returns romanian
 
     // #flavours
     let flavours = new DataCard("Flavours", "Arome", "");  
-    setParentAndChild(adjectives, flavours);  
+    setParentAndChild(wordclass_adjectives, flavours);  
 
     let sweet = new DataCard("Sweet", "Dulce", "");  
     setParentAndChild(flavours, sweet);  
@@ -729,7 +603,7 @@ export function BuildLanguageTree() // returns romanian
 
     // #AboutPeople =======================================
     let aboutPeople = new DataCard("About People", "Despre oameni", "");  
-    setParentAndChild(adjectives, aboutPeople);  
+    setParentAndChild(wordclass_adjectives, aboutPeople);  
     
     let hungry = new DataCard("Hungry", "Înfometat", "");  
     setParentAndChild(aboutPeople, hungry);  
@@ -811,72 +685,40 @@ export function BuildLanguageTree() // returns romanian
 
 
     // #Colours =======================================
-    let colours = new DataCard(
-        "Colours", "Culorile",
-        "")
-    setParentAndChild(adjectives, colours);
-
-    let brown = new DataCard("Brown", "Maro", "")
-    setParentAndChild(colours, brown);
-
-    let white = new DataCard("White", "Alb", "")
-    setParentAndChild(colours, white);
-
-    let Brown = new DataCard("Brown", "Căprui", "");
-    setParentAndChild(colours, Brown);
-
-    let blue = new DataCard("Blue", "Albastru", "")
-    setParentAndChild(colours, blue);
-
+    let colours = new DataCard("Colours", "Culorile","")
+        
     let black = new DataCard("Black", "Negru", "")
-    setParentAndChild(colours, black);
-
-    let orange = new DataCard("Orange", "Portocaliu", "")
-    setParentAndChild(colours, orange);
-
-    let grey = new DataCard("Grey", "Gri", "")
-    setParentAndChild(colours, grey);
-
-    let green = new DataCard("Green", "Verde", "")
-    setParentAndChild(colours, green);
-
-    let red = new DataCard("Red", "Roșu", "")
-    setParentAndChild(colours, red);
-
-    let purple = new DataCard("Purple", "Mov", "")
-    setParentAndChild(colours, purple);
-
-    let yellow = new DataCard("Yellow", "Galben", "")
-    setParentAndChild(colours, yellow);
-    
-    let bright = new DataCard("Bright", "Strălucitor", "");  
-    setParentAndChild(colours, bright);
-
     let blonde = new DataCard("Blonde", "Blond", "");  
-    setParentAndChild(colours, blonde);  
-
-    let Dark = new DataCard("Dark", "Întunecos", "");
-    setParentAndChild(colours, Dark)
-
-    let Light = new DataCard("Light", "Luminos", "");
-    setParentAndChild(colours, Light)
-
+    let blue = new DataCard("Blue", "Albastru", "")
+    let bright = new DataCard("Bright", "Strălucitor", "");  
+    let brown = new DataCard("Brown", "Maro", "")
+    let dark = new DataCard("Dark", "Întunecos", "");
     let gold = new DataCard("Gold", "Aur", "");  
-    setParentAndChild(colours, gold);  
+    let green = new DataCard("Green", "Verde", "")
+    let grey = new DataCard("Grey", "Gri", "")
+    let hazel = new DataCard("Hazel", "Căprui", "");
+    let light = new DataCard("Light", "Luminos", "");
+    let orange = new DataCard("Orange", "Portocaliu", "")
+    let purple = new DataCard("Purple", "Mov", "")
+    let red = new DataCard("Red", "Roșu", "")
+    let white = new DataCard("White", "Alb", "")
+    let yellow = new DataCard("Yellow", "Galben", "")
+
+    setParentAndMultipleChildren(
+        colours, [
+            black, blonde, blue, bright, brown, dark, gold, green, grey, 
+            hazel, light, orange, purple, red, white, yellow, 
+        ]
+    )
 
 
     // =============================================================================
     // #Nouns
     // =============================================================================
 
-    let nouns = new DataCard(
-        "Nouns", "Substantive",
-        "Todo")
-    setParentAndChild(romanian, nouns);
-
     //#thecircus
     let TheCircus = new DataCard("The Circus", "Circul", "");
-    setParentAndChild(nouns, TheCircus)
+    setParentAndChild(wordclass_nouns, TheCircus)
 
     let Unicyclist = new DataCard("Unicyclist", "Acrobat pe Bicicletă", "");
     setParentAndChild(TheCircus, Unicyclist)
@@ -944,7 +786,7 @@ export function BuildLanguageTree() // returns romanian
 
     //#sports
     let Sports = new DataCard("Sports", "Sporturile", "");
-    setParentAndChild(nouns, Sports)
+    setParentAndChild(wordclass_nouns, Sports)
 
     let Ball = new DataCard("Ball", "Minge", "");
     setParentAndChild(Sports, Ball)
@@ -1071,7 +913,7 @@ export function BuildLanguageTree() // returns romanian
 
     //#Days #week #time
     let Time = new DataCard("Time", "Timp", "");
-    setParentAndChild(nouns, Time)
+    setParentAndChild(wordclass_nouns, Time)
 
     // #relativeTime
     let RelativeTime = new DataCard("Relative Time", "Timp Relativ", "");
@@ -1356,7 +1198,7 @@ export function BuildLanguageTree() // returns romanian
 
     // #Measurements
     let Measurements = new DataCard("Measurements", "Măsurători", ""); 
-    setParentAndChild(nouns, Measurements);
+    setParentAndChild(wordclass_nouns, Measurements);
     
     let Size = new DataCard("Size", "Mărime", ""); 
     setParentAndChild(Measurements, Size);
@@ -1417,7 +1259,7 @@ export function BuildLanguageTree() // returns romanian
 
     // #misc nouns
     let miscellaneous = new DataCard("Miscellaneous", "Diverse", "");  
-    setParentAndChild(nouns, miscellaneous);  
+    setParentAndChild(wordclass_nouns, miscellaneous);  
 
     let opinion = new DataCard("Opinion", "Opinie", "");  
     setParentAndChild(miscellaneous, opinion);  
@@ -1469,7 +1311,7 @@ export function BuildLanguageTree() // returns romanian
 
     // # space
     let Space = new DataCard("Space", "Spațiu", "");
-    setParentAndChild(nouns, Space)
+    setParentAndChild(wordclass_nouns, Space)
 
     let Planet = new DataCard("Planet", "Planetă", "");
     setParentAndChild(Space, Planet)
@@ -1528,7 +1370,7 @@ export function BuildLanguageTree() // returns romanian
 
     // #school #atschool
     let AtSchool = new DataCard("At School", "La Şcoală", "");
-    setParentAndChild(nouns, AtSchool)
+    setParentAndChild(wordclass_nouns, AtSchool)
 
     let Scissors = new DataCard("Scissors", "Foarfecă", "");
     setParentAndChild(AtSchool, Scissors)
@@ -1622,7 +1464,7 @@ export function BuildLanguageTree() // returns romanian
 
     // #emergency services
     let TheEmergencyServices = new DataCard("The Emergency Services", "Serviciile de Urgență", ""); 
-    setParentAndChild(nouns, TheEmergencyServices)
+    setParentAndChild(wordclass_nouns, TheEmergencyServices)
 
     // #police #thepoliec
     let ThePolice = new DataCard("The Police", "Poliția", ""); 
@@ -1787,7 +1629,7 @@ export function BuildLanguageTree() // returns romanian
 
     // #thebeach #beach #seaside
     let TheBeach = new DataCard("The Beach", "Plaja", "");
-    setParentAndChild(nouns, TheBeach)
+    setParentAndChild(wordclass_nouns, TheBeach)
 
     let SailingBoat = new DataCard("Sailing Boat", "Barcă cu Pânze", "");
     setParentAndChild(TheBeach, SailingBoat)
@@ -1866,7 +1708,7 @@ export function BuildLanguageTree() // returns romanian
 
     // #thefarm #farm
     let TheFarm = new DataCard("The Farm", "Ferma", "");
-    setParentAndChild(nouns, TheFarm)
+    setParentAndChild(wordclass_nouns, TheFarm)
 
     let Haystack = new DataCard("Haystack", "Căpiță de Fân", "");
     setParentAndChild(TheFarm, Haystack)
@@ -1925,7 +1767,7 @@ export function BuildLanguageTree() // returns romanian
 
     //#thepark #park
     let ThePark = new DataCard("The Park", "Parcul", "");
-    setParentAndChild(nouns, ThePark)
+    setParentAndChild(wordclass_nouns, ThePark)
 
     let Swings = new DataCard("Swings", "Leagăne", "");
     setParentAndChild(ThePark, Swings)
@@ -1974,7 +1816,7 @@ export function BuildLanguageTree() // returns romanian
 
     //#thestreet #street
     let TheStreet = new DataCard("The Street", "Strada", "");
-    setParentAndChild(nouns, TheStreet)
+    setParentAndChild(wordclass_nouns, TheStreet)
 
     let Shop = new DataCard("Shop", "Magazin", "");
     setParentAndChild(TheStreet, Shop)
@@ -2056,7 +1898,7 @@ export function BuildLanguageTree() // returns romanian
 
     //#travel
     let Travel = new DataCard("Travel", "Călătoria", "");
-    setParentAndChild(nouns, Travel)
+    setParentAndChild(wordclass_nouns, Travel)
 
     let phoneNumber = new DataCard("Telephone number", "Număr de telefon", "");  
     setParentAndChild(Travel, phoneNumber);  
@@ -2261,7 +2103,7 @@ export function BuildLanguageTree() // returns romanian
 
     //#country #thecountry
     let TheCountry = new DataCard("The Country", "La Țară", "");
-    setParentAndChild(nouns, TheCountry)
+    setParentAndChild(wordclass_nouns, TheCountry)
 
     let Stream = new DataCard("Stream", "Pârâu", "");
     setParentAndChild(TheCountry, Stream)
@@ -2340,7 +2182,7 @@ export function BuildLanguageTree() // returns romanian
 
     //#animals
     let Animals = new DataCard("Animals", "Animalele", "");
-    setParentAndChild(nouns, Animals)
+    setParentAndChild(wordclass_nouns, Animals)
 
     let pet = new DataCard("Pet", "Animal de Companie", "");
     setParentAndChild(Animals, pet)
@@ -2636,7 +2478,7 @@ export function BuildLanguageTree() // returns romanian
 
     // #shop
     let theShop = new DataCard("The Shop", "Magazinul", "");
-    setParentAndChild(nouns, theShop)
+    setParentAndChild(wordclass_nouns, theShop)
 
     let Checkout = new DataCard("Checkout", "Casă (de marcat)", "");
     setParentAndChild(theShop, Checkout)
@@ -2664,7 +2506,7 @@ export function BuildLanguageTree() // returns romanian
 
     // #food
     let food = new DataCard("Food", "Mâncarea", "");
-    setParentAndChild(nouns, food)
+    setParentAndChild(wordclass_nouns, food)
 
     let Orange = new DataCard("Orange", "Portocală", "");
     setParentAndChild(food, Orange)
@@ -2920,7 +2762,7 @@ export function BuildLanguageTree() // returns romanian
 
     // #atwork
     let AtWork = new DataCard("At Work", "La muncă", "");
-    setParentAndChild(nouns, AtWork);
+    setParentAndChild(wordclass_nouns, AtWork);
 
     let Project = new DataCard("Project", "Proiect", "");
     setParentAndChild(AtWork, Project);
@@ -2985,7 +2827,7 @@ export function BuildLanguageTree() // returns romanian
     // #home ===========================
 
     let atHome = new DataCard("At Home", "Acasă", "");
-    setParentAndChild(nouns, atHome)
+    setParentAndChild(wordclass_nouns, atHome)
 
     //#workshop
     let TheWorkshop = new DataCard("The Workshop", "Atelierul", "");
@@ -3594,7 +3436,7 @@ export function BuildLanguageTree() // returns romanian
 
     // #people ================================
     let people = new DataCard("People", "Oamenii", "")
-    setParentAndChild(nouns, people)
+    setParentAndChild(wordclass_nouns, people)
 
     let men = new NounMale("Man", "Barbat", "bărbat", "bărbați", "bărbatul", "bărbații")
     setParentAndChild(people, men)
@@ -3849,7 +3691,7 @@ export function BuildLanguageTree() // returns romanian
     setParentAndChild(people, workJob)
 
     let guy = new DataCard("Guy", "Tip", "");  
-    setParentAndChild(nouns, guy);  
+    setParentAndChild(wordclass_nouns, guy);  
 
     let Teacher = new DataCard("Teacher", "Învătăoare (Profesoară)", "");
     setParentAndChild(workJob, Teacher)
@@ -3974,7 +3816,7 @@ export function BuildLanguageTree() // returns romanian
 
     // #shapes =================================
     let shapes = new DataCard("Shapes", "Formele geometrice", "")
-    setParentAndChild(nouns, shapes)
+    setParentAndChild(wordclass_nouns, shapes)
 
     let diamond = new DataCard("Diamond", "Romb", "")
     setParentAndChild(shapes, diamond)
@@ -3986,7 +3828,7 @@ export function BuildLanguageTree() // returns romanian
     setParentAndChild(shapes, cone)
 
     let line = new DataCard("Line", "Linie", "");  
-    setParentAndChild(nouns, line); 
+    setParentAndChild(wordclass_nouns, line); 
 
     let rectangle = new DataCard("Rectangle", "Dreptunghi", "")
     setParentAndChild(shapes, rectangle)
@@ -4011,7 +3853,7 @@ export function BuildLanguageTree() // returns romanian
 
     // #body =======================================
     let theBody = new DataCard("The body", "Corpul", "")
-    setParentAndChild(nouns, theBody)
+    setParentAndChild(wordclass_nouns, theBody)
 
     let head = new DataCard("Head", "Cap", "")
     setParentAndChild(theBody, head)
@@ -4111,198 +3953,188 @@ export function BuildLanguageTree() // returns romanian
     // #Adverbs
     // =============================================================================
 
-    let adverbs = new DataCard(
-        "Adverbs", "Adverbe",
-        "")
-    setParentAndChild(romanian, adverbs);
-
     let when = new DataCard(
         "When", "Când",
         "")
-    setParentAndChild(adverbs, when);
+    setParentAndChild(wordclass_adverbs, when);
 
     let either = new DataCard(
         "Either", "Fie",
         "")
-    setParentAndChild(adverbs, either);
+    setParentAndChild(wordclass_adverbs, either);
 
     let neither = new DataCard(
         "Neither", "Nici",
         "")
-    setParentAndChild(adverbs, neither);
+    setParentAndChild(wordclass_adverbs, neither);
 
     let never = new DataCard(
         "Never", "Niciodată",
         "")
-    setParentAndChild(adverbs, never);
+    setParentAndChild(wordclass_adverbs, never);
 
     let Only = new DataCard(
         "Only", "Numai",
         "")
-    setParentAndChild(adverbs, Only);
+    setParentAndChild(wordclass_adverbs, Only);
 
     let how = new DataCard(
         "How", "Cum",
         "")
-    setParentAndChild(adverbs, how);
+    setParentAndChild(wordclass_adverbs, how);
 
     let where = new DataCard(
         "Where", "Unde",
         "")
-    setParentAndChild(adverbs, where);
+    setParentAndChild(wordclass_adverbs, where);
 
     let Almost = new DataCard(
         "Almost", "Abia",
         "")
-    setParentAndChild(adverbs, Almost);
+    setParentAndChild(wordclass_adverbs, Almost);
 
     let SoMuch = new DataCard("So Much", "Atât de mult", "");
-    setParentAndChild(adverbs, SoMuch);
+    setParentAndChild(wordclass_adverbs, SoMuch);
 
     let Yet = new DataCard("Yet", "Încă", "");
-    setParentAndChild(adverbs, Yet);
+    setParentAndChild(wordclass_adverbs, Yet);
 
     let Now = new DataCard("Now", "Fix", "");
-    setParentAndChild(adverbs, Now);
+    setParentAndChild(wordclass_adverbs, Now);
 
     let Usually = new DataCard("Usually", "De obicei", "");
-    setParentAndChild(adverbs, Usually);
+    setParentAndChild(wordclass_adverbs, Usually);
 
     let Too = new DataCard("Too", "Prea", "");
-    setParentAndChild(adverbs, Too);
+    setParentAndChild(wordclass_adverbs, Too);
 
     let Already = new DataCard("Already", "Deja", "");
-    setParentAndChild(adverbs, Already);
+    setParentAndChild(wordclass_adverbs, Already);
 
     let Again = new DataCard("Again", "Din nou", "");
-    setParentAndChild(adverbs, Again);
+    setParentAndChild(wordclass_adverbs, Again);
 
     let Clearly = new DataCard("Clearly", "Clar", "");
-    setParentAndChild(adverbs, Clearly);
+    setParentAndChild(wordclass_adverbs, Clearly);
 
     let Finally = new DataCard("Finally", "În final", "");
-    setParentAndChild(adverbs, Finally);
+    setParentAndChild(wordclass_adverbs, Finally);
 
     let Just = new DataCard("Just", "Tocmai", "");
-    setParentAndChild(adverbs, Just);
+    setParentAndChild(wordclass_adverbs, Just);
 
     let Early = new DataCard("Early", "Devreme", "");
-    setParentAndChild(adverbs, Early);
+    setParentAndChild(wordclass_adverbs, Early);
 
     let Rather = new DataCard("Rather", "Destul de", "");
-    setParentAndChild(adverbs, Rather);
+    setParentAndChild(wordclass_adverbs, Rather);
 
     let Forever = new DataCard("Forever", "Pentru totdeauna", "");
-    setParentAndChild(adverbs, Forever);
+    setParentAndChild(wordclass_adverbs, Forever);
 
     let Still = new DataCard("Still", "Totuși", "");
-    setParentAndChild(adverbs, Still);
+    setParentAndChild(wordclass_adverbs, Still);
 
     let Anyway = new DataCard("Anyway", "Oricum", "");
-    setParentAndChild(adverbs, Anyway);
+    setParentAndChild(wordclass_adverbs, Anyway);
 
     let NotAtAll = new DataCard("Not at all", "Deloc", "");
-    setParentAndChild(adverbs, NotAtAll);
+    setParentAndChild(wordclass_adverbs, NotAtAll);
 
     let InTheFuture = new DataCard("In the future", "În viitor", "");
-    setParentAndChild(adverbs, InTheFuture);
+    setParentAndChild(wordclass_adverbs, InTheFuture);
 
     let firstly = new DataCard("Firstly", "Mai întâi", "");  
-    setParentAndChild(adverbs, firstly);  
+    setParentAndChild(wordclass_adverbs, firstly);  
 
     let first = new DataCard("First", "În primul rând", "");  
-    setParentAndChild(adverbs, first);  
+    setParentAndChild(wordclass_adverbs, first);  
 
     let notAtAll = new DataCard("Not at all", "Deloc", "");  
-    setParentAndChild(adverbs, notAtAll);  
+    setParentAndChild(wordclass_adverbs, notAtAll);  
 
 
     // =============================================================================
     // #Conjunctions
     // =============================================================================
 
-    let conjunctions = new DataCard(
-        "Conjunctions", "Conjuncții",
-        "")
-    setParentAndChild(romanian, conjunctions);
-
     let _for = new DataCard(
         "For", "Pentru",
         "")
-    setParentAndChild(conjunctions, _for);
+    setParentAndChild(wordclass_conjunctions, _for);
 
     let because = new DataCard(
         "Because", "Pentru că",
         "")
-    setParentAndChild(conjunctions, because);
+    setParentAndChild(wordclass_conjunctions, because);
 
     let and = new DataCard(
         "And", "Şi",
         "")
-    setParentAndChild(conjunctions, and);
+    setParentAndChild(wordclass_conjunctions, and);
 
     let and2 = new DataCard(
         "And (alt)", "Iar",
         "")
-    setParentAndChild(conjunctions, and2);
+    setParentAndChild(wordclass_conjunctions, and2);
 
     let _if = new DataCard(
         "If", "Daca",
         "")
-    setParentAndChild(conjunctions, _if);
+    setParentAndChild(wordclass_conjunctions, _if);
 
     let _or = new DataCard(
         "Or", "Sau",
         "")
-    setParentAndChild(conjunctions, _or);
+    setParentAndChild(wordclass_conjunctions, _or);
 
     let _or2 = new DataCard(
         "Or (alt)", "Ori",
         "")
-    setParentAndChild(conjunctions, _or2);
+    setParentAndChild(wordclass_conjunctions, _or2);
 
     let but = new DataCard(
         "But", "Dar",
         "")
-    setParentAndChild(conjunctions, but);
+    setParentAndChild(wordclass_conjunctions, but);
 
     let before = new DataCard(
         "Before", "Inainte de",
         "")
-    setParentAndChild(conjunctions, before);
+    setParentAndChild(wordclass_conjunctions, before);
 
     let Because = new DataCard("Because", "Deoarece", "");
-    setParentAndChild(conjunctions, Because);
+    setParentAndChild(wordclass_conjunctions, Because);
 
     let Although = new DataCard("Although", "Deși", "");
-    setParentAndChild(conjunctions, Although);
+    setParentAndChild(wordclass_conjunctions, Although);
     
     let Therefore = new DataCard("Therefore", "Deci", "");
-    setParentAndChild(conjunctions, Therefore);
+    setParentAndChild(wordclass_conjunctions, Therefore);
     
     let EvenThough = new DataCard("Even Though", "Chiar dacă", "");
-    setParentAndChild(conjunctions, EvenThough);
+    setParentAndChild(wordclass_conjunctions, EvenThough);
     
     let So = new DataCard("So", "Așa că", "");
-    setParentAndChild(conjunctions, So);
+    setParentAndChild(wordclass_conjunctions, So);
     
     let AsWell = new DataCard("As Well", "De asemenea", "");
-    setParentAndChild(conjunctions, AsWell);
+    setParentAndChild(wordclass_conjunctions, AsWell);
     
     let Like = new DataCard("Like (A is like B)", "Asemenea", "");
-    setParentAndChild(conjunctions, Like);
+    setParentAndChild(wordclass_conjunctions, Like);
 
     let InCase = new DataCard("In case", "În caz că", "");
-    setParentAndChild(conjunctions, InCase);
+    setParentAndChild(wordclass_conjunctions, InCase);
 
     let still = new DataCard("Still", "Totuși", "");  
-    setParentAndChild(conjunctions, still);  
+    setParentAndChild(wordclass_conjunctions, still);  
 
     let isntIt = new DataCard("Isn't it", "Nu-i așa", "");  
-    setParentAndChild(conjunctions, isntIt);  
+    setParentAndChild(wordclass_conjunctions, isntIt);  
 
     let okay = new DataCard("Okay", "Atunci", "");  
-    setParentAndChild(conjunctions, okay);  
+    setParentAndChild(wordclass_conjunctions, okay);  
 
 
 
@@ -4310,60 +4142,55 @@ export function BuildLanguageTree() // returns romanian
     // #Numbers
     // =============================================================================
 
-    let numbers = new DataCard(
-        "Numbers", "Numere",
-        "Todo")
-    setParentAndChild(romanian, numbers);
-
     let one = new DataCard(
         "1 One", "1 Unu",
         "")
-    setParentAndChild(numbers, one);
+    setParentAndChild(wordclass_numbers, one);
 
     let two = new DataCard(
         "2 Two", "2 Doi",
         "")
-    setParentAndChild(numbers, two);
+    setParentAndChild(wordclass_numbers, two);
 
     let three = new DataCard(
         "3 Three", "3 Trei",
         "")
-    setParentAndChild(numbers, three);
+    setParentAndChild(wordclass_numbers, three);
 
     let four = new DataCard(
         "4 Four", "4 Patru",
         "")
-    setParentAndChild(numbers, four);
+    setParentAndChild(wordclass_numbers, four);
 
     let five = new DataCard(
         "5 Five", "5 Cinci",
         "")
-    setParentAndChild(numbers, five);
+    setParentAndChild(wordclass_numbers, five);
 
     let six = new DataCard(
         "6 Six", "6 Şase",
         "")
-    setParentAndChild(numbers, six);
+    setParentAndChild(wordclass_numbers, six);
 
     let seven = new DataCard(
         "7 Seven", "7 Şapte",
         "")
-    setParentAndChild(numbers, seven);
+    setParentAndChild(wordclass_numbers, seven);
 
     let eight = new DataCard(
         "8 Eight", "8 Opt",
         "")
-    setParentAndChild(numbers, eight);
+    setParentAndChild(wordclass_numbers, eight);
 
     let nine = new DataCard(
         "9 Nine", "9 Nouă",
         "")
-    setParentAndChild(numbers, nine);
+    setParentAndChild(wordclass_numbers, nine);
 
     let ten = new DataCard(
         "10 Ten", "10 Zece",
         "")
-    setParentAndChild(numbers, ten);
+    setParentAndChild(wordclass_numbers, ten);
 
 
 
@@ -4372,44 +4199,39 @@ export function BuildLanguageTree() // returns romanian
     // #Pronouns
     // =============================================================================
 
-    let pronouns = new DataCard(
-        "Pronouns", "Pronume",
-        "")
-    setParentAndChild(romanian, pronouns);
-
     let another = new DataCard(
         "Another", "Alt",
         "")
-    setParentAndChild(pronouns, another);
+    setParentAndChild(wordclass_pronouns, another);
 
     let something = new DataCard(
         "Something", "Ceva",
         "")
-    setParentAndChild(pronouns, something);
+    setParentAndChild(wordclass_pronouns, something);
 
     let Which = new DataCard("Which", "Pe care", "");
-    setParentAndChild(pronouns, Which);
+    setParentAndChild(wordclass_pronouns, Which);
 
     let Some = new DataCard("Some", "Niște", "");
-    setParentAndChild(pronouns, Some);
+    setParentAndChild(wordclass_pronouns, Some);
 
     let Whose = new DataCard("Whose", "Al cui", "");
-    setParentAndChild(pronouns, Whose);
+    setParentAndChild(wordclass_pronouns, Whose);
 
     let AnyKindOf = new DataCard("Any Kind Of", "Niciun fel de", "");
-    setParentAndChild(pronouns, AnyKindOf);
+    setParentAndChild(wordclass_pronouns, AnyKindOf);
 
     let everyone = new DataCard("Everyone", "Tuturor", "");  
-    setParentAndChild(pronouns, everyone);  
+    setParentAndChild(wordclass_pronouns, everyone);  
 
     let eachOther = new DataCard("Each other / with each other", "Unul pe/cu celălalte", "");  
-    setParentAndChild(pronouns, eachOther);  
+    setParentAndChild(wordclass_pronouns, eachOther);  
 
     let someone = new DataCard("Someone", "Cineva", "");  
-    setParentAndChild(pronouns, someone);  
+    setParentAndChild(wordclass_pronouns, someone);  
 
     let whatKindOf = new DataCard("What kind of", "Ce fel de", "");  
-    setParentAndChild(pronouns, whatKindOf);  
+    setParentAndChild(wordclass_pronouns, whatKindOf);  
 
 
     // =============================================================================
