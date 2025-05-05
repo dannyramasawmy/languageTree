@@ -38,7 +38,7 @@ const B_SHUFFLE = new Button(SETTINGS, ButtonsID.SHUFFLE, "Shuffle", ButtonIcons
 const B_SORT = new Button(SETTINGS, ButtonsID.SORT, "Sort", ButtonIcons.SORT, "sort-button");
 const B_SEARCH = new Button(SETTINGS, ButtonsID.SEARCH, "Search", ButtonIcons.SEARCH, "search-button").IsSearchButton();
 const B_SWAP = new Button(SETTINGS, ButtonsID.SWAP, "Swap", ButtonIcons.SWAP, "swap-button");
-const B_TRAVEL = new Button(SETTINGS, ButtonsID.TRAVEL, "Return", ButtonIcons.TRAVEL, "travel-button");
+const B_TRAVEL = new Button(SETTINGS, ButtonsID.TRAVEL, "Ascend", ButtonIcons.TRAVEL, "travel-button");
 
 VIEW
   .ClearCards()

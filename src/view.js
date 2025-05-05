@@ -2,7 +2,8 @@ import { RainbowColorWheel } from "./colors/rainbowColorWheel.js";
 import {
     createParentCard,
     createChildCard,
-    prefixWithSVG
+    prefixWithSVG,
+    createCardSeparator
 } from "./tree/view.js";
 import { createParentStat, createNumberOfChildrenStat, createNumberOfRelaionsStat, createNumberOfViewsStat } from "./stats/view.js";
 import { ButtonsID, ElementID, NodeStatsID } from "./identifiers.js";
@@ -118,6 +119,11 @@ export class View {
         // parent cards
         let start_idx = currentNode.IsRoot ? 1 : 0
         for (var idx = start_idx; idx < parents.length; idx++) {
+            if (idx == 0 && this.SETTINGS.DoSeparateCards)
+            {
+                document.getElementById(this.dataCardsId).appendChild(createCardSeparator("Parents"))
+            }
+
             let cardId = `parent-card-number-${idx}`;
 
             if (this.SETTINGS.HasRainbowHover)
@@ -139,6 +145,11 @@ export class View {
 
         // relation cards
         for (var idx = 0; idx < relations.length; idx++) {
+            if (idx == 0 && this.SETTINGS.DoSeparateCards)
+            {
+                document.getElementById(this.dataCardsId).appendChild(createCardSeparator("Related"))
+            }
+
             let cardId = `relation-card-number-${idx}`;
 
             if (this.SETTINGS.HasRainbowHover)
@@ -160,6 +171,13 @@ export class View {
 
         // child cards
         for (var idx = 0; idx < displayList.length; idx++) {
+
+            let showing_cards = document.getElementById(this.dataCardsId).children.length
+            if (idx == 0 && showing_cards > 0 && this.SETTINGS.DoSeparateCards)
+            {
+                document.getElementById(this.dataCardsId).appendChild(createCardSeparator("Cards"))
+            }
+
             let cardId = `card-number-${idx}`;
 
             if (this.SETTINGS.HasRainbowHover)

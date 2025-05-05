@@ -30,6 +30,7 @@ export const SettingsID = {
     COLOR_THEME: "color-theme",
     HOVER_COLOR: "hover-color-theme",
     COMPACT_CARDS: "compact-data-cards",
+    SEPARATE_CARDS: "separate-data-card",
     ANIMATIONS: "animations-switch",
     SMOOTH_SCROLLING: "animations-smooth-scrolling",
     BUTTON_LABELS: "button-labels",
