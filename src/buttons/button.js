@@ -26,6 +26,10 @@ export class Button {
         this.isSearchButton = false
     }
 
+    UpdateName(newName) {
+        this.buttonName = newName
+    }
+
     /**
      * Indicate the current button brings up the search modal pop-up
      * @returns {Button} - returns the current object

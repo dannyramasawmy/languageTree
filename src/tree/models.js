@@ -228,3 +228,4 @@ export class DataCard extends AbstractNode {
     */
     SearchableTerms = () => [this.Primary, this.Secondary]
 }
+
