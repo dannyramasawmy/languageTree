@@ -24,3 +24,12 @@ export function stringToHTMLElement(text) {
     div.innerHTML = text
     return div
 }
+
+/**
+ * Lower case and whitespace removed 
+ * @param {string} inputString - raw string
+ * @returns {string} - clean string
+ */
+export function prepareString(inputString) { 
+    return inputString.toLowerCase().trim(); 
+}

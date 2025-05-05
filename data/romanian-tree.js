@@ -19,8 +19,6 @@ let  = new DataCard(
         "")
 */
 
-// export const searchPlaceholder = new DataCard("Search", "Căuta", "");
-
 export function BuildLanguageTree() // returns romanian
 {
     let romanian = new DataRoot(
@@ -35,34 +33,34 @@ export function BuildLanguageTree() // returns romanian
     let modal_verbs = new DataCard("Modal Verbs", "Verbe Modal", "Common verbs are listed here.")
     setParentAndChild(romanian, modal_verbs);
 
-    // let a1 = new DataCard('a1-e','a1-r', "")
-    // let a2 = new DataCard('a2-e','a2-r', "")
-    // let a3 = new DataCard('a3-e','a3-r', "")
-    // let a4 = new DataCard('a4-e','a4-r', "")
-    // let a5 = new DataCard('a5-e','a5-r', "")
-    // let a6 = new DataCard('a6-e','a6-r', "")
+    let a1 = new DataCard('a1-e','a1-r', "")
+    let a2 = new DataCard('a2-e','a2-r', "")
+    let a3 = new DataCard('a3-e','a3-r', "")
+    let a4 = new DataCard('a4-e','a4-r', "")
+    let a5 = new DataCard('a5-e','a5-r', "")
+    let a6 = new DataCard('a6-e','a6-r', "")
     
-    // setParentAndChild(romanian, a1);
-    // setParentAndChild(romanian, a2);
-    // setParentAndChild(romanian, a3);
-    // setParentAndChild(romanian, a4);
-    // setParentAndChild(romanian, a5);
-    // setParentAndChild(romanian, a6);
+    setParentAndChild(romanian, a1);
+    setParentAndChild(romanian, a2);
+    setParentAndChild(romanian, a3);
+    setParentAndChild(romanian, a4);
+    setParentAndChild(romanian, a5);
+    setParentAndChild(romanian, a6);
     
-    // let a1c1 = new DataCard('a1c1-e','a1c1-r', "")
-    // let a1c2 = new DataCard('a1c2-e','a1c2-r', "")
-    // let a1c3 = new DataCard('a1c3-e','a1c3-r', "")
-    // let a1c4 = new DataCard('a1c4-e','a1c4-r', "")
-    // setParentAndChild(a1, a1c1);
-    // setParentAndChild(a1, a1c2);
-    // setParentAndChild(a1, a1c3);
-    // setParentAndChild(a1, a1c4);
+    let a1c1 = new DataCard('a1c1-e','a1c1-r', "")
+    let a1c2 = new DataCard('a1c2-e','a1c2-r', "")
+    let a1c3 = new DataCard('a1c3-e','a1c3-r', "")
+    let a1c4 = new DataCard('a1c4-e','a1c4-r', "")
+    setParentAndChild(a1, a1c1);
+    setParentAndChild(a1, a1c2);
+    setParentAndChild(a1, a1c3);
+    setParentAndChild(a1, a1c4);
 
     
-    // defineCrossLinkRelationship(a1, a2)
-    // defineCrossLinkRelationship(a1, a3)
-    // defineCrossLinkRelationship(a1, a4)
-    // defineCrossLinkRelationship(a1, a5)
+    defineCrossLinkRelationship(a1, a2)
+    defineCrossLinkRelationship(a1, a3)
+    defineCrossLinkRelationship(a1, a4)
+    defineCrossLinkRelationship(a1, a5)
 
 
     // =============================================================================
