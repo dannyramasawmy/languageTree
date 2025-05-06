@@ -9,6 +9,7 @@ import { ScrollHandler } from "./history/scroll.js";
 import { RandomElementInArray } from "./utils/random.js";
 import { tryRegisterServiceWorker } from "./sw/register.js";
 import { Settings } from "./settings/settings.js";
+import { flattenTree } from "./tree/functions.js";
 
 
 // =============================================================================
@@ -19,6 +20,9 @@ const DEBUG = true;
 const ROOT_NODE = CONFIG.DATA_TREE;
 const GLOBAL = new GlobalState(true, ROOT_NODE, tree.functions.getChildren(ROOT_NODE))
 const SETTINGS = Settings.default()
+
+let treeAsArray = flattenTree(ROOT_NODE)
+console.log(treeAsArray)
 
 // =============================================================================
 // Initialise
