@@ -56,14 +56,8 @@ VIEW
     B_TRAVEL.Select(tree.functions.getNodeType(GLOBAL.CurrentNode))
   ]);
 
-const G_searchable = search.functions.buildDataCardMappingRecursive(
-  ROOT_NODE,
-  new search.models.DataCardMapping(),
-  CONFIG.PRIMARY_STRING_CLEAN_FUNCTION,
-  CONFIG.SECONDARY_STRING_CLEAN_FUNCTION);
-
 let resetSearch = () =>
-  search.view.resetSearchBar(search.functions.getNumberOfCards(G_searchable));
+  search.view.resetSearchBar(treeAsArray.length);
 
 resetSearch()
 
@@ -101,7 +95,7 @@ document.getElementById(SettingsID.UPDATE_SETTINGS).addEventListener("click", up
 
 // add history
 function pushState(node) {
-  history.pushState(node.Primary.toLowerCase(), null, `?${node.Primary}`);
+  history.pushState(node.GetHashId(), null, `?${node.GetHashId()}`);
 }
 
 // set next history state
@@ -111,9 +105,10 @@ window.addEventListener('popstate',
       console.log("Popstate");
     }
 
+    console.log(event.state)
     GLOBAL.CurrentNode = event.state == null
       ? ROOT_NODE
-      : search.functions.getDataCardFromState(G_searchable, event.state);
+      : search.functions.getDataCardFromUID(treeAsArray, event.state);
 
     GLOBAL.DisplayCards = tree.functions.getChildren(GLOBAL.CurrentNode);
     VIEW
@@ -129,10 +124,17 @@ window.addEventListener('popstate',
   });
 
 window.onkeyup = function (e) {
-  if (e.ctrlKey && e.keyCode === 81) {
-    console.log("Search shortcut");
+  if (e.key == "Enter" || e.keyCode == 13) {
+    console.log("Search shortcut - close");
+    const modalEl = document.getElementById('searchModal');
+    const modal = bootstrap.Modal.getInstance(modalEl) || new bootstrap.Modal(modalEl);
+    modal.hide();
+  }
 
+  if (e.ctrlKey && e.keyCode === 81) {
+    console.log("Search shortcut - open");
     let myModal = new bootstrap.Modal(document.getElementById('searchModal'), {});
+    console.log(myModal)
     myModal.show();
     document.getElementById(ElementID.SEARCH_BAR_ID).focus();
   }
@@ -259,7 +261,7 @@ window.addEventListener('click',
 
       // shuffle current node
       if (event.composedPath()[idx].id == ButtonsID.SHUFFLE) {
-        GLOBAL.CurrentNode = RandomElementInArray(search.functions.getAllCards(G_searchable, GLOBAL.PrimaryKeyFirst));
+        GLOBAL.CurrentNode = RandomElementInArray(treeAsArray);
 
         pushState(GLOBAL.CurrentNode);
         GLOBAL.DisplayCards = tree.functions.getChildren(GLOBAL.CurrentNode);
@@ -355,7 +357,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function keyboardInput() {
   let searchString = document.getElementById(ElementID.SEARCH_BAR_ID).value;
   GLOBAL.CurrentNode = ROOT_NODE;
-  GLOBAL.DisplayCards = search.functions.searchForMatchingCards(G_searchable, GLOBAL.PrimaryKeyFirst, searchString);
+  GLOBAL.DisplayCards = search.functions.searchForMatchingCards(treeAsArray, GLOBAL.PrimaryKeyFirst, searchString);
 
   console.log("Searching keyboard input");
   console.log(searchString);
