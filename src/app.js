@@ -33,9 +33,16 @@ let treeAsArray = flattenTree(ROOT_NODE)
 setParentAndChild(ROOT_NODE, new Stats(CONFIG.STATISTICS_LABELS[0], CONFIG.STATISTICS_LABELS[1], ROOT_NODE))
 setParentAndChild(ROOT_NODE, new Practice(treeAsArray))
 
+const sortDisplayList = (GLOBAL, displayCards) =>
+  tree.functions.sortDataCardArray(
+    GLOBAL.PrimaryKeyFirst,
+    displayCards,
+    CONFIG.PRIMARY_SORT_FUNCTION,
+    CONFIG.SECONDARY_SORT_FUNCTION)
     
 const GLOBAL = new GlobalState(true, ROOT_NODE, tree.functions.getChildren(ROOT_NODE))
-    
+GLOBAL.DisplayCards = sortDisplayList(GLOBAL, GLOBAL.DisplayCards);
+
 // =============================================================================
 // Initialise
 // =============================================================================
@@ -78,12 +85,7 @@ showCustomSearchConfigurations(CONFIG.SEARCH_FILTERS)
 
 resetSearch()
 
-const sortDisplayList = (GLOBAL, displayCards) =>
-  tree.functions.sortDataCardArray(
-    GLOBAL.PrimaryKeyFirst,
-    displayCards,
-    CONFIG.PRIMARY_SORT_FUNCTION,
-    CONFIG.SECONDARY_SORT_FUNCTION)
+
 
 // =============================================================================
 // SETTINGS

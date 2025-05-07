@@ -5,16 +5,14 @@ import { stringToHTMLElement } from "../utils/string.js";
 /** @typedef {import('./types.js').NodeComparator} NodeComparator */
 
 
-export class Question
-{
+export class Question {
     /**
      * 
      * @param {string} question 
      * @param {string} answer 
-     * @param {string} uid 
+     * @param {string} nodeUid 
      */
-    constructor(question, answer, nodeUid)
-    {
+    constructor(question, answer, nodeUid) {
         this.question = question
         this.answer = answer
         this.uid = nodeUid
@@ -47,7 +45,7 @@ export class AbstractNode {
 
         /** @type {AbstractNode[]} */
         this.Child = [];
-        
+
         /** @type {AbstractNode[]} */
         this.Relations = []
 
@@ -130,7 +128,7 @@ export class AbstractNode {
 
     GetViews = () => {
         if (this.IsRoot) return 0
-        
+
         if (Number.isNaN(this._views))
             this._views = getIntFromLocal(this.GetHashId(), 0)
 
@@ -152,14 +150,14 @@ export class AbstractNode {
     }
 
     /**
+     * TODO: This feature is experimental and under development
      * @virtual
      * @returns {Question[]}
      */
     Practice = () => {
         return [
-            new Question(this.Primary, this.Secondary, this.GetHashId()),
-            new Question(this.Secondary, this.Primary, this.GetHashId()),
-            new Question(this.Secondary, this.Primary, this.GetHashId()),
+            new Question(`Translate "${this.Primary}" to Romanian`, this.Secondary, this.GetHashId()),
+            new Question(`Translate "${this.Secondary}" to English`, this.Primary, this.GetHashId()),
         ]
     }
 }
@@ -202,11 +200,11 @@ export class DataRoot extends AbstractNode {
     * @override
     * @returns {HTMLElement}  HTML to render as the sub-title view 
     */
-   SecondaryView = () => {
-       return stringToHTMLElement(this.Secondary)
+    SecondaryView = () => {
+        return stringToHTMLElement(this.Secondary)
     }
-    
-    
+
+
     /**
     * A method that presents the searchable terms
     * @override
@@ -247,7 +245,7 @@ export class DataCard extends AbstractNode {
     PrimaryView = () => {
         return stringToHTMLElement(this.Primary)
     }
-    
+
     /**
     * A method that produces the html to render
     * @override

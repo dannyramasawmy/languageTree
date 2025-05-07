@@ -1,9 +1,11 @@
+import { prefixWithSVG } from "../tree/view.js";
 import { Practice } from "../practice/models.js";
 import { flattenTree } from "../tree/functions.js";
 import { AbstractNode } from "../tree/models.js";
 import { stringToHTMLElement } from "../utils/string.js";
 import { abstractNodeToTableRow } from "./functions.js";
 import { statisticsTableView } from "./view.js";
+import { createStatsSvg } from "../stats/svg.js";
 
 export class StatsTableRow {
     /**
@@ -42,7 +44,7 @@ export class Stats extends AbstractNode {
     * @override
     * @returns {HTMLElement}  HTML to render as the main content view 
     */
-    PrimaryView = () => stringToHTMLElement(this.Primary);
+    PrimaryView = () => prefixWithSVG(stringToHTMLElement(this.Primary), createStatsSvg());
 
     /**
     * A method that produces the html to render
@@ -50,7 +52,7 @@ export class Stats extends AbstractNode {
     * @returns {HTMLElement}  HTML to render as the main content view 
     */
     SecondaryView = () => stringToHTMLElement(this.Secondary);
-    
+
     /**
     * A method that produces the html to render
     * @override

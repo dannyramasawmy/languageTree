@@ -92,3 +92,47 @@ export function createEyeSvg() {
     return svgEyeFill;
 }
 
+/**
+ * Create an SVGElement of a lightbulb icon
+ * @returns {SVGElement} an SVGElement of a lightbulb icon
+ */
+export function createLightBulbSvg() {
+    let svgLightbulbFill = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svgLightbulbFill.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+    svgLightbulbFill.setAttribute("height", "1em");
+    svgLightbulbFill.setAttribute("fill", "#e67e22");
+    svgLightbulbFill.setAttribute("class", "bi bi-eye-fill my-2");
+    svgLightbulbFill.setAttribute("viewBox", "0 0 16 16");
+
+    let path1 = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    path1.setAttribute("d", "M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13a.5.5 0 0 1 0 1 .5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1 0-1 .5.5 0 0 1 0-1 .5.5 0 0 1-.46-.302l-.761-1.77a2 2 0 0 0-.453-.618A5.98 5.98 0 0 1 2 6m6-5a5 5 0 0 0-3.479 8.592c.263.254.514.564.676.941L5.83 12h4.342l.632-1.467c.162-.377.413-.687.676-.941A5 5 0 0 0 8 1");
+
+    svgLightbulbFill.appendChild(path1);
+
+    return svgLightbulbFill;
+}
+
+
+/**
+ * Create an SVGElement of an eye icon
+ * @returns {SVGElement} an SVGElement of an eye icon
+ */
+export function createStatsSvg() {
+    let svgEyeFill = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svgEyeFill.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+    svgEyeFill.setAttribute("height", "1em");
+    svgEyeFill.setAttribute("fill", "#e67e22");
+    svgEyeFill.setAttribute("class", "bi bi-eye-fill my-2");
+    svgEyeFill.setAttribute("viewBox", "0 0 16 16");
+
+    let path1 = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    path1.setAttribute("d", "M4.5 12a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5zm3 0a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5zm3 0a.5.5 0 0 1-.5-.5v-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-.5.5z");
+
+    let path2 = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    path2.setAttribute("d", "M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1");
+
+    svgEyeFill.appendChild(path1);
+    svgEyeFill.appendChild(path2);
+
+    return svgEyeFill;
+}

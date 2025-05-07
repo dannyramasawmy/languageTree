@@ -1,6 +1,8 @@
-import { AbstractNode, Question } from "../tree/models.js";
+import { prefixWithSVG } from "../tree/view.js";
+import { AbstractNode } from "../tree/models.js";
 import { stringToHTMLElement } from "../utils/string.js";
 import { createQAExplorer } from "./functions.js";
+import { createLightBulbSvg } from "../stats/svg.js";
 
 export class Practice extends AbstractNode {
     /**
@@ -8,13 +10,11 @@ export class Practice extends AbstractNode {
      * @param {AbstractNode[]} data - a collection of node objects
      */
     constructor(data) {
-        super("Practice", "Practice");        
+        super("Your Practice", "Practica Ta");
         this.data = data;
     }
 
-    PrimaryView = () => stringToHTMLElement(this.Primary);
+    PrimaryView = () => prefixWithSVG(stringToHTMLElement(this.Primary), createLightBulbSvg());
     SecondaryView = () => stringToHTMLElement(this.Secondary);
-    DataView = () => {
-        return createQAExplorer(this.data);
-    };
+    DataView = () => createQAExplorer(this.data)
 }
