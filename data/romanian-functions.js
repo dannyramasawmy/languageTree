@@ -1,7 +1,6 @@
 /** @typedef {import('../src/tree/types.js').NodeComparator} NodeComparator */
 /** @typedef {import('../src/tree/types.js').StringCleaner} StringCleaner */
 
-
 /** @type {StringCleaner} */
 export function prepareEnglishString(inputString) { 
     return inputString.toLowerCase().trim(); 
@@ -57,7 +56,7 @@ export function buildColumnDiv(title, lines) {
     let titleElement = document.createElement('h4');
     titleElement.innerText = title;
     divColumn.appendChild(titleElement);
-
+    
     let linesElement = buildLinesDiv(lines);
     divColumn.appendChild(linesElement);
 

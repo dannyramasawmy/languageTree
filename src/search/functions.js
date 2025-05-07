@@ -1,93 +1,45 @@
+import { AbstractNode } from "../tree/models.js";
+import { SearchFilter } from "./models.js";
 
-export function getAllCards(dataCardMapping, isSearchPrimary) {
-    return searchForMatchingCards(dataCardMapping, isSearchPrimary, "")
-}
+/**
+ * Filter for matching nodes given a collection of nodes
+ * @param {AbstractNode[]} nodes - a collection of nodes 
+ * @param {boolean} isSearchPrimary - whether the primary field is shown
+ * @param {string} rawSearchString - the raw search string
+ * @param {SearchFilter[]} searchFilters - a collection of user defined custom filters
+ * @returns {AbstractNode[]} - a collection of filtered nodes
+ */
+export function searchForMatchingNodes(nodes, isSearchPrimary, rawSearchString, searchFilters) {
 
-export function searchForMatchingCards(dataCardMapping, isSearchPrimary, searchString) {
+    var preparedString = rawSearchString.toLowerCase().trim();
+    let filterCharacters = new Set(searchFilters.map(x => x.key)) 
 
-    // special characters
-    let searchString_ = searchString.toLowerCase().trim();
-    var words = [];
-    let stringToSearch = "";
-    let mapping;
+    /**
+     * Default filter
+     * @param {AbstractNode} node - an AbstractNode object
+     * @param {string} str - A given search string
+     * @returns {boolean} - Filter value
+     */
+    var filterPredicate = (node, str) => (isSearchPrimary 
+        ? node.Primary.toLowerCase().trim() 
+        : node.Secondary.toLowerCase().trim()).includes(str)
 
-    switch (searchString[0]) {
-        case '!':
-            // Search in secondary language
-            words.push(...
-                (isSearchPrimary 
-                    ? Object.getOwnPropertyNames(dataCardMapping.Secondary)
-                    : Object.getOwnPropertyNames(dataCardMapping.Primary)));
-                    
-            stringToSearch = searchString_.slice(1);
-
-            mapping = x => isSearchPrimary
-                ? dataCardMapping.Secondary[x]
-                : dataCardMapping.Primary[x];
-            break;
-        
-        case '*':
-            // Search in both languages
-            words.push(
-                ...Object.getOwnPropertyNames(dataCardMapping.Primary), 
-                ...Object.getOwnPropertyNames(dataCardMapping.Secondary));
-            
-            stringToSearch = searchString_.slice(1);
-            
-            mapping = x => x in dataCardMapping.Primary
-                    ? dataCardMapping.Primary[x]
-                    : dataCardMapping.Secondary[x]
-            break;
-  
-        default:
-            // Search in primary languages
-            words.push(...
-                (isSearchPrimary 
-                ? Object.getOwnPropertyNames(dataCardMapping.Primary)
-                : Object.getOwnPropertyNames(dataCardMapping.Secondary)));
-            
-            stringToSearch = searchString_;
-
-            mapping = x => isSearchPrimary
-                ? dataCardMapping.Primary[x]
-                : dataCardMapping.Secondary[x];
-     
-            break;
-
-      }
-
-    console.log(words.length)
-    let filteredWords = words.filter(x => x.includes(stringToSearch));
-
-    let filteredDataCards = filteredWords.map(mapping);
-
-    return filteredDataCards;
-}
-
-export function getNumberOfCards(dataCardMapping) {
-    return Object.getOwnPropertyNames(dataCardMapping.Primary).length
-}
-
-export function getDataCardFromState(dataCardMapping, state) {
-    return dataCardMapping.Primary[state]
-}
-
-export function buildDataCardMappingRecursive(
-    dataCard, 
-    dataCardMapping, 
-    primaryCleanStringFunc, 
-    secondaryCleanStringFunc) {
-
-    let mapping = { ...dataCardMapping };
-    mapping.Primary[primaryCleanStringFunc(dataCard.Primary)] = dataCard;
-    mapping.Secondary[secondaryCleanStringFunc(dataCard.Secondary)] = dataCard;
-
-    if (dataCard.Child.length == 0) return mapping;
-
-    for (let i = 0; i < dataCard.Child.length; i++) {
-        mapping = buildDataCardMappingRecursive(dataCard.Child[i], mapping, primaryCleanStringFunc, secondaryCleanStringFunc);
+    let firstCharacter = rawSearchString[0]
+    if (rawSearchString.length > 0 && filterCharacters.has(firstCharacter)){
+        preparedString = preparedString.slice(1)
+        filterPredicate = searchFilters.find(x => x.key == firstCharacter)?.Filter
     }
-
-    return mapping;
+    
+    let filteredWords = nodes.filter(x => filterPredicate(x, preparedString));
+    return filteredWords
 }
 
+/**
+ * Return the first matching node by UID
+ * @param {AbstractNode[]} nodeCollection - given a collection of nodes return the first matching node
+ * @param {string} UID - The UID to find
+ * @returns AbstractNode - the first matching node
+ */
+export function getDataCardFromUID(nodeCollection, UID) {
+    return nodeCollection.find((n) => n.GetHashId() == UID)
+}

@@ -1,3 +1,5 @@
+import { Stats } from "../stats/models.js";
+import { Practice } from "../practice/models.js";
 import { TreeDepth } from "./enums.js";
 import { AbstractNode } from "./models.js";
 
@@ -36,6 +38,7 @@ export function sortDataCardArray(
         dataCardArray.sort(primarySortFunction);
     else
         dataCardArray.sort(secondarySortFunction);
+    
     return dataCardArray;
 }
 
@@ -94,4 +97,41 @@ export function setParentAndMultipleChildren(parentNode, children) {
 export function defineCrossLinkRelationship(leftNode, rightNode) {
     leftNode.AddCrossLinkRelation(rightNode);
     rightNode.AddCrossLinkRelation(leftNode);
+}
+
+/**
+ * Traverse the tree/network and apply a given function, loops should not matter
+ * @template T - element of the return type
+ * @param {AbstractNode} node - the node to start from
+ * @param {Set<string>} visitedNodes - nodes visited in the traversal
+ * @param {(x: AbstractNode) => T} fun - a function to apply to every node
+ * @returns {T[]} - A collection of T objects
+ */
+export function traverseTree(node, visitedNodes, fun)
+{
+    let toReturn = [fun(node)]
+    visitedNodes.add(node.UID)
+
+    let nodesToApply = [...node.Child, ...node.Relations]
+    for (const descendant of nodesToApply)
+    {
+        if (!visitedNodes.has(descendant.UID))
+        {
+            let values = traverseTree(descendant, visitedNodes, fun)
+            toReturn.push(...values)
+        }
+    }
+
+    return toReturn
+}
+
+/**
+ * Flattens a tree's descendants into an array (e.g. to use for searching)
+ * @param {AbstractNode} node - The starting node
+ * @returns {AbstractNode[]} node - The flattened data structure
+ */
+export function flattenTree(node)
+{
+    let flatTree = traverseTree(node, new Set(), (x) => x)
+    return flatTree
 }

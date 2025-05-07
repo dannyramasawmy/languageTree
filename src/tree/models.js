@@ -4,6 +4,22 @@ import { stringToHTMLElement } from "../utils/string.js";
 
 /** @typedef {import('./types.js').NodeComparator} NodeComparator */
 
+
+export class Question {
+    /**
+     * 
+     * @param {string} question 
+     * @param {string} answer 
+     * @param {string} nodeUid 
+     */
+    constructor(question, answer, nodeUid) {
+        this.question = question
+        this.answer = answer
+        this.uid = nodeUid
+    }
+}
+
+
 /**
  * @abstract
  * Abstract base class for nodes on the tree.
@@ -29,7 +45,7 @@ export class AbstractNode {
 
         /** @type {AbstractNode[]} */
         this.Child = [];
-        
+
         /** @type {AbstractNode[]} */
         this.Relations = []
 
@@ -37,7 +53,7 @@ export class AbstractNode {
         this.IsRoot = isRoot;
 
         /** @type {number} */
-        this.Views = NaN
+        this._views = NaN
     }
 
     /**
@@ -110,6 +126,15 @@ export class AbstractNode {
         return `ID-${this.Primary}-${this.Secondary}`
     }
 
+    GetViews = () => {
+        if (this.IsRoot) return 0
+
+        if (Number.isNaN(this._views))
+            this._views = getIntFromLocal(this.GetHashId(), 0)
+
+        return this._views
+    }
+
     /**
      * A method that increments the view number for the given node 
      * This method saves and loads data from local storage
@@ -118,13 +143,22 @@ export class AbstractNode {
     IncrementView = () => {
         if (this.IsRoot) return
 
-        let key = this.GetHashId()
+        let currentViews = this.GetViews()
 
-        if (Number.isNaN(this.Views))
-            this.Views = getIntFromLocal(key, 0)
+        this._views = this.IsRoot ? NaN : currentViews + 1
+        saveIntToLocal(this.GetHashId(), this._views)
+    }
 
-        this.Views = this.IsRoot ? NaN : this.Views + 1
-        saveIntToLocal(key, this.Views)
+    /**
+     * TODO: This feature is experimental and under development
+     * @virtual
+     * @returns {Question[]}
+     */
+    Practice = () => {
+        return [
+            new Question(`Translate "${this.Primary}" to Romanian`, this.Secondary, this.GetHashId()),
+            new Question(`Translate "${this.Secondary}" to English`, this.Primary, this.GetHashId()),
+        ]
     }
 }
 
@@ -166,11 +200,11 @@ export class DataRoot extends AbstractNode {
     * @override
     * @returns {HTMLElement}  HTML to render as the sub-title view 
     */
-   SecondaryView = () => {
-       return stringToHTMLElement(this.Secondary)
+    SecondaryView = () => {
+        return stringToHTMLElement(this.Secondary)
     }
-    
-    
+
+
     /**
     * A method that presents the searchable terms
     * @override
@@ -211,7 +245,7 @@ export class DataCard extends AbstractNode {
     PrimaryView = () => {
         return stringToHTMLElement(this.Primary)
     }
-    
+
     /**
     * A method that produces the html to render
     * @override

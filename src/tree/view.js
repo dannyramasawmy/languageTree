@@ -95,7 +95,7 @@ export function prefixWithSVG(title, svgElement) {
  */
 export function createNodeStats(id, stat, svgElement, description) {
     let pill = document.createElement("div");
-    pill.className = "col-3 gap-2 pb-0";
+    pill.className = "col-3 gap-1 pb-0";
 
     let pillBody = document.createElement("div");
     pillBody.className = "card text-bg mb-3 pt-0 pb-0 rounded-pill";
@@ -107,7 +107,7 @@ export function createNodeStats(id, stat, svgElement, description) {
     pillContent.className = "d-inline-flex justify-content-center"
 
     let statView = document.createElement("p");
-    statView.className = "px-2 my-1"
+    statView.className = "px-1 my-1"
     statView.id = id
     statView.innerText = `${stat}`
 

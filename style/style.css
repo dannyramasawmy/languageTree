@@ -20,6 +20,10 @@
     color: #ffc107;
 }
 
+.blurred-text {
+    filter: blur(10px);
+}
+
 .statistic-tooltip {
     display: inline-block;
     padding: 10px 20px;
@@ -27,6 +31,10 @@
     border-radius: 5px;
     cursor: pointer;
     border: 1px solid #ccc;
+}
+
+.table-builder {
+    text-align: left;
 }
 
 @keyframes slide-in {

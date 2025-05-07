@@ -10,9 +10,6 @@ special characters
 
 Șș ă â Îî ț
 
-let  = new DataCard(
-        "", "",
-        "")
 */
 
 export function BuildLanguageTree() // returns romanian

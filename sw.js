@@ -2,7 +2,7 @@
 // Major version: changes in behavior / interface changes
 // Middle version: bug fixes / view updates
 // Minor version: new/edited words
-const version = "v24.0.0";
+const version = "v25.0.0";
 const staticCacheName = 'languageTree-' + version;
 
 self.addEventListener('install', (e) =>
@@ -14,6 +14,7 @@ self.addEventListener('install', (e) =>
       'languageTree/index.html',
       'languageTree/configuration.js',
       // data
+      'languageTree/data/music-tree.js',
       'languageTree/data/romanian-functions.js',
       'languageTree/data/romanian-language-models.js',
       'languageTree/data/romanian-tree.js ',
@@ -49,6 +50,9 @@ self.addEventListener('install', (e) =>
       'languageTree/src/colors/rainbowColorWheel.js',
       // src/history
       'languageTree/src/history/scroll.js',
+      // src/pracice
+      'languageTree/src/practice/functions.js',
+      'languageTree/src/practice/models.js',
       // src/search
       'languageTree/src/search/functions.js',
       'languageTree/src/search/index.js',
@@ -61,15 +65,19 @@ self.addEventListener('install', (e) =>
       'languageTree/src/state/localStorage.js',
       'languageTree/src/state/models.js',
       // src/stats
+      'languageTree/src/stats/functions.js',
+      'languageTree/src/stats/models.js',
       'languageTree/src/stats/svg.js',
       'languageTree/src/stats/view.js',
+      // src/sw
+      // 'languageTree/src/sw/register.js',
       // src/tree
       'languageTree/src/tree/enums.js',
       'languageTree/src/tree/functions.js',
       'languageTree/src/tree/index.js',
       'languageTree/src/tree/models.js',
-      'languageTree/src/tree/view.js',
       'languageTree/src/tree/types.js',
+      'languageTree/src/tree/view.js',
       // src/utils
       'languageTree/src/utils/random.js',
       'languageTree/src/utils/string.js',

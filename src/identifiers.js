@@ -5,6 +5,8 @@
  */
 export const ElementID = {
     SEARCH_BAR_ID: "SearchBar",
+    SEARCH_CUSTOM_DESCRIPTION_ID: "search-description",
+    SEARCH_LIVE_ID: "live-search",
     MAIN_CARD_ID: "main-card",
     DATA_CARDS_ID: "data-cards",
     BUTTON_PANEL_ID: "buttons-panel"

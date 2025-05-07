@@ -138,27 +138,18 @@
       <div class="modal-content">
         <input id="SearchBar" class="searchBar form-control me-auto" type="text" placeholder="Search cards"
           aria-label="Search cards" autofocus>
-        <div class="modal-body">
-          <p> Type to search the primary language
-          </p>
-          <p> Start wtih
-            <span class="DocSearch-Button-Keys">
-              <kbd class="DocSearch-Button-Key">!</kbd>
-            </span> to search secondary language
-          </p>
-          <p> Start wtih
-            <span class="DocSearch-Button-Keys">
-              <kbd class="DocSearch-Button-Key">*</kbd>
-            </span> to search in both languages
-          </p>
-          <hr>
-          <p class="fw-light"> Search shortcut:
+        <div id="search-description" class="modal-body">
+          <p class="fw-light"> 
             <span class="DocSearch-Button-Keys">
               <kbd class="DocSearch-Button-Key">ctrl</kbd> +
               <kbd class="DocSearch-Button-Key">q</kbd>
-            </span>
+            </span>: Desktop search shortcut
           </p>
+          <hr>
+          <p> Type to start searching the current language.</p>
+          <!-- Custom search filters go here -->
         </div>
+        <div id="live-search" class="modal-footer font-italic">...</div>
       </div>
     </div>
   </div>
@@ -199,7 +190,7 @@
     <div class="container mb-5 pb-5">
       <footer class="py-3 my-4 mb-5 pb-5">
         <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-          <li class="nav-item"><a id="version" href="#" class="nav-link px-2 text-muted">languageTree v24.1.0</a></li>
+          <li class="nav-item"><a id="version" href="#" class="nav-link px-2 text-muted">languageTree v25.0.0</a></li>
         </ul>
         <p class="text-center text-muted">&copy; 2025 - Danny Ramasawmy</p>
       </footer>

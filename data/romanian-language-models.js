@@ -1,5 +1,5 @@
 import { stringToHTMLElement } from "../src/utils/string.js";
-import { AbstractNode } from "../src/tree/models.js";
+import { AbstractNode, Question } from "../src/tree/models.js";
 import { NounFemaleView, NounMaleView, NounNeuterView, VerbDataView, VerbReflexiveSeDataView, VerbReflexiveSiDataView } from "./romanian-views.js";
 
 export class VerbDataCard extends AbstractNode {
@@ -33,6 +33,20 @@ export class VerbDataCard extends AbstractNode {
     PrimaryView = () => stringToHTMLElement(`To ${this.Primary}`)
     SecondaryView = () => stringToHTMLElement(`A ${this.Secondary}`)
     SearchableTerms = () => [this.english, this.romanian, this.I, this.You, this.HeShe, this.We, this.YouPlural, this.They, this.past]
+
+    Practice = () => {
+        return [
+            new Question(`Translate "To ${this.Primary}" to Romanian`, `A ${this.Secondary}`, this.GetHashId()),
+            new Question(`Translate "A ${this.Secondary}" to English`, `To ${this.Primary}`, this.GetHashId()),
+            new Question(`What is the 'I' form of "A ${this.Secondary}" (To ${this.Primary})`, `Eu ${this.I}`, this.GetHashId()),   
+            new Question(`What is the 'You' form of "A ${this.Secondary}" (To ${this.Primary})`, `Tu ${this.You}`, this.GetHashId()),   
+            new Question(`What is the 'He/She' form of "A ${this.Secondary}" (To ${this.Primary})`, `El/Ea ${this.HeShe}`, this.GetHashId()),   
+            new Question(`What is the 'We' form of "A ${this.Secondary}" (To ${this.Primary})`, `Noi ${this.We}`, this.GetHashId()),   
+            new Question(`What is the 'You (pl)' form of "A ${this.Secondary}" (To ${this.Primary})`, `Voi ${this.YouPlural}`, this.GetHashId()),   
+            new Question(`What is the 'They' form of "A ${this.Secondary}" (To ${this.Primary})`, `Ei/Ele ${this.They}`, this.GetHashId()),   
+            new Question(`What is the 'Past' form of "A ${this.Secondary}" (To ${this.Primary})`, `Eu am ${this.past}`, this.GetHashId()),   
+        ]
+    }
 }
 
 /**

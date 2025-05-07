@@ -2,6 +2,8 @@ import { formatNumber } from "../utils/string.js";
 import { NodeStatsID } from "../identifiers.js";
 import { createNodeStats } from "../tree/view.js";
 import { createCardSvg, createDelatSvg, createEyeSvg, createLinkSvg } from "./svg.js";
+import { StatsTableRow } from "./models.js";
+import { TableBuilder } from "../table/models.js";
 
 /**
  * Create the parent number stat
@@ -24,7 +26,7 @@ export function createNumberOfChildrenStat(numberOfChildren) {
     const id = NodeStatsID.NUMBER_OF_CHILDREN;
     const cardSvg = createCardSvg();
     const description = "The number of children for this node.";
-    return createNodeStats(id, numberOfChildren, cardSvg, description);
+    return createNodeStats(id, formatNumber(numberOfChildren), cardSvg, description);
 }
 
 /**
@@ -50,4 +52,19 @@ export function createNumberOfViewsStat(numberOfViews) {
     const description = "The number of views of this card.";
     return createNodeStats(id, formatNumber(numberOfViews), eyeSvg, description);
 }
+
+/**
+ * Convert a colelction of TableRow objects into an HTML table
+ * @param {StatsTableRow[]} tableRows - rows to display
+ * @returns {HTMLElement} - table as html
+ */
+export function statisticsTableView(tableRows)
+{
+    let table = new TableBuilder(["Primary", "Secondary", "Views"])
+    for (const r of tableRows)
+        table.WithRow([r.FirstColumn, r.SecondColumn, `${r.Views}`])
+
+    return table.BuildHTML()
+}
+
 
