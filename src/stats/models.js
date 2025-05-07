@@ -30,7 +30,7 @@ export class Stats extends AbstractNode {
      * @param {AbstractNode} rootNode - the root of the tree
      */
     constructor(primary, secondary, rootNode) {
-        super(primary, secondary);
+        super(`0${primary}`, `0${secondary}`);
         this.rootNodeRef = rootNode;
 
         /**
@@ -44,14 +44,14 @@ export class Stats extends AbstractNode {
     * @override
     * @returns {HTMLElement}  HTML to render as the main content view 
     */
-    PrimaryView = () => prefixWithSVG(stringToHTMLElement(this.Primary), createStatsSvg());
+    PrimaryView = () => stringToHTMLElement(this.Primary.slice(1));
 
     /**
     * A method that produces the html to render
     * @override
     * @returns {HTMLElement}  HTML to render as the main content view 
     */
-    SecondaryView = () => stringToHTMLElement(this.Secondary);
+    SecondaryView = () => stringToHTMLElement(this.Secondary.slice(1));
 
     /**
     * A method that produces the html to render

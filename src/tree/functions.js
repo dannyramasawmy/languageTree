@@ -38,17 +38,6 @@ export function sortDataCardArray(
         dataCardArray.sort(primarySortFunction);
     else
         dataCardArray.sort(secondarySortFunction);
-
-    let statsCard = dataCardArray.filter(x => x instanceof Stats)
-    let practiceCard = dataCardArray.filter(x => x instanceof Practice)
-    
-    dataCardArray = dataCardArray.filter(x => !(x instanceof Stats || x instanceof Practice))
-    
-    if (statsCard)
-        dataCardArray = [...statsCard, ...dataCardArray]
-
-    if (practiceCard)
-        dataCardArray = [...practiceCard, ...dataCardArray]
     
     return dataCardArray;
 }

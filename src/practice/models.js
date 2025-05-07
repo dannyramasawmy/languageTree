@@ -10,11 +10,11 @@ export class Practice extends AbstractNode {
      * @param {AbstractNode[]} data - a collection of node objects
      */
     constructor(data) {
-        super("Your Practice", "Practica Ta");
+        super("0Your Practice", "0Practica Ta");
         this.data = data;
     }
 
-    PrimaryView = () => prefixWithSVG(stringToHTMLElement(this.Primary), createLightBulbSvg());
-    SecondaryView = () => stringToHTMLElement(this.Secondary);
+    PrimaryView = () => stringToHTMLElement(this.Primary.slice(1));
+    SecondaryView = () => stringToHTMLElement(this.Secondary.slice(1));
     DataView = () => createQAExplorer(this.data)
 }

@@ -9,7 +9,9 @@ import { createParentStat, createNumberOfChildrenStat, createNumberOfRelaionsSta
 import { ButtonsID, ElementID, NodeStatsID } from "./identifiers.js";
 import { Settings } from "./settings/settings.js";
 import { GlobalState } from "./state/models.js";
-import { createDelatSvg, createLinkSvg } from "./stats/svg.js";
+import { createDelatSvg, createLightBulbSvg, createLinkSvg, createMortarBoardSvg, createStatsSvg } from "./stats/svg.js";
+import { Stats } from "./stats/models.js";
+import { Practice } from "./practice/models.js";
 
 export class View {
     /**
@@ -182,6 +184,27 @@ export class View {
 
             if (this.SETTINGS.HasRainbowHover)
                 colorIndex = colorWheel.GetNextColorIndex();
+
+            let isStats = displayList[idx] instanceof Stats            
+            let isPractice = displayList[idx] instanceof Practice
+            if (isStats || isPractice)
+            {
+                let title = this.GLOBAL.PrimaryKeyFirst
+                    ? displayList[idx].PrimaryView()
+                    : displayList[idx].SecondaryView()
+
+                let dataCard = createChildCard(
+                    true,
+                    prefixWithSVG(title, isStats ? createStatsSvg() : createMortarBoardSvg() ),
+                    document.createElement("h5"),
+                    cardId,
+                    colorIndex);
+
+                document.getElementById(this.dataCardsId).appendChild(dataCard);
+                continue
+            }
+
+
 
             let dataCard = this.GLOBAL.PrimaryKeyFirst
                 ? createChildCard(
