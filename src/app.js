@@ -12,7 +12,7 @@ import { Settings } from "./settings/settings.js";
 import { flattenTree, setParentAndChild } from "./tree/functions.js";
 import { stringToHTMLElement } from "./utils/string.js";
 import { Stats } from "./stats/models.js";
-import { showCustomSearchConfigurations } from "./search/view.js";
+import { displayNumberOfSearchMatches, showCustomSearchConfigurations } from "./search/view.js";
 
 
 // =============================================================================
@@ -70,13 +70,14 @@ VIEW
   ]);
 
 let resetSearch = () =>
+{
+  displayNumberOfSearchMatches('...')
   search.view.resetSearchBar(treeAsArray.length);
+}
 
 showCustomSearchConfigurations(CONFIG.SEARCH_FILTERS)
 
 resetSearch()
-
-
 
 const sortDisplayList = (GLOBAL, displayCards) =>
   tree.functions.sortDataCardArray(
@@ -380,6 +381,8 @@ function keyboardInput() {
     GLOBAL.PrimaryKeyFirst, 
     searchString,
     CONFIG.SEARCH_FILTERS);
+
+  displayNumberOfSearchMatches(GLOBAL.DisplayCards.length)
 
   console.log("Searching keyboard input");
   console.log(searchString);
