@@ -25,7 +25,7 @@ export function createNumberOfChildrenStat(numberOfChildren) {
     const id = NodeStatsID.NUMBER_OF_CHILDREN;
     const cardSvg = createCardSvg();
     const description = "The number of children for this node.";
-    return createNodeStats(id, numberOfChildren, cardSvg, description);
+    return createNodeStats(id, formatNumber(numberOfChildren), cardSvg, description);
 }
 
 /**
