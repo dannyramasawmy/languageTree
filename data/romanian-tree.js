@@ -26,22 +26,6 @@ export function BuildLanguageTree() // returns romanian
     // ---Adjective + Noun
     // ---Adverb + Interjection
 
-    // let a = new DataCard('A', 'A', '')
-    // setParentAndChild(romanian, a)
-
-    // let b = new DataCard('B', 'B', '')
-    // setParentAndChild(a, b)
-
-    // let c = new DataCard('C', 'C', '')
-    // setParentAndChild(b, c)
-
-    // setParentAndChild(c, a)
-
-    // return romanian
-
-    
-
-
     let wordclass_adjectives = new DataCard("Adjectives", "Adjective","")
     let wordclass_adverbs = new DataCard("Adverbs", "Adverbe","")
     let wordclass_conjunctions = new DataCard("Conjunctions", "Conjuncții","")

@@ -1,36 +1,45 @@
 import { AbstractNode } from "../tree/models.js";
+import { SearchFilter } from "./models.js";
 
 /**
- * 
- * @param {AbstractNode[]} dataCardMapping 
- * @param {boolean} isSearchPrimary 
- * @param {string} searchString 
- * @returns {AbstractNode[]}
+ * Filter for matching nodes given a collection of nodes
+ * @param {AbstractNode[]} nodes - a collection of nodes 
+ * @param {boolean} isSearchPrimary - whether the primary field is shown
+ * @param {string} rawSearchString - the raw search string
+ * @param {SearchFilter[]} searchFilters - a collection of user defined custom filters
+ * @returns {AbstractNode[]} - a collection of filtered nodes
  */
-export function searchForMatchingCards(dataCardMapping, isSearchPrimary, searchString) {
+export function searchForMatchingNodes(nodes, isSearchPrimary, rawSearchString, searchFilters) {
 
-    let preparedString = searchString.toLowerCase().trim();
+    var preparedString = rawSearchString.toLowerCase().trim();
+    let filterCharacters = new Set(searchFilters.map(x => x.key)) 
+
+    /**
+     * Default filter
+     * @param {AbstractNode} node - an AbstractNode object
+     * @param {string} str - A given search string
+     * @returns {boolean} - Filter value
+     */
+    var filterPredicate = (node, str) => (isSearchPrimary 
+        ? node.Primary.toLowerCase().trim() 
+        : node.Secondary.toLowerCase().trim()).includes(str)
+
+    let firstCharacter = rawSearchString[0]
+    if (rawSearchString.length > 0 && filterCharacters.has(firstCharacter)){
+        preparedString = preparedString.slice(1)
+        filterPredicate = searchFilters.find(x => x.key == firstCharacter)?.Filter
+    }
     
-    // let filteredWords = dataCardMapping.filter(x => 
-    //     x.Primary.toLowerCase().trim().includes(preparedString));
-    
-    // let filteredWords = dataCardMapping.filter(x => 
-    //     x.Secondary.toLowerCase().trim().includes(preparedString));
-
-    let filteredWords = dataCardMapping.filter(x => 
-        x.SearchableTerms().filter(y =>
-            y.toLowerCase().trim().includes(preparedString))
-            .length > 0);
-
+    let filteredWords = nodes.filter(x => filterPredicate(x, preparedString));
     return filteredWords
 }
 
 /**
- * 
- * @param {AbstractNode[]} nodeCollection 
- * @param {string} state 
- * @returns AbstractNode
+ * Return the first matching node by UID
+ * @param {AbstractNode[]} nodeCollection - given a collection of nodes return the first matching node
+ * @param {string} UID - The UID to find
+ * @returns AbstractNode - the first matching node
  */
-export function getDataCardFromUID(nodeCollection, state) {
-    return nodeCollection.find((n) => n.GetHashId() == state)
+export function getDataCardFromUID(nodeCollection, UID) {
+    return nodeCollection.find((n) => n.GetHashId() == UID)
 }

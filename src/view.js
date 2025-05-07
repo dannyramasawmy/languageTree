@@ -111,7 +111,7 @@ export class View {
         nodeStats.appendChild(createParentStat(this.GLOBAL.CurrentNode.Parent.length))
         nodeStats.appendChild(createNumberOfRelaionsStat(relations.length))
         nodeStats.appendChild(createNumberOfChildrenStat(this.GLOBAL.DisplayCards.length))
-        nodeStats.appendChild(createNumberOfViewsStat(this.GLOBAL.CurrentNode.Views))
+        nodeStats.appendChild(createNumberOfViewsStat(this.GLOBAL.CurrentNode.GetViews()))
 
         let colorIndex = 0;
         let colorWheel = RainbowColorWheel();

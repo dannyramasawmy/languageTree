@@ -10,6 +10,8 @@ import { AbstractNode } from "./src/tree/models.js";
 import { primarySort } from "./src/tree/functions.js";
 import { prepareString } from "./src/utils/string.js";
 import { BuildMusicTree } from "./data/music-tree.js";
+import { FilterCharacterKey, SearchFilter } from "./src/search/models.js";
+import { VerbDataCard } from "./data/romanian-language-models.js";
 
 /** @typedef {import('./src/tree/types.js').NodeComparator} NodeComparator */
 /** @typedef {import('./src/tree/types.js').StringCleaner} StringCleaner */
@@ -18,24 +20,40 @@ import { BuildMusicTree } from "./data/music-tree.js";
  * @typedef {Object} AppConfig
  * @property {AbstractNode} DATA_TREE - The tree data structure
  * @property {NodeComparator} PRIMARY_SORT_FUNCTION - Comparator function
- * @property {StringCleaner} PRIMARY_STRING_CLEAN_FUNCTION - Cleans a string
- * @property {NodeComparator} SECONDARY_SORT_FUNCTION
- * @property {StringCleaner} SECONDARY_STRING_CLEAN_FUNCTION
- */
+ * @property {NodeComparator} SECONDARY_SORT_FUNCTION - Comparator function
+ * @property {[string, string]} STATISTICS_LABELS - Primary and Secondary labels
+ * @property {SearchFilter[]} SEARCH_FILTERS - Custom search filters
+*/
 
 /** @type {AppConfig} */
 const CONFIG_ROMANIAN = {
 
     DATA_TREE: BuildLanguageTree(),
-
     PRIMARY_SORT_FUNCTION: sortEnglish,
-
-    PRIMARY_STRING_CLEAN_FUNCTION: prepareEnglishString,
-
     SECONDARY_SORT_FUNCTION: sortRomanian,
-
-    SECONDARY_STRING_CLEAN_FUNCTION: prepareRomanianString
-
+    STATISTICS_LABELS: ["Your Statistics", "Statistici Tale"],
+    SEARCH_FILTERS: [
+        new SearchFilter(
+            FilterCharacterKey.AT, 
+            "Search primary language", 
+            (x, y) => prepareEnglishString(x.Primary).includes(y)),
+        new SearchFilter(
+            FilterCharacterKey.EXCLAMATION, 
+            "Search secondary language", 
+            (x, y) => prepareRomanianString(x.Secondary).includes(y)),
+        new SearchFilter(
+            FilterCharacterKey.HASHTAG, 
+            "Search only verbs", 
+            (x, y) => {
+                return (x instanceof VerbDataCard) 
+                && (prepareEnglishString(x.Primary).includes(y)
+                || prepareRomanianString(x.Secondary).includes(y))
+        }),
+        new SearchFilter(
+            FilterCharacterKey.ASTERIX, 
+            "Search all available terms", 
+            (x, y) => prepareEnglishString(prepareRomanianString(x.SearchableTerms().join(''))).includes(y))           
+    ]
 }
 
 /** @type {AppConfig} - MusicTree */
@@ -44,13 +62,9 @@ const CONFIG_MUSIC = {
     DATA_TREE: BuildMusicTree(),
 
     PRIMARY_SORT_FUNCTION: primarySort,
-
-    PRIMARY_STRING_CLEAN_FUNCTION: prepareString,
-
     SECONDARY_SORT_FUNCTION: primarySort,
-
-    SECONDARY_STRING_CLEAN_FUNCTION: prepareString
-
+    SEARCH_FILTERS : [],
+    STATISTICS_LABELS: ["Stats", "Views"]
 }
 
 export const CONFIG = CONFIG_ROMANIAN

@@ -9,7 +9,10 @@ import { ScrollHandler } from "./history/scroll.js";
 import { RandomElementInArray } from "./utils/random.js";
 import { tryRegisterServiceWorker } from "./sw/register.js";
 import { Settings } from "./settings/settings.js";
-import { flattenTree } from "./tree/functions.js";
+import { flattenTree, setParentAndChild } from "./tree/functions.js";
+import { stringToHTMLElement } from "./utils/string.js";
+import { Stats } from "./stats/models.js";
+import { showCustomSearchConfigurations } from "./search/view.js";
 
 
 // =============================================================================
@@ -18,12 +21,22 @@ import { flattenTree } from "./tree/functions.js";
 
 const DEBUG = true;
 const ROOT_NODE = CONFIG.DATA_TREE;
-const GLOBAL = new GlobalState(true, ROOT_NODE, tree.functions.getChildren(ROOT_NODE))
 const SETTINGS = Settings.default()
 
-let treeAsArray = flattenTree(ROOT_NODE)
-console.log(treeAsArray)
+// =============================================================================
+// Add special cards
+// =============================================================================
 
+let treeAsArray = flattenTree(ROOT_NODE)
+setParentAndChild(
+  ROOT_NODE, 
+  new Stats(
+    CONFIG.STATISTICS_LABELS[0], 
+    CONFIG.STATISTICS_LABELS[1], 
+    ROOT_NODE))
+    
+const GLOBAL = new GlobalState(true, ROOT_NODE, tree.functions.getChildren(ROOT_NODE))
+    
 // =============================================================================
 // Initialise
 // =============================================================================
@@ -59,7 +72,11 @@ VIEW
 let resetSearch = () =>
   search.view.resetSearchBar(treeAsArray.length);
 
+showCustomSearchConfigurations(CONFIG.SEARCH_FILTERS)
+
 resetSearch()
+
+
 
 const sortDisplayList = (GLOBAL, displayCards) =>
   tree.functions.sortDataCardArray(
@@ -126,6 +143,7 @@ window.addEventListener('popstate',
 window.onkeyup = function (e) {
   if (e.key == "Enter" || e.keyCode == 13) {
     console.log("Search shortcut - close");
+    resetSearch()
     const modalEl = document.getElementById('searchModal');
     const modal = bootstrap.Modal.getInstance(modalEl) || new bootstrap.Modal(modalEl);
     modal.hide();
@@ -357,7 +375,11 @@ document.addEventListener("DOMContentLoaded", function () {
 function keyboardInput() {
   let searchString = document.getElementById(ElementID.SEARCH_BAR_ID).value;
   GLOBAL.CurrentNode = ROOT_NODE;
-  GLOBAL.DisplayCards = search.functions.searchForMatchingCards(treeAsArray, GLOBAL.PrimaryKeyFirst, searchString);
+  GLOBAL.DisplayCards = search.functions.searchForMatchingNodes(
+    treeAsArray, 
+    GLOBAL.PrimaryKeyFirst, 
+    searchString,
+    CONFIG.SEARCH_FILTERS);
 
   console.log("Searching keyboard input");
   console.log(searchString);
