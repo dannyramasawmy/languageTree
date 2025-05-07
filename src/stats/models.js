@@ -1,10 +1,11 @@
+import { Practice } from "../practice/models.js";
 import { flattenTree } from "../tree/functions.js";
 import { AbstractNode } from "../tree/models.js";
 import { stringToHTMLElement } from "../utils/string.js";
 import { abstractNodeToTableRow } from "./functions.js";
 import { statisticsTableView } from "./view.js";
 
-export class TableRow {
+export class StatsTableRow {
     /**
      * Representation of data for one row of the table
      * @param {string} firstColumn - data to show in the first column
@@ -60,7 +61,7 @@ export class Stats extends AbstractNode {
             this._flatTree = flattenTree(this.rootNodeRef)
 
         var viewRows = this._flatTree
-            .filter(x => !(x instanceof Stats))
+            .filter(x => !(x instanceof Stats || x instanceof Practice))
             .map(abstractNodeToTableRow)
             .filter(x => !isNaN(x.Views));
 

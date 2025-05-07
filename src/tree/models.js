@@ -4,6 +4,24 @@ import { stringToHTMLElement } from "../utils/string.js";
 
 /** @typedef {import('./types.js').NodeComparator} NodeComparator */
 
+
+export class Question
+{
+    /**
+     * 
+     * @param {string} question 
+     * @param {string} answer 
+     * @param {string} uid 
+     */
+    constructor(question, answer, nodeUid)
+    {
+        this.question = question
+        this.answer = answer
+        this.uid = nodeUid
+    }
+}
+
+
 /**
  * @abstract
  * Abstract base class for nodes on the tree.
@@ -131,6 +149,18 @@ export class AbstractNode {
 
         this._views = this.IsRoot ? NaN : currentViews + 1
         saveIntToLocal(this.GetHashId(), this._views)
+    }
+
+    /**
+     * @virtual
+     * @returns {Question[]}
+     */
+    Practice = () => {
+        return [
+            new Question(this.Primary, this.Secondary, this.GetHashId()),
+            new Question(this.Secondary, this.Primary, this.GetHashId()),
+            new Question(this.Secondary, this.Primary, this.GetHashId()),
+        ]
     }
 }
 

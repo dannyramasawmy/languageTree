@@ -1,14 +1,14 @@
 import { AbstractNode } from "../tree/models.js";
-import { TableRow } from "./models.js";
+import { StatsTableRow } from "./models.js";
 
 /**
  * Transform data structure from AbstractNode -> TableRow
  * @param {AbstractNode} node - a node to convert into a table row
- * @returns {TableRow} - a row element for the table
+ * @returns {StatsTableRow} - a row element for the table
  */
 export function abstractNodeToTableRow(node)
 {
-    return new TableRow(
+    return new StatsTableRow(
         node.Primary, 
         node.Secondary, 
         node.GetViews()

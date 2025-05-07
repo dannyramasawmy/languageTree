@@ -2,7 +2,8 @@ import { formatNumber } from "../utils/string.js";
 import { NodeStatsID } from "../identifiers.js";
 import { createNodeStats } from "../tree/view.js";
 import { createCardSvg, createDelatSvg, createEyeSvg, createLinkSvg } from "./svg.js";
-import { TableRow } from "./models.js";
+import { StatsTableRow } from "./models.js";
+import { TableBuilder } from "../table/models.js";
 
 /**
  * Create the parent number stat
@@ -54,57 +55,16 @@ export function createNumberOfViewsStat(numberOfViews) {
 
 /**
  * Convert a colelction of TableRow objects into an HTML table
- * @param {TableRow[]} tableRows - rows to display
+ * @param {StatsTableRow[]} tableRows - rows to display
  * @returns {HTMLElement} - table as html
  */
 export function statisticsTableView(tableRows)
 {
-    // Create the table and add Bootstrap classes
-    const table = document.createElement("table");
-    table.className = "table table-light table-hover table-striped table-bordered";
+    let table = new TableBuilder(["Primary", "Secondary", "Views"])
+    for (const r of tableRows)
+        table.WithRow([r.FirstColumn, r.SecondColumn, `${r.Views}`])
 
-    // Create the table header
-    const thead = document.createElement("thead");
-    const headerRow = document.createElement("tr");
-
-    const thPrimary = document.createElement("th");
-    thPrimary.textContent = "Primary";
-
-    const thSecondary = document.createElement("th");
-    thSecondary.textContent = "Secondary";
-
-    const thView = document.createElement("th");
-    thView.textContent = "View";
-
-    headerRow.appendChild(thPrimary);
-    headerRow.appendChild(thSecondary);
-    headerRow.appendChild(thView);
-    thead.appendChild(headerRow);
-    table.appendChild(thead);
-
-    // Create the table body
-    const tbody = document.createElement("tbody");
-
-    tableRows.forEach(item => {
-        const row = document.createElement("tr");
-
-        const tdPrimary = document.createElement("td");
-        tdPrimary.textContent = item.FirstColumn;
-
-        const tdSecondary = document.createElement("td");
-        tdSecondary.textContent = item.SecondColumn;
-
-        const tdView = document.createElement("td");
-        tdView.textContent = `${item.Views}`;
-
-        row.appendChild(tdPrimary);
-        row.appendChild(tdSecondary);
-        row.appendChild(tdView);
-        tbody.appendChild(row);
-    });
-
-    table.appendChild(tbody);
-
-    return table;    
+    return table.BuildHTML()
 }
+
 

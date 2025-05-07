@@ -10,9 +10,9 @@ import { RandomElementInArray } from "./utils/random.js";
 import { tryRegisterServiceWorker } from "./sw/register.js";
 import { Settings } from "./settings/settings.js";
 import { flattenTree, setParentAndChild } from "./tree/functions.js";
-import { stringToHTMLElement } from "./utils/string.js";
 import { Stats } from "./stats/models.js";
 import { displayNumberOfSearchMatches, showCustomSearchConfigurations } from "./search/view.js";
+import { Practice } from "./practice/models.js";
 
 
 // =============================================================================
@@ -28,12 +28,11 @@ const SETTINGS = Settings.default()
 // =============================================================================
 
 let treeAsArray = flattenTree(ROOT_NODE)
-setParentAndChild(
-  ROOT_NODE, 
-  new Stats(
-    CONFIG.STATISTICS_LABELS[0], 
-    CONFIG.STATISTICS_LABELS[1], 
-    ROOT_NODE))
+
+// special cards
+setParentAndChild(ROOT_NODE, new Stats(CONFIG.STATISTICS_LABELS[0], CONFIG.STATISTICS_LABELS[1], ROOT_NODE))
+setParentAndChild(ROOT_NODE, new Practice(treeAsArray))
+
     
 const GLOBAL = new GlobalState(true, ROOT_NODE, tree.functions.getChildren(ROOT_NODE))
     
