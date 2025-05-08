@@ -20,8 +20,14 @@
     color: #ffc107;
 }
 
+
+.big-questions {
+    font-size:2rem
+}
+
 .blurred-text {
     filter: blur(10px);
+    font-size:2rem
 }
 
 .statistic-tooltip {

@@ -1,8 +1,6 @@
-import { prefixWithSVG } from "../tree/view.js";
 import { AbstractNode } from "../tree/models.js";
 import { stringToHTMLElement } from "../utils/string.js";
 import { createQAExplorer } from "./functions.js";
-import { createLightBulbSvg } from "../stats/svg.js";
 
 export class Practice extends AbstractNode {
     /**

@@ -19,56 +19,87 @@ export function createQAExplorer(data) {
     const questionDiv = document.createElement("div");
 
     const table = document.createElement("table");
-    table.className = "table table-light table-hover table-striped table-bordered";
+    table.className = "table table-dark table-hover table-striped table-bordered";
 
-    const thead = document.createElement("thead");
-    const headerRow = document.createElement("tr");
-    headerRow.className = "table-builder"
-
+    // Question row
+    const qhead = document.createElement("thead");
+    const qheaderRow = document.createElement("tr");
+    qheaderRow.className = "table-builder"
+    
     const qHeader = document.createElement("th");
     qHeader.textContent = "Question";
-    qHeader.style.width = "50%";
-    const aHeader = document.createElement("th");
-    aHeader.textContent = "Answer";
-    aHeader.style.width = "50%";
-
-    headerRow.appendChild(qHeader);
-    headerRow.appendChild(aHeader);
-    thead.appendChild(headerRow);
-    table.appendChild(thead);
-
-    const tbody = document.createElement("tbody");
-    const row = document.createElement("tr");
-    row.className = "table-builder"
-
-    const qCell = document.createElement("td");
-    const aCell = document.createElement("td");
+    qHeader.className = "text-light"
     
-    row.appendChild(qCell);
-    row.appendChild(aCell);
-    tbody.appendChild(row);
-    table.appendChild(tbody);
+    qheaderRow.appendChild(qHeader);
+    qhead.append(qheaderRow)
+    table.appendChild(qhead)
+
+    // Question text
+    const qtbody = document.createElement("tbody");
+    const qrow = document.createElement("tr");
+    qrow.className = "table-builder"
+
+    const qtd = document.createElement("td");
+    const qCell = document.createElement("h3");
+    qtd.append(qCell)
+    qrow.appendChild(qtd);
+    
+    qtbody.appendChild(qrow);
+    table.appendChild(qtbody);
     questionDiv.appendChild(table)
 
-    let pressMe = "btn btn-warning me-2"
-    let ignoreMe = "btn btn-outline-warning me-2"
+    // Answer row
+    const ahead = document.createElement("thead");
+    const aheaderRow = document.createElement("tr");
+    aheaderRow.className = "table-builder"
+    
+    const aHeader = document.createElement("th");
+    aHeader.textContent = "Answer";
+    aHeader.className = "text-light";
+    
+    aheaderRow.appendChild(aHeader);
+    ahead.append(aheaderRow)
+    table.appendChild(ahead)
+
+    // Answer Text
+    const atbody = document.createElement("tbody");
+    const arow = document.createElement("tr");
+    arow.className = "table-builder"
+
+    const atd = document.createElement("td");
+    const aCell = document.createElement("h3");
+    atd.append(aCell)
+    arow.appendChild(atd);
+    
+    atbody.appendChild(arow);
+    table.appendChild(atbody);
+
+    // add tavle to div
+    questionDiv.appendChild(table)
+
+    let pressMe = "btn btn-warning me-2 btn-lg"
     
     // button panel
     const buttonDiv = document.createElement("div");
 
     const revealBtn = document.createElement("button");
-    revealBtn.textContent = "Reveal";
+    revealBtn.innerHTML = `<h1 class="text-dark">Reveal</h1>`;
     revealBtn.className = pressMe;
 
-    const nextBtn = document.createElement("button");
-    nextBtn.textContent = "Next";
-    nextBtn.className = ignoreMe;
-
+    var buttonStateReveal = true 
     revealBtn.addEventListener("click", () => {
-        revealBtn.className = ignoreMe
-        nextBtn.className = pressMe
+        if (buttonStateReveal)
+        {
+            aCell.className = ""
+            buttonStateReveal = false
+            revealBtn.innerHTML =  `<h1 class="text-dark">Next</h1>`;
+            return
+        }
 
-        aCell.className = ""
+        if (!buttonStateReveal)
+        {
+            loadQuestionAndAnswer()
+        }
     });
 
     function loadQuestionAndAnswer() {
@@ -81,20 +112,15 @@ export function createQAExplorer(data) {
         
         // swap colours
         revealBtn.className = pressMe
-        nextBtn.className = ignoreMe
         
         // increment card as its been seen
         const card = getDataCardFromUID(data, random.uid)
         card.IncrementView()
+        revealBtn.innerHTML = `<h1 class="text-dark">Reveal</h1>`;
+        buttonStateReveal = true
     }
 
-    nextBtn.addEventListener("click", loadQuestionAndAnswer);
-
-    // Append to container
-    // container.appendChild(table);
     buttonDiv.appendChild(revealBtn);
-    buttonDiv.appendChild(nextBtn);
-
     container.append(table)
     container.appendChild(buttonDiv)
 
