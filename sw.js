@@ -2,7 +2,7 @@
 // Major version: changes in behavior / interface changes
 // Middle version: bug fixes / view updates
 // Minor version: new/edited words
-const version = "v25.0.1";
+const version = "v25.0.2";
 const staticCacheName = 'languageTree-' + version;
 
 self.addEventListener('install', (e) =>
