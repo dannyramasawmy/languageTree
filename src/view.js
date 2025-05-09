@@ -9,7 +9,7 @@ import { createParentStat, createNumberOfChildrenStat, createNumberOfRelaionsSta
 import { ButtonsID, ElementID, NodeStatsID } from "./identifiers.js";
 import { Settings } from "./settings/settings.js";
 import { GlobalState } from "./state/models.js";
-import { createDelatSvg, createLightBulbSvg, createLinkSvg, createMortarBoardSvg, createStatsSvg } from "./stats/svg.js";
+import { createDelatSvg, createLinkSvg, createMortarBoardSvg, createStatsSvg } from "./stats/svg.js";
 import { Stats } from "./stats/models.js";
 import { Practice } from "./practice/models.js";
 
@@ -123,7 +123,7 @@ export class View {
         for (var idx = start_idx; idx < parents.length; idx++) {
             if (idx == 0 && this.SETTINGS.DoSeparateCards)
             {
-                document.getElementById(this.dataCardsId).appendChild(createCardSeparator("Parents"))
+                document.getElementById(this.dataCardsId).appendChild(createCardSeparator("Ascendants"))
             }
 
             let cardId = `parent-card-number-${idx}`;

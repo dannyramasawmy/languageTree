@@ -10,10 +10,10 @@ export function createParentCard(title, subtitle, data) {
     card.className = "col-12 gap-2 pb-0";
 
     let innerCard = document.createElement("div");
-    innerCard.className = "card text-bg-secondary mb-3 p-md-4";
+    innerCard.className = "card mb-3 p-md-4 glass";
 
     let cardTitle = document.createElement("h1");
-    cardTitle.className = "card-title";
+    cardTitle.className = "card-title fw-bold";
     cardTitle.appendChild(title);
 
     let cardSubtitle = document.createElement("h2");
@@ -51,10 +51,10 @@ export function createChildCard(isCompactView, title, subtitle, id, colorIndex) 
     card.id = id;
 
     let innerCard = document.createElement("div");
-    innerCard.className = `data-card card text-bg-auto p-3 p-md-4 rainbow-hover-${colorIndex}`;
+    innerCard.className = `data-card card text-bg-auto p-3 p-md-4 rainbow-hover-${colorIndex} gls`;
 
     let cardTitle = document.createElement("h4");
-    cardTitle.className = "card-title";
+    cardTitle.className = "card-title display-card-main-title fw-semibold";
     cardTitle.appendChild(title);
 
     card.appendChild(innerCard);
@@ -62,7 +62,7 @@ export function createChildCard(isCompactView, title, subtitle, id, colorIndex) 
 
     if (!isCompactView) {
         let cardSubtitle = document.createElement("h5");
-        cardSubtitle.className = "card-subtitle subtle";
+        cardSubtitle.className = "card-subtitle display-card-subtitle";
         cardSubtitle.appendChild(subtitle);
         innerCard.appendChild(cardSubtitle);
     }
@@ -126,7 +126,7 @@ export function createNodeStats(id, stat, svgElement, description) {
  */
 export function createCardSeparator(label) {
     let container = document.createElement("div");
-    container.className = "d-flex align-items-center my-4";
+    container.className = "d-flex align-items-center";
 
     let hr1 = document.createElement("hr");
     hr1.className = "flex-grow-1";
