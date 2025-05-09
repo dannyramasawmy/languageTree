@@ -393,9 +393,7 @@ export function BuildLanguageTree() // returns romanian
     // #Adjectives
     // =============================================================================
 
-    let who = new DataCard(
-        "Who", "Cine",
-        "")
+    let who = new DataCard("Who", "Cine","")
     setParentAndChild(wordclass_adjectives, who);
 
     let what = new DataCard(
