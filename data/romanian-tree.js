@@ -393,8 +393,6 @@ export function BuildLanguageTree() // returns romanian
     // #Adjectives
     // =============================================================================
 
-
-
     let who = new DataCard(
         "Who", "Cine",
         "")
@@ -463,117 +461,51 @@ export function BuildLanguageTree() // returns romanian
     let DescriptiveAdjective = new DataCard("Descriptive Adjective", "Adjective Descriptive", "");
     setParentAndChild(wordclass_adjectives, DescriptiveAdjective)
 
-    let Good = new DataCard("Good", "Bine", "");
-    setParentAndChild(DescriptiveAdjective, Good)
+    const adj_alive = new AdjectiveDataCard("Alive", "viu", "vie", "vii", "vii");
+    const adj_available = new AdjectiveDataCard("Available", "disponibil", "disponibilă", "disponibili", "disponibile");
+    const adj_bad = new AdjectiveDataCard("Bad", "rău", "rea", "răi", "rele");
+    const adj_big = new AdjectiveDataCard("Big", "mare", "mare", "mari", "mari");
+    const adj_clean = new AdjectiveDataCard("Clean", "curat", "curată", "curați", "curate");
+    const adj_close = new AdjectiveDataCard("Closed", "închis", "închisă", "închiși", "închise");
+    const adj_cold = new AdjectiveDataCard("Cold", "rece", "rece", "reci", "reci");
+    const adj_dead = new AdjectiveDataCard("Dead", "mort", "moartă", "morți", "moarte");
+    const adj_difficult = new AdjectiveDataCard("Difficult", "dificil", "dificilă", "dificili", "dificile");
+    const adj_dirty = new AdjectiveDataCard("Dirty", "murdar", "murdară", "muradari", "murdare");
+    const adj_dry = new AdjectiveDataCard("Dry", "uscat", "uscată", "uscați", "uscate");
+    const adj_easy = new AdjectiveDataCard("Easy", "ușor", "ușoară", "ușori", "ușoare");
+    const adj_false_ = new AdjectiveDataCard("False", "fals", "falsă", "falși", "false");
+    const adj_fast = new AdjectiveDataCard("Fast", "rapid", "rapidă", "rapizi", "rapide");
+    const adj_fat = new AdjectiveDataCard("Fat", "gras", "grasă", "grași", "grase");
+    const adj_first = new AdjectiveDataCard("First", "prim", "primă", "primi", "prime");
+    const adj_good = new AdjectiveDataCard("Good", "bun", "bună", "buni", "bune");
+    const adj_hard = new AdjectiveDataCard("Hard", "dur", "dură", "duri", "dure");
+    const adj_hightemperature = new AdjectiveDataCard("High temperature", "ridicat", "ridicată", "ridicați", "ridicate");
+    const adj_hot = new AdjectiveDataCard("Hot", "fierbinte", "fierbinte", "fierbinți", "fierbinți");
+    const adj_loose = new AdjectiveDataCard("Loose", "larg", "largă", "largi", "largi");
+    const adj_lowtemperature = new AdjectiveDataCard("Low temperature", "scăzut", "scăzută", "scăzuți", "scăzute");
+    const adj_new = new AdjectiveDataCard("New", "nou", "nouă", "noi", "noi");
+    const adj_old = new AdjectiveDataCard("Old", "vechi", "veche", "vechi", "vechi");
+    const adj_open = new AdjectiveDataCard("Open", "deschis", "deschisă", "deschiși", "deschise");
+    const adj_rough = new AdjectiveDataCard("Rough", "aspru", "aspră", "aspri", "aspre");
+    const adj_slow = new AdjectiveDataCard("Slow", "încet", "încetă", "înceti", "încete");
+    const adj_small = new AdjectiveDataCard("Small", "mic", "mică", "mici", "mici");
+    const adj_smooth = new AdjectiveDataCard("Smooth", "neted", "netedă", "netezi", "netede");
+    const adj_soft = new AdjectiveDataCard("Soft", "moale", "moale", "moale", "moale");
+    const adj_sure = new AdjectiveDataCard("Sure", "sigur", "sigură", "siguri", "sigure");
+    const adj_thin = new AdjectiveDataCard("Thin", "slab", "slabă", "slabi", "slabe");
+    const adj_tight = new AdjectiveDataCard("Tight", "strâmt", "strâmtă", "strâmți", "strâmte");
+    const adj_true_ = new AdjectiveDataCard("True", "adevărat", "adevărată", "adevărați", "adevărate");
+    const adj_ultimate = new AdjectiveDataCard("Ultimate", "ultim", "ultimă", "ultimi", "ultime");
+    const adj_wet = new AdjectiveDataCard("Wet", "umed", "umedă", "umezi", "umede");
 
-    let Bad = new DataCard("Bad", "Rău", "");
-    setParentAndChild(DescriptiveAdjective, Bad)
+    setParentAndMultipleChildren(DescriptiveAdjective, [
+        adj_alive, adj_available, adj_bad, adj_big, adj_clean, adj_close, adj_cold, adj_dead, adj_difficult, adj_dirty, adj_dry, 
+        adj_easy, adj_false_, adj_fast, adj_fat, adj_first, adj_good, adj_hard, adj_hightemperature, adj_hot, adj_loose, adj_lowtemperature, 
+        adj_new, adj_old, adj_open, adj_rough, adj_slow, adj_small, adj_smooth, adj_soft, adj_sure, adj_thin, adj_tight, adj_true_, 
+        adj_ultimate, adj_wet
+    ])
 
-    let Fat = new DataCard("Fat", "Gras", "");
-    setParentAndChild(DescriptiveAdjective, Fat)
-
-    let Thin = new DataCard("Thin", "Slab", "");
-    setParentAndChild(DescriptiveAdjective, Thin)
-
-    let Cold = new DataCard("Cold", "Rece", "");
-    setParentAndChild(DescriptiveAdjective, Cold)
-
-    let Hot = new DataCard("Hot", "Cald (Fierbinte)", "");
-    setParentAndChild(DescriptiveAdjective, Hot)
-
-    let HighTemperature = new DataCard("High (temperature)", "Ridicat", "");
-    setParentAndChild(DescriptiveAdjective, HighTemperature);
-
-    let LowTemperature = new DataCard("Low (temperature)", "Scăzut", "");
-    setParentAndChild(DescriptiveAdjective, LowTemperature);
-
-    let Dirty = new DataCard("Dirty", "Murdar", "");
-    setParentAndChild(DescriptiveAdjective, Dirty)
-    
-    let Available = new DataCard("Available", "Disponibil", "");
-    setParentAndChild(DescriptiveAdjective, Available);
-
-    let Clean = new DataCard("Clean", "Curat", "");
-    setParentAndChild(DescriptiveAdjective, Clean)
-
-    let Open = new DataCard("Open", "Deschis", "");
-    setParentAndChild(DescriptiveAdjective, Open)
-
-    let Close = new DataCard("Close", "Închis", "");
-    setParentAndChild(DescriptiveAdjective, Close)
-
-    let First = new DataCard("First", "Primul", "");
-    setParentAndChild(DescriptiveAdjective, First)
-
-    let Ultimate = new DataCard("Ultimate (Last)", "Ultimul", "");
-    setParentAndChild(DescriptiveAdjective, Ultimate)
-
-    let Wet = new DataCard("Wet", "Ud (Humed)", "");
-    setParentAndChild(DescriptiveAdjective, Wet)
-
-    let Dry = new DataCard("Dry", "Uscat", "");
-    setParentAndChild(DescriptiveAdjective, Dry)
-
-    let Small = new DataCard("Small", "Mic", "");
-    setParentAndChild(DescriptiveAdjective, Small)
-
-    let Big = new DataCard("Big", "Mare", "");
-    setParentAndChild(DescriptiveAdjective, Big)
-
-    let New = new DataCard("New", "Nou", "");
-    setParentAndChild(DescriptiveAdjective, New)
-
-    let Old = new DataCard("Old", "Vechi", "");
-    setParentAndChild(DescriptiveAdjective, Old)
-
-    let Easy = new DataCard("Easy", "Ușor", "");
-    setParentAndChild(DescriptiveAdjective, Easy)
-
-    let Difficult = new DataCard("Difficult", "Greu", "");
-    setParentAndChild(DescriptiveAdjective, Difficult)
-
-    let Soft = new DataCard("Soft", "Moale", "");
-    setParentAndChild(DescriptiveAdjective, Soft)
-
-    let Hard = new DataCard("Hard", "Tare", "");
-    setParentAndChild(DescriptiveAdjective, Hard)
-
-    let Slow = new DataCard("Slow", "Încet", "");
-    setParentAndChild(DescriptiveAdjective, Slow)
-
-    let Fast = new DataCard("Fast", "Repede", "");
-    setParentAndChild(DescriptiveAdjective, Fast)
-
-    let Dead = new DataCard("Dead (Wilted)", "Ofilit (Uscat)", "");
-    setParentAndChild(DescriptiveAdjective, Dead)
-
-    let Alive = new DataCard("Alive", "Viu", "");
-    setParentAndChild(DescriptiveAdjective, Alive)
-
-    let True_ = new DataCard("True", "Adevărat", "");
-    setParentAndChild(DescriptiveAdjective, True_)
-
-    let False_ = new DataCard("False", "Fals", "");
-    setParentAndChild(DescriptiveAdjective, False_)
-
-    let Smooth = new DataCard("Smooth", "Neted", "");
-    setParentAndChild(DescriptiveAdjective, Smooth);
-
-    let Rough = new DataCard("Rough", "Brut", "");
-    setParentAndChild(DescriptiveAdjective, Rough);
-
-    let sure = new DataCard(
-        "Sure", "Sigur",
-        "")
-    setParentAndChild(DescriptiveAdjective, sure);
-
-    let Loose = new DataCard("Loose", "Larg", "");
-    setParentAndChild(DescriptiveAdjective, Loose);
-
-    let Tight = new DataCard("Tight", "Strâmt", "");
-    setParentAndChild(DescriptiveAdjective, Tight);
-
-    // #flavours
+    // #flavours ==================================================
     let flavours = new DataCard("Flavours", "Arome", "");  
     setParentAndChild(wordclass_adjectives, flavours);  
 
@@ -629,42 +561,29 @@ export function BuildLanguageTree() // returns romanian
 
     // #Colours =======================================
     let colours = new DataCard("Colours", "Culorile","")
+    setParentAndChild(wordclass_adjectives, colours)
         
     const adj_black = new AdjectiveDataCard("Black", "negru", "neagră", "negri", "negre");
     const adj_blonde = new AdjectiveDataCard("Blonde", "blond", "blondă", "blonzi", "blonde");
     const adj_blue = new AdjectiveDataCard("Blue", "albastru", "albastră", "albaștri", "albastre");
     const adj_bright = new AdjectiveDataCard("Bright", "strălucitor", "strălucitoare", "strălucitori", "strălucitoare");
-    
     const adj_brown = new AdjectiveDataCard("Brown", "maro", "maro", "maro", "maro"); // invariable
-    
     const adj_dark = new AdjectiveDataCard("Dark", "închis", "închisă", "închiși", "închise");
-    
     const adj_gold = new AdjectiveDataCard("Gold", "auriu", "aurie", "aurii", "aurii");
-    
     const adj_green = new AdjectiveDataCard("Green", "verde", "verde", "verzi", "verzi");
-    
     const adj_grey = new AdjectiveDataCard("Grey", "gri", "gri", "gri", "gri"); // invariable
-    
     const adj_hazel = new AdjectiveDataCard("Hazel", "căprui", "căpruie", "căprui", "căprui"); // semi-invariable
-    
     const adj_light = new AdjectiveDataCard("Light", "deschis", "deschisă", "deschiși", "deschise");
-    
     const adj_orange = new AdjectiveDataCard("Orange", "portocaliu", "portocalie", "portocalii", "portocalii");
-    
     const adj_purple = new AdjectiveDataCard("Purple", "mov", "mov", "mov", "mov"); // invariable
-    
     const adj_red = new AdjectiveDataCard("Red", "roșu", "roșie", "roșii", "roșii");
-    
     const adj_white = new AdjectiveDataCard("White", "alb", "albă", "albii", "albe");
-    
     const adj_yellow = new AdjectiveDataCard("Yellow", "galben", "galbenă", "galbeni", "galbene");
     
-
     setParentAndMultipleChildren(
         colours, [
-            black, blonde, blue, bright, brown, dark, gold, green, grey, 
-            hazel, light, orange, purple, red, white, yellow, 
-        ]
+            adj_black, adj_blonde, adj_blue, adj_bright, adj_brown, adj_dark, adj_gold, adj_green, adj_grey, adj_hazel, 
+            adj_light, adj_orange, adj_purple, adj_red, adj_white, adj_yellow]
     )
 
 
