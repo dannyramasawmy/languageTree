@@ -1,5 +1,5 @@
 import { buildColumnDiv, buildLinesDiv } from "./romanian-functions.js";
-import { NounDataCard, VerbDataCard } from "./romanian-language-models.js";
+import { AdjectiveDataCard, NounDataCard, VerbDataCard } from "./romanian-language-models.js";
 
 /**
  * 
@@ -25,6 +25,19 @@ export const NounFemaleView = (nounDataCard) =>
  */
 export const NounNeuterView = (nounDataCard) =>
     buildLinesDiv([`Un ${nounDataCard.singluar}`, `Doua ${nounDataCard.plural}`, nounDataCard.definiteArticle, nounDataCard.definitePlural])
+
+/**
+ * The html string view for an adjective data card
+ * @param {AdjectiveDataCard} adjectiveDataCard - an adjective data object
+ * @returns {HTMLDivElement} - HTML data
+ */
+export const AdjectiveView = (adjectiveDataCard) =>
+    buildLinesDiv([
+        `(m) ${adjectiveDataCard.masculineSingular}`, 
+        `(f) ${adjectiveDataCard.femenineSingular}`, 
+        `(m-pl) ${adjectiveDataCard.masculinePlural}`, 
+        `(f-pl) ${adjectiveDataCard.femeninePlural}`
+    ])
 
 /**
  * The html string view for a verb data card

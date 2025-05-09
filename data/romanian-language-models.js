@@ -1,6 +1,6 @@
 import { stringToHTMLElement } from "../src/utils/string.js";
 import { AbstractNode, Question } from "../src/tree/models.js";
-import { NounFemaleView, NounMaleView, NounNeuterView, VerbDataView, VerbReflexiveSeDataView, VerbReflexiveSiDataView } from "./romanian-views.js";
+import { AdjectiveView, NounFemaleView, NounMaleView, NounNeuterView, VerbDataView, VerbReflexiveSeDataView, VerbReflexiveSiDataView } from "./romanian-views.js";
 
 export class VerbDataCard extends AbstractNode {
     /**
@@ -109,4 +109,32 @@ export class NounMale extends NounDataCard {
 
 export class NounFemale extends NounDataCard {
     DataView = () => NounFemaleView(this)
+}
+
+
+
+export class AdjectiveDataCard extends AbstractNode {
+    /**
+     * Adjectives - describe a noun
+     * @param {string} english 
+     * @param {string} masculineSingular 
+     * @param {string} femenineSingular 
+     * @param {string} masculinePlural 
+     * @param {string} femeninePlural 
+     */
+    constructor(english, masculineSingular, femenineSingular, masculinePlural, femeninePlural) {
+        super(english, masculineSingular)
+        this.english = english
+        this.masculineSingular = masculineSingular
+        this.femenineSingular = femenineSingular
+        this.masculinePlural = masculinePlural
+        this.femeninePlural = femeninePlural
+    }
+
+    PrimaryView = () => stringToHTMLElement(this.english)
+    SecondaryView = () => stringToHTMLElement(this.masculineSingular)
+    DataView = () => AdjectiveView(this)
+    SearchableTerms = () => [
+        this.english, this.masculineSingular, this.femenineSingular, this.masculinePlural, this.femeninePlural
+    ]
 }
