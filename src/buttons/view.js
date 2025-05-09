@@ -42,7 +42,7 @@ export function buttonView(buttonId, buttonName, iconPath, description, isSearch
         if (showButtonLabels)
         {
             let buttonLabel = document.createElement("h6")
-            buttonLabel.className = "subtle";
+            buttonLabel.className = "subtle-button-label";
             buttonLabel.innerHTML = buttonName;
             buttonLink.appendChild(buttonLabel);
         }

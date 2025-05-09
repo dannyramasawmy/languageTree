@@ -1,6 +1,7 @@
 import { RandomElementInArray } from "../utils/random.js";
 import { AbstractNode, Question } from "../tree/models.js";
 import { getDataCardFromUID } from "../search/functions.js";
+import { createEyeSvg, createFastForwardSvg, SVGParameters } from "../stats/svg.js";
 
 /**
  * 
@@ -19,7 +20,7 @@ export function createQAExplorer(data) {
     const questionDiv = document.createElement("div");
 
     const table = document.createElement("table");
-    table.className = "table table-dark table-hover table-striped table-bordered";
+    table.className = "table table-hover table-striped table-bordered";
 
     // Question row
     const qhead = document.createElement("thead");
@@ -28,7 +29,7 @@ export function createQAExplorer(data) {
     
     const qHeader = document.createElement("th");
     qHeader.textContent = "Question";
-    qHeader.className = "text-light"
+    // qHeader.className = "text-light"
     
     qheaderRow.appendChild(qHeader);
     qhead.append(qheaderRow)
@@ -55,7 +56,7 @@ export function createQAExplorer(data) {
     
     const aHeader = document.createElement("th");
     aHeader.textContent = "Answer";
-    aHeader.className = "text-light";
+    // aHeader.className = "text-light";
     
     aheaderRow.appendChild(aHeader);
     ahead.append(aheaderRow)
@@ -77,13 +78,16 @@ export function createQAExplorer(data) {
     // add tavle to div
     questionDiv.appendChild(table)
 
-    let pressMe = "btn btn-warning me-2 btn-lg"
+    let pressMe = "btn me-2 btn-lg glbut"
+
+    const eyeSvg = createEyeSvg(new SVGParameters("#e67e22", 1.5)).outerHTML
+    const fastForward = createFastForwardSvg(new SVGParameters("#e67e22", 1.5)).outerHTML
     
     // button panel
     const buttonDiv = document.createElement("div");
 
     const revealBtn = document.createElement("button");
-    revealBtn.innerHTML = `<h1 class="text-dark">Reveal</h1>`;
+    revealBtn.innerHTML = eyeSvg
     revealBtn.className = pressMe;
 
     var buttonStateReveal = true 
@@ -92,7 +96,7 @@ export function createQAExplorer(data) {
         {
             aCell.className = ""
             buttonStateReveal = false
-            revealBtn.innerHTML =  `<h1 class="text-dark">Next</h1>`;
+            revealBtn.innerHTML =  fastForward;
             return
         }
 
@@ -116,7 +120,7 @@ export function createQAExplorer(data) {
         // increment card as its been seen
         const card = getDataCardFromUID(data, random.uid)
         card.IncrementView()
-        revealBtn.innerHTML = `<h1 class="text-dark">Reveal</h1>`;
+        revealBtn.innerHTML = eyeSvg
         buttonStateReveal = true
     }
 
