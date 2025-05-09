@@ -1,6 +1,6 @@
 import { defineCrossLinkRelationship, setParentAndChild, setParentAndMultipleChildren } from "../src/tree/functions.js";
 import { DataCard, DataRoot } from "../src/tree/models.js";
-import { VerbReflexiveSe, VerbReflexiveSi, Verb, NounNeuter, NounMale, NounFemale } from "./romanian-language-models.js";
+import { VerbReflexiveSe, VerbReflexiveSi, Verb, NounNeuter, NounMale, NounFemale, AdjectiveDataCard } from "./romanian-language-models.js";
 
 /*
 a ă â b c d e f g h i î j k l m n o p q r s ș t ț u v w x y z
@@ -577,129 +577,88 @@ export function BuildLanguageTree() // returns romanian
     let flavours = new DataCard("Flavours", "Arome", "");  
     setParentAndChild(wordclass_adjectives, flavours);  
 
-    let sweet = new DataCard("Sweet", "Dulce", "");  
-    setParentAndChild(flavours, sweet);  
-    
-    let sour = new DataCard("Sour", "Acru", "");  
-    setParentAndChild(flavours, sour);  
-    
-    let salty = new DataCard("Salty", "Sărat", "");  
-    setParentAndChild(flavours, salty);  
-    
-    let spicy = new DataCard("Spicy", "Picant", "");  
-    setParentAndChild(flavours, spicy);  
-    
-    let bitter = new DataCard("Bitter", "Amar", "");  
-    setParentAndChild(flavours, bitter);  
-    
-    let delicious = new DataCard("Delicious", "Delicios", "");  
-    setParentAndChild(flavours, delicious);  
-     
-    let Fragrant = new DataCard("Fragrant", "Aromat", "");
-    setParentAndChild(flavours, Fragrant);
+    let adj_sweet = new AdjectiveDataCard("Sweet", "Dulce", "Dulce", "Dulci", "Dulci");  
+    let adj_sour = new AdjectiveDataCard("Sour", "acru", "acra", "acri", "acre");
+    let adj_salty = new AdjectiveDataCard("Salty", "sărat", "sărată", "sărați", "sărate");
+    let adj_spicy = new AdjectiveDataCard("Spicy", "picant", "picantă", "picanți", "picante");
+    let adj_bitter = new AdjectiveDataCard("Bitter", "amar", "amară", "amari", "amare");
+    let adj_delicious = new AdjectiveDataCard("Delicious", "delicios", "delicioasă", "delicioși", "delicioase");
+    let adj_fragrant = new AdjectiveDataCard("Fragrant", "aromat", "aromată", "aromați", "aromate");
+
+    setParentAndMultipleChildren(flavours, [
+        adj_sweet, adj_sour, adj_salty, adj_spicy, adj_bitter, adj_delicious, adj_fragrant
+    ])
 
     // #AboutPeople =======================================
     let aboutPeople = new DataCard("About People", "Despre oameni", "");  
     setParentAndChild(wordclass_adjectives, aboutPeople);  
-    
-    let hungry = new DataCard("Hungry", "Înfometat", "");  
-    setParentAndChild(aboutPeople, hungry);  
 
-    let allergic = new DataCard("Allergic", "Alergic", "");  
-    setParentAndChild(aboutPeople, allergic);  
+    const adj_allergic = new AdjectiveDataCard("Allergic", "alergic", "alergică", "alergici", "alergice");
+    const adj_alone = new AdjectiveDataCard("Alone", "singur", "singură", "singuri", "singure");
+    const adj_amusing = new AdjectiveDataCard("Amusing", "amuzant", "amuzantă", "amuzanți", "amuzante");
+    const adj_boring = new AdjectiveDataCard("Boring", "plictisitor", "plictisitoare", "plictisitori", "plictisitoare");
+    const adj_busy = new AdjectiveDataCard("Busy", "ocupat", "ocupată", "ocupați", "ocupate");
+    const adj_cool = new AdjectiveDataCard("Cool", "răcoros", "răcoroasă", "răcoroși", "răcoroase");
+    const adj_crazy = new AdjectiveDataCard("Crazy", "nebun", "nebună", "nebuni", "nebune");
+    const adj_curly = new AdjectiveDataCard("Curly", "creț", "creață", "creți", "crețe");
+    const adj_dangerous = new AdjectiveDataCard("Dangerous", "periculos", "periculoasă", "periculoși", "periculoase");
+    const adj_foreign = new AdjectiveDataCard("Foreign", "străin", "străină", "străini", "străine");
+    const adj_handsome = new AdjectiveDataCard("Handsome", "chipeș", "chipeșă", "chipeși", "chipeșe");
+    const adj_hungry = new AdjectiveDataCard("Hungry", "flămând", "flămândă", "flămânzi", "flămânde");
+    const adj_interesting = new AdjectiveDataCard("Interesting", "interesant", "interesantă", "interesanți", "interesante");
+    const adj_lucky = new AdjectiveDataCard("Lucky", "norocos", "norocoasă", "norocoși", "norocoase");
+    const adj_missing = new AdjectiveDataCard("Missing", "dispărut", "dispărută", "dispăruți", "dispărute");
+    const adj_muscular = new AdjectiveDataCard("Muscular", "musculos", "musculoasă", "musculoși", "musculoase");
+    const adj_romantic = new AdjectiveDataCard("Romantic", "romantic", "romantică", "romantici", "romantice");
+    const adj_sad = new AdjectiveDataCard("Sad", "trist", "tristă", "triști", "triste");
+    const adj_shy = new AdjectiveDataCard("Shy", "rușinos", "rușinoasă", "rușinoși", "rușinoase");
+    const adj_sick = new AdjectiveDataCard("Sick", "bolnav", "bolnavă", "bolnavi", "bolnave");
+    const adj_smart = new AdjectiveDataCard("Smart", "inteligent", "inteligentă", "inteligenti", "inteligente");
+    const adj_strange = new AdjectiveDataCard("Strange", "ciudat", "ciudată", "ciudați", "ciudate");
+    const adj_strict = new AdjectiveDataCard("Strict", "strict", "strictă", "stricti", "strict");
+    const adj_sunny = new AdjectiveDataCard("Sunny", "însorit", "însorită", "însoriți", "însorite");
+    const adj_thirsty = new AdjectiveDataCard("Thirsty", "însetat", "însetată", "însetați", "însetate");
 
-    let strict = new DataCard("Strict", "Strict", "");  
-    setParentAndChild(aboutPeople, strict);  
-
-    let sad = new DataCard("Sad", "Trist", "");  
-    setParentAndChild(aboutPeople, sad);  
-
-    let amusing = new DataCard("Amusing (funny)", "Amuzant", "");  
-    setParentAndChild(aboutPeople, amusing);  
-
-    let boring = new DataCard("Boring", "Plictisitor", "");  
-    setParentAndChild(aboutPeople, boring);  
-
-    let interesting = new DataCard("Interesting", "Interesant", "");  
-    setParentAndChild(aboutPeople, interesting);  
-
-    let romantic = new DataCard("Romantic", "Romantic", "");  
-    setParentAndChild(aboutPeople, romantic);  
-
-    let dangerous = new DataCard("Dangerous", "Periculos", "");  
-    setParentAndChild(aboutPeople, dangerous);  
-    
-    let strange = new DataCard("Strange", "Ciudat", "");  
-    setParentAndChild(aboutPeople, strange);  
-
-    let muscular = new DataCard("Muscular", "Musculos", "");  
-    setParentAndChild(aboutPeople, muscular);  
-
-    let crazy = new DataCard("Crazy", "Nebun", "");  
-    setParentAndChild(aboutPeople, crazy);  
-
-    let busy = new DataCard("Busy (occupied)", "Ocupat", "");  
-    setParentAndChild(aboutPeople, busy);  
-
-    let cool = new DataCard("Cool (today is cool)", "Răcore", "");  
-    setParentAndChild(aboutPeople, cool);  
-
-    let missing = new DataCard("Missing", "Dispărut", "");  
-    setParentAndChild(aboutPeople, missing);  
-
-    let alone = new DataCard("Alone", "Singur", "");  
-    setParentAndChild(aboutPeople, alone);  
-
-    let Shy = new DataCard("Shy", "Rușinos", "");
-    setParentAndChild(aboutPeople, Shy);
-
-    let Lucky = new DataCard("Lucky", "Norocos", "");
-    setParentAndChild(aboutPeople, Lucky);
-
-    let Handsome = new DataCard("Handsome", "Chipeș", "");
-    setParentAndChild(aboutPeople, Handsome);
-
-    let Thirsty = new DataCard("Thirsty", "Însetat", "");
-    setParentAndChild(aboutPeople, Thirsty);
-
-    let Sick = new DataCard("Sick", "Bolnav", "");
-    setParentAndChild(aboutPeople, Sick);
-
-    let Sunny = new DataCard("Sunny", "Însorit", "");
-    setParentAndChild(aboutPeople, Sunny);
-
-    let Smart = new DataCard("Smart", "Inteligent", "");
-    setParentAndChild(aboutPeople, Smart);
-
-    let Muscular = new DataCard("Muscular", "Musculos", "");
-    setParentAndChild(aboutPeople, Muscular);
-
-    let Curly = new DataCard("Curly", "Creț", "");
-    setParentAndChild(aboutPeople, Curly);
-
-    let Foreign = new DataCard("Foreign", "Străine", "");
-    setParentAndChild(aboutPeople, Foreign);
+    setParentAndMultipleChildren(
+        aboutPeople, [
+            adj_allergic, adj_alone, adj_amusing, adj_boring, adj_busy, adj_cool, adj_crazy, adj_curly, adj_dangerous, adj_foreign, 
+            adj_handsome, adj_hungry, adj_interesting, adj_lucky, adj_missing, adj_muscular, adj_romantic, adj_sad, adj_shy, adj_sick, 
+            adj_smart, adj_strange, adj_strict, adj_sunny, adj_thirsty]
+    )
 
 
     // #Colours =======================================
     let colours = new DataCard("Colours", "Culorile","")
         
-    let black = new DataCard("Black", "Negru", "")
-    let blonde = new DataCard("Blonde", "Blond", "");  
-    let blue = new DataCard("Blue", "Albastru", "")
-    let bright = new DataCard("Bright", "Strălucitor", "");  
-    let brown = new DataCard("Brown", "Maro", "")
-    let dark = new DataCard("Dark", "Întunecos", "");
-    let gold = new DataCard("Gold", "Aur", "");  
-    let green = new DataCard("Green", "Verde", "")
-    let grey = new DataCard("Grey", "Gri", "")
-    let hazel = new DataCard("Hazel", "Căprui", "");
-    let light = new DataCard("Light", "Luminos", "");
-    let orange = new DataCard("Orange", "Portocaliu", "")
-    let purple = new DataCard("Purple", "Mov", "")
-    let red = new DataCard("Red", "Roșu", "")
-    let white = new DataCard("White", "Alb", "")
-    let yellow = new DataCard("Yellow", "Galben", "")
+    const adj_black = new AdjectiveDataCard("Black", "negru", "neagră", "negri", "negre");
+    const adj_blonde = new AdjectiveDataCard("Blonde", "blond", "blondă", "blonzi", "blonde");
+    const adj_blue = new AdjectiveDataCard("Blue", "albastru", "albastră", "albaștri", "albastre");
+    const adj_bright = new AdjectiveDataCard("Bright", "strălucitor", "strălucitoare", "strălucitori", "strălucitoare");
+    
+    const adj_brown = new AdjectiveDataCard("Brown", "maro", "maro", "maro", "maro"); // invariable
+    
+    const adj_dark = new AdjectiveDataCard("Dark", "închis", "închisă", "închiși", "închise");
+    
+    const adj_gold = new AdjectiveDataCard("Gold", "auriu", "aurie", "aurii", "aurii");
+    
+    const adj_green = new AdjectiveDataCard("Green", "verde", "verde", "verzi", "verzi");
+    
+    const adj_grey = new AdjectiveDataCard("Grey", "gri", "gri", "gri", "gri"); // invariable
+    
+    const adj_hazel = new AdjectiveDataCard("Hazel", "căprui", "căpruie", "căprui", "căprui"); // semi-invariable
+    
+    const adj_light = new AdjectiveDataCard("Light", "deschis", "deschisă", "deschiși", "deschise");
+    
+    const adj_orange = new AdjectiveDataCard("Orange", "portocaliu", "portocalie", "portocalii", "portocalii");
+    
+    const adj_purple = new AdjectiveDataCard("Purple", "mov", "mov", "mov", "mov"); // invariable
+    
+    const adj_red = new AdjectiveDataCard("Red", "roșu", "roșie", "roșii", "roșii");
+    
+    const adj_white = new AdjectiveDataCard("White", "alb", "albă", "albii", "albe");
+    
+    const adj_yellow = new AdjectiveDataCard("Yellow", "galben", "galbenă", "galbeni", "galbene");
+    
 
     setParentAndMultipleChildren(
         colours, [
@@ -4235,80 +4194,28 @@ export function BuildLanguageTree() // returns romanian
     // #Emotions
     // =============================================================================
 
-    let emotions = new DataCard(
-        "Emotions", "Emoții",
-        "")
-    setParentAndChild(romanian, emotions);
-
-    let Happy = new DataCard(
-        "Happy", "Fericit",
-        "")
-    setParentAndChild(emotions, Happy);
-
-    let Sad = new DataCard(
-        "Sad", "Trist",
-        "")
-    setParentAndChild(emotions, Sad);
-
-    let Bored = new DataCard(
-        "Bored", "Plictisit",
-        "")
-    setParentAndChild(emotions, Bored);
-
-    let Cheerful = new DataCard(
-        "Cheerful", "Vesel",
-        "")
-    setParentAndChild(emotions, Cheerful);
-
-    let Timid = new DataCard(
-        "Shy (Timid)", "Timid",
-        "")
-    setParentAndChild(emotions, Timid);
-
-    let Angry = new DataCard(
-        "Angry", "Nervos",
-        "")
-    setParentAndChild(emotions, Angry);
-
-    let Tired = new DataCard(
-        "Tired", "Obosit",
-        "")
-    setParentAndChild(emotions, Tired);
-
-    let Worried = new DataCard(
-        "Worried", "Îngrijorat",
-        "")
-    setParentAndChild(emotions, Worried);
-
-    let Upset = new DataCard(
-        "Upset", "Supărat",
-        "")
-    setParentAndChild(emotions, Upset);
-
-    let Excited = new DataCard(
-        "Excited", "Entuziasmat",
-        "")
-    setParentAndChild(emotions, Excited);
-
-    let Jealous = new DataCard(
-        "Jealous", "Gelos",
-        "")
-    setParentAndChild(emotions, Jealous);
-    
+    let emotions = new DataCard("Emotions", "Emoții","")
+    let Happy = new DataCard("Happy", "Fericit","")
+    let Sad = new DataCard("Sad", "Trist","")
+    let Bored = new DataCard("Bored", "Plictisit","")
+    let Cheerful = new DataCard("Cheerful", "Vesel","")
+    let Timid = new DataCard("Shy (Timid)", "Timid","")
+    let Angry = new DataCard("Angry", "Nervos","")
+    let Tired = new DataCard("Tired", "Obosit","")
+    let Worried = new DataCard("Worried", "Îngrijorat","")
+    let Upset = new DataCard("Upset", "Supărat","")
+    let Excited = new DataCard("Excited", "Entuziasmat","")
+    let Jealous = new DataCard("Jealous", "Gelos","")
     let Heartbroken = new DataCard("Heartbroken", "Fi cu inima frântă", "");
-    setParentAndChild(emotions, Heartbroken);
-
     let Horror = new DataCard("Horror", "Groază", "");
-    setParentAndChild(emotions, Horror);
-
     let Unfortunate = new DataCard("Unfortunate", "Ghinion", "");
-    setParentAndChild(emotions, Unfortunate);
-
     let Crush = new DataCard("A crush (romantic)", "O pasiune", "");
-    setParentAndChild(emotions, Crush);
-
     let Hope = new DataCard("Hope", "Sper", "");
-    setParentAndChild(emotions, Hope);
+
+    setParentAndChild(romanian, emotions);
+    setParentAndMultipleChildren(emotions, [
+        Happy, Sad, Bored, Cheerful, Timid, Angry, Tired, Worried, Upset, Excited, Jealous, Heartbroken, Horror, Unfortunate, Crush, Hope
+    ])
 
 
     return romanian;
