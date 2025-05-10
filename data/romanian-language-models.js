@@ -152,7 +152,7 @@ export class NounFemale extends NounDataCard {
 }
 
 
-export class Number extends DataCard { }
+export class WordNumber extends DataCard { }
 
 
 export class Preposition extends DataCard { }

@@ -16,5 +16,5 @@ export class Practice extends AbstractNode {
 
     PrimaryView = () => stringToHTMLElement(this.Primary.slice(1));
     SecondaryView = () => stringToHTMLElement(this.Secondary.slice(1));
-    DataView = () => createQAExplorer(this.data, this.diffculty)
+    DataView = () => createQAExplorer(this.data)
 }

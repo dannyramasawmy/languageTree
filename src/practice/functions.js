@@ -6,17 +6,18 @@ import { createEyeSvg, createFastForwardSvg, SVGParameters } from "../stats/svg.
 /**
  * 
  * @param {AbstractNode[]} data
- * @param {DifficultyLevel} diffculty - the difficulty level
  * @returns 
  */
-export function createQAExplorer(data, diffculty) {
+export function createQAExplorer(data) {
 
     let qaArray = []
     for (const node of data)
-        qaArray.push(...node.Practice().filter(n => n.diffculty == diffculty))
-    
+        qaArray.push(...node.Practice())
+
+    var difficultFilter = DifficultyLevel.Easy
+
     const container = document.createElement("div");
-    
+
     // question panel
     const questionDiv = document.createElement("div");
 
@@ -27,10 +28,43 @@ export function createQAExplorer(data, diffculty) {
     const qhead = document.createElement("thead");
     const qheaderRow = document.createElement("tr");
     qheaderRow.className = "table-builder"
-    
+
     const qHeader = document.createElement("th");
-    qHeader.textContent = `Question (${diffculty})`;
-    
+    qHeader.className = "d-flex justify-content-between"
+
+    let t = document.createElement('span')
+    t.textContent = "Question"
+    qHeader.appendChild(t)
+
+    let easy = document.createElement('span')
+    easy.className = 'text-success-emphasis difficulty'
+    easy.textContent = `${difficultFilter}`
+    easy.addEventListener('click', () => {
+
+        switch (difficultFilter) {
+            case DifficultyLevel.Easy:
+                difficultFilter = DifficultyLevel.Medium
+                easy.className = 'text-warning-emphasis difficulty'
+                easy.textContent = `${difficultFilter} `
+                break;
+                
+                case DifficultyLevel.Medium:
+                difficultFilter = DifficultyLevel.Hard
+                easy.className = 'text-danger-emphasis difficulty'
+                easy.textContent = `${difficultFilter}`
+                break;
+
+            case DifficultyLevel.Hard:
+                difficultFilter = DifficultyLevel.Easy
+                easy.className = 'text-success-emphasis difficulty'
+                easy.textContent = `${difficultFilter}`
+                break;
+        }
+    })
+
+    qHeader.appendChild(easy)
+
+
     qheaderRow.appendChild(qHeader);
     qhead.append(qheaderRow)
     table.appendChild(qhead)
@@ -44,7 +78,7 @@ export function createQAExplorer(data, diffculty) {
     const qCell = document.createElement("h3");
     qtd.append(qCell)
     qrow.appendChild(qtd);
-    
+
     qtbody.appendChild(qrow);
     table.appendChild(qtbody);
     questionDiv.appendChild(table)
@@ -53,10 +87,10 @@ export function createQAExplorer(data, diffculty) {
     const ahead = document.createElement("thead");
     const aheaderRow = document.createElement("tr");
     aheaderRow.className = "table-builder"
-    
+
     const aHeader = document.createElement("th");
     aHeader.textContent = "Answer";
-    
+
     aheaderRow.appendChild(aHeader);
     ahead.append(aheaderRow)
     table.appendChild(ahead)
@@ -70,7 +104,7 @@ export function createQAExplorer(data, diffculty) {
     const aCell = document.createElement("h3");
     atd.append(aCell)
     arow.appendChild(atd);
-    
+
     atbody.appendChild(arow);
     table.appendChild(atbody);
 
@@ -81,7 +115,7 @@ export function createQAExplorer(data, diffculty) {
 
     const eyeSvg = createEyeSvg(new SVGParameters("#e67e22", 1.5)).outerHTML
     const fastForward = createFastForwardSvg(new SVGParameters("#e67e22", 1.5)).outerHTML
-    
+
     // button panel
     const buttonDiv = document.createElement("div");
 
@@ -89,33 +123,31 @@ export function createQAExplorer(data, diffculty) {
     revealBtn.innerHTML = eyeSvg
     revealBtn.className = pressMe;
 
-    var buttonStateReveal = true 
+    var buttonStateReveal = true
     revealBtn.addEventListener("click", () => {
-        if (buttonStateReveal)
-        {
+        if (buttonStateReveal) {
             aCell.className = ""
             buttonStateReveal = false
-            revealBtn.innerHTML =  fastForward;
+            revealBtn.innerHTML = fastForward;
             return
         }
 
-        if (!buttonStateReveal)
-        {
+        if (!buttonStateReveal) {
             loadQuestionAndAnswer()
         }
     });
 
     function loadQuestionAndAnswer() {
-        const random = RandomElementInArray(qaArray)
-        
+        const random = RandomElementInArray(qaArray.filter(x => x.diffculty == difficultFilter))
+
         // load q and a
         qCell.textContent = random.question;
         aCell.textContent = random.answer;
         aCell.className = "blurred-text"
-        
+
         // swap colours
         revealBtn.className = pressMe
-        
+
         // increment card as its been seen
         const card = getDataCardFromUID(data, random.uid)
         card.IncrementView()
