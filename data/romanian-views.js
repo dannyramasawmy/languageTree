@@ -1,5 +1,5 @@
 import { buildColumnDiv, buildLinesDiv } from "./romanian-functions.js";
-import { AdjectiveDataCard, NounDataCard, VerbDataCard } from "./romanian-language-models.js";
+import { Adjective, NounDataCard, VerbDataCard, VerbModal } from "./romanian-language-models.js";
 
 /**
  * 
@@ -7,7 +7,14 @@ import { AdjectiveDataCard, NounDataCard, VerbDataCard } from "./romanian-langua
  * @returns {HTMLDivElement} - HTML data
  */
 export const NounMaleView = (nounDataCard) =>
-    buildLinesDiv([`Un ${nounDataCard.singluar}`, `doi ${nounDataCard.plural}`, nounDataCard.definiteArticle, nounDataCard.definitePlural])
+    buildLinesDiv([
+        `Un ${nounDataCard.singluar}`, 
+        `doi ${nounDataCard.plural}`, 
+        `(inf) ${nounDataCard.definiteArticle}`, 
+        `(inf pl) ${nounDataCard.definitePlural}`,
+        `(gen/dat s) ${nounDataCard.genativeDativeSingular}`,
+        `(gen/dat pl) ${nounDataCard.genativeDativePlural}`,
+    ])
 
 /**
  * 
@@ -15,7 +22,14 @@ export const NounMaleView = (nounDataCard) =>
  * @returns {HTMLDivElement} - HTML data
  */
 export const NounFemaleView = (nounDataCard) =>
-    buildLinesDiv([`O ${nounDataCard.singluar}`, `Doua ${nounDataCard.plural}`, nounDataCard.definiteArticle, nounDataCard.definitePlural])
+    buildLinesDiv([
+        `(s) O ${nounDataCard.singluar}`, 
+        `(pl) Doua ${nounDataCard.plural}`, 
+        `(inf) ${nounDataCard.definiteArticle}`, 
+        `(inf pl) ${nounDataCard.definitePlural}`,
+        `(gen/dat s) ${nounDataCard.genativeDativeSingular}`,
+        `(gen/dat pl) ${nounDataCard.genativeDativePlural}`,
+    ])
 
 
 /**
@@ -24,11 +38,18 @@ export const NounFemaleView = (nounDataCard) =>
  * @returns {HTMLDivElement} - HTML data
  */
 export const NounNeuterView = (nounDataCard) =>
-    buildLinesDiv([`Un ${nounDataCard.singluar}`, `Doua ${nounDataCard.plural}`, nounDataCard.definiteArticle, nounDataCard.definitePlural])
+    buildLinesDiv([
+        `Un ${nounDataCard.singluar}`, 
+        `Doua ${nounDataCard.plural}`, 
+        `(inf) ${nounDataCard.definiteArticle}`, 
+        `(inf pl) ${nounDataCard.definitePlural}`,
+        `(gen/dat s) ${nounDataCard.genativeDativeSingular}`,
+        `(gen/dat pl) ${nounDataCard.genativeDativePlural}`,
+    ])
 
 /**
  * The html string view for an adjective data card
- * @param {AdjectiveDataCard} adjectiveDataCard - an adjective data object
+ * @param {Adjective} adjectiveDataCard - an adjective data object
  * @returns {HTMLDivElement} - HTML data
  */
 export const AdjectiveView = (adjectiveDataCard) =>
@@ -37,6 +58,21 @@ export const AdjectiveView = (adjectiveDataCard) =>
         `(f) ${adjectiveDataCard.femenineSingular}`, 
         `(m-pl) ${adjectiveDataCard.masculinePlural}`, 
         `(f-pl) ${adjectiveDataCard.femeninePlural}`
+    ])
+
+/**
+ * The html string view for an adjective data card
+ * @param {VerbModal} verbModal - an adjective data object
+ * @returns {HTMLDivElement} - HTML data
+ */
+export const ModalVerbView = (verbModal) =>
+    buildLinesDiv([
+        `Eu ${verbModal.data[0]} ${verbModal.Secondary} să [...]`,
+        `Tu ${verbModal.data[1]} ${verbModal.Secondary} să [...]`,
+        `El/Ea ${verbModal.data[2]} ${verbModal.Secondary} să [...]`,
+        `Noi ${verbModal.data[3]} ${verbModal.Secondary} să [...]`,
+        `Voi ${verbModal.data[4]} ${verbModal.Secondary} să [...]`,
+        `Ei/Ele ${verbModal.data[5]} ${verbModal.Secondary} să [...]`,
     ])
 
 /**

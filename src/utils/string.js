@@ -26,6 +26,17 @@ export function stringToHTMLElement(text) {
 }
 
 /**
+ * Autocapitalises strings like "hello world" => "Hello World"
+ * @param {string} text - input text
+ * @returns {string} - auto capitilized text
+ */
+export function autoCapitlizeFirst(text) {
+  return text.split(' ')
+    .map(x => x.charAt(0).toUpperCase() + x.slice(1))
+    .join(' ')
+}
+
+/**
  * TODO: Revisit and make less janky
  * Creates a scrollable div that shows max 10 characters horizontally.
  * @param {string} text - The full text content to display.
