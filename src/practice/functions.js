@@ -29,8 +29,7 @@ export function createQAExplorer(data, diffculty) {
     qheaderRow.className = "table-builder"
     
     const qHeader = document.createElement("th");
-    qHeader.textContent = "Question";
-    // qHeader.className = "text-light"
+    qHeader.textContent = `Question (${diffculty})`;
     
     qheaderRow.appendChild(qHeader);
     qhead.append(qheaderRow)
@@ -57,7 +56,6 @@ export function createQAExplorer(data, diffculty) {
     
     const aHeader = document.createElement("th");
     aHeader.textContent = "Answer";
-    // aHeader.className = "text-light";
     
     aheaderRow.appendChild(aHeader);
     ahead.append(aheaderRow)
