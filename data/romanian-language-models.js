@@ -1,4 +1,4 @@
-import { stringToHTMLElement } from "../src/utils/string.js";
+import { autoCapitlizeFirst, stringToHTMLElement } from "../src/utils/string.js";
 import { AbstractNode, Question } from "../src/tree/models.js";
 import { AdjectiveView, NounFemaleView, NounMaleView, NounNeuterView, VerbDataView, VerbReflexiveSeDataView, VerbReflexiveSiDataView } from "./romanian-views.js";
 
@@ -84,12 +84,12 @@ export class NounDataCard extends AbstractNode {
      */
     constructor(english, romanian, singluar, plural, definiteArticle, definitePlural) {
         super(english, romanian, false)
-        this.english = english
-        this.romanian = romanian
-        this.singluar = singluar
-        this.plural = plural
-        this.definiteArticle = definiteArticle
-        this.definitePlural = definitePlural
+        this.english = autoCapitlizeFirst(english)
+        this.romanian = autoCapitlizeFirst(romanian)
+        this.singluar = autoCapitlizeFirst(singluar)
+        this.plural = autoCapitlizeFirst(plural)
+        this.definiteArticle = autoCapitlizeFirst(definiteArticle)
+        this.definitePlural = autoCapitlizeFirst(definitePlural)
     }
 
     PrimaryView = () => stringToHTMLElement(`${this.english}`)
@@ -124,11 +124,11 @@ export class AdjectiveDataCard extends AbstractNode {
      */
     constructor(english, masculineSingular, femenineSingular, masculinePlural, femeninePlural) {
         super(english, masculineSingular)
-        this.english = english
-        this.masculineSingular = masculineSingular
-        this.femenineSingular = femenineSingular
-        this.masculinePlural = masculinePlural
-        this.femeninePlural = femeninePlural
+        this.english = autoCapitlizeFirst(english)
+        this.masculineSingular = autoCapitlizeFirst(masculineSingular)
+        this.femenineSingular = autoCapitlizeFirst(femenineSingular)
+        this.masculinePlural = autoCapitlizeFirst(masculinePlural)
+        this.femeninePlural = autoCapitlizeFirst(femeninePlural)
     }
 
     PrimaryView = () => stringToHTMLElement(this.english)
