@@ -69,8 +69,26 @@ export function buildColumnDiv(title, lines) {
  */
 export const copyToClipboard = (line) => {
     navigator.clipboard.writeText(line);
-    const utterance = new SpeechSynthesisUtterance(line);
-    utterance.lang = "it-It"; // Set language (e.g. Romanian)
-    speechSynthesis.speak(utterance);
+
+    const romanian = "ro-RO"
+    let romInstalled =  window.speechSynthesis
+        .getVoices()
+        .filter(x => x.lang == romanian)
+        .length > 0
+
+    if (romInstalled)
+    {
+        let openBracket = line.indexOf('(')
+        let closeBracket = line.indexOf(')')
+        let hasValidBracket = openBracket > -1 && closeBracket > -1 && closeBracket > openBracket
+        
+        var lineToSpeak = hasValidBracket
+            ? line.replace(line.slice(openBracket, closeBracket + 1), "")
+            : line
+
+        const utterance = new SpeechSynthesisUtterance(lineToSpeak);
+        utterance.lang = "ro-Ro"; // Set language (e.g. Romanian)
+        speechSynthesis.speak(utterance);
+    }
 };
 

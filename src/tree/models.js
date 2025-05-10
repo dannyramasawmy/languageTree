@@ -123,7 +123,7 @@ export class AbstractNode {
      * @returns {string} - a unique hash-id for the current node
      */
     GetHashId = () => {
-        return `ID-${this.Primary}-${this.Secondary}`
+        return `ID-${this.Primary}-${this.Secondary}`.toLowerCase()
     }
 
     GetViews = () => {

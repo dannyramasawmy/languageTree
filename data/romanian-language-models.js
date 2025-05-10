@@ -1,6 +1,132 @@
 import { autoCapitlizeFirst, stringToHTMLElement } from "../src/utils/string.js";
-import { AbstractNode, Question } from "../src/tree/models.js";
-import { AdjectiveView, NounFemaleView, NounMaleView, NounNeuterView, VerbDataView, VerbReflexiveSeDataView, VerbReflexiveSiDataView } from "./romanian-views.js";
+import { AbstractNode, DataCard, Question } from "../src/tree/models.js";
+import { AdjectiveView, ModalVerbView, NounFemaleView, NounMaleView, NounNeuterView, VerbDataView, VerbReflexiveSeDataView, VerbReflexiveSiDataView } from "./romanian-views.js";
+
+/**
+ * Models to encapsulate different word classes
+ * 
+ * Word Classes:
+ * - adjectives
+ * - adverbs
+ * - conjunctions
+ * - determiners
+ * - interjections
+ * - nouns
+ * - numbers
+ * - prepositions
+ * - pronouns
+ * - verbs
+ * - verbs_modal
+ * 
+ * Multiclass:
+ * - Adjective + Adverb
+ * - Adjective + Noun
+ * - Adverb + Interjection
+ * 
+ */
+
+export class WordClass extends AbstractNode {
+    constructor(english, romanian) {
+        super(english, romanian)
+    }
+
+    PrimaryView = () => stringToHTMLElement(this.Primary)
+    SecondaryView = () => stringToHTMLElement(this.Secondary)
+    DataView = () => stringToHTMLElement('<div></div>')
+    SearchableTerms = () => [
+        this.Primary, this.Secondary
+    ]
+}
+
+export class Adjective extends AbstractNode {
+    /**
+     * Adjectives - describe a noun
+     * @param {string} english 
+     * @param {string} masculineSingular 
+     * @param {string} femenineSingular 
+     * @param {string} masculinePlural 
+     * @param {string} femeninePlural 
+     */
+    constructor(english, masculineSingular, femenineSingular, masculinePlural, femeninePlural) {
+        super(english, masculineSingular)
+        this.english = autoCapitlizeFirst(english)
+        this.masculineSingular = autoCapitlizeFirst(masculineSingular)
+        this.femenineSingular = autoCapitlizeFirst(femenineSingular)
+        this.masculinePlural = autoCapitlizeFirst(masculinePlural)
+        this.femeninePlural = autoCapitlizeFirst(femeninePlural)
+    }
+
+    PrimaryView = () => stringToHTMLElement(this.english)
+    SecondaryView = () => stringToHTMLElement(this.masculineSingular)
+    DataView = () => AdjectiveView(this)
+    SearchableTerms = () => [
+        this.english, this.masculineSingular, this.femenineSingular, this.masculinePlural, this.femeninePlural
+    ]
+}
+
+
+export class Adverb extends AbstractNode {}
+
+
+export class Conjunction extends DataCard {}
+
+
+export class Determiner extends DataCard {}
+
+
+export class Interjection extends DataCard {}
+
+
+export class NounDataCard extends AbstractNode {
+    /**
+     * A generic Noun data card
+     * @param {string} english - English 
+     * @param {string} romanianSingluar - Romanian 
+     * @param {string} romanianPlural - Singluar form (a ...)
+     * @param {string} romanianDefiniteArticle - The definite article (The ...)
+     * @param {string} romanianDefinitePlural - The definite article in plural (The many ...)
+     * @param {string} romanianGenitiveSingular - The definite article in plural (To the <singular> ...)
+     * @param {string} romanianGenitivePlural - The definite article in plural (For the <plural> ...)
+     */
+    constructor(english, romanianSingluar, romanianPlural, romanianDefiniteArticle, romanianDefinitePlural, romanianGenitiveSingular, romanianGenitivePlural) {
+        super(english, romanianSingluar)
+        this.english = autoCapitlizeFirst(english)
+        this.romanian = autoCapitlizeFirst(romanianSingluar)
+        this.singluar = autoCapitlizeFirst(romanianSingluar)
+        this.plural = autoCapitlizeFirst(romanianPlural)
+        this.definiteArticle = autoCapitlizeFirst(romanianDefiniteArticle)
+        this.definitePlural = autoCapitlizeFirst(romanianDefinitePlural)
+        this.genativeDativeSingular = autoCapitlizeFirst(romanianGenitiveSingular)
+        this.genativeDativePlural = autoCapitlizeFirst(romanianGenitivePlural)
+    }
+
+    PrimaryView = () => stringToHTMLElement(`${this.english}`)
+    SecondaryView = () => stringToHTMLElement(`${this.romanian}`)
+    SearchableTerms = () => [
+        this.english, this.romanian, this.singluar, this.plural, this.definiteArticle, this.definitePlural, this.definitePlural, this.definitePlural]
+    }
+
+export class NounNeuter extends NounDataCard {
+    DataView = () => NounNeuterView(this)
+}
+
+export class NounMale extends NounDataCard {
+    DataView = () => NounMaleView(this)
+}
+
+export class NounFemale extends NounDataCard {
+    DataView = () => NounFemaleView(this)
+}
+
+
+export class Number extends DataCard {}
+
+
+export class Preposition extends DataCard {}
+
+
+export class Pronoun extends DataCard {}
+
 
 export class VerbDataCard extends AbstractNode {
     /**
@@ -72,69 +198,19 @@ export class VerbReflexiveSi extends VerbDataCard {
     SecondaryView = () => stringToHTMLElement(`A Si ${this.Secondary}`)
 }
 
-export class NounDataCard extends AbstractNode {
-    /**
-     * A generic Noun data card
-     * @param {string} english - English 
-     * @param {string} romanian - Romanian 
-     * @param {string} singluar - Singluar form (a ...)
-     * @param {string} plural - Plural form (many ...)
-     * @param {string} definiteArticle - The definite article (The ...)
-     * @param {string} definitePlural - The definite article in plural (The many ...)
-     */
-    constructor(english, romanian, singluar, plural, definiteArticle, definitePlural) {
-        super(english, romanian, false)
-        this.english = autoCapitlizeFirst(english)
-        this.romanian = autoCapitlizeFirst(romanian)
-        this.singluar = autoCapitlizeFirst(singluar)
-        this.plural = autoCapitlizeFirst(plural)
-        this.definiteArticle = autoCapitlizeFirst(definiteArticle)
-        this.definitePlural = autoCapitlizeFirst(definitePlural)
+export class VerbModal extends AbstractNode {
+    constructor(english, romanian, data) {
+        super(autoCapitlizeFirst(english), autoCapitlizeFirst(romanian))
+        this.data = data
     }
 
-    PrimaryView = () => stringToHTMLElement(`${this.english}`)
-    SecondaryView = () => stringToHTMLElement(`${this.romanian}`)
-    SearchableTerms = () => [
-        this.english, this.romanian, this.singluar, this.plural, this.definiteArticle, this.definitePlural,
-    ]
-}
-
-export class NounNeuter extends NounDataCard {
-    DataView = () => NounNeuterView(this)
-}
-
-export class NounMale extends NounDataCard {
-    DataView = () => NounMaleView(this)
-}
-
-export class NounFemale extends NounDataCard {
-    DataView = () => NounFemaleView(this)
+    PrimaryView = () => stringToHTMLElement(this.Primary)
+    SecondaryView = () => stringToHTMLElement(this.Secondary)
+    SearchableTerms = () => [this.Primary, this.Secondary]
+    DataView = () => ModalVerbView(this)
 }
 
 
 
-export class AdjectiveDataCard extends AbstractNode {
-    /**
-     * Adjectives - describe a noun
-     * @param {string} english 
-     * @param {string} masculineSingular 
-     * @param {string} femenineSingular 
-     * @param {string} masculinePlural 
-     * @param {string} femeninePlural 
-     */
-    constructor(english, masculineSingular, femenineSingular, masculinePlural, femeninePlural) {
-        super(english, masculineSingular)
-        this.english = autoCapitlizeFirst(english)
-        this.masculineSingular = autoCapitlizeFirst(masculineSingular)
-        this.femenineSingular = autoCapitlizeFirst(femenineSingular)
-        this.masculinePlural = autoCapitlizeFirst(masculinePlural)
-        this.femeninePlural = autoCapitlizeFirst(femeninePlural)
-    }
 
-    PrimaryView = () => stringToHTMLElement(this.english)
-    SecondaryView = () => stringToHTMLElement(this.masculineSingular)
-    DataView = () => AdjectiveView(this)
-    SearchableTerms = () => [
-        this.english, this.masculineSingular, this.femenineSingular, this.masculinePlural, this.femeninePlural
-    ]
-}
+
