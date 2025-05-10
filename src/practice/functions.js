@@ -1,18 +1,19 @@
 import { RandomElementInArray } from "../utils/random.js";
-import { AbstractNode, Question } from "../tree/models.js";
+import { AbstractNode, DifficultyLevel } from "../tree/models.js";
 import { getDataCardFromUID } from "../search/functions.js";
 import { createEyeSvg, createFastForwardSvg, SVGParameters } from "../stats/svg.js";
 
 /**
  * 
  * @param {AbstractNode[]} data
+ * @param {DifficultyLevel} diffculty - the difficulty level
  * @returns 
  */
-export function createQAExplorer(data) {
+export function createQAExplorer(data, diffculty) {
 
     let qaArray = []
     for (const node of data)
-        qaArray.push(...node.Practice())
+        qaArray.push(...node.Practice().filter(n => n.diffculty == diffculty))
     
     const container = document.createElement("div");
     

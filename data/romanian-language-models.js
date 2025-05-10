@@ -1,5 +1,5 @@
 import { autoCapitlizeFirst, stringToHTMLElement } from "../src/utils/string.js";
-import { AbstractNode, DataCard, Question } from "../src/tree/models.js";
+import { AbstractNode, DataCard, DifficultyLevel, Question } from "../src/tree/models.js";
 import { AdjectiveView, ModalVerbView, NounFemaleView, NounMaleView, NounNeuterView, VerbDataView, VerbReflexiveSeDataView, VerbReflexiveSiDataView } from "./romanian-views.js";
 
 /**
@@ -110,13 +110,13 @@ export class NounNeuter extends NounDataCard {
     DataView = () => NounNeuterView(this)
     Practice = () => {
         return [
-            new Question(`Translate "A ${this.Primary}" to Romanian`, `Un ${this.Secondary}`, this.GetHashId()),
-            new Question(`Translate "Un ${this.Secondary}" to English`, `A ${this.Primary}`, this.GetHashId()),
-            new Question(`What is the indefinite plural form of "${this.singluar}" (${this.Primary})?`, `Doua ${this.plural}`, this.GetHashId()),
-            new Question(`What is the definite singluar form of "${this.singluar}" (${this.Primary})?`, `${this.definiteArticle}`, this.GetHashId()),
-            new Question(`What is the definite plural form of "${this.singluar}" (${this.Primary})?`, `${this.definitePlural}`, this.GetHashId()),
-            new Question(`What is the genative/dative singular form of "${this.singluar}" (${this.Primary})?`, `${this.genativeDativeSingular}`, this.GetHashId()),
-            new Question(`What is the genative/dative plural form of "${this.singluar}" (${this.Primary})?`, `${this.genativeDativePlural}`, this.GetHashId()),
+            new Question(this.GetHashId(), `Translate "A ${this.Primary}" to Romanian`, `Un ${this.Secondary}`, DifficultyLevel.Easy),
+            new Question(this.GetHashId(), `Translate "Un ${this.Secondary}" to English`, `A ${this.Primary}`, DifficultyLevel.Easy),
+            new Question(this.GetHashId(), `What is the indefinite plural form of "${this.singluar}" (${this.Primary})?`, `Doua ${this.plural}`, DifficultyLevel.Medium),
+            new Question(this.GetHashId(), `What is the definite singluar form of "${this.singluar}" (${this.Primary})?`, `${this.definiteArticle}`, DifficultyLevel.Easy),
+            new Question(this.GetHashId(), `What is the definite plural form of "${this.singluar}" (${this.Primary})?`, `${this.definitePlural}`, DifficultyLevel.Medium),
+            new Question(this.GetHashId(), `What is the genative/dative singular form of "${this.singluar}" (${this.Primary})?`, `${this.genativeDativeSingular}`, DifficultyLevel.Hard),
+            new Question(this.GetHashId(), `What is the genative/dative plural form of "${this.singluar}" (${this.Primary})?`, `${this.genativeDativePlural}`, DifficultyLevel.Hard),
         ]
     }
 }
@@ -125,13 +125,13 @@ export class NounMale extends NounDataCard {
     DataView = () => NounMaleView(this)
     Practice = () => {
         return [
-            new Question(`Translate "A ${this.Primary}" to Romanian`, `Un ${this.Secondary}`, this.GetHashId()),
-            new Question(`Translate "Un ${this.Secondary}" to English`, `A ${this.Primary}`, this.GetHashId()),
-            new Question(`What is the indefinite plural form of "${this.singluar}" (${this.Primary})?`, `Un ${this.plural}`, this.GetHashId()),
-            new Question(`What is the definite singluar form of "${this.singluar}" (${this.Primary})?`, `${this.definiteArticle}`, this.GetHashId()),
-            new Question(`What is the definite plural form of "${this.singluar}" (${this.Primary})?`, `${this.definitePlural}`, this.GetHashId()),
-            new Question(`What is the genative/dative singular form of "${this.singluar}" (${this.Primary})?`, `${this.genativeDativeSingular}`, this.GetHashId()),
-            new Question(`What is the genative/dative plural form of "${this.singluar}" (${this.Primary})?`, `${this.genativeDativePlural}`, this.GetHashId()),
+            new Question(this.GetHashId(), `Translate "A ${this.Primary}" to Romanian`, `Un ${this.Secondary}`, DifficultyLevel.Easy),
+            new Question(this.GetHashId(), `Translate "Un ${this.Secondary}" to English`, `A ${this.Primary}`, DifficultyLevel.Easy),
+            new Question(this.GetHashId(), `What is the indefinite plural form of "${this.singluar}" (${this.Primary})?`, `Un ${this.plural}`, DifficultyLevel.Medium),
+            new Question(this.GetHashId(), `What is the definite singluar form of "${this.singluar}" (${this.Primary})?`, `${this.definiteArticle}`, DifficultyLevel.Easy),
+            new Question(this.GetHashId(), `What is the definite plural form of "${this.singluar}" (${this.Primary})?`, `${this.definitePlural}`, DifficultyLevel.Medium),
+            new Question(this.GetHashId(), `What is the genative/dative singular form of "${this.singluar}" (${this.Primary})?`, `${this.genativeDativeSingular}`, DifficultyLevel.Hard),
+            new Question(this.GetHashId(), `What is the genative/dative plural form of "${this.singluar}" (${this.Primary})?`, `${this.genativeDativePlural}`, DifficultyLevel.Hard),
         ]
     }
 }
@@ -140,13 +140,13 @@ export class NounFemale extends NounDataCard {
     DataView = () => NounFemaleView(this)
     Practice = () => {
         return [
-            new Question(`Translate "A ${this.Primary}" to Romanian`, `O ${this.Secondary}`, this.GetHashId()),
-            new Question(`Translate "O ${this.Secondary}" to English`, `A ${this.Primary}`, this.GetHashId()),
-            new Question(`What is the indefinite plural form of "${this.singluar}" (${this.Primary})?`, `Doua ${this.plural}`, this.GetHashId()),
-            new Question(`What is the definite singluar form of "${this.singluar}" (${this.Primary})?`, `${this.definiteArticle}`, this.GetHashId()),
-            new Question(`What is the definite plural form of "${this.singluar}" (${this.Primary})?`, `${this.definitePlural}`, this.GetHashId()),
-            new Question(`What is the genative/dative singular form of "${this.singluar}" (${this.Primary})?`, `${this.genativeDativeSingular}`, this.GetHashId()),
-            new Question(`What is the genative/dative plural form of "${this.singluar}" (${this.Primary})?`, `${this.genativeDativePlural}`, this.GetHashId()),
+            new Question(this.GetHashId(), `Translate "A ${this.Primary}" to Romanian`, `O ${this.Secondary}`, DifficultyLevel.Easy),
+            new Question(this.GetHashId(), `Translate "O ${this.Secondary}" to English`, `A ${this.Primary}`, DifficultyLevel.Easy),
+            new Question(this.GetHashId(), `What is the indefinite plural form of "${this.singluar}" (${this.Primary})?`, `Doua ${this.plural}`, DifficultyLevel.Medium),
+            new Question(this.GetHashId(), `What is the definite singluar form of "${this.singluar}" (${this.Primary})?`, `${this.definiteArticle}`, DifficultyLevel.Easy),
+            new Question(this.GetHashId(), `What is the definite plural form of "${this.singluar}" (${this.Primary})?`, `${this.definitePlural}`, DifficultyLevel.Medium),
+            new Question(this.GetHashId(), `What is the genative/dative singular form of "${this.singluar}" (${this.Primary})?`, `${this.genativeDativeSingular}`, DifficultyLevel.Hard),
+            new Question(this.GetHashId(), `What is the genative/dative plural form of "${this.singluar}" (${this.Primary})?`, `${this.genativeDativePlural}`, DifficultyLevel.Hard),
         ]
     }
 }
@@ -195,15 +195,15 @@ export class VerbDataCard extends AbstractNode {
 
     Practice = () => {
         return [
-            new Question(`Translate "To ${this.Primary}" to Romanian`, `A ${this.Secondary}`, this.GetHashId()),
-            new Question(`Translate "A ${this.Secondary}" to English`, `To ${this.Primary}`, this.GetHashId()),
-            new Question(`What is the 'I' form of "A ${this.Secondary}" (To ${this.Primary})?`, `Eu ${this.I}`, this.GetHashId()),
-            new Question(`What is the 'You' form of "A ${this.Secondary}" (To ${this.Primary})?`, `Tu ${this.You}`, this.GetHashId()),
-            new Question(`What is the 'He/She' form of "A ${this.Secondary}" (To ${this.Primary})?`, `El/Ea ${this.HeShe}`, this.GetHashId()),
-            new Question(`What is the 'We' form of "A ${this.Secondary}" (To ${this.Primary})?`, `Noi ${this.We}`, this.GetHashId()),
-            new Question(`What is the 'You (pl)' form of "A ${this.Secondary}" (To ${this.Primary})?`, `Voi ${this.YouPlural}`, this.GetHashId()),
-            new Question(`What is the 'They' form of "A ${this.Secondary}" (To ${this.Primary})?`, `Ei/Ele ${this.They}`, this.GetHashId()),
-            new Question(`What is the 'Past' form of "A ${this.Secondary}" (To ${this.Primary})?`, `Eu am ${this.past}`, this.GetHashId()),
+            new Question(this.GetHashId(), `Translate "To ${this.Primary}" to Romanian`, `A ${this.Secondary}`, DifficultyLevel.Easy),
+            new Question(this.GetHashId(), `Translate "A ${this.Secondary}" to English`, `To ${this.Primary}`, DifficultyLevel.Easy),
+            new Question(this.GetHashId(), `What is the 'I' form of "A ${this.Secondary}" (To ${this.Primary})?`, `Eu ${this.I}`, DifficultyLevel.Easy),
+            new Question(this.GetHashId(), `What is the 'You' form of "A ${this.Secondary}" (To ${this.Primary})?`, `Tu ${this.You}`, DifficultyLevel.Easy),
+            new Question(this.GetHashId(), `What is the 'He/She' form of "A ${this.Secondary}" (To ${this.Primary})?`, `El/Ea ${this.HeShe}`, DifficultyLevel.Easy),
+            new Question(this.GetHashId(), `What is the 'We' form of "A ${this.Secondary}" (To ${this.Primary})?`, `Noi ${this.We}`, DifficultyLevel.Easy),
+            new Question(this.GetHashId(), `What is the 'You (pl)' form of "A ${this.Secondary}" (To ${this.Primary})?`, `Voi ${this.YouPlural}`, DifficultyLevel.Medium),
+            new Question(this.GetHashId(), `What is the 'They' form of "A ${this.Secondary}" (To ${this.Primary})?`, `Ei/Ele ${this.They}`, DifficultyLevel.Medium),
+            new Question(this.GetHashId(), `What is the 'Past' form of "A ${this.Secondary}" (To ${this.Primary})?`, `Eu am ${this.past}`, DifficultyLevel.Easy),
         ]
     }
 }

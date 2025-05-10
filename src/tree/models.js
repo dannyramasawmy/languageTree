@@ -4,18 +4,31 @@ import { stringToHTMLElement } from "../utils/string.js";
 
 /** @typedef {import('./types.js').NodeComparator} NodeComparator */
 
+/**
+ * Element ID's for the navigation bar
+ * @readonly
+ * @enum {string}
+ */
+export const DifficultyLevel = {
+    Easy: "Easy",
+    Medium: "Medium",
+    Hard: "Hard"
+}
+
 
 export class Question {
     /**
      * 
+     * @param {string} nodeUid 
      * @param {string} question 
      * @param {string} answer 
-     * @param {string} nodeUid 
+     * @param {DifficultyLevel} diffculty
      */
-    constructor(question, answer, nodeUid) {
+    constructor(nodeUid, question, answer, diffculty) {
+        this.uid = nodeUid
         this.question = question
         this.answer = answer
-        this.uid = nodeUid
+        this.diffculty = diffculty
     }
 }
 
@@ -156,8 +169,8 @@ export class AbstractNode {
      */
     Practice = () => {
         return [
-            new Question(`Translate "${this.Primary}" to Romanian`, this.Secondary, this.GetHashId()),
-            new Question(`Translate "${this.Secondary}" to English`, this.Primary, this.GetHashId()),
+            new Question(this.GetHashId(), `Translate "${this.Primary}" to Romanian`, this.Secondary, DifficultyLevel.Easy),
+            new Question(this.GetHashId(), `Translate "${this.Secondary}" to English`, this.Primary, DifficultyLevel.Easy),
         ]
     }
 }

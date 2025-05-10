@@ -13,6 +13,7 @@ import { flattenTree, setParentAndChild } from "./tree/functions.js";
 import { Stats } from "./stats/models.js";
 import { displayNumberOfSearchMatches, showCustomSearchConfigurations } from "./search/view.js";
 import { Practice } from "./practice/models.js";
+import { DifficultyLevel } from "./tree/models.js";
 
 
 // =============================================================================
@@ -31,7 +32,7 @@ let treeAsArray = flattenTree(ROOT_NODE)
 
 // special cards
 setParentAndChild(ROOT_NODE, new Stats(CONFIG.STATISTICS_LABELS[0], CONFIG.STATISTICS_LABELS[1], ROOT_NODE))
-setParentAndChild(ROOT_NODE, new Practice(treeAsArray))
+setParentAndChild(ROOT_NODE, new Practice(treeAsArray, DifficultyLevel.Easy))
 
 const sortDisplayList = (GLOBAL, displayCards) =>
   tree.functions.sortDataCardArray(
