@@ -63,7 +63,8 @@ export function createQAExplorer(data) {
 
     let qaArray = []
     for (const node of data)
-        qaArray.push(...node.Practice())
+        qaArray.push(...node.Practice().filter(r => r.answer != "")) // ignore empty answers
+
 
     var difficultFilter = DifficultyLevel.Easy
 
