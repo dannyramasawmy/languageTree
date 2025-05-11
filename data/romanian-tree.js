@@ -305,50 +305,50 @@ export function BuildLanguageTree() // returns romanian
     // #Prepositions
     // =============================================================================
 
-    let preposition_about = new DataCard("About", "Despre", "") // unverified
-    let preposition_above = new DataCard("Above", "De mai sus", "") // unverified
-    let preposition_abroad = new DataCard("Abroad", "În străinătate", ""); // unverified
-    let preposition_after = new DataCard("After", "După", "") // unverified
-    let preposition_against = new DataCard("Against", "Împotriva", "") // unverified
-    let preposition_alongSide = new DataCard("Along side (next to)", "Pe langa", "") // unverified
-    let preposition_amid = new DataCard("Amid (in the middle of)", "În mijlocul", "") // unverified
-    let preposition_among = new DataCard("Among", "Printre", "") // unverified
-    let preposition_apartFrom = new DataCard("Apart from", "În afară de", "") // unverified
-    let preposition_at = new DataCard("At", "La", "") // unverified
-    let preposition_awayFrom = new DataCard("Away From", "Departe de", ""); // unverified
-    let preposition_behind = new DataCard("Behind", "In spate", "") // unverified
-    let preposition_beneath = new DataCard("Beneath", "Sub", "") // unverified
-    let preposition_beside = new DataCard("Beside (next to)", "Lângă", "") // unverified
-    let preposition_beyond = new DataCard("Beyond", "Dincolo", "") // unverified
-    let preposition_bottom = new DataCard("Bottom", "De Jos", ""); // unverified
-    let preposition_by = new DataCard("By", "De către", ""); // unverified
-    let preposition_closeTo = new DataCard("Close to", "Aproape de", "") // unverified
-    let preposition_from = new DataCard("From", "Din", "") // unverified
-    let preposition_high = new DataCard("High", "Sus", ""); // unverified
-    let preposition_in = new DataCard("In", "În (Înăuntru)", "") // unverified
-    let preposition_inBetween = new DataCard("In between", "Între", "") // unverified
-    let preposition_inFrontOf = new DataCard("In front of", "În fața", "") // unverified
-    let preposition_inside = new DataCard("Inside", "Interior", "") // unverified
-    let preposition_left = new DataCard("Left", "La Stânga", ""); // unverified
-    let preposition_low = new DataCard("Low", "Jos", ""); // unverified
-    let preposition_near = new DataCard("Near", "Apropape", "") // unverified
-    let preposition_of = new DataCard("Of", "De", "") // unverified
-    let preposition_on = new DataCard("On", "Pe", "") // unverified
-    let preposition_oppositeTo = new DataCard("Opposite To", "Peste drum de", ""); // unverified
-    let preposition_out = new DataCard("Out", "Afară", ""); // unverified
-    let preposition_outside = new DataCard("Outside", "In afara", "") // unverified
-    let preposition_over = new DataCard("Over", "Peste", "") // unverified
-    let preposition_right = new DataCard("Right", "La Dreapta", ""); // unverified
-    let preposition_since = new DataCard("Since", "De când", "") // unverified
-    let preposition_through = new DataCard("Through", "Prin", "") // unverified
-    let preposition_till = new DataCard("Until (till)", "Până (la)", "") // unverified
-    let preposition_together = new DataCard("Together", "Impreuna", "") // unverified
-    let preposition_top = new DataCard("Top", "De Sus", ""); // unverified
-    let preposition_towards = new DataCard("Towards", "Spre", "") // unverified
-    let preposition_until = new DataCard("Until", "Până când", ""); // unverified
-    let preposition_via = new DataCard("Via", "Prin", ""); // unverified
-    let preposition_with = new DataCard("With", "Cu", "") // unverified
-    let preposition_without = new DataCard("Without", "Fără", "") // unverified
+    let preposition_about = new DataCard("About", "Despre", "") 
+    let preposition_above = new DataCard("Above", "De mai sus", "") 
+    let preposition_abroad = new DataCard("Abroad", "În străinătate", ""); 
+    let preposition_after = new DataCard("After", "După", "") 
+    let preposition_against = new DataCard("Against", "Împotriva", "") 
+    let preposition_alongSide = new DataCard("Along side (next to)", "Pe langa", "") 
+    let preposition_amid = new DataCard("Amid (in the middle of)", "În mijlocul", "") 
+    let preposition_among = new DataCard("Among", "Printre", "") 
+    let preposition_apartFrom = new DataCard("Apart from", "În afară de", "") 
+    let preposition_at = new DataCard("At", "La", "") 
+    let preposition_awayFrom = new DataCard("Away From", "Departe de", ""); 
+    let preposition_behind = new DataCard("Behind", "In spate", "") 
+    let preposition_beneath = new DataCard("Beneath", "Sub", "") 
+    let preposition_beside = new DataCard("Beside (next to)", "Lângă", "") 
+    let preposition_beyond = new DataCard("Beyond", "Dincolo", "") 
+    let preposition_bottom = new DataCard("Bottom", "De Jos", ""); 
+    let preposition_by = new DataCard("By", "De către", ""); 
+    let preposition_closeTo = new DataCard("Close to", "Aproape de", "") 
+    let preposition_from = new DataCard("From", "Din", "") 
+    let preposition_high = new DataCard("High", "Sus", ""); 
+    let preposition_in = new DataCard("In", "În (Înăuntru)", "") 
+    let preposition_inBetween = new DataCard("In between", "Între", "") 
+    let preposition_inFrontOf = new DataCard("In front of", "În fața", "") 
+    let preposition_inside = new DataCard("Inside", "Interior", "") 
+    let preposition_left = new DataCard("Left", "La Stânga", ""); 
+    let preposition_low = new DataCard("Low", "Jos", ""); 
+    let preposition_near = new DataCard("Near", "Apropape", "") 
+    let preposition_of = new DataCard("Of", "De", "") 
+    let preposition_on = new DataCard("On", "Pe", "") 
+    let preposition_oppositeTo = new DataCard("Opposite To", "Peste drum de", ""); 
+    let preposition_out = new DataCard("Out", "Afară", ""); 
+    let preposition_outside = new DataCard("Outside", "In afara", "") 
+    let preposition_over = new DataCard("Over", "Peste", "") 
+    let preposition_right = new DataCard("Right", "La Dreapta", ""); 
+    let preposition_since = new DataCard("Since", "De când", "") 
+    let preposition_through = new DataCard("Through", "Prin", "") 
+    let preposition_till = new DataCard("Until (till)", "Până (la)", "") 
+    let preposition_together = new DataCard("Together", "Impreuna", "") 
+    let preposition_top = new DataCard("Top", "De Sus", ""); 
+    let preposition_towards = new DataCard("Towards", "Spre", "") 
+    let preposition_until = new DataCard("Until", "Până când", ""); 
+    let preposition_via = new DataCard("Via", "Prin", ""); 
+    let preposition_with = new DataCard("With", "Cu", "") 
+    let preposition_without = new DataCard("Without", "Fără", "") 
 
     setParentAndMultipleChildren(wordclass_prepositions, [
         preposition_about, preposition_above, preposition_abroad, preposition_after, preposition_against, preposition_alongSide, preposition_amid, preposition_among,
@@ -363,66 +363,66 @@ export function BuildLanguageTree() // returns romanian
     // #Adjectives
     // =============================================================================
 
-    let who = new DataCard("Who", "Cine", "") // unverified
+    let who = new DataCard("Who", "Cine", "") 
     setParentAndChild(wordclass_adjectives, who);
 
-    let what = new DataCard( // unverified
+    let what = new DataCard( 
         "What", "Ce",
         "")
     setParentAndChild(wordclass_adjectives, what);
 
-    let which = new DataCard( // unverified
+    let which = new DataCard( 
         "Which", "Care",
         "")
     setParentAndChild(wordclass_adjectives, which);
 
     // #quantities
-    let quantities = new DataCard("Quantities", "Cantități", ""); // unverified
+    let quantities = new DataCard("Quantities", "Cantități", ""); 
     setParentAndChild(wordclass_adjectives, quantities);
 
-    let every = new DataCard( // unverified
+    let every = new DataCard( 
         "Every", "Fiecare",
         "")
     setParentAndChild(quantities, every);
 
-    let all = new DataCard( // unverified
+    let all = new DataCard( 
         "All", "Toate",
         "")
     setParentAndChild(quantities, all);
 
-    let some = new DataCard( // unverified
+    let some = new DataCard( 
         "Some (approximately)", "Vreo",
         "")
     setParentAndChild(quantities, some);
 
-    let full = new DataCard("Full", "Sătul", ""); // unverified
+    let full = new DataCard("Full", "Sătul", ""); 
     setParentAndChild(quantities, full);
 
-    let frequent = new DataCard("Frequent", "Frecvente", ""); // unverified
+    let frequent = new DataCard("Frequent", "Frecvente", ""); 
     setParentAndChild(quantities, frequent);
 
-    let justRight = new DataCard("Just right", "Potrivit", ""); // unverified
+    let justRight = new DataCard("Just right", "Potrivit", ""); 
     setParentAndChild(quantities, justRight);
 
-    let sufficient = new DataCard("Sufficient", "Suficient", ""); // unverified
+    let sufficient = new DataCard("Sufficient", "Suficient", ""); 
     setParentAndChild(quantities, sufficient);
 
-    let Long = new DataCard("Long", "Lung", ""); // unverified
+    let Long = new DataCard("Long", "Lung", ""); 
     setParentAndChild(quantities, Long)
 
-    let Short = new DataCard("Short", "Scurt", ""); // unverified
+    let Short = new DataCard("Short", "Scurt", ""); 
     setParentAndChild(quantities, Short)
 
-    let Empty = new DataCard("Empty", "Gol", ""); // unverified
+    let Empty = new DataCard("Empty", "Gol", ""); 
     setParentAndChild(quantities, Empty)
 
-    let Full = new DataCard("Full", "Plin", ""); // unverified
+    let Full = new DataCard("Full", "Plin", ""); 
     setParentAndChild(quantities, Full)
 
-    let Few = new DataCard("Few", "Puține", "Puțini"); // unverified
+    let Few = new DataCard("Few", "Puține", "Puțini"); 
     setParentAndChild(quantities, Few)
 
-    let Many = new DataCard("Many", "Multe", "Mulți"); // unverified
+    let Many = new DataCard("Many", "Multe", "Mulți"); 
     setParentAndChild(quantities, Many)
 
     // #descriptiveadjectives
@@ -644,54 +644,54 @@ export function BuildLanguageTree() // returns romanian
     setParentAndChild(wordclass_nouns, Time)
 
     // #relativeTime
-    let RelativeTime = new Theme("Relative Time", "Timp Relativ"); // unverified
+    let RelativeTime = new Theme("Relative Time", "Timp Relativ"); 
     setParentAndChild(Time, RelativeTime)
 
-    let Next = new DataCard("Next", "Următorul", ""); // unverified
+    let Next = new DataCard("Next", "Următorul", ""); 
     setParentAndChild(RelativeTime, Next)
 
-    let Last = new DataCard("Last", "Trecut", ""); // unverified
+    let Last = new DataCard("Last", "Trecut", ""); 
     setParentAndChild(RelativeTime, Last)
 
-    let LastYear = new DataCard("Last Year", "Anul trecut", ""); // unverified
+    let LastYear = new DataCard("Last Year", "Anul trecut", ""); 
     setParentAndChild(RelativeTime, LastYear)
 
-    let NextYear = new DataCard("Next year", "Anul Urmator", ""); // unverified
+    let NextYear = new DataCard("Next year", "Anul Urmator", ""); 
     setParentAndChild(RelativeTime, NextYear)
 
-    let Tomorrow = new DataCard("Tomorrow", "Mâine", ""); // unverified
+    let Tomorrow = new DataCard("Tomorrow", "Mâine", ""); 
     setParentAndChild(RelativeTime, Tomorrow)
 
-    let DayAfterTomorrow = new DataCard("The day after tomorrow", "Poimâine", ""); // unverified
+    let DayAfterTomorrow = new DataCard("The day after tomorrow", "Poimâine", ""); 
     setParentAndChild(RelativeTime, DayAfterTomorrow)
 
-    let Yesterday = new DataCard("Yesterday", "Ieri", ""); // unverified
+    let Yesterday = new DataCard("Yesterday", "Ieri", ""); 
     setParentAndChild(RelativeTime, Yesterday)
 
-    let DayBeforeYesterday = new DataCard("The day before yesterday", "Alaltaieri", ""); // unverified
+    let DayBeforeYesterday = new DataCard("The day before yesterday", "Alaltaieri", ""); 
     setParentAndChild(RelativeTime, DayBeforeYesterday)
 
-    let Later = new DataCard("Late (later)", "(Mai) Târziu", ""); // unverified
+    let Later = new DataCard("Late (later)", "(Mai) Târziu", ""); 
     setParentAndChild(RelativeTime, Later)
 
-    let lastYear = new DataCard("Last year", "Anul trecut", ""); // unverified
+    let lastYear = new DataCard("Last year", "Anul trecut", ""); 
     setParentAndChild(RelativeTime, lastYear);
 
-    let last = new DataCard("Last", "Trecut / Trecută", ""); // unverified
+    let last = new DataCard("Last", "Trecut / Trecută", ""); 
     setParentAndChild(RelativeTime, last);
 
-    let afternoon = new DataCard("Afternoon", "După amiază", ""); // unverified
+    let afternoon = new DataCard("Afternoon", "După amiază", ""); 
     setParentAndChild(RelativeTime, afternoon);
 
-    let inTheFuture = new DataCard("In the future", "În viitor", ""); // unverified
+    let inTheFuture = new DataCard("In the future", "În viitor", ""); 
     setParentAndChild(RelativeTime, inTheFuture);
 
-    let quarterTo = new DataCard("Quarter to", "Fără un sfert", ""); // unverified
+    let quarterTo = new DataCard("Quarter to", "Fără un sfert", ""); 
     setParentAndChild(RelativeTime, quarterTo);
 
 
     // #seasons
-    let TheMonths = new Theme("The Months", "Lunii"); // unverified
+    let TheMonths = new Theme("The Months", "Lunii"); 
     setParentAndChild(Time, TheMonths);
 
     const noun_month = new NounMale("month", "lună", "luni", "luna", "lunile", "lunii", "lunilor");
@@ -843,55 +843,55 @@ export function BuildLanguageTree() // returns romanian
     ])
 
     // #misc nouns
-    let miscellaneous = new Theme("Miscellaneous", "Diverse"); // unverified
+    let miscellaneous = new Theme("Miscellaneous", "Diverse"); 
     setParentAndChild(wordclass_nouns, miscellaneous);
 
-    let opinion = new DataCard("Opinion", "Opinie", ""); // unverified
+    let opinion = new DataCard("Opinion", "Opinie", ""); 
     setParentAndChild(miscellaneous, opinion);
 
-    let comedy = new DataCard("Comedy", "Comedie", ""); // unverified
+    let comedy = new DataCard("Comedy", "Comedie", ""); 
     setParentAndChild(miscellaneous, comedy);
 
-    let song = new DataCard("Song (piece)", "Piesă", ""); // unverified
+    let song = new DataCard("Song (piece)", "Piesă", ""); 
     setParentAndChild(miscellaneous, song);
 
-    let war = new DataCard("War", "Război", ""); // unverified
+    let war = new DataCard("War", "Război", ""); 
     setParentAndChild(miscellaneous, war);
 
-    let novel = new DataCard("Novel", "Roman", ""); // unverified
+    let novel = new DataCard("Novel", "Roman", ""); 
     setParentAndChild(miscellaneous, novel);
 
-    let affair = new DataCard("Affair", "Aventură amoroasă", ""); // unverified
+    let affair = new DataCard("Affair", "Aventură amoroasă", ""); 
     setParentAndChild(miscellaneous, affair);
 
-    let profile = new DataCard("Profile", "Profil", ""); // unverified
+    let profile = new DataCard("Profile", "Profil", ""); 
     setParentAndChild(miscellaneous, profile);
 
-    let promise = new DataCard("Promise", "Promisiune", ""); // unverified
+    let promise = new DataCard("Promise", "Promisiune", ""); 
     setParentAndChild(miscellaneous, promise);
 
-    let chance = new DataCard("Chance", "Șansă", ""); // unverified
+    let chance = new DataCard("Chance", "Șansă", ""); 
     setParentAndChild(miscellaneous, chance);
 
-    let reason = new DataCard("Reason", "Motiv", ""); // unverified
+    let reason = new DataCard("Reason", "Motiv", ""); 
     setParentAndChild(miscellaneous, reason);
 
-    let freezing = new DataCard("Freezing", "Ger", ""); // unverified
+    let freezing = new DataCard("Freezing", "Ger", ""); 
     setParentAndChild(miscellaneous, freezing);
 
-    let appearance = new DataCard("Appearance", "Aspect", ""); // unverified
+    let appearance = new DataCard("Appearance", "Aspect", ""); 
     setParentAndChild(miscellaneous, appearance);
 
-    let hurry = new DataCard("Hurry", "Grabă", ""); // unverified
+    let hurry = new DataCard("Hurry", "Grabă", ""); 
     setParentAndChild(miscellaneous, hurry);
 
-    let purpose = new DataCard("Purpose", "Scop", ""); // unverified
+    let purpose = new DataCard("Purpose", "Scop", ""); 
     setParentAndChild(miscellaneous, purpose);
 
-    let intention = new DataCard("Intention (purpose)", "Intenție", ""); // unverified
+    let intention = new DataCard("Intention (purpose)", "Intenție", ""); 
     setParentAndChild(miscellaneous, intention);
 
-    let theTruth = new DataCard("The truth", "Adevărul", ""); // unverified
+    let theTruth = new DataCard("The truth", "Adevărul", ""); 
     setParentAndChild(miscellaneous, theTruth);
 
     // # space
@@ -1515,26 +1515,26 @@ export function BuildLanguageTree() // returns romanian
     let AtWork = new Theme("At Work", "La muncă"); 
     setParentAndChild(wordclass_nouns, AtWork);
 
-    const noun_project = new NounNeuter("project", "proiect", "proiecte", "proiectul", "proiectele", "proiectului", "proiectelor"); // unverified
-    const noun_appointment = new NounFemale("appointment", "programare", "programări", "programarea", "programările", "programării", "programărilor"); // unverified
-    const noun_boss = new NounMale("boss", "șef", "șefi", "șeful", "șefii", "șefului", "șefilor"); // unverified
-    const noun_detail = new NounNeuter("detail", "detaliu", "detalii", "detaliul", "detaliile", "detaliului", "detaliilor"); // unverified
-    const noun_employee = new NounMale("employee", "angajat", "angajați", "angajatul", "angajații", "angajatului", "angajaților"); // unverified
-    const noun_experience = new NounFemale("experience", "experiență", "experiențe", "experiența", "experiențele", "experienței", "experiențelor"); // unverified
-    const noun_facility = new NounFemale("facility", "facilitate", "facilități", "facilitatea", "facilitățile", "facilității", "facilităților"); // unverified
-    const noun_humanResources = new NounFemale("human resources", "resurse umane", "resurse umane", "resursa umană", "resursele umane", "resursei umane", "resurselor umane"); // unverified
-    const noun_job = new NounNeuter("job", "loc de muncă", "locuri de muncă", "locul de muncă", "locurile de muncă", "locului de muncă", "locurilor de muncă"); // unverified
-    const noun_meeting = new NounFemale("meeting", "ședință", "ședințe", "ședința", "ședințele", "ședinței", "ședințelor"); // unverified
-    const noun_method = new NounFemale("method", "metodă", "metode", "metoda", "metodele", "metodei", "metodelor"); // unverified
-    const noun_objective = new NounNeuter("objective", "obiectiv", "obiective", "obiectivul", "obiectivele", "obiectivului", "obiectivelor"); // unverified
-    const noun_opportunity = new NounFemale("opportunity", "oportunitate", "oportunități", "oportunitatea", "oportunitățile", "oportunității", "oportunităților"); // unverified
-    const noun_problem = new NounFemale("problem", "problemă", "probleme", "problema", "problemele", "problemei", "problemelor"); // unverified
-    const noun_promotion = new NounFemale("promotion", "promovare", "promovări", "promovarea", "promovările", "promovării", "promovărilor"); // unverified
-    const noun_report = new NounNeuter("report", "raport", "rapoarte", "raportul", "rapoartele", "raportului", "rapoartelor"); // unverified
-    const noun_result = new NounNeuter("result", "rezultat", "rezultate", "rezultatul", "rezultatele", "rezultatului", "rezultatelor"); // unverified
-    const noun_salary = new NounNeuter("salary", "salariu", "salarii", "salariul", "salariile", "salariului", "salariilor"); // unverified
-    const noun_skill = new NounFemale("skill", "abilitate", "abilități", "abilitatea", "abilitățile", "abilității", "abilităților"); // unverified
-    const noun_workday = new NounFemale("workday", "zi de muncă", "zile de muncă", "ziua de muncă", "zilele de muncă", "zilei de muncă", "zilelor de muncă"); // unverified
+    const noun_project = new NounNeuter("project", "proiect", "proiecte", "proiectul", "proiectele", "proiectului", "proiectelor"); 
+    const noun_appointment = new NounFemale("appointment", "programare", "programări", "programarea", "programările", "programării", "programărilor"); 
+    const noun_boss = new NounMale("boss", "șef", "șefi", "șeful", "șefii", "șefului", "șefilor"); 
+    const noun_detail = new NounNeuter("detail", "detaliu", "detalii", "detaliul", "detaliile", "detaliului", "detaliilor"); 
+    const noun_employee = new NounMale("employee", "angajat", "angajați", "angajatul", "angajații", "angajatului", "angajaților"); 
+    const noun_experience = new NounFemale("experience", "experiență", "experiențe", "experiența", "experiențele", "experienței", "experiențelor"); 
+    const noun_facility = new NounFemale("facility", "facilitate", "facilități", "facilitatea", "facilitățile", "facilității", "facilităților"); 
+    const noun_humanResources = new NounFemale("human resources", "resurse umane", "", "", "", "", ""); 
+    const noun_job = new NounNeuter("Place of work (job)", "loc de muncă", "locuri de muncă", "locul de muncă", "locurile de muncă", "locului de muncă", "locurilor de muncă"); 
+    const noun_meeting = new NounFemale("meeting", "ședință", "ședințe", "ședința", "ședințele", "ședinței", "ședințelor"); 
+    const noun_method = new NounFemale("method", "metodă", "metode", "metoda", "metodele", "metodei", "metodelor"); 
+    const noun_objective = new NounNeuter("objective", "obiectiv", "obiective", "obiectivul", "obiectivele", "obiectivului", "obiectivelor"); 
+    const noun_opportunity = new NounFemale("opportunity", "oportunitate", "oportunități", "oportunitatea", "oportunitățile", "oportunității", "oportunităților"); 
+    const noun_problem = new NounFemale("problem", "problemă", "probleme", "problema", "problemele", "problemei", "problemelor"); 
+    const noun_promotion = new NounFemale("promotion", "promovare", "promovări", "promovarea", "promovările", "promovării", "promovărilor"); 
+    const noun_report = new NounNeuter("report", "raport", "rapoarte", "raportul", "rapoartele", "raportului", "rapoartelor"); 
+    const noun_result = new NounNeuter("result", "rezultat", "rezultate", "rezultatul", "rezultatele", "rezultatului", "rezultatelor"); 
+    const noun_salary = new NounNeuter("salary", "salariu", "salarii", "salariul", "salariile", "salariului", "salariilor"); 
+    const noun_skill = new NounFemale("skill", "abilitate", "abilități", "abilitatea", "abilitățile", "abilității", "abilităților"); 
+    const noun_workday = new NounFemale("workday", "zi de muncă", "zile de muncă", "ziua de muncă", "zilele de muncă", "zilei de muncă", "zilelor de muncă"); 
 
 
     setParentAndMultipleChildren(AtWork, [
@@ -1545,135 +1545,134 @@ export function BuildLanguageTree() // returns romanian
 
     // #home ===========================
 
-    let atHome = new DataCard("At Home", "Acasă", ""); // unverified
+    let atHome = new DataCard("At Home", "Acasă", ""); 
     setParentAndChild(wordclass_nouns, atHome)
 
     //#workshop
-    let TheWorkshop = new Theme("The Workshop", "Atelierul"); // unverified
+    let TheWorkshop = new Theme("The Workshop", "Atelierul"); 
     setParentAndChild(atHome, TheWorkshop)
 
-    const noun_axe = new NounFemale("axe", "secure", "securi", "securea", "securile", "securii", "securilor"); // unverified
-    const noun_barrel = new NounFemale("barrel", "butoi", "butoaie", "butoiul", "butoaiele", "butoiului", "butoaielor"); // unverified
-    const noun_bolts = new NounMale("bolt", "șurub", "șuruburi", "șurubul", "șuruburile", "șurubului", "șuruburilor"); // unverified
-    const noun_drill = new NounFemale("drill", "bormașină", "bormașini", "bormașina", "bormașinile", "bormașinii", "bormașinilor"); // unverified
-    const noun_file = new NounFemale("file", "pilă", "pile", "pila", "pilele", "pilei", "pilelor"); // unverified
-    const noun_hammer = new NounMale("hammer", "ciocan", "ciocane", "ciocanul", "ciocanele", "ciocanului", "ciocanelor"); // unverified
-    const noun_jars = new NounFemale("jar", "borcan", "borcane", "borcanul", "borcanele", "borcanului", "borcanelor"); // unverified
-    const noun_ladder = new NounFemale("ladder", "scară", "scări", "scara", "scările", "scării", "scărilor"); // unverified
-    const noun_nails = new NounMale("nail", "cuie", "cuie", "cuiul", "cuiele", "cuiului", "cuielor"); // unverified
-    const noun_nuts = new NounFemale("nuts", "piuliță", "piulițe", "piulița", "piulițele", "piuliței", "piulițelor"); // unverified
-    const noun_paintPot = new NounFemale("paint pot", "cutie de vopsea", "cutii de vopsea", "cutia de vopsea", "cutiile de vopsea", "cutiei de vopsea", "cutiilor de vopsea"); // unverified
-    const noun_penknife = new NounNeuter("penknife", "briceag", "bricege", "briceagul", "bricegele", "briceagului", "bricegelor"); // unverified
-    const noun_plank = new NounFemale("plank", "scândură", "scânduri", "scândura", "scândurile", "scândurii", "scândurilor"); // unverified
-    const noun_pliers = new NounFemale("pliers", "clește", "clești", "cleștele", "cleștii", "cleștelui", "cleștilor"); // unverified
-    const noun_sandpaper = new NounNeuter("sandpaper", "șmirghel", "șmirghele", "șmirghelul", "șmirghelele", "șmirghelului", "șmirghelelor"); // unverified
-    const noun_saw = new NounFemale("saw", "ferăstrău", "ferăstraie", "ferăstrăul", "ferăstraiele", "ferăstrăului", "ferăstraielor"); // unverified
-    const noun_sawdust = new NounNeuter("sawdust", "rumeguș", "rumegușuri", "rumegușul", "rumegușurile", "rumegușului", "rumegușurilor"); // unverified
-    const noun_screwdriver = new NounFemale("screwdriver", "șurubelniță", "șurubelnițe", "șurubelnița", "șurubelnițele", "șurubelniței", "șurubelnițelor"); // unverified
-    const noun_screws = new NounMale("screw", "șurub", "șuruburi", "șurubul", "șuruburile", "șurubului", "șuruburilor"); // unverified
-    const noun_tapeMeasure = new NounFemale("tape measure", "ruletă", "rulete", "ruleta", "ruletele", "ruletei", "ruletei"); // unverified
-    const noun_toolbox = new NounFemale("toolbox", "trusă de scule", "truse de scule", "trusa de scule", "trusele de scule", "trusei de scule", "truselor de scule"); // unverified
-    const noun_vice = new NounFemale("vice", "menghină", "menghine", "menghina", "menghinele", "menghinei", "menghinelor"); // unverified
-    const noun_wood = new NounNeuter("wood", "lemn", "lemne", "lemnul", "lemnele", "lemnului", "lemnelor"); // unverified
-    const noun_woodShavings = new NounNeuter("wood shavings", "așchii de lemn", "așchii de lemn", "așchia de lemn", "așchiile de lemn", "așchiei de lemn", "așchiilor de lemn"); // unverified
-    const noun_workbench = new NounFemale("workbench", "banc de lucru", "bănci de lucru", "banca de lucru", "băncile de lucru", "băncii de lucru", "băncilor de lucru"); // unverified
+    const noun_axe = new NounFemale("axe", "secure", "securi", "securea", "securile", "securii", "securilor"); 
+    const noun_barrel = new NounNeuter("barrel", "butoi", "butoaie", "butoiul", "butoaiele", "butoiului", "butoaielor"); 
+    const noun_bolt = new NounNeuter("bolt", "șurub", "șuruburi", "șurubul", "șuruburile", "șurubului", "șuruburilor"); 
+    const noun_drill = new NounFemale("drill", "bormașină", "bormașini", "bormașina", "bormașinile", "bormașinii", "bormașinilor"); 
+    const noun_file = new NounFemale("file", "pilă", "pile", "pila", "pilele", "pilei", "pilelor"); 
+    const noun_hammer = new NounMale("hammer", "ciocan", "ciocane", "ciocanul", "ciocanele", "ciocanului", "ciocanelor"); 
+    const noun_jar = new NounNeuter("jar", "borcan", "borcane", "borcanul", "borcanele", "borcanului", "borcanelor"); 
+    const noun_ladder = new NounFemale("ladder", "scară", "scări", "scara", "scările", "scării", "scărilor"); 
+    const noun_nail = new NounNeuter("nail", "cui", "cuie", "cuiul", "cuiele", "cuiului", "cuielor"); 
+    const noun_nut = new NounFemale("nuts", "piuliță", "piulițe", "piulița", "piulițele", "piuliței", "piulițelor"); 
+    const noun_paintPot = new NounFemale("paint pot", "cutie de vopsea", "cutii de vopsea", "cutia de vopsea", "cutiile de vopsea", "cutiei de vopsea", "cutiilor de vopsea"); 
+    const noun_penknife = new NounNeuter("penknife", "briceag", "bricege", "briceagul", "bricegele", "briceagului", "bricegelor"); 
+    const noun_plank = new NounFemale("plank", "scândură", "scânduri", "scândura", "scândurile", "scândurii", "scândurilor"); 
+    const noun_plier = new NounMale("pliers", "clește", "clești", "cleștele", "cleștii", "cleștelui", "cleștilor"); 
+    const noun_sandpaper = new NounNeuter("sandpaper", "șmirghel", "șmirghele", "șmirghelul", "șmirghelele", "șmirghelului", "șmirghelelor"); 
+    const noun_saw = new NounNeuter("saw", "ferăstrău", "ferăstraie", "ferăstrăul", "ferăstraiele", "ferăstrăului", "ferăstraielor"); 
+    const noun_sawdust = new NounNeuter("sawdust", "rumeguș", "", "rumegușul", "", "rumegușului", ""); 
+    const noun_screwdriver = new NounFemale("screwdriver", "șurubelniță", "șurubelnițe", "șurubelnița", "șurubelnițele", "șurubelniței", "șurubelnițelor"); 
+    const noun_screw = new NounNeuter("screw", "șurub", "șuruburi", "șurubul", "șuruburile", "șurubului", "șuruburilor"); 
+    const noun_tapeMeasure = new NounFemale("tape measure", "ruletă", "rulete", "ruleta", "ruletele", "ruletei", "ruletelor"); 
+    const noun_toolbox = new NounFemale("toolbox", "trusă de scule", "truse de scule", "trusa de scule", "trusele de scule", "trusei de scule", "truselor de scule"); 
+    const noun_vice = new NounFemale("vice", "menghină", "menghine", "menghina", "menghinele", "menghinei", "menghinelor"); 
+    const noun_wood = new NounNeuter("wood", "lemn", "lemne", "lemnul", "lemnele", "lemnului", "lemnelor"); 
+    const noun_woodShaving = new NounFemale("wood shaving", "așchie de lemn", "așchii de lemn", "așchia de lemn", "așchiile de lemn", "așchiei de lemn", "așchiilor de lemn"); 
+    const noun_workbench = new NounFemale("workbench", "banc de lucru", "bănci de lucru", "banca de lucru", "băncile de lucru", "băncii de lucru", "băncilor de lucru"); 
     
 
     setParentAndMultipleChildren(TheWorkshop, [
-        noun_axe, noun_barrel, noun_bolts, noun_drill, noun_file, noun_hammer, noun_jars, noun_ladder, noun_nails, noun_nuts, noun_paintPot, 
-        noun_penknife, noun_plank, noun_pliers, noun_sandpaper, noun_saw, noun_sawdust, noun_screwdriver, noun_screws, noun_tapeMeasure, 
-        noun_toolbox, noun_vice, noun_wood, noun_woodShavings, noun_workbench, 
+        noun_axe, noun_barrel, noun_bolt, noun_drill, noun_file, noun_hammer, noun_jar, noun_ladder, noun_nail, noun_nut, noun_paintPot, 
+        noun_penknife, noun_plank, noun_plier, noun_sandpaper, noun_saw, noun_sawdust, noun_screwdriver, noun_screw, noun_tapeMeasure, 
+        noun_toolbox, noun_vice, noun_wood, noun_woodShaving, noun_workbench, 
     ])
 
     //#garden
-    let theGarden = new Theme("The Garden", "Grădina"); // unverified
+    let theGarden = new Theme("The Garden", "Grădina"); 
     setParentAndChild(atHome, theGarden)
 
-    const noun_bone = new NounFemale("bone", "os", "oase", "osul", "oasele", "osului", "oaselor"); // unverified
-    const noun_bonfire = new NounNeuter("bonfire", "foc de tabără", "focuri de tabără", "focul de tabără", "focurile de tabără", "focului de tabără", "focurilor de tabără"); // unverified
-    const noun_brick = new NounFemale("brick", "cărămidă", "cărămizi", "cărămida", "cărămizile", "cărămizii", "cărămizilor"); // unverified
-    const noun_diggingSpade = new NounFemale("digging spade", "lopată de săpat", "lopeți de săpat", "lopata de săpat", "lopetele de săpat", "lopății de săpat", "lopetelor de săpat"); // unverified
-    const noun_dustbin = new NounFemale("dustbin", "pubelă", "pubele", "pubela", "pubelele", "pubelei", "pubelelor"); // unverified
-    const noun_flowers = new NounFemale("flower", "floare", "flori", "floarea", "florile", "florii", "florilor"); // unverified
-    const noun_gardenFork = new NounFemale("garden fork", "furcă de grădină", "furci de grădină", "furca de grădină", "furcile de grădină", "furcii de grădină", "furcilor de grădină"); // unverified
-    const noun_grass = new NounNeuter("grass", "iarbă", "ierburi", "iarba", "ierburile", "ierbii", "ierburilor"); // unverified
-    const noun_greenhouse = new NounFemale("greenhouse", "seră", "sere", "sera", "serele", "serei", "serelor"); // unverified
-    const noun_hedge = new NounFemale("hedge", "gard viu", "gărzi vii", "gardul viu", "gărzile vii", "gardului viu", "gardurilor vii"); // unverified
-    const noun_hoe = new NounFemale("hoe", "sapa", "sape", "sapa", "sapele", "sapei", "sapelor"); // unverified
-    const noun_hosepipe = new NounFemale("hosepipe", "furtun", "furtunuri", "furtunul", "furtunurile", "furtunului", "furtunurilor"); // unverified
-    const noun_lawnmower = new NounFemale("lawnmower", "mașină de tuns iarba", "mașini de tuns iarba", "mașina de tuns iarba", "mașinile de tuns iarba", "mașinii de tuns iarba", "mașinilor de tuns iarba"); // unverified
-    const noun_leaf = new NounFemale("leaf", "frunză", "frunze", "frunza", "frunzele", "frunzei", "frunzelor"); // unverified
-    const noun_nest = new NounNeuter("nest", "cuib", "cuiburi", "cuibul", "cuiburile", "cuibului", "cuiburilor"); // unverified
-    const noun_path = new NounFemale("path", "potecă", "poteci", "poteca", "potecile", "potecii", "potecilor"); // unverified
-    const noun_pram = new NounNeuter("pram", "cărucior", "cărucioare", "căruciorul", "cărucioarele", "căruciorului", "cărucioarelor"); // unverified
-    const noun_rake = new NounFemale("rake", "greblă", "greble", "grebla", "greblele", "greblei", "greblelor"); // unverified
-    const noun_seed = new NounNeuter("seed", "sămânță", "semințe", "sămânța", "semințele", "seminței", "semințelor"); // unverified
-    const noun_shed = new NounNeuter("shed", "șopron", "șoproane", "șopronul", "șoproanele", "șopronului", "șopronelor"); // unverified
-    const noun_smoke = new NounNeuter("smoke", "fum", "fumuri", "fumul", "fumurile", "fumului", "fumurilor"); // unverified
-    const noun_sprinkler = new NounNeuter("sprinkler", "aspersor", "aspersoare", "aspersorul", "aspersoarele", "aspersorului", "aspersoarelor"); // unverified
-    const noun_stick = new NounMale("stick", "băț", "bețe", "bățul", "bețele", "bățului", "bețelor"); // unverified
-    const noun_tree = new NounMale("tree", "copac", "copaci", "copacul", "copacii", "copacului", "copacilor"); // unverified
-    const noun_trowel = new NounFemale("trowel", "gletieră", "gletiere", "gletiera", "gletierele", "gletierei", "gletierelor"); // unverified
-    const noun_vegetable = new NounNeuter("vegetable", "legumă", "legume", "leguma", "legumele", "legumei", "legumelor"); // unverified
-    const noun_wateringCan = new NounFemale("watering can", "stropitoare", "stropitori", "stropitoarea", "stropitorile", "stropitorii", "stropitorilor"); // unverified
-    const noun_wheelbarrow = new NounNeuter("wheelbarrow", "roabă", "roabe", "roaba", "roabele", "roabei", "roabelor"); // unverified
+    const noun_bone = new NounNeuter("bone", "os", "oase", "osul", "oasele", "osului", "oaselor"); 
+    const noun_bonfire = new NounNeuter("bonfire", "foc de tabără", "focuri de tabără", "focul de tabără", "focurile de tabără", "focului de tabără", "focurilor de tabără"); 
+    const noun_brick = new NounFemale("brick", "cărămidă", "cărămizi", "cărămida", "cărămizile", "cărămizii", "cărămizilor"); 
+    const noun_diggingSpade = new NounFemale("digging spade", "lopată de săpat", "lopeți de săpat", "lopata de săpat", "lopetele de săpat", "lopății de săpat", "lopetelor de săpat"); 
+    const noun_dustbin = new NounFemale("dustbin", "pubelă", "pubele", "pubela", "pubelele", "pubelei", "pubelelor"); 
+    const noun_flowers = new NounFemale("flower", "floare", "flori", "floarea", "florile", "florii", "florilor"); 
+    const noun_gardenFork = new NounFemale("garden fork", "furcă de grădină", "furci de grădină", "furca de grădină", "furcile de grădină", "furcii de grădină", "furcilor de grădină"); 
+    const noun_grass = new NounFemale("grass", "iarbă", "ierburi", "iarba", "ierburile", "ierbii", "ierburilor"); 
+    const noun_greenhouse = new NounFemale("greenhouse", "seră", "sere", "sera", "serele", "serei", "serelor"); 
+    const noun_hedge = new NounNeuter("hedge", "gard viu", "gărzi vii", "gardul viu", "gărzile vii", "gardului viu", "gardurilor vii"); 
+    const noun_hoe = new NounFemale("hoe", "sapa", "sape", "sapa", "sapele", "sapei", "sapelor"); 
+    const noun_hosepipe = new NounNeuter("hosepipe", "furtun", "furtunuri", "furtunul", "furtunurile", "furtunului", "furtunurilor"); 
+    const noun_lawnmower = new NounFemale("lawnmower", "mașină de tuns iarba", "mașini de tuns iarba", "mașina de tuns iarba", "mașinile de tuns iarba", "mașinii de tuns iarba", "mașinilor de tuns iarba"); 
+    const noun_leaf = new NounFemale("leaf", "frunză", "frunze", "frunza", "frunzele", "frunzei", "frunzelor"); 
+    const noun_nest = new NounNeuter("nest", "cuib", "cuiburi", "cuibul", "cuiburile", "cuibului", "cuiburilor"); 
+    const noun_path = new NounFemale("path", "potecă", "poteci", "poteca", "potecile", "potecii", "potecilor"); 
+    const noun_pram = new NounNeuter("pram", "cărucior", "cărucioare", "căruciorul", "cărucioarele", "căruciorului", "cărucioarelor"); 
+    const noun_rake = new NounFemale("rake", "greblă", "greble", "grebla", "greblele", "greblei", "greblelor"); 
+    const noun_seed = new NounFemale("seed", "sămânță", "semințe", "sămânța", "semințele", "seminței", "semințelor"); 
+    const noun_shed = new NounNeuter("shed", "șopron", "șoproane", "șopronul", "șoproanele", "șopronului", "șopronelor"); 
+    const noun_smoke = new NounNeuter("smoke", "fum", "fumuri", "fumul", "fumurile", "fumului", "fumurilor"); 
+    const noun_sprinkler = new NounNeuter("sprinkler", "aspersor", "aspersoare", "aspersorul", "aspersoarele", "aspersorului", "aspersoarelor"); 
+    const noun_stick = new NounNeuter("stick", "băț", "bețe", "bățul", "bețele", "bățului", "bețelor"); 
+    const noun_tree = new NounMale("tree", "copac", "copaci", "copacul", "copacii", "copacului", "copacilor"); 
+    const noun_vegetable = new NounFemale("vegetable", "legumă", "legume", "leguma", "legumele", "legumei", "legumelor"); 
+    const noun_wateringCan = new NounFemale("watering can", "stropitoare", "stropitori", "stropitoarea", "stropitorile", "stropitorii", "stropitorilor"); 
+    const noun_wheelbarrow = new NounFemale("wheelbarrow", "roabă", "roabe", "roaba", "roabele", "roabei", "roabelor"); 
 
 
     setParentAndMultipleChildren(theGarden, [
         noun_bone, noun_bonfire, noun_brick, noun_diggingSpade, noun_dustbin, noun_flowers, noun_gardenFork, noun_grass, noun_greenhouse, noun_hedge, 
         noun_hoe, noun_hosepipe, noun_lawnmower, noun_leaf, noun_nest, noun_path, noun_pram, noun_rake, noun_seed, noun_shed, noun_smoke, noun_sprinkler, 
-        noun_stick, noun_tree, noun_trowel, noun_vegetable, noun_wateringCan, noun_wheelbarrow, 
+        noun_stick, noun_tree, noun_vegetable, noun_wateringCan, noun_wheelbarrow, 
     ])
 
   
     //#kitchen
-    let theKitchen = new Theme("The Kitchen", "Bucătăria"); // unverified
+    let theKitchen = new Theme("The Kitchen", "Bucătăria"); 
     setParentAndChild(atHome, theKitchen)
 
-    const noun_storageRoom = new NounNeuter("storage room", "debara", "debare", "debaraua", "debarele", "debaralei", "debarelelor"); // unverified
-    const noun_apron = new NounNeuter("apron", "șorț", "șorțuri", "șorțul", "șorțurile", "șorțului", "șorțurilor"); // unverified
-    const noun_bowl = new NounFemale("bowl", "bol", "boluri", "bolul", "bolurile", "bolului", "bolurilor"); // unverified
-    const noun_broom = new NounFemale("broom", "mătură", "mături", "mătura", "măturile", "măturii", "măturilor"); // unverified
-    const noun_broomCupboard = new NounFemale("broom cupboard", "dulap pentru mături", "dulapuri pentru mături", "dulapul pentru mături", "dulapurile pentru mături", "dulapului pentru mături", "dulapurilor pentru mături"); // unverified
-    const noun_brush = new NounFemale("brush", "perie", "perii", "peria", "periile", "periei", "periilor"); // unverified
-    const noun_clock = new NounFemale("clock", "ceas", "ceasuri", "ceasul", "ceasurile", "ceasului", "ceasurilor"); // unverified
-    const noun_clothesIron = new NounNeuter("clothes iron", "fier de călcat", "fiare de călcat", "fierul de călcat", "fiarele de călcat", "fierului de călcat", "fiarelor de călcat"); // unverified
-    const noun_cooker = new NounFemale("cooker", "aragaz", "aragazuri", "aragazul", "aragazurile", "aragazului", "aragazurilor"); // unverified
-    const noun_cup = new NounFemale("cup", "cană", "căni", "cana", "cănile", "cănii", "cănilor"); // unverified
-    const noun_door = new NounFemale("door", "ușă", "uși", "ușa", "ușile", "ușii", "ușilor"); // unverified
-    const noun_drawer = new NounNeuter("drawer", "sertar", "sertare", "sertarul", "sertarele", "sertarului", "sertarelor"); // unverified
-    const noun_drinkingGlass = new NounNeuter("drinking glass", "pahar", "pahare", "paharul", "paharele", "paharului", "paharelor"); // unverified
-    const noun_duster = new NounFemale("duster", "pânză de praf", "pânze de praf", "pânza de praf", "pânzele de praf", "pânzei de praf", "pânzelor de praf"); // unverified
-    const noun_dustpan = new NounFemale("dustpan", "făraș", "fărașe", "fărașul", "fărașele", "fărașului", "fărașelor"); // unverified
-    const noun_fire = new NounNeuter("fire", "foc", "focuri", "focul", "focurile", "focului", "focurilor"); // unverified
-    const noun_fork = new NounFemale("fork", "furculiță", "furculițe", "furculița", "furculițele", "furculiței", "furculițelor"); // unverified
-    const noun_fridge = new NounFemale("fridge", "frigider", "frigidere", "frigiderul", "frigiderele", "frigiderului", "frigiderelor"); // unverified
-    const noun_fryingPan = new NounFemale("frying pan", "tigaie", "tigăi", "tigaia", "tigăile", "tigăii", "tigăilor"); // unverified
-    const noun_ironingBoard = new NounFemale("ironing board", "masă de călcat", "mese de călcat", "masa de călcat", "mesele de călcat", "masei de călcat", "meselor de călcat"); // unverified
-    const noun_kettle = new NounNeuter("kettle", "fierbător", "fierbătoare", "fierbătorul", "fierbătoarele", "fierbătorului", "fierbătoarelor"); // unverified
-    const noun_key = new NounFemale("key", "cheie", "chei", "cheia", "cheile", "cheii", "cheilor"); // unverified
-    const noun_kitchenSink = new NounNeuter("kitchen sink", "chiuvetă", "chiuvete", "chiuveta", "chiuvetele", "chiuvetei", "chiuvetelor"); // unverified
-    const noun_knife = new NounNeuter("knife", "cuțit", "cuțite", "cuțitul", "cuțitele", "cuțitului", "cuțitelor"); // unverified
-    const noun_lightSwitch = new NounNeuter("light switch", "întrerupător", "întrerupătoare", "întrerupătorul", "întrerupătoarele", "întrerupătorului", "întrerupătoarelor"); // unverified
-    const noun_matchFire = new NounFemale("match", "chibrit", "chibrituri", "chibritul", "chibriturile", "chibritului", "chibriturilor"); // unverified
-    const noun_mop = new NounFemale("mop", "mop", "mopuri", "mopul", "mopurile", "mopului", "mopurilor"); // unverified
-    const noun_pan = new NounFemale("pan", "tigaie", "tigăi", "tigaia", "tigăile", "tigăii", "tigăilor"); // unverified
-    const noun_plates = new NounFemale("plate", "farfurie", "farfurii", "farfuria", "farfuriile", "farfuriei", "farfuriilor"); // unverified
-    const noun_pot = new NounFemale("pot", "oală", "oale", "oala", "oalele", "oalei", "oalelor"); // unverified
-    const noun_rubbish = new NounNeuter("rubbish", "gunoi", "gunoaie", "gunoiul", "gunoaiele", "gunoiului", "gunoaielor"); // unverified
-    const noun_saucepan = new NounFemale("saucepan", "cratiță", "cratițe", "cratița", "cratițele", "cratiței", "cratițelor"); // unverified
-    const noun_saucer = new NounFemale("saucer", "farfurioară", "farfurioare", "farfurioara", "farfurioarele", "farfurioarei", "farfurioarelor"); // unverified
-    const noun_spoon = new NounFemale("spoon", "lingură", "linguri", "lingura", "lingurile", "lingurii", "lingurilor"); // unverified
-    const noun_stool = new NounNeuter("stool", "taburet", "taburete", "taburetul", "taburetele", "taburetului", "taburetelor"); // unverified
-    const noun_teaPot = new NounNeuter("teapot", "ceainic", "ceainice", "ceainicul", "ceainicele", "ceainicului", "ceainicelor"); // unverified
-    const noun_teaSpoon = new NounFemale("teaspoon", "linguriță", "lingurițe", "lingurița", "lingurițele", "linguriței", "lingurițelor"); // unverified
-    const noun_teaTowel = new NounFemale("tea towel", "prosop de bucătărie", "prosoape de bucătărie", "prosopul de bucătărie", "prosoapele de bucătărie", "prosopului de bucătărie", "prosoapelor de bucătărie"); // unverified
-    const noun_tile = new NounFemale("tile", "gresie", "gresii", "gresia", "gresiile", "gresiei", "gresiilor"); // unverified
-    const noun_tray = new NounFemale("tray", "tavă", "tăvi", "tava", "tăvile", "tăvii", "tăvilor"); // unverified
-    const noun_vacuumCleaner = new NounMale("vacuum cleaner", "aspirator", "aspiratoare", "aspiratorul", "aspiratoarele", "aspiratorului", "aspiratoarelor"); // unverified
-    const noun_vitamin = new NounFemale("vitamin", "vitamină", "vitamine", "vitamina", "vitaminele", "vitaminei", "vitaminelor"); // unverified
-    const noun_washingMachine = new NounFemale("washing machine", "mașină de spălat", "mașini de spălat", "mașina de spălat", "mașinile de spălat", "mașinii de spălat", "mașinilor de spălat"); // unverified
-    const noun_washingPowder = new NounNeuter("washing powder", "detergent pudră", "detergenți pudră", "detergentul pudră", "detergenții pudră", "detergentului pudră", "detergenților pudră"); // unverified
+    const noun_storageRoom = new NounFemale("storage room", "debara", "debare", "debaraua", "debarele", "debaralei", "debarelelor"); 
+    const noun_apron = new NounNeuter("apron", "șorț", "șorțuri", "șorțul", "șorțurile", "șorțului", "șorțurilor"); 
+    const noun_bowl = new NounNeuter("bowl", "bol", "boluri", "bolul", "bolurile", "bolului", "bolurilor"); 
+    const noun_broom = new NounFemale("broom", "mătură", "mături", "mătura", "măturile", "măturii", "măturilor"); 
+    const noun_broomCupboard = new NounNeuter("broom cupboard", "dulap pentru mături", "dulapuri pentru mături", "dulapul pentru mături", "dulapurile pentru mături", "dulapului pentru mături", "dulapurilor pentru mături"); 
+    const noun_brush = new NounFemale("brush", "perie", "perii", "peria", "periile", "periei", "periilor"); 
+    const noun_clock = new NounNeuter("clock", "ceas", "ceasuri", "ceasul", "ceasurile", "ceasului", "ceasurilor"); 
+    const noun_clothesIron = new NounNeuter("clothes iron", "fier de călcat", "fiare de călcat", "fierul de călcat", "fiarele de călcat", "fierului de călcat", "fiarelor de călcat"); 
+    const noun_cooker = new NounNeuter("cooker", "aragaz", "aragazuri", "aragazul", "aragazurile", "aragazului", "aragazurilor"); 
+    const noun_cup = new NounFemale("cup", "cană", "căni", "cana", "cănile", "cănii", "cănilor"); 
+    const noun_door = new NounFemale("door", "ușă", "uși", "ușa", "ușile", "ușii", "ușilor"); 
+    const noun_drawer = new NounNeuter("drawer", "sertar", "sertare", "sertarul", "sertarele", "sertarului", "sertarelor"); 
+    const noun_drinkingGlass = new NounNeuter("drinking glass", "pahar", "pahare", "paharul", "paharele", "paharului", "paharelor"); 
+    const noun_duster = new NounFemale("duster", "pânză de praf", "pânze de praf", "pânza de praf", "pânzele de praf", "pânzei de praf", "pânzelor de praf"); 
+    const noun_dustpan = new NounNeuter("dustpan", "făraș", "fărașe", "fărașul", "fărașele", "fărașului", "fărașelor"); 
+    const noun_fire = new NounNeuter("fire", "foc", "focuri", "focul", "focurile", "focului", "focurilor"); 
+    const noun_fork = new NounFemale("fork", "furculiță", "furculițe", "furculița", "furculițele", "furculiței", "furculițelor"); 
+    const noun_fridge = new NounNeuter("fridge", "frigider", "frigidere", "frigiderul", "frigiderele", "frigiderului", "frigiderelor"); 
+    const noun_fryingPan = new NounFemale("frying pan", "tigaie", "tigăi", "tigaia", "tigăile", "tigăii", "tigăilor"); 
+    const noun_ironingBoard = new NounFemale("ironing board", "masă de călcat", "mese de călcat", "masa de călcat", "mesele de călcat", "masei de călcat", "meselor de călcat"); 
+    const noun_kettle = new NounNeuter("kettle", "fierbător", "fierbătoare", "fierbătorul", "fierbătoarele", "fierbătorului", "fierbătoarelor"); 
+    const noun_key = new NounFemale("key", "cheie", "chei", "cheia", "cheile", "cheii", "cheilor"); 
+    const noun_kitchenSink = new NounFemale("kitchen sink", "chiuvetă", "chiuvete", "chiuveta", "chiuvetele", "chiuvetei", "chiuvetelor"); 
+    const noun_knife = new NounNeuter("knife", "cuțit", "cuțite", "cuțitul", "cuțitele", "cuțitului", "cuțitelor"); 
+    const noun_lightSwitch = new NounNeuter("light switch", "întrerupător", "întrerupătoare", "întrerupătorul", "întrerupătoarele", "întrerupătorului", "întrerupătoarelor"); 
+    const noun_matchFire = new NounNeuter("match", "chibrit", "chibrituri", "chibritul", "chibriturile", "chibritului", "chibriturilor"); 
+    const noun_mop = new NounNeuter("mop", "mop", "mopuri", "mopul", "mopurile", "mopului", "mopurilor"); 
+    const noun_pan = new NounFemale("pan", "tigaie", "tigăi", "tigaia", "tigăile", "tigăii", "tigăilor"); 
+    const noun_plates = new NounFemale("plate", "farfurie", "farfurii", "farfuria", "farfuriile", "farfuriei", "farfuriilor"); 
+    const noun_pot = new NounFemale("pot", "oală", "oale", "oala", "oalele", "oalei", "oalelor"); 
+    const noun_rubbish = new NounNeuter("rubbish", "gunoi", "gunoaie", "gunoiul", "gunoaiele", "gunoiului", "gunoaielor"); 
+    const noun_saucepan = new NounFemale("saucepan", "cratiță", "cratițe", "cratița", "cratițele", "cratiței", "cratițelor"); 
+    const noun_saucer = new NounFemale("saucer", "farfurioară", "farfurioare", "farfurioara", "farfurioarele", "farfurioarei", "farfurioarelor"); 
+    const noun_spoon = new NounFemale("spoon", "lingură", "linguri", "lingura", "lingurile", "lingurii", "lingurilor"); 
+    const noun_stool = new NounNeuter("stool", "taburet", "taburete", "taburetul", "taburetele", "taburetului", "taburetelor"); 
+    const noun_teaPot = new NounNeuter("teapot", "ceainic", "ceainice", "ceainicul", "ceainicele", "ceainicului", "ceainicelor"); 
+    const noun_teaSpoon = new NounFemale("teaspoon", "linguriță", "lingurițe", "lingurița", "lingurițele", "linguriței", "lingurițelor"); 
+    const noun_teaTowel = new NounNeuter("tea towel", "prosop de bucătărie", "prosoape de bucătărie", "prosopul de bucătărie", "prosoapele de bucătărie", "prosopului de bucătărie", "prosoapelor de bucătărie"); 
+    const noun_tile = new NounFemale("tile", "gresie", "gresii", "gresia", "gresiile", "gresiei", "gresiilor"); 
+    const noun_tray = new NounFemale("tray", "tavă", "tăvi", "tava", "tăvile", "tăvii", "tăvilor"); 
+    const noun_vacuumCleaner = new NounNeuter("vacuum cleaner", "aspirator", "aspiratoare", "aspiratorul", "aspiratoarele", "aspiratorului", "aspiratoarelor"); 
+    const noun_vitamin = new NounFemale("vitamin", "vitamină", "vitamine", "vitamina", "vitaminele", "vitaminei", "vitaminelor"); 
+    const noun_washingMachine = new NounFemale("washing machine", "mașină de spălat", "mașini de spălat", "mașina de spălat", "mașinile de spălat", "mașinii de spălat", "mașinilor de spălat"); 
+    const noun_washingPowder = new NounMale("washing powder", "detergent pudră", "detergenți pudră", "detergentul pudră", "detergenții pudră", "detergentului pudră", "detergenților pudră"); 
 
 
     setParentAndMultipleChildren(theKitchen, [
@@ -1686,135 +1685,135 @@ export function BuildLanguageTree() // returns romanian
   
 
     //#inhome
-    let home = new Theme("Home", "Casă"); // unverified
+    let home = new Theme("Home", "Casă"); 
     setParentAndChild(atHome, home)
 
-    const noun_ceiling = new NounNeuter("ceiling", "tavan", "tavane", "tavanul", "tavanele", "tavanului", "tavanelor"); // unverified
-    const noun_ballgown = new NounFemale("ball gown", "rochie de gală", "rochii de gală", "rochia de gală", "rochiile de gală", "rochiei de gală", "rochiilor de gală"); // unverified
-    const noun_balloon = new NounNeuter("balloon", "balon", "baloane", "balonul", "baloanele", "balonului", "baloanelor"); // unverified
-    const noun_bath = new NounFemale("bath", "cadă", "căzi", "cada", "cazile", "căzii", "cazilor"); // unverified
-    const noun_bathroom = new NounNeuter("bathroom", "baie", "băi", "baia", "băile", "băii", "băilor"); // unverified
-    const noun_bed = new NounNeuter("bed", "pat", "paturi", "patul", "paturile", "patului", "paturilor"); // unverified
-    const noun_bedroom = new NounNeuter("bedroom", "dormitor", "dormitoare", "dormitorul", "dormitoarele", "dormitorului", "dormitoarelor"); // unverified
-    const noun_blanket = new NounFemale("blanket", "pătură", "pături", "pătura", "păturile", "păturii", "păturilor"); // unverified
-    const noun_bookshelf = new NounFemale("bookshelf", "raft de cărți", "rafturi de cărți", "raftul de cărți", "rafturile de cărți", "raftului de cărți", "rafturilor de cărți"); // unverified
-    const noun_candle = new NounFemale("candle", "lumânare", "lumânări", "lumânarea", "lumânările", "lumânării", "lumânărilor"); // unverified
-    const noun_carpet = new NounNeuter("carpet", "covor", "covoare", "covorul", "covoarele", "covorului", "covoarelor"); // unverified
-    const noun_chair = new NounFemale("chair", "scaun", "scaune", "scaunul", "scaunele", "scaunului", "scaunelor"); // unverified
-    const noun_chestOfdrawers = new NounFemale("chest of drawers", "comodă", "comode", "comoda", "comodele", "comodei", "comodelor"); // unverified
-    const noun_clothesPeg = new NounFemale("clothes peg", "cârlig de rufe", "cârlige de rufe", "cârligul de rufe", "cârligele de rufe", "cârligului de rufe", "cârligelor de rufe"); // unverified
-    const noun_comb = new NounNeuter("comb", "pieptene", "piepteni", "pieptenele", "pieptenii", "pieptenelui", "pieptenilor"); // unverified
-    const noun_computer = new NounNeuter("computer", "calculator", "calculatoare", "calculatorul", "calculatoarele", "calculatorului", "calculatoarelor"); // unverified
-    const noun_cushion = new NounNeuter("cushion", "pernă decorativă", "perne decorative", "perna decorativă", "pernele decorative", "pernei decorative", "pernelor decorative"); // unverified
-    const noun_duvet = new NounNeuter("duvet", "pilotă", "pilote", "pilota", "pilotele", "pilotei", "pilotelor"); // unverified
-    const noun_dvd = new NounNeuter("DVD", "DVD", "DVD-uri", "DVD-ul", "DVD-urile", "DVD-ului", "DVD-urilor"); // unverified
-    const noun_entrance = new NounFemale("entrance", "intrare", "intrări", "intrarea", "intrările", "intrării", "intrărilor"); // unverified
-    const noun_envelope = new NounNeuter("envelope", "plic", "plicuri", "plicul", "plicurile", "plicului", "plicurilor"); // unverified
-    const noun_eyeGlasses = new NounFemale("eyeglasses", "ochelari", "ochelari", "ochelarii", "ochelarii", "ochelarilor", "ochelarilor"); // unverified
-    const noun_firework = new NounNeuter("firework", "foc de artificii", "focuri de artificii", "focul de artificii", "focurile de artificii", "focului de artificii", "focurilor de artificii"); // unverified
-    const noun_floor = new NounNeuter("floor", "podea", "podele", "podeaua", "podelele", "podelei", "podelelor"); // unverified
-    const noun_hairbrush = new NounFemale("hairbrush", "perie de păr", "perii de păr", "peria de păr", "periile de păr", "periei de păr", "periilor de păr"); // unverified
-    const noun_hall = new NounNeuter("hall", "hol", "holuri", "holul", "holurile", "holului", "holurilor"); // unverified
-    const noun_lamp = new NounFemale("lamp", "lampă", "lămpi", "lampa", "lămpile", "lămpii", "lămpilor"); // unverified
-    const noun_laundry = new NounNeuter("laundry", "rufe", "rufe", "rufele", "rufele", "rufelor", "rufelor"); // unverified
-    const noun_letter = new NounFemale("letter", "scrisoare", "scrisori", "scrisoarea", "scrisorile", "scrisorii", "scrisorilor"); // unverified
-    const noun_lightbulb = new NounFemale("lightbulb", "bec", "becuri", "becul", "becurile", "becului", "becurilor"); // unverified
-    const noun_livingRoom = new NounNeuter("living room", "sufragerie", "sufragerii", "sufrageria", "sufrageriile", "sufrageriei", "sufrageriilor"); // unverified
-    const noun_mat = new NounNeuter("mat", "preș", "preșuri", "preșul", "preșurile", "preșului", "preșurilor"); // unverified
-    const noun_mirror = new NounNeuter("mirror", "oglindă", "oglinzi", "oglinda", "oglinzile", "oglinzii", "oglinzilor"); // unverified
-    const noun_newspaper = new NounNeuter("newspaper", "ziar", "ziare", "ziarul", "ziarele", "ziarului", "ziarelor"); // unverified
-    const noun_package = new NounNeuter("package", "pachet", "pachete", "pachetul", "pachetele", "pachetului", "pachetelor"); // unverified
-    const noun_paperchain = new NounFemale("paper chain", "ghirlandă", "ghirlande", "ghirlanda", "ghirlandele", "ghirlandei", "ghirlandelor"); // unverified
-    const noun_party = new NounFemale("party", "petrecere", "petreceri", "petrecerea", "petrecerile", "petrecerii", "petrecerilor"); // unverified
-    const noun_picture = new NounNeuter("picture", "tablou", "tablouri", "tabloul", "tablourile", "tabloului", "tablourilor"); // unverified
-    const noun_pillow = new NounFemale("pillow", "pernă", "perne", "perna", "pernele", "pernei", "pernelor"); // unverified
-    const noun_presentGift = new NounNeuter("present", "cadou", "cadouri", "cadoul", "cadourile", "cadoului", "cadourilor"); // unverified
-    const noun_radiator = new NounNeuter("radiator", "calorifer", "calorifere", "caloriferul", "caloriferele", "caloriferului", "caloriferelor"); // unverified
-    const noun_radio = new NounNeuter("radio", "radio", "radiouri", "radioul", "radiourile", "radioului", "radiourilor"); // unverified
-    const noun_ribbon = new NounFemale("ribbon", "panglică", "panglici", "panglica", "panglicile", "panglicii", "panglicilor"); // unverified
-    const noun_rug = new NounNeuter("rug", "covoraș", "covorașe", "covorașul", "covorașele", "covorașului", "covorașelor"); // unverified
-    const noun_sheet = new NounNeuter("sheet", "cearșaf", "cearșafuri", "cearșaful", "cearșafurile", "cearșafului", "cearșafurilor"); // unverified
-    const noun_shower = new NounFemale("shower", "duș", "dușuri", "dușul", "dușurile", "dușului", "dușurilor"); // unverified
-    const noun_sinkBasin = new NounFemale("sink basin", "chiuvetă", "chiuvete", "chiuveta", "chiuvetele", "chiuvetei", "chiuvetelor"); // unverified
-    const noun_soap = new NounNeuter("soap", "săpun", "săpunuri", "săpunul", "săpunurile", "săpunului", "săpunurilor"); // unverified
-    const noun_sofa = new NounFemale("sofa", "canapea", "canapele", "canapeaua", "canapelele", "canapelei", "canapelelor"); // unverified
-    const noun_sponge = new NounFemale("sponge", "burete", "bureți", "buretele", "bureții", "buretelui", "bureților"); // unverified
-    const noun_stairs = new NounFemale("stairs", "scară", "scări", "scara", "scările", "scării", "scărilor"); // unverified
-    const noun_table = new NounFemale("table", "masă", "mese", "masa", "mesele", "mesei", "meselor"); // unverified
-    const noun_tableCloth = new NounFemale("table cloth", "față de masă", "fețe de masă", "fața de masă", "fețele de masă", "feței de masă", "fețelor de masă"); // unverified
-    const noun_tap = new NounNeuter("tap", "robinet", "robinete", "robinetul", "robinetele", "robinetului", "robinetelor"); // unverified
-    const noun_teddyBear = new NounMale("teddy bear", "ursuleț de pluș", "ursuleți de pluș", "ursulețul de pluș", "ursuleții de pluș", "ursulețului de pluș", "ursuleților de pluș"); // unverified
-    const noun_telephone = new NounNeuter("telephone", "telefon", "telefoane", "telefonul", "telefoanele", "telefonului", "telefoanelor"); // unverified
-    const noun_television = new NounNeuter("television", "televizor", "televizoare", "televizorul", "televizoarele", "televizorului", "televizoarelor"); // unverified
-    const noun_toilet = new NounFemale("toilet", "toaletă", "toalete", "toaleta", "toaletele", "toaletei", "toaletelor"); // unverified
-    const noun_toiletPaper = new NounNeuter("toilet paper", "hârtie igienică", "hârtii igienice", "hârtia igienică", "hârtiile igienice", "hârtiei igienice", "hârtiilor igienice"); // unverified
-    const noun_toothbrush = new NounFemale("toothbrush", "periuță de dinți", "periuțe de dinți", "periuța de dinți", "periuțele de dinți", "periuței de dinți", "periuțelor de dinți"); // unverified
-    const noun_toothpaste = new NounFemale("toothpaste", "pastă de dinți", "paste de dinți", "pasta de dinți", "pasele de dinți", "pastei de dinți", "pastelor de dinți"); // unverified
-    const noun_towel = new NounNeuter("towel", "prosop", "prosoape", "prosopul", "prosoapele", "prosopului", "prosoapelor"); // unverified
-    const noun_villa = new NounFemale("villa", "vilă", "vile", "vila", "vilele", "vilei", "vilelor"); // unverified
-    const noun_wall = new NounFemale("wall", "perete", "pereți", "peretele", "pereții", "peretelui", "pereților"); // unverified
-    const noun_wardrobe = new NounFemale("wardrobe", "dulap", "dulapuri", "dulapul", "dulapurile", "dulapului", "dulapurilor"); // unverified
-    const noun_water = new NounNeuter("water", "apă", "ape", "apa", "apele", "apei", "apelor"); // unverified
-    const noun_window = new NounFemale("window", "fereastră", "ferestre", "fereastra", "ferestrele", "ferestrei", "ferestrelor"); // unverified
+    const noun_ceiling = new NounNeuter("ceiling", "tavan", "tavane", "tavanul", "tavanele", "tavanului", "tavanelor"); 
+    const noun_ballgown = new NounFemale("ball gown", "rochie de gală", "rochii de gală", "rochia de gală", "rochiile de gală", "rochiei de gală", "rochiilor de gală"); 
+    const noun_balloon = new NounNeuter("balloon", "balon", "baloane", "balonul", "baloanele", "balonului", "baloanelor"); 
+    const noun_bath = new NounFemale("bath", "cadă", "căzi", "cada", "cazile", "căzii", "cazilor"); 
+    const noun_bathroom = new NounFemale("bathroom", "baie", "băi", "baia", "băile", "băii", "băilor"); 
+    const noun_bed = new NounNeuter("bed", "pat", "paturi", "patul", "paturile", "patului", "paturilor"); 
+    const noun_bedroom = new NounNeuter("bedroom", "dormitor", "dormitoare", "dormitorul", "dormitoarele", "dormitorului", "dormitoarelor"); 
+    const noun_blanket = new NounFemale("blanket", "pătură", "pături", "pătura", "păturile", "păturii", "păturilor"); 
+    const noun_bookshelf = new NounNeuter("bookshelf", "raft de cărți", "rafturi de cărți", "raftul de cărți", "rafturile de cărți", "raftului de cărți", "rafturilor de cărți"); 
+    const noun_candle = new NounFemale("candle", "lumânare", "lumânări", "lumânarea", "lumânările", "lumânării", "lumânărilor"); 
+    const noun_carpet = new NounNeuter("carpet", "covor", "covoare", "covorul", "covoarele", "covorului", "covoarelor"); 
+    const noun_chair = new NounNeuter("chair", "scaun", "scaune", "scaunul", "scaunele", "scaunului", "scaunelor"); 
+    const noun_chestOfdrawers = new NounFemale("chest of drawers", "comodă", "comode", "comoda", "comodele", "comodei", "comodelor"); 
+    const noun_clothesPeg = new NounNeuter("clothes peg", "cârlig de rufe", "cârlige de rufe", "cârligul de rufe", "cârligele de rufe", "cârligului de rufe", "cârligelor de rufe"); 
+    const noun_comb = new NounMale("comb", "pieptene", "piepteni", "pieptenele", "pieptenii", "pieptenelui", "pieptenilor"); 
+    const noun_computer = new NounNeuter("computer", "calculator", "calculatoare", "calculatorul", "calculatoarele", "calculatorului", "calculatoarelor"); 
+    const noun_cushion = new NounFemale("cushion", "pernă decorativă", "perne decorative", "perna decorativă", "pernele decorative", "pernei decorative", "pernelor decorative"); 
+    const noun_duvet = new NounFemale("duvet", "pilotă", "pilote", "pilota", "pilotele", "pilotei", "pilotelor"); 
+    const noun_dvd = new NounNeuter("DVD", "DVD", "DVD-uri", "DVD-ul", "DVD-urile", "DVD-ului", "DVD-urilor"); 
+    const noun_entrance = new NounFemale("entrance", "intrare", "intrări", "intrarea", "intrările", "intrării", "intrărilor"); 
+    const noun_envelope = new NounNeuter("envelope", "plic", "plicuri", "plicul", "plicurile", "plicului", "plicurilor"); 
+    const noun_eyeGlasses = new NounFemale("eyeglasses", "ochelari", "ochelari", "", "ochelarii", "", "ochelarilor"); 
+    const noun_firework = new NounNeuter("firework", "foc de artificii", "focuri de artificii", "focul de artificii", "focurile de artificii", "focului de artificii", "focurilor de artificii"); 
+    const noun_floor = new NounFemale("floor", "podea", "podele", "podeaua", "podelele", "podelei", "podelelor"); 
+    const noun_hairbrush = new NounFemale("hairbrush", "perie de păr", "perii de păr", "peria de păr", "periile de păr", "periei de păr", "periilor de păr"); 
+    const noun_hall = new NounNeuter("hall", "hol", "holuri", "holul", "holurile", "holului", "holurilor"); 
+    const noun_lamp = new NounFemale("lamp", "lampă", "lămpi", "lampa", "lămpile", "lămpii", "lămpilor"); 
+    const noun_laundry = new NounFemale("laundry", "rufe", "rufe", "rufele", "rufele", "rufelor", "rufelor"); 
+    const noun_letter = new NounFemale("letter", "scrisoare", "scrisori", "scrisoarea", "scrisorile", "scrisorii", "scrisorilor"); 
+    const noun_lightbulb = new NounNeuter("lightbulb", "bec", "becuri", "becul", "becurile", "becului", "becurilor"); 
+    const noun_livingRoom = new NounFemale("living room", "sufragerie", "sufragerii", "sufrageria", "sufrageriile", "sufrageriei", "sufrageriilor"); 
+    const noun_mat = new NounNeuter("mat", "preș", "preșuri", "preșul", "preșurile", "preșului", "preșurilor"); 
+    const noun_mirror = new NounFemale("mirror", "oglindă", "oglinzi", "oglinda", "oglinzile", "oglinzii", "oglinzilor"); 
+    const noun_newspaper = new NounNeuter("newspaper", "ziar", "ziare", "ziarul", "ziarele", "ziarului", "ziarelor"); 
+    const noun_package = new NounNeuter("package", "pachet", "pachete", "pachetul", "pachetele", "pachetului", "pachetelor"); 
+    const noun_paperchain = new NounFemale("paper chain", "ghirlandă", "ghirlande", "ghirlanda", "ghirlandele", "ghirlandei", "ghirlandelor"); 
+    const noun_party = new NounFemale("party", "petrecere", "petreceri", "petrecerea", "petrecerile", "petrecerii", "petrecerilor"); 
+    const noun_picture = new NounNeuter("picture", "tablou", "tablouri", "tabloul", "tablourile", "tabloului", "tablourilor"); 
+    const noun_pillow = new NounFemale("pillow", "pernă", "perne", "perna", "pernele", "pernei", "pernelor"); 
+    const noun_presentGift = new NounNeuter("present", "cadou", "cadouri", "cadoul", "cadourile", "cadoului", "cadourilor"); 
+    const noun_radiator = new NounNeuter("radiator", "calorifer", "calorifere", "caloriferul", "caloriferele", "caloriferului", "caloriferelor"); 
+    const noun_radio = new NounNeuter("radio", "radio", "radiouri", "radioul", "radiourile", "radioului", "radiourilor"); 
+    const noun_ribbon = new NounFemale("ribbon", "panglică", "panglici", "panglica", "panglicile", "panglicii", "panglicilor"); 
+    const noun_rug = new NounNeuter("rug", "covoraș", "covorașe", "covorașul", "covorașele", "covorașului", "covorașelor"); 
+    const noun_sheet = new NounNeuter("sheet", "cearșaf", "cearșafuri", "cearșaful", "cearșafurile", "cearșafului", "cearșafurilor"); 
+    const noun_shower = new NounFemale("shower", "duș", "dușuri", "dușul", "dușurile", "dușului", "dușurilor"); 
+    const noun_sinkBasin = new NounFemale("sink basin", "chiuvetă", "chiuvete", "chiuveta", "chiuvetele", "chiuvetei", "chiuvetelor"); 
+    const noun_soap = new NounNeuter("soap", "săpun", "săpunuri", "săpunul", "săpunurile", "săpunului", "săpunurilor"); 
+    const noun_sofa = new NounFemale("sofa", "canapea", "canapele", "canapeaua", "canapelele", "canapelei", "canapelelor"); 
+    const noun_sponge = new NounMale("sponge", "burete", "bureți", "buretele", "bureții", "buretelui", "bureților"); 
+    const noun_stairs = new NounFemale("stairs", "scară", "scări", "scara", "scările", "scării", "scărilor"); 
+    const noun_table = new NounFemale("table", "masă", "mese", "masa", "mesele", "mesei", "meselor"); 
+    const noun_tableCloth = new NounFemale("table cloth", "față de masă", "fețe de masă", "fața de masă", "fețele de masă", "feței de masă", "fețelor de masă"); 
+    const noun_tap = new NounNeuter("tap", "robinet", "robinete", "robinetul", "robinetele", "robinetului", "robinetelor"); 
+    const noun_teddyBear = new NounMale("teddy bear", "ursuleț de pluș", "ursuleți de pluș", "ursulețul de pluș", "ursuleții de pluș", "ursulețului de pluș", "ursuleților de pluș"); 
+    const noun_telephone = new NounNeuter("telephone", "telefon", "telefoane", "telefonul", "telefoanele", "telefonului", "telefoanelor"); 
+    const noun_television = new NounNeuter("television", "televizor", "televizoare", "televizorul", "televizoarele", "televizorului", "televizoarelor"); 
+    const noun_toilet = new NounFemale("toilet", "toaletă", "toalete", "toaleta", "toaletele", "toaletei", "toaletelor"); 
+    const noun_toiletPaper = new NounFemale("toilet paper", "hârtie igienică", "hârtii igienice", "hârtia igienică", "hârtiile igienice", "hârtiei igienice", "hârtiilor igienice"); 
+    const noun_toothbrush = new NounFemale("toothbrush", "periuță de dinți", "periuțe de dinți", "periuța de dinți", "periuțele de dinți", "periuței de dinți", "periuțelor de dinți"); 
+    const noun_toothpaste = new NounFemale("toothpaste", "pastă de dinți", "paste de dinți", "pasta de dinți", "pasele de dinți", "pastei de dinți", "pastelor de dinți"); 
+    const noun_towel = new NounNeuter("towel", "prosop", "prosoape", "prosopul", "prosoapele", "prosopului", "prosoapelor"); 
+    const noun_villa = new NounFemale("villa", "vilă", "vile", "vila", "vilele", "vilei", "vilelor"); 
+    const noun_wall = new NounMale("wall", "perete", "pereți", "peretele", "pereții", "peretelui", "pereților"); 
+    const noun_wardrobe = new NounMale("wardrobe", "dulap", "dulapuri", "dulapul", "dulapurile", "dulapului", "dulapurilor"); 
+    const noun_water = new NounFemale("water", "apă", "ape", "apa", "apele", "apei", "apelor"); 
+    const noun_window = new NounFemale("window", "fereastră", "ferestre", "fereastra", "ferestrele", "ferestrei", "ferestrelor"); 
 
     setParentAndMultipleChildren(home, [
         noun_ceiling, noun_ballgown, noun_balloon, noun_bath, noun_bathroom, noun_bed, noun_bedroom, noun_blanket, noun_bookshelf, noun_candle, noun_carpet,
         noun_chair, noun_chestOfdrawers, noun_clothesPeg, noun_comb, noun_computer, noun_cushion, noun_duvet, noun_dvd, noun_entrance, noun_envelope, 
         noun_eyeGlasses, noun_firework, noun_floor, noun_hairbrush, noun_hall, noun_lamp, noun_laundry, noun_letter, noun_lightbulb, noun_livingRoom, noun_mat, 
-        noun_mirror, noun_newspaper, noun_package, noun_paperchain, noun_party, noun_picture, noun_pillow, noun_presentGift, noun_radiator, noun_radio, noun_ribbon,  // unverified
+        noun_mirror, noun_newspaper, noun_package, noun_paperchain, noun_party, noun_picture, noun_pillow, noun_presentGift, noun_radiator, noun_radio, noun_ribbon,  
         noun_rug, noun_sheet, noun_shower, noun_sinkBasin, noun_soap, noun_sofa, noun_sponge, noun_stairs, noun_table, noun_tableCloth, noun_tap, noun_teddyBear, 
         noun_telephone, noun_television, noun_toilet, noun_toiletPaper, noun_toothbrush, noun_toothpaste, noun_towel, noun_villa, noun_wall, noun_wardrobe, noun_water, noun_window, 
     ])
 
 
     //#toys
-    let Toys = new Theme("Toys", "Jucării"); // unverified
+    let Toys = new Theme("Toys", "Jucării"); 
     setParentAndChild(atHome, Toys)
 
-    const noun_arrows = new NounFemale("arrows", "săgeată", "săgeți", "săgeata", "săgețile", "săgeții", "săgeților"); // unverified
-    const noun_beads = new NounFemale("beads", "mărgea", "mărgele", "mărgeaua", "mărgelele", "mărgelei", "mărgelelor"); // unverified
-    const noun_boat = new NounNeuter("boat", "barcă", "bărci", "barca", "bărcile", "bărcii", "bărcilor"); // unverified
-    const noun_bow = new NounNeuter("bow", "arc", "arcuri", "arcul", "arcurile", "arcului", "arcurilor"); // unverified
-    const noun_castle = new NounNeuter("castle", "castel", "castele", "castelul", "castelele", "castelului", "castelelor"); // unverified
-    const noun_crane = new NounFemale("crane", "macara", "macarale", "macaraua", "macaralele", "macaralei", "macaralelor"); // unverified
-    const noun_cubes = new NounNeuter("cubes", "cub", "cuburi", "cubul", "cuburile", "cubului", "cuburilor"); // unverified
-    const noun_dice = new NounNeuter("dice", "zar", "zaruri", "zarul", "zarurile", "zarului", "zarurilor"); // unverified
-    const noun_dolls = new NounFemale("dolls", "păpușă", "păpuși", "păpușa", "păpușile", "păpușei", "păpușilor"); // unverified
-    const noun_drums = new NounNeuter("drums", "tobă", "tobe", "toba", "tobele", "tobei", "tobelor"); // unverified
-    const noun_guitar = new NounFemale("guitar", "chitară", "chitare", "chitara", "chitarele", "chitarei", "chitarelor"); // unverified
-    const noun_harmonica = new NounFemale("harmonica", "muzicuță", "muzicuțe", "muzicuța", "muzicuțele", "muzicuței", "muzicuțelor"); // unverified
-    const noun_marbles = new NounFemale("marbles", "bilă", "bile", "bila", "bilele", "bilei", "bilelor"); // unverified
-    const noun_masks = new NounFemale("masks", "mască", "măști", "masca", "măștile", "măștii", "măștilor"); // unverified
-    const noun_necklace = new NounNeuter("necklace", "colier", "coliere", "colierul", "colierele", "colierului", "colierelor"); // unverified
-    const noun_paints = new NounNeuter("paints", "vopsea", "vopsele", "vopseaua", "vopselele", "vopselei", "vopselelor"); // unverified
-    const noun_parachute = new NounFemale("parachute", "parașută", "parașute", "parașuta", "parașutele", "parașutei", "parașutelor"); // unverified
-    const noun_piano = new NounNeuter("piano", "pian", "piane", "pianul", "pianele", "pianului", "pianelor"); // unverified
-    const noun_playingCards = new NounFemale("playing cards", "carte de joc", "cărți de joc", "cartea de joc", "cărțile de joc", "cărții de joc", "cărților de joc"); // unverified
-    const noun_puppets = new NounMale("puppets", "păpușar", "păpușari", "păpușarul", "păpușarii", "păpușarului", "păpușarilor"); // unverified
-    const noun_ring_jewelry = new NounNeuter("ring (jewelry)", "inel", "inele", "inelul", "inelele", "inelului", "inelelor"); // unverified
-    const noun_robot = new NounMale("robot", "robot", "roboți", "robotul", "roboții", "robotului", "roboților"); // unverified
-    const noun_soldiers = new NounMale("soldiers", "soldat", "soldați", "soldatul", "soldații", "soldatului", "soldaților"); // unverified
-    const noun_submarine = new NounNeuter("submarine", "submarin", "submarine", "submarinul", "submarinele", "submarinului", "submarinelor"); // unverified
-    const noun_trumpet = new NounFemale("trumpet", "trompetă", "trompete", "trompeta", "trompetele", "trompetei", "trompetelor"); // unverified
-    const noun_whistle = new NounNeuter("whistle", "fluier", "fluier", "fluierul", "fluierul", "fluierului", "fluierului"); // unverified
+    const noun_arrow = new NounFemale("arrow", "săgeată", "săgeți", "săgeata", "săgețile", "săgeții", "săgeților"); 
+    const noun_beads = new NounFemale("bead", "mărgea", "mărgele", "mărgeaua", "mărgelele", "mărgelei", "mărgelelor"); 
+    const noun_boat = new NounFemale("boat", "barcă", "bărci", "barca", "bărcile", "bărcii", "bărcilor"); 
+    const noun_bow = new NounNeuter("bow", "arc", "arcuri", "arcul", "arcurile", "arcului", "arcurilor"); 
+    const noun_castle = new NounNeuter("castle", "castel", "castele", "castelul", "castelele", "castelului", "castelelor"); 
+    const noun_crane = new NounFemale("crane", "macara", "macarale", "macaraua", "macaralele", "macaralei", "macaralelor"); 
+    const noun_cubes = new NounNeuter("cubes", "cub", "cuburi", "cubul", "cuburile", "cubului", "cuburilor"); 
+    const noun_dice = new NounNeuter("dice", "zar", "zaruri", "zarul", "zarurile", "zarului", "zarurilor"); 
+    const noun_dolls = new NounFemale("doll", "păpușă", "păpuși", "păpușa", "păpușile", "păpușei", "păpușilor"); 
+    const noun_drums = new NounFemale("drum", "tobă", "tobe", "toba", "tobele", "tobei", "tobelor"); 
+    const noun_guitar = new NounFemale("guitar", "chitară", "chitare", "chitara", "chitarele", "chitarei", "chitarelor"); 
+    const noun_harmonica = new NounFemale("harmonica", "muzicuță", "muzicuțe", "muzicuța", "muzicuțele", "muzicuței", "muzicuțelor"); 
+    const noun_marbles = new NounFemale("marble", "bilă", "bile", "bila", "bilele", "bilei", "bilelor"); 
+    const noun_masks = new NounFemale("mask", "mască", "măști", "masca", "măștile", "măștii", "măștilor"); 
+    const noun_necklace = new NounNeuter("necklace", "colier", "coliere", "colierul", "colierele", "colierului", "colierelor"); 
+    const noun_paints = new NounFemale("paint", "vopsea", "vopsele", "vopseaua", "vopselele", "vopselei", "vopselelor"); 
+    const noun_parachute = new NounFemale("parachute", "parașută", "parașute", "parașuta", "parașutele", "parașutei", "parașutelor"); 
+    const noun_piano = new NounNeuter("piano", "pian", "piane", "pianul", "pianele", "pianului", "pianelor"); 
+    const noun_playingCards = new NounFemale("playing card", "carte de joc", "cărți de joc", "cartea de joc", "cărțile de joc", "cărții de joc", "cărților de joc"); 
+    const noun_puppets = new NounMale("puppet", "păpușar", "păpușari", "păpușarul", "păpușarii", "păpușarului", "păpușarilor"); 
+    const noun_ring_jewelry = new NounNeuter("ring (jewelry)", "inel", "inele", "inelul", "inelele", "inelului", "inelelor"); 
+    const noun_robot = new NounMale("robot", "robot", "roboți", "robotul", "roboții", "robotului", "roboților"); 
+    const noun_soldiers = new NounMale("soldier", "soldat", "soldați", "soldatul", "soldații", "soldatului", "soldaților"); 
+    const noun_submarine = new NounNeuter("submarine", "submarin", "submarine", "submarinul", "submarinele", "submarinului", "submarinelor"); 
+    const noun_trumpet = new NounFemale("trumpet", "trompetă", "trompete", "trompeta", "trompetele", "trompetei", "trompetelor"); 
+    const noun_whistle = new NounNeuter("whistle", "fluier", "fluier", "fluierul", "fluierul", "fluierului", "fluierului"); 
 
     setParentAndMultipleChildren(Toys, [
-        noun_arrows, noun_beads, noun_boat, noun_bow, noun_castle, noun_crane, noun_cubes, noun_dice, noun_dolls,
+        noun_arrow, noun_beads, noun_boat, noun_bow, noun_castle, noun_crane, noun_cubes, noun_dice, noun_dolls,
         noun_drums, noun_guitar, noun_harmonica, noun_marbles, noun_masks, noun_necklace, noun_paints, noun_parachute,
         noun_piano, noun_playingCards, noun_puppets, noun_ring_jewelry, noun_robot, noun_soldiers, noun_submarine,
         noun_trumpet, noun_whistle,
     ])
 
     // #people ================================
-    let people = new Theme("People", "Oamenii") // unverified
+    let people = new Theme("People", "Oamenii") 
     setParentAndChild(wordclass_nouns, people)
 
-    const noun_baby = new NounNeuter("baby", "bebeluș", "bebeluși", "bebelușul", "bebelușii", "bebelușului", "bebelușilor"); // unverified
-    const noun_boy = new NounMale("boy", "băiat", "băieți", "băiatul", "băieții", "băiatului", "băieților"); // unverified
-    const noun_child = new NounNeuter("child", "copil", "copii", "copilul", "copiii", "copilului", "copiilor"); // unverified
-    const noun_girl = new NounFemale("girl", "fată", "fete", "fata", "fetele", "fetei", "fetelor"); // unverified
-    const noun_man = new NounMale("man", "bărbat", "bărbați", "bărbatul", "bărbații", "bărbatului", "bărbaților"); // unverified
-    const noun_woman = new NounFemale("woman", "femeie", "femei", "femeia", "femeile", "femeii", "femeilor"); // unverified
+    const noun_baby = new NounMale("baby", "bebeluș", "bebeluși", "bebelușul", "bebelușii", "bebelușului", "bebelușilor"); 
+    const noun_boy = new NounMale("boy", "băiat", "băieți", "băiatul", "băieții", "băiatului", "băieților"); 
+    const noun_child = new NounNeuter("child", "copil", "copii", "copilul", "copiii", "copilului", "copiilor"); 
+    const noun_girl = new NounFemale("girl", "fată", "fete", "fata", "fetele", "fetei", "fetelor"); 
+    const noun_man = new NounMale("man", "bărbat", "bărbați", "bărbatul", "bărbații", "bărbatului", "bărbaților"); 
+    const noun_woman = new NounFemale("woman", "femeie", "femei", "femeia", "femeile", "femeii", "femeilor"); 
 
     setParentAndMultipleChildren(people, [
         noun_baby, noun_boy, noun_child, noun_girl, noun_man, noun_woman,
@@ -1822,7 +1821,7 @@ export function BuildLanguageTree() // returns romanian
 
 
     // #clothes
-    let Clothes = new Theme("Clothes", "Hainele"); // unverified
+    let Clothes = new Theme("Clothes", "Hainele"); 
     setParentAndChild(people, Clothes)
 
     const noun_baseballCap = new NounFemale("baseball cap", "șapcă", "șepci", "șapca", "șepcile", "șepcii", "șepcilor"); // unverified
@@ -2040,104 +2039,104 @@ export function BuildLanguageTree() // returns romanian
     // #Adverbs
     // =============================================================================
 
-    let when = new DataCard( // unverified
+    let when = new DataCard( 
         "When", "Când",
         "")
     setParentAndChild(wordclass_adverbs, when);
 
-    let either = new DataCard( // unverified
+    let either = new DataCard( 
         "Either", "Fie",
         "")
     setParentAndChild(wordclass_adverbs, either);
 
-    let neither = new DataCard( // unverified
+    let neither = new DataCard( 
         "Neither", "Nici",
         "")
     setParentAndChild(wordclass_adverbs, neither);
 
-    let never = new DataCard( // unverified
+    let never = new DataCard( 
         "Never", "Niciodată",
         "")
     setParentAndChild(wordclass_adverbs, never);
 
-    let Only = new DataCard( // unverified
+    let Only = new DataCard( 
         "Only", "Numai",
         "")
     setParentAndChild(wordclass_adverbs, Only);
 
-    let how = new DataCard( // unverified
+    let how = new DataCard( 
         "How", "Cum",
         "")
     setParentAndChild(wordclass_adverbs, how);
 
-    let where = new DataCard( // unverified
+    let where = new DataCard( 
         "Where", "Unde",
         "")
     setParentAndChild(wordclass_adverbs, where);
 
-    let Almost = new DataCard( // unverified
+    let Almost = new DataCard( 
         "Almost", "Abia",
         "")
     setParentAndChild(wordclass_adverbs, Almost);
 
-    let SoMuch = new DataCard("So Much", "Atât de mult", ""); // unverified
+    let SoMuch = new DataCard("So Much", "Atât de mult", ""); 
     setParentAndChild(wordclass_adverbs, SoMuch);
 
-    let Yet = new DataCard("Yet", "Încă", ""); // unverified
+    let Yet = new DataCard("Yet", "Încă", ""); 
     setParentAndChild(wordclass_adverbs, Yet);
 
-    let Now = new DataCard("Now", "Fix", ""); // unverified
+    let Now = new DataCard("Now", "Fix", ""); 
     setParentAndChild(wordclass_adverbs, Now);
 
-    let Usually = new DataCard("Usually", "De obicei", ""); // unverified
+    let Usually = new DataCard("Usually", "De obicei", ""); 
     setParentAndChild(wordclass_adverbs, Usually);
 
-    let Too = new DataCard("Too", "Prea", ""); // unverified
+    let Too = new DataCard("Too", "Prea", ""); 
     setParentAndChild(wordclass_adverbs, Too);
 
-    let Already = new DataCard("Already", "Deja", ""); // unverified
+    let Already = new DataCard("Already", "Deja", ""); 
     setParentAndChild(wordclass_adverbs, Already);
 
-    let Again = new DataCard("Again", "Din nou", ""); // unverified
+    let Again = new DataCard("Again", "Din nou", ""); 
     setParentAndChild(wordclass_adverbs, Again);
 
-    let Clearly = new DataCard("Clearly", "Clar", ""); // unverified
+    let Clearly = new DataCard("Clearly", "Clar", ""); 
     setParentAndChild(wordclass_adverbs, Clearly);
 
-    let Finally = new DataCard("Finally", "În final", ""); // unverified
+    let Finally = new DataCard("Finally", "În final", ""); 
     setParentAndChild(wordclass_adverbs, Finally);
 
-    let Just = new DataCard("Just", "Tocmai", ""); // unverified
+    let Just = new DataCard("Just", "Tocmai", ""); 
     setParentAndChild(wordclass_adverbs, Just);
 
-    let Early = new DataCard("Early", "Devreme", ""); // unverified
+    let Early = new DataCard("Early", "Devreme", ""); 
     setParentAndChild(wordclass_adverbs, Early);
 
-    let Rather = new DataCard("Rather", "Destul de", ""); // unverified
+    let Rather = new DataCard("Rather", "Destul de", ""); 
     setParentAndChild(wordclass_adverbs, Rather);
 
-    let Forever = new DataCard("Forever", "Pentru totdeauna", ""); // unverified
+    let Forever = new DataCard("Forever", "Pentru totdeauna", ""); 
     setParentAndChild(wordclass_adverbs, Forever);
 
-    let Still = new DataCard("Still", "Totuși", ""); // unverified
+    let Still = new DataCard("Still", "Totuși", ""); 
     setParentAndChild(wordclass_adverbs, Still);
 
-    let Anyway = new DataCard("Anyway", "Oricum", ""); // unverified
+    let Anyway = new DataCard("Anyway", "Oricum", ""); 
     setParentAndChild(wordclass_adverbs, Anyway);
 
-    let NotAtAll = new DataCard("Not at all", "Deloc", ""); // unverified
+    let NotAtAll = new DataCard("Not at all", "Deloc", ""); 
     setParentAndChild(wordclass_adverbs, NotAtAll);
 
-    let InTheFuture = new DataCard("In the future", "În viitor", ""); // unverified
+    let InTheFuture = new DataCard("In the future", "În viitor", ""); 
     setParentAndChild(wordclass_adverbs, InTheFuture);
 
-    let firstly = new DataCard("Firstly", "Mai întâi", ""); // unverified
+    let firstly = new DataCard("Firstly", "Mai întâi", ""); 
     setParentAndChild(wordclass_adverbs, firstly);
 
-    let first = new DataCard("First", "În primul rând", ""); // unverified
+    let first = new DataCard("First", "În primul rând", ""); 
     setParentAndChild(wordclass_adverbs, first);
 
-    let notAtAll = new DataCard("Not at all", "Deloc", ""); // unverified
+    let notAtAll = new DataCard("Not at all", "Deloc", ""); 
     setParentAndChild(wordclass_adverbs, notAtAll);
 
 
@@ -2145,26 +2144,26 @@ export function BuildLanguageTree() // returns romanian
     // #Conjunctions
     // =============================================================================
 
-    let conj_although = new Conjunction("Although", "Deși", ""); // unverified
-    let conj_and = new Conjunction("And", "Şi", "") // unverified
-    let conj_and_alt = new Conjunction("And (alt)", "Iar", "") // unverified
-    let conj_aswell = new Conjunction("As Well", "De asemenea", ""); // unverified
-    let conj_because = new Conjunction("Because", "Pentru că", "") // unverified
-    let conj_because_alt = new Conjunction("Because", "Deoarece", ""); // unverified
-    let conj_before = new Conjunction("Before", "Inainte de", "") // unverified
-    let conj_but = new Conjunction("But", "Dar", "") // unverified
-    let conj_eventhough = new Conjunction("Even Though", "Chiar dacă", ""); // unverified
-    let conj_for = new Conjunction("For", "Pentru", "") // unverified
-    let conj_if = new Conjunction("If", "Daca", "") // unverified
-    let conj_incase = new Conjunction("In case", "În caz că", ""); // unverified
-    let conj_isntit = new Conjunction("Isn't it", "Nu-i așa", ""); // unverified
-    let conj_like = new Conjunction("Like (A is like B)", "Asemenea", ""); // unverified
-    let conj_okay = new Conjunction("Okay", "Atunci", ""); // unverified
-    let conj_or = new Conjunction("Or", "Sau", "") // unverified
-    let conj_or_alt = new Conjunction("Or (alt)", "Ori", "") // unverified
-    let conj_so = new Conjunction("So", "Așa că", ""); // unverified
-    let conj_still = new Conjunction("Still", "Totuși", ""); // unverified
-    let conj_therefore = new Conjunction("Therefore", "Deci", ""); // unverified
+    let conj_although = new Conjunction("Although", "Deși", ""); 
+    let conj_and = new Conjunction("And", "Şi", "") 
+    let conj_and_alt = new Conjunction("And (alt)", "Iar", "") 
+    let conj_aswell = new Conjunction("As Well", "De asemenea", ""); 
+    let conj_because = new Conjunction("Because", "Pentru că", "") 
+    let conj_because_alt = new Conjunction("Because", "Deoarece", ""); 
+    let conj_before = new Conjunction("Before", "Inainte de", "") 
+    let conj_but = new Conjunction("But", "Dar", "") 
+    let conj_eventhough = new Conjunction("Even Though", "Chiar dacă", ""); 
+    let conj_for = new Conjunction("For", "Pentru", "") 
+    let conj_if = new Conjunction("If", "Daca", "") 
+    let conj_incase = new Conjunction("In case", "În caz că", ""); 
+    let conj_isntit = new Conjunction("Isn't it", "Nu-i așa", ""); 
+    let conj_like = new Conjunction("Like (A is like B)", "Asemenea", ""); 
+    let conj_okay = new Conjunction("Okay", "Atunci", ""); 
+    let conj_or = new Conjunction("Or", "Sau", "") 
+    let conj_or_alt = new Conjunction("Or (alt)", "Ori", "") 
+    let conj_so = new Conjunction("So", "Așa că", ""); 
+    let conj_still = new Conjunction("Still", "Totuși", ""); 
+    let conj_therefore = new Conjunction("Therefore", "Deci", ""); 
 
     setParentAndMultipleChildren(wordclass_conjunctions, [
         conj_although, conj_and, conj_and_alt, conj_aswell, conj_because, conj_because_alt, conj_before, conj_but,
@@ -2177,24 +2176,24 @@ export function BuildLanguageTree() // returns romanian
     // #Numbers
     // =============================================================================
 
-    const noun_one = new NounNeuter("one (1)", "un (1)", "un", "unul", "unii", "unului", "unilor"); // unverified
-    const noun_one_f = new NounNeuter("one (1)", "o (1)", "o", "una", "unele", "unei", "unelor"); // unverified
-    const noun_two = new NounNeuter("two (2)", "doi (2)", "doi", "doi", "doi", "doi", "doi"); // unverified
-    const noun_two_f = new NounNeuter("two (2)", "două (2)", "două", "două", "două", "două", "două"); // unverified
-    const noun_three = new NounNeuter("three (3)", "trei (3)", "trei", "treiul", "treii", "treiului", "treilor"); // unverified
-    const noun_four = new NounNeuter("four (4)", "patru (4)", "patru", "patrulea", "patru", "patrului", "patrulor"); // unverified
-    const noun_five = new NounNeuter("five (5)", "cinci (5)", "cinci", "cincilea", "cincile", "cincelui", "cincilor"); // unverified
-    const noun_six = new NounNeuter("six (6)", "șase (6)", "șase", "șaselea", "șasele", "șaselui", "șaselor"); // unverified
-    const noun_seven = new NounNeuter("seven (7)", "șapte (7)", "șapte", "șaptelea", "șaptele", "șaptelui", "șaptelor"); // unverified
-    const noun_eight = new NounNeuter("eight (8)", "opt (8)", "opt", "optulea", "opturile", "optului", "opturilor"); // unverified
-    const noun_nine = new NounNeuter("nine (9)", "nouă (9)", "nouă", "nouălea", "nouăle", "nouălui", "nouălor"); // unverified
-    const noun_ten = new NounNeuter("ten (10)", "zece (10)", "zece", "zecelea", "zecelele", "zecelui", "zecelor"); // unverified
-    const noun_hundred = new NounFemale("hundred (100)", "sută (100)", "sute", "suta", "sutele", "sutei", "sutelor"); // unverified
-    const noun_thousand = new NounFemale("thousand (1000)", "mie (1000)", "mii", "mia", "miile", "miei", "miilor"); // unverified
-    const noun_million = new NounNeuter("million (1000000)", "milion (1000000)", "milioane", "milionul", "milioanele", "milionului", "milioanelor"); // unverified
-    const noun_billion = new NounNeuter("billion", "miliard", "miliarde", "miliardul", "miliardele", "miliardului", "miliardelor"); // unverified
-    const noun_quarter = new NounNeuter("quarter", "sfert", "sferturi", "sfertul", "sferturile", "sfertului", "sferturilor"); // unverified
-    const noun_half = new NounFemale("half", "jumătate", "jumătăți", "jumătatea", "jumătățile", "jumătății", "jumătăților"); // unverified
+    const noun_one = new NounNeuter("one (1)", "un (1)", "un", "unul", "unii", "unului", "unilor"); 
+    const noun_one_f = new NounNeuter("one (1)", "o (1)", "o", "una", "unele", "unei", "unelor"); 
+    const noun_two = new NounNeuter("two (2)", "doi (2)", "doi", "doi", "doi", "doi", "doi"); 
+    const noun_two_f = new NounNeuter("two (2)", "două (2)", "două", "două", "două", "două", "două"); 
+    const noun_three = new NounNeuter("three (3)", "trei (3)", "trei", "treiul", "treii", "treiului", "treilor"); 
+    const noun_four = new NounNeuter("four (4)", "patru (4)", "patru", "patrulea", "patru", "patrului", "patrulor"); 
+    const noun_five = new NounNeuter("five (5)", "cinci (5)", "cinci", "cincilea", "cincile", "cincelui", "cincilor"); 
+    const noun_six = new NounNeuter("six (6)", "șase (6)", "șase", "șaselea", "șasele", "șaselui", "șaselor"); 
+    const noun_seven = new NounNeuter("seven (7)", "șapte (7)", "șapte", "șaptelea", "șaptele", "șaptelui", "șaptelor"); 
+    const noun_eight = new NounNeuter("eight (8)", "opt (8)", "opt", "optulea", "opturile", "optului", "opturilor"); 
+    const noun_nine = new NounNeuter("nine (9)", "nouă (9)", "nouă", "nouălea", "nouăle", "nouălui", "nouălor"); 
+    const noun_ten = new NounNeuter("ten (10)", "zece (10)", "zece", "zecelea", "zecelele", "zecelui", "zecelor"); 
+    const noun_hundred = new NounFemale("hundred (100)", "sută (100)", "sute", "suta", "sutele", "sutei", "sutelor"); 
+    const noun_thousand = new NounFemale("thousand (1000)", "mie (1000)", "mii", "mia", "miile", "miei", "miilor"); 
+    const noun_million = new NounNeuter("million (1000000)", "milion (1000000)", "milioane", "milionul", "milioanele", "milionului", "milioanelor"); 
+    const noun_billion = new NounNeuter("billion", "miliard", "miliarde", "miliardul", "miliardele", "miliardului", "miliardelor"); 
+    const noun_quarter = new NounNeuter("quarter", "sfert", "sferturi", "sfertul", "sferturile", "sfertului", "sferturilor"); 
+    const noun_half = new NounFemale("half", "jumătate", "jumătăți", "jumătatea", "jumătățile", "jumătății", "jumătăților"); 
     
     setParentAndMultipleChildren(
         wordclass_numbers, [
@@ -2212,38 +2211,38 @@ export function BuildLanguageTree() // returns romanian
     // #Pronouns
     // =============================================================================
 
-    let another = new DataCard( // unverified
+    let another = new DataCard( 
         "Another", "Alt",
         "")
     setParentAndChild(wordclass_pronouns, another);
 
-    let something = new DataCard( // unverified
+    let something = new DataCard( 
         "Something", "Ceva",
         "")
     setParentAndChild(wordclass_pronouns, something);
 
-    let Which = new DataCard("Which", "Pe care", ""); // unverified
+    let Which = new DataCard("Which", "Pe care", ""); 
     setParentAndChild(wordclass_pronouns, Which);
 
-    let Some = new DataCard("Some", "Niște", ""); // unverified
+    let Some = new DataCard("Some", "Niște", ""); 
     setParentAndChild(wordclass_pronouns, Some);
 
-    let Whose = new DataCard("Whose", "Al cui", ""); // unverified
+    let Whose = new DataCard("Whose", "Al cui", ""); 
     setParentAndChild(wordclass_pronouns, Whose);
 
-    let AnyKindOf = new DataCard("Any Kind Of", "Niciun fel de", ""); // unverified
+    let AnyKindOf = new DataCard("Any Kind Of", "Niciun fel de", ""); 
     setParentAndChild(wordclass_pronouns, AnyKindOf);
 
-    let everyone = new DataCard("Everyone", "Tuturor", ""); // unverified
+    let everyone = new DataCard("Everyone", "Tuturor", ""); 
     setParentAndChild(wordclass_pronouns, everyone);
 
-    let eachOther = new DataCard("Each other / with each other", "Unul pe/cu celălalte", ""); // unverified
+    let eachOther = new DataCard("Each other / with each other", "Unul pe/cu celălalte", ""); 
     setParentAndChild(wordclass_pronouns, eachOther);
 
-    let someone = new DataCard("Someone", "Cineva", ""); // unverified
+    let someone = new DataCard("Someone", "Cineva", ""); 
     setParentAndChild(wordclass_pronouns, someone);
 
-    let whatKindOf = new DataCard("What kind of", "Ce fel de", ""); // unverified
+    let whatKindOf = new DataCard("What kind of", "Ce fel de", ""); 
     setParentAndChild(wordclass_pronouns, whatKindOf);
 
 
@@ -2251,23 +2250,23 @@ export function BuildLanguageTree() // returns romanian
     // #Emotions
     // =============================================================================
 
-    let emotions = new Theme("Emotions", "Emoții") // unverified
-    let Happy = new DataCard("Happy", "Fericit", "") // unverified
-    let Sad = new DataCard("Sad", "Trist", "") // unverified
-    let Bored = new DataCard("Bored", "Plictisit", "") // unverified
-    let Cheerful = new DataCard("Cheerful", "Vesel", "") // unverified
-    let Timid = new DataCard("Shy (Timid)", "Timid", "") // unverified
-    let Angry = new DataCard("Angry", "Nervos", "") // unverified
-    let Tired = new DataCard("Tired", "Obosit", "") // unverified
-    let Worried = new DataCard("Worried", "Îngrijorat", "") // unverified
-    let Upset = new DataCard("Upset", "Supărat", "") // unverified
-    let Excited = new DataCard("Excited", "Entuziasmat", "") // unverified
-    let Jealous = new DataCard("Jealous", "Gelos", "") // unverified
-    let Heartbroken = new DataCard("Heartbroken", "Fi cu inima frântă", ""); // unverified
-    let Horror = new DataCard("Horror", "Groază", ""); // unverified
-    let Unfortunate = new DataCard("Unfortunate", "Ghinion", ""); // unverified
-    let Crush = new DataCard("A crush (romantic)", "O pasiune", ""); // unverified
-    let Hope = new DataCard("Hope", "Sper", ""); // unverified
+    let emotions = new Theme("Emotions", "Emoții") 
+    let Happy = new DataCard("Happy", "Fericit", "") 
+    let Sad = new DataCard("Sad", "Trist", "") 
+    let Bored = new DataCard("Bored", "Plictisit", "") 
+    let Cheerful = new DataCard("Cheerful", "Vesel", "") 
+    let Timid = new DataCard("Shy (Timid)", "Timid", "") 
+    let Angry = new DataCard("Angry", "Nervos", "") 
+    let Tired = new DataCard("Tired", "Obosit", "") 
+    let Worried = new DataCard("Worried", "Îngrijorat", "") 
+    let Upset = new DataCard("Upset", "Supărat", "") 
+    let Excited = new DataCard("Excited", "Entuziasmat", "") 
+    let Jealous = new DataCard("Jealous", "Gelos", "") 
+    let Heartbroken = new DataCard("Heartbroken", "Fi cu inima frântă", ""); 
+    let Horror = new DataCard("Horror", "Groază", ""); 
+    let Unfortunate = new DataCard("Unfortunate", "Ghinion", ""); 
+    let Crush = new DataCard("A crush (romantic)", "O pasiune", ""); 
+    let Hope = new DataCard("Hope", "Sper", ""); 
 
     setParentAndChild(romanian, emotions);
     setParentAndMultipleChildren(emotions, [
