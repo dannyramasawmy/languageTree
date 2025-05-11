@@ -32,7 +32,7 @@ let treeAsArray = flattenTree(ROOT_NODE)
 
 // special cards
 setParentAndChild(ROOT_NODE, new Stats(CONFIG.STATISTICS_LABELS[0], CONFIG.STATISTICS_LABELS[1], ROOT_NODE))
-setParentAndChild(ROOT_NODE, new Practice(treeAsArray, DifficultyLevel.Easy))
+setParentAndChild(ROOT_NODE, new Practice("Your Practice", "Practica Ta", treeAsArray))
 
 const sortDisplayList = (GLOBAL, displayCards) =>
   tree.functions.sortDataCardArray(

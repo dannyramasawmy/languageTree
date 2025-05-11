@@ -60,11 +60,34 @@ export function createNumberOfViewsStat(numberOfViews) {
  */
 export function statisticsTableView(tableRows)
 {
-    let table = new TableBuilder(["Primary", "Secondary", "Views"])
-    for (const r of tableRows)
-        table.WithRow([r.FirstColumn, r.SecondColumn, `${r.Views}`])
+    let div = document.createElement('div')
 
-    return table.BuildHTML()
+    // overall summary
+    let title1 = document.createElement('h2')
+    title1.innerText = "Summary"
+    title1.className = "text-start"
+    div.append(title1)
+
+    let summary = new TableBuilder(["Summary", "Total"])
+    summary.WithRow(["Total Number of Views", `${tableRows.map(r => r.Views).reduce((x, y) => x + y)}`])
+    summary.WithRow(["Number of cards viewed", `${tableRows.filter(r => r.Views > 0).length}`])
+    summary.WithRow(["Number of cards not seen", `${tableRows.filter(r => r.Views == 0).length}`])
+    div.append(summary.BuildHTML())
+    div.append(document.createElement('br'))
+
+    // all the numbers
+    let title2 = document.createElement('h2')
+    title2.innerText = "Individiual cards"
+    title2.className = "text-start"
+    div.append(title2)
+
+    let allTheNumbersTable = new TableBuilder(["Primary", "Secondary", "Views"])
+    for (const r of tableRows)
+        allTheNumbersTable.WithRow([r.FirstColumn, r.SecondColumn, `${r.Views}`])
+    
+    div.append(allTheNumbersTable.BuildHTML())
+
+    return div
 }
 
 
