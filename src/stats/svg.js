@@ -13,6 +13,10 @@ export class SVGParameters {
     static Default = () => {
         return new SVGParameters("#e67e22", 1)
     }
+
+    static OrangeButton = () => {
+        return new SVGParameters("#e67e22", 1.5)
+    }
 }
 
 /**

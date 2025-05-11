@@ -11,7 +11,7 @@ import { primarySort } from "./src/tree/functions.js";
 import { prepareString } from "./src/utils/string.js";
 import { BuildMusicTree } from "./data/music-tree.js";
 import { FilterCharacterKey, SearchFilter } from "./src/search/models.js";
-import { VerbDataCard } from "./data/romanian-language-models.js";
+import { Theme, VerbDataCard } from "./data/romanian-language-models.js";
 
 /** @typedef {import('./src/tree/types.js').NodeComparator} NodeComparator */
 /** @typedef {import('./src/tree/types.js').StringCleaner} StringCleaner */
@@ -43,9 +43,9 @@ const CONFIG_ROMANIAN = {
             (x, y) => prepareRomanianString(x.Secondary).includes(y)),
         new SearchFilter(
             FilterCharacterKey.HASHTAG, 
-            "Search only verbs", 
+            "Search themes to practice", 
             (x, y) => {
-                return (x instanceof VerbDataCard) 
+                return (x instanceof Theme) 
                 && (prepareEnglishString(x.Primary).includes(y)
                 || prepareRomanianString(x.Secondary).includes(y))
         }),

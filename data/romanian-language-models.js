@@ -1,6 +1,8 @@
 import { autoCapitlizeFirst, stringToHTMLElement } from "../src/utils/string.js";
 import { AbstractNode, DataCard, DifficultyLevel, Question } from "../src/tree/models.js";
 import { AdjectiveView, ModalVerbView, NounFemaleView, NounMaleView, NounNeuterView, VerbDataView, VerbReflexiveSeDataView, VerbReflexiveSiDataView } from "./romanian-views.js";
+import { collapsiblePractice, createQAExplorer } from "../src/practice/functions.js";
+import { Practice } from "../src/practice/models.js";
 
 /**
  * Models to encapsulate different word classes
@@ -24,6 +26,19 @@ import { AdjectiveView, ModalVerbView, NounFemaleView, NounMaleView, NounNeuterV
  * - Adverb + Interjection
  * 
  */
+
+export class Theme extends AbstractNode {
+    constructor(english, romanian) {
+        super(english, romanian)
+    }
+
+    PrimaryView = () => stringToHTMLElement(this.Primary)
+    SecondaryView = () => stringToHTMLElement(this.Secondary)
+    DataView = () => collapsiblePractice([...this.Child, ...this.Relations])
+    SearchableTerms = () => [
+        this.Primary, this.Secondary
+    ]
+}
 
 export class WordClass extends AbstractNode {
     constructor(english, romanian) {

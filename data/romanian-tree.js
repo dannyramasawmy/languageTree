@@ -1,6 +1,6 @@
 import { defineCrossLinkRelationship, setParentAndChild, setParentAndMultipleChildren } from "../src/tree/functions.js";
 import { DataCard, DataRoot } from "../src/tree/models.js";
-import { VerbReflexiveSe, VerbReflexiveSi, Verb, NounNeuter, NounMale, NounFemale, Adjective, Conjunction, VerbModal, WordClass } from "./romanian-language-models.js";
+import { VerbReflexiveSe, VerbReflexiveSi, Verb, NounNeuter, NounMale, NounFemale, Adjective, Conjunction, VerbModal, WordClass, Theme } from "./romanian-language-models.js";
 
 /*
 a ă â b c d e f g h i î j k l m n o p q r s ș t ț u v w x y z
@@ -427,7 +427,7 @@ export function BuildLanguageTree() // returns romanian
     setParentAndChild(quantities, Many)
 
     // #descriptiveadjectives
-    let DescriptiveAdjective = new DataCard("Descriptive Adjective", "Adjective Descriptive", "");
+    let DescriptiveAdjective = new Theme("Descriptive Adjective", "Adjective Descriptive");
     setParentAndChild(wordclass_adjectives, DescriptiveAdjective)
 
     const adj_alive = new Adjective("Alive", "viu", "vie", "vii", "vii");
@@ -693,7 +693,7 @@ export function BuildLanguageTree() // returns romanian
 
 
     // #seasons
-    let TheMonths = new DataCard("The Months", "Lunii", "");
+    let TheMonths = new Theme("The Months", "Lunii");
     setParentAndChild(Time, TheMonths);
 
     const noun_month = new NounMale("month", "lună", "luni", "luna", "lunile", "lunii", "lunilor");
@@ -717,7 +717,7 @@ export function BuildLanguageTree() // returns romanian
 
 
     // #seasons
-    let Seasons = new DataCard("Seasons", "Anotimpurile", "");
+    let Seasons = new Theme("Seasons", "Anotimpurile");
     setParentAndChild(Time, Seasons)
 
     const noun_spring = new NounFemale("spring", "primăvară", "primăveri", "primăvara", "primăverile", "primăverii", "primăverilor");
@@ -731,7 +731,7 @@ export function BuildLanguageTree() // returns romanian
 
 
     // #weather
-    let Weather = new DataCard("The Weather", "Vremea", "");
+    let Weather = new Theme("The Weather", "Vremea");
     setParentAndChild(Time, Weather)
 
     const noun_clouds = new NounFemale("cloud", "nor", "nori", "norul", "norii", "norului", "norilor");
@@ -760,7 +760,7 @@ export function BuildLanguageTree() // returns romanian
 
 
     // #specialdays #holidays
-    let SpecialDays = new DataCard("Special Days", "Zile de Sărbătoare", "");
+    let SpecialDays = new Theme("Special Days", "Zile de Sărbătoare");
     setParentAndChild(Time, SpecialDays)
 
     const noun_birthday = new NounNeuter("birthday", "zi de naștere", "zile de naștere", "ziua de naștere", "zilele de naștere", "zilei de naștere", "zilelor de naștere");
@@ -794,7 +794,7 @@ export function BuildLanguageTree() // returns romanian
     ])
 
     //#days
-    let DaysOfTheWeek = new DataCard("Days (Of The Week)", "Zilele (Săptămânii)", "");
+    let DaysOfTheWeek = new Theme("Days (Of The Week)", "Zilele (Săptămânii)");
     setParentAndChild(Time, DaysOfTheWeek)
 
     const noun_calendar = new NounMale("calendar", "calendar", "calendare", "calendarul", "calendarele", "calendarului", "calendarelor");
@@ -817,7 +817,7 @@ export function BuildLanguageTree() // returns romanian
 
 
     // #Measurements
-    let Measurements = new DataCard("Measurements", "Măsurători", "");
+    let Measurements = new Theme("Measurements", "Măsurători");
     setParentAndChild(wordclass_nouns, Measurements);
 
     const noun_celsius = new NounNeuter("celsius", "grad Celsius", "grade Celsius", "gradul Celsius", "gradele Celsius", "gradului Celsius", "gradelor Celsius");
@@ -845,7 +845,7 @@ export function BuildLanguageTree() // returns romanian
     ])
 
     // #misc nouns
-    let miscellaneous = new DataCard("Miscellaneous", "Diverse", "");
+    let miscellaneous = new Theme("Miscellaneous", "Diverse");
     setParentAndChild(wordclass_nouns, miscellaneous);
 
     let opinion = new DataCard("Opinion", "Opinie", "");
@@ -897,7 +897,7 @@ export function BuildLanguageTree() // returns romanian
     setParentAndChild(miscellaneous, theTruth);
 
     // # space
-    let Space = new DataCard("Space", "Spațiu", "");
+    let Space = new Theme("Space", "Spațiu");
     setParentAndChild(wordclass_nouns, Space)
 
     const noun_astronaut = new NounMale("astronaut", "astronaut", "astronauți", "astronautul", "astronauții", "astronautului", "astronauților");
@@ -927,7 +927,7 @@ export function BuildLanguageTree() // returns romanian
 
 
     // #school #atschool
-    let AtSchool = new DataCard("At School", "La Şcoală", "");
+    let AtSchool = new Theme("At School", "La Şcoală");
     setParentAndChild(wordclass_nouns, AtSchool)
 
     const noun_alphabet = new NounNeuter("alphabet", "alfabet", "alfabete", "alfabetul", "alfabetele", "alfabetului", "alfabetelor");
@@ -973,7 +973,7 @@ export function BuildLanguageTree() // returns romanian
     setParentAndChild(wordclass_nouns, TheEmergencyServices)
 
     // #police #thepoliec
-    let ThePolice = new DataCard("The Police", "Poliția", "");
+    let ThePolice = new Theme("The Police", "Poliția");
     setParentAndChild(TheEmergencyServices, ThePolice);
 
     const noun_case = new NounNeuter("case", "caz", "cazuri", "cazul", "cazurile", "cazului", "cazurilor");
@@ -994,7 +994,7 @@ export function BuildLanguageTree() // returns romanian
 
 
     // #hospital #thehospital / #doctor #thedoctor
-    let TheHospitalAndTheDoctor = new DataCard("The Hospital and The Doctor", "Spitalul ș Doctorul", "");
+    let TheHospitalAndTheDoctor = new Theme("The Hospital and The Doctor", "Spitalul ș Doctorul");
     setParentAndChild(TheEmergencyServices, TheHospitalAndTheDoctor)
 
     const noun_backAche = new NounFemale("backache", "durere de spate", "dureri de spate", "durerea de spate", "durerile de spate", "durerii de spate", "durerilor de spate");
@@ -1042,7 +1042,7 @@ export function BuildLanguageTree() // returns romanian
 
 
     // #thebeach #beach #seaside
-    let TheBeach = new DataCard("The Beach", "Plaja", "");
+    let TheBeach = new Theme("The Beach", "Plaja");
     setParentAndChild(wordclass_nouns, TheBeach)
 
     const noun_beach = new NounFemale("beach", "plajă", "plaje", "plaja", "plajele", "plajei", "plajelor");
@@ -1078,7 +1078,7 @@ export function BuildLanguageTree() // returns romanian
     ])
 
     // #thefarm #farm
-    let TheFarm = new DataCard("The Farm", "Ferma", "");
+    let TheFarm = new Theme("The Farm", "Ferma");
     setParentAndChild(wordclass_nouns, TheFarm)
 
     const noun_haystack = new NounFemale("haystack", "căpiță", "căpițe", "căpița", "căpițele", "căpiței", "căpițelor");
@@ -1106,7 +1106,7 @@ export function BuildLanguageTree() // returns romanian
     ])
 
     //#thepark #park
-    let ThePark = new DataCard("The Park", "Parcul", "");
+    let ThePark = new Theme("The Park", "Parcul");
     setParentAndChild(wordclass_nouns, ThePark)
 
     const noun_bush = new NounMale("bush", "tufiș", "tufișuri", "tufișul", "tufișurile", "tufișului", "tufișurilor");
@@ -1131,7 +1131,7 @@ export function BuildLanguageTree() // returns romanian
     ])
     
     //#thestreet #street
-    let TheStreet = new DataCard("The Street", "Strada", "");
+    let TheStreet = new Theme("The Street", "Strada");
     setParentAndChild(wordclass_nouns, TheStreet)
 
     const noun_ambulance = new NounFemale("ambulance", "ambulanță", "ambulanțe", "ambulanța", "ambulanțele", "ambulanței", "ambulanțelor");
@@ -1170,7 +1170,7 @@ export function BuildLanguageTree() // returns romanian
     
 
     //#travel
-    let Travel = new DataCard("Travel", "Călătoria", "");
+    let Travel = new Theme("Travel", "Călătoria");
     setParentAndChild(wordclass_nouns, Travel)
 
     const noun_adventure = new NounFemale("adventure", "aventură", "aventuri", "aventura", "aventurile", "aventurii", "aventurilor");
@@ -1249,7 +1249,7 @@ export function BuildLanguageTree() // returns romanian
 
 
     //#country #thecountry
-    let TheCountry = new DataCard("The Country", "La Țară", "");
+    let TheCountry = new Theme("The Country", "La Țară");
     setParentAndChild(wordclass_nouns, TheCountry)
 
     const noun_bridge = new NounNeuter("bridge", "pod", "poduri", "podul", "podurile", "podului", "podurilor");
@@ -1287,7 +1287,7 @@ export function BuildLanguageTree() // returns romanian
 
 
     //#animals
-    let Animals = new DataCard("Animals", "Animalele", "");
+    let Animals = new Theme("Animals", "Animalele");
     setParentAndChild(wordclass_nouns, Animals)
 
     const noun_badger = new NounMale("badger", "bursuc", "bursuci", "bursucul", "bursucii", "bursucului", "bursucilor");
@@ -1402,7 +1402,7 @@ export function BuildLanguageTree() // returns romanian
     ])
 
     // #shop
-    let theShop = new DataCard("The Shop", "Magazinul", "");
+    let theShop = new Theme("The Shop", "Magazinul");
     setParentAndChild(wordclass_nouns, theShop)
 
     const noun_basket = new NounNeuter("basket", "coș", "coșuri", "coșul", "coșurile", "coșului", "coșurilor");
@@ -1420,7 +1420,7 @@ export function BuildLanguageTree() // returns romanian
 
 
     // #food
-    let food = new DataCard("Food", "Mâncarea", "");
+    let food = new Theme("Food", "Mâncarea");
     setParentAndChild(wordclass_nouns, food)
     
     const noun_apricot = new NounNeuter("apricot", "caisă", "caise", "caisa", "caisele", "caisiei", "caiselor");
@@ -1512,7 +1512,7 @@ export function BuildLanguageTree() // returns romanian
   
 
     // #atwork
-    let AtWork = new DataCard("At Work", "La muncă", "");
+    let AtWork = new Theme("At Work", "La muncă");
     setParentAndChild(wordclass_nouns, AtWork);
 
     const noun_project = new NounNeuter("project", "proiect", "proiecte", "proiectul", "proiectele", "proiectului", "proiectelor");
@@ -1549,7 +1549,7 @@ export function BuildLanguageTree() // returns romanian
     setParentAndChild(wordclass_nouns, atHome)
 
     //#workshop
-    let TheWorkshop = new DataCard("The Workshop", "Atelierul", "");
+    let TheWorkshop = new Theme("The Workshop", "Atelierul");
     setParentAndChild(atHome, TheWorkshop)
 
     const noun_axe = new NounFemale("axe", "secure", "securi", "securea", "securile", "securii", "securilor");
@@ -1586,7 +1586,7 @@ export function BuildLanguageTree() // returns romanian
     ])
 
     //#garden
-    let theGarden = new DataCard("The Garden", "Grădina", "");
+    let theGarden = new Theme("The Garden", "Grădina");
     setParentAndChild(atHome, theGarden)
 
     const noun_bone = new NounFemale("bone", "os", "oase", "osul", "oasele", "osului", "oaselor");
@@ -1627,7 +1627,7 @@ export function BuildLanguageTree() // returns romanian
 
   
     //#kitchen
-    let theKitchen = new DataCard("The Kitchen", "Bucătăria", "");
+    let theKitchen = new Theme("The Kitchen", "Bucătăria");
     setParentAndChild(atHome, theKitchen)
 
     const noun_storageRoom = new NounNeuter("storage room", "debara", "debare", "debaraua", "debarele", "debaralei", "debarelelor");
@@ -1686,7 +1686,7 @@ export function BuildLanguageTree() // returns romanian
   
 
     //#inhome
-    let home = new DataCard("Home", "Casă", "");
+    let home = new Theme("Home", "Casă");
     setParentAndChild(atHome, home)
 
     const noun_ceiling = new NounNeuter("ceiling", "tavan", "tavane", "tavanul", "tavanele", "tavanului", "tavanelor");
@@ -1768,7 +1768,7 @@ export function BuildLanguageTree() // returns romanian
 
 
     //#toys
-    let Toys = new DataCard("Toys", "Jucării", "");
+    let Toys = new Theme("Toys", "Jucării");
     setParentAndChild(atHome, Toys)
 
     const noun_arrows = new NounFemale("arrows", "săgeată", "săgeți", "săgeata", "săgețile", "săgeții", "săgeților");
@@ -1806,7 +1806,7 @@ export function BuildLanguageTree() // returns romanian
     ])
 
     // #people ================================
-    let people = new DataCard("People", "Oamenii", "")
+    let people = new Theme("People", "Oamenii")
     setParentAndChild(wordclass_nouns, people)
 
     const noun_baby = new NounNeuter("baby", "bebeluș", "bebeluși", "bebelușul", "bebelușii", "bebelușului", "bebelușilor");
@@ -1822,7 +1822,7 @@ export function BuildLanguageTree() // returns romanian
 
 
     // #clothes
-    let Clothes = new DataCard("Clothes", "Hainele", "");
+    let Clothes = new Theme("Clothes", "Hainele");
     setParentAndChild(people, Clothes)
 
     const noun_baseballCap = new NounFemale("baseball cap", "șapcă", "șepci", "șapca", "șepcile", "șepcii", "șepcilor");
@@ -1894,10 +1894,7 @@ export function BuildLanguageTree() // returns romanian
 
 
     // #families
-    let families = new DataCard(
-        "Families", "Familiile",
-        ""
-    )
+    let families = new Theme("Families", "Familiile")
     setParentAndChild(people, families)
 
     const noun_aunt = new NounFemale("aunt", "mătușă", "mătuși", "mătușa", "mătușile", "mătușii", "mătușilor");
@@ -1924,10 +1921,7 @@ export function BuildLanguageTree() // returns romanian
     ])
 
     // #jobs
-    let workJob = new DataCard(
-        "Work (job)", "Mancă",
-        ""
-    )
+    let workJob = new Theme("Work (job)", "Mancă")
     setParentAndChild(people, workJob)
 
     const noun_actor = new NounMale("actor", "actor", "actori", "actorul", "actorii", "actorului", "actorilor");
@@ -1980,7 +1974,7 @@ export function BuildLanguageTree() // returns romanian
     ])
 
     // #shapes =================================
-    let shapes = new DataCard("Shapes", "Formele geometrice", "")
+    let shapes = new Theme("Shapes", "Formele geometrice")
     setParentAndChild(wordclass_nouns, shapes)
 
     const noun_circle = new NounNeuter("circle", "cerc", "cercuri", "cercul", "cercurile", "cercului", "cercurilor");
@@ -2000,7 +1994,7 @@ export function BuildLanguageTree() // returns romanian
 
 
     // #body =======================================
-    let theBody = new DataCard("The body", "Corpul", "")
+    let theBody = new Theme("The body", "Corpul")
     setParentAndChild(wordclass_nouns, theBody)
 
     const noun_arm = new NounFemale("arm", "braț", "brațe", "brațul", "brațele", "brațului", "brațelor");
@@ -2257,7 +2251,7 @@ export function BuildLanguageTree() // returns romanian
     // #Emotions
     // =============================================================================
 
-    let emotions = new DataCard("Emotions", "Emoții", "")
+    let emotions = new Theme("Emotions", "Emoții")
     let Happy = new DataCard("Happy", "Fericit", "")
     let Sad = new DataCard("Sad", "Trist", "")
     let Bored = new DataCard("Bored", "Plictisit", "")

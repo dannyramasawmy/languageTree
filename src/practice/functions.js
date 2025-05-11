@@ -1,12 +1,63 @@
 import { RandomElementInArray } from "../utils/random.js";
 import { AbstractNode, DifficultyLevel } from "../tree/models.js";
 import { getDataCardFromUID } from "../search/functions.js";
-import { createEyeSvg, createFastForwardSvg, SVGParameters } from "../stats/svg.js";
+import { createDelatSvg, createEyeSvg, createFastForwardSvg, createMortarBoardSvg, SVGParameters } from "../stats/svg.js";
+
 
 /**
- * 
- * @param {AbstractNode[]} data
- * @returns 
+ * A collapsible practice element
+ * @param {AbstractNode[]} data - data to practice
+ * @returns {HTMLElement} - HTML element to display
+ */
+export function collapsiblePractice(data) {
+    // Create a container to hold both button and collapsible content
+        const container = document.createElement("div");
+
+        // Create the button
+        const toggleBtn = document.createElement("button");
+        let pressMe = "btn me-2 btn-lg glbut"
+        toggleBtn.className = pressMe;
+        // toggleBtn.textContent = "Toggle Content";
+        toggleBtn.innerHTML = createMortarBoardSvg(SVGParameters.OrangeButton()).outerHTML
+        var isCollapsed = true
+
+        // Create the collapsible content
+        const collapseDiv = document.createElement("div");
+        collapseDiv.className = "collapse mt-2";
+
+        // Bootstrap card inside collapse
+        const card = document.createElement("div");
+        card.className = "card card-body";
+
+        let explorer = createQAExplorer(data)
+        // card.textContent = "This is the collapsible content!";
+        card.appendChild(explorer)
+        collapseDiv.appendChild(card);
+
+        // Append elements to the container
+        container.appendChild(toggleBtn);
+        container.appendChild(collapseDiv);
+
+        // Add event listener for toggling
+        toggleBtn.addEventListener("click", () => {
+            const bsCollapse = bootstrap.Collapse.getOrCreateInstance(collapseDiv);
+            bsCollapse.toggle();
+            isCollapsed = !isCollapsed
+
+            toggleBtn.innerHTML = (isCollapsed 
+                ? createMortarBoardSvg(SVGParameters.OrangeButton())
+                : createDelatSvg(SVGParameters.Default()))
+                .outerHTML
+        });
+
+        return container;
+}
+
+
+/**
+ * A practice mode
+ * @param {AbstractNode[]} data - data to practice
+ * @returns {HTMLElement} - HTML element to display
  */
 export function createQAExplorer(data) {
 
@@ -39,7 +90,8 @@ export function createQAExplorer(data) {
     let easy = document.createElement('span')
     easy.className = 'text-success-emphasis difficulty'
     easy.textContent = `${difficultFilter}`
-    easy.addEventListener('click', () => {
+
+    const nextDifficultyLevel = () => {
 
         switch (difficultFilter) {
             case DifficultyLevel.Easy:
@@ -60,7 +112,9 @@ export function createQAExplorer(data) {
                 easy.textContent = `${difficultFilter}`
                 break;
         }
-    })
+    }
+
+    easy.addEventListener('click', nextDifficultyLevel)
 
     qHeader.appendChild(easy)
 
@@ -113,8 +167,8 @@ export function createQAExplorer(data) {
 
     let pressMe = "btn me-2 btn-lg glbut"
 
-    const eyeSvg = createEyeSvg(new SVGParameters("#e67e22", 1.5)).outerHTML
-    const fastForward = createFastForwardSvg(new SVGParameters("#e67e22", 1.5)).outerHTML
+    const eyeSvg = createEyeSvg(SVGParameters.OrangeButton()).outerHTML
+    const fastForward = createFastForwardSvg(SVGParameters.OrangeButton()).outerHTML
 
     // button panel
     const buttonDiv = document.createElement("div");
@@ -138,7 +192,14 @@ export function createQAExplorer(data) {
     });
 
     function loadQuestionAndAnswer() {
-        const random = RandomElementInArray(qaArray.filter(x => x.diffculty == difficultFilter))
+        
+        var filteredData = qaArray.filter(x => x.diffculty == difficultFilter)
+        if (filteredData.length == 0)
+        {
+            filteredData = qaArray
+        }
+
+        const random = RandomElementInArray(filteredData)
 
         // load q and a
         qCell.textContent = random.question;
