@@ -10,8 +10,8 @@ export const NounMaleView = (nounDataCard) =>
     buildLinesDiv([
         `Un ${nounDataCard.singluar}`, 
         `doi ${nounDataCard.plural}`, 
-        `(inf) ${nounDataCard.definiteArticle}`, 
-        `(inf pl) ${nounDataCard.definitePlural}`,
+        `(def) ${nounDataCard.definiteArticle}`, 
+        `(def pl) ${nounDataCard.definitePlural}`,
         `(gen/dat s) ${nounDataCard.genativeDativeSingular}`,
         `(gen/dat pl) ${nounDataCard.genativeDativePlural}`,
     ])
@@ -25,8 +25,8 @@ export const NounFemaleView = (nounDataCard) =>
     buildLinesDiv([
         `(s) O ${nounDataCard.singluar}`, 
         `(pl) Doua ${nounDataCard.plural}`, 
-        `(inf) ${nounDataCard.definiteArticle}`, 
-        `(inf pl) ${nounDataCard.definitePlural}`,
+        `(def) ${nounDataCard.definiteArticle}`, 
+        `(def pl) ${nounDataCard.definitePlural}`,
         `(gen/dat s) ${nounDataCard.genativeDativeSingular}`,
         `(gen/dat pl) ${nounDataCard.genativeDativePlural}`,
     ])
@@ -41,8 +41,8 @@ export const NounNeuterView = (nounDataCard) =>
     buildLinesDiv([
         `Un ${nounDataCard.singluar}`, 
         `Doua ${nounDataCard.plural}`, 
-        `(inf) ${nounDataCard.definiteArticle}`, 
-        `(inf pl) ${nounDataCard.definitePlural}`,
+        `(def) ${nounDataCard.definiteArticle}`, 
+        `(def pl) ${nounDataCard.definitePlural}`,
         `(gen/dat s) ${nounDataCard.genativeDativeSingular}`,
         `(gen/dat pl) ${nounDataCard.genativeDativePlural}`,
     ])

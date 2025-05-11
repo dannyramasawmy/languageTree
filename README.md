@@ -20,6 +20,7 @@ Danny Ramasawmy
 - [Icon](https://commons.wikimedia.org/wiki/File:Book-icon-bible.png)
 - [PWA and SW](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Add_to_home_screen)
 - [Caching](https://www.youtube.com/watch?v=g9LfyCZjeKI&ab_channel=TheNetNinja)
+- [Reference Conjugations](https://dexonline.ro/)
 
 ## Screen shot
 ![](img/screenshot.png)
